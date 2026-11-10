@@ -119,6 +119,12 @@
    "w": 256,
    "h": 116.75,
    "smooth": false
+  },
+  "shadow": {
+   "file": "shadow.png",
+   "w": 256,
+   "h": 86.9,
+   "smooth": false
   }
  }
 }

@@ -38,6 +38,7 @@ SHEETS = {
                 for n in ['flying', 'seahorse', 'shrimp', 'crab'] for s in ['', '_s']],
     'fish_s4': [dict(name=f'fish_{n}{s}', **FISH)
                 for n in ['squid', 'octopus', 'jellyfish', 'starfish'] for s in ['', '_s']],
+    'shadow': [dict(name='shadow', w=256, upscale=True)],   # 여러 개가 와도 첫 번째만 쓴다
     'rod': [dict(name=f'rod_{i + 1}', w=36) for i in range(8)],
     'float': [dict(name=f'float_{i + 1}', h=12) for i in range(8)],
 }
@@ -99,6 +100,8 @@ def build():
             continue
         a = load(src)
         boxes = find_sprites(a)
+        if len(items) == 1 and boxes:
+            boxes = boxes[:1]
         if len(boxes) != len(items):
             problems.append(f'{src.name}: 그림 {len(items)}개가 필요한데 {len(boxes)}개를 찾음 → 건너뜀')
             continue
