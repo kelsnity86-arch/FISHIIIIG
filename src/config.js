@@ -10,6 +10,20 @@ export const LANE_Y = 250;           // 찌·물고기가 있는 수면 y (배�
 export const CAST_NEAR = W * 0.35;   // 약하게 던졌을 때 찌 위치
 export const CAST_FAR = W * 0.20;    // 세게 던졌을 때 찌 위치
 export const ROD_LEN = 36;
+export const Z_SQUASH = 0.35;         // 수면을 비스듬히 보는 각도 (그림자 평면의 세로 압축)
+
+// 파이팅 중 물고기 동작: 등급별로 쓸 수 있는 동작 (기획서 §3)
+export const FIGHT_MODES = {
+  common:    ['hold', 'run'],
+  uncommon:  ['hold', 'run', 'dive'],
+  rare:      ['hold', 'run', 'dive', 'circle'],
+  epic:      ['hold', 'run', 'dive', 'circle', 'slap'],
+  legendary: ['hold', 'run', 'dive', 'circle', 'slap'],
+  fantasy:   ['hold', 'run', 'dive', 'circle', 'slap'],
+};
+export const SURGE_MODES = ['run', 'dive', 'slap'];   // 날뛰는 동작: 계속 감으면 장력이 급격히 오름
+export const TELEGRAPH = 0.35;                        // 날뛰기 직전 조짐 시간(초)
+
 export const PERSON_SCALE = 0.72;     // 바다용 실루엣 크기 배율 (8×9 그림 기준 → 약 6px)
 
 export const TIMING = {

@@ -1,9 +1,9 @@
-// 화면 그리기. 그림은 전부 assets.js 의 스프라이트를 통해 그리므로,
-// 실제 에셋 파일이 들어오면 이 코드 수정 없이 교체된다.
-// (예외로 코드가 직접 그리는 것: 하늘·바다 바탕색, 파도 줄무늬(임시), 낚싯줄, 물방울, 게이지, 글자)
-import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, PERSON_SCALE, PHASES, COLORS, FIGHT } from './config.js';
-import { sprite, creatureSprite, shadowSprite } from './assets.js';
-import { boatPose, rodPose, shadowLen } from './game.js';
+// 화면 그리기. 보이는 것은 전부 GPT 그림(assets.js 스프라이트)이고, 코드는 움직이고·늘리고·색을 입힐 뿐이다.
+// 예외: 낚싯줄(매 순간 모양이 바뀌는 선)과 글자.
+import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, PERSON_SCALE, PHASES, COLORS, FIGHT, Z_SQUASH } from './config.js';
+import { sprite, creatureSprite, shadowSprite, tinted } from './assets.js';
+import { boatPose, rodPose, toScreen } from './game.js';
+import { visibleLen } from './swim.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -14,35 +14,56 @@ function draw(ctx, spr, x, y, w = spr.w, h = spr.h) {
   ctx.drawImage(spr.img, x, y, w, h);
 }
 
-// 그림 1장을 세로 조각으로 나눠 물결치듯 휘게 그린다 (헤엄·퍼덕임).
-// 원점 = 그림 중심, 머리는 왼쪽. 꼬리 쪽일수록 크게 흔들린다.
-function drawBendy(ctx, spr, len, phase, amp) {
-  const n = 28, hgt = len * spr.h / spr.w;
+// 그림 1장을 세로 조각으로 나눠 휘게 그린다. 원점 = 그림 중심, 머리는 왼쪽.
+//   amp   : 꼬리 쪽일수록 커지는 헤엄 물결
+//   curve : 몸 전체가 C자로 휘는 정도(돌아설 때)
+//   shake : 머리 털기
+function drawBendy(ctx, spr, len, phase, amp, curve = 0, shake = 0, time = 0) {
+  const n = 32, hgt = len * spr.h / spr.w;
   const sw = spr.img.width / n, dw = len / n;
-  ctx.imageSmoothingEnabled = spr.smooth;
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
   for (let i = 0; i < n; i++) {
     const k = i / (n - 1);
-    const off = Math.sin(phase - k * 4.2) * amp * (0.15 + k * 0.85);
-    ctx.drawImage(spr.img, i * sw, 0, sw, spr.img.height, -len / 2 + i * dw, -hgt / 2 + off, dw + 0.6, hgt);
+    let off = Math.sin(phase - k * 4.2) * amp * (0.15 + k * 0.85);
+    off += curve * (k - 0.35) * (k - 0.35) * 2;
+    off += shake * Math.sin(time * 16) * len * 0.05 * (1 - k) * (1 - k);
+    ctx.drawImage(spr.img, i * sw, 0, sw + 0.5, spr.img.height, -len / 2 + i * dw, -hgt / 2 + off, dw + 0.6, hgt);
+  }
+}
+
+// 틀 그림을 모서리는 그대로, 가운데만 늘려서 그린다 (패널·게이지)
+function draw9(ctx, spr, x, y, w, h, edge = 0.28) {
+  const iw = spr.img.width, ih = spr.img.height;
+  const sx = iw * edge, sy = ih * edge;
+  const dx = Math.min(w / 2, spr.w * edge), dy = Math.min(h / 2, spr.h * edge);
+  const cols = [[0, sx, x, dx], [sx, iw - 2 * sx, x + dx, w - 2 * dx], [iw - sx, sx, x + w - dx, dx]];
+  const rows = [[0, sy, y, dy], [sy, ih - 2 * sy, y + dy, h - 2 * dy], [ih - sy, sy, y + h - dy, dy]];
+  ctx.imageSmoothingEnabled = spr.smooth;
+  for (const [sx0, sw0, dx0, dw0] of cols) for (const [sy0, sh0, dy0, dh0] of rows) {
+    if (dw0 > 0 && dh0 > 0) ctx.drawImage(spr.img, sx0, sy0, sw0, sh0, dx0, dy0, dw0 + 0.3, dh0 + 0.3);
   }
 }
 
 export function render(ctx, g) {
   const phase = PHASES[g.phase];
   ctx.save();
+  ctx.translate(-g.cam.x, 0);
   if (g.shake > 0.05) ctx.translate(Math.sin(g.time * 61) * g.shake, Math.cos(g.time * 47) * g.shake);
 
   drawSkyAndSea(ctx, g);
   drawShadow(ctx, g);
   drawRipples(ctx, g);
+  drawSlap(ctx, g);
   drawBreach(ctx, g);
   drawBoat(ctx, g);      // 배는 항상 위에: 거대한 몸 앞에 조그만 배가 보여야 크기가 실감난다
+  drawBursts(ctx, g);
   drawParticles(ctx, g);
 
   if (phase.tint) {
     ctx.globalCompositeOperation = 'multiply';
     ctx.fillStyle = phase.tint;
-    ctx.fillRect(-10, -10, W + 20, H + 20);
+    ctx.fillRect(-40, -20, W + 80, H + 40);
     ctx.globalCompositeOperation = 'source-over';
   }
 
@@ -54,75 +75,101 @@ export function render(ctx, g) {
   drawHud(ctx, g);
 }
 
-function drawSkyAndSea(ctx, g) {
-  let grad = ctx.createLinearGradient(0, 0, 0, HORIZON);
-  grad.addColorStop(0, '#a9dde6'); grad.addColorStop(1, '#c6ebee');
-  ctx.fillStyle = grad; ctx.fillRect(-10, -10, W + 20, HORIZON + 10);
+const wrapX = (v, span) => ((v % span) + span) % span;
 
-  for (let i = 0; i < 5; i++) {
-    const spr = sprite('cloud_' + (i % 3 + 1));
-    const speed = 2 + (i % 3) * 1.2, scale = 0.7 + (i * 37 % 10) / 14;
-    const x = ((i * 173 - g.time * speed) % (W + 120) + (W + 120)) % (W + 120) - 90;
-    draw(ctx, spr, x, 14 + (i * 53 % 80), spr.w * scale, spr.h * scale);
+function drawSkyAndSea(ctx, g) {
+  const scroll = g.boat.scroll;
+  draw(ctx, sprite('bg_sky'), -40, -10, W + 80, HORIZON + 12);
+
+  for (let i = 0; i < 6; i++) {
+    const spr = sprite('cloud_' + (i + 1));
+    const speed = 2 + (i % 3) * 1.2, scale = 0.8 + (i * 37 % 10) / 12;
+    const span = W + 200;
+    const x = wrapX(i * 131 - g.time * speed + scroll * 0.08, span) - 120;
+    draw(ctx, spr, x, 10 + (i * 53 % 75), spr.w * scale, spr.h * scale);
   }
 
+  // 수평선 풍경: 배가 끌려가면 천천히 밀린다 (좌우로 이어 그려 끊김 없게)
   const bg = sprite('bg_region1');
-  draw(ctx, bg, 0, HORIZON - bg.h);
+  const bx = wrapX(scroll * 0.12, W);
+  draw(ctx, bg, bx - W, HORIZON - bg.h, W, bg.h);
+  draw(ctx, bg, bx, HORIZON - bg.h, W, bg.h);
 
-  grad = ctx.createLinearGradient(0, HORIZON, 0, H);
-  grad.addColorStop(0, '#8fcbd9'); grad.addColorStop(1, '#74b9d2');
-  ctx.fillStyle = grad; ctx.fillRect(-10, HORIZON, W + 20, H - HORIZON + 10);
-  ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillRect(-10, HORIZON, W + 20, 1);
+  draw(ctx, sprite('bg_sea'), -40, HORIZON - 1, W + 80, H - HORIZON + 22);
 
-  // 파도 줄무늬: 멀수록 작고 느리게 (임시, bg_wave 에셋으로 교체 예정)
-  const rows = 15;
+  // 파도 줄무늬: 멀수록 작고 느리게
+  const rows = 14;
   for (let r = 0; r < rows; r++) {
     const p = Math.pow((r + 0.6) / rows, 1.5);
     const y = HORIZON + 3 + p * (H - HORIZON - 6);
-    const len = 5 + p * 30, gap = 70 + p * 150;
-    const shift = g.time * (2 + p * 9) + r * 97;
-    for (let x = -((shift % gap) + gap); x < W + gap; x += gap) {
+    const spr = sprite('wave_' + (p < 0.25 ? 1 : p < 0.6 ? 2 : 3));
+    const len = 14 + p * 70, hgt = len * spr.h / spr.w;
+    const gap = 90 + p * 160;
+    const shift = g.time * (2 + p * 9) + r * 97 + scroll * (0.3 + p);
+    ctx.globalAlpha = 0.25 + p * 0.5;
+    for (let x = -wrapX(shift, gap) - gap; x < W + gap; x += gap) {
       const xx = x + ((r * 7919) % 53) + Math.sin(g.time * 0.8 + r) * 3;
-      ctx.fillStyle = `rgba(240,252,255,${0.22 + p * 0.38})`;
-      ctx.fillRect(xx, y + Math.sin(g.time * 1.4 + r * 1.7 + x * 0.01) * (0.4 + p), len, 0.8 + p * 1.1);
-      ctx.fillStyle = `rgba(70,140,180,${0.15 + p * 0.2})`;
-      ctx.fillRect(xx + len * 0.5 + gap * 0.45, y + 2 + p * 2, len * 0.8, 0.8 + p);
+      draw(ctx, spr, xx, y + Math.sin(g.time * 1.4 + r * 1.7 + x * 0.01) * (0.4 + p), len, hgt);
     }
   }
+  ctx.globalAlpha = 1;
 }
 
-// 그림자는 반투명이라 조각 이음매가 보이지 않도록, 작은 버퍼에 먼저 그린 뒤 한 번에 찍는다.
+// 그림자: 버퍼에 휘어 그린 뒤, 평면 위 방향으로 돌리고 비스듬히 눌러서 찍는다.
+// 깊을수록 작고·흐리고·번진다.
 const shadowBuf = document.createElement('canvas');
-shadowBuf.width = 320; shadowBuf.height = 120;
+shadowBuf.width = 360; shadowBuf.height = 160;
 const shadowCtx = shadowBuf.getContext('2d');
 
 function drawShadow(ctx, g) {
-  if (!g.fish || g.shadow.vis < 0.01) return;
-  const d = g.shadow.depth;
-  const spr = shadowSprite(g.fish.shape);
-  const len = shadowLen(g);
-  const bw = shadowBuf.width, bh = shadowBuf.height, inner = bw * 0.9;
+  const s = g.sw;
+  if (!s || s.vis < 0.01) return;
+  const spr = shadowSprite();
+  const inner = shadowBuf.width * 0.86;
+  const turn = clamp(s.turnRate / s.maxTurn, -1, 1);
   shadowCtx.setTransform(1, 0, 0, 1, 0, 0);
-  shadowCtx.clearRect(0, 0, bw, bh);
-  shadowCtx.translate(bw / 2, bh / 2);
-  drawBendy(shadowCtx, spr, inner, g.time * 3.2, inner * 0.035);
-  const k = len / inner;
+  shadowCtx.clearRect(0, 0, shadowBuf.width, shadowBuf.height);
+  shadowCtx.translate(shadowBuf.width / 2, shadowBuf.height / 2);
+  drawBendy(shadowCtx, spr, inner, s.tail, inner * s.tailAmp, -turn * inner * 0.12, s.shake, g.time);
+
+  const len = visibleLen(s), k = len / inner;
+  const p = toScreen(s.x, s.z, s.depth);
   ctx.save();
-  ctx.globalAlpha = lerp(0.42, 0.07, d) * g.shadow.vis;
+  ctx.globalAlpha = lerp(0.5, 0.1, s.depth) * s.vis;
+  if (s.depth > 0.15) ctx.filter = `blur(${(s.depth * 2.2).toFixed(1)}px)`;
   ctx.imageSmoothingEnabled = true;
-  ctx.translate(g.shadow.x, LANE_Y + 8 + d * 20 + Math.min(40, len * 0.04));
-  ctx.scale(-g.shadow.dir, 1);   // 그림은 왼쪽을 보므로 오른쪽을 볼 때 뒤집는다
-  ctx.drawImage(shadowBuf, -bw * k / 2, -bh * k * 0.42 / 2, bw * k, bh * k * 0.42);
+  ctx.translate(p.x, p.y);
+  ctx.scale(1, Z_SQUASH);
+  ctx.rotate(s.heading - Math.PI);      // 그림은 왼쪽을 본다 → 헤엄치는 방향으로 회전 (뒤집지 않음)
+  ctx.drawImage(shadowBuf, -shadowBuf.width * k / 2, -shadowBuf.height * k / 2, shadowBuf.width * k, shadowBuf.height * k);
   ctx.restore();
 }
 
 function drawRipples(ctx, g) {
-  ctx.lineWidth = 1;
+  const spr = sprite('fx_ring');
   for (const r of g.ripples) {
     const k = r.age / r.life, rad = r.size * (0.3 + k * 1.6);
-    ctx.strokeStyle = `rgba(255,255,255,${(1 - k) * 0.7})`;
-    ctx.beginPath(); ctx.ellipse(r.x, r.y, rad, rad * 0.22, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.globalAlpha = (1 - k) * 0.8;
+    draw(ctx, spr, r.x - rad, r.y - rad * spr.h / spr.w, rad * 2, rad * 2 * spr.h / spr.w);
   }
+  ctx.globalAlpha = 1;
+}
+
+// 수면 치기: 등·꼬리 일부만 수면 위로 드러난다
+function drawSlap(ctx, g) {
+  const sl = g.fight && g.fight.slap;
+  if (!sl) return;
+  const f = g.fish, spr = creatureSprite(f.sprite);
+  const p = toScreen(sl.x, sl.z);
+  const len = Math.min(f.len, 520), hgt = len * spr.h / spr.w;
+  const rise = Math.sin(clamp(sl.age / 0.9, 0, 1) * Math.PI) * hgt * 0.45;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(-40, -20, W + 80, p.y + 20); ctx.clip();
+  ctx.translate(p.x, p.y + hgt / 2 - rise);
+  ctx.scale(-sl.dir, 1);
+  ctx.rotate(0.15 * Math.sin(sl.age * 7));
+  drawBendy(ctx, spr, len, g.time * 9, len * 0.03);
+  ctx.restore();
 }
 
 function drawBoat(ctx, g) {
@@ -135,7 +182,6 @@ function drawBoat(ctx, g) {
   ctx.translate(b.x, BOAT_Y + 1); ctx.scale(1, -0.55); ctx.rotate(-b.rot);
   ctx.globalAlpha = 0.22;
   draw(ctx, boat, -boat.w / 2 + Math.sin(g.time * 3) * 0.6, -waterline);
-  draw(ctx, person, 2, -waterline - person.h * PERSON_SCALE + 2, person.w * PERSON_SCALE, person.h * PERSON_SCALE);
   ctx.restore();
 
   // 사람 (기울기로 동작 표현)
@@ -154,7 +200,7 @@ function drawBoat(ctx, g) {
     const t = 1 - u, a = (1 - t) * (1 - t), bb = 2 * (1 - t) * t, c = t * t;
     return { x: a * pose.base.x + bb * pose.mid.x + c * pose.tip.x, y: a * pose.base.y + bb * pose.mid.y + c * pose.tip.y };
   };
-  ctx.imageSmoothingEnabled = rod.smooth;
+  ctx.imageSmoothingEnabled = true;
   const sw = rod.img.width / n;
   for (let i = 0; i < n; i++) {
     const p0 = pt(i / n), p1 = pt((i + 1) / n);
@@ -168,29 +214,44 @@ function drawBoat(ctx, g) {
 function drawBreach(ctx, g) {
   if (g.state !== 'breach' || g.breach.y === undefined) return;
   const br = g.breach, f = g.fish;
-  const spr = creatureSprite(f.shape, f.hue, true);   // 낚여 올라올 때는 놀란 표정
+  const spr = creatureSprite(f.sprite, true);   // 낚여 올라올 때는 놀란 표정
   ctx.save();
-  ctx.beginPath(); ctx.rect(-20, -400, W + 40, br.waterY + 401); ctx.clip(); // 수면 아래는 가린다
-  ctx.translate(br.x, br.y); ctx.scale(-1, 1); ctx.rotate(br.angle);         // 오른쪽(배 쪽)을 보도록 뒤집는다
+  ctx.beginPath(); ctx.rect(-40, -400, W + 80, br.waterY + 401); ctx.clip(); // 수면 아래는 가린다
+  ctx.translate(br.x, br.y); ctx.scale(-1, 1); ctx.rotate(br.angle);         // 오른쪽(배 쪽)을 보도록
   drawBendy(ctx, spr, f.len, g.time * 9, f.len * 0.028);
   ctx.restore();
   // 수면과 만나는 자리의 거품
   if (br.y < br.waterY + br.sink && br.y > br.waterY - f.len * 0.5) {
-    ctx.fillStyle = 'rgba(255,255,255,0.75)';
+    const foam = sprite('fx_foam');
     const w = f.len * 0.32, n = Math.round(clamp(f.len / 30, 9, 40)), big = clamp(f.len / 300, 1, 3);
     for (let i = 0; i < n; i++) {
       const x = br.x + (i / (n - 1) - 0.5) * w * 2 + Math.sin(g.time * 7 + i) * 3;
-      ctx.beginPath(); ctx.ellipse(x, br.waterY + 1, (5 + (i % 3) * 3) * big, 2.2 * big, 0, 0, Math.PI * 2); ctx.fill();
+      const sz = (10 + (i % 3) * 5) * big;
+      draw(ctx, foam, x - sz / 2, br.waterY - sz * 0.6, sz, sz);
     }
   }
 }
 
+function drawBursts(ctx, g) {
+  for (const b of g.bursts) {
+    const spr = sprite(b.sprite), k = b.age / b.life;
+    const grow = 1 - Math.pow(1 - Math.min(1, k * 2.2), 3);
+    const w = b.size * (0.5 + 0.5 * grow), h = w * spr.h / spr.w * (b.sprite === 'fx_column' ? 0.3 + 0.7 * grow : 1);
+    ctx.globalAlpha = clamp((1 - k) * 2, 0, 1);
+    draw(ctx, spr, b.x - w / 2, b.y - h * 0.9, w, h);
+  }
+  ctx.globalAlpha = 1;
+}
+
 function drawParticles(ctx, g) {
+  const spr = sprite('fx_drop');
   for (const p of g.particles) {
     const k = 1 - p.age / p.life;
-    ctx.fillStyle = `rgba(235,250,255,${0.35 + k * 0.6})`;
-    ctx.beginPath(); ctx.arc(p.x, p.y, p.size * (0.5 + k * 0.5), 0, Math.PI * 2); ctx.fill();
+    const s = p.size * 3.2 * (0.6 + k * 0.4);
+    ctx.globalAlpha = 0.4 + k * 0.6;
+    draw(ctx, spr, p.x - s / 2, p.y - s * 0.65, s, s * spr.h / spr.w);
   }
+  ctx.globalAlpha = 1;
 }
 
 function lineColor(t) {
@@ -205,8 +266,8 @@ function drawLineAndFloat(ctx, g, phase) {
   const pose = rodPose(g), tip = pose.tip, bob = g.bob;
   const tension = g.fight ? g.fight.tension : 0;
   const fl = sprite('float_1');
-  const floatY = bob.inWater || g.state === 'fight' ? LANE_Y + bob.dip : bob.y;
-  const end = { x: bob.x, y: bob.inWater || g.state === 'fight' ? LANE_Y - 2 + Math.min(bob.dip, 3) : bob.y - fl.h / 2 };
+  const wet = bob.inWater || g.state === 'fight';
+  const end = { x: bob.x, y: wet ? bob.y - 2 + Math.min(bob.dip, 3) : bob.y - fl.h / 2 };
 
   // 처짐: 느슨하면 아래로 처지고 팽팽하면 직선
   const dist = Math.hypot(end.x - tip.x, end.y - tip.y);
@@ -228,18 +289,11 @@ function drawLineAndFloat(ctx, g, phase) {
   ctx.strokeStyle = 'rgba(22,34,66,0.55)'; ctx.lineWidth = 1; path(0.9); ctx.stroke();   // 아래쪽 어두운 선
   ctx.strokeStyle = `rgb(${r},${gg},${b})`; ctx.lineWidth = 1.15; path(0); ctx.stroke(); // 밝은 선
 
-  // 줄을 따라 흐르는 반짝임 (낚싯줄 장비 등급 색 자리)
-  if (bob.inWater || g.state === 'fight') {
-    const u = (g.time * 0.45) % 1, a = (1 - u) * (1 - u), bq = 2 * (1 - u) * u, c = u * u;
-    ctx.fillStyle = 'rgba(255,255,255,0.9)';
-    ctx.beginPath(); ctx.arc(a * tip.x + bq * cx + c * end.x, a * tip.y + bq * cy + c * end.y, 1.1, 0, Math.PI * 2); ctx.fill();
-  }
-
   // 찌
   ctx.save();
-  if (bob.inWater || g.state === 'fight') {
-    ctx.beginPath(); ctx.rect(bob.x - 10, LANE_Y - 30, 20, 30.5); ctx.clip(); // 잠긴 부분은 가린다
-    ctx.translate(bob.x, floatY + Math.sin(g.time * 2.3) * 0.7);
+  if (wet) {
+    ctx.beginPath(); ctx.rect(bob.x - 10, bob.y - 30, 20, 30.5); ctx.clip(); // 잠긴 부분은 가린다
+    ctx.translate(bob.x, bob.y + bob.dip + Math.sin(g.time * 2.3) * 0.7);
     ctx.rotate(Math.sin(g.time * 1.7) * 0.08);
     draw(ctx, fl, -fl.w / 2, -fl.h * 0.6);
   } else {
@@ -254,18 +308,11 @@ function drawEmote(ctx, g) {
   const e = g.emote, pop = Math.min(1, e.age / 0.12);
   const s = (0.6 + 0.4 * pop) * (1 + Math.max(0, 0.15 - e.age) * 2);
   const b = boatPose(g);
-  ctx.save();
+  const spr = sprite({ bang: 'fx_bang', sweat: 'fx_sweat', tear: 'fx_tear' }[e.icon]);
+  const w = 14 * s, h = w * spr.h / spr.w;
   ctx.globalAlpha = clamp((1.1 - e.age) / 0.25, 0, 1);
-  ctx.translate(b.x + 5, b.y - 30 - pop * 3); ctx.scale(s, s);
-  ctx.fillStyle = COLORS.cream; ctx.strokeStyle = COLORS.navy; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.roundRect(-7, -8, 14, 14, 4); ctx.fill(); ctx.stroke();
-  if (e.icon === 'bang') {
-    ctx.fillStyle = '#e8503a'; ctx.fillRect(-1.2, -5.5, 2.4, 6); ctx.fillRect(-1.2, 1.5, 2.4, 2.2);
-  } else {
-    ctx.fillStyle = '#5aa9e6';
-    ctx.beginPath(); ctx.moveTo(0, -5); ctx.quadraticCurveTo(4.5, 1.5, 0, 3.5); ctx.quadraticCurveTo(-4.5, 1.5, 0, -5); ctx.fill();
-  }
-  ctx.restore();
+  draw(ctx, spr, b.x + 5 - w / 2, b.y - 26 - pop * 3 - h, w, h);
+  ctx.globalAlpha = 1;
 }
 
 function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
@@ -276,43 +323,46 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
   ctx.fillStyle = color; ctx.fillText(str, x, y);
 }
 
+// 가로 게이지: 틀 그림 + 색을 입힌 버튼 그림을 비율만큼 잘라 채운다
+function gauge(ctx, x, y, w, h, value, color) {
+  const pad = h * 0.22;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(x + pad, y, (w - pad * 2) * clamp(value, 0, 1), h); ctx.clip();
+  draw9(ctx, tinted('ui_button', color, 0.7), x + pad, y + pad, w - pad * 2, h - pad * 2);
+  ctx.restore();
+  draw9(ctx, sprite('ui_gauge'), x, y, w, h);
+}
+
 function drawHud(ctx, g) {
-  // 골드
-  ctx.fillStyle = '#f2c14e'; ctx.strokeStyle = COLORS.navy; ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.arc(16, 16, 6, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+  draw(ctx, sprite('icon_gold'), 8, 8, 15, 15);
   text(ctx, g.gold.toLocaleString('ko-KR'), 28, 16.5, 12, COLORS.cream, 'left');
 
-  // 던지기 파워 게이지
   if (g.state === 'charge') {
-    const x = BOAT_X - 24, y = BOAT_Y - 58;
-    ctx.fillStyle = 'rgba(20,30,60,0.6)'; ctx.beginPath(); ctx.roundRect(x - 1, y - 1, 50, 7, 3); ctx.fill();
-    ctx.fillStyle = `rgb(255,${Math.round(230 - g.power * 110)},90)`;
-    ctx.beginPath(); ctx.roundRect(x, y, 48 * g.power, 5, 2.5); ctx.fill();
+    gauge(ctx, BOAT_X - 30 - g.cam.x, BOAT_Y - 62, 60, 13, g.power, `rgb(255,${Math.round(230 - g.power * 110)},90)`);
   }
 
-  // 파이팅 게이지
   if (g.state === 'fight') {
     const f = g.fight;
-    const bw = 240, bx = (W - bw) / 2, by = 22;
-    ctx.fillStyle = 'rgba(20,30,60,0.6)'; ctx.beginPath(); ctx.roundRect(bx - 2, by - 2, bw + 4, 12, 5); ctx.fill();
-    ctx.fillStyle = '#6cd0e8';
-    ctx.beginPath(); ctx.roundRect(bx, by, bw * clamp(f.dist / (f.dist0 * 1.2), 0, 1), 8, 4); ctx.fill();
-    text(ctx, `남은 거리 ${Math.max(0, f.dist).toFixed(0)}m`, W / 2, by + 20, 10, COLORS.cream);
+    const bw = 250, bx = (W - bw) / 2, by = 16;
+    gauge(ctx, bx, by, bw, 18, f.dist / (f.dist0 * 1.2), '#6cd0e8');
+    text(ctx, `남은 거리 ${Math.max(0, f.dist).toFixed(0)}m`, W / 2, by + 28, 10, COLORS.cream);
 
-    const tx = W - 30, ty = 80, th = 190, tw = 10;
-    const yOf = (v) => ty + th - th * clamp(v / f.maxTension, 0, 1);
-    ctx.fillStyle = 'rgba(20,30,60,0.6)'; ctx.beginPath(); ctx.roundRect(tx - 2, ty - 2, tw + 4, th + 4, 5); ctx.fill();
-    ctx.fillStyle = 'rgba(120,220,140,0.45)';
-    ctx.fillRect(tx, yOf(FIGHT.safeHigh), tw, yOf(FIGHT.safeLow) - yOf(FIGHT.safeHigh));
+    // 장력: 세로로 세운 게이지. 안전 구간은 초록 띠.
+    const tx = W - 22, ty = 80, th = 190;
+    ctx.save();
+    ctx.translate(tx, ty + th); ctx.rotate(-Math.PI / 2);
+    const lo = FIGHT.safeLow / f.maxTension, hi = FIGHT.safeHigh / f.maxTension;
+    ctx.save(); ctx.globalAlpha = 0.55;
+    ctx.beginPath(); ctx.rect(th * lo, -9, th * (hi - lo), 18); ctx.clip();
+    draw9(ctx, tinted('ui_button', '#78dc8c', 0.8), 0, -6, th, 12);
+    ctx.restore();
     const [r, gg, b] = lineColor(f.tension);
-    ctx.fillStyle = `rgb(${r},${gg},${b})`;
-    ctx.beginPath(); ctx.roundRect(tx + 2, yOf(f.tension), tw - 4, ty + th - yOf(f.tension), 3); ctx.fill();
-    ctx.fillStyle = '#fff'; ctx.fillRect(tx - 3, yOf(f.tension) - 1, tw + 6, 2);
-    text(ctx, '장력', tx + tw / 2, ty - 12, 10, COLORS.cream);
-    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 60, 12, '#ffd0c0');
+    gauge(ctx, 0, -9, th, 18, f.tension / f.maxTension, `rgb(${r},${gg},${b})`);
+    ctx.restore();
+    text(ctx, '장력', tx, ty - 12, 10, COLORS.cream);
+    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 62, 12, '#ffd0c0');
   }
 
-  // 조작 안내
   const hint = {
     idle: '꾹 눌러 힘 조절 → 떼면 던지기',
     charge: '원하는 힘에서 손을 떼세요',
@@ -335,31 +385,30 @@ function drawHud(ctx, g) {
 function drawResultCard(ctx, g) {
   const f = g.fish, grade = f.gradeInfo;
   const k = clamp(g.t / 0.3, 0, 1), e = 1 - Math.pow(1 - k, 3);
-  const cw = 250, ch = 150, cx = (W - cw) / 2, cy = (H - ch) / 2 - 6 + (1 - e) * 26;
+  const cw = 270, ch = 168, cx = (W - cw) / 2, cy = (H - ch) / 2 - 6 + (1 - e) * 26;
   ctx.save();
   ctx.fillStyle = `rgba(14,26,46,${0.4 * e})`; ctx.fillRect(0, 0, W, H);
   ctx.globalAlpha = e;
-  ctx.fillStyle = COLORS.cream; ctx.strokeStyle = COLORS.wood; ctx.lineWidth = 3;
-  ctx.beginPath(); ctx.roundRect(cx, cy, cw, ch, 8); ctx.fill(); ctx.stroke();
-  ctx.fillStyle = grade.color; ctx.beginPath(); ctx.roundRect(cx + 10, cy + 10, 44, 16, 4); ctx.fill();
-  text(ctx, grade.name, cx + 32, cy + 18.5, 10, '#fff');
+  draw9(ctx, sprite('ui_panel'), cx, cy, cw, ch, 0.3);
+  const rib = tinted('ui_ribbon', grade.color, 0.65);
+  draw(ctx, rib, cx + 12, cy + 12, 54, 54 * rib.h / rib.w);
+  text(ctx, grade.name, cx + 39, cy + 12 + 27 * rib.h / rib.w, 10, '#fff');
   ctx.font = `700 15px ${FONT}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = COLORS.navy; ctx.fillText(f.name, cx + 62, cy + 19);
+  ctx.fillStyle = COLORS.navy; ctx.fillText(f.name, cx + 74, cy + 22);
 
-  // 그림 (카드 안에 맞춰 축소)
-  const spr = creatureSprite(f.shape, f.hue);
-  const fit = Math.min(190 / spr.w, 62 / spr.h);
+  const spr = creatureSprite(f.sprite);
+  const fit = Math.min(200 / spr.w, 70 / spr.h);
   ctx.save();
-  ctx.translate(W / 2, cy + 68);
-  drawBendy(ctx, spr, spr.w * fit, g.time * 3, spr.w * fit * 0.02);
+  ctx.translate(W / 2, cy + 78);
+  drawBendy(ctx, spr, spr.w * fit, g.time * 3, spr.w * fit * 0.015);
   ctx.restore();
 
   ctx.font = `600 11px ${FONT}`; ctx.fillStyle = COLORS.navy; ctx.textAlign = 'left';
-  ctx.fillText(`몸길이 ${f.meters.toFixed(1)} m`, cx + 14, cy + 114);
+  ctx.fillText(`몸길이 ${f.meters.toFixed(1)} m`, cx + 18, cy + 128);
   ctx.textAlign = 'right';
-  if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 14, cy + 114); }
-  else ctx.fillText(`판매가 ${f.price.toLocaleString('ko-KR')} G`, cx + cw - 14, cy + 114);
+  if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 18, cy + 128); }
+  else ctx.fillText(`판매가 ${f.price.toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 128);
   ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
-  ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 판매하고 계속', W / 2, cy + ch - 14);
+  ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 판매하고 계속', W / 2, cy + ch - 18);
   ctx.restore();
 }

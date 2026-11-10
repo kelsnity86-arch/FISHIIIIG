@@ -24,7 +24,7 @@ window.addEventListener('resize', resize);
 
 await loadAssets();
 const game = createGame();
-window.game = game; // 시험·디버깅용
+window.game = game; // 시험·디버깅용 (주의: canvas id 'game' 과 이름이 같아 로딩 전엔 canvas 를 가리킴)
 resize();
 
 // 입력: 클릭 / 터치 / 스페이스바 (원터치)

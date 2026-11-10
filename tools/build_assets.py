@@ -158,6 +158,8 @@ def split_grid(a, rows, cols):
 
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
+    for old in list(OUT.glob('*.png')) + list(OUT.glob('*.webp')):   # 이전 결과 정리
+        old.unlink()
     manifest, problems = {}, []
     for sheet, items in SHEETS.items():
         src = next((p for p in sorted(RAW.glob(sheet + '.*')) if p.suffix.lower() in ('.png', '.webp')), None)
@@ -191,8 +193,12 @@ def build():
                 if size[0] < crop.width:
                     crop = crop.resize(size, Image.LANCZOS)
                 smooth = True
-            file = item['name'] + '.png'
-            crop.save(OUT / file)
+            if item.get('upscale'):                              # 큰 생물 그림: 용량이 커서 webp 로 압축
+                file = item['name'] + '.webp'
+                crop.save(OUT / file, 'WEBP', quality=88, method=6)
+            else:
+                file = item['name'] + '.png'
+                crop.save(OUT / file)
             manifest[item['name']] = dict(file=file, w=round(w, 2), h=round(h, 2), smooth=smooth)
         print(f'{src.name}: {len(items)}개 변환')
     (OUT / 'manifest.json').write_text(json.dumps(dict(sprites=manifest), indent=1, ensure_ascii=False) + '\n')

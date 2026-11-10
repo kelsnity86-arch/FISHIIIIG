@@ -1,24 +1,50 @@
-// 시험판용 임시 생물 목록. (정식 500종+ 데이터는 1단계 본작업에서 생성)
+// 생물 목록 (임시 데이터). 정식 500종+ 데이터 생성은 1단계 후반 작업.
+// 그림: 일반 생물 = fish_<체형>[_c2~_c4][_s], 환상종 = fantasy_NN[_s]  (_s = 놀란 표정)
 import { GRADES } from './config.js';
 
-const LIST = [
-  // 실제 에셋이 있는 체형 (fish_s1)
-  { name: '왕고등어',     grade: 'common',    shape: 'mackerel', hue: 0,    bite: 'tok' },
-  { name: '대왕멸치',     grade: 'common',    shape: 'anchovy',  hue: 0,    bite: 'tok' },
-  { name: '통통돔',       grade: 'common',    shape: 'bream',    hue: 150,  bite: 'tok' },
-  { name: '졸린 넙치',    grade: 'common',    shape: 'flounder', hue: -30,  bite: 'pull' },
-  { name: '황금 고등어',  grade: 'uncommon',  shape: 'mackerel', hue: -150, bite: 'pull' },
-  { name: '무지개 넙치',  grade: 'uncommon',  shape: 'flounder', hue: 70,   bite: 'pull' },
-  { name: '보랏빛 돔',    grade: 'rare',      shape: 'bream',    hue: 80,   bite: 'pull' },
-  { name: '초록 멸치왕',  grade: 'rare',      shape: 'anchovy',  hue: -70,  bite: 'tok' },
-  // 아직 에셋이 없어 임시 체형을 쓰는 것
-  { name: '붉은 산갈치',  grade: 'epic',      shape: 'long',  hue: 150, bite: 'pull' },
-  { name: '외뿔 고래',    grade: 'epic',      shape: 'whale', hue: -30, bite: 'pull' },
-  { name: '혹등고래',     grade: 'legendary', shape: 'whale', hue: 0,   bite: 'pull' },
-  { name: '수장룡',       grade: 'legendary', shape: 'long',  hue: 40,  bite: 'pull' },
-  { name: '별고래',       grade: 'fantasy',   shape: 'whale', hue: 60,  bite: 'pull' },
-  { name: '요르문간드',   grade: 'fantasy',   shape: 'long',  hue: 200, bite: 'pull' },
+// [영문 체형, 이름, 기본 등급 0~4, 입질 패턴]
+const BODIES = [
+  ['mackerel', '고등어', 0, 'tok'], ['anchovy', '멸치', 0, 'tok'], ['bream', '돔', 0, 'tok'],
+  ['flounder', '넙치', 0, 'pull'], ['puffer', '복어', 0, 'tok'], ['filefish', '쥐치', 0, 'tok'],
+  ['butterfly', '나비고기', 0, 'tok'], ['goby', '망둥어', 0, 'tok'], ['flying', '날치', 1, 'pull'],
+  ['seahorse', '해마', 1, 'tok'], ['shrimp', '새우', 0, 'tok'], ['crab', '게', 0, 'tok'],
+  ['squid', '오징어', 1, 'pull'], ['octopus', '문어', 1, 'pull'], ['jellyfish', '해파리', 1, 'tok'],
+  ['starfish', '불가사리', 0, 'tok'],
+  ['tuna', '참치', 1, 'pull'], ['shark', '상어', 2, 'pull'], ['manta', '가오리', 2, 'pull'],
+  ['eel', '장어', 1, 'pull'], ['marlin', '청새치', 2, 'pull'], ['sawshark', '톱상어', 2, 'pull'],
+  ['sunfish', '개복치', 2, 'pull'], ['sturgeon', '철갑상어', 2, 'pull'], ['whale', '고래', 3, 'pull'],
+  ['dolphin', '돌고래', 2, 'pull'], ['angler', '아귀', 2, 'pull'], ['coelacanth', '실러캔스', 3, 'pull'],
+  ['giant_squid', '대왕오징어', 3, 'pull'], ['giant_octopus', '대왕문어', 3, 'pull'],
+  ['turtle', '바다거북', 2, 'pull'], ['oarfish', '산갈치', 3, 'pull'], ['seal', '물개', 2, 'pull'],
+  ['walrus', '바다코끼리', 3, 'pull'], ['manatee', '매너티', 2, 'pull'], ['narwhal', '일각고래', 3, 'pull'],
+  ['sea_snake', '바다뱀', 2, 'pull'], ['crocodile', '바다악어', 3, 'pull'], ['plesiosaur', '수장룡', 3, 'pull'],
+  ['ammonite', '암모나이트', 2, 'pull'],
 ];
+// 색 1(자연색) → 기본 등급, 색 2~3 → +1, 색 4 → +2 (전설까지)
+const COLORS = [['', 0], ['황금 ', 1], ['에메랄드 ', 1], ['장밋빛 ', 2]];
+
+const FANTASY = [
+  '히포캄푸스', '카프리콘', '문장 바다사자', '신(蜃)', '해님 붕어', '마카라', '용궁 거북', '타니와',
+  '무지개 뱀', '진주 대왕조개', '네시', '켈피', '이쿠치', '아방크', '안개 해파리', '전설의 흰 고래',
+  '시 서펀트', '곤(鯤)', '별고래', '폭풍 청새치', '아스피도켈론', '하프구파', '아클루트', '얼음 해룡',
+  '수정 일각고래', '리바이어던', '나마즈', '모오', '흑요석 상어', '불사조 날치', '크라켄', '카리브디스',
+  '바케쿠지라', '루스카', '심연 초롱아귀', '요르문간드', '용왕 해룡', '용 잉어', '이무기', '바하무트',
+];
+
+const LIST = [];
+for (const [shape, name, base, bite] of BODIES) {
+  COLORS.forEach(([prefix, up], i) => {
+    LIST.push({
+      name: prefix + name,
+      grade: GRADES[Math.min(4, base + up)].id,
+      sprite: 'fish_' + shape + (i === 0 ? '' : '_c' + (i + 1)),
+      bite,
+    });
+  });
+}
+FANTASY.forEach((name, i) => {
+  LIST.push({ name, grade: 'fantasy', sprite: 'fantasy_' + String(i + 1).padStart(2, '0'), bite: 'pull' });
+});
 
 const rand = (a, b) => a + Math.random() * (b - a);
 

@@ -135,56 +135,82 @@ function buildPlaceholders() {
   }, 2);
 }
 
+// 생물 그림(fish_*, fantasy_*)은 수가 많아서 처음에 다 받지 않고, 낚일 생물이 정해질 때 받는다.
+let manifest = {};
+const pending = new Map();
+const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_');
+
+function loadOne(name) {
+  if (sprites[name] && !sprites[name].placeholder) return Promise.resolve();
+  if (pending.has(name)) return pending.get(name);
+  const info = manifest[name];
+  if (!info) return Promise.resolve();
+  const p = new Promise((done) => {
+    const img = new Image();
+    img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth }; done(); };
+    img.onerror = () => done(); // 파일이 없으면 임시 그림 유지
+    img.src = 'assets/game/' + info.file;
+  });
+  pending.set(name, p);
+  return p;
+}
+
 export async function loadAssets() {
   buildPlaceholders();
+  for (const k of Object.keys(sprites)) sprites[k].placeholder = true;
   try {
     const res = await fetch('assets/game/manifest.json', { cache: 'no-cache' });
     if (!res.ok) return;
-    const manifest = await res.json();
-    const entries = Object.entries(manifest.sprites || {});
-    await Promise.all(entries.map(([name, info]) => new Promise((done) => {
-      const img = new Image();
-      img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth }; done(); };
-      img.onerror = () => done(); // 파일이 없으면 임시 그림 유지
-      img.src = 'assets/game/' + info.file;
-    })));
+    manifest = (await res.json()).sprites || {};
+    await Promise.all(Object.keys(manifest).filter((n) => !isCreature(n)).map(loadOne));
   } catch { /* manifest 가 없으면 전부 임시 그림 */ }
 }
 
-export function sprite(name) { return sprites[name]; }
-
-// 색을 바꾼 물고기 그림 (체형 그림 1장 → 여러 종)
-const variantCache = new Map();
-// surprised=true 이면 놀란 표정 그림(fish_<체형>_s)을 쓴다. 없으면 평소 표정.
-export function creatureSprite(shape, hue, surprised = false) {
-  const key = shape + ':' + hue + (surprised ? ':s' : '');
-  let v = variantCache.get(key);
-  if (v) return v;
-  const base = (surprised && sprites['fish_' + shape + '_s']) || sprites['fish_' + shape];
-  const c = document.createElement('canvas');
-  c.width = base.img.width; c.height = base.img.height;
-  const g = c.getContext('2d');
-  if ('filter' in g) g.filter = `hue-rotate(${hue}deg)`;
-  g.drawImage(base.img, 0, 0);
-  v = { img: c, w: base.w, h: base.h, smooth: base.smooth };
-  variantCache.set(key, v);
-  return v;
+// 생물 그림 미리 받기 (평소·놀람 둘 다). 그림자가 다가오는 동안 받아 둔다.
+export function preloadCreature(name) {
+  return Promise.all([loadOne(name), loadOne(name + '_s')]);
 }
 
-// 물속 그림자용 실루엣
-const shadowCache = new Map();
-export function shadowSprite(shape) {
-  let v = shadowCache.get(shape);
+const EMPTY = (() => { const c = document.createElement('canvas'); c.width = c.height = 1; return { img: c, w: 16, h: 16, smooth: true }; })();
+export function sprite(name) { return sprites[name] || EMPTY; }
+export function hasSprite(name) { return !!sprites[name]; }
+
+// 생물 그림. surprised=true 면 놀란 표정(<이름>_s). 그림이 없으면 임시 체형.
+export function creatureSprite(name, surprised = false) {
+  return (surprised && sprites[name + '_s']) || sprites[name] || sprites.fish_fish;
+}
+
+// 물속 그림자 (모든 생물 공통 그림 1장). 없으면 임시 체형에서 실루엣을 만든다.
+let shadowFallback = null;
+export function shadowSprite() {
+  if (sprites.shadow) return sprites.shadow;
+  if (!shadowFallback) {
+    const base = sprites.fish_fish;
+    const c = document.createElement('canvas');
+    c.width = base.img.width; c.height = base.img.height;
+    const g = c.getContext('2d');
+    g.drawImage(base.img, 0, 0);
+    g.globalCompositeOperation = 'source-in';
+    g.fillStyle = '#12284a'; g.fillRect(0, 0, c.width, c.height);
+    shadowFallback = { img: c, w: base.w, h: base.h, smooth: true };
+  }
+  return shadowFallback;
+}
+
+// 그림에 색을 입힌 사본 (게이지 채움, 등급 리본 등). 모양·명암은 원본 그림 그대로.
+const tintCache = new Map();
+export function tinted(name, color, strength = 0.75) {
+  const key = name + color + strength;
+  let v = tintCache.get(key);
   if (v) return v;
-  const base = sprites['fish_' + shape];
+  const base = sprite(name);
   const c = document.createElement('canvas');
   c.width = base.img.width; c.height = base.img.height;
   const g = c.getContext('2d');
   g.drawImage(base.img, 0, 0);
-  g.globalCompositeOperation = 'source-in';
-  g.fillStyle = '#12284a';
-  g.fillRect(0, 0, c.width, c.height);
-  v = { img: c, w: base.w, h: base.h, smooth: true };
-  shadowCache.set(shape, v);
+  g.globalCompositeOperation = 'source-atop';
+  g.globalAlpha = strength; g.fillStyle = color; g.fillRect(0, 0, c.width, c.height);
+  v = { img: c, w: base.w, h: base.h, smooth: base.smooth };
+  tintCache.set(key, v);
   return v;
 }
