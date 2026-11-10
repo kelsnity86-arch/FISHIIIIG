@@ -10,7 +10,8 @@ let scale = 1;
 // 창 크기에 맞춤. 가능하면 정수배(도트가 고르게 보임), 너무 작아지면 꽉 채운다.
 function resize() {
   const dpr = window.devicePixelRatio || 1;
-  const availW = window.innerWidth, availH = window.innerHeight - 44;
+  const stage = canvas.parentElement, bar = document.getElementById('debug');
+  const availW = stage.clientWidth, availH = stage.clientHeight - (bar ? bar.offsetHeight : 0);
   const fit = Math.min(availW / W, availH / H) * dpr;
   const whole = Math.floor(fit);
   scale = whole >= 2 && whole / fit >= 0.8 ? whole : fit;
