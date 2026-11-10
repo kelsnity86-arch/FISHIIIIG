@@ -1,5 +1,1925 @@
 {
  "sprites": {
+  "fish_mackerel": {
+   "file": "fish_mackerel.png",
+   "w": 256,
+   "h": 84.89,
+   "smooth": false
+  },
+  "fish_mackerel_s": {
+   "file": "fish_mackerel_s.png",
+   "w": 256,
+   "h": 106.63,
+   "smooth": false
+  },
+  "fish_mackerel_c2": {
+   "file": "fish_mackerel_c2.png",
+   "w": 256,
+   "h": 85.04,
+   "smooth": false
+  },
+  "fish_mackerel_c2_s": {
+   "file": "fish_mackerel_c2_s.png",
+   "w": 256,
+   "h": 109.9,
+   "smooth": false
+  },
+  "fish_mackerel_c3": {
+   "file": "fish_mackerel_c3.png",
+   "w": 256,
+   "h": 85.33,
+   "smooth": false
+  },
+  "fish_mackerel_c3_s": {
+   "file": "fish_mackerel_c3_s.png",
+   "w": 256,
+   "h": 111.48,
+   "smooth": false
+  },
+  "fish_mackerel_c4": {
+   "file": "fish_mackerel_c4.png",
+   "w": 256,
+   "h": 85.19,
+   "smooth": false
+  },
+  "fish_mackerel_c4_s": {
+   "file": "fish_mackerel_c4_s.png",
+   "w": 256,
+   "h": 113.43,
+   "smooth": false
+  },
+  "fish_anchovy": {
+   "file": "fish_anchovy.png",
+   "w": 256,
+   "h": 65.91,
+   "smooth": false
+  },
+  "fish_anchovy_s": {
+   "file": "fish_anchovy_s.png",
+   "w": 256,
+   "h": 82.29,
+   "smooth": false
+  },
+  "fish_anchovy_c2": {
+   "file": "fish_anchovy_c2.png",
+   "w": 256,
+   "h": 66.5,
+   "smooth": false
+  },
+  "fish_anchovy_c2_s": {
+   "file": "fish_anchovy_c2_s.png",
+   "w": 256,
+   "h": 84.14,
+   "smooth": false
+  },
+  "fish_anchovy_c3": {
+   "file": "fish_anchovy_c3.png",
+   "w": 256,
+   "h": 67.6,
+   "smooth": false
+  },
+  "fish_anchovy_c3_s": {
+   "file": "fish_anchovy_c3_s.png",
+   "w": 256,
+   "h": 84.27,
+   "smooth": false
+  },
+  "fish_anchovy_c4": {
+   "file": "fish_anchovy_c4.png",
+   "w": 256,
+   "h": 66.9,
+   "smooth": false
+  },
+  "fish_anchovy_c4_s": {
+   "file": "fish_anchovy_c4_s.png",
+   "w": 256,
+   "h": 84.54,
+   "smooth": false
+  },
+  "fish_bream": {
+   "file": "fish_bream.png",
+   "w": 256,
+   "h": 159.38,
+   "smooth": false
+  },
+  "fish_bream_s": {
+   "file": "fish_bream_s.png",
+   "w": 256,
+   "h": 178.59,
+   "smooth": false
+  },
+  "fish_bream_c2": {
+   "file": "fish_bream_c2.png",
+   "w": 256,
+   "h": 159.93,
+   "smooth": false
+  },
+  "fish_bream_c2_s": {
+   "file": "fish_bream_c2_s.png",
+   "w": 256,
+   "h": 178.59,
+   "smooth": false
+  },
+  "fish_bream_c3": {
+   "file": "fish_bream_c3.png",
+   "w": 256,
+   "h": 159.38,
+   "smooth": false
+  },
+  "fish_bream_c3_s": {
+   "file": "fish_bream_c3_s.png",
+   "w": 256,
+   "h": 178.59,
+   "smooth": false
+  },
+  "fish_bream_c4": {
+   "file": "fish_bream_c4.png",
+   "w": 256,
+   "h": 159.93,
+   "smooth": false
+  },
+  "fish_bream_c4_s": {
+   "file": "fish_bream_c4_s.png",
+   "w": 256,
+   "h": 178.59,
+   "smooth": false
+  },
+  "fish_flounder": {
+   "file": "fish_flounder.png",
+   "w": 256,
+   "h": 121.12,
+   "smooth": false
+  },
+  "fish_flounder_s": {
+   "file": "fish_flounder_s.png",
+   "w": 256,
+   "h": 158.43,
+   "smooth": false
+  },
+  "fish_flounder_c2": {
+   "file": "fish_flounder_c2.png",
+   "w": 256,
+   "h": 121.12,
+   "smooth": false
+  },
+  "fish_flounder_c2_s": {
+   "file": "fish_flounder_c2_s.png",
+   "w": 256,
+   "h": 158.43,
+   "smooth": false
+  },
+  "fish_flounder_c3": {
+   "file": "fish_flounder_c3.png",
+   "w": 256,
+   "h": 120.6,
+   "smooth": false
+  },
+  "fish_flounder_c3_s": {
+   "file": "fish_flounder_c3_s.png",
+   "w": 256,
+   "h": 158.95,
+   "smooth": false
+  },
+  "fish_flounder_c4": {
+   "file": "fish_flounder_c4.png",
+   "w": 256,
+   "h": 120.6,
+   "smooth": false
+  },
+  "fish_flounder_c4_s": {
+   "file": "fish_flounder_c4_s.png",
+   "w": 256,
+   "h": 158.95,
+   "smooth": false
+  },
+  "fish_puffer": {
+   "file": "fish_puffer.png",
+   "w": 256,
+   "h": 153.48,
+   "smooth": false
+  },
+  "fish_puffer_s": {
+   "file": "fish_puffer_s.png",
+   "w": 256,
+   "h": 168.89,
+   "smooth": false
+  },
+  "fish_puffer_c2": {
+   "file": "fish_puffer_c2.png",
+   "w": 256,
+   "h": 154.71,
+   "smooth": false
+  },
+  "fish_puffer_c2_s": {
+   "file": "fish_puffer_c2_s.png",
+   "w": 256,
+   "h": 169.88,
+   "smooth": false
+  },
+  "fish_puffer_c3": {
+   "file": "fish_puffer_c3.png",
+   "w": 256,
+   "h": 154.09,
+   "smooth": false
+  },
+  "fish_puffer_c3_s": {
+   "file": "fish_puffer_c3_s.png",
+   "w": 256,
+   "h": 170.47,
+   "smooth": false
+  },
+  "fish_puffer_c4": {
+   "file": "fish_puffer_c4.png",
+   "w": 256,
+   "h": 154.71,
+   "smooth": false
+  },
+  "fish_puffer_c4_s": {
+   "file": "fish_puffer_c4_s.png",
+   "w": 256,
+   "h": 170.67,
+   "smooth": false
+  },
+  "fish_filefish": {
+   "file": "fish_filefish.png",
+   "w": 256,
+   "h": 158.24,
+   "smooth": false
+  },
+  "fish_filefish_s": {
+   "file": "fish_filefish_s.png",
+   "w": 256,
+   "h": 178.78,
+   "smooth": false
+  },
+  "fish_filefish_c2": {
+   "file": "fish_filefish_c2.png",
+   "w": 256,
+   "h": 157.87,
+   "smooth": false
+  },
+  "fish_filefish_c2_s": {
+   "file": "fish_filefish_c2_s.png",
+   "w": 256,
+   "h": 178.78,
+   "smooth": false
+  },
+  "fish_filefish_c3": {
+   "file": "fish_filefish_c3.png",
+   "w": 256,
+   "h": 158.24,
+   "smooth": false
+  },
+  "fish_filefish_c3_s": {
+   "file": "fish_filefish_c3_s.png",
+   "w": 256,
+   "h": 179.38,
+   "smooth": false
+  },
+  "fish_filefish_c4": {
+   "file": "fish_filefish_c4.png",
+   "w": 256,
+   "h": 158.24,
+   "smooth": false
+  },
+  "fish_filefish_c4_s": {
+   "file": "fish_filefish_c4_s.png",
+   "w": 256,
+   "h": 178.78,
+   "smooth": false
+  },
+  "fish_butterfly": {
+   "file": "fish_butterfly.png",
+   "w": 256,
+   "h": 192.0,
+   "smooth": false
+  },
+  "fish_butterfly_s": {
+   "file": "fish_butterfly_s.png",
+   "w": 256,
+   "h": 208.46,
+   "smooth": false
+  },
+  "fish_butterfly_c2": {
+   "file": "fish_butterfly_c2.png",
+   "w": 256,
+   "h": 192.63,
+   "smooth": false
+  },
+  "fish_butterfly_c2_s": {
+   "file": "fish_butterfly_c2_s.png",
+   "w": 256,
+   "h": 208.46,
+   "smooth": false
+  },
+  "fish_butterfly_c3": {
+   "file": "fish_butterfly_c3.png",
+   "w": 256,
+   "h": 192.0,
+   "smooth": false
+  },
+  "fish_butterfly_c3_s": {
+   "file": "fish_butterfly_c3_s.png",
+   "w": 256,
+   "h": 208.46,
+   "smooth": false
+  },
+  "fish_butterfly_c4": {
+   "file": "fish_butterfly_c4.png",
+   "w": 256,
+   "h": 192.0,
+   "smooth": false
+  },
+  "fish_butterfly_c4_s": {
+   "file": "fish_butterfly_c4_s.png",
+   "w": 256,
+   "h": 208.46,
+   "smooth": false
+  },
+  "fish_goby": {
+   "file": "fish_goby.png",
+   "w": 256,
+   "h": 83.27,
+   "smooth": false
+  },
+  "fish_goby_s": {
+   "file": "fish_goby_s.png",
+   "w": 256,
+   "h": 106.11,
+   "smooth": false
+  },
+  "fish_goby_c2": {
+   "file": "fish_goby_c2.png",
+   "w": 256,
+   "h": 83.27,
+   "smooth": false
+  },
+  "fish_goby_c2_s": {
+   "file": "fish_goby_c2_s.png",
+   "w": 256,
+   "h": 104.87,
+   "smooth": false
+  },
+  "fish_goby_c3": {
+   "file": "fish_goby_c3.png",
+   "w": 256,
+   "h": 83.42,
+   "smooth": false
+  },
+  "fish_goby_c3_s": {
+   "file": "fish_goby_c3_s.png",
+   "w": 256,
+   "h": 106.63,
+   "smooth": false
+  },
+  "fish_goby_c4": {
+   "file": "fish_goby_c4.png",
+   "w": 256,
+   "h": 83.12,
+   "smooth": false
+  },
+  "fish_goby_c4_s": {
+   "file": "fish_goby_c4_s.png",
+   "w": 256,
+   "h": 106.63,
+   "smooth": false
+  },
+  "fish_flying": {
+   "file": "fish_flying.png",
+   "w": 256,
+   "h": 107.24,
+   "smooth": false
+  },
+  "fish_flying_s": {
+   "file": "fish_flying_s.png",
+   "w": 256,
+   "h": 141.59,
+   "smooth": false
+  },
+  "fish_flying_c2": {
+   "file": "fish_flying_c2.png",
+   "w": 256,
+   "h": 107.95,
+   "smooth": false
+  },
+  "fish_flying_c2_s": {
+   "file": "fish_flying_c2_s.png",
+   "w": 256,
+   "h": 143.49,
+   "smooth": false
+  },
+  "fish_flying_c3": {
+   "file": "fish_flying_c3.png",
+   "w": 256,
+   "h": 107.95,
+   "smooth": false
+  },
+  "fish_flying_c3_s": {
+   "file": "fish_flying_c3_s.png",
+   "w": 256,
+   "h": 143.02,
+   "smooth": false
+  },
+  "fish_flying_c4": {
+   "file": "fish_flying_c4.png",
+   "w": 256,
+   "h": 108.02,
+   "smooth": false
+  },
+  "fish_flying_c4_s": {
+   "file": "fish_flying_c4_s.png",
+   "w": 256,
+   "h": 144.92,
+   "smooth": false
+  },
+  "fish_seahorse": {
+   "file": "fish_seahorse.png",
+   "w": 256,
+   "h": 107.94,
+   "smooth": false
+  },
+  "fish_seahorse_s": {
+   "file": "fish_seahorse_s.png",
+   "w": 256,
+   "h": 106.86,
+   "smooth": false
+  },
+  "fish_seahorse_c2": {
+   "file": "fish_seahorse_c2.png",
+   "w": 256,
+   "h": 108.49,
+   "smooth": false
+  },
+  "fish_seahorse_c2_s": {
+   "file": "fish_seahorse_c2_s.png",
+   "w": 256,
+   "h": 106.94,
+   "smooth": false
+  },
+  "fish_seahorse_c3": {
+   "file": "fish_seahorse_c3.png",
+   "w": 256,
+   "h": 108.97,
+   "smooth": false
+  },
+  "fish_seahorse_c3_s": {
+   "file": "fish_seahorse_c3_s.png",
+   "w": 256,
+   "h": 107.59,
+   "smooth": false
+  },
+  "fish_seahorse_c4": {
+   "file": "fish_seahorse_c4.png",
+   "w": 256,
+   "h": 110.39,
+   "smooth": false
+  },
+  "fish_seahorse_c4_s": {
+   "file": "fish_seahorse_c4_s.png",
+   "w": 256,
+   "h": 108.86,
+   "smooth": false
+  },
+  "fish_shrimp": {
+   "file": "fish_shrimp.png",
+   "w": 256,
+   "h": 86.35,
+   "smooth": false
+  },
+  "fish_shrimp_s": {
+   "file": "fish_shrimp_s.png",
+   "w": 256,
+   "h": 88.95,
+   "smooth": false
+  },
+  "fish_shrimp_c2": {
+   "file": "fish_shrimp_c2.png",
+   "w": 256,
+   "h": 86.35,
+   "smooth": false
+  },
+  "fish_shrimp_c2_s": {
+   "file": "fish_shrimp_c2_s.png",
+   "w": 256,
+   "h": 88.95,
+   "smooth": false
+  },
+  "fish_shrimp_c3": {
+   "file": "fish_shrimp_c3.png",
+   "w": 256,
+   "h": 86.2,
+   "smooth": false
+  },
+  "fish_shrimp_c3_s": {
+   "file": "fish_shrimp_c3_s.png",
+   "w": 256,
+   "h": 88.52,
+   "smooth": false
+  },
+  "fish_shrimp_c4": {
+   "file": "fish_shrimp_c4.png",
+   "w": 256,
+   "h": 85.77,
+   "smooth": false
+  },
+  "fish_shrimp_c4_s": {
+   "file": "fish_shrimp_c4_s.png",
+   "w": 256,
+   "h": 88.52,
+   "smooth": false
+  },
+  "fish_crab": {
+   "file": "fish_crab.png",
+   "w": 256,
+   "h": 109.21,
+   "smooth": false
+  },
+  "fish_crab_s": {
+   "file": "fish_crab_s.png",
+   "w": 256,
+   "h": 100.51,
+   "smooth": false
+  },
+  "fish_crab_c2": {
+   "file": "fish_crab_c2.png",
+   "w": 256,
+   "h": 108.71,
+   "smooth": false
+  },
+  "fish_crab_c2_s": {
+   "file": "fish_crab_c2_s.png",
+   "w": 256,
+   "h": 99.78,
+   "smooth": false
+  },
+  "fish_crab_c3": {
+   "file": "fish_crab_c3.png",
+   "w": 256,
+   "h": 108.21,
+   "smooth": false
+  },
+  "fish_crab_c3_s": {
+   "file": "fish_crab_c3_s.png",
+   "w": 256,
+   "h": 100.23,
+   "smooth": false
+  },
+  "fish_crab_c4": {
+   "file": "fish_crab_c4.png",
+   "w": 256,
+   "h": 108.71,
+   "smooth": false
+  },
+  "fish_crab_c4_s": {
+   "file": "fish_crab_c4_s.png",
+   "w": 256,
+   "h": 99.78,
+   "smooth": false
+  },
+  "fish_squid": {
+   "file": "fish_squid.png",
+   "w": 256,
+   "h": 74.02,
+   "smooth": false
+  },
+  "fish_squid_s": {
+   "file": "fish_squid_s.png",
+   "w": 256,
+   "h": 116.6,
+   "smooth": false
+  },
+  "fish_squid_c2": {
+   "file": "fish_squid_c2.png",
+   "w": 256,
+   "h": 74.59,
+   "smooth": false
+  },
+  "fish_squid_c2_s": {
+   "file": "fish_squid_c2_s.png",
+   "w": 256,
+   "h": 117.92,
+   "smooth": false
+  },
+  "fish_squid_c3": {
+   "file": "fish_squid_c3.png",
+   "w": 256,
+   "h": 74.15,
+   "smooth": false
+  },
+  "fish_squid_c3_s": {
+   "file": "fish_squid_c3_s.png",
+   "w": 256,
+   "h": 117.92,
+   "smooth": false
+  },
+  "fish_squid_c4": {
+   "file": "fish_squid_c4.png",
+   "w": 256,
+   "h": 74.46,
+   "smooth": false
+  },
+  "fish_squid_c4_s": {
+   "file": "fish_squid_c4_s.png",
+   "w": 256,
+   "h": 118.56,
+   "smooth": false
+  },
+  "fish_octopus": {
+   "file": "fish_octopus.png",
+   "w": 256,
+   "h": 105.83,
+   "smooth": false
+  },
+  "fish_octopus_s": {
+   "file": "fish_octopus_s.png",
+   "w": 256,
+   "h": 110.75,
+   "smooth": false
+  },
+  "fish_octopus_c2": {
+   "file": "fish_octopus_c2.png",
+   "w": 256,
+   "h": 106.26,
+   "smooth": false
+  },
+  "fish_octopus_c2_s": {
+   "file": "fish_octopus_c2_s.png",
+   "w": 256,
+   "h": 111.6,
+   "smooth": false
+  },
+  "fish_octopus_c3": {
+   "file": "fish_octopus_c3.png",
+   "w": 256,
+   "h": 106.7,
+   "smooth": false
+  },
+  "fish_octopus_c3_s": {
+   "file": "fish_octopus_c3_s.png",
+   "w": 256,
+   "h": 111.6,
+   "smooth": false
+  },
+  "fish_octopus_c4": {
+   "file": "fish_octopus_c4.png",
+   "w": 256,
+   "h": 107.14,
+   "smooth": false
+  },
+  "fish_octopus_c4_s": {
+   "file": "fish_octopus_c4_s.png",
+   "w": 256,
+   "h": 111.6,
+   "smooth": false
+  },
+  "fish_jellyfish": {
+   "file": "fish_jellyfish.png",
+   "w": 256,
+   "h": 152.2,
+   "smooth": false
+  },
+  "fish_jellyfish_s": {
+   "file": "fish_jellyfish_s.png",
+   "w": 256,
+   "h": 149.66,
+   "smooth": false
+  },
+  "fish_jellyfish_c2": {
+   "file": "fish_jellyfish_c2.png",
+   "w": 256,
+   "h": 151.62,
+   "smooth": false
+  },
+  "fish_jellyfish_c2_s": {
+   "file": "fish_jellyfish_c2_s.png",
+   "w": 256,
+   "h": 149.76,
+   "smooth": false
+  },
+  "fish_jellyfish_c3": {
+   "file": "fish_jellyfish_c3.png",
+   "w": 256,
+   "h": 153.13,
+   "smooth": false
+  },
+  "fish_jellyfish_c3_s": {
+   "file": "fish_jellyfish_c3_s.png",
+   "w": 256,
+   "h": 149.43,
+   "smooth": false
+  },
+  "fish_jellyfish_c4": {
+   "file": "fish_jellyfish_c4.png",
+   "w": 256,
+   "h": 153.13,
+   "smooth": false
+  },
+  "fish_jellyfish_c4_s": {
+   "file": "fish_jellyfish_c4_s.png",
+   "w": 256,
+   "h": 150.22,
+   "smooth": false
+  },
+  "fish_starfish": {
+   "file": "fish_starfish.png",
+   "w": 256,
+   "h": 136.88,
+   "smooth": false
+  },
+  "fish_starfish_s": {
+   "file": "fish_starfish_s.png",
+   "w": 256,
+   "h": 136.33,
+   "smooth": false
+  },
+  "fish_starfish_c2": {
+   "file": "fish_starfish_c2.png",
+   "w": 256,
+   "h": 137.4,
+   "smooth": false
+  },
+  "fish_starfish_c2_s": {
+   "file": "fish_starfish_c2_s.png",
+   "w": 256,
+   "h": 136.05,
+   "smooth": false
+  },
+  "fish_starfish_c3": {
+   "file": "fish_starfish_c3.png",
+   "w": 256,
+   "h": 137.97,
+   "smooth": false
+  },
+  "fish_starfish_c3_s": {
+   "file": "fish_starfish_c3_s.png",
+   "w": 256,
+   "h": 137.61,
+   "smooth": false
+  },
+  "fish_starfish_c4": {
+   "file": "fish_starfish_c4.png",
+   "w": 256,
+   "h": 135.31,
+   "smooth": false
+  },
+  "fish_starfish_c4_s": {
+   "file": "fish_starfish_c4_s.png",
+   "w": 256,
+   "h": 134.74,
+   "smooth": false
+  },
+  "fish_tuna": {
+   "file": "fish_tuna.png",
+   "w": 256,
+   "h": 111.03,
+   "smooth": false
+  },
+  "fish_tuna_s": {
+   "file": "fish_tuna_s.png",
+   "w": 256,
+   "h": 128.93,
+   "smooth": false
+  },
+  "fish_tuna_c2": {
+   "file": "fish_tuna_c2.png",
+   "w": 256,
+   "h": 113.18,
+   "smooth": false
+  },
+  "fish_tuna_c2_s": {
+   "file": "fish_tuna_c2_s.png",
+   "w": 256,
+   "h": 131.5,
+   "smooth": false
+  },
+  "fish_tuna_c3": {
+   "file": "fish_tuna_c3.png",
+   "w": 256,
+   "h": 112.7,
+   "smooth": false
+  },
+  "fish_tuna_c3_s": {
+   "file": "fish_tuna_c3_s.png",
+   "w": 256,
+   "h": 130.79,
+   "smooth": false
+  },
+  "fish_tuna_c4": {
+   "file": "fish_tuna_c4.png",
+   "w": 256,
+   "h": 112.48,
+   "smooth": false
+  },
+  "fish_tuna_c4_s": {
+   "file": "fish_tuna_c4_s.png",
+   "w": 256,
+   "h": 130.56,
+   "smooth": false
+  },
+  "fish_shark": {
+   "file": "fish_shark.png",
+   "w": 256,
+   "h": 105.72,
+   "smooth": false
+  },
+  "fish_shark_s": {
+   "file": "fish_shark_s.png",
+   "w": 256,
+   "h": 120.5,
+   "smooth": false
+  },
+  "fish_shark_c2": {
+   "file": "fish_shark_c2.png",
+   "w": 256,
+   "h": 105.72,
+   "smooth": false
+  },
+  "fish_shark_c2_s": {
+   "file": "fish_shark_c2_s.png",
+   "w": 256,
+   "h": 120.97,
+   "smooth": false
+  },
+  "fish_shark_c3": {
+   "file": "fish_shark_c3.png",
+   "w": 256,
+   "h": 105.24,
+   "smooth": false
+  },
+  "fish_shark_c3_s": {
+   "file": "fish_shark_c3_s.png",
+   "w": 256,
+   "h": 120.5,
+   "smooth": false
+  },
+  "fish_shark_c4": {
+   "file": "fish_shark_c4.png",
+   "w": 256,
+   "h": 105.72,
+   "smooth": false
+  },
+  "fish_shark_c4_s": {
+   "file": "fish_shark_c4_s.png",
+   "w": 256,
+   "h": 120.5,
+   "smooth": false
+  },
+  "fish_manta": {
+   "file": "fish_manta.png",
+   "w": 256,
+   "h": 82.42,
+   "smooth": false
+  },
+  "fish_manta_s": {
+   "file": "fish_manta_s.png",
+   "w": 256,
+   "h": 107.53,
+   "smooth": false
+  },
+  "fish_manta_c2": {
+   "file": "fish_manta_c2.png",
+   "w": 256,
+   "h": 83.34,
+   "smooth": false
+  },
+  "fish_manta_c2_s": {
+   "file": "fish_manta_c2_s.png",
+   "w": 256,
+   "h": 109.07,
+   "smooth": false
+  },
+  "fish_manta_c3": {
+   "file": "fish_manta_c3.png",
+   "w": 256,
+   "h": 82.88,
+   "smooth": false
+  },
+  "fish_manta_c3_s": {
+   "file": "fish_manta_c3_s.png",
+   "w": 256,
+   "h": 108.43,
+   "smooth": false
+  },
+  "fish_manta_c4": {
+   "file": "fish_manta_c4.png",
+   "w": 256,
+   "h": 84.26,
+   "smooth": false
+  },
+  "fish_manta_c4_s": {
+   "file": "fish_manta_c4_s.png",
+   "w": 256,
+   "h": 108.43,
+   "smooth": false
+  },
+  "fish_eel": {
+   "file": "fish_eel.png",
+   "w": 256,
+   "h": 43.57,
+   "smooth": false
+  },
+  "fish_eel_s": {
+   "file": "fish_eel_s.png",
+   "w": 256,
+   "h": 58.83,
+   "smooth": false
+  },
+  "fish_eel_c2": {
+   "file": "fish_eel_c2.png",
+   "w": 256,
+   "h": 43.57,
+   "smooth": false
+  },
+  "fish_eel_c2_s": {
+   "file": "fish_eel_c2_s.png",
+   "w": 256,
+   "h": 58.75,
+   "smooth": false
+  },
+  "fish_eel_c3": {
+   "file": "fish_eel_c3.png",
+   "w": 256,
+   "h": 43.57,
+   "smooth": false
+  },
+  "fish_eel_c3_s": {
+   "file": "fish_eel_c3_s.png",
+   "w": 256,
+   "h": 59.1,
+   "smooth": false
+  },
+  "fish_eel_c4": {
+   "file": "fish_eel_c4.png",
+   "w": 256,
+   "h": 43.93,
+   "smooth": false
+  },
+  "fish_eel_c4_s": {
+   "file": "fish_eel_c4_s.png",
+   "w": 256,
+   "h": 58.75,
+   "smooth": false
+  },
+  "fish_marlin": {
+   "file": "fish_marlin.png",
+   "w": 256,
+   "h": 82.84,
+   "smooth": false
+  },
+  "fish_marlin_s": {
+   "file": "fish_marlin_s.png",
+   "w": 256,
+   "h": 96.74,
+   "smooth": false
+  },
+  "fish_marlin_c2": {
+   "file": "fish_marlin_c2.png",
+   "w": 256,
+   "h": 83.1,
+   "smooth": false
+  },
+  "fish_marlin_c2_s": {
+   "file": "fish_marlin_c2_s.png",
+   "w": 256,
+   "h": 97.52,
+   "smooth": false
+  },
+  "fish_marlin_c3": {
+   "file": "fish_marlin_c3.png",
+   "w": 256,
+   "h": 82.71,
+   "smooth": false
+  },
+  "fish_marlin_c3_s": {
+   "file": "fish_marlin_c3_s.png",
+   "w": 256,
+   "h": 97.52,
+   "smooth": false
+  },
+  "fish_marlin_c4": {
+   "file": "fish_marlin_c4.png",
+   "w": 256,
+   "h": 82.96,
+   "smooth": false
+  },
+  "fish_marlin_c4_s": {
+   "file": "fish_marlin_c4_s.png",
+   "w": 256,
+   "h": 98.7,
+   "smooth": false
+  },
+  "fish_sawshark": {
+   "file": "fish_sawshark.png",
+   "w": 256,
+   "h": 65.91,
+   "smooth": false
+  },
+  "fish_sawshark_s": {
+   "file": "fish_sawshark_s.png",
+   "w": 256,
+   "h": 79.39,
+   "smooth": false
+  },
+  "fish_sawshark_c2": {
+   "file": "fish_sawshark_c2.png",
+   "w": 256,
+   "h": 67.37,
+   "smooth": false
+  },
+  "fish_sawshark_c2_s": {
+   "file": "fish_sawshark_c2_s.png",
+   "w": 256,
+   "h": 80.48,
+   "smooth": false
+  },
+  "fish_sawshark_c3": {
+   "file": "fish_sawshark_c3.png",
+   "w": 256,
+   "h": 66.64,
+   "smooth": false
+  },
+  "fish_sawshark_c3_s": {
+   "file": "fish_sawshark_c3_s.png",
+   "w": 256,
+   "h": 80.48,
+   "smooth": false
+  },
+  "fish_sawshark_c4": {
+   "file": "fish_sawshark_c4.png",
+   "w": 256,
+   "h": 66.64,
+   "smooth": false
+  },
+  "fish_sawshark_c4_s": {
+   "file": "fish_sawshark_c4_s.png",
+   "w": 256,
+   "h": 81.09,
+   "smooth": false
+  },
+  "fish_sunfish": {
+   "file": "fish_sunfish.png",
+   "w": 256,
+   "h": 252.35,
+   "smooth": false
+  },
+  "fish_sunfish_s": {
+   "file": "fish_sunfish_s.png",
+   "w": 256,
+   "h": 263.15,
+   "smooth": false
+  },
+  "fish_sunfish_c2": {
+   "file": "fish_sunfish_c2.png",
+   "w": 256,
+   "h": 251.64,
+   "smooth": false
+  },
+  "fish_sunfish_c2_s": {
+   "file": "fish_sunfish_c2_s.png",
+   "w": 256,
+   "h": 263.15,
+   "smooth": false
+  },
+  "fish_sunfish_c3": {
+   "file": "fish_sunfish_c3.png",
+   "w": 256,
+   "h": 252.35,
+   "smooth": false
+  },
+  "fish_sunfish_c3_s": {
+   "file": "fish_sunfish_c3_s.png",
+   "w": 256,
+   "h": 263.87,
+   "smooth": false
+  },
+  "fish_sunfish_c4": {
+   "file": "fish_sunfish_c4.png",
+   "w": 256,
+   "h": 251.62,
+   "smooth": false
+  },
+  "fish_sunfish_c4_s": {
+   "file": "fish_sunfish_c4_s.png",
+   "w": 256,
+   "h": 263.15,
+   "smooth": false
+  },
+  "fish_sturgeon": {
+   "file": "fish_sturgeon.png",
+   "w": 256,
+   "h": 76.47,
+   "smooth": false
+  },
+  "fish_sturgeon_s": {
+   "file": "fish_sturgeon_s.png",
+   "w": 256,
+   "h": 87.11,
+   "smooth": false
+  },
+  "fish_sturgeon_c2": {
+   "file": "fish_sturgeon_c2.png",
+   "w": 256,
+   "h": 77.08,
+   "smooth": false
+  },
+  "fish_sturgeon_c2_s": {
+   "file": "fish_sturgeon_c2_s.png",
+   "w": 256,
+   "h": 90.67,
+   "smooth": false
+  },
+  "fish_sturgeon_c3": {
+   "file": "fish_sturgeon_c3.png",
+   "w": 256,
+   "h": 76.94,
+   "smooth": false
+  },
+  "fish_sturgeon_c3_s": {
+   "file": "fish_sturgeon_c3_s.png",
+   "w": 256,
+   "h": 90.67,
+   "smooth": false
+  },
+  "fish_sturgeon_c4": {
+   "file": "fish_sturgeon_c4.png",
+   "w": 256,
+   "h": 77.27,
+   "smooth": false
+  },
+  "fish_sturgeon_c4_s": {
+   "file": "fish_sturgeon_c4_s.png",
+   "w": 256,
+   "h": 91.56,
+   "smooth": false
+  },
+  "fish_whale": {
+   "file": "fish_whale.png",
+   "w": 256,
+   "h": 73.83,
+   "smooth": false
+  },
+  "fish_whale_s": {
+   "file": "fish_whale_s.png",
+   "w": 256,
+   "h": 80.12,
+   "smooth": false
+  },
+  "fish_whale_c2": {
+   "file": "fish_whale_c2.png",
+   "w": 256,
+   "h": 74.47,
+   "smooth": false
+  },
+  "fish_whale_c2_s": {
+   "file": "fish_whale_c2_s.png",
+   "w": 256,
+   "h": 80.37,
+   "smooth": false
+  },
+  "fish_whale_c3": {
+   "file": "fish_whale_c3.png",
+   "w": 256,
+   "h": 75.21,
+   "smooth": false
+  },
+  "fish_whale_c3_s": {
+   "file": "fish_whale_c3_s.png",
+   "w": 256,
+   "h": 81.49,
+   "smooth": false
+  },
+  "fish_whale_c4": {
+   "file": "fish_whale_c4.png",
+   "w": 256,
+   "h": 74.1,
+   "smooth": false
+  },
+  "fish_whale_c4_s": {
+   "file": "fish_whale_c4_s.png",
+   "w": 256,
+   "h": 80.51,
+   "smooth": false
+  },
+  "fish_dolphin": {
+   "file": "fish_dolphin.png",
+   "w": 256,
+   "h": 106.31,
+   "smooth": false
+  },
+  "fish_dolphin_s": {
+   "file": "fish_dolphin_s.png",
+   "w": 256,
+   "h": 110.4,
+   "smooth": false
+  },
+  "fish_dolphin_c2": {
+   "file": "fish_dolphin_c2.png",
+   "w": 256,
+   "h": 106.31,
+   "smooth": false
+  },
+  "fish_dolphin_c2_s": {
+   "file": "fish_dolphin_c2_s.png",
+   "w": 256,
+   "h": 110.4,
+   "smooth": false
+  },
+  "fish_dolphin_c3": {
+   "file": "fish_dolphin_c3.png",
+   "w": 256,
+   "h": 106.51,
+   "smooth": false
+  },
+  "fish_dolphin_c3_s": {
+   "file": "fish_dolphin_c3_s.png",
+   "w": 256,
+   "h": 110.89,
+   "smooth": false
+  },
+  "fish_dolphin_c4": {
+   "file": "fish_dolphin_c4.png",
+   "w": 256,
+   "h": 105.36,
+   "smooth": false
+  },
+  "fish_dolphin_c4_s": {
+   "file": "fish_dolphin_c4_s.png",
+   "w": 256,
+   "h": 111.37,
+   "smooth": false
+  },
+  "fish_angler": {
+   "file": "fish_angler.png",
+   "w": 256,
+   "h": 118.08,
+   "smooth": false
+  },
+  "fish_angler_s": {
+   "file": "fish_angler_s.png",
+   "w": 256,
+   "h": 132.99,
+   "smooth": false
+  },
+  "fish_angler_c2": {
+   "file": "fish_angler_c2.png",
+   "w": 256,
+   "h": 118.34,
+   "smooth": false
+  },
+  "fish_angler_c2_s": {
+   "file": "fish_angler_c2_s.png",
+   "w": 256,
+   "h": 133.94,
+   "smooth": false
+  },
+  "fish_angler_c3": {
+   "file": "fish_angler_c3.png",
+   "w": 256,
+   "h": 118.61,
+   "smooth": false
+  },
+  "fish_angler_c3_s": {
+   "file": "fish_angler_c3_s.png",
+   "w": 256,
+   "h": 134.41,
+   "smooth": false
+  },
+  "fish_angler_c4": {
+   "file": "fish_angler_c4.png",
+   "w": 256,
+   "h": 119.33,
+   "smooth": false
+  },
+  "fish_angler_c4_s": {
+   "file": "fish_angler_c4_s.png",
+   "w": 256,
+   "h": 135.36,
+   "smooth": false
+  },
+  "fish_coelacanth": {
+   "file": "fish_coelacanth.png",
+   "w": 256,
+   "h": 110.21,
+   "smooth": false
+  },
+  "fish_coelacanth_s": {
+   "file": "fish_coelacanth_s.png",
+   "w": 256,
+   "h": 117.25,
+   "smooth": false
+  },
+  "fish_coelacanth_c2": {
+   "file": "fish_coelacanth_c2.png",
+   "w": 256,
+   "h": 110.64,
+   "smooth": false
+  },
+  "fish_coelacanth_c2_s": {
+   "file": "fish_coelacanth_c2_s.png",
+   "w": 256,
+   "h": 117.25,
+   "smooth": false
+  },
+  "fish_coelacanth_c3": {
+   "file": "fish_coelacanth_c3.png",
+   "w": 256,
+   "h": 110.46,
+   "smooth": false
+  },
+  "fish_coelacanth_c3_s": {
+   "file": "fish_coelacanth_c3_s.png",
+   "w": 256,
+   "h": 117.67,
+   "smooth": false
+  },
+  "fish_coelacanth_c4": {
+   "file": "fish_coelacanth_c4.png",
+   "w": 256,
+   "h": 110.21,
+   "smooth": false
+  },
+  "fish_coelacanth_c4_s": {
+   "file": "fish_coelacanth_c4_s.png",
+   "w": 256,
+   "h": 118.09,
+   "smooth": false
+  },
+  "fish_giant_squid": {
+   "file": "fish_giant_squid.png",
+   "w": 256,
+   "h": 77.14,
+   "smooth": false
+  },
+  "fish_giant_squid_s": {
+   "file": "fish_giant_squid_s.png",
+   "w": 256,
+   "h": 96.53,
+   "smooth": false
+  },
+  "fish_giant_squid_c2": {
+   "file": "fish_giant_squid_c2.png",
+   "w": 256,
+   "h": 77.14,
+   "smooth": false
+  },
+  "fish_giant_squid_c2_s": {
+   "file": "fish_giant_squid_c2_s.png",
+   "w": 256,
+   "h": 96.11,
+   "smooth": false
+  },
+  "fish_giant_squid_c3": {
+   "file": "fish_giant_squid_c3.png",
+   "w": 256,
+   "h": 77.14,
+   "smooth": false
+  },
+  "fish_giant_squid_c3_s": {
+   "file": "fish_giant_squid_c3_s.png",
+   "w": 256,
+   "h": 96.37,
+   "smooth": false
+  },
+  "fish_giant_squid_c4": {
+   "file": "fish_giant_squid_c4.png",
+   "w": 256,
+   "h": 76.71,
+   "smooth": false
+  },
+  "fish_giant_squid_c4_s": {
+   "file": "fish_giant_squid_c4_s.png",
+   "w": 256,
+   "h": 96.53,
+   "smooth": false
+  },
+  "fish_giant_octopus": {
+   "file": "fish_giant_octopus.png",
+   "w": 256,
+   "h": 108.66,
+   "smooth": false
+  },
+  "fish_giant_octopus_s": {
+   "file": "fish_giant_octopus_s.png",
+   "w": 256,
+   "h": 115.46,
+   "smooth": false
+  },
+  "fish_giant_octopus_c2": {
+   "file": "fish_giant_octopus_c2.png",
+   "w": 256,
+   "h": 109.96,
+   "smooth": false
+  },
+  "fish_giant_octopus_c2_s": {
+   "file": "fish_giant_octopus_c2_s.png",
+   "w": 256,
+   "h": 116.32,
+   "smooth": false
+  },
+  "fish_giant_octopus_c3": {
+   "file": "fish_giant_octopus_c3.png",
+   "w": 256,
+   "h": 110.83,
+   "smooth": false
+  },
+  "fish_giant_octopus_c3_s": {
+   "file": "fish_giant_octopus_c3_s.png",
+   "w": 256,
+   "h": 117.19,
+   "smooth": false
+  },
+  "fish_giant_octopus_c4": {
+   "file": "fish_giant_octopus_c4.png",
+   "w": 256,
+   "h": 109.34,
+   "smooth": false
+  },
+  "fish_giant_octopus_c4_s": {
+   "file": "fish_giant_octopus_c4_s.png",
+   "w": 256,
+   "h": 115.26,
+   "smooth": false
+  },
+  "fish_turtle": {
+   "file": "fish_turtle.png",
+   "w": 256,
+   "h": 132.15,
+   "smooth": false
+  },
+  "fish_turtle_s": {
+   "file": "fish_turtle_s.png",
+   "w": 256,
+   "h": 175.51,
+   "smooth": false
+  },
+  "fish_turtle_c2": {
+   "file": "fish_turtle_c2.png",
+   "w": 256,
+   "h": 132.43,
+   "smooth": false
+  },
+  "fish_turtle_c2_s": {
+   "file": "fish_turtle_c2_s.png",
+   "w": 256,
+   "h": 176.46,
+   "smooth": false
+  },
+  "fish_turtle_c3": {
+   "file": "fish_turtle_c3.png",
+   "w": 256,
+   "h": 132.74,
+   "smooth": false
+  },
+  "fish_turtle_c3_s": {
+   "file": "fish_turtle_c3_s.png",
+   "w": 256,
+   "h": 176.63,
+   "smooth": false
+  },
+  "fish_turtle_c4": {
+   "file": "fish_turtle_c4.png",
+   "w": 256,
+   "h": 132.43,
+   "smooth": false
+  },
+  "fish_turtle_c4_s": {
+   "file": "fish_turtle_c4_s.png",
+   "w": 256,
+   "h": 177.02,
+   "smooth": false
+  },
+  "fish_oarfish": {
+   "file": "fish_oarfish.png",
+   "w": 256,
+   "h": 64.41,
+   "smooth": false
+  },
+  "fish_oarfish_s": {
+   "file": "fish_oarfish_s.png",
+   "w": 256,
+   "h": 69.43,
+   "smooth": false
+  },
+  "fish_oarfish_c2": {
+   "file": "fish_oarfish_c2.png",
+   "w": 256,
+   "h": 64.33,
+   "smooth": false
+  },
+  "fish_oarfish_c2_s": {
+   "file": "fish_oarfish_c2_s.png",
+   "w": 256,
+   "h": 69.35,
+   "smooth": false
+  },
+  "fish_oarfish_c3": {
+   "file": "fish_oarfish_c3.png",
+   "w": 256,
+   "h": 64.74,
+   "smooth": false
+  },
+  "fish_oarfish_c3_s": {
+   "file": "fish_oarfish_c3_s.png",
+   "w": 256,
+   "h": 69.43,
+   "smooth": false
+  },
+  "fish_oarfish_c4": {
+   "file": "fish_oarfish_c4.png",
+   "w": 256,
+   "h": 64.66,
+   "smooth": false
+  },
+  "fish_oarfish_c4_s": {
+   "file": "fish_oarfish_c4_s.png",
+   "w": 256,
+   "h": 69.35,
+   "smooth": false
+  },
+  "fish_seal": {
+   "file": "fish_seal.png",
+   "w": 256,
+   "h": 88.63,
+   "smooth": false
+  },
+  "fish_seal_s": {
+   "file": "fish_seal_s.png",
+   "w": 256,
+   "h": 97.97,
+   "smooth": false
+  },
+  "fish_seal_c2": {
+   "file": "fish_seal_c2.png",
+   "w": 256,
+   "h": 87.77,
+   "smooth": false
+  },
+  "fish_seal_c2_s": {
+   "file": "fish_seal_c2_s.png",
+   "w": 256,
+   "h": 99.25,
+   "smooth": false
+  },
+  "fish_seal_c3": {
+   "file": "fish_seal_c3.png",
+   "w": 256,
+   "h": 88.05,
+   "smooth": false
+  },
+  "fish_seal_c3_s": {
+   "file": "fish_seal_c3_s.png",
+   "w": 256,
+   "h": 98.4,
+   "smooth": false
+  },
+  "fish_seal_c4": {
+   "file": "fish_seal_c4.png",
+   "w": 256,
+   "h": 88.2,
+   "smooth": false
+  },
+  "fish_seal_c4_s": {
+   "file": "fish_seal_c4_s.png",
+   "w": 256,
+   "h": 99.25,
+   "smooth": false
+  },
+  "fish_walrus": {
+   "file": "fish_walrus.png",
+   "w": 256,
+   "h": 113.26,
+   "smooth": false
+  },
+  "fish_walrus_s": {
+   "file": "fish_walrus_s.png",
+   "w": 256,
+   "h": 114.89,
+   "smooth": false
+  },
+  "fish_walrus_c2": {
+   "file": "fish_walrus_c2.png",
+   "w": 256,
+   "h": 113.26,
+   "smooth": false
+  },
+  "fish_walrus_c2_s": {
+   "file": "fish_walrus_c2_s.png",
+   "w": 256,
+   "h": 116.2,
+   "smooth": false
+  },
+  "fish_walrus_c3": {
+   "file": "fish_walrus_c3.png",
+   "w": 256,
+   "h": 113.31,
+   "smooth": false
+  },
+  "fish_walrus_c3_s": {
+   "file": "fish_walrus_c3_s.png",
+   "w": 256,
+   "h": 116.64,
+   "smooth": false
+  },
+  "fish_walrus_c4": {
+   "file": "fish_walrus_c4.png",
+   "w": 256,
+   "h": 114.19,
+   "smooth": false
+  },
+  "fish_walrus_c4_s": {
+   "file": "fish_walrus_c4_s.png",
+   "w": 256,
+   "h": 116.64,
+   "smooth": false
+  },
+  "fish_manatee": {
+   "file": "fish_manatee.png",
+   "w": 256,
+   "h": 105.77,
+   "smooth": false
+  },
+  "fish_manatee_s": {
+   "file": "fish_manatee_s.png",
+   "w": 256,
+   "h": 103.23,
+   "smooth": false
+  },
+  "fish_manatee_c2": {
+   "file": "fish_manatee_c2.png",
+   "w": 256,
+   "h": 106.43,
+   "smooth": false
+  },
+  "fish_manatee_c2_s": {
+   "file": "fish_manatee_c2_s.png",
+   "w": 256,
+   "h": 103.68,
+   "smooth": false
+  },
+  "fish_manatee_c3": {
+   "file": "fish_manatee_c3.png",
+   "w": 256,
+   "h": 106.24,
+   "smooth": false
+  },
+  "fish_manatee_c3_s": {
+   "file": "fish_manatee_c3_s.png",
+   "w": 256,
+   "h": 103.23,
+   "smooth": false
+  },
+  "fish_manatee_c4": {
+   "file": "fish_manatee_c4.png",
+   "w": 256,
+   "h": 106.71,
+   "smooth": false
+  },
+  "fish_manatee_c4_s": {
+   "file": "fish_manatee_c4_s.png",
+   "w": 256,
+   "h": 103.68,
+   "smooth": false
+  },
+  "fish_narwhal": {
+   "file": "fish_narwhal.png",
+   "w": 256,
+   "h": 66.18,
+   "smooth": false
+  },
+  "fish_narwhal_s": {
+   "file": "fish_narwhal_s.png",
+   "w": 256,
+   "h": 74.76,
+   "smooth": false
+  },
+  "fish_narwhal_c2": {
+   "file": "fish_narwhal_c2.png",
+   "w": 256,
+   "h": 66.18,
+   "smooth": false
+  },
+  "fish_narwhal_c2_s": {
+   "file": "fish_narwhal_c2_s.png",
+   "w": 256,
+   "h": 75.08,
+   "smooth": false
+  },
+  "fish_narwhal_c3": {
+   "file": "fish_narwhal_c3.png",
+   "w": 256,
+   "h": 65.72,
+   "smooth": false
+  },
+  "fish_narwhal_c3_s": {
+   "file": "fish_narwhal_c3_s.png",
+   "w": 256,
+   "h": 75.53,
+   "smooth": false
+  },
+  "fish_narwhal_c4": {
+   "file": "fish_narwhal_c4.png",
+   "w": 256,
+   "h": 65.72,
+   "smooth": false
+  },
+  "fish_narwhal_c4_s": {
+   "file": "fish_narwhal_c4_s.png",
+   "w": 256,
+   "h": 75.08,
+   "smooth": false
+  },
+  "fish_sea_snake": {
+   "file": "fish_sea_snake.png",
+   "w": 256,
+   "h": 32.86,
+   "smooth": false
+  },
+  "fish_sea_snake_s": {
+   "file": "fish_sea_snake_s.png",
+   "w": 256,
+   "h": 33.73,
+   "smooth": false
+  },
+  "fish_sea_snake_c2": {
+   "file": "fish_sea_snake_c2.png",
+   "w": 256,
+   "h": 32.0,
+   "smooth": false
+  },
+  "fish_sea_snake_c2_s": {
+   "file": "fish_sea_snake_c2_s.png",
+   "w": 256,
+   "h": 33.73,
+   "smooth": false
+  },
+  "fish_sea_snake_c3": {
+   "file": "fish_sea_snake_c3.png",
+   "w": 256,
+   "h": 33.35,
+   "smooth": false
+  },
+  "fish_sea_snake_c3_s": {
+   "file": "fish_sea_snake_c3_s.png",
+   "w": 256,
+   "h": 33.3,
+   "smooth": false
+  },
+  "fish_sea_snake_c4": {
+   "file": "fish_sea_snake_c4.png",
+   "w": 256,
+   "h": 31.57,
+   "smooth": false
+  },
+  "fish_sea_snake_c4_s": {
+   "file": "fish_sea_snake_c4_s.png",
+   "w": 256,
+   "h": 32.86,
+   "smooth": false
+  },
+  "fish_crocodile": {
+   "file": "fish_crocodile.png",
+   "w": 256,
+   "h": 63.57,
+   "smooth": false
+  },
+  "fish_crocodile_s": {
+   "file": "fish_crocodile_s.png",
+   "w": 256,
+   "h": 66.58,
+   "smooth": false
+  },
+  "fish_crocodile_c2": {
+   "file": "fish_crocodile_c2.png",
+   "w": 256,
+   "h": 63.15,
+   "smooth": false
+  },
+  "fish_crocodile_c2_s": {
+   "file": "fish_crocodile_c2_s.png",
+   "w": 256,
+   "h": 67.44,
+   "smooth": false
+  },
+  "fish_crocodile_c3": {
+   "file": "fish_crocodile_c3.png",
+   "w": 256,
+   "h": 64.85,
+   "smooth": false
+  },
+  "fish_crocodile_c3_s": {
+   "file": "fish_crocodile_c3_s.png",
+   "w": 256,
+   "h": 67.98,
+   "smooth": false
+  },
+  "fish_crocodile_c4": {
+   "file": "fish_crocodile_c4.png",
+   "w": 256,
+   "h": 64.43,
+   "smooth": false
+  },
+  "fish_crocodile_c4_s": {
+   "file": "fish_crocodile_c4_s.png",
+   "w": 256,
+   "h": 69.15,
+   "smooth": false
+  },
+  "fish_plesiosaur": {
+   "file": "fish_plesiosaur.png",
+   "w": 256,
+   "h": 60.26,
+   "smooth": false
+  },
+  "fish_plesiosaur_s": {
+   "file": "fish_plesiosaur_s.png",
+   "w": 256,
+   "h": 71.28,
+   "smooth": false
+  },
+  "fish_plesiosaur_c2": {
+   "file": "fish_plesiosaur_c2.png",
+   "w": 256,
+   "h": 59.88,
+   "smooth": false
+  },
+  "fish_plesiosaur_c2_s": {
+   "file": "fish_plesiosaur_c2_s.png",
+   "w": 256,
+   "h": 71.28,
+   "smooth": false
+  },
+  "fish_plesiosaur_c3": {
+   "file": "fish_plesiosaur_c3.png",
+   "w": 256,
+   "h": 60.26,
+   "smooth": false
+  },
+  "fish_plesiosaur_c3_s": {
+   "file": "fish_plesiosaur_c3_s.png",
+   "w": 256,
+   "h": 71.17,
+   "smooth": false
+  },
+  "fish_plesiosaur_c4": {
+   "file": "fish_plesiosaur_c4.png",
+   "w": 256,
+   "h": 59.88,
+   "smooth": false
+  },
+  "fish_plesiosaur_c4_s": {
+   "file": "fish_plesiosaur_c4_s.png",
+   "w": 256,
+   "h": 70.8,
+   "smooth": false
+  },
+  "fish_ammonite": {
+   "file": "fish_ammonite.png",
+   "w": 256,
+   "h": 151.7,
+   "smooth": false
+  },
+  "fish_ammonite_s": {
+   "file": "fish_ammonite_s.png",
+   "w": 256,
+   "h": 153.27,
+   "smooth": false
+  },
+  "fish_ammonite_c2": {
+   "file": "fish_ammonite_c2.png",
+   "w": 256,
+   "h": 151.7,
+   "smooth": false
+  },
+  "fish_ammonite_c2_s": {
+   "file": "fish_ammonite_c2_s.png",
+   "w": 256,
+   "h": 153.49,
+   "smooth": false
+  },
+  "fish_ammonite_c3": {
+   "file": "fish_ammonite_c3.png",
+   "w": 256,
+   "h": 151.93,
+   "smooth": false
+  },
+  "fish_ammonite_c3_s": {
+   "file": "fish_ammonite_c3_s.png",
+   "w": 256,
+   "h": 153.27,
+   "smooth": false
+  },
+  "fish_ammonite_c4": {
+   "file": "fish_ammonite_c4.png",
+   "w": 256,
+   "h": 152.93,
+   "smooth": false
+  },
+  "fish_ammonite_c4_s": {
+   "file": "fish_ammonite_c4_s.png",
+   "w": 256,
+   "h": 153.49,
+   "smooth": false
+  },
   "boat_1": {
    "file": "boat_1.png",
    "w": 32,
@@ -22,6 +1942,30 @@
    "file": "boat_4.png",
    "w": 56,
    "h": 41.4,
+   "smooth": true
+  },
+  "boat_5": {
+   "file": "boat_5.png",
+   "w": 64,
+   "h": 52.64,
+   "smooth": true
+  },
+  "boat_6": {
+   "file": "boat_6.png",
+   "w": 72,
+   "h": 49.76,
+   "smooth": true
+  },
+  "boat_7": {
+   "file": "boat_7.png",
+   "w": 80,
+   "h": 58.57,
+   "smooth": true
+  },
+  "boat_8": {
+   "file": "boat_8.png",
+   "w": 88,
+   "h": 75.04,
    "smooth": true
   },
   "body_1": {
@@ -72,59 +2016,611 @@
    "h": 40,
    "smooth": true
   },
-  "fish_mackerel": {
-   "file": "fish_mackerel.png",
-   "w": 256,
-   "h": 89.11,
-   "smooth": false
-  },
-  "fish_mackerel_s": {
-   "file": "fish_mackerel_s.png",
-   "w": 256,
-   "h": 97.17,
-   "smooth": false
-  },
-  "fish_anchovy": {
-   "file": "fish_anchovy.png",
-   "w": 256,
-   "h": 41.26,
-   "smooth": false
-  },
-  "fish_anchovy_s": {
-   "file": "fish_anchovy_s.png",
-   "w": 256,
-   "h": 45.73,
-   "smooth": false
-  },
-  "fish_bream": {
-   "file": "fish_bream.png",
-   "w": 256,
-   "h": 139.11,
-   "smooth": false
-  },
-  "fish_bream_s": {
-   "file": "fish_bream_s.png",
-   "w": 256,
-   "h": 148.94,
-   "smooth": false
-  },
-  "fish_flounder": {
-   "file": "fish_flounder.png",
-   "w": 256,
-   "h": 120.44,
-   "smooth": false
-  },
-  "fish_flounder_s": {
-   "file": "fish_flounder_s.png",
-   "w": 256,
-   "h": 131.3,
-   "smooth": false
-  },
   "shadow": {
    "file": "shadow.png",
    "w": 256,
    "h": 86.9,
    "smooth": false
+  },
+  "head": {
+   "file": "head.png",
+   "w": 32.82,
+   "h": 28,
+   "smooth": true
+  },
+  "hat_1": {
+   "file": "hat_1.png",
+   "w": 36,
+   "h": 21.58,
+   "smooth": true
+  },
+  "hat_2": {
+   "file": "hat_2.png",
+   "w": 36,
+   "h": 23.75,
+   "smooth": true
+  },
+  "hat_3": {
+   "file": "hat_3.png",
+   "w": 36,
+   "h": 33.39,
+   "smooth": true
+  },
+  "hat_4": {
+   "file": "hat_4.png",
+   "w": 36,
+   "h": 23.14,
+   "smooth": true
+  },
+  "hat_5": {
+   "file": "hat_5.png",
+   "w": 36,
+   "h": 30.65,
+   "smooth": true
+  },
+  "hat_6": {
+   "file": "hat_6.png",
+   "w": 36,
+   "h": 31.63,
+   "smooth": true
+  },
+  "hat_7": {
+   "file": "hat_7.png",
+   "w": 36,
+   "h": 36.12,
+   "smooth": true
+  },
+  "hat_8": {
+   "file": "hat_8.png",
+   "w": 36,
+   "h": 20.63,
+   "smooth": true
+  },
+  "char_sea": {
+   "file": "char_sea.png",
+   "w": 4.98,
+   "h": 6,
+   "smooth": true
+  },
+  "fantasy_01": {
+   "file": "fantasy_01.png",
+   "w": 384,
+   "h": 162.07,
+   "smooth": false
+  },
+  "fantasy_01_s": {
+   "file": "fantasy_01_s.png",
+   "w": 384,
+   "h": 167.11,
+   "smooth": false
+  },
+  "fantasy_02": {
+   "file": "fantasy_02.png",
+   "w": 384,
+   "h": 152.78,
+   "smooth": false
+  },
+  "fantasy_02_s": {
+   "file": "fantasy_02_s.png",
+   "w": 384,
+   "h": 158.45,
+   "smooth": false
+  },
+  "fantasy_03": {
+   "file": "fantasy_03.png",
+   "w": 384,
+   "h": 128.3,
+   "smooth": false
+  },
+  "fantasy_03_s": {
+   "file": "fantasy_03_s.png",
+   "w": 384,
+   "h": 138.9,
+   "smooth": false
+  },
+  "fantasy_04": {
+   "file": "fantasy_04.png",
+   "w": 384,
+   "h": 134.45,
+   "smooth": false
+  },
+  "fantasy_04_s": {
+   "file": "fantasy_04_s.png",
+   "w": 384,
+   "h": 135.47,
+   "smooth": false
+  },
+  "fantasy_05": {
+   "file": "fantasy_05.png",
+   "w": 384,
+   "h": 213.12,
+   "smooth": false
+  },
+  "fantasy_05_s": {
+   "file": "fantasy_05_s.png",
+   "w": 384,
+   "h": 257.1,
+   "smooth": false
+  },
+  "fantasy_06": {
+   "file": "fantasy_06.png",
+   "w": 384,
+   "h": 110.26,
+   "smooth": false
+  },
+  "fantasy_06_s": {
+   "file": "fantasy_06_s.png",
+   "w": 384,
+   "h": 137.79,
+   "smooth": false
+  },
+  "fantasy_07": {
+   "file": "fantasy_07.png",
+   "w": 384,
+   "h": 174.83,
+   "smooth": false
+  },
+  "fantasy_07_s": {
+   "file": "fantasy_07_s.png",
+   "w": 384,
+   "h": 192.58,
+   "smooth": false
+  },
+  "fantasy_08": {
+   "file": "fantasy_08.png",
+   "w": 384,
+   "h": 114.32,
+   "smooth": false
+  },
+  "fantasy_08_s": {
+   "file": "fantasy_08_s.png",
+   "w": 384,
+   "h": 132.58,
+   "smooth": false
+  },
+  "fantasy_09": {
+   "file": "fantasy_09.png",
+   "w": 384,
+   "h": 82.46,
+   "smooth": false
+  },
+  "fantasy_09_s": {
+   "file": "fantasy_09_s.png",
+   "w": 384,
+   "h": 93.52,
+   "smooth": false
+  },
+  "fantasy_10": {
+   "file": "fantasy_10.png",
+   "w": 384,
+   "h": 203.97,
+   "smooth": false
+  },
+  "fantasy_10_s": {
+   "file": "fantasy_10_s.png",
+   "w": 384,
+   "h": 202.4,
+   "smooth": false
+  },
+  "fantasy_11": {
+   "file": "fantasy_11.png",
+   "w": 384,
+   "h": 134.93,
+   "smooth": false
+  },
+  "fantasy_11_s": {
+   "file": "fantasy_11_s.png",
+   "w": 384,
+   "h": 157.02,
+   "smooth": false
+  },
+  "fantasy_12": {
+   "file": "fantasy_12.png",
+   "w": 384,
+   "h": 126.89,
+   "smooth": false
+  },
+  "fantasy_12_s": {
+   "file": "fantasy_12_s.png",
+   "w": 384,
+   "h": 135.0,
+   "smooth": false
+  },
+  "fantasy_13": {
+   "file": "fantasy_13.png",
+   "w": 384,
+   "h": 69.16,
+   "smooth": false
+  },
+  "fantasy_13_s": {
+   "file": "fantasy_13_s.png",
+   "w": 384,
+   "h": 92.17,
+   "smooth": false
+  },
+  "fantasy_14": {
+   "file": "fantasy_14.png",
+   "w": 384,
+   "h": 96.07,
+   "smooth": false
+  },
+  "fantasy_14_s": {
+   "file": "fantasy_14_s.png",
+   "w": 384,
+   "h": 112.6,
+   "smooth": false
+  },
+  "fantasy_15": {
+   "file": "fantasy_15.png",
+   "w": 384,
+   "h": 126.88,
+   "smooth": false
+  },
+  "fantasy_15_s": {
+   "file": "fantasy_15_s.png",
+   "w": 384,
+   "h": 132.53,
+   "smooth": false
+  },
+  "fantasy_16": {
+   "file": "fantasy_16.png",
+   "w": 384,
+   "h": 90.51,
+   "smooth": false
+  },
+  "fantasy_16_s": {
+   "file": "fantasy_16_s.png",
+   "w": 384,
+   "h": 109.27,
+   "smooth": false
+  },
+  "fantasy_17": {
+   "file": "fantasy_17.png",
+   "w": 384,
+   "h": 108.3,
+   "smooth": false
+  },
+  "fantasy_17_s": {
+   "file": "fantasy_17_s.png",
+   "w": 384,
+   "h": 117.94,
+   "smooth": false
+  },
+  "fantasy_18": {
+   "file": "fantasy_18.png",
+   "w": 384,
+   "h": 114.33,
+   "smooth": false
+  },
+  "fantasy_18_s": {
+   "file": "fantasy_18_s.png",
+   "w": 384,
+   "h": 152.19,
+   "smooth": false
+  },
+  "fantasy_19": {
+   "file": "fantasy_19.png",
+   "w": 384,
+   "h": 110.33,
+   "smooth": false
+  },
+  "fantasy_19_s": {
+   "file": "fantasy_19_s.png",
+   "w": 384,
+   "h": 146.05,
+   "smooth": false
+  },
+  "fantasy_20": {
+   "file": "fantasy_20.png",
+   "w": 384,
+   "h": 123.54,
+   "smooth": false
+  },
+  "fantasy_20_s": {
+   "file": "fantasy_20_s.png",
+   "w": 384,
+   "h": 155.31,
+   "smooth": false
+  },
+  "fantasy_21": {
+   "file": "fantasy_21.png",
+   "w": 384,
+   "h": 130.74,
+   "smooth": false
+  },
+  "fantasy_21_s": {
+   "file": "fantasy_21_s.png",
+   "w": 384,
+   "h": 152.89,
+   "smooth": false
+  },
+  "fantasy_22": {
+   "file": "fantasy_22.png",
+   "w": 384,
+   "h": 109.95,
+   "smooth": false
+  },
+  "fantasy_22_s": {
+   "file": "fantasy_22_s.png",
+   "w": 384,
+   "h": 138.03,
+   "smooth": false
+  },
+  "fantasy_23": {
+   "file": "fantasy_23.png",
+   "w": 384,
+   "h": 128.0,
+   "smooth": false
+  },
+  "fantasy_23_s": {
+   "file": "fantasy_23_s.png",
+   "w": 384,
+   "h": 134.14,
+   "smooth": false
+  },
+  "fantasy_24": {
+   "file": "fantasy_24.png",
+   "w": 384,
+   "h": 111.58,
+   "smooth": false
+  },
+  "fantasy_24_s": {
+   "file": "fantasy_24_s.png",
+   "w": 384,
+   "h": 130.45,
+   "smooth": false
+  },
+  "fantasy_25": {
+   "file": "fantasy_25.png",
+   "w": 384,
+   "h": 92.51,
+   "smooth": false
+  },
+  "fantasy_25_s": {
+   "file": "fantasy_25_s.png",
+   "w": 384,
+   "h": 108.42,
+   "smooth": false
+  },
+  "fantasy_26": {
+   "file": "fantasy_26.png",
+   "w": 384,
+   "h": 86.94,
+   "smooth": false
+  },
+  "fantasy_26_s": {
+   "file": "fantasy_26_s.png",
+   "w": 384,
+   "h": 102.03,
+   "smooth": false
+  },
+  "fantasy_27": {
+   "file": "fantasy_27.png",
+   "w": 384,
+   "h": 99.02,
+   "smooth": false
+  },
+  "fantasy_27_s": {
+   "file": "fantasy_27_s.png",
+   "w": 384,
+   "h": 108.62,
+   "smooth": false
+  },
+  "fantasy_28": {
+   "file": "fantasy_28.png",
+   "w": 384,
+   "h": 82.75,
+   "smooth": false
+  },
+  "fantasy_28_s": {
+   "file": "fantasy_28_s.png",
+   "w": 384,
+   "h": 102.71,
+   "smooth": false
+  },
+  "fantasy_29": {
+   "file": "fantasy_29.png",
+   "w": 384,
+   "h": 121.46,
+   "smooth": false
+  },
+  "fantasy_29_s": {
+   "file": "fantasy_29_s.png",
+   "w": 384,
+   "h": 154.07,
+   "smooth": false
+  },
+  "fantasy_30": {
+   "file": "fantasy_30.png",
+   "w": 384,
+   "h": 110.38,
+   "smooth": false
+  },
+  "fantasy_30_s": {
+   "file": "fantasy_30_s.png",
+   "w": 384,
+   "h": 145.39,
+   "smooth": false
+  },
+  "fantasy_31": {
+   "file": "fantasy_31.png",
+   "w": 384,
+   "h": 86.82,
+   "smooth": false
+  },
+  "fantasy_31_s": {
+   "file": "fantasy_31_s.png",
+   "w": 384,
+   "h": 107.32,
+   "smooth": false
+  },
+  "fantasy_32": {
+   "file": "fantasy_32.png",
+   "w": 384,
+   "h": 134.06,
+   "smooth": false
+  },
+  "fantasy_32_s": {
+   "file": "fantasy_32_s.png",
+   "w": 384,
+   "h": 165.94,
+   "smooth": false
+  },
+  "fantasy_33": {
+   "file": "fantasy_33.png",
+   "w": 384,
+   "h": 112.21,
+   "smooth": false
+  },
+  "fantasy_33_s": {
+   "file": "fantasy_33_s.png",
+   "w": 384,
+   "h": 118.3,
+   "smooth": false
+  },
+  "fantasy_34": {
+   "file": "fantasy_34.png",
+   "w": 384,
+   "h": 126.37,
+   "smooth": false
+  },
+  "fantasy_34_s": {
+   "file": "fantasy_34_s.png",
+   "w": 384,
+   "h": 152.64,
+   "smooth": false
+  },
+  "fantasy_35": {
+   "file": "fantasy_35.png",
+   "w": 384,
+   "h": 112.61,
+   "smooth": false
+  },
+  "fantasy_35_s": {
+   "file": "fantasy_35_s.png",
+   "w": 384,
+   "h": 145.72,
+   "smooth": false
+  },
+  "fantasy_36": {
+   "file": "fantasy_36.png",
+   "w": 384,
+   "h": 75.43,
+   "smooth": false
+  },
+  "fantasy_36_s": {
+   "file": "fantasy_36_s.png",
+   "w": 384,
+   "h": 95.66,
+   "smooth": false
+  },
+  "fantasy_37": {
+   "file": "fantasy_37.png",
+   "w": 384,
+   "h": 117.13,
+   "smooth": false
+  },
+  "fantasy_37_s": {
+   "file": "fantasy_37_s.png",
+   "w": 384,
+   "h": 137.12,
+   "smooth": false
+  },
+  "rod_1": {
+   "file": "rod_1.png",
+   "w": 36,
+   "h": 2.45,
+   "smooth": true
+  },
+  "rod_2": {
+   "file": "rod_2.png",
+   "w": 36,
+   "h": 2.47,
+   "smooth": true
+  },
+  "rod_3": {
+   "file": "rod_3.png",
+   "w": 36,
+   "h": 2.44,
+   "smooth": true
+  },
+  "rod_4": {
+   "file": "rod_4.png",
+   "w": 36,
+   "h": 2.4,
+   "smooth": true
+  },
+  "rod_5": {
+   "file": "rod_5.png",
+   "w": 36,
+   "h": 2.77,
+   "smooth": true
+  },
+  "rod_6": {
+   "file": "rod_6.png",
+   "w": 36,
+   "h": 2.39,
+   "smooth": true
+  },
+  "rod_7": {
+   "file": "rod_7.png",
+   "w": 36,
+   "h": 2.68,
+   "smooth": true
+  },
+  "rod_8": {
+   "file": "rod_8.png",
+   "w": 36,
+   "h": 2.88,
+   "smooth": true
+  },
+  "float_1": {
+   "file": "float_1.png",
+   "w": 5.01,
+   "h": 12,
+   "smooth": true
+  },
+  "float_2": {
+   "file": "float_2.png",
+   "w": 6.4,
+   "h": 12,
+   "smooth": true
+  },
+  "float_3": {
+   "file": "float_3.png",
+   "w": 5.7,
+   "h": 12,
+   "smooth": true
+  },
+  "float_4": {
+   "file": "float_4.png",
+   "w": 5.92,
+   "h": 12,
+   "smooth": true
+  },
+  "float_5": {
+   "file": "float_5.png",
+   "w": 6.03,
+   "h": 12,
+   "smooth": true
+  },
+  "float_6": {
+   "file": "float_6.png",
+   "w": 6.56,
+   "h": 12,
+   "smooth": true
+  },
+  "float_7": {
+   "file": "float_7.png",
+   "w": 6.02,
+   "h": 12,
+   "smooth": true
+  },
+  "float_8": {
+   "file": "float_8.png",
+   "w": 5.89,
+   "h": 12,
+   "smooth": true
   }
  }
 }

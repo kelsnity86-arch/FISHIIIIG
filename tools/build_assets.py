@@ -35,10 +35,14 @@ SHEETS = {
     'char_body': [dict(name=f'body_{i + 1}', h=40) for i in range(8)],
     # 생물 하나당 한 장: 4행(색) × 2열(평소·놀람). 1행 = 기본 이름, 2~4행 = _c2~_c4, 놀람 = _s
     'shadow': [dict(name='shadow', w=256, upscale=True)],   # 여러 개가 와도 첫 번째만 쓴다
+    'char_head': [dict(name='head', h=28)] + [dict(name=f'hat_{i + 1}', w=36) for i in range(8)] + [dict(name='char_sea', h=6)],
+    **{f'fantasy_{i:02d}': [dict(name=f'fantasy_{i:02d}', w=384, upscale=True), dict(name=f'fantasy_{i:02d}_s', w=384, upscale=True)]
+       for i in range(1, 41)},
     'rod': [dict(name=f'rod_{i + 1}', w=36) for i in range(8)],
     'float': [dict(name=f'float_{i + 1}', h=12) for i in range(8)],
 }
 
+GRID = {8: (4, 2), 2: (2, 1)}   # 자동 분리가 안 될 때 쓰는 격자 (생물 시트, 환상종)
 OVERSAMPLE = 4      # 줄이는 그림은 게임 크기의 4배로 저장 (화면 확대 배율까지 선명하게)
 ALPHA_MIN = 40      # 이보다 흐린 점은 배경으로 본다
 MIN_GAP = 6         # 그림 사이로 인정하는 최소 빈 줄 수
@@ -88,6 +92,34 @@ def find_sprites(a):
     return boxes
 
 
+def split_grid(a, rows, cols):
+    """그림끼리 닿아 자동으로 못 나눌 때: 정해진 격자(rows×cols)로, 경계 근처에서 가장 빈 줄을 골라 자른다."""
+    solid = a[..., 3] > ALPHA_MIN
+    ys = np.where(solid.any(axis=1))[0]; xs = np.where(solid.any(axis=0))[0]
+    y0, y1, x0, x1 = ys[0], ys[-1] + 1, xs[0], xs[-1] + 1
+
+    def cuts(profile, start, end, n):
+        out, step = [start], (end - start) / n
+        for k in range(1, n):
+            c = start + step * k
+            lo, hi = int(c - step * 0.2), int(c + step * 0.2)
+            out.append(lo + int(np.argmin(profile[lo:hi])))
+        return out + [end]
+
+    boxes = []
+    yc = cuts(solid.sum(axis=1), y0, y1, rows)
+    for r in range(rows):
+        band = solid[yc[r]:yc[r + 1]]
+        xc = cuts(band.sum(axis=0), x0, x1, cols)
+        for c in range(cols):
+            cell = band[:, xc[c]:xc[c + 1]]
+            yy = np.where(cell.any(axis=1))[0]; xx = np.where(cell.any(axis=0))[0]
+            if len(yy) == 0:
+                return None
+            boxes.append((xc[c] + xx[0], yc[r] + yy[0], xc[c] + xx[-1] + 1, yc[r] + yy[-1] + 1))
+    return boxes
+
+
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     manifest, problems = {}, []
@@ -99,6 +131,8 @@ def build():
         boxes = find_sprites(a)
         if len(items) == 1 and boxes:
             boxes = boxes[:1]
+        if len(boxes) != len(items) and len(items) in GRID:
+            boxes = split_grid(a, *GRID[len(items)]) or boxes
         if len(boxes) != len(items):
             problems.append(f'{src.name}: 그림 {len(items)}개가 필요한데 {len(boxes)}개를 찾음 → 건너뜀')
             continue
