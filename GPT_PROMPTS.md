@@ -3782,3 +3782,358 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fx_drops.png
 ```
 
+---
+
+## ⑮ 목표 화면(assets/concept) 재현용 레이어
+
+목표 화면 3장을 그대로 재현하기 위한 부품. 화풍은 목표 화면과 똑같아야 한다.
+
+### 130. `c_sky` — 하늘·구름·섬 (수평선 위 전체)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Opaque image.
+
+Recreate ONLY the part of concept_1 above the horizon: the sky, all the clouds, the distant
+mountains and the islands, exactly as in concept_1, but WITHOUT the boat, the fisherman, the
+fishing rod and the fishing line. Very wide 3:1 image whose bottom edge is the flat horizon line.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky.png
+```
+
+### 131. `c_sea` — 물 단면 (수면 아래 전체)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Opaque image.
+
+Recreate ONLY the underwater part of concept_1: the cross-section of the sea, clear teal near
+the top getting gradually darker to deep navy at the bottom, with very soft diffuse light near
+the top. No creatures, no shadows, no float, no bubbles, no surface line. Wide 16:7 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea.png
+```
+
+### 132. `c_farsea` — 먼 바다 수면 띠
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A very wide thin strip of the distant sea surface as seen in concept_1 between the horizon and
+the wave line: blue water with small ripples and bright sun glints. It must repeat seamlessly
+left to right. Very wide 8:1 image, opaque inside the strip.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_farsea.png
+```
+
+### 133. `c_wave` — 수면선 파도 (잔잔할 때)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A very wide strip of the water surface line exactly as in concept_1: gentle rolling waves seen
+from the side with a bright white-cream foam edge on top and translucent turquoise water just
+below, fading to fully transparent toward the bottom; fully transparent above the waves.
+It must repeat seamlessly left to right. Very wide 8:1 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_wave.png
+```
+
+### 134. `c_wave_rough` — 수면선 파도 (거칠 때)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A very wide strip of the water surface line as in concept_2 away from the fish: bigger choppy
+waves seen from the side with thicker white foam and small flying spray, translucent turquoise
+water just below fading to fully transparent toward the bottom; fully transparent above.
+It must repeat seamlessly left to right. Very wide 8:1 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_wave_rough.png
+```
+
+### 135. `c_boat` — 배와 낚시꾼 3자세
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A sprite sheet of 3 versions of the tiny wooden rowboat with the fisherman in a blue coat and
+hat, exactly as in the concepts, side view facing left, in one row, evenly spaced, not
+touching. Draw NO fishing rod and no water. In order: 1) sitting calmly, hands forward as if
+holding a rod (concept_1), 2) leaning far back, pulling hard (concept_2), 3) standing braced,
+leaning back with arms raised (concept_3). Same boat and same size in all three.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat.png
+```
+
+### 136. `c_rod` — 낚싯대
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One sprite: the fisherman's fishing rod from the concepts, drawn perfectly straight and
+perfectly horizontal, thin dark rod, tip on the left, handle on the right, no line.
+Very wide image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_rod.png
+```
+
+### 137. `c_float` — 찌
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One sprite: the fishing float from concept_1, standing upright: red top half, white bottom
+half, a thin antenna on top and a thin stem below. Painted like in the concept.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_float.png
+```
+
+### 138. `c_shadow` — 물속 그림자
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One sprite: the huge dark shadow of a sea creature seen through water, exactly like the shadow
+in concept_1: a soft blurry whale-like silhouette in dark blue-teal with very soft feathered
+edges, no details, no eye. Side view facing left, body straight and horizontal, filling a
+3:1 wide image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_shadow.png
+```
+
+### 139. `c_bubbles` — 물속 공기방울 4묶음
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A sprite sheet of 4 clusters of underwater air bubbles as in concept_2, in a 2x2 grid, evenly
+spaced, not touching: each a loose swarm of many small translucent bubbles of different sizes
+with bright rims.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_bubbles.png
+```
+
+### 140. `c_thrash` — 수면 몸부림 파도
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One large sprite: the big curling wave with white foam and flying spray that bursts up from the
+water surface where the fish thrashes in concept_2. Only the wave and spray above and at the
+water line, base at the bottom, wide 2:1 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_thrash.png
+```
+
+### 141. `c_bowspray` — 뱃머리 물살 2개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A sprite sheet of 2 sprays of water at the bow of a small boat being dragged through the water,
+as around the boat in concept_2 and concept_3, side by side, not touching: 1) a small spray,
+2) a larger curling wave with foam. The water is thrown to the left.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_bowspray.png
+```
+
+### 142. `c_erupt` — 물 폭발 (낚아 올릴 때)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One very large sprite: the huge explosion of water at the base of the leaping whale in
+concept_3: tall sheets and curtains of white-cream foaming water thrown upward and outward to
+both sides with curling turquoise waves at the bottom and glittering spray. No whale.
+Base at the bottom, wide 2:1 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_erupt.png
+```
+
+### 143. `c_spray` — 물보라 덩어리 4개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+A sprite sheet of 4 pieces of flying sea spray as in concept_3, in a 2x2 grid, evenly spaced,
+not touching: arcs and clouds of many fine glittering white-gold water droplets, each a
+different shape.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_spray.png
+```
+
+### 144. `c_rays` — 금빛 빛줄기
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One sprite: the radial burst of soft golden light rays seen behind the whale in concept_3, by
+itself. Warm gold rays spreading evenly in all directions from a bright center and fading to
+transparent at the tips. Centered, square image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_rays.png
+```
+
+### 145. `c_shafts` — 물속 빛살
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One sprite: the soft shafts of sunlight shining down into the water under the surface in
+concept_3, by themselves: pale turquoise-white diagonal beams, brightest at the top and fading
+to transparent toward the bottom. Wide 2:1 image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_shafts.png
+```
+
+### 146. `c_whale_leap` — 고래: 솟구치는 자세
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One large sprite: the whale from concept_3 by itself, in exactly the same arched leaping pose,
+facing right, mouth slightly open, with the same wet shine and rim light on its back.
+No water splash, no fishing line, no background. The whole body including the tail must be
+visible. Wide image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_whale_leap.png
+```
+
+### 147. `c_whale_fall` — 고래: 떨어지는 자세
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). These three concept screenshots are
+the target look of the game. Every image you make must look like it was cut out of them:
+the same painterly storybook rendering, the same colors, the same lighting, the same level
+of detail. Do not use a pixel-art look that differs from the concepts.
+
+No text. Fully transparent background.
+
+One large sprite: the same whale as in concept_3, same style, now falling back toward the sea:
+body rolled onto its side and back showing the pale grooved belly, head lower than the tail,
+fins spread, facing right. No water, no fishing line, no background. The whole body must be
+visible. Wide image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_whale_fall.png
+```
+
