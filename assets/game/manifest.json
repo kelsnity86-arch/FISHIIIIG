@@ -2526,6 +2526,42 @@
    "h": 137.12,
    "smooth": false
   },
+  "fantasy_38": {
+   "file": "fantasy_38.png",
+   "w": 384,
+   "h": 94.42,
+   "smooth": false
+  },
+  "fantasy_38_s": {
+   "file": "fantasy_38_s.png",
+   "w": 384,
+   "h": 114.24,
+   "smooth": false
+  },
+  "fantasy_39": {
+   "file": "fantasy_39.png",
+   "w": 384,
+   "h": 75.65,
+   "smooth": false
+  },
+  "fantasy_39_s": {
+   "file": "fantasy_39_s.png",
+   "w": 384,
+   "h": 99.76,
+   "smooth": false
+  },
+  "fantasy_40": {
+   "file": "fantasy_40.png",
+   "w": 384,
+   "h": 118.79,
+   "smooth": false
+  },
+  "fantasy_40_s": {
+   "file": "fantasy_40_s.png",
+   "w": 384,
+   "h": 147.8,
+   "smooth": false
+  },
   "rod_1": {
    "file": "rod_1.png",
    "w": 36,
@@ -2620,6 +2656,1068 @@
    "file": "float_8.png",
    "w": 5.89,
    "h": 12,
+   "smooth": true
+  },
+  "bg_region1": {
+   "file": "bg_region1.png",
+   "w": 640,
+   "h": 43.02,
+   "smooth": true
+  },
+  "bg_region2": {
+   "file": "bg_region2.png",
+   "w": 640,
+   "h": 51.86,
+   "smooth": true
+  },
+  "bg_region3": {
+   "file": "bg_region3.png",
+   "w": 640,
+   "h": 28.58,
+   "smooth": true
+  },
+  "bg_region4": {
+   "file": "bg_region4.png",
+   "w": 640,
+   "h": 13.55,
+   "smooth": true
+  },
+  "bg_region5": {
+   "file": "bg_region5.png",
+   "w": 640,
+   "h": 55.99,
+   "smooth": true
+  },
+  "bg_region6": {
+   "file": "bg_region6.png",
+   "w": 640,
+   "h": 132.3,
+   "smooth": true
+  },
+  "bg_region7": {
+   "file": "bg_region7.png",
+   "w": 640,
+   "h": 101.66,
+   "smooth": true
+  },
+  "bg_region8": {
+   "file": "bg_region8.png",
+   "w": 640,
+   "h": 113.44,
+   "smooth": true
+  },
+  "bg_sky": {
+   "file": "bg_sky.png",
+   "w": 640,
+   "h": 360.19,
+   "smooth": true
+  },
+  "bg_sea": {
+   "file": "bg_sea.png",
+   "w": 640,
+   "h": 213.33,
+   "smooth": true
+  },
+  "map_bg": {
+   "file": "map_bg.png",
+   "w": 640,
+   "h": 360.19,
+   "smooth": true
+  },
+  "harbor_bg": {
+   "file": "harbor_bg.png",
+   "w": 640,
+   "h": 360.19,
+   "smooth": true
+  },
+  "cloud_1": {
+   "file": "cloud_1.png",
+   "w": 64,
+   "h": 29.77,
+   "smooth": true
+  },
+  "cloud_2": {
+   "file": "cloud_2.png",
+   "w": 64,
+   "h": 35.26,
+   "smooth": true
+  },
+  "cloud_3": {
+   "file": "cloud_3.png",
+   "w": 64,
+   "h": 27.58,
+   "smooth": true
+  },
+  "cloud_4": {
+   "file": "cloud_4.png",
+   "w": 64,
+   "h": 41.78,
+   "smooth": true
+  },
+  "cloud_5": {
+   "file": "cloud_5.png",
+   "w": 64,
+   "h": 26.21,
+   "smooth": true
+  },
+  "cloud_6": {
+   "file": "cloud_6.png",
+   "w": 64,
+   "h": 35.91,
+   "smooth": true
+  },
+  "wave_1": {
+   "file": "wave_1.png",
+   "w": 64,
+   "h": 1.22,
+   "smooth": true
+  },
+  "wave_2": {
+   "file": "wave_2.png",
+   "w": 64,
+   "h": 2.42,
+   "smooth": true
+  },
+  "wave_3": {
+   "file": "wave_3.png",
+   "w": 64,
+   "h": 2.92,
+   "smooth": true
+  },
+  "pattern_1": {
+   "file": "pattern_1.png",
+   "w": 64,
+   "h": 67.41,
+   "smooth": true
+  },
+  "pattern_2": {
+   "file": "pattern_2.png",
+   "w": 64,
+   "h": 67.42,
+   "smooth": true
+  },
+  "pattern_3": {
+   "file": "pattern_3.png",
+   "w": 64,
+   "h": 67.24,
+   "smooth": true
+  },
+  "pattern_4": {
+   "file": "pattern_4.png",
+   "w": 64,
+   "h": 66.16,
+   "smooth": true
+  },
+  "pattern_5": {
+   "file": "pattern_5.png",
+   "w": 64,
+   "h": 66.32,
+   "smooth": true
+  },
+  "pattern_6": {
+   "file": "pattern_6.png",
+   "w": 64,
+   "h": 66.15,
+   "smooth": true
+  },
+  "part_1": {
+   "file": "part_1.png",
+   "w": 32,
+   "h": 31.84,
+   "smooth": true
+  },
+  "part_2": {
+   "file": "part_2.png",
+   "w": 32,
+   "h": 29.03,
+   "smooth": true
+  },
+  "part_3": {
+   "file": "part_3.png",
+   "w": 32,
+   "h": 22.99,
+   "smooth": true
+  },
+  "part_4": {
+   "file": "part_4.png",
+   "w": 32,
+   "h": 28.58,
+   "smooth": true
+  },
+  "part_5": {
+   "file": "part_5.png",
+   "w": 32,
+   "h": 28.24,
+   "smooth": true
+  },
+  "part_6": {
+   "file": "part_6.png",
+   "w": 32,
+   "h": 30.28,
+   "smooth": true
+  },
+  "part_7": {
+   "file": "part_7.png",
+   "w": 32,
+   "h": 26.64,
+   "smooth": true
+  },
+  "part_8": {
+   "file": "part_8.png",
+   "w": 32,
+   "h": 32.0,
+   "smooth": true
+  },
+  "part_9": {
+   "file": "part_9.png",
+   "w": 32,
+   "h": 26.51,
+   "smooth": true
+  },
+  "part_10": {
+   "file": "part_10.png",
+   "w": 32,
+   "h": 27.77,
+   "smooth": true
+  },
+  "part_11": {
+   "file": "part_11.png",
+   "w": 32,
+   "h": 22.84,
+   "smooth": true
+  },
+  "part_12": {
+   "file": "part_12.png",
+   "w": 32,
+   "h": 15.38,
+   "smooth": true
+  },
+  "part_13": {
+   "file": "part_13.png",
+   "w": 32,
+   "h": 29.71,
+   "smooth": true
+  },
+  "part_14": {
+   "file": "part_14.png",
+   "w": 32,
+   "h": 29.33,
+   "smooth": true
+  },
+  "part_15": {
+   "file": "part_15.png",
+   "w": 32,
+   "h": 23.41,
+   "smooth": true
+  },
+  "part_16": {
+   "file": "part_16.png",
+   "w": 32,
+   "h": 32.43,
+   "smooth": true
+  },
+  "fx_drop": {
+   "file": "fx_drop.png",
+   "w": 16,
+   "h": 21.38,
+   "smooth": true
+  },
+  "fx_splash": {
+   "file": "fx_splash.png",
+   "w": 16,
+   "h": 15.1,
+   "smooth": true
+  },
+  "fx_ring": {
+   "file": "fx_ring.png",
+   "w": 16,
+   "h": 8.76,
+   "smooth": true
+  },
+  "fx_foam": {
+   "file": "fx_foam.png",
+   "w": 16,
+   "h": 16.17,
+   "smooth": true
+  },
+  "fx_rain": {
+   "file": "fx_rain.png",
+   "w": 16,
+   "h": 18.68,
+   "smooth": true
+  },
+  "fx_snow": {
+   "file": "fx_snow.png",
+   "w": 16,
+   "h": 17.08,
+   "smooth": true
+  },
+  "fx_fog": {
+   "file": "fx_fog.png",
+   "w": 16,
+   "h": 9.88,
+   "smooth": true
+  },
+  "fx_bolt": {
+   "file": "fx_bolt.png",
+   "w": 16,
+   "h": 22.62,
+   "smooth": true
+  },
+  "fx_sparkle": {
+   "file": "fx_sparkle.png",
+   "w": 16,
+   "h": 18.14,
+   "smooth": true
+  },
+  "fx_dot": {
+   "file": "fx_dot.png",
+   "w": 16,
+   "h": 15.7,
+   "smooth": true
+  },
+  "fx_bang": {
+   "file": "fx_bang.png",
+   "w": 16,
+   "h": 14.7,
+   "smooth": true
+  },
+  "fx_sweat": {
+   "file": "fx_sweat.png",
+   "w": 16,
+   "h": 20.76,
+   "smooth": true
+  },
+  "fx_tear": {
+   "file": "fx_tear.png",
+   "w": 16,
+   "h": 22.99,
+   "smooth": true
+  },
+  "fx_note": {
+   "file": "fx_note.png",
+   "w": 16,
+   "h": 15.91,
+   "smooth": true
+  },
+  "fx_heart": {
+   "file": "fx_heart.png",
+   "w": 16,
+   "h": 12.69,
+   "smooth": true
+  },
+  "fx_ash": {
+   "file": "fx_ash.png",
+   "w": 16,
+   "h": 14.42,
+   "smooth": true
+  },
+  "fx_column": {
+   "file": "fx_column.png",
+   "w": 96,
+   "h": 152.7,
+   "smooth": true
+  },
+  "fx_crown": {
+   "file": "fx_crown.png",
+   "w": 96,
+   "h": 47.77,
+   "smooth": true
+  },
+  "chest_closed": {
+   "file": "chest_closed.png",
+   "w": 40,
+   "h": 31.6,
+   "smooth": true
+  },
+  "chest_open": {
+   "file": "chest_open.png",
+   "w": 40,
+   "h": 41.67,
+   "smooth": true
+  },
+  "map_node_1": {
+   "file": "map_node_1.png",
+   "w": 32,
+   "h": 29.78,
+   "smooth": true
+  },
+  "map_node_2": {
+   "file": "map_node_2.png",
+   "w": 32,
+   "h": 32.11,
+   "smooth": true
+  },
+  "map_node_3": {
+   "file": "map_node_3.png",
+   "w": 32,
+   "h": 18.53,
+   "smooth": true
+  },
+  "map_node_4": {
+   "file": "map_node_4.png",
+   "w": 32,
+   "h": 34.67,
+   "smooth": true
+  },
+  "map_node_5": {
+   "file": "map_node_5.png",
+   "w": 32,
+   "h": 21.2,
+   "smooth": true
+  },
+  "map_node_6": {
+   "file": "map_node_6.png",
+   "w": 32,
+   "h": 27.52,
+   "smooth": true
+  },
+  "map_node_7": {
+   "file": "map_node_7.png",
+   "w": 32,
+   "h": 19.44,
+   "smooth": true
+  },
+  "map_node_8": {
+   "file": "map_node_8.png",
+   "w": 32,
+   "h": 30.55,
+   "smooth": true
+  },
+  "shop_shipyard": {
+   "file": "shop_shipyard.png",
+   "w": 72,
+   "h": 57.14,
+   "smooth": true
+  },
+  "shop_tackle": {
+   "file": "shop_tackle.png",
+   "w": 72,
+   "h": 57.91,
+   "smooth": true
+  },
+  "shop_bait": {
+   "file": "shop_bait.png",
+   "w": 72,
+   "h": 56.95,
+   "smooth": true
+  },
+  "shop_clothes": {
+   "file": "shop_clothes.png",
+   "w": 72,
+   "h": 61.75,
+   "smooth": true
+  },
+  "shop_market": {
+   "file": "shop_market.png",
+   "w": 72,
+   "h": 64.81,
+   "smooth": true
+  },
+  "shop_guild": {
+   "file": "shop_guild.png",
+   "w": 72,
+   "h": 75.52,
+   "smooth": true
+  },
+  "npc_1": {
+   "file": "npc_1.png",
+   "w": 18.15,
+   "h": 24,
+   "smooth": true
+  },
+  "npc_2": {
+   "file": "npc_2.png",
+   "w": 20.38,
+   "h": 24,
+   "smooth": true
+  },
+  "npc_3": {
+   "file": "npc_3.png",
+   "w": 15.68,
+   "h": 24,
+   "smooth": true
+  },
+  "npc_4": {
+   "file": "npc_4.png",
+   "w": 13.61,
+   "h": 24,
+   "smooth": true
+  },
+  "npc_5": {
+   "file": "npc_5.png",
+   "w": 18.36,
+   "h": 24,
+   "smooth": true
+  },
+  "npc_6": {
+   "file": "npc_6.png",
+   "w": 16.26,
+   "h": 24,
+   "smooth": true
+  },
+  "ui_panel": {
+   "file": "ui_panel.png",
+   "w": 48,
+   "h": 47.71,
+   "smooth": true
+  },
+  "ui_button": {
+   "file": "ui_button.png",
+   "w": 48,
+   "h": 19.03,
+   "smooth": true
+  },
+  "ui_gauge": {
+   "file": "ui_gauge.png",
+   "w": 48,
+   "h": 22.14,
+   "smooth": true
+  },
+  "ui_ribbon": {
+   "file": "ui_ribbon.png",
+   "w": 48,
+   "h": 17.86,
+   "smooth": true
+  },
+  "ui_badge_star": {
+   "file": "ui_badge_star.png",
+   "w": 48,
+   "h": 46.17,
+   "smooth": true
+  },
+  "ui_badge_diamond": {
+   "file": "ui_badge_diamond.png",
+   "w": 48,
+   "h": 48.14,
+   "smooth": true
+  },
+  "ui_medal": {
+   "file": "ui_medal.png",
+   "w": 48,
+   "h": 50.29,
+   "smooth": true
+  },
+  "ui_frame": {
+   "file": "ui_frame.png",
+   "w": 48,
+   "h": 48.27,
+   "smooth": true
+  },
+  "icon_gold": {
+   "file": "icon_gold.png",
+   "w": 16,
+   "h": 16.21,
+   "smooth": true
+  },
+  "icon_crate": {
+   "file": "icon_crate.png",
+   "w": 16,
+   "h": 15.8,
+   "smooth": true
+  },
+  "icon_bait": {
+   "file": "icon_bait.png",
+   "w": 16,
+   "h": 11.8,
+   "smooth": true
+  },
+  "icon_book": {
+   "file": "icon_book.png",
+   "w": 16,
+   "h": 19.41,
+   "smooth": true
+  },
+  "icon_bag": {
+   "file": "icon_bag.png",
+   "w": 16,
+   "h": 16.19,
+   "smooth": true
+  },
+  "icon_gear": {
+   "file": "icon_gear.png",
+   "w": 16,
+   "h": 15.52,
+   "smooth": true
+  },
+  "icon_anchor": {
+   "file": "icon_anchor.png",
+   "w": 16,
+   "h": 18.13,
+   "smooth": true
+  },
+  "icon_map": {
+   "file": "icon_map.png",
+   "w": 16,
+   "h": 14.34,
+   "smooth": true
+  },
+  "icon_upgrade": {
+   "file": "icon_upgrade.png",
+   "w": 16,
+   "h": 13.24,
+   "smooth": true
+  },
+  "icon_close": {
+   "file": "icon_close.png",
+   "w": 16,
+   "h": 15.33,
+   "smooth": true
+  },
+  "icon_arrow": {
+   "file": "icon_arrow.png",
+   "w": 16,
+   "h": 11.84,
+   "smooth": true
+  },
+  "icon_lock": {
+   "file": "icon_lock.png",
+   "w": 16,
+   "h": 18.24,
+   "smooth": true
+  },
+  "icon_sound_on": {
+   "file": "icon_sound_on.png",
+   "w": 16,
+   "h": 12.05,
+   "smooth": true
+  },
+  "icon_sound_off": {
+   "file": "icon_sound_off.png",
+   "w": 16,
+   "h": 13.33,
+   "smooth": true
+  },
+  "icon_gem": {
+   "file": "icon_gem.png",
+   "w": 16,
+   "h": 12.68,
+   "smooth": true
+  },
+  "icon_star": {
+   "file": "icon_star.png",
+   "w": 16,
+   "h": 15.18,
+   "smooth": true
+  },
+  "icon_dawn": {
+   "file": "icon_dawn.png",
+   "w": 16,
+   "h": 11.52,
+   "smooth": true
+  },
+  "icon_day": {
+   "file": "icon_day.png",
+   "w": 16,
+   "h": 15.27,
+   "smooth": true
+  },
+  "icon_dusk": {
+   "file": "icon_dusk.png",
+   "w": 16,
+   "h": 9.54,
+   "smooth": true
+  },
+  "icon_night": {
+   "file": "icon_night.png",
+   "w": 16,
+   "h": 16.0,
+   "smooth": true
+  },
+  "icon_clear": {
+   "file": "icon_clear.png",
+   "w": 16,
+   "h": 11.58,
+   "smooth": true
+  },
+  "icon_rain": {
+   "file": "icon_rain.png",
+   "w": 16,
+   "h": 14.81,
+   "smooth": true
+  },
+  "icon_storm": {
+   "file": "icon_storm.png",
+   "w": 16,
+   "h": 14.57,
+   "smooth": true
+  },
+  "icon_fog": {
+   "file": "icon_fog.png",
+   "w": 16,
+   "h": 9.87,
+   "smooth": true
+  },
+  "icon_snow": {
+   "file": "icon_snow.png",
+   "w": 16,
+   "h": 14.34,
+   "smooth": true
+  },
+  "icon_auto_cast": {
+   "file": "icon_auto_cast.png",
+   "w": 16,
+   "h": 15.54,
+   "smooth": true
+  },
+  "icon_auto_sell": {
+   "file": "icon_auto_sell.png",
+   "w": 16,
+   "h": 15.59,
+   "smooth": true
+  },
+  "icon_auto_hook": {
+   "file": "icon_auto_hook.png",
+   "w": 16,
+   "h": 17.17,
+   "smooth": true
+  },
+  "icon_auto_fight": {
+   "file": "icon_auto_fight.png",
+   "w": 16,
+   "h": 12.6,
+   "smooth": true
+  },
+  "icon_check": {
+   "file": "icon_check.png",
+   "w": 16,
+   "h": 12.37,
+   "smooth": true
+  },
+  "icon_question": {
+   "file": "icon_question.png",
+   "w": 16,
+   "h": 22.21,
+   "smooth": true
+  },
+  "icon_crown": {
+   "file": "icon_crown.png",
+   "w": 16,
+   "h": 11.79,
+   "smooth": true
+  },
+  "item_1": {
+   "file": "item_1.png",
+   "w": 24,
+   "h": 25.87,
+   "smooth": true
+  },
+  "item_2": {
+   "file": "item_2.png",
+   "w": 24,
+   "h": 25.43,
+   "smooth": true
+  },
+  "item_3": {
+   "file": "item_3.png",
+   "w": 24,
+   "h": 25.31,
+   "smooth": true
+  },
+  "item_4": {
+   "file": "item_4.png",
+   "w": 24,
+   "h": 26.5,
+   "smooth": true
+  },
+  "item_5": {
+   "file": "item_5.png",
+   "w": 24,
+   "h": 26.05,
+   "smooth": true
+  },
+  "item_6": {
+   "file": "item_6.png",
+   "w": 24,
+   "h": 26.35,
+   "smooth": true
+  },
+  "item_7": {
+   "file": "item_7.png",
+   "w": 24,
+   "h": 26.69,
+   "smooth": true
+  },
+  "item_8": {
+   "file": "item_8.png",
+   "w": 24,
+   "h": 29.27,
+   "smooth": true
+  },
+  "item_9": {
+   "file": "item_9.png",
+   "w": 24,
+   "h": 26.29,
+   "smooth": true
+  },
+  "item_10": {
+   "file": "item_10.png",
+   "w": 24,
+   "h": 23.68,
+   "smooth": true
+  },
+  "item_11": {
+   "file": "item_11.png",
+   "w": 24,
+   "h": 23.65,
+   "smooth": true
+  },
+  "item_12": {
+   "file": "item_12.png",
+   "w": 24,
+   "h": 23.04,
+   "smooth": true
+  },
+  "item_13": {
+   "file": "item_13.png",
+   "w": 24,
+   "h": 17.71,
+   "smooth": true
+  },
+  "item_14": {
+   "file": "item_14.png",
+   "w": 24,
+   "h": 20.45,
+   "smooth": true
+  },
+  "item_15": {
+   "file": "item_15.png",
+   "w": 24,
+   "h": 14.67,
+   "smooth": true
+  },
+  "item_16": {
+   "file": "item_16.png",
+   "w": 24,
+   "h": 23.85,
+   "smooth": true
+  },
+  "item_17": {
+   "file": "item_17.png",
+   "w": 24,
+   "h": 12.91,
+   "smooth": true
+  },
+  "item_18": {
+   "file": "item_18.png",
+   "w": 24,
+   "h": 19.06,
+   "smooth": true
+  },
+  "item_19": {
+   "file": "item_19.png",
+   "w": 24,
+   "h": 20.8,
+   "smooth": true
+  },
+  "item_20": {
+   "file": "item_20.png",
+   "w": 24,
+   "h": 22.62,
+   "smooth": true
+  },
+  "item_21": {
+   "file": "item_21.png",
+   "w": 24,
+   "h": 24.12,
+   "smooth": true
+  },
+  "item_22": {
+   "file": "item_22.png",
+   "w": 24,
+   "h": 24.75,
+   "smooth": true
+  },
+  "item_23": {
+   "file": "item_23.png",
+   "w": 24,
+   "h": 21.08,
+   "smooth": true
+  },
+  "item_24": {
+   "file": "item_24.png",
+   "w": 24,
+   "h": 21.64,
+   "smooth": true
+  },
+  "web_icon_1": {
+   "file": "web_icon_1.png",
+   "w": 24,
+   "h": 26.62,
+   "smooth": true
+  },
+  "web_icon_2": {
+   "file": "web_icon_2.png",
+   "w": 24,
+   "h": 23.5,
+   "smooth": true
+  },
+  "web_icon_3": {
+   "file": "web_icon_3.png",
+   "w": 24,
+   "h": 36.57,
+   "smooth": true
+  },
+  "web_icon_4": {
+   "file": "web_icon_4.png",
+   "w": 24,
+   "h": 21.56,
+   "smooth": true
+  },
+  "web_icon_5": {
+   "file": "web_icon_5.png",
+   "w": 24,
+   "h": 23.13,
+   "smooth": true
+  },
+  "web_icon_6": {
+   "file": "web_icon_6.png",
+   "w": 24,
+   "h": 30.57,
+   "smooth": true
+  },
+  "web_icon_7": {
+   "file": "web_icon_7.png",
+   "w": 24,
+   "h": 23.88,
+   "smooth": true
+  },
+  "web_icon_8": {
+   "file": "web_icon_8.png",
+   "w": 24,
+   "h": 22.54,
+   "smooth": true
+  },
+  "web_icon_9": {
+   "file": "web_icon_9.png",
+   "w": 24,
+   "h": 18.95,
+   "smooth": true
+  },
+  "web_icon_10": {
+   "file": "web_icon_10.png",
+   "w": 24,
+   "h": 19.0,
+   "smooth": true
+  },
+  "web_icon_11": {
+   "file": "web_icon_11.png",
+   "w": 24,
+   "h": 20.89,
+   "smooth": true
+  },
+  "web_icon_12": {
+   "file": "web_icon_12.png",
+   "w": 24,
+   "h": 19.84,
+   "smooth": true
+  },
+  "web_icon_13": {
+   "file": "web_icon_13.png",
+   "w": 24,
+   "h": 23.04,
+   "smooth": true
+  },
+  "web_icon_14": {
+   "file": "web_icon_14.png",
+   "w": 24,
+   "h": 22.74,
+   "smooth": true
+  },
+  "web_icon_15": {
+   "file": "web_icon_15.png",
+   "w": 24,
+   "h": 27.7,
+   "smooth": true
+  },
+  "web_icon_16": {
+   "file": "web_icon_16.png",
+   "w": 24,
+   "h": 25.32,
+   "smooth": true
+  },
+  "web_icon_17": {
+   "file": "web_icon_17.png",
+   "w": 24,
+   "h": 23.12,
+   "smooth": true
+  },
+  "web_icon_18": {
+   "file": "web_icon_18.png",
+   "w": 24,
+   "h": 20.46,
+   "smooth": true
+  },
+  "web_node_1": {
+   "file": "web_node_1.png",
+   "w": 48,
+   "h": 49.92,
+   "smooth": true
+  },
+  "web_node_2": {
+   "file": "web_node_2.png",
+   "w": 48,
+   "h": 49.66,
+   "smooth": true
+  },
+  "web_node_3": {
+   "file": "web_node_3.png",
+   "w": 48,
+   "h": 49.35,
+   "smooth": true
+  },
+  "web_node_4": {
+   "file": "web_node_4.png",
+   "w": 48,
+   "h": 48.2,
+   "smooth": true
+  },
+  "web_node_5": {
+   "file": "web_node_5.png",
+   "w": 48,
+   "h": 48.56,
+   "smooth": true
+  },
+  "web_node_6": {
+   "file": "web_node_6.png",
+   "w": 48,
+   "h": 49.14,
+   "smooth": true
+  },
+  "web_node_7": {
+   "file": "web_node_7.png",
+   "w": 48,
+   "h": 47.35,
+   "smooth": true
+  },
+  "web_node_8": {
+   "file": "web_node_8.png",
+   "w": 48,
+   "h": 47.01,
+   "smooth": true
+  },
+  "web_node_9": {
+   "file": "web_node_9.png",
+   "w": 48,
+   "h": 8.69,
+   "smooth": true
+  },
+  "web_node_10": {
+   "file": "web_node_10.png",
+   "w": 48,
+   "h": 8.52,
+   "smooth": true
+  },
+  "web_node_11": {
+   "file": "web_node_11.png",
+   "w": 48,
+   "h": 36.29,
+   "smooth": true
+  },
+  "web_node_12": {
+   "file": "web_node_12.png",
+   "w": 48,
+   "h": 47.65,
    "smooth": true
   }
  }

@@ -40,6 +40,39 @@ SHEETS = {
        for i in range(1, 41)},
     'rod': [dict(name=f'rod_{i + 1}', w=36) for i in range(8)],
     'float': [dict(name=f'float_{i + 1}', h=12) for i in range(8)],
+    # ── 배경 (whole: 그림 전체를 한 장으로, opaque: 배경을 지우지 않음) ──
+    **{f'bg_region{i}': [dict(name=f'bg_region{i}', w=640, whole=True)] for i in range(1, 9)},
+    'bg_sky': [dict(name='bg_sky', w=640, whole=True, opaque=True)],
+    'bg_sea': [dict(name='bg_sea', w=640, whole=True, opaque=True)],
+    'map_bg': [dict(name='map_bg', w=640, whole=True, opaque=True)],
+    'harbor_bg': [dict(name='harbor_bg', w=640, whole=True, opaque=True)],
+    'bg_cloud': [dict(name=f'cloud_{i + 1}', w=64, grid=(2, 3)) for i in range(6)],
+    'bg_wave': [dict(name=f'wave_{i + 1}', w=64, grid=(3, 1)) for i in range(3)],
+    # ── 물고기 장식 ──
+    'fish_pattern': [dict(name=f'pattern_{i + 1}', w=64, grid=(2, 3)) for i in range(6)],
+    'fish_parts': [dict(name=f'part_{i + 1}', w=32, grid=(4, 4)) for i in range(16)],
+    # ── 이펙트·상자 ──
+    'fx_small': [dict(name=f'fx_{n}', w=16, grid=(4, 4)) for n in
+                 ['drop', 'splash', 'ring', 'foam', 'rain', 'snow', 'fog', 'bolt',
+                  'sparkle', 'dot', 'bang', 'sweat', 'tear', 'note', 'heart', 'ash']],
+    'fx_big': [dict(name='fx_column', w=96, grid=(1, 2)), dict(name='fx_crown', w=96, grid=(1, 2))],
+    'chest': [dict(name='chest_closed', w=40, grid=(1, 2)), dict(name='chest_open', w=40, grid=(1, 2))],
+    # ── 지도·항구 ──
+    'map_node': [dict(name=f'map_node_{i + 1}', w=32, grid=(2, 4)) for i in range(8)],
+    'shop_a': [dict(name=n, w=72, grid=(1, 3)) for n in ['shop_shipyard', 'shop_tackle', 'shop_bait']],
+    'shop_b': [dict(name=n, w=72, grid=(1, 3)) for n in ['shop_clothes', 'shop_market', 'shop_guild']],
+    'npc': [dict(name=f'npc_{i + 1}', h=24, grid=(1, 6)) for i in range(6)],
+    # ── UI ──
+    'ui_frame': [dict(name=n, w=48, grid=(2, 4)) for n in
+                 ['ui_panel', 'ui_button', 'ui_gauge', 'ui_ribbon', 'ui_badge_star', 'ui_badge_diamond', 'ui_medal', 'ui_frame']],
+    'ui_icon': [dict(name=f'icon_{n}', w=16, grid=(4, 8)) for n in
+                ['gold', 'crate', 'bait', 'book', 'bag', 'gear', 'anchor', 'map',
+                 'upgrade', 'close', 'arrow', 'lock', 'sound_on', 'sound_off', 'gem', 'star',
+                 'dawn', 'day', 'dusk', 'night', 'clear', 'rain', 'storm', 'fog',
+                 'snow', 'auto_cast', 'auto_sell', 'auto_hook', 'auto_fight', 'check', 'question', 'crown']],
+    'item_icon': [dict(name=f'item_{i + 1}', w=24, grid=(3, 8)) for i in range(24)],
+    'web_icon': [dict(name=f'web_icon_{i + 1}', w=24, grid=(3, 6)) for i in range(18)],
+    'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
 
 GRID = {8: (4, 2), 2: (2, 1)}   # 자동 분리가 안 될 때 쓰는 격자 (생물 시트, 환상종)
@@ -49,9 +82,12 @@ MIN_GAP = 6         # 그림 사이로 인정하는 최소 빈 줄 수
 MIN_SIZE = 12       # 이보다 작은 조각은 잡티로 보고 버린다
 
 
-def load(path):
+def load(path, opaque=False):
     im = Image.open(path).convert('RGBA')
     a = np.array(im)
+    if opaque:
+        a[..., 3] = 255
+        return a
     if (a[..., 3] < 250).mean() < 0.02:          # 투명 배경이 아님 → 테두리에서 이어진 흰색/마젠타를 지운다
         rgb = im.convert('RGB')
         for corner in [(0, 0), (im.width - 1, 0), (0, im.height - 1), (im.width - 1, im.height - 1)]:
@@ -127,8 +163,15 @@ def build():
         src = next((p for p in sorted(RAW.glob(sheet + '.*')) if p.suffix.lower() in ('.png', '.webp')), None)
         if not src:
             continue
-        a = load(src)
-        boxes = find_sprites(a)
+        first = items[0]
+        a = load(src, first.get('opaque', False))
+        if first.get('whole'):
+            ys = np.where((a[..., 3] > ALPHA_MIN).any(axis=1))[0]; xs = np.where((a[..., 3] > ALPHA_MIN).any(axis=0))[0]
+            boxes = [(0, ys[0], a.shape[1], ys[-1] + 1)]   # 가로는 전체 폭 유지 (풍경 위치가 바뀌지 않게)
+        elif first.get('grid'):
+            boxes = split_grid(a, *first['grid']) or []
+        else:
+            boxes = find_sprites(a)
         if len(items) == 1 and boxes:
             boxes = boxes[:1]
         if len(boxes) != len(items) and len(items) in GRID:
