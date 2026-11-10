@@ -6,7 +6,7 @@
 ## 쓰는 법
 
 1. 번호 순서대로, **한 번에 한 블록**만 보낸다.
-2. 각 항목의 "첨부"에 적힌 이미지를 같이 올린다. (팔레트 = `style_palette.png`, 기준 장면 = `style_key.png`)
+2. 첨부할 것은 없다. 팔레트와 기준 장면은 GPT가 GitHub에서 직접 읽는다.
 3. 각 블록 끝에 GitHub 업로드 지시가 들어 있어서, GPT가 그림을 `main` 브랜치 `assets/raw/`에 바로 올린다. 올라가면 Claude에게 "올렸어"라고만 하면 된다.
 4. 잘못 나오면 짧게 고쳐 달라고 한다: "4개만", "글자 없이", "서로 더 띄워서", "몸을 곧게".
 5. 투명 배경이 안 나오면 "배경을 단색 마젠타(#FF00FF)로 바꿔줘"라고 한다.
@@ -18,7 +18,6 @@
 ## ① 스타일 기준 (1~2)
 
 ### 1. `style_palette` — 색 견본
-첨부: 없음
 
 ```
 Create a pixel art color palette image: a clean 8x4 grid of 32 flat color swatches on a
@@ -31,10 +30,14 @@ on the main branch, in the folder assets/raw/, with the file name style_palette.
 ```
 
 ### 2. `style_key` — 기준 장면
-첨부: 팔레트
 
 ```
-Using only the colors of the attached palette, create a 16-bit pixel art scene, cute warm
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+Using only the colors of the palette image, create a 16-bit pixel art scene, cute warm
 storybook style, chunky clean pixels, 1px dark outline, no anti-aliasing, no text.
 Wide side view of a vast calm sunny sea. The sea and sky fill almost the entire image.
 At the right side, a very small wooden rowboat, only about 5% of the image width. On it,
@@ -55,13 +58,17 @@ on the main branch, in the folder assets/raw/, with the file name style_key.png
 **여기까지 만들고 멈춘다.** 게임에 넣어 크기와 움직임을 확인한 뒤 계속한다.
 
 ### 3. `boat_a` — 배 1~4단계
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 boats in a 2x2 grid, evenly spaced, not touching. Flat side view, bow
 pointing left, hull drawn fully including the part below the waterline, no people, no water.
@@ -73,13 +80,17 @@ on the main branch, in the folder assets/raw/, with the file name boat_a.png
 ```
 
 ### 4. `fish_s1` — 소형 체형: 고등어·멸치·돔·넙치
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -102,13 +113,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_s1.png
 ```
 
 ### 5. `char_body` — 옷 입은 몸 8벌
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 8 chibi fisherman bodies from the neck down (torso, arms, legs, no head),
 front view, standing straight, identical body shape, pose and neck position, in a 4x2 grid,
@@ -126,13 +141,17 @@ on the main branch, in the folder assets/raw/, with the file name char_body.png
 ## ③ 캐릭터 · 배 · 낚싯대 · 찌 (6~9)
 
 ### 6. `char_head` — 머리 + 모자 8개 + 바다용 실루엣
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 10 items in a 5x2 grid, evenly spaced, not touching, in order:
 1) a chibi fisherman head, front view, smiling, no hat, no body.
@@ -147,13 +166,17 @@ on the main branch, in the folder assets/raw/, with the file name char_head.png
 ```
 
 ### 7. `boat_b` — 배 5~8단계
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 boats in a 2x2 grid, evenly spaced, not touching. Flat side view, bow
 pointing left, hull drawn fully including the part below the waterline, no people, no water.
@@ -166,13 +189,17 @@ on the main branch, in the folder assets/raw/, with the file name boat_b.png
 ```
 
 ### 8. `rod` — 낚싯대 8개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 8 fishing rods stacked in 8 horizontal rows, evenly spaced, not touching.
 Each rod is perfectly straight and perfectly horizontal, tip on the left, handle on the right,
@@ -185,13 +212,17 @@ on the main branch, in the folder assets/raw/, with the file name rod.png
 ```
 
 ### 9. `float` — 찌 8개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 8 fishing floats (bobbers) in one row, evenly spaced, not touching, each
 standing upright. In order: 1) bamboo, 2) wood with red top, 3) white-blue fiberglass,
@@ -209,13 +240,17 @@ on the main branch, in the folder assets/raw/, with the file name float.png
 파란 계열 + 흰 배, 무늬 없이, 몸을 곧게 편 옆모습. 색과 무늬는 코드가 바꾼다.
 
 ### 10. `fish_s2` — 소형 체형: 복어·쥐치·나비고기·망둥어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -238,13 +273,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_s2.png
 ```
 
 ### 11. `fish_s3` — 소형 체형: 날치·해마·새우·게
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -267,13 +306,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_s3.png
 ```
 
 ### 12. `fish_s4` — 소형 체형: 오징어·문어·해파리·불가사리
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -295,13 +338,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_s4.png
 ```
 
 ### 13. `fish_l1` — 대형 체형: 참치·상어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -321,13 +368,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l1.png
 ```
 
 ### 14. `fish_l2` — 대형 체형: 가오리·장어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -347,13 +398,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l2.png
 ```
 
 ### 15. `fish_l3` — 대형 체형: 청새치·톱상어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -373,13 +428,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l3.png
 ```
 
 ### 16. `fish_l4` — 대형 체형: 개복치·철갑상어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -399,13 +458,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l4.png
 ```
 
 ### 17. `fish_l5` — 대형 체형: 고래·돌고래
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -425,13 +488,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l5.png
 ```
 
 ### 18. `fish_l6` — 대형 체형: 아귀·실러캔스
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -451,13 +518,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l6.png
 ```
 
 ### 19. `fish_l7` — 대형 체형: 대왕오징어·대왕문어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -477,13 +548,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l7.png
 ```
 
 ### 20. `fish_l8` — 대형 체형: 바다거북·산갈치
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -503,13 +578,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l8.png
 ```
 
 ### 21. `fish_l9` — 대형 체형: 물개·바다코끼리
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -529,13 +608,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l9.png
 ```
 
 ### 22. `fish_l10` — 대형 체형: 매너티·일각고래
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -555,13 +638,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l10.png
 ```
 
 ### 23. `fish_l11` — 대형 체형: 바다뱀·바다악어
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -581,13 +668,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l11.png
 ```
 
 ### 24. `fish_l12` — 대형 체형: 수장룡·암모나이트
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
@@ -614,13 +705,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_l12.png
 한 장에 한 마리. 색과 무늬는 프롬프트에 적힌 대로이며, 마음에 안 들면 마지막 줄만 고쳐 쓴다.
 
 ### 25. `fantasy_01` — 히포캄푸스 (햇살 연안)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -637,13 +732,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_01.png
 ```
 
 ### 26. `fantasy_02` — 카프리콘 (햇살 연안)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -660,13 +759,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_02.png
 ```
 
 ### 27. `fantasy_03` — 문장 바다사자 (햇살 연안)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -683,13 +786,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_03.png
 ```
 
 ### 28. `fantasy_04` — 신(蜃, 신기루 대합) (햇살 연안)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -706,13 +813,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_04.png
 ```
 
 ### 29. `fantasy_05` — 해님 붕어 (햇살 연안)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -729,13 +840,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_05.png
 ```
 
 ### 30. `fantasy_06` — 마카라 (산호초 열대)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -752,13 +867,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_06.png
 ```
 
 ### 31. `fantasy_07` — 용궁 거북 (산호초 열대)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -775,13 +894,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_07.png
 ```
 
 ### 32. `fantasy_08` — 타니와 (산호초 열대)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -798,13 +921,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_08.png
 ```
 
 ### 33. `fantasy_09` — 무지개 뱀 (산호초 열대)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -821,13 +948,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_09.png
 ```
 
 ### 34. `fantasy_10` — 진주 대왕조개 (산호초 열대)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -844,13 +975,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_10.png
 ```
 
 ### 35. `fantasy_11` — 네시 (안개 군도)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -867,13 +1002,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_11.png
 ```
 
 ### 36. `fantasy_12` — 켈피 (안개 군도)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -890,13 +1029,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_12.png
 ```
 
 ### 37. `fantasy_13` — 이쿠치 (안개 군도)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -913,13 +1056,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_13.png
 ```
 
 ### 38. `fantasy_14` — 아방크 (안개 군도)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -936,13 +1083,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_14.png
 ```
 
 ### 39. `fantasy_15` — 안개 해파리 (안개 군도)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -959,13 +1110,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_15.png
 ```
 
 ### 40. `fantasy_16` — 전설의 흰 고래 (원양 대해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -982,13 +1137,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_16.png
 ```
 
 ### 41. `fantasy_17` — 시 서펀트 (원양 대해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1005,13 +1164,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_17.png
 ```
 
 ### 42. `fantasy_18` — 곤(鯤) (원양 대해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1028,13 +1191,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_18.png
 ```
 
 ### 43. `fantasy_19` — 별고래 (원양 대해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1051,13 +1218,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_19.png
 ```
 
 ### 44. `fantasy_20` — 폭풍 청새치 (원양 대해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1074,13 +1245,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_20.png
 ```
 
 ### 45. `fantasy_21` — 아스피도켈론 (극지 빙해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1097,13 +1272,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_21.png
 ```
 
 ### 46. `fantasy_22` — 하프구파 (극지 빙해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1120,13 +1299,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_22.png
 ```
 
 ### 47. `fantasy_23` — 아클루트 (극지 빙해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1143,13 +1326,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_23.png
 ```
 
 ### 48. `fantasy_24` — 얼음 해룡 (극지 빙해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1166,13 +1353,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_24.png
 ```
 
 ### 49. `fantasy_25` — 수정 일각고래 (극지 빙해)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1189,13 +1380,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_25.png
 ```
 
 ### 50. `fantasy_26` — 리바이어던 (화산 해역)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1212,13 +1407,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_26.png
 ```
 
 ### 51. `fantasy_27` — 나마즈 (화산 해역)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1235,13 +1434,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_27.png
 ```
 
 ### 52. `fantasy_28` — 모오 (화산 해역)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1258,13 +1461,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_28.png
 ```
 
 ### 53. `fantasy_29` — 흑요석 상어 (화산 해역)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1281,13 +1488,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_29.png
 ```
 
 ### 54. `fantasy_30` — 불사조 날치 (화산 해역)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1304,13 +1515,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_30.png
 ```
 
 ### 55. `fantasy_31` — 크라켄 (심연 해구)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1327,13 +1542,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_31.png
 ```
 
 ### 56. `fantasy_32` — 카리브디스 (심연 해구)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1350,13 +1569,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_32.png
 ```
 
 ### 57. `fantasy_33` — 바케쿠지라 (심연 해구)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1373,13 +1596,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_33.png
 ```
 
 ### 58. `fantasy_34` — 루스카 (심연 해구)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1396,13 +1623,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_34.png
 ```
 
 ### 59. `fantasy_35` — 심연 초롱아귀 (심연 해구)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1419,13 +1650,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_35.png
 ```
 
 ### 60. `fantasy_36` — 요르문간드 (환상의 바다)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1442,13 +1677,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_36.png
 ```
 
 ### 61. `fantasy_37` — 용왕 해룡 (환상의 바다)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1465,13 +1704,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_37.png
 ```
 
 ### 62. `fantasy_38` — 용 잉어 (환상의 바다)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1488,13 +1731,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_38.png
 ```
 
 ### 63. `fantasy_39` — 이무기 (환상의 바다)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1511,13 +1758,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_39.png
 ```
 
 ### 64. `fantasy_40` — 바하무트 (환상의 바다)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
 but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
@@ -1539,13 +1790,17 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_40.png
 ## ⑥ 무늬 · 파츠 (65~66)
 
 ### 65. `fish_pattern` — 무늬 6종
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sheet of 6 square pattern tiles in a 3x2 grid, evenly spaced. Each tile is a black pattern
 on a pure white background that completely fills its square. In order:
@@ -1557,13 +1812,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_pattern.p
 ```
 
 ### 66. `fish_parts` — 물고기에 붙이는 장식 16개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 16 small decorative parts to attach onto fish, in a 4x4 grid, evenly spaced,
 not touching. In order: 1) coral horn, 2) coral fin, 3) misty whisker, 4) faded ghostly tail,
@@ -1581,13 +1840,17 @@ on the main branch, in the folder assets/raw/, with the file name fish_parts.png
 ## ⑦ 배경 (67~76)
 
 ### 67. `bg_region1` — 수평선 풍경: 햇살 연안
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1599,13 +1862,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region1.png
 ```
 
 ### 68. `bg_region2` — 수평선 풍경: 산호초 열대
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1617,13 +1884,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region2.png
 ```
 
 ### 69. `bg_region3` — 수평선 풍경: 안개 군도
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1635,13 +1906,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region3.png
 ```
 
 ### 70. `bg_region4` — 수평선 풍경: 원양 대해
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1653,13 +1928,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region4.png
 ```
 
 ### 71. `bg_region5` — 수평선 풍경: 극지 빙해
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1671,13 +1950,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region5.png
 ```
 
 ### 72. `bg_region6` — 수평선 풍경: 화산 해역
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1689,13 +1972,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region6.png
 ```
 
 ### 73. `bg_region7` — 수평선 풍경: 심연 해구
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1707,13 +1994,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region7.png
 ```
 
 ### 74. `bg_region8` — 수평선 풍경: 환상의 바다
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A very wide horizontal scenery strip for a sea horizon, daytime colors. The bottom edge is a
 perfectly flat straight horizon line. Only the scenery is drawn; the sky area above and
@@ -1725,13 +2016,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_region8.png
 ```
 
 ### 75. `bg_cloud` — 구름 6개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 6 fluffy clouds in a 3x2 grid, evenly spaced, not touching, in different
 sizes and shapes, white with a soft pink underside.
@@ -1741,13 +2036,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_cloud.png
 ```
 
 ### 76. `bg_wave` — 파도 줄무늬 3종
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 3 horizontal wave stripe strips stacked in 3 rows, evenly spaced, white.
 Each strip can repeat seamlessly left to right. From top to bottom: 1) thin tiny ripples for
@@ -1763,13 +2062,17 @@ on the main branch, in the folder assets/raw/, with the file name bg_wave.png
 ## ⑧ 이펙트 · 보물상자 (77~79)
 
 ### 77. `fx_small` — 작은 이펙트 16개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 16 small effect sprites in a 4x4 grid, evenly spaced, not touching, mostly
 white and light blue. In order: 1) water droplet, 2) small splash, 3) ripple ring, 4) foam
@@ -1782,13 +2085,17 @@ on the main branch, in the folder assets/raw/, with the file name fx_small.png
 ```
 
 ### 78. `fx_big` — 큰 물기둥 · 큰 물보라
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two large water effect sprites side by side, not touching, white and light blue:
 left) a tall water column bursting upward, right) a wide crown-shaped splash.
@@ -1798,13 +2105,17 @@ on the main branch, in the folder assets/raw/, with the file name fx_big.png
 ```
 
 ### 79. `chest` — 보물상자 (닫힘 · 열림)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 Two treasure chest sprites side by side, not touching: left) a closed wooden chest with
 metal bands and some seaweed on it, right) the same chest open with golden light shining out.
@@ -1819,12 +2130,16 @@ on the main branch, in the folder assets/raw/, with the file name chest.png
 ## ⑨ 해역 지도 (80~81)
 
 ### 80. `map_bg` — 해도 배경
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game background, cute warm storybook style, chunky clean pixels, soft pastel
-palette matching the attached palette image, no anti-aliasing, no text or letters, 16:9 wide.
-Match the style of the attached reference image.
+palette matching the palette image, no anti-aliasing, no text or letters, 16:9 wide.
+Match the style of the reference image.
 
 An old parchment sea chart seen from above: soft blue sea texture with faint wave marks,
 a decorative compass rose in one corner, rope border. No islands, no labels, no text.
@@ -1834,13 +2149,17 @@ on the main branch, in the folder assets/raw/, with the file name map_bg.png
 ```
 
 ### 81. `map_node` — 해역 아이콘 8개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 8 map marker icons in a 4x2 grid, evenly spaced, not touching. In order:
 1) lighthouse, 2) palm tree, 3) misty island, 4) whale tail, 5) iceberg, 6) volcano,
@@ -1856,13 +2175,17 @@ on the main branch, in the folder assets/raw/, with the file name map_node.png
 ## ⑩ UI (82~84)
 
 ### 82. `ui_frame` — 틀 8종
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 8 UI pieces in a 4x2 grid, evenly spaced, not touching. Harbor style:
 wooden planks with rope borders, cream (#FFF4DC) and wood brown (#7A4B2A). The inside of each
@@ -1877,13 +2200,17 @@ on the main branch, in the folder assets/raw/, with the file name ui_frame.png
 ```
 
 ### 83. `ui_icon` — 화면 아이콘 32개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 32 small game icons in an 8x4 grid, evenly spaced, not touching, each simple
 and readable at a tiny size. In order:
@@ -1900,13 +2227,17 @@ on the main branch, in the folder assets/raw/, with the file name ui_icon.png
 ```
 
 ### 84. `item_icon` — 아이템 아이콘 24개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 24 item icons in an 8x3 grid, evenly spaced, not touching. In order:
 Row 1: 8 fishing reels made of bamboo, wood, white-blue fiberglass, black carbon, ice crystal,
@@ -1928,12 +2259,16 @@ on the main branch, in the folder assets/raw/, with the file name item_icon.png
 낚시 본편이 끝난 뒤에 만들어도 된다.
 
 ### 85. `harbor_bg` — 항구 배경
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game background, cute warm storybook style, chunky clean pixels, soft pastel
-palette matching the attached palette image, no anti-aliasing, no text or letters, 16:9 wide.
-Match the style of the attached reference image.
+palette matching the palette image, no anti-aliasing, no text or letters, 16:9 wide.
+Match the style of the reference image.
 
 A cozy harbor town scene, front view: sky, hills with small houses in the back, a wide wooden
 pier across the lower part, and calm sea at the bottom with reflections. Leave the pier area
@@ -1944,13 +2279,17 @@ on the main branch, in the folder assets/raw/, with the file name harbor_bg.png
 ```
 
 ### 86. `shop_a` — 조선소 · 낚시도구점 · 찌·미끼 가게
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 3 small shop buildings in one row, evenly spaced, not touching, front view.
 Each has a signboard with a picture instead of text. In order: 1) shipyard (sign: a boat),
@@ -1961,13 +2300,17 @@ on the main branch, in the folder assets/raw/, with the file name shop_a.png
 ```
 
 ### 87. `shop_b` — 옷가게 · 수산시장 · 어부 길드
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 3 small shop buildings in one row, evenly spaced, not touching, front view.
 Each has a signboard with a picture instead of text. In order: 1) clothing shop (sign: a shirt),
@@ -1978,13 +2321,17 @@ on the main branch, in the folder assets/raw/, with the file name shop_b.png
 ```
 
 ### 88. `npc` — 가게 주인 6명
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 6 chibi shopkeepers in one row, evenly spaced, not touching, front view,
 2-head-tall proportions. In order: 1) burly shipwright with a hammer, 2) old fisherman with
@@ -1996,13 +2343,17 @@ on the main branch, in the folder assets/raw/, with the file name npc.png
 ```
 
 ### 89. `web_icon` — 업그레이드 웹 아이콘 18개
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
-outline, soft pastel palette matching the attached palette image, no anti-aliasing,
+outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
-Match the style of the attached reference image.
+Match the style of the reference image.
 
 A sprite sheet of 18 icons in a 6x3 grid, evenly spaced, not touching, all drawn in a single
 flat cream color (#FFF4DC) with no outline. In order:
@@ -2021,12 +2372,16 @@ on the main branch, in the folder assets/raw/, with the file name web_icon.png
 ## ⑫ 추가 — 코드로 그리던 것을 GPT 그림으로 (90~93)
 
 ### 90. `shadow` — 물속 그림자 (모든 생물 공통)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
-palette matching the attached palette image, no anti-aliasing, no gradients, no text or
-letters, no drop shadow, fully transparent background. Match the style of the attached
+palette matching the palette image, no anti-aliasing, no gradients, no text or
+letters, no drop shadow, fully transparent background. Match the style of the 
 reference image.
 
 One sprite: the shadow of a big fish seen under the water surface. A simple generic fish
@@ -2042,11 +2397,15 @@ on the main branch, in the folder assets/raw/, with the file name shadow.png
 ```
 
 ### 91. `bg_sky` — 하늘 바탕 (낮 기준)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game background, cute warm storybook style, small fine clean pixels, soft
-pastel palette matching the attached palette image, no text. Match the style of the attached
+pastel palette matching the palette image, no text. Match the style of the 
 reference image.
 
 A daytime sky only: soft bands of light blue getting paler toward the bottom, made with pixel
@@ -2057,11 +2416,15 @@ on the main branch, in the folder assets/raw/, with the file name bg_sky.png
 ```
 
 ### 92. `bg_sea` — 바다 바탕 (낮 기준)
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game background, cute warm storybook style, small fine clean pixels, soft
-pastel palette matching the attached palette image, no text. Match the style of the attached
+pastel palette matching the palette image, no text. Match the style of the 
 reference image.
 
 A calm sea surface only, seen from the side: soft bands of blue, paler near the top (far away)
@@ -2073,12 +2436,16 @@ on the main branch, in the folder assets/raw/, with the file name bg_sea.png
 ```
 
 ### 93. `web_node` — 업그레이드 웹 노드·선·빛
-첨부: 팔레트 + 기준 장면
 
 ```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
 16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
-palette matching the attached palette image, no anti-aliasing, no gradients, no text or
-letters, no drop shadow, fully transparent background. Match the style of the attached
+palette matching the palette image, no anti-aliasing, no gradients, no text or
+letters, no drop shadow, fully transparent background. Match the style of the 
 reference image.
 
 A sprite sheet of 12 pieces for a constellation-style skill map, in a 4x3 grid, evenly spaced,
