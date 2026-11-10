@@ -47,13 +47,14 @@ export const FIGHT = {
 };
 
 // 등급: 색, 화면상 몸길이(px), 힘, 출현 가중치, 기본 가격
+// 기준: 일반 등급 = 목표 화면(assets/concept/concept_3)의 고래 크기(화면 폭의 55~70%). 그 위로는 화면을 넘는다.
 export const GRADES = [
-  { id: 'common',    name: '일반', color: '#9aa3ad', len: [220, 320], power: 0.5, weight: 50,  price: 40 },
-  { id: 'uncommon',  name: '고급', color: '#5fbf6a', len: [300, 420], power: 0.7, weight: 25,  price: 120 },
-  { id: 'rare',      name: '희귀', color: '#4f9cf0', len: [400, 560], power: 0.9, weight: 13,  price: 400 },
-  { id: 'epic',      name: '영웅', color: '#a77be0', len: [540, 760], power: 1.15, weight: 7,  price: 1500 },
-  { id: 'legendary', name: '전설', color: '#f2933a', len: [760, 1100], power: 1.4, weight: 3.5, price: 6000 },
-  { id: 'fantasy',   name: '환상', color: '#f2c14e', len: [1200, 1900], power: 1.7, weight: 1.5, price: 0 },
+  { id: 'common',    name: '일반', color: '#9aa3ad', len: [350, 450], power: 0.5, weight: 50,  price: 40 },
+  { id: 'uncommon',  name: '고급', color: '#5fbf6a', len: [450, 580], power: 0.7, weight: 25,  price: 120 },
+  { id: 'rare',      name: '희귀', color: '#4f9cf0', len: [580, 770], power: 0.9, weight: 13,  price: 400 },
+  { id: 'epic',      name: '영웅', color: '#a77be0', len: [770, 1020], power: 1.15, weight: 7,  price: 1500 },
+  { id: 'legendary', name: '전설', color: '#f2933a', len: [1020, 1400], power: 1.4, weight: 3.5, price: 6000 },
+  { id: 'fantasy',   name: '환상', color: '#f2c14e', len: [1600, 2560], power: 1.7, weight: 1.5, price: 0 },
 ];
 
 // 시간대: 화면 전체에 곱해지는 색
