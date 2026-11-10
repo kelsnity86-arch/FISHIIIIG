@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>수평선 낚시꾼 — 바다 화면 시험판</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0e1a2e; overflow: hidden; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center;
+         font-family: system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+  canvas { display: block; touch-action: none; user-select: none; -webkit-user-select: none;
+           image-rendering: pixelated; cursor: pointer; }
+  #debug { display: flex; gap: 8px; align-items: center; padding: 6px 0; color: #9fb0c8; font-size: 12px; }
+  #debug button { font: inherit; color: #fff4dc; background: #24385c; border: 1px solid #3d5788;
+                  border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="debug">
+  <span>시험용</span>
+  <button id="btnGrade">등급: 무작위</button>
+  <button id="btnTime">시간: 낮</button>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
