@@ -72,12 +72,16 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
-Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
+A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
+spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
+Simple bold shapes with clean flat areas.
+The 4 creatures, one per row from top to bottom:
 1) mackerel shape (streamlined), 2) anchovy shape (thin and long),
 3) sea bream shape (tall and round), 4) flounder shape (flat).
 ```
@@ -183,12 +187,16 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
-Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
+A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
+spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
+Simple bold shapes with clean flat areas.
+The 4 creatures, one per row from top to bottom:
 1) pufferfish shape (ball), 2) filefish shape (diamond),
 3) butterflyfish shape (disc), 4) goby shape (big head).
 ```
@@ -202,12 +210,16 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
-Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
+A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
+spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
+Simple bold shapes with clean flat areas.
+The 4 creatures, one per row from top to bottom:
 1) flying fish shape (wing-like fins), 2) seahorse shape,
 3) shrimp shape, 4) crab shape.
 ```
@@ -221,12 +233,16 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
-Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
+A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
+spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
+Simple bold shapes with clean flat areas.
+The 4 creatures, one per row from top to bottom:
 1) squid shape, 2) octopus shape, 3) jellyfish shape, 4) starfish shape.
 ```
 
@@ -239,12 +255,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: tuna shape. Bottom: shark shape.
+Simple bold shapes with clean flat areas.
+Top row: tuna shape. Bottom row: shark shape.
 ```
 
 ### 14. `fish_l2` — 대형 체형: 가오리·장어
@@ -256,12 +275,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: manta ray shape. Bottom: eel shape.
+Simple bold shapes with clean flat areas.
+Top row: manta ray shape. Bottom row: eel shape.
 ```
 
 ### 15. `fish_l3` — 대형 체형: 청새치·톱상어
@@ -273,12 +295,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: marlin shape (spear nose). Bottom: sawshark shape (saw nose).
+Simple bold shapes with clean flat areas.
+Top row: marlin shape (spear nose). Bottom row: sawshark shape (saw nose).
 ```
 
 ### 16. `fish_l4` — 대형 체형: 개복치·철갑상어
@@ -290,12 +315,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: ocean sunfish shape. Bottom: sturgeon shape.
+Simple bold shapes with clean flat areas.
+Top row: ocean sunfish shape. Bottom row: sturgeon shape.
 ```
 
 ### 17. `fish_l5` — 대형 체형: 고래·돌고래
@@ -307,12 +335,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: whale shape. Bottom: dolphin shape.
+Simple bold shapes with clean flat areas.
+Top row: whale shape. Bottom row: dolphin shape.
 ```
 
 ### 18. `fish_l6` — 대형 체형: 아귀·실러캔스
@@ -324,12 +355,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: anglerfish shape (lantern lure). Bottom: coelacanth shape (ancient fish).
+Simple bold shapes with clean flat areas.
+Top row: anglerfish shape (lantern lure). Bottom row: coelacanth shape (ancient fish).
 ```
 
 ### 19. `fish_l7` — 대형 체형: 대왕오징어·대왕문어
@@ -341,12 +375,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: giant squid shape. Bottom: giant octopus shape.
+Simple bold shapes with clean flat areas.
+Top row: giant squid shape. Bottom row: giant octopus shape.
 ```
 
 ### 20. `fish_l8` — 대형 체형: 바다거북·산갈치
@@ -358,12 +395,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: sea turtle shape. Bottom: oarfish shape (long ribbon body).
+Simple bold shapes with clean flat areas.
+Top row: sea turtle shape. Bottom row: oarfish shape (long ribbon body).
 ```
 
 ### 21. `fish_l9` — 대형 체형: 물개·바다코끼리
@@ -375,12 +415,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: seal shape. Bottom: walrus shape (tusks).
+Simple bold shapes with clean flat areas.
+Top row: seal shape. Bottom row: walrus shape (tusks).
 ```
 
 ### 22. `fish_l10` — 대형 체형: 매너티·일각고래
@@ -392,12 +435,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: manatee shape. Bottom: narwhal shape (long horn).
+Simple bold shapes with clean flat areas.
+Top row: manatee shape. Bottom row: narwhal shape (long horn).
 ```
 
 ### 23. `fish_l11` — 대형 체형: 바다뱀·바다악어
@@ -409,12 +455,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: sea snake shape. Bottom: saltwater crocodile shape.
+Simple bold shapes with clean flat areas.
+Top row: sea snake shape. Bottom row: saltwater crocodile shape.
 ```
 
 ### 24. `fish_l12` — 대형 체형: 수장룡·암모나이트
@@ -426,12 +475,15 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
-area, flat side view facing left, body straight (not curved or bent). Colored only in one
+Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
+Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Each one has a different funny expression. Simple bold shapes with clean flat areas.
-Top: plesiosaur shape (long-necked ancient reptile). Bottom: ammonite shape.
+Simple bold shapes with clean flat areas.
+Top row: plesiosaur shape (long-necked ancient reptile). Bottom row: ammonite shape.
 ```
 
 
@@ -450,8 +502,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -467,8 +522,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -484,8 +542,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -501,8 +562,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -518,8 +582,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -535,8 +602,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -552,8 +622,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -569,8 +642,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -586,8 +662,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -603,8 +682,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -620,8 +702,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -637,8 +722,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -654,8 +742,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -671,8 +762,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -688,8 +782,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -705,8 +802,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -722,8 +822,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -739,8 +842,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -756,8 +862,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -773,8 +882,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -790,8 +902,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -807,8 +922,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -824,8 +942,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -841,8 +962,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -858,8 +982,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -875,8 +1002,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -892,8 +1022,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -909,8 +1042,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -926,8 +1062,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -943,8 +1082,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -960,8 +1102,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -977,8 +1122,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -994,8 +1142,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1011,8 +1162,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1028,8 +1182,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1045,8 +1202,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1062,8 +1222,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1079,8 +1242,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1096,8 +1262,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
@@ -1113,8 +1282,11 @@ outline, soft pastel palette matching the attached palette image, no anti-aliasi
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
+expression. Bottom: the exact same creature with the same body, pose, size and colors but a
+shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
+changes.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
 magical. Simple bold shapes with clean flat areas. No human features.
