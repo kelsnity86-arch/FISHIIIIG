@@ -76,19 +76,21 @@ on the main branch, in the folder assets/raw/, with the file name boat_a.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
@@ -210,19 +212,21 @@ on the main branch, in the folder assets/raw/, with the file name float.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
@@ -237,19 +241,21 @@ on the main branch, in the folder assets/raw/, with the file name fish_s2.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
@@ -264,19 +270,21 @@ on the main branch, in the folder assets/raw/, with the file name fish_s3.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
@@ -290,18 +298,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_s4.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: tuna shape. Bottom row: shark shape.
@@ -314,18 +324,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l1.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: manta ray shape. Bottom row: eel shape.
@@ -338,18 +350,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l2.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: marlin shape (spear nose). Bottom row: sawshark shape (saw nose).
@@ -362,18 +376,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l3.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: ocean sunfish shape. Bottom row: sturgeon shape.
@@ -386,18 +402,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l4.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: whale shape. Bottom row: dolphin shape.
@@ -410,18 +428,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l5.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: anglerfish shape (lantern lure). Bottom row: coelacanth shape (ancient fish).
@@ -434,18 +454,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l6.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: giant squid shape. Bottom row: giant octopus shape.
@@ -458,18 +480,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l7.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: sea turtle shape. Bottom row: oarfish shape (long ribbon body).
@@ -482,18 +506,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l8.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: seal shape. Bottom row: walrus shape (tusks).
@@ -506,18 +532,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l9.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: manatee shape. Bottom row: narwhal shape (long horn).
@@ -530,18 +558,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l10.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: sea snake shape. Bottom row: saltwater crocodile shape.
@@ -554,18 +584,20 @@ on the main branch, in the folder assets/raw/, with the file name fish_l11.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: normal goofy expression. Right column: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
+Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
-head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
+translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
+to the pale belly with a soft wet sheen. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: plesiosaur shape (long-necked ancient reptile). Bottom row: ammonite shape.
@@ -585,19 +617,18 @@ on the main branch, in the folder assets/raw/, with the file name fish_l12.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Hippocampus: front half of a horse with a flowing seaweed mane, back half a fish tail, sunny sea-green and gold.
 
@@ -609,19 +640,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_01.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Capricorn sea-goat: front half of a goat with curled horns, back half a fish tail, warm cream and teal.
 
@@ -633,19 +663,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_02.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Heraldic sea-lion: front half of a lion with a mane, back half a fish tail, golden with blue fins.
 
@@ -657,19 +686,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_03.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Shen: a giant clam with its shell slightly open, breathing out a soft mirage cloud with tiny towers inside, pearl and pink.
 
@@ -681,19 +709,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_04.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Sun carp: a round disc-shaped goldfish glowing like the sun, with ray-like fins, orange and yellow.
 
@@ -705,19 +732,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_05.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Makara: a water dragon with an elephant-like trunk, crocodile jaws and a fish tail, emerald and coral pink.
 
@@ -729,19 +755,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_06.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon-palace turtle: a huge sea turtle carrying a tiny ornate palace and coral garden on its shell, jade and red.
 
@@ -753,19 +778,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_07.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Taniwha: a guardian water dragon with spiral carved patterns on its body and a long finned tail, deep green and white.
 
@@ -777,19 +801,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_08.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Rainbow serpent: a long thick serpent with scales in soft rainbow bands, gentle face.
 
@@ -801,19 +824,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_09.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Giant pearl clam: an enormous scalloped clam, open to show a huge glowing pearl, with coral growing on the shell.
 
@@ -825,19 +847,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_10.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Nessie: a long-necked lake monster with a round body, four flippers and humps on its back, misty grey-green.
 
@@ -849,19 +870,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_11.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kelpie: a water horse with a dripping seaweed mane and a fish tail instead of hind legs, dark teal and grey.
 
@@ -873,19 +893,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_12.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Ikuchi: an endlessly long smooth eel dripping oil-like droplets, pale grey-blue.
 
@@ -897,19 +916,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_13.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Afanc: a creature with a crocodile body and a broad beaver tail, mossy brown and grey.
 
@@ -921,19 +939,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_14.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Mist jellyfish: a huge translucent jellyfish made of fog with long wispy tentacles, pale grey-blue with soft white glow.
 
@@ -945,19 +962,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_15.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Legendary white whale: a massive pure white sperm whale with old scars and a few broken harpoons, wise eye.
 
@@ -969,19 +985,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_16.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Sea serpent: a long ocean serpent with a crested head and a row of back fins, deep blue and silver.
 
@@ -993,19 +1008,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_17.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kun: a fish as vast as a mountain with huge wing-like fins, tiny clouds and birds around it, deep blue and gold.
 
@@ -1017,19 +1031,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_18.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Star whale: a whale whose body looks like the night sky, filled with stars and a faint constellation pattern, navy and gold.
 
@@ -1041,19 +1054,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_19.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Storm marlin: a marlin with a lightning-bolt spear nose and a storm-cloud sail fin, dark blue and yellow.
 
@@ -1065,19 +1077,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_20.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Aspidochelone: a gigantic turtle with a snowy island, pine trees and a tiny hut on its shell, ice blue and white.
 
@@ -1089,19 +1100,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_21.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Hafgufa: a colossal sea beast with an enormous cave-like open mouth and rocky skin that looks like an island, grey-blue.
 
@@ -1113,19 +1123,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_22.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Akhlut: half wolf, half orca: wolf head and front legs, orca body and tail, black and white.
 
@@ -1137,19 +1146,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_23.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Ice sea dragon: a long dragon made of clear ice with crystal spikes and a snowflake frill, pale blue and white.
 
@@ -1161,19 +1169,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_24.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Crystal narwhal: a narwhal with a long glowing crystal horn and gem-like spots, lavender and ice blue.
 
@@ -1185,19 +1192,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_25.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Leviathan: a massive armored sea beast with glowing lava cracks between dark scales and smoke from its nostrils, black and orange.
 
@@ -1209,19 +1215,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_26.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Namazu: a giant catfish with long whiskers and a big stone resting on its head, earthy brown with cracked-ground patterns.
 
@@ -1233,19 +1238,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_27.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Mo'o: a giant water lizard dragon with glossy black scales, a long tail and tropical flowers along its back.
 
@@ -1257,19 +1261,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_28.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Obsidian shark: a shark made of shiny black volcanic glass with sharp facets and glowing orange edges.
 
@@ -1281,19 +1284,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_29.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Phoenix flying fish: a flying fish with flame feather wings and a long fiery tail, red, orange and gold.
 
@@ -1305,19 +1307,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_30.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kraken: a colossal squid-octopus with a huge mantle and many thick tentacles stretched straight back, deep purple and teal.
 
@@ -1329,19 +1330,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_31.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Charybdis: a giant round sea creature whose mouth is a spiraling whirlpool ringed with teeth, dark teal and violet.
 
@@ -1353,19 +1353,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_32.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Bake-kujira: a ghostly whale skeleton, glowing softly, with a few strange fish swimming around it, bone white and pale blue.
 
@@ -1377,19 +1376,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_33.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Lusca: the front half of a shark with octopus tentacles as its back half, dark blue and magenta.
 
@@ -1401,19 +1399,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_34.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Abyssal lantern angler: a huge deep-sea anglerfish with a big glowing lantern lure and glowing dots along its body, dark navy and cyan.
 
@@ -1425,19 +1422,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_35.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Jormungandr: the world serpent, an immense thick serpent with rune-like markings and mountain-ridge scales, dark green and gold.
 
@@ -1449,19 +1445,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_36.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon king of the sea: an eastern sea dragon with antlers, long whiskers, a flowing mane and a pearl under its chin, azure and gold.
 
@@ -1473,19 +1468,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_37.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon koi: a golden koi halfway through turning into a dragon, with small horns, whiskers and a dragon tail.
 
@@ -1497,19 +1491,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_38.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Imugi: a giant hornless proto-dragon serpent with smooth dark blue scales and a pale belly, calm eyes.
 
@@ -1521,19 +1514,18 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_39.png
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
-One legendary sea creature drawn twice, stacked vertically, not touching. Top: normal goofy
-expression. Bottom: the exact same creature with the same body, pose, size and colors but a
-shocked surprised face (eyes popping wide open, mouth wide open in an O shape). Only the face
-changes.
-Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
-cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
-big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
+but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
+not cartoonish. Only the face and fins change.
+Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
+Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
+membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
+soft wet sheen. Small, clear, wise eyes. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Bahamut: a cosmic fish so vast that a tiny landscape with mountains rests on its back, purple, gold and starlight.
 
