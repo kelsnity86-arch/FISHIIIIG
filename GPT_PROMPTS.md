@@ -2041,6 +2041,9 @@ One sprite: the shadow of a big fish seen under the water surface. A simple gene
 silhouette with a tail fin, flat side view facing left, body straight, filling a 2:1 wide area.
 Filled with one flat dark navy blue color, no outline, no eye, no details inside. The edge is
 softened with a thin ring of pixel dithering so it looks like it is under water.
+This shadow will be animated smoothly in the game by bending its body like a swimming wave,
+rotating and scaling it, so draw it as one clean, simple, continuous shape with an even
+body thickness and a smooth outline, perfectly straight, with no gaps or separate pieces.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name shadow.png
