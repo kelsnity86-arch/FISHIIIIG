@@ -1,1 +1,124 @@
-{ "sprites": {} }
+{
+ "sprites": {
+  "boat_1": {
+   "file": "boat_1.png",
+   "w": 32,
+   "h": 12.91,
+   "smooth": true
+  },
+  "boat_2": {
+   "file": "boat_2.png",
+   "w": 40,
+   "h": 19.96,
+   "smooth": true
+  },
+  "boat_3": {
+   "file": "boat_3.png",
+   "w": 48,
+   "h": 31.62,
+   "smooth": true
+  },
+  "boat_4": {
+   "file": "boat_4.png",
+   "w": 56,
+   "h": 41.4,
+   "smooth": true
+  },
+  "body_1": {
+   "file": "body_1.png",
+   "w": 39.54,
+   "h": 40,
+   "smooth": true
+  },
+  "body_2": {
+   "file": "body_2.png",
+   "w": 40.23,
+   "h": 40,
+   "smooth": true
+  },
+  "body_3": {
+   "file": "body_3.png",
+   "w": 41.13,
+   "h": 40,
+   "smooth": true
+  },
+  "body_4": {
+   "file": "body_4.png",
+   "w": 40.8,
+   "h": 40,
+   "smooth": true
+  },
+  "body_5": {
+   "file": "body_5.png",
+   "w": 40.0,
+   "h": 40,
+   "smooth": true
+  },
+  "body_6": {
+   "file": "body_6.png",
+   "w": 39.09,
+   "h": 40,
+   "smooth": true
+  },
+  "body_7": {
+   "file": "body_7.png",
+   "w": 40.34,
+   "h": 40,
+   "smooth": true
+  },
+  "body_8": {
+   "file": "body_8.png",
+   "w": 42.27,
+   "h": 40,
+   "smooth": true
+  },
+  "fish_mackerel": {
+   "file": "fish_mackerel.png",
+   "w": 256,
+   "h": 118.6,
+   "smooth": false
+  },
+  "fish_mackerel_s": {
+   "file": "fish_mackerel_s.png",
+   "w": 256,
+   "h": 118.38,
+   "smooth": false
+  },
+  "fish_anchovy": {
+   "file": "fish_anchovy.png",
+   "w": 256,
+   "h": 67.75,
+   "smooth": false
+  },
+  "fish_anchovy_s": {
+   "file": "fish_anchovy_s.png",
+   "w": 256,
+   "h": 67.62,
+   "smooth": false
+  },
+  "fish_bream": {
+   "file": "fish_bream.png",
+   "w": 256,
+   "h": 177.76,
+   "smooth": false
+  },
+  "fish_bream_s": {
+   "file": "fish_bream_s.png",
+   "w": 256,
+   "h": 177.76,
+   "smooth": false
+  },
+  "fish_flounder": {
+   "file": "fish_flounder.png",
+   "w": 256,
+   "h": 121.77,
+   "smooth": false
+  },
+  "fish_flounder_s": {
+   "file": "fish_flounder_s.png",
+   "w": 256,
+   "h": 121.77,
+   "smooth": false
+  }
+ }
+}

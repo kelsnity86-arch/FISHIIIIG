@@ -2,13 +2,16 @@
 import { GRADES } from './config.js';
 
 const LIST = [
-  { name: '왕고등어',     grade: 'common',    shape: 'fish',  hue: 0,   bite: 'tok' },
-  { name: '대왕멸치',     grade: 'common',    shape: 'long',  hue: -20, bite: 'tok' },
-  { name: '통통돔',       grade: 'common',    shape: 'fish',  hue: 130, bite: 'tok' },
-  { name: '무지개 넙치',  grade: 'uncommon',  shape: 'fish',  hue: 60,  bite: 'pull' },
-  { name: '줄무늬 참치',  grade: 'uncommon',  shape: 'fish',  hue: -40, bite: 'pull' },
-  { name: '푸른 상어',    grade: 'rare',      shape: 'fish',  hue: 10,  bite: 'pull' },
-  { name: '큰바다뱀',     grade: 'rare',      shape: 'long',  hue: 90,  bite: 'tok' },
+  // 실제 에셋이 있는 체형 (fish_s1)
+  { name: '왕고등어',     grade: 'common',    shape: 'mackerel', hue: 0,    bite: 'tok' },
+  { name: '대왕멸치',     grade: 'common',    shape: 'anchovy',  hue: 0,    bite: 'tok' },
+  { name: '통통돔',       grade: 'common',    shape: 'bream',    hue: 150,  bite: 'tok' },
+  { name: '졸린 넙치',    grade: 'common',    shape: 'flounder', hue: -30,  bite: 'pull' },
+  { name: '황금 고등어',  grade: 'uncommon',  shape: 'mackerel', hue: -150, bite: 'pull' },
+  { name: '무지개 넙치',  grade: 'uncommon',  shape: 'flounder', hue: 70,   bite: 'pull' },
+  { name: '보랏빛 돔',    grade: 'rare',      shape: 'bream',    hue: 80,   bite: 'pull' },
+  { name: '초록 멸치왕',  grade: 'rare',      shape: 'anchovy',  hue: -70,  bite: 'tok' },
+  // 아직 에셋이 없어 임시 체형을 쓰는 것
   { name: '붉은 산갈치',  grade: 'epic',      shape: 'long',  hue: 150, bite: 'pull' },
   { name: '외뿔 고래',    grade: 'epic',      shape: 'whale', hue: -30, bite: 'pull' },
   { name: '혹등고래',     grade: 'legendary', shape: 'whale', hue: 0,   bite: 'pull' },

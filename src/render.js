@@ -168,7 +168,7 @@ function drawBoat(ctx, g) {
 function drawBreach(ctx, g) {
   if (g.state !== 'breach' || g.breach.y === undefined) return;
   const br = g.breach, f = g.fish;
-  const spr = creatureSprite(f.shape, f.hue);
+  const spr = creatureSprite(f.shape, f.hue, true);   // 낚여 올라올 때는 놀란 표정
   ctx.save();
   ctx.beginPath(); ctx.rect(-20, -400, W + 40, br.waterY + 401); ctx.clip(); // 수면 아래는 가린다
   ctx.translate(br.x, br.y); ctx.scale(-1, 1); ctx.rotate(br.angle);         // 오른쪽(배 쪽)을 보도록 뒤집는다

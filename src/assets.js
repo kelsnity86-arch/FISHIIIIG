@@ -144,7 +144,7 @@ export async function loadAssets() {
     const entries = Object.entries(manifest.sprites || {});
     await Promise.all(entries.map(([name, info]) => new Promise((done) => {
       const img = new Image();
-      img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: false }; done(); };
+      img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth }; done(); };
       img.onerror = () => done(); // 파일이 없으면 임시 그림 유지
       img.src = 'assets/game/' + info.file;
     })));
@@ -155,11 +155,12 @@ export function sprite(name) { return sprites[name]; }
 
 // 색을 바꾼 물고기 그림 (체형 그림 1장 → 여러 종)
 const variantCache = new Map();
-export function creatureSprite(shape, hue) {
-  const key = shape + ':' + hue;
+// surprised=true 이면 놀란 표정 그림(fish_<체형>_s)을 쓴다. 없으면 평소 표정.
+export function creatureSprite(shape, hue, surprised = false) {
+  const key = shape + ':' + hue + (surprised ? ':s' : '');
   let v = variantCache.get(key);
   if (v) return v;
-  const base = sprites['fish_' + shape];
+  const base = (surprised && sprites['fish_' + shape + '_s']) || sprites['fish_' + shape];
   const c = document.createElement('canvas');
   c.width = base.img.width; c.height = base.img.height;
   const g = c.getContext('2d');
