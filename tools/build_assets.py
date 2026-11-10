@@ -195,7 +195,7 @@ def build():
                 smooth = True
             if item.get('upscale'):                              # 큰 생물 그림: 용량이 커서 webp 로 압축
                 file = item['name'] + '.webp'
-                crop.save(OUT / file, 'WEBP', quality=88, method=6)
+                crop.save(OUT / file, 'WEBP', quality=88, method=4)
             else:
                 file = item['name'] + '.png'
                 crop.save(OUT / file)
