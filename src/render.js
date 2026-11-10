@@ -1,9 +1,9 @@
 // 화면 그리기. 그림은 전부 assets.js 의 스프라이트를 통해 그리므로,
 // 실제 에셋 파일이 들어오면 이 코드 수정 없이 교체된다.
 // (예외로 코드가 직접 그리는 것: 하늘·바다 바탕색, 파도 줄무늬(임시), 낚싯줄, 물방울, 게이지, 글자)
-import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, GRADES, PHASES, COLORS, FIGHT } from './config.js';
+import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, PERSON_SCALE, PHASES, COLORS, FIGHT } from './config.js';
 import { sprite, creatureSprite, shadowSprite } from './assets.js';
-import { boatPose, rodPose } from './game.js';
+import { boatPose, rodPose, shadowLen } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -35,8 +35,8 @@ export function render(ctx, g) {
   drawSkyAndSea(ctx, g);
   drawShadow(ctx, g);
   drawRipples(ctx, g);
-  drawBoat(ctx, g);
   drawBreach(ctx, g);
+  drawBoat(ctx, g);      // 배는 항상 위에: 거대한 몸 앞에 조그만 배가 보여야 크기가 실감난다
   drawParticles(ctx, g);
 
   if (phase.tint) {
@@ -100,7 +100,7 @@ function drawShadow(ctx, g) {
   if (!g.fish || g.shadow.vis < 0.01) return;
   const d = g.shadow.depth;
   const spr = shadowSprite(g.fish.shape);
-  const len = g.fish.len * lerp(1, 0.38, d);
+  const len = shadowLen(g);
   const bw = shadowBuf.width, bh = shadowBuf.height, inner = bw * 0.9;
   shadowCtx.setTransform(1, 0, 0, 1, 0, 0);
   shadowCtx.clearRect(0, 0, bw, bh);
@@ -110,7 +110,8 @@ function drawShadow(ctx, g) {
   ctx.save();
   ctx.globalAlpha = lerp(0.42, 0.07, d) * g.shadow.vis;
   ctx.imageSmoothingEnabled = true;
-  ctx.translate(g.shadow.x, LANE_Y + 8 + d * 20 + len * 0.04);
+  ctx.translate(g.shadow.x, LANE_Y + 8 + d * 20 + Math.min(40, len * 0.04));
+  ctx.scale(-g.shadow.dir, 1);   // 그림은 왼쪽을 보므로 오른쪽을 볼 때 뒤집는다
   ctx.drawImage(shadowBuf, -bw * k / 2, -bh * k * 0.42 / 2, bw * k, bh * k * 0.42);
   ctx.restore();
 }
@@ -134,14 +135,14 @@ function drawBoat(ctx, g) {
   ctx.translate(b.x, BOAT_Y + 1); ctx.scale(1, -0.55); ctx.rotate(-b.rot);
   ctx.globalAlpha = 0.22;
   draw(ctx, boat, -boat.w / 2 + Math.sin(g.time * 3) * 0.6, -waterline);
-  draw(ctx, person, 1, -waterline - person.h + 2);
+  draw(ctx, person, 2, -waterline - person.h * PERSON_SCALE + 2, person.w * PERSON_SCALE, person.h * PERSON_SCALE);
   ctx.restore();
 
   // 사람 (기울기로 동작 표현)
   ctx.save();
   ctx.translate(b.x, b.y); ctx.rotate(b.rot);
   ctx.save();
-  ctx.translate(5, -waterline + 3); ctx.rotate(g.lean);
+  ctx.translate(5, -waterline + 3); ctx.rotate(g.lean); ctx.scale(PERSON_SCALE, PERSON_SCALE);
   draw(ctx, person, -person.w / 2, -person.h);
   ctx.restore();
   draw(ctx, boat, -boat.w / 2, -waterline);
@@ -169,17 +170,17 @@ function drawBreach(ctx, g) {
   const br = g.breach, f = g.fish;
   const spr = creatureSprite(f.shape, f.hue);
   ctx.save();
-  ctx.beginPath(); ctx.rect(-20, -400, W + 40, LANE_Y + 401); ctx.clip(); // 수면 아래는 가린다
-  ctx.translate(br.x, br.y); ctx.rotate(br.angle);
+  ctx.beginPath(); ctx.rect(-20, -400, W + 40, br.waterY + 401); ctx.clip(); // 수면 아래는 가린다
+  ctx.translate(br.x, br.y); ctx.scale(-1, 1); ctx.rotate(br.angle);         // 오른쪽(배 쪽)을 보도록 뒤집는다
   drawBendy(ctx, spr, f.len, g.time * 9, f.len * 0.028);
   ctx.restore();
   // 수면과 만나는 자리의 거품
-  if (br.y < LANE_Y + br.sink && br.y > LANE_Y - f.len * 0.5) {
+  if (br.y < br.waterY + br.sink && br.y > br.waterY - f.len * 0.5) {
     ctx.fillStyle = 'rgba(255,255,255,0.75)';
-    const w = f.len * 0.32;
-    for (let i = 0; i < 9; i++) {
-      const x = br.x + (i / 8 - 0.5) * w * 2 + Math.sin(g.time * 7 + i) * 3;
-      ctx.beginPath(); ctx.ellipse(x, LANE_Y + 1, 5 + (i % 3) * 3, 2.2, 0, 0, Math.PI * 2); ctx.fill();
+    const w = f.len * 0.32, n = Math.round(clamp(f.len / 30, 9, 40)), big = clamp(f.len / 300, 1, 3);
+    for (let i = 0; i < n; i++) {
+      const x = br.x + (i / (n - 1) - 0.5) * w * 2 + Math.sin(g.time * 7 + i) * 3;
+      ctx.beginPath(); ctx.ellipse(x, br.waterY + 1, (5 + (i % 3) * 3) * big, 2.2 * big, 0, 0, Math.PI * 2); ctx.fill();
     }
   }
 }

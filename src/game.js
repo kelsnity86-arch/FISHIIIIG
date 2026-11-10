@@ -18,7 +18,7 @@ export function createGame() {
     bob: { x: BOAT_X - 30, y: BOAT_Y - 20, dip: 0, dipV: 0, inWater: false },
     fish: null,
     wait: null, bite: null, fight: null, breach: null, result: null,
-    shadow: { x: 0, depth: 1, vis: 0 },
+    shadow: { x: 0, depth: 1, vis: 0, dir: 1 },   // dir: +1 오른쪽(배 쪽)을 봄, -1 왼쪽
     emote: null, msg: null,
     particles: [], ripples: [],
   };
@@ -37,13 +37,16 @@ export function rodPose(g) {
   const b = boatPose(g);
   const c = Math.cos(b.rot), s = Math.sin(b.rot);
   const loc = (lx, ly) => ({ x: b.x + lx * c - ly * s, y: b.y + lx * s + ly * c });
-  const base = loc(1, -9);
+  const base = loc(2, -7.5);
   const th = g.rodAngle + b.rot;
   const th2 = th - g.rodBend;
   const mid = { x: base.x - Math.cos(th) * ROD_LEN * 0.6, y: base.y - Math.sin(th) * ROD_LEN * 0.6 };
   const tip = { x: mid.x - Math.cos(th2) * ROD_LEN * 0.4, y: mid.y - Math.sin(th2) * ROD_LEN * 0.4 };
   return { boat: b, loc, base, mid, tip };
 }
+
+// 지금 보이는 그림자 길이 (깊을수록 작다)
+export function shadowLen(g) { return g.fish.len * lerp(1, 0.38, g.shadow.depth); }
 
 // ── 효과 ──
 function splash(g, x, y, count, power) {
@@ -53,7 +56,7 @@ function splash(g, x, y, count, power) {
     g.particles.push({
       x: x + rand(-1, 1) * power * 0.04, y,
       vx: Math.cos(a) * v * 0.6, vy: Math.sin(a) * v,
-      life: rand(0.5, 1.1), age: 0, size: rand(0.8, 1.6) + power * 0.006,
+      life: rand(0.5, 1.1) + power * 0.002, age: 0, size: rand(0.8, 1.6) + Math.min(3, power * 0.006), floor: y + 14,
     });
   }
 }
@@ -172,7 +175,8 @@ export function update(g, dt) {
       const e = lead * lead * (3 - 2 * lead);
       g.shadow.vis = e;
       g.shadow.depth = lerp(1, 0.4, e);
-      g.shadow.x = bob.x - (1 - e) * (90 + g.fish.len * 0.4) + Math.sin(g.time * 0.9) * 6 * (1 - e);
+      g.shadow.dir = 1;   // 왼쪽 깊은 곳에서 찌를 향해(오른쪽으로) 다가온다
+      g.shadow.x = bob.x - shadowLen(g) * 0.42 - (1 - e) * (90 + g.fish.len * 0.3) + Math.sin(g.time * 0.9) * 6 * (1 - e);
       if (g.t >= w.total) startBite(g);
       break;
     }
@@ -224,7 +228,9 @@ export function update(g, dt) {
       const endX = lerp(BOAT_X - 60, g.castX, far) + (f.surging ? Math.sin(g.time * 13) * 5 : 0);
       bob.x = approach(bob.x, endX, 8, dt); bob.y = LANE_Y; bob.dipTarget = 7;
       g.shadow.vis = 1;
-      g.shadow.x = approach(g.shadow.x, bob.x - g.fish.len * 0.15, 6, dt);
+      // 끌려올 때는 입(바늘)이 배 쪽을 향하고, 날뛸 때는 몸을 돌려 달아난다
+      g.shadow.dir = approach(g.shadow.dir, f.surging ? -1 : 1, 5, dt);
+      g.shadow.x = approach(g.shadow.x, bob.x - g.shadow.dir * shadowLen(g) * 0.42, 6, dt);
       g.shadow.depth = approach(g.shadow.depth, f.surging ? 0.95 : (g.hold ? 0.12 : 0.5), 2.2, dt);
 
       if (f.surging) {
@@ -252,21 +258,21 @@ export function update(g, dt) {
       const u = s + 0.1 * Math.sin(2 * Math.PI * s);          // 꼭대기에서 잠깐 머무는 느낌
       const prevY = br.y;
       br.x = lerp(br.xs, br.xe, u);
-      br.y = LANE_Y + br.sink - (br.hmax + br.sink) * 4 * u * (1 - u);
+      br.y = br.waterY + br.sink - (br.hmax + br.sink) * 4 * u * (1 - u);
       const du = 1e-3;
-      const y2 = LANE_Y + br.sink - (br.hmax + br.sink) * 4 * (u + du) * (1 - u - du);
-      br.angle = Math.atan2(-(y2 - br.y), (br.xs - br.xe) * du);
+      const y2 = br.waterY + br.sink - (br.hmax + br.sink) * 4 * (u + du) * (1 - u - du);
+      br.angle = Math.atan2(-(y2 - br.y), (br.xe - br.xs) * du);
       // 수면을 통과하는 순간: 큰 물보라 + 배 흔들림
       const L = g.fish.len;
-      if ((prevY > LANE_Y) !== (br.y > LANE_Y) && prevY !== undefined) {
-        splash(g, br.x, LANE_Y, Math.round(30 + L * 0.35), 130 + L * 0.5);
-        ripple(g, br.x, LANE_Y, 30 + L * 0.25);
-        kick(g, (br.y > LANE_Y ? -1 : 1) * (0.5 + L / 300));
+      if ((prevY > br.waterY) !== (br.y > br.waterY) && prevY !== undefined) {
+        for (let i = 0; i < 5; i++) splash(g, br.x + (i - 2) * L * 0.12, br.waterY, Math.round(Math.min(70, 8 + L * 0.07)), Math.min(420, 130 + L * 0.3));
+        ripple(g, br.x, br.waterY, Math.min(260, 30 + L * 0.25));
+        kick(g, (br.y > br.waterY ? -1 : 1) * Math.min(2.2, 0.5 + L / 300));
         g.shake = Math.min(7, 2 + L / 90);
       }
-      if (br.y < LANE_Y + br.sink * 0.6) {
+      if (br.y < br.waterY + br.sink * 0.6) {
         br.fx -= dt;
-        if (br.fx <= 0 && s < 0.9) { br.fx = 0.05; splash(g, br.x + rand(-L, L) * 0.3, LANE_Y, 2, 70 + L * 0.2); }
+        if (br.fx <= 0 && s < 0.9) { br.fx = 0.04; splash(g, br.x + rand(-L, L) * 0.35, br.waterY, 3, Math.min(300, 70 + L * 0.2)); }
       }
       g.shadow.vis = approach(g.shadow.vis, 0, 8, dt);
       bob.x = approach(bob.x, rodPose(g).tip.x, 6, dt); bob.y = approach(bob.y, rodPose(g).tip.y + 12, 6, dt);
@@ -294,7 +300,7 @@ export function update(g, dt) {
 
   // 입자·물결·말풍선
   for (const p of g.particles) { p.age += dt; p.vy += 260 * dt; p.x += p.vx * dt; p.y += p.vy * dt; }
-  g.particles = g.particles.filter((p) => p.age < p.life && !(p.vy > 0 && p.y > LANE_Y + 14));
+  g.particles = g.particles.filter((p) => p.age < p.life && !(p.vy > 0 && p.y > p.floor));
   for (const r of g.ripples) r.age += dt;
   g.ripples = g.ripples.filter((r) => r.age < r.life);
   if (g.msg) { g.msg.age += dt; if (g.msg.age > 1.4) g.msg = null; }
@@ -333,12 +339,14 @@ function startFight(g) {
 
 function startBreach(g) {
   const L = g.fish.len;
-  const hmax = clamp(L * 0.55, 60, 175);
-  const xs = clamp(g.bob.x + L * 0.25, 60, BOAT_X - 30);
+  // 왼쪽 물속에서 배를 향해(오른쪽으로) 솟구친다. 클수록 높이, 천천히.
+  const xe = BOAT_X - 60 - L * 0.3;
   g.breach = {
-    xs, xe: xs - (L * 0.7 + 50),
-    hmax, sink: L * 0.3, dur: 2.3 + L / 380, fx: 0,
-    x: xs, y: undefined, angle: 0,
+    xs: xe - Math.min(L * 0.5 + 40, 300), xe,
+    waterY: LANE_Y + clamp((L - 500) * 0.08, 0, 100),   // 초대형은 화면 앞쪽까지 덮는다
+    hmax: clamp(L * 0.45, 100, 240), sink: L * 0.32,
+    dur: Math.min(4.4, 2.3 + L / 380), fx: 0,
+    x: xe, y: undefined, angle: 0,
   };
   g.fight = null;
   setState(g, 'breach');

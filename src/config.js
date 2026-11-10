@@ -10,6 +10,7 @@ export const LANE_Y = 250;           // 찌·물고기가 있는 수면 y (배�
 export const CAST_NEAR = W * 0.35;   // 약하게 던졌을 때 찌 위치
 export const CAST_FAR = W * 0.20;    // 세게 던졌을 때 찌 위치
 export const ROD_LEN = 36;
+export const PERSON_SCALE = 0.72;     // 바다용 실루엣 크기 배율 (8×9 그림 기준 → 약 6px)
 
 export const TIMING = {
   chargeSpeed: 1.1,      // 파워 게이지 왕복 속도 (초당)
@@ -33,12 +34,12 @@ export const FIGHT = {
 
 // 등급: 색, 화면상 몸길이(px), 힘, 출현 가중치, 기본 가격
 export const GRADES = [
-  { id: 'common',    name: '일반', color: '#9aa3ad', len: [80, 130],  power: 0.5, weight: 50,  price: 40 },
-  { id: 'uncommon',  name: '고급', color: '#5fbf6a', len: [110, 170], power: 0.7, weight: 25,  price: 120 },
-  { id: 'rare',      name: '희귀', color: '#4f9cf0', len: [150, 230], power: 0.9, weight: 13,  price: 400 },
-  { id: 'epic',      name: '영웅', color: '#a77be0', len: [210, 320], power: 1.15, weight: 7,  price: 1500 },
-  { id: 'legendary', name: '전설', color: '#f2933a', len: [300, 440], power: 1.4, weight: 3.5, price: 6000 },
-  { id: 'fantasy',   name: '환상', color: '#f2c14e', len: [460, 760], power: 1.7, weight: 1.5, price: 0 },
+  { id: 'common',    name: '일반', color: '#9aa3ad', len: [220, 320], power: 0.5, weight: 50,  price: 40 },
+  { id: 'uncommon',  name: '고급', color: '#5fbf6a', len: [300, 420], power: 0.7, weight: 25,  price: 120 },
+  { id: 'rare',      name: '희귀', color: '#4f9cf0', len: [400, 560], power: 0.9, weight: 13,  price: 400 },
+  { id: 'epic',      name: '영웅', color: '#a77be0', len: [540, 760], power: 1.15, weight: 7,  price: 1500 },
+  { id: 'legendary', name: '전설', color: '#f2933a', len: [760, 1100], power: 1.4, weight: 3.5, price: 6000 },
+  { id: 'fantasy',   name: '환상', color: '#f2c14e', len: [1200, 1900], power: 1.7, weight: 1.5, price: 0 },
 ];
 
 // 시간대: 화면 전체에 곱해지는 색
