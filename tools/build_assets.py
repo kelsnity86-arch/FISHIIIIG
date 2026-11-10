@@ -74,6 +74,15 @@ SHEETS = {
     'web_icon': [dict(name=f'web_icon_{i + 1}', w=24, grid=(3, 6)) for i in range(18)],
     'fx_rays': [dict(name='fx_rays', w=256, upscale=True)],
     'fx_stamp': [dict(name='fx_stamp', w=48)],
+    # ── 옆모습 바다·큰 물 효과 (원본 해상도 유지) ──
+    **{f'sea_wave_{k}': [dict(name=f'sea_wave_{k}', w=640, whole=True, upscale=True)] for k in ['back', 'mid', 'front']},
+    'bg_sky2': [dict(name='bg_sky2', w=640, whole=True, opaque=True, upscale=True)],
+    'bg_cloud2': [dict(name=f'cloud2_{i + 1}', w=160, grid=(2, 3), upscale=True) for i in range(6)],
+    'fx_burst': [dict(name='fx_burst', w=256, whole=True, upscale=True)],
+    'fx_wall': [dict(name='fx_wall', w=512, whole=True, upscale=True)],
+    'fx_spray': [dict(name=f'fx_spray_{i + 1}', w=128, grid=(2, 2), upscale=True) for i in range(4)],
+    'fx_drips': [dict(name=f'fx_drip_{i + 1}', w=64, grid=(1, 3), upscale=True) for i in range(3)],
+    'fx_drops': [dict(name=f'fx_drop2_{i + 1}', w=24, grid=(2, 4)) for i in range(8)],
     'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
 

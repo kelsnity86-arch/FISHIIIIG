@@ -3574,3 +3574,211 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fx_stamp.png
 ```
 
+---
+
+## ⑭ 다시 받는 것 — 옆모습 바다와 큰 물 효과
+
+구도를 옆모습(수면선 + 물 단면)으로 바꾸면서 다시 받는 그림. 물 효과는 거대한 생물 크기에 맞게 크게.
+
+### 120. `sea_wave_back` — 옆모습 바다: 뒤쪽 파도 띠
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+One very wide horizontal strip of sea seen from the SIDE, for a side-view game. The top edge is
+a wavy water surface line with small gentle rolling waves and thin pale foam; above the surface is fully transparent. Below the
+surface the strip is filled with soft light blue water, slightly hazy, as it is far away. The strip must repeat seamlessly left to right.
+Wide 4:1 image, the water surface about one third down from the top.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name sea_wave_back.png
+```
+
+### 121. `sea_wave_mid` — 옆모습 바다: 가운데 파도 띠
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+One very wide horizontal strip of sea seen from the SIDE, for a side-view game. The top edge is
+a wavy water surface line with medium rolling waves with white foam on the crests; above the surface is fully transparent. Below the
+surface the strip is filled with clear mid blue water that gets a little darker toward the bottom. The strip must repeat seamlessly left to right.
+Wide 4:1 image, the water surface about one third down from the top.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name sea_wave_mid.png
+```
+
+### 122. `sea_wave_front` — 옆모습 바다: 앞쪽 파도 띠
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+One very wide horizontal strip of sea seen from the SIDE, for a side-view game. The top edge is
+a wavy water surface line with larger rolling waves with thick white foam and a few sparkles of sunlight; above the surface is fully transparent. Below the
+surface the strip is filled with deep blue water that gets much darker toward the bottom, with faint soft light shafts. The strip must repeat seamlessly left to right.
+Wide 4:1 image, the water surface about one third down from the top.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name sea_wave_front.png
+```
+
+### 123. `bg_sky2` — 하늘 (고운 그림)
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+A daytime sky background, fully opaque: soft smooth transition from clear blue at the top to a
+pale warm glow near the bottom, with a gentle sun glow on the upper left. No clouds, no land,
+no sea, no banding stripes. 16:9 wide, fills the whole image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name bg_sky2.png
+```
+
+### 124. `bg_cloud2` — 구름 6개 (고운 그림)
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+A sprite sheet of 6 clouds in a 3x2 grid, evenly spaced, not touching: fluffy layered cumulus
+clouds in different sizes and shapes, white with soft blue-grey shading underneath and a warm
+pink-cream light on top.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name bg_cloud2.png
+```
+
+### 125. `fx_burst` — 큰 물기둥 (거대 생물이 솟구칠 때)
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+One large sprite: a huge explosive column of sea water bursting straight up, as when a whale
+breaches. Thick white foam at the core, blue-green translucent water sheets peeling outward,
+many droplets flying off at the top and sides. Tall image (about 2:3), base at the bottom.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_burst.png
+```
+
+### 126. `fx_wall` — 넓은 물벽 (거대 생물이 떨어질 때)
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+One large sprite: a very wide wall of splashing water thrown up to both sides, as when a whale
+falls back into the sea. A wide crown shape with tall curling sheets of water at the left and
+right, foam at the base, droplets flying outward. Wide image (about 5:2), base at the bottom.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_wall.png
+```
+
+### 127. `fx_spray` — 물안개 덩어리 4개
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+A sprite sheet of 4 soft puffs of sea spray and mist in a 2x2 grid, evenly spaced, not touching.
+Each is a different irregular cloud of fine white water spray with soft translucent edges.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_spray.png
+```
+
+### 128. `fx_drips` — 몸에서 흘러내리는 물줄기 3개
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+A sprite sheet of 3 curtains of water pouring downward, side by side, not touching: thin sheets
+and streams of water running off a large body, wider at the top and breaking into droplets at
+the bottom, translucent blue-white. Each is tall and narrow.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_drips.png
+```
+
+### 129. `fx_drops` — 큰 물방울 8개
+
+```
+Style references: open assets/raw/fish_whale.png, assets/raw/fantasy_19.png and
+assets/raw/style_palette.png from the GitHub repository kelsnity86-arch/FISHIIIIG, branch
+claude/amazing-mendel-8fufxr. Match the refined, finely detailed pixel-art style of the two
+creature images (small fine pixels, soft layered shading, thin dark navy outline) and the
+colors of the palette.
+
+Premium refined storybook pixel art, small fine clean pixels, NOT big chunky blocks,
+no text or letters, fully transparent background unless stated otherwise.
+
+A sprite sheet of 8 water droplets and splash fragments in a 4x2 grid, evenly spaced, not
+touching, all different: round drops, stretched flying drops, small blobs, and tiny clusters,
+translucent blue-white with a bright highlight.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_drops.png
+```
+
