@@ -94,8 +94,9 @@ Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
@@ -254,8 +255,9 @@ Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
@@ -287,8 +289,9 @@ Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
@@ -320,8 +323,9 @@ Match the style of the reference image.
 
 A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
 spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
@@ -352,8 +356,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -382,8 +387,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -412,8 +418,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -442,8 +449,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -472,8 +480,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -502,8 +511,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -532,8 +542,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -562,8 +573,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -592,8 +604,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -622,8 +635,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -652,8 +666,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -682,8 +697,9 @@ Match the style of the reference image.
 
 Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
 Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
 close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
@@ -718,8 +734,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -745,8 +762,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -772,8 +790,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -799,8 +818,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -826,8 +846,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -853,8 +874,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -880,8 +902,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -907,8 +930,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -934,8 +958,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -961,8 +986,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -988,8 +1014,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1015,8 +1042,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1042,8 +1070,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1069,8 +1098,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1096,8 +1126,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1123,8 +1154,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1150,8 +1182,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1177,8 +1210,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1204,8 +1238,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1231,8 +1266,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1258,8 +1294,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1285,8 +1322,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1312,8 +1350,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1339,8 +1378,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1366,8 +1406,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1393,8 +1434,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1420,8 +1462,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1447,8 +1490,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1474,8 +1518,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1501,8 +1546,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1528,8 +1574,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1555,8 +1602,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1582,8 +1630,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1609,8 +1658,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1636,8 +1686,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1663,8 +1714,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1690,8 +1742,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1717,8 +1770,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1744,8 +1798,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a
@@ -1771,8 +1826,9 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
 One legendary sea creature drawn twice, stacked vertically, not touching. Top: calm natural expression. Bottom: the exact same creature with the same body, pose, size and colors,
-but startled: eyes slightly wider, mouth slightly open, fins flared out. Subtle and dignified,
-not cartoonish. Only the face and fins change.
+but clearly startled so the difference is obvious even at a small size: eyes noticeably
+wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
+not cartoonish. The body shape stays exactly the same; only the face and fins change.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Premium, majestic and mystical look, NOT comical and NOT chibi, beautiful rather than scary.
 Graceful proportions with rich ornate detail: scale texture, fin rays with translucent
 membranes, flowing manes or frills where fitting, soft glowing accents. Layered shading with a

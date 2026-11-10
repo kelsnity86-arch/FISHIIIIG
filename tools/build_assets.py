@@ -60,6 +60,7 @@ def load(path):
         a[key, 3] = 0
         alpha = Image.fromarray(a[..., 3]).filter(ImageFilter.MinFilter(3))   # 가장자리 흰 테 제거
         a[..., 3] = np.array(alpha)
+    a[a[..., 3] < ALPHA_MIN] = 0     # 배경 제거 후 남은 희미한 잡티 제거
     return a
 
 
