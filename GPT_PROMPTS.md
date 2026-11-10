@@ -75,7 +75,9 @@ Match the style of the attached reference image.
 A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
 Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Drawn with rich detail because it will be shown very large. In order:
+Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
 1) mackerel shape (streamlined), 2) anchovy shape (thin and long),
 3) sea bream shape (tall and round), 4) flounder shape (flat).
 ```
@@ -184,7 +186,9 @@ Match the style of the attached reference image.
 A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
 Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Drawn with rich detail because it will be shown very large. In order:
+Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
 1) pufferfish shape (ball), 2) filefish shape (diamond),
 3) butterflyfish shape (disc), 4) goby shape (big head).
 ```
@@ -201,7 +205,9 @@ Match the style of the attached reference image.
 A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
 Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Drawn with rich detail because it will be shown very large. In order:
+Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
 1) flying fish shape (wing-like fins), 2) seahorse shape,
 3) shrimp shape, 4) crab shape.
 ```
@@ -218,7 +224,9 @@ Match the style of the attached reference image.
 A sprite sheet of 4 sea creature body sprites in a 2x2 grid, evenly spaced, not touching.
 Each fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
 Colored only in one blue hue family with a white belly, no patterns, no markings.
-Drawn with rich detail because it will be shown very large. In order:
+Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas. In order:
 1) squid shape, 2) octopus shape, 3) jellyfish shape, 4) starfish shape.
 ```
 
@@ -233,8 +241,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: tuna shape. Bottom: shark shape.
 ```
 
@@ -249,8 +258,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: manta ray shape. Bottom: eel shape.
 ```
 
@@ -265,8 +275,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: marlin shape (spear nose). Bottom: sawshark shape (saw nose).
 ```
 
@@ -281,8 +292,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: ocean sunfish shape. Bottom: sturgeon shape.
 ```
 
@@ -297,8 +309,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: whale shape. Bottom: dolphin shape.
 ```
 
@@ -313,8 +326,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: anglerfish shape (lantern lure). Bottom: coelacanth shape (ancient fish).
 ```
 
@@ -329,8 +343,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: giant squid shape. Bottom: giant octopus shape.
 ```
 
@@ -345,8 +360,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: sea turtle shape. Bottom: oarfish shape (long ribbon body).
 ```
 
@@ -361,8 +377,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: seal shape. Bottom: walrus shape (tusks).
 ```
 
@@ -377,8 +394,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: manatee shape. Bottom: narwhal shape (long horn).
 ```
 
@@ -393,8 +411,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: sea snake shape. Bottom: saltwater crocodile shape.
 ```
 
@@ -409,8 +428,9 @@ Match the style of the attached reference image.
 
 Two large sea creature body sprites stacked vertically, not touching. Each fills a 2:1 wide
 area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Drawn with rich detail because
-it will be shown very large.
+blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
+head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
+Each one has a different funny expression. Simple bold shapes with clean flat areas.
 Top: plesiosaur shape (long-necked ancient reptile). Bottom: ammonite shape.
 ```
 
@@ -431,9 +451,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Hippocampus: front half of a horse with a flowing seaweed mane, back half a fish tail, sunny sea-green and gold.
 ```
 
@@ -447,9 +468,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Capricorn sea-goat: front half of a goat with curled horns, back half a fish tail, warm cream and teal.
 ```
 
@@ -463,9 +485,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Heraldic sea-lion: front half of a lion with a mane, back half a fish tail, golden with blue fins.
 ```
 
@@ -479,9 +502,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Shen: a giant clam with its shell slightly open, breathing out a soft mirage cloud with tiny towers inside, pearl and pink.
 ```
 
@@ -495,9 +519,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Sun carp: a round disc-shaped goldfish glowing like the sun, with ray-like fins, orange and yellow.
 ```
 
@@ -511,9 +536,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Makara: a water dragon with an elephant-like trunk, crocodile jaws and a fish tail, emerald and coral pink.
 ```
 
@@ -527,9 +553,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Dragon-palace turtle: a huge sea turtle carrying a tiny ornate palace and coral garden on its shell, jade and red.
 ```
 
@@ -543,9 +570,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Taniwha: a guardian water dragon with spiral carved patterns on its body and a long finned tail, deep green and white.
 ```
 
@@ -559,9 +587,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Rainbow serpent: a long thick serpent with scales in soft rainbow bands, gentle face.
 ```
 
@@ -575,9 +604,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Giant pearl clam: an enormous scalloped clam, open to show a huge glowing pearl, with coral growing on the shell.
 ```
 
@@ -591,9 +621,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Nessie: a long-necked lake monster with a round body, four flippers and humps on its back, misty grey-green.
 ```
 
@@ -607,9 +638,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Kelpie: a water horse with a dripping seaweed mane and a fish tail instead of hind legs, dark teal and grey.
 ```
 
@@ -623,9 +655,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Ikuchi: an endlessly long smooth eel dripping oil-like droplets, pale grey-blue.
 ```
 
@@ -639,9 +672,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Afanc: a creature with a crocodile body and a broad beaver tail, mossy brown and grey.
 ```
 
@@ -655,9 +689,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Mist jellyfish: a huge translucent jellyfish made of fog with long wispy tentacles, pale grey-blue with soft white glow.
 ```
 
@@ -671,9 +706,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Legendary white whale: a massive pure white sperm whale with old scars and a few broken harpoons, wise eye.
 ```
 
@@ -687,9 +723,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Sea serpent: a long ocean serpent with a crested head and a row of back fins, deep blue and silver.
 ```
 
@@ -703,9 +740,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Kun: a fish as vast as a mountain with huge wing-like fins, tiny clouds and birds around it, deep blue and gold.
 ```
 
@@ -719,9 +757,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Star whale: a whale whose body looks like the night sky, filled with stars and a faint constellation pattern, navy and gold.
 ```
 
@@ -735,9 +774,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Storm marlin: a marlin with a lightning-bolt spear nose and a storm-cloud sail fin, dark blue and yellow.
 ```
 
@@ -751,9 +791,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Aspidochelone: a gigantic turtle with a snowy island, pine trees and a tiny hut on its shell, ice blue and white.
 ```
 
@@ -767,9 +808,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Hafgufa: a colossal sea beast with an enormous cave-like open mouth and rocky skin that looks like an island, grey-blue.
 ```
 
@@ -783,9 +825,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Akhlut: half wolf, half orca: wolf head and front legs, orca body and tail, black and white.
 ```
 
@@ -799,9 +842,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Ice sea dragon: a long dragon made of clear ice with crystal spikes and a snowflake frill, pale blue and white.
 ```
 
@@ -815,9 +859,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Crystal narwhal: a narwhal with a long glowing crystal horn and gem-like spots, lavender and ice blue.
 ```
 
@@ -831,9 +876,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Leviathan: a massive armored sea beast with glowing lava cracks between dark scales and smoke from its nostrils, black and orange.
 ```
 
@@ -847,9 +893,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Namazu: a giant catfish with long whiskers and a big stone resting on its head, earthy brown with cracked-ground patterns.
 ```
 
@@ -863,9 +910,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Mo'o: a giant water lizard dragon with glossy black scales, a long tail and tropical flowers along its back.
 ```
 
@@ -879,9 +927,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Obsidian shark: a shark made of shiny black volcanic glass with sharp facets and glowing orange edges.
 ```
 
@@ -895,9 +944,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Phoenix flying fish: a flying fish with flame feather wings and a long fiery tail, red, orange and gold.
 ```
 
@@ -911,9 +961,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Kraken: a colossal squid-octopus with a huge mantle and many thick tentacles stretched straight back, deep purple and teal.
 ```
 
@@ -927,9 +978,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Charybdis: a giant round sea creature whose mouth is a spiraling whirlpool ringed with teeth, dark teal and violet.
 ```
 
@@ -943,9 +995,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Bake-kujira: a ghostly whale skeleton, glowing softly, with a few strange fish swimming around it, bone white and pale blue.
 ```
 
@@ -959,9 +1012,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Lusca: the front half of a shark with octopus tentacles as its back half, dark blue and magenta.
 ```
 
@@ -975,9 +1029,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Abyssal lantern angler: a huge deep-sea anglerfish with a big glowing lantern lure and glowing dots along its body, dark navy and cyan.
 ```
 
@@ -991,9 +1046,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Jormungandr: the world serpent, an immense thick serpent with rune-like markings and mountain-ridge scales, dark green and gold.
 ```
 
@@ -1007,9 +1063,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Dragon king of the sea: an eastern sea dragon with antlers, long whiskers, a flowing mane and a pearl under its chin, azure and gold.
 ```
 
@@ -1023,9 +1080,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Dragon koi: a golden koi halfway through turning into a dragon, with small horns, whiskers and a dragon tail.
 ```
 
@@ -1039,9 +1097,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Imugi: a giant hornless proto-dragon serpent with smooth dark blue scales and a pale belly, calm eyes.
 ```
 
@@ -1055,9 +1114,10 @@ no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
 
 One large legendary sea creature sprite filling a 2:1 wide area (3:1 allowed for very long
-bodies), flat side view facing left, body straight (not coiled). Majestic and magical but
-still cute, not scary, no human features. Drawn with rich detail because it will be shown
-filling the whole screen.
+bodies), flat side view facing left, body straight (not coiled). Comical and adorable
+cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
+big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
+magical. Simple bold shapes with clean flat areas. No human features.
 Creature: Bahamut: a cosmic fish so vast that a tiny landscape with mountains rests on its back, purple, gold and starlight.
 ```
 
