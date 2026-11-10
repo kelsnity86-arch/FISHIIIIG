@@ -19,7 +19,7 @@ function draw(ctx, spr, x, y, w = spr.w, h = spr.h) {
 //   curve : 몸 전체가 C자로 휘는 정도(돌아설 때)
 //   shake : 머리 털기
 function drawBendy(ctx, spr, len, phase, amp, curve = 0, shake = 0, time = 0) {
-  const n = 32, hgt = len * spr.h / spr.w;
+  const n = Math.round(clamp(len / 5, 32, 220)), hgt = len * spr.h / spr.w;   // 크게 그릴수록 조각을 잘게 (계단 방지)
   const sw = spr.img.width / n, dw = len / n;
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = 'high';
@@ -148,6 +148,7 @@ function drawShadow(ctx, g) {
 function drawRipples(ctx, g) {
   const spr = sprite('fx_ring');
   for (const r of g.ripples) {
+    if (r.age < 0) continue;
     const k = r.age / r.life, rad = r.size * (0.3 + k * 1.6);
     ctx.globalAlpha = (1 - k) * 0.8;
     draw(ctx, spr, r.x - rad, r.y - rad * spr.h / spr.w, rad * 2, rad * 2 * spr.h / spr.w);
@@ -222,13 +223,18 @@ function drawBreach(ctx, g) {
   ctx.restore();
   // 수면과 만나는 자리의 거품
   if (br.y < br.waterY + br.sink && br.y > br.waterY - f.len * 0.5) {
+    // 몸이 수면을 뚫는 자리 주변에만, 크기·높이·투명도를 제각각으로
     const foam = sprite('fx_foam');
-    const w = f.len * 0.32, n = Math.round(clamp(f.len / 30, 9, 40)), big = clamp(f.len / 300, 1, 3);
+    const w = Math.min(f.len, 600) * 0.22, n = Math.round(clamp(f.len / 70, 6, 14));
     for (let i = 0; i < n; i++) {
-      const x = br.x + (i / (n - 1) - 0.5) * w * 2 + Math.sin(g.time * 7 + i) * 3;
-      const sz = (10 + (i % 3) * 5) * big;
-      draw(ctx, foam, x - sz / 2, br.waterY - sz * 0.6, sz, sz);
+      const h1 = Math.sin(i * 12.9898) * 43758.5453, r1 = h1 - Math.floor(h1);
+      const h2 = Math.sin(i * 78.233) * 12345.678, r2 = h2 - Math.floor(h2);
+      const x = br.x + (r1 - 0.5) * w * 2 + Math.sin(g.time * 3 + i) * 4;
+      const sz = 8 + r2 * 16;
+      ctx.globalAlpha = 0.55 + 0.45 * Math.sin(g.time * 2 + i * 1.7) ** 2;
+      draw(ctx, foam, x - sz / 2, br.waterY - sz * (0.3 + r2 * 0.5), sz, sz);
     }
+    ctx.globalAlpha = 1;
   }
 }
 

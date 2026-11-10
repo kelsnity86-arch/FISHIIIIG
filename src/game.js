@@ -74,8 +74,12 @@ function splash(g, x, y, count, power) {
     });
   }
 }
-function ripple(g, x, y, size) { g.ripples.push({ x, y, age: 0, life: 1.6, size }); }
-function burst(g, sprite, x, y, size, life = 0.8) { g.bursts.push({ sprite, x, y, size, life, age: 0 }); }
+function ripple(g, x, y, size) {
+  // 큰 물결은 하나를 키우지 않고 여러 겹으로
+  const n = Math.min(4, Math.ceil(size / 40));
+  for (let i = 0; i < n; i++) g.ripples.push({ x: x + rand(-size, size) * 0.3, y: y + rand(-3, 3), age: -i * 0.18, life: 1.6, size: Math.min(40, size / n + 10) });
+}
+function burst(g, sprite, x, y, size, life = 0.8) { g.bursts.push({ sprite, x, y, size: Math.min(size, 190), life, age: 0 }); }
 function say(g, text, color = '#fff4dc') { g.msg = { text, color, age: 0 }; }
 function kick(g, v) { g.rockV += v; }
 function heave(g, v) { g.boat.heaveV += v; }
@@ -510,9 +514,9 @@ function followMouth(g, dt) {
 function startBreach(g) {
   const L = g.fish.len, s = g.sw;
   const start = toScreen(s.x, s.z);
-  const xe = BOAT_X - 60 - L * 0.3;
+  const xe = BOAT_X - 60 - Math.min(L * 0.3, 140);
   g.breach = {
-    xs: Math.min(start.x, xe - 40), xe,
+    xs: clamp(Math.min(start.x, xe - 40), xe - 220, xe - 40), xe,
     waterY: LANE_Y + clamp((L - 500) * 0.08, 0, 100),   // 초대형은 화면 앞쪽까지 덮는다
     hmax: clamp(L * 0.45, 100, 240), sink: L * 0.32,
     dur: Math.min(4.4, 2.3 + L / 380), fx: 0,
@@ -535,7 +539,7 @@ function updateBreach(g, dt) {
   // 수면을 통과하는 순간: 큰 물보라 + 배 흔들림
   if (prevY !== undefined && (prevY > br.waterY) !== (br.y > br.waterY)) {
     const down = br.y > br.waterY;
-    for (let i = 0; i < 5; i++) splash(g, br.x + (i - 2) * L * 0.12, br.waterY, Math.round(Math.min(70, 8 + L * 0.07)), Math.min(420, 130 + L * 0.3));
+    for (let i = 0; i < 3; i++) splash(g, br.x + (i - 1) * Math.min(L, 500) * 0.15, br.waterY, Math.round(Math.min(26, 8 + L * 0.03)), Math.min(300, 120 + L * 0.15));
     burst(g, down ? 'fx_crown' : 'fx_column', br.x, br.waterY, Math.min(420, 80 + L * 0.35), 0.9);
     ripple(g, br.x, br.waterY, Math.min(260, 30 + L * 0.25));
     kick(g, (down ? -1 : 1) * Math.min(2.2, 0.5 + L / 300));
@@ -544,7 +548,7 @@ function updateBreach(g, dt) {
   }
   if (br.y < br.waterY + br.sink * 0.6) {
     br.fx -= dt;
-    if (br.fx <= 0 && s < 0.9) { br.fx = 0.04; splash(g, br.x + rand(-L, L) * 0.35, br.waterY, 3, Math.min(300, 70 + L * 0.2)); }
+    if (br.fx <= 0 && s < 0.9) { br.fx = 0.06; splash(g, br.x + rand(-1, 1) * Math.min(L, 500) * 0.35, br.waterY, 2, Math.min(220, 70 + L * 0.12)); }
   }
   if (g.sw) g.sw.vis = approach(g.sw.vis, 0, 8, dt);
   const tip = rodPose(g).tip;
