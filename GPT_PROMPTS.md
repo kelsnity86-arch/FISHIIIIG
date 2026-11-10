@@ -1756,3 +1756,66 @@ bait with plus sign.
 Row 3: fishing rod with circular arrow, coin with circular arrow, bell, hook with circular
 arrow, reel with circular arrow, crescent moon with a fishing rod.
 ```
+
+---
+
+## ⑫ 추가 — 코드로 그리던 것을 GPT 그림으로 (90~93)
+
+### 90. `shadow` — 물속 그림자 (모든 생물 공통)
+첨부: 팔레트 + 기준 장면
+
+```
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
+palette matching the attached palette image, no anti-aliasing, no gradients, no text or
+letters, no drop shadow, fully transparent background. Match the style of the attached
+reference image.
+
+One sprite: the shadow of a big fish seen under the water surface. A simple generic fish
+silhouette with a tail fin, flat side view facing left, body straight, filling a 2:1 wide area.
+Filled with one flat dark navy blue color, no outline, no eye, no details inside. The edge is
+softened with a thin ring of pixel dithering so it looks like it is under water.
+```
+
+### 91. `bg_sky` — 하늘 바탕 (낮 기준)
+첨부: 팔레트 + 기준 장면
+
+```
+16-bit pixel art game background, cute warm storybook style, small fine clean pixels, soft
+pastel palette matching the attached palette image, no text. Match the style of the attached
+reference image.
+
+A daytime sky only: soft bands of light blue getting paler toward the bottom, made with pixel
+dithering between the bands. No clouds, no sun, no land, no sea. 16:9 wide, fills the image.
+```
+
+### 92. `bg_sea` — 바다 바탕 (낮 기준)
+첨부: 팔레트 + 기준 장면
+
+```
+16-bit pixel art game background, cute warm storybook style, small fine clean pixels, soft
+pastel palette matching the attached palette image, no text. Match the style of the attached
+reference image.
+
+A calm sea surface only, seen from the side: soft bands of blue, paler near the top (far away)
+and deeper near the bottom (close), with pixel dithering between the bands. No waves, no
+boats, no land, no sky. Wide, fills the image, and repeats seamlessly left to right.
+```
+
+### 93. `web_node` — 업그레이드 웹 노드·선·빛
+첨부: 팔레트 + 기준 장면
+
+```
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
+palette matching the attached palette image, no anti-aliasing, no gradients, no text or
+letters, no drop shadow, fully transparent background. Match the style of the attached
+reference image.
+
+A sprite sheet of 12 pieces for a constellation-style skill map, in a 4x3 grid, evenly spaced,
+not touching, cream (#FFF4DC) and soft white on transparent. In order:
+Row 1: small locked dot, empty round ring, filled round node, large star-shaped node.
+Row 2: empty rounded-square ring, filled rounded-square node, big central round node with a
+decorative rim, soft round glow.
+Row 3: short straight line segment, short dotted line segment, tiny orbiting star, expanding
+ring ripple.
+```
+
