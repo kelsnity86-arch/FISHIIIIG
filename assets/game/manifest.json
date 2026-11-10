@@ -75,49 +75,49 @@
   "fish_mackerel": {
    "file": "fish_mackerel.png",
    "w": 256,
-   "h": 118.6,
+   "h": 104.92,
    "smooth": false
   },
   "fish_mackerel_s": {
    "file": "fish_mackerel_s.png",
    "w": 256,
-   "h": 118.38,
+   "h": 104.54,
    "smooth": false
   },
   "fish_anchovy": {
    "file": "fish_anchovy.png",
    "w": 256,
-   "h": 67.75,
+   "h": 64.35,
    "smooth": false
   },
   "fish_anchovy_s": {
    "file": "fish_anchovy_s.png",
    "w": 256,
-   "h": 67.62,
+   "h": 64.12,
    "smooth": false
   },
   "fish_bream": {
    "file": "fish_bream.png",
    "w": 256,
-   "h": 177.76,
+   "h": 158.29,
    "smooth": false
   },
   "fish_bream_s": {
    "file": "fish_bream_s.png",
    "w": 256,
-   "h": 177.76,
+   "h": 157.58,
    "smooth": false
   },
   "fish_flounder": {
    "file": "fish_flounder.png",
    "w": 256,
-   "h": 121.77,
+   "h": 116.49,
    "smooth": false
   },
   "fish_flounder_s": {
    "file": "fish_flounder_s.png",
    "w": 256,
-   "h": 121.77,
+   "h": 116.75,
    "smooth": false
   }
  }
