@@ -67,7 +67,7 @@ In order: 1) small wooden rowboat, 2) small motor fishing boat, 3) small fishing
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -80,7 +80,8 @@ Each sprite fills a 2:1 wide area, flat side view facing left, body straight (no
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
 1) mackerel shape (streamlined), 2) anchovy shape (thin and long),
 3) sea bream shape (tall and round), 4) flounder shape (flat).
@@ -182,7 +183,7 @@ standing upright. In order: 1) bamboo, 2) wood with red top, 3) white-blue fiber
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -195,7 +196,8 @@ Each sprite fills a 2:1 wide area, flat side view facing left, body straight (no
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
 1) pufferfish shape (ball), 2) filefish shape (diamond),
 3) butterflyfish shape (disc), 4) goby shape (big head).
@@ -205,7 +207,7 @@ The 4 creatures, one per row from top to bottom:
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -218,7 +220,8 @@ Each sprite fills a 2:1 wide area, flat side view facing left, body straight (no
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
 1) flying fish shape (wing-like fins), 2) seahorse shape,
 3) shrimp shape, 4) crab shape.
@@ -228,7 +231,7 @@ The 4 creatures, one per row from top to bottom:
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -241,7 +244,8 @@ Each sprite fills a 2:1 wide area, flat side view facing left, body straight (no
 Colored only in one blue hue family with a white belly, no patterns, no markings.
 Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 The 4 creatures, one per row from top to bottom:
 1) squid shape, 2) octopus shape, 3) jellyfish shape, 4) starfish shape.
 ```
@@ -250,7 +254,7 @@ The 4 creatures, one per row from top to bottom:
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -262,7 +266,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: tuna shape. Bottom row: shark shape.
 ```
 
@@ -270,7 +275,7 @@ Top row: tuna shape. Bottom row: shark shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -282,7 +287,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: manta ray shape. Bottom row: eel shape.
 ```
 
@@ -290,7 +296,7 @@ Top row: manta ray shape. Bottom row: eel shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -302,7 +308,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: marlin shape (spear nose). Bottom row: sawshark shape (saw nose).
 ```
 
@@ -310,7 +317,7 @@ Top row: marlin shape (spear nose). Bottom row: sawshark shape (saw nose).
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -322,7 +329,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: ocean sunfish shape. Bottom row: sturgeon shape.
 ```
 
@@ -330,7 +338,7 @@ Top row: ocean sunfish shape. Bottom row: sturgeon shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -342,7 +350,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: whale shape. Bottom row: dolphin shape.
 ```
 
@@ -350,7 +359,7 @@ Top row: whale shape. Bottom row: dolphin shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -362,7 +371,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: anglerfish shape (lantern lure). Bottom row: coelacanth shape (ancient fish).
 ```
 
@@ -370,7 +380,7 @@ Top row: anglerfish shape (lantern lure). Bottom row: coelacanth shape (ancient 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -382,7 +392,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: giant squid shape. Bottom row: giant octopus shape.
 ```
 
@@ -390,7 +401,7 @@ Top row: giant squid shape. Bottom row: giant octopus shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -402,7 +413,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: sea turtle shape. Bottom row: oarfish shape (long ribbon body).
 ```
 
@@ -410,7 +422,7 @@ Top row: sea turtle shape. Bottom row: oarfish shape (long ribbon body).
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -422,7 +434,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: seal shape. Bottom row: walrus shape (tusks).
 ```
 
@@ -430,7 +443,7 @@ Top row: seal shape. Bottom row: walrus shape (tusks).
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -442,7 +455,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: manatee shape. Bottom row: narwhal shape (long horn).
 ```
 
@@ -450,7 +464,7 @@ Top row: manatee shape. Bottom row: narwhal shape (long horn).
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -462,7 +476,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: sea snake shape. Bottom row: saltwater crocodile shape.
 ```
 
@@ -470,7 +485,7 @@ Top row: sea snake shape. Bottom row: saltwater crocodile shape.
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -482,7 +497,8 @@ changes.
 Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
 blue hue family with a white belly, no patterns, no markings. Comical and adorable cartoon look, NOT realistic: chubby rounded simplified body, oversized
 head, big round googly eyes with a white highlight, a small goofy mouth, tiny stubby fins.
-Simple bold shapes with clean flat areas.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
 Top row: plesiosaur shape (long-necked ancient reptile). Bottom row: ammonite shape.
 ```
 
@@ -497,7 +513,7 @@ Top row: plesiosaur shape (long-necked ancient reptile). Bottom row: ammonite sh
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -509,7 +525,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Hippocampus: front half of a horse with a flowing seaweed mane, back half a fish tail, sunny sea-green and gold.
 ```
 
@@ -517,7 +534,7 @@ Creature: Hippocampus: front half of a horse with a flowing seaweed mane, back h
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -529,7 +546,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Capricorn sea-goat: front half of a goat with curled horns, back half a fish tail, warm cream and teal.
 ```
 
@@ -537,7 +555,7 @@ Creature: Capricorn sea-goat: front half of a goat with curled horns, back half 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -549,7 +567,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Heraldic sea-lion: front half of a lion with a mane, back half a fish tail, golden with blue fins.
 ```
 
@@ -557,7 +576,7 @@ Creature: Heraldic sea-lion: front half of a lion with a mane, back half a fish 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -569,7 +588,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Shen: a giant clam with its shell slightly open, breathing out a soft mirage cloud with tiny towers inside, pearl and pink.
 ```
 
@@ -577,7 +597,7 @@ Creature: Shen: a giant clam with its shell slightly open, breathing out a soft 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -589,7 +609,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Sun carp: a round disc-shaped goldfish glowing like the sun, with ray-like fins, orange and yellow.
 ```
 
@@ -597,7 +618,7 @@ Creature: Sun carp: a round disc-shaped goldfish glowing like the sun, with ray-
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -609,7 +630,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Makara: a water dragon with an elephant-like trunk, crocodile jaws and a fish tail, emerald and coral pink.
 ```
 
@@ -617,7 +639,7 @@ Creature: Makara: a water dragon with an elephant-like trunk, crocodile jaws and
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -629,7 +651,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon-palace turtle: a huge sea turtle carrying a tiny ornate palace and coral garden on its shell, jade and red.
 ```
 
@@ -637,7 +660,7 @@ Creature: Dragon-palace turtle: a huge sea turtle carrying a tiny ornate palace 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -649,7 +672,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Taniwha: a guardian water dragon with spiral carved patterns on its body and a long finned tail, deep green and white.
 ```
 
@@ -657,7 +681,7 @@ Creature: Taniwha: a guardian water dragon with spiral carved patterns on its bo
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -669,7 +693,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Rainbow serpent: a long thick serpent with scales in soft rainbow bands, gentle face.
 ```
 
@@ -677,7 +702,7 @@ Creature: Rainbow serpent: a long thick serpent with scales in soft rainbow band
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -689,7 +714,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Giant pearl clam: an enormous scalloped clam, open to show a huge glowing pearl, with coral growing on the shell.
 ```
 
@@ -697,7 +723,7 @@ Creature: Giant pearl clam: an enormous scalloped clam, open to show a huge glow
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -709,7 +735,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Nessie: a long-necked lake monster with a round body, four flippers and humps on its back, misty grey-green.
 ```
 
@@ -717,7 +744,7 @@ Creature: Nessie: a long-necked lake monster with a round body, four flippers an
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -729,7 +756,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kelpie: a water horse with a dripping seaweed mane and a fish tail instead of hind legs, dark teal and grey.
 ```
 
@@ -737,7 +765,7 @@ Creature: Kelpie: a water horse with a dripping seaweed mane and a fish tail ins
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -749,7 +777,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Ikuchi: an endlessly long smooth eel dripping oil-like droplets, pale grey-blue.
 ```
 
@@ -757,7 +786,7 @@ Creature: Ikuchi: an endlessly long smooth eel dripping oil-like droplets, pale 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -769,7 +798,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Afanc: a creature with a crocodile body and a broad beaver tail, mossy brown and grey.
 ```
 
@@ -777,7 +807,7 @@ Creature: Afanc: a creature with a crocodile body and a broad beaver tail, mossy
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -789,7 +819,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Mist jellyfish: a huge translucent jellyfish made of fog with long wispy tentacles, pale grey-blue with soft white glow.
 ```
 
@@ -797,7 +828,7 @@ Creature: Mist jellyfish: a huge translucent jellyfish made of fog with long wis
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -809,7 +840,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Legendary white whale: a massive pure white sperm whale with old scars and a few broken harpoons, wise eye.
 ```
 
@@ -817,7 +849,7 @@ Creature: Legendary white whale: a massive pure white sperm whale with old scars
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -829,7 +861,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Sea serpent: a long ocean serpent with a crested head and a row of back fins, deep blue and silver.
 ```
 
@@ -837,7 +870,7 @@ Creature: Sea serpent: a long ocean serpent with a crested head and a row of bac
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -849,7 +882,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kun: a fish as vast as a mountain with huge wing-like fins, tiny clouds and birds around it, deep blue and gold.
 ```
 
@@ -857,7 +891,7 @@ Creature: Kun: a fish as vast as a mountain with huge wing-like fins, tiny cloud
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -869,7 +903,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Star whale: a whale whose body looks like the night sky, filled with stars and a faint constellation pattern, navy and gold.
 ```
 
@@ -877,7 +912,7 @@ Creature: Star whale: a whale whose body looks like the night sky, filled with s
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -889,7 +924,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Storm marlin: a marlin with a lightning-bolt spear nose and a storm-cloud sail fin, dark blue and yellow.
 ```
 
@@ -897,7 +933,7 @@ Creature: Storm marlin: a marlin with a lightning-bolt spear nose and a storm-cl
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -909,7 +945,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Aspidochelone: a gigantic turtle with a snowy island, pine trees and a tiny hut on its shell, ice blue and white.
 ```
 
@@ -917,7 +954,7 @@ Creature: Aspidochelone: a gigantic turtle with a snowy island, pine trees and a
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -929,7 +966,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Hafgufa: a colossal sea beast with an enormous cave-like open mouth and rocky skin that looks like an island, grey-blue.
 ```
 
@@ -937,7 +975,7 @@ Creature: Hafgufa: a colossal sea beast with an enormous cave-like open mouth an
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -949,7 +987,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Akhlut: half wolf, half orca: wolf head and front legs, orca body and tail, black and white.
 ```
 
@@ -957,7 +996,7 @@ Creature: Akhlut: half wolf, half orca: wolf head and front legs, orca body and 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -969,7 +1008,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Ice sea dragon: a long dragon made of clear ice with crystal spikes and a snowflake frill, pale blue and white.
 ```
 
@@ -977,7 +1017,7 @@ Creature: Ice sea dragon: a long dragon made of clear ice with crystal spikes an
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -989,7 +1029,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Crystal narwhal: a narwhal with a long glowing crystal horn and gem-like spots, lavender and ice blue.
 ```
 
@@ -997,7 +1038,7 @@ Creature: Crystal narwhal: a narwhal with a long glowing crystal horn and gem-li
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1009,7 +1050,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Leviathan: a massive armored sea beast with glowing lava cracks between dark scales and smoke from its nostrils, black and orange.
 ```
 
@@ -1017,7 +1059,7 @@ Creature: Leviathan: a massive armored sea beast with glowing lava cracks betwee
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1029,7 +1071,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Namazu: a giant catfish with long whiskers and a big stone resting on its head, earthy brown with cracked-ground patterns.
 ```
 
@@ -1037,7 +1080,7 @@ Creature: Namazu: a giant catfish with long whiskers and a big stone resting on 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1049,7 +1092,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Mo'o: a giant water lizard dragon with glossy black scales, a long tail and tropical flowers along its back.
 ```
 
@@ -1057,7 +1101,7 @@ Creature: Mo'o: a giant water lizard dragon with glossy black scales, a long tai
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1069,7 +1113,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Obsidian shark: a shark made of shiny black volcanic glass with sharp facets and glowing orange edges.
 ```
 
@@ -1077,7 +1122,7 @@ Creature: Obsidian shark: a shark made of shiny black volcanic glass with sharp 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1089,7 +1134,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Phoenix flying fish: a flying fish with flame feather wings and a long fiery tail, red, orange and gold.
 ```
 
@@ -1097,7 +1143,7 @@ Creature: Phoenix flying fish: a flying fish with flame feather wings and a long
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1109,7 +1155,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Kraken: a colossal squid-octopus with a huge mantle and many thick tentacles stretched straight back, deep purple and teal.
 ```
 
@@ -1117,7 +1164,7 @@ Creature: Kraken: a colossal squid-octopus with a huge mantle and many thick ten
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1129,7 +1176,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Charybdis: a giant round sea creature whose mouth is a spiraling whirlpool ringed with teeth, dark teal and violet.
 ```
 
@@ -1137,7 +1185,7 @@ Creature: Charybdis: a giant round sea creature whose mouth is a spiraling whirl
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1149,7 +1197,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Bake-kujira: a ghostly whale skeleton, glowing softly, with a few strange fish swimming around it, bone white and pale blue.
 ```
 
@@ -1157,7 +1206,7 @@ Creature: Bake-kujira: a ghostly whale skeleton, glowing softly, with a few stra
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1169,7 +1218,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Lusca: the front half of a shark with octopus tentacles as its back half, dark blue and magenta.
 ```
 
@@ -1177,7 +1227,7 @@ Creature: Lusca: the front half of a shark with octopus tentacles as its back ha
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1189,7 +1239,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Abyssal lantern angler: a huge deep-sea anglerfish with a big glowing lantern lure and glowing dots along its body, dark navy and cyan.
 ```
 
@@ -1197,7 +1248,7 @@ Creature: Abyssal lantern angler: a huge deep-sea anglerfish with a big glowing 
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1209,7 +1260,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Jormungandr: the world serpent, an immense thick serpent with rune-like markings and mountain-ridge scales, dark green and gold.
 ```
 
@@ -1217,7 +1269,7 @@ Creature: Jormungandr: the world serpent, an immense thick serpent with rune-lik
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1229,7 +1281,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon king of the sea: an eastern sea dragon with antlers, long whiskers, a flowing mane and a pearl under its chin, azure and gold.
 ```
 
@@ -1237,7 +1290,7 @@ Creature: Dragon king of the sea: an eastern sea dragon with antlers, long whisk
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1249,7 +1302,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Dragon koi: a golden koi halfway through turning into a dragon, with small horns, whiskers and a dragon tail.
 ```
 
@@ -1257,7 +1311,7 @@ Creature: Dragon koi: a golden koi halfway through turning into a dragon, with s
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1269,7 +1323,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Imugi: a giant hornless proto-dragon serpent with smooth dark blue scales and a pale belly, calm eyes.
 ```
 
@@ -1277,7 +1332,7 @@ Creature: Imugi: a giant hornless proto-dragon serpent with smooth dark blue sca
 첨부: 팔레트 + 기준 장면
 
 ```
-16-bit pixel art game asset, cute warm storybook style, chunky clean pixels, 1px dark navy
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, thin dark navy
 outline, soft pastel palette matching the attached palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the attached reference image.
@@ -1289,7 +1344,8 @@ changes.
 Each sprite fills a 2:1 wide area (3:1 allowed for very long bodies), flat side view facing left, body straight (not coiled). Comical and adorable
 cartoon look, NOT realistic and not scary: chubby rounded simplified body, oversized head,
 big round googly eyes with a white highlight, a goofy friendly expression. Still grand and
-magical. Simple bold shapes with clean flat areas. No human features.
+magical. High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves. No human features.
 Creature: Bahamut: a cosmic fish so vast that a tiny landscape with mountains rests on its back, purple, gold and starlight.
 ```
 
