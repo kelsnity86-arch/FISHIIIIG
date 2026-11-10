@@ -26,18 +26,14 @@ OUT = ROOT / 'assets' / 'game'
 #   w / h : 게임 좌표 크기. 하나만 적으면 비율을 유지한다.
 #   upscale=True : 게임에서 원본보다 크게 그리는 그림(물고기). 원본 해상도를 유지하고 도트를 또렷하게 둔다.
 FISH = dict(w=256, upscale=True)
+CREATURES = ['mackerel', 'anchovy', 'bream', 'flounder', 'puffer', 'filefish', 'butterfly', 'goby', 'flying', 'seahorse', 'shrimp', 'crab', 'squid', 'octopus', 'jellyfish', 'starfish', 'tuna', 'shark', 'manta', 'eel', 'marlin', 'sawshark', 'sunfish', 'sturgeon', 'whale', 'dolphin', 'angler', 'coelacanth', 'giant_squid', 'giant_octopus', 'turtle', 'oarfish', 'seal', 'walrus', 'manatee', 'narwhal', 'sea_snake', 'crocodile', 'plesiosaur', 'ammonite']
 SHEETS = {
+    **{f'fish_{n}': [dict(name=f'fish_{n}' + ('' if r == 1 else f'_c{r}') + s, **FISH)
+                     for r in range(1, 5) for s in ['', '_s']] for n in CREATURES},
     'boat_a': [dict(name=f'boat_{i + 1}', w=w) for i, w in enumerate([32, 40, 48, 56])],
     'boat_b': [dict(name=f'boat_{i + 5}', w=w) for i, w in enumerate([64, 72, 80, 88])],
     'char_body': [dict(name=f'body_{i + 1}', h=40) for i in range(8)],
-    'fish_s1': [dict(name=f'fish_{n}{s}', **FISH)
-                for n in ['mackerel', 'anchovy', 'bream', 'flounder'] for s in ['', '_s']],
-    'fish_s2': [dict(name=f'fish_{n}{s}', **FISH)
-                for n in ['puffer', 'filefish', 'butterfly', 'goby'] for s in ['', '_s']],
-    'fish_s3': [dict(name=f'fish_{n}{s}', **FISH)
-                for n in ['flying', 'seahorse', 'shrimp', 'crab'] for s in ['', '_s']],
-    'fish_s4': [dict(name=f'fish_{n}{s}', **FISH)
-                for n in ['squid', 'octopus', 'jellyfish', 'starfish'] for s in ['', '_s']],
+    # 생물 하나당 한 장: 4행(색) × 2열(평소·놀람). 1행 = 기본 이름, 2~4행 = _c2~_c4, 놀람 = _s
     'shadow': [dict(name='shadow', w=256, upscale=True)],   # 여러 개가 와도 첫 번째만 쓴다
     'rod': [dict(name=f'rod_{i + 1}', w=36) for i in range(8)],
     'float': [dict(name=f'float_{i + 1}', h=12) for i in range(8)],

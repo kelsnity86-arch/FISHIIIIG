@@ -10,12 +10,12 @@
 3. 각 블록 끝에 GitHub 업로드 지시가 들어 있어서, GPT가 그림을 `main` 브랜치 `assets/raw/`에 바로 올린다. 올라가면 Claude에게 "올렸어"라고만 하면 된다.
 4. 잘못 나오면 짧게 고쳐 달라고 한다: "4개만", "글자 없이", "서로 더 띄워서", "몸을 곧게".
 5. 투명 배경이 안 나오면 "배경을 단색 마젠타(#FF00FF)로 바꿔줘"라고 한다.
-6. **5번까지 만든 뒤 멈추고** 게임에 넣어 확인한다. 그다음 6번부터 진행.
+6. **시험 제작까지 만든 뒤 멈추고** 게임에 넣어 확인한다. 그다음 6번부터 진행.
 
 
 ---
 
-## ① 스타일 기준 (1~2)
+## ① 스타일 기준
 
 ### 1. `style_palette` — 색 견본
 
@@ -53,7 +53,7 @@ on the main branch, in the folder assets/raw/, with the file name style_key.png
 
 ---
 
-## ② 시험 제작 (3~5)
+## ② 시험 제작
 
 **여기까지 만들고 멈춘다.** 게임에 넣어 크기와 움직임을 확인한 뒤 계속한다.
 
@@ -79,7 +79,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name boat_a.png
 ```
 
-### 4. `fish_s1` — 소형 체형: 고등어·멸치·돔·넙치
+### 4. `fish_mackerel` — 소형: 고등어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -92,28 +92,146 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
-Colored only in one blue hue family with a white belly, no patterns, no markings.
+A sprite sheet of ONE sea creature, a mackerel (streamlined), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-The 4 creatures, one per row from top to bottom:
-1) mackerel shape (streamlined), 2) anchovy shape (thin and long),
-3) sea bream shape (tall and round), 4) flounder shape (flat).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_s1.png
+on the main branch, in the folder assets/raw/, with the file name fish_mackerel.png
 ```
 
-### 5. `char_body` — 옷 입은 몸 8벌
+### 5. `fish_anchovy` — 소형: 멸치 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a anchovy (thin and long), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_anchovy.png
+```
+
+### 6. `fish_bream` — 소형: 돔 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a sea bream (tall and round), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_bream.png
+```
+
+### 7. `fish_flounder` — 소형: 넙치 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a flounder (flat, both eyes on the upper side), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_flounder.png
+```
+
+### 8. `char_body` — 옷 입은 몸 8벌
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -139,9 +257,9 @@ on the main branch, in the folder assets/raw/, with the file name char_body.png
 
 ---
 
-## ③ 캐릭터 · 배 · 낚싯대 · 찌 (6~9)
+## ③ 캐릭터 · 배 · 낚싯대 · 찌
 
-### 6. `char_head` — 머리 + 모자 8개 + 바다용 실루엣
+### 9. `char_head` — 머리 + 모자 8개 + 바다용 실루엣
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -166,7 +284,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name char_head.png
 ```
 
-### 7. `boat_b` — 배 5~8단계
+### 10. `boat_b` — 배 5~8단계
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -189,7 +307,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name boat_b.png
 ```
 
-### 8. `rod` — 낚싯대 8개
+### 11. `rod` — 낚싯대 8개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -212,7 +330,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name rod.png
 ```
 
-### 9. `float` — 찌 8개
+### 12. `float` — 찌 8개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -236,11 +354,11 @@ on the main branch, in the folder assets/raw/, with the file name float.png
 
 ---
 
-## ④ 기본 체형 (10~24)
+## ④ 기본 체형
 
-파란 계열 + 흰 배, 무늬 없이, 몸을 곧게 편 옆모습. 색과 무늬는 코드가 바꾼다.
+생물 하나당 한 장: 색 4가지(자연색·금빛 주황·에메랄드·장밋빛 보라) × 표정 2가지. 몸을 곧게 편 옆모습.
 
-### 10. `fish_s2` — 소형 체형: 복어·쥐치·나비고기·망둥어
+### 13. `fish_puffer` — 소형: 복어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -253,28 +371,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
-Colored only in one blue hue family with a white belly, no patterns, no markings.
+A sprite sheet of ONE sea creature, a pufferfish (round ball), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-The 4 creatures, one per row from top to bottom:
-1) pufferfish shape (ball), 2) filefish shape (diamond),
-3) butterflyfish shape (disc), 4) goby shape (big head).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_s2.png
+on the main branch, in the folder assets/raw/, with the file name fish_puffer.png
 ```
 
-### 11. `fish_s3` — 소형 체형: 날치·해마·새우·게
+### 14. `fish_filefish` — 소형: 쥐치 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -287,28 +409,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
-Colored only in one blue hue family with a white belly, no patterns, no markings.
+A sprite sheet of ONE sea creature, a filefish (diamond shape), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-The 4 creatures, one per row from top to bottom:
-1) flying fish shape (wing-like fins), 2) seahorse shape,
-3) shrimp shape, 4) crab shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_s3.png
+on the main branch, in the folder assets/raw/, with the file name fish_filefish.png
 ```
 
-### 12. `fish_s4` — 소형 체형: 오징어·문어·해파리·불가사리
+### 15. `fish_butterfly` — 소형: 나비고기 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -321,27 +447,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-A sprite sheet of 4 sea creatures, each drawn twice, in a grid of 4 rows and 2 columns, evenly
-spaced, not touching. Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent).
-Colored only in one blue hue family with a white belly, no patterns, no markings.
+A sprite sheet of ONE sea creature, a butterflyfish (disc shape), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
 Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-The 4 creatures, one per row from top to bottom:
-1) squid shape, 2) octopus shape, 3) jellyfish shape, 4) starfish shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_s4.png
+on the main branch, in the folder assets/raw/, with the file name fish_butterfly.png
 ```
 
-### 13. `fish_l1` — 대형 체형: 참치·상어
+### 16. `fish_goby` — 소형: 망둥어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -354,25 +485,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a goby (big head), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: tuna shape. Bottom row: shark shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l1.png
+on the main branch, in the folder assets/raw/, with the file name fish_goby.png
 ```
 
-### 14. `fish_l2` — 대형 체형: 가오리·장어
+### 17. `fish_flying` — 소형: 날치 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -385,25 +523,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a flying fish (wing-like fins), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: manta ray shape. Bottom row: eel shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l2.png
+on the main branch, in the folder assets/raw/, with the file name fish_flying.png
 ```
 
-### 15. `fish_l3` — 대형 체형: 청새치·톱상어
+### 18. `fish_seahorse` — 소형: 해마 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -416,25 +561,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a seahorse, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: marlin shape (spear nose). Bottom row: sawshark shape (saw nose).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l3.png
+on the main branch, in the folder assets/raw/, with the file name fish_seahorse.png
 ```
 
-### 16. `fish_l4` — 대형 체형: 개복치·철갑상어
+### 19. `fish_shrimp` — 소형: 새우 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -447,25 +599,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a shrimp, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: ocean sunfish shape. Bottom row: sturgeon shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l4.png
+on the main branch, in the folder assets/raw/, with the file name fish_shrimp.png
 ```
 
-### 17. `fish_l5` — 대형 체형: 고래·돌고래
+### 20. `fish_crab` — 소형: 게 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -478,25 +637,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a crab, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: whale shape. Bottom row: dolphin shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l5.png
+on the main branch, in the folder assets/raw/, with the file name fish_crab.png
 ```
 
-### 18. `fish_l6` — 대형 체형: 아귀·실러캔스
+### 21. `fish_squid` — 소형: 오징어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -509,25 +675,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a squid, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: anglerfish shape (lantern lure). Bottom row: coelacanth shape (ancient fish).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l6.png
+on the main branch, in the folder assets/raw/, with the file name fish_squid.png
 ```
 
-### 19. `fish_l7` — 대형 체형: 대왕오징어·대왕문어
+### 22. `fish_octopus` — 소형: 문어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -540,25 +713,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a octopus, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: giant squid shape. Bottom row: giant octopus shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l7.png
+on the main branch, in the folder assets/raw/, with the file name fish_octopus.png
 ```
 
-### 20. `fish_l8` — 대형 체형: 바다거북·산갈치
+### 23. `fish_jellyfish` — 소형: 해파리 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -571,25 +751,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a jellyfish, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: sea turtle shape. Bottom row: oarfish shape (long ribbon body).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l8.png
+on the main branch, in the folder assets/raw/, with the file name fish_jellyfish.png
 ```
 
-### 21. `fish_l9` — 대형 체형: 물개·바다코끼리
+### 24. `fish_starfish` — 소형: 불가사리 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -602,25 +789,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a starfish, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: seal shape. Bottom row: walrus shape (tusks).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l9.png
+on the main branch, in the folder assets/raw/, with the file name fish_starfish.png
 ```
 
-### 22. `fish_l10` — 대형 체형: 매너티·일각고래
+### 25. `fish_tuna` — 대형: 참치 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -633,25 +827,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a tuna, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: manatee shape. Bottom row: narwhal shape (long horn).
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l10.png
+on the main branch, in the folder assets/raw/, with the file name fish_tuna.png
 ```
 
-### 23. `fish_l11` — 대형 체형: 바다뱀·바다악어
+### 26. `fish_shark` — 대형: 상어 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -664,25 +865,32 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a shark, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: sea snake shape. Bottom row: saltwater crocodile shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l11.png
+on the main branch, in the folder assets/raw/, with the file name fish_shark.png
 ```
 
-### 24. `fish_l12` — 대형 체형: 수장룡·암모나이트
+### 27. `fish_manta` — 대형: 가오리 (색 4가지 × 표정 2가지)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -695,32 +903,837 @@ outline, soft pastel palette matching the palette image, no anti-aliasing,
 no gradients, no text or letters, no drop shadow, fully transparent background.
 Match the style of the reference image.
 
-Two large sea creatures, each drawn twice, in a 2x2 grid, evenly spaced, not touching.
-Left column: calm natural expression. Right column: the exact same creature with the same body, pose, size and colors,
-but clearly startled so the difference is obvious even at a small size: eyes noticeably
-wider with small pupils, mouth open, every fin spread wide open. Still elegant and dignified,
-not cartoonish. The body shape stays exactly the same; only the face and fins change.
-Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or bent). Colored only in one
-blue hue family with a white belly, no patterns, no markings. Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
-close to the real species, only softly stylized. Visible scale texture, fin rays with slightly
-translucent fin membranes, a gill line and a lateral line. Layered shading from the darker back
-to the pale belly with a soft wet sheen. Small, clear, lively eyes.
+A sprite sheet of ONE sea creature, a manta ray, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
 High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
 should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
-Top row: plesiosaur shape (long-necked ancient reptile). Bottom row: ammonite shape.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name fish_l12.png
+on the main branch, in the folder assets/raw/, with the file name fish_manta.png
+```
+
+### 28. `fish_eel` — 대형: 장어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a eel, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_eel.png
+```
+
+### 29. `fish_marlin` — 대형: 청새치 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a marlin (spear nose), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_marlin.png
+```
+
+### 30. `fish_sawshark` — 대형: 톱상어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a sawshark (saw nose), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_sawshark.png
+```
+
+### 31. `fish_sunfish` — 대형: 개복치 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a ocean sunfish, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_sunfish.png
+```
+
+### 32. `fish_sturgeon` — 대형: 철갑상어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a sturgeon, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_sturgeon.png
+```
+
+### 33. `fish_whale` — 대형: 고래 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a whale, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_whale.png
+```
+
+### 34. `fish_dolphin` — 대형: 돌고래 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a dolphin, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_dolphin.png
+```
+
+### 35. `fish_angler` — 대형: 아귀 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a anglerfish (lantern lure), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_angler.png
+```
+
+### 36. `fish_coelacanth` — 대형: 실러캔스 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a coelacanth (ancient fish), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_coelacanth.png
+```
+
+### 37. `fish_giant_squid` — 대형: 대왕오징어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a giant squid, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_giant_squid.png
+```
+
+### 38. `fish_giant_octopus` — 대형: 대왕문어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a giant octopus, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_giant_octopus.png
+```
+
+### 39. `fish_turtle` — 대형: 바다거북 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a sea turtle, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_turtle.png
+```
+
+### 40. `fish_oarfish` — 대형: 산갈치 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a oarfish (long ribbon body), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_oarfish.png
+```
+
+### 41. `fish_seal` — 대형: 물개 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a seal, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_seal.png
+```
+
+### 42. `fish_walrus` — 대형: 바다코끼리 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a walrus (tusks), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_walrus.png
+```
+
+### 43. `fish_manatee` — 대형: 매너티 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a manatee, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_manatee.png
+```
+
+### 44. `fish_narwhal` — 대형: 일각고래 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a narwhal (long horn), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_narwhal.png
+```
+
+### 45. `fish_sea_snake` — 대형: 바다뱀 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a sea snake, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_sea_snake.png
+```
+
+### 46. `fish_crocodile` — 대형: 바다악어 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a saltwater crocodile, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_crocodile.png
+```
+
+### 47. `fish_plesiosaur` — 대형: 수장룡 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a plesiosaur (long-necked ancient reptile), drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_plesiosaur.png
+```
+
+### 48. `fish_ammonite` — 대형: 암모나이트 (색 4가지 × 표정 2가지)
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, premium refined storybook style, small fine clean pixels, thin dark navy
+outline, soft pastel palette matching the palette image, no anti-aliasing,
+no gradients, no text or letters, no drop shadow, fully transparent background.
+Match the style of the reference image.
+
+A sprite sheet of ONE sea creature, a ammonite, drawn 8 times in a grid of 4 rows and
+2 columns, evenly spaced, not touching. All 8 sprites have exactly the same body shape, pose
+and size. Each row is a different color version of the same creature:
+Row 1: the natural, realistic colors of the real species.
+Row 2: warm gold and orange.
+Row 3: emerald green and teal.
+Row 4: rose pink and violet.
+Every color version keeps layered shading from the darker back to the paler belly and a soft
+wet sheen, so each one looks hand-painted, not recolored.
+Left column: calm natural expression. Right column: the same sprite but clearly startled so the
+difference is obvious even at a small size: eyes noticeably wider with small pupils, mouth
+open, every fin spread wide open. Still elegant and dignified, not cartoonish. The body shape
+stays exactly the same; only the face and fins change.
+Each sprite fills a 2:1 wide area, flat side view facing left, body straight (not curved or
+bent). No patterns or markings.
+Premium, elegant, finely crafted look, NOT comical and NOT chibi: graceful natural proportions
+close to the real species, only softly stylized. Visible scale or skin texture, fin rays with
+slightly translucent membranes where the species has fins. Small, clear, lively eyes.
+High-resolution pixel art made of many small fine pixels, NOT big chunky blocks: each creature
+should be about 200 pixels long in pixel-art resolution, with smooth-looking curves.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fish_ammonite.png
 ```
 
 
 ---
 
-## ⑤ 환상종 (25~64)
+## ⑤ 환상종
 
 한 장에 한 마리. 색과 무늬는 프롬프트에 적힌 대로이며, 마음에 안 들면 마지막 줄만 고쳐 쓴다.
 
-### 25. `fantasy_01` — 히포캄푸스 (햇살 연안)
+### 49. `fantasy_01` — 히포캄푸스 (햇살 연안)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -748,7 +1761,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_01.png
 ```
 
-### 26. `fantasy_02` — 카프리콘 (햇살 연안)
+### 50. `fantasy_02` — 카프리콘 (햇살 연안)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -776,7 +1789,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_02.png
 ```
 
-### 27. `fantasy_03` — 문장 바다사자 (햇살 연안)
+### 51. `fantasy_03` — 문장 바다사자 (햇살 연안)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -804,7 +1817,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_03.png
 ```
 
-### 28. `fantasy_04` — 신(蜃, 신기루 대합) (햇살 연안)
+### 52. `fantasy_04` — 신(蜃, 신기루 대합) (햇살 연안)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -832,7 +1845,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_04.png
 ```
 
-### 29. `fantasy_05` — 해님 붕어 (햇살 연안)
+### 53. `fantasy_05` — 해님 붕어 (햇살 연안)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -860,7 +1873,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_05.png
 ```
 
-### 30. `fantasy_06` — 마카라 (산호초 열대)
+### 54. `fantasy_06` — 마카라 (산호초 열대)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -888,7 +1901,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_06.png
 ```
 
-### 31. `fantasy_07` — 용궁 거북 (산호초 열대)
+### 55. `fantasy_07` — 용궁 거북 (산호초 열대)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -916,7 +1929,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_07.png
 ```
 
-### 32. `fantasy_08` — 타니와 (산호초 열대)
+### 56. `fantasy_08` — 타니와 (산호초 열대)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -944,7 +1957,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_08.png
 ```
 
-### 33. `fantasy_09` — 무지개 뱀 (산호초 열대)
+### 57. `fantasy_09` — 무지개 뱀 (산호초 열대)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -972,7 +1985,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_09.png
 ```
 
-### 34. `fantasy_10` — 진주 대왕조개 (산호초 열대)
+### 58. `fantasy_10` — 진주 대왕조개 (산호초 열대)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1000,7 +2013,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_10.png
 ```
 
-### 35. `fantasy_11` — 네시 (안개 군도)
+### 59. `fantasy_11` — 네시 (안개 군도)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1028,7 +2041,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_11.png
 ```
 
-### 36. `fantasy_12` — 켈피 (안개 군도)
+### 60. `fantasy_12` — 켈피 (안개 군도)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1056,7 +2069,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_12.png
 ```
 
-### 37. `fantasy_13` — 이쿠치 (안개 군도)
+### 61. `fantasy_13` — 이쿠치 (안개 군도)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1084,7 +2097,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_13.png
 ```
 
-### 38. `fantasy_14` — 아방크 (안개 군도)
+### 62. `fantasy_14` — 아방크 (안개 군도)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1112,7 +2125,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_14.png
 ```
 
-### 39. `fantasy_15` — 안개 해파리 (안개 군도)
+### 63. `fantasy_15` — 안개 해파리 (안개 군도)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1140,7 +2153,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_15.png
 ```
 
-### 40. `fantasy_16` — 전설의 흰 고래 (원양 대해)
+### 64. `fantasy_16` — 전설의 흰 고래 (원양 대해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1168,7 +2181,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_16.png
 ```
 
-### 41. `fantasy_17` — 시 서펀트 (원양 대해)
+### 65. `fantasy_17` — 시 서펀트 (원양 대해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1196,7 +2209,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_17.png
 ```
 
-### 42. `fantasy_18` — 곤(鯤) (원양 대해)
+### 66. `fantasy_18` — 곤(鯤) (원양 대해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1224,7 +2237,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_18.png
 ```
 
-### 43. `fantasy_19` — 별고래 (원양 대해)
+### 67. `fantasy_19` — 별고래 (원양 대해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1252,7 +2265,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_19.png
 ```
 
-### 44. `fantasy_20` — 폭풍 청새치 (원양 대해)
+### 68. `fantasy_20` — 폭풍 청새치 (원양 대해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1280,7 +2293,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_20.png
 ```
 
-### 45. `fantasy_21` — 아스피도켈론 (극지 빙해)
+### 69. `fantasy_21` — 아스피도켈론 (극지 빙해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1308,7 +2321,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_21.png
 ```
 
-### 46. `fantasy_22` — 하프구파 (극지 빙해)
+### 70. `fantasy_22` — 하프구파 (극지 빙해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1336,7 +2349,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_22.png
 ```
 
-### 47. `fantasy_23` — 아클루트 (극지 빙해)
+### 71. `fantasy_23` — 아클루트 (극지 빙해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1364,7 +2377,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_23.png
 ```
 
-### 48. `fantasy_24` — 얼음 해룡 (극지 빙해)
+### 72. `fantasy_24` — 얼음 해룡 (극지 빙해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1392,7 +2405,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_24.png
 ```
 
-### 49. `fantasy_25` — 수정 일각고래 (극지 빙해)
+### 73. `fantasy_25` — 수정 일각고래 (극지 빙해)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1420,7 +2433,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_25.png
 ```
 
-### 50. `fantasy_26` — 리바이어던 (화산 해역)
+### 74. `fantasy_26` — 리바이어던 (화산 해역)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1448,7 +2461,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_26.png
 ```
 
-### 51. `fantasy_27` — 나마즈 (화산 해역)
+### 75. `fantasy_27` — 나마즈 (화산 해역)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1476,7 +2489,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_27.png
 ```
 
-### 52. `fantasy_28` — 모오 (화산 해역)
+### 76. `fantasy_28` — 모오 (화산 해역)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1504,7 +2517,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_28.png
 ```
 
-### 53. `fantasy_29` — 흑요석 상어 (화산 해역)
+### 77. `fantasy_29` — 흑요석 상어 (화산 해역)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1532,7 +2545,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_29.png
 ```
 
-### 54. `fantasy_30` — 불사조 날치 (화산 해역)
+### 78. `fantasy_30` — 불사조 날치 (화산 해역)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1560,7 +2573,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_30.png
 ```
 
-### 55. `fantasy_31` — 크라켄 (심연 해구)
+### 79. `fantasy_31` — 크라켄 (심연 해구)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1588,7 +2601,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_31.png
 ```
 
-### 56. `fantasy_32` — 카리브디스 (심연 해구)
+### 80. `fantasy_32` — 카리브디스 (심연 해구)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1616,7 +2629,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_32.png
 ```
 
-### 57. `fantasy_33` — 바케쿠지라 (심연 해구)
+### 81. `fantasy_33` — 바케쿠지라 (심연 해구)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1644,7 +2657,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_33.png
 ```
 
-### 58. `fantasy_34` — 루스카 (심연 해구)
+### 82. `fantasy_34` — 루스카 (심연 해구)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1672,7 +2685,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_34.png
 ```
 
-### 59. `fantasy_35` — 심연 초롱아귀 (심연 해구)
+### 83. `fantasy_35` — 심연 초롱아귀 (심연 해구)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1700,7 +2713,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_35.png
 ```
 
-### 60. `fantasy_36` — 요르문간드 (환상의 바다)
+### 84. `fantasy_36` — 요르문간드 (환상의 바다)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1728,7 +2741,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_36.png
 ```
 
-### 61. `fantasy_37` — 용왕 해룡 (환상의 바다)
+### 85. `fantasy_37` — 용왕 해룡 (환상의 바다)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1756,7 +2769,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_37.png
 ```
 
-### 62. `fantasy_38` — 용 잉어 (환상의 바다)
+### 86. `fantasy_38` — 용 잉어 (환상의 바다)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1784,7 +2797,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_38.png
 ```
 
-### 63. `fantasy_39` — 이무기 (환상의 바다)
+### 87. `fantasy_39` — 이무기 (환상의 바다)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1812,7 +2825,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fantasy_39.png
 ```
 
-### 64. `fantasy_40` — 바하무트 (환상의 바다)
+### 88. `fantasy_40` — 바하무트 (환상의 바다)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1843,9 +2856,9 @@ on the main branch, in the folder assets/raw/, with the file name fantasy_40.png
 
 ---
 
-## ⑥ 무늬 · 파츠 (65~66)
+## ⑥ 무늬 · 파츠
 
-### 65. `fish_pattern` — 무늬 6종
+### 89. `fish_pattern` — 무늬 6종
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1867,7 +2880,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fish_pattern.png
 ```
 
-### 66. `fish_parts` — 물고기에 붙이는 장식 16개
+### 90. `fish_parts` — 물고기에 붙이는 장식 16개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1893,9 +2906,9 @@ on the main branch, in the folder assets/raw/, with the file name fish_parts.png
 
 ---
 
-## ⑦ 배경 (67~76)
+## ⑦ 배경
 
-### 67. `bg_region1` — 수평선 풍경: 햇살 연안
+### 91. `bg_region1` — 수평선 풍경: 햇살 연안
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1917,7 +2930,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region1.png
 ```
 
-### 68. `bg_region2` — 수평선 풍경: 산호초 열대
+### 92. `bg_region2` — 수평선 풍경: 산호초 열대
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1939,7 +2952,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region2.png
 ```
 
-### 69. `bg_region3` — 수평선 풍경: 안개 군도
+### 93. `bg_region3` — 수평선 풍경: 안개 군도
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1961,7 +2974,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region3.png
 ```
 
-### 70. `bg_region4` — 수평선 풍경: 원양 대해
+### 94. `bg_region4` — 수평선 풍경: 원양 대해
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -1983,7 +2996,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region4.png
 ```
 
-### 71. `bg_region5` — 수평선 풍경: 극지 빙해
+### 95. `bg_region5` — 수평선 풍경: 극지 빙해
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2005,7 +3018,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region5.png
 ```
 
-### 72. `bg_region6` — 수평선 풍경: 화산 해역
+### 96. `bg_region6` — 수평선 풍경: 화산 해역
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2027,7 +3040,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region6.png
 ```
 
-### 73. `bg_region7` — 수평선 풍경: 심연 해구
+### 97. `bg_region7` — 수평선 풍경: 심연 해구
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2049,7 +3062,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region7.png
 ```
 
-### 74. `bg_region8` — 수평선 풍경: 환상의 바다
+### 98. `bg_region8` — 수평선 풍경: 환상의 바다
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2071,7 +3084,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_region8.png
 ```
 
-### 75. `bg_cloud` — 구름 6개
+### 99. `bg_cloud` — 구름 6개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2091,7 +3104,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_cloud.png
 ```
 
-### 76. `bg_wave` — 파도 줄무늬 3종
+### 100. `bg_wave` — 파도 줄무늬 3종
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2115,9 +3128,9 @@ on the main branch, in the folder assets/raw/, with the file name bg_wave.png
 
 ---
 
-## ⑧ 이펙트 · 보물상자 (77~79)
+## ⑧ 이펙트 · 보물상자
 
-### 77. `fx_small` — 작은 이펙트 16개
+### 101. `fx_small` — 작은 이펙트 16개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2140,7 +3153,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fx_small.png
 ```
 
-### 78. `fx_big` — 큰 물기둥 · 큰 물보라
+### 102. `fx_big` — 큰 물기둥 · 큰 물보라
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2160,7 +3173,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name fx_big.png
 ```
 
-### 79. `chest` — 보물상자 (닫힘 · 열림)
+### 103. `chest` — 보물상자 (닫힘 · 열림)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2183,9 +3196,9 @@ on the main branch, in the folder assets/raw/, with the file name chest.png
 
 ---
 
-## ⑨ 해역 지도 (80~81)
+## ⑨ 해역 지도
 
-### 80. `map_bg` — 해도 배경
+### 104. `map_bg` — 해도 배경
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2204,7 +3217,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name map_bg.png
 ```
 
-### 81. `map_node` — 해역 아이콘 8개
+### 105. `map_node` — 해역 아이콘 8개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2228,9 +3241,9 @@ on the main branch, in the folder assets/raw/, with the file name map_node.png
 
 ---
 
-## ⑩ UI (82~84)
+## ⑩ UI
 
-### 82. `ui_frame` — 틀 8종
+### 106. `ui_frame` — 틀 8종
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2255,7 +3268,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name ui_frame.png
 ```
 
-### 83. `ui_icon` — 화면 아이콘 32개
+### 107. `ui_icon` — 화면 아이콘 32개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2282,7 +3295,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name ui_icon.png
 ```
 
-### 84. `item_icon` — 아이템 아이콘 24개
+### 108. `item_icon` — 아이템 아이콘 24개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2310,11 +3323,11 @@ on the main branch, in the folder assets/raw/, with the file name item_icon.png
 
 ---
 
-## ⑪ 2차 — 항구 마을 · 업그레이드 웹 (85~89)
+## ⑪ 2차 — 항구 마을 · 업그레이드 웹
 
 낚시 본편이 끝난 뒤에 만들어도 된다.
 
-### 85. `harbor_bg` — 항구 배경
+### 109. `harbor_bg` — 항구 배경
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2334,7 +3347,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name harbor_bg.png
 ```
 
-### 86. `shop_a` — 조선소 · 낚시도구점 · 찌·미끼 가게
+### 110. `shop_a` — 조선소 · 낚시도구점 · 찌·미끼 가게
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2355,7 +3368,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name shop_a.png
 ```
 
-### 87. `shop_b` — 옷가게 · 수산시장 · 어부 길드
+### 111. `shop_b` — 옷가게 · 수산시장 · 어부 길드
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2376,7 +3389,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name shop_b.png
 ```
 
-### 88. `npc` — 가게 주인 6명
+### 112. `npc` — 가게 주인 6명
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2398,7 +3411,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name npc.png
 ```
 
-### 89. `web_icon` — 업그레이드 웹 아이콘 18개
+### 113. `web_icon` — 업그레이드 웹 아이콘 18개
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2425,9 +3438,9 @@ on the main branch, in the folder assets/raw/, with the file name web_icon.png
 
 ---
 
-## ⑫ 추가 — 코드로 그리던 것을 GPT 그림으로 (90~93)
+## ⑫ 추가 — 코드로 그리던 것을 GPT 그림으로
 
-### 90. `shadow` — 물속 그림자 (모든 생물 공통)
+### 114. `shadow` — 물속 그림자 (모든 생물 공통)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2452,7 +3465,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name shadow.png
 ```
 
-### 91. `bg_sky` — 하늘 바탕 (낮 기준)
+### 115. `bg_sky` — 하늘 바탕 (낮 기준)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2471,7 +3484,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_sky.png
 ```
 
-### 92. `bg_sea` — 바다 바탕 (낮 기준)
+### 116. `bg_sea` — 바다 바탕 (낮 기준)
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
@@ -2491,7 +3504,7 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name bg_sea.png
 ```
 
-### 93. `web_node` — 업그레이드 웹 노드·선·빛
+### 117. `web_node` — 업그레이드 웹 노드·선·빛
 
 ```
 Style references: open assets/raw/style_palette.png (color palette) and
