@@ -1,7 +1,7 @@
 // 화면 그리기. 보이는 것은 전부 GPT 그림(assets.js 스프라이트)이고, 코드는 움직이고·늘리고·색을 입힐 뿐이다.
 // 예외: 낚싯줄(매 순간 모양이 바뀌는 선)과 글자.
-import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, PERSON_SCALE, PHASES, COLORS, FIGHT, Z_SQUASH } from './config.js';
-import { sprite, creatureSprite, shadowSprite, tinted } from './assets.js';
+import { W, H, HORIZON, BOAT_X, BOAT_Y, LANE_Y, PERSON_SCALE, PHASES, COLORS, FIGHT, Z_SQUASH, GRADES } from './config.js';
+import { sprite, hasSprite, creatureSprite, shadowSprite, tinted } from './assets.js';
 import { boatPose, rodPose, toScreen } from './game.js';
 import { visibleLen } from './swim.js';
 
@@ -49,11 +49,16 @@ export function render(ctx, g) {
   const phase = PHASES[g.phase];
   ctx.save();
   ctx.translate(-g.cam.x, 0);
+  if (g.cam.zoom > 1.001) {            // 획득 연출: 살짝 확대
+    const zx = W * 0.45, zy = LANE_Y - 50;
+    ctx.translate(zx, zy); ctx.scale(g.cam.zoom, g.cam.zoom); ctx.translate(-zx, -zy);
+  }
   if (g.shake > 0.05) ctx.translate(Math.sin(g.time * 61) * g.shake, Math.cos(g.time * 47) * g.shake);
 
   drawSkyAndSea(ctx, g);
   drawShadow(ctx, g);
   drawRipples(ctx, g);
+  drawCatchBackdrop(ctx, g);
   drawSlap(ctx, g);
   drawBreach(ctx, g);
   drawBoat(ctx, g);      // 배는 항상 위에: 거대한 몸 앞에 조그만 배가 보여야 크기가 실감난다
@@ -70,6 +75,7 @@ export function render(ctx, g) {
   // 낚싯줄·찌·감정 아이콘은 색 보정 뒤에 그려 항상 또렷하게
   drawLineAndFloat(ctx, g, phase);
   drawEmote(ctx, g);
+  if (g.flash > 0.01) { ctx.fillStyle = `rgba(255,255,255,${g.flash})`; ctx.fillRect(-60, -40, W + 120, H + 80); }
   ctx.restore();
 
   drawHud(ctx, g);
@@ -154,6 +160,30 @@ function drawRipples(ctx, g) {
     draw(ctx, spr, r.x - rad, r.y - rad * spr.h / spr.w, rad * 2, rad * 2 * spr.h / spr.w);
   }
   ctx.globalAlpha = 1;
+}
+
+// 획득 연출 배경: 주변이 어두워지고, 생물 뒤에서 빛줄기가 돈다 (등급 색)
+function drawCatchBackdrop(ctx, g) {
+  if (g.dim < 0.01) return;
+  ctx.fillStyle = `rgba(10,18,40,${g.dim})`;
+  ctx.fillRect(-60, -40, W + 120, H + 80);
+  if (g.state !== 'breach' || g.breach.y === undefined || g.breach.gi < 1) return;
+  const br = g.breach, grade = g.fish.gradeInfo;
+  const spr = tinted(hasSprite('fx_rays') ? 'fx_rays' : 'fx_sparkle', grade.color, 0.55);
+  const size = clamp(g.fish.len * 1.3, 240, 640);
+  const x = clamp(br.x, 110, W - 220), y = Math.min(br.y, br.waterY - 40);
+  const t = performance.now() / 1000;
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.imageSmoothingEnabled = true;
+  for (const [dir, k] of [[1, 1], [-1, 0.72]]) {
+    ctx.save();
+    ctx.globalAlpha = Math.min(1, g.dim * 1.6) * (dir > 0 ? 0.75 : 0.5);
+    ctx.translate(x, y); ctx.rotate(t * 0.5 * dir);
+    ctx.drawImage(spr.img, -size * k / 2, -size * k / 2, size * k, size * k);
+    ctx.restore();
+  }
+  ctx.restore();
 }
 
 // 수면 치기: 등·꼬리 일부만 수면 위로 드러난다
@@ -341,7 +371,7 @@ function gauge(ctx, x, y, w, h, value, color) {
 
 function drawHud(ctx, g) {
   draw(ctx, sprite('icon_gold'), 8, 8, 15, 15);
-  text(ctx, g.gold.toLocaleString('ko-KR'), 28, 16.5, 12, COLORS.cream, 'left');
+  text(ctx, Math.round(g.goldShown).toLocaleString('ko-KR'), 28, 16.5, 12, COLORS.cream, 'left');
 
   if (g.state === 'charge') {
     gauge(ctx, BOAT_X - 30 - g.cam.x, BOAT_Y - 62, 60, 13, g.power, `rgb(255,${Math.round(230 - g.power * 110)},90)`);
@@ -386,6 +416,77 @@ function drawHud(ctx, g) {
   }
 
   if (g.state === 'result') drawResultCard(ctx, g);
+  drawCatchText(ctx, g);
+  drawCoins(ctx, g);
+}
+
+const easeOutBack = (k) => { const c = 1.70158; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
+
+// "낚았다!" — 문구는 고정, 등급이 높을수록 글자 연출이 화려해진다
+function drawCatchText(ctx, g) {
+  const fx = g.catchFx;
+  if (!fx) return;
+  const gi = fx.gi, grade = GRADES[gi], str = '낚았다!';
+  const size = [24, 28, 32, 38, 44, 50][gi];
+  const t = performance.now() / 1000;
+  const pulse = gi >= 4 ? 1 + 0.04 * Math.sin(t * 6) : 1;
+  ctx.save();
+  ctx.font = `900 ${size}px ${FONT}`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+  const widths = [...str].map((ch) => ctx.measureText(ch).width + size * 0.04);
+  const total = widths.reduce((a, b) => a + b, 0);
+  const cy = 56;
+  let x = W / 2 - total / 2;
+  const stagger = gi >= 2 ? 0.07 : 0;
+  [...str].forEach((ch, i) => {
+    const w = widths[i], age = fx.age - i * stagger;
+    const cx = x + w / 2; x += w;
+    if (age < 0) return;
+    const pop = easeOutBack(Math.min(1, age / 0.3)) * pulse;
+    let dy = 0, rot = 0;
+    if (gi === 1) dy = -Math.abs(Math.sin(age * 9)) * 7 * Math.exp(-age * 3);            // 통통 튐
+    if (gi === 3) { dy = Math.sin(t * 24 + i * 2) * 1.6 * Math.exp(-age * 1.5); rot = Math.sin(t * 20 + i) * 0.05 * Math.exp(-age * 1.5); }  // 떨림
+    if (gi >= 4) { dy = Math.sin(t * 5 - i * 0.9) * (gi === 5 ? 5 : 3.5); rot = Math.sin(t * 5 - i * 0.9 + 1) * 0.06; }                      // 물결
+    const color = gi === 5 ? `hsl(${(t * 140 + i * 45) % 360},95%,68%)` : grade.color;
+    ctx.save();
+    ctx.translate(cx, cy + dy); ctx.rotate(rot); ctx.scale(pop, pop);
+    if (gi >= 3) { ctx.shadowColor = color; ctx.shadowBlur = (10 + gi * 4) * (0.75 + 0.25 * Math.sin(t * 7)); }
+    ctx.lineWidth = size * 0.26; ctx.strokeStyle = COLORS.navy; ctx.strokeText(ch, 0, 0);
+    ctx.shadowBlur = 0;
+    if (gi >= 4) { ctx.lineWidth = size * 0.11; ctx.strokeStyle = COLORS.cream; ctx.strokeText(ch, 0, 0); }
+    const grad = ctx.createLinearGradient(0, -size / 2, 0, size / 2);
+    grad.addColorStop(0, gi === 0 ? COLORS.cream : '#ffffff'); grad.addColorStop(0.45, gi === 0 ? COLORS.cream : color); grad.addColorStop(1, gi === 0 ? '#d8cdb0' : color);
+    ctx.fillStyle = grad; ctx.fillText(ch, 0, 0);
+    ctx.restore();
+  });
+  // 높은 등급: 글자 주변을 도는 반짝이
+  const n = [0, 0, 0, 6, 10, 16][gi];
+  if (n) {
+    const sp = gi === 5 ? sprite('fx_sparkle') : tinted('fx_sparkle', grade.color, 0.45);
+    const show = Math.min(1, fx.age / 0.4);
+    for (let i = 0; i < n; i++) {
+      const a = t * (0.9 + (i % 3) * 0.25) + i * (Math.PI * 2 / n);
+      const sx = W / 2 + Math.cos(a) * (total * 0.62 + 8), sy = cy + Math.sin(a * 1.3) * size * 0.75;
+      const sz = (6 + (i % 4) * 2.5) * (0.6 + 0.4 * Math.sin(t * 6 + i)) * show;
+      ctx.globalAlpha = 0.6 + 0.4 * Math.sin(t * 5 + i * 1.7);
+      draw(ctx, sp, sx - sz / 2, sy - sz / 2, sz, sz * sp.h / sp.w);
+    }
+    ctx.globalAlpha = 1;
+  }
+  ctx.restore();
+}
+
+// 판매한 동전이 골드 표시로 날아간다
+function drawCoins(ctx, g) {
+  const spr = sprite('icon_gold');
+  for (const c of g.coins) {
+    if (c.age < 0) continue;
+    const k = c.age / c.life, e = k * k;
+    const mx = c.sx - 70, my = c.sy - 90;
+    const x = (1 - e) * (1 - e) * c.sx + 2 * (1 - e) * e * mx + e * e * 16;
+    const y = (1 - e) * (1 - e) * c.sy + 2 * (1 - e) * e * my + e * e * 16;
+    draw(ctx, spr, x - 6, y - 6, 12, 12);
+  }
 }
 
 function drawResultCard(ctx, g) {
@@ -410,11 +511,31 @@ function drawResultCard(ctx, g) {
   ctx.restore();
 
   ctx.font = `600 11px ${FONT}`; ctx.fillStyle = COLORS.navy; ctx.textAlign = 'left';
-  ctx.fillText(`몸길이 ${f.meters.toFixed(1)} m`, cx + 18, cy + 128);
+  // 숫자가 차르르 올라가며 측정된다
+  const cu = clamp((g.t - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
+  ctx.fillText(`몸길이 ${(f.meters * count).toFixed(1)} m`, cx + 18, cy + 128);
   ctx.textAlign = 'right';
   if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 18, cy + 128); }
-  else ctx.fillText(`판매가 ${f.price.toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 128);
-  ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
-  ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 판매하고 계속', W / 2, cy + ch - 18);
+  else ctx.fillText(`판매가 ${Math.round(f.price * count).toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 128);
+  if (g.t > 1.1) {
+    ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
+    ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 판매하고 계속', W / 2, cy + ch - 18);
+  }
+
+  // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
+  const r = g.result;
+  if (r.stamped) {
+    const age = g.t - 1.0, k2 = Math.min(1, age / 0.16);
+    const sc = lerp(2.8, 1, 1 - Math.pow(1 - k2, 3));
+    const st = hasSprite('fx_stamp') ? tinted('fx_stamp', '#d8483a', 0.95) : tinted('ui_badge_star', '#d8483a', 0.7);
+    ctx.save();
+    ctx.globalAlpha = e * Math.min(1, k2 * 2);
+    ctx.translate(cx + cw - 42, cy + 44); ctx.rotate(-0.22); ctx.scale(sc, sc);
+    draw(ctx, st, -24, -24 * st.h / st.w, 48, 48 * st.h / st.w);
+    ctx.font = `900 9px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.lineWidth = 2.5; ctx.strokeStyle = '#fff4dc'; ctx.strokeText(r.isNew ? '첫 포획' : '신기록', 0, 0);
+    ctx.fillStyle = '#c0392b'; ctx.fillText(r.isNew ? '첫 포획' : '신기록', 0, 0);
+    ctx.restore();
+  }
   ctx.restore();
 }

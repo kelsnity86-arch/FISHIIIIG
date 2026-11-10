@@ -2,6 +2,7 @@ import { W, H, GRADES, PHASES } from './config.js';
 import { loadAssets } from './assets.js';
 import { createGame, update, press, release } from './game.js';
 import { render } from './render.js';
+import { initAudio, playSfx, reel, setSound, soundOn } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
@@ -28,11 +29,11 @@ window.game = game; // 시험·디버깅용 (주의: canvas id 'game' 과 이름
 resize();
 
 // 입력: 클릭 / 터치 / 스페이스바 (원터치)
-canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); canvas.setPointerCapture(e.pointerId); press(game); });
+canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); canvas.setPointerCapture(e.pointerId); initAudio(); press(game); });
 canvas.addEventListener('pointerup', () => release(game));
 canvas.addEventListener('pointercancel', () => release(game));
 canvas.addEventListener('contextmenu', (e) => e.preventDefault());
-window.addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); press(game); } });
+window.addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); initAudio(); press(game); } });
 window.addEventListener('keyup', (e) => { if (e.code === 'Space') release(game); });
 
 // 시험용 버튼
@@ -49,11 +50,20 @@ btnTime.addEventListener('click', () => {
   btnTime.textContent = '시간: ' + PHASES[game.phase].name;
 });
 
+const btnSound = document.getElementById('btnSound');
+if (btnSound) btnSound.addEventListener('click', () => {
+  initAudio(); setSound(!soundOn());
+  btnSound.textContent = '소리: ' + (soundOn() ? '켬' : '끔');
+});
+
 let last = performance.now();
 function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000); // 탭이 멈췄다 돌아와도 튀지 않게
   last = now;
   update(game, dt);
+  for (const [name, arg] of game.sfx) playSfx(name, arg);
+  game.sfx.length = 0;
+  reel(game.state === 'fight' && game.hold && game.freeze <= 0, game.fight ? game.fight.tension : 0);
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
   render(ctx, game);
   requestAnimationFrame(frame);

@@ -1,7 +1,7 @@
 // 낚시 진행(상태·수치). 그리기는 render.js 가 담당.
 import {
   BOAT_X, BOAT_Y, LANE_Y, CAST_NEAR, CAST_FAR, ROD_LEN, TIMING, FIGHT,
-  Z_SQUASH, FIGHT_MODES, SURGE_MODES, TELEGRAPH,
+  Z_SQUASH, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES, W, H,
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { preloadCreature } from './assets.js';
@@ -23,12 +23,16 @@ export function createGame() {
     rock: 0, rockV: 0, shake: 0,
     // 배: 줄에 끌린 기울기, 밑을 지나는 거대한 몸에 들썩임, 끌려감(배경이 밀림)
     boat: { tilt: 0, heave: 0, heaveV: 0, drift: 0, scroll: 0, sprayT: 0 },
-    cam: { x: 0 },
+    cam: { x: 0, zoom: 1 },
     bob: { x: BOAT_X - 30, y: BOAT_Y - 20, dip: 0, dipV: 0, inWater: false },
     fish: null, sw: null,
     wait: null, bite: null, fight: null, breach: null, result: null,
     emote: null, msg: null,
     particles: [], ripples: [], bursts: [],
+    // 획득 연출: 슬로모션·히트스톱·번쩍임·어두워짐, "낚았다!" 글자, 기록, 동전
+    timeScale: 1, slowTarget: 1, freeze: 0, flash: 0, dim: 0, realDt: 0,
+    catchFx: null, records: {}, goldShown: 0, coins: [],
+    sfx: [],          // 이번 프레임에 낼 소리 [이름, 값] (main.js 가 재생)
   };
 }
 
@@ -84,6 +88,8 @@ function say(g, text, color = '#fff4dc') { g.msg = { text, color, age: 0 }; }
 function kick(g, v) { g.rockV += v; }
 function heave(g, v) { g.boat.heaveV += v; }
 function setState(g, s) { g.state = s; g.t = 0; }
+function snd(g, name, arg) { g.sfx.push([name, arg]); }
+function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch { /* 진동 미지원 */ } }
 
 // ── 입력 ──
 export function press(g) {
@@ -103,16 +109,24 @@ export function press(g) {
       if (tau < 0) { say(g, '너무 빨랐다!', '#ffd0c0'); g.emote = { icon: 'tear', age: 0 }; flee(g); reelIn(g); break; }
       b.perfect = tau < b.perfectWin;
       say(g, b.perfect ? 'PERFECT!' : 'GOOD', b.perfect ? '#ffe27a' : '#fff4dc');
-      kick(g, 0.5);
+      kick(g, 0.5); snd(g, 'hook', b.perfect); buzz(25);
       // 바늘에 걸린 순간 화들짝 놀라 몸을 튼다
       g.sw.shake = 1; g.sw.tailAmp = 0.16;
       setState(g, 'hook');
       break;
     }
+    case 'breach':
+      if (g.t > 0.35) g.breach.skip = true;      // 연출 넘기기
+      break;
     case 'result':
-      if (g.t > 0.5) {
-        if (!g.fish.isFantasy) g.gold += g.fish.price;
-        g.result = null; g.fish = null; g.sw = null;
+      if (g.t > 1.1) {
+        if (!g.fish.isFantasy) {
+          g.gold += g.fish.price;
+          const n = Math.min(14, 4 + Math.floor(Math.log10(g.fish.price + 1) * 2.5));
+          for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.035, life: 0.55, sx: W / 2 + rand(-50, 50), sy: H / 2 + rand(-10, 30) });
+          snd(g, 'coin', n);
+        }
+        g.result = null; g.fish = null; g.sw = null; g.catchFx = null;
         setState(g, 'idle');
       }
       break;
@@ -125,7 +139,7 @@ export function release(g) {
     g.castX = lerp(CAST_NEAR, CAST_FAR, g.power);
     const tip = rodPose(g).tip;
     g.cast = { fromX: tip.x, fromY: tip.y };
-    kick(g, -0.45);
+    kick(g, -0.45); snd(g, 'cast');
     setState(g, 'cast');
   }
 }
@@ -145,6 +159,19 @@ function flee(g) {
 
 // ── 매 프레임 갱신 ──
 export function update(g, dt) {
+  // 연출용 시간 조절: 히트스톱(완전 정지)과 슬로모션. 화면 효과(번쩍임·글자·동전)는 실제 시간으로 흐른다.
+  g.realDt = dt;
+  g.flash = approach(g.flash, 0, 7, dt);
+  if (g.catchFx) g.catchFx.age += dt;
+  g.goldShown = Math.abs(g.gold - g.goldShown) < 0.6 ? g.gold : approach(g.goldShown, g.gold, 6, dt);
+  for (const c of g.coins) c.age += dt;
+  g.coins = g.coins.filter((c) => c.age < c.life);
+  if (g.freeze > 0) { g.freeze -= dt; return; }
+  g.timeScale = approach(g.timeScale, g.slowTarget, 9, dt);
+  g.slowTarget = 1;
+  dt *= g.timeScale;
+  let zoomTarget = 1, dimTarget = 0;
+
   g.time += dt; g.t += dt;
 
   // 배 흔들림 (감쇠 스프링), 화면 흔들림
@@ -185,7 +212,7 @@ export function update(g, dt) {
       bob.y = lerp(g.cast.fromY, LANE_Y, u) - Math.sin(u * Math.PI) * (50 + g.power * 40);
       if (u >= 1) {
         bob.inWater = true; bob.dipV = 60; bob.y = LANE_Y;
-        splash(g, bob.x, LANE_Y, 10, 70); ripple(g, bob.x, LANE_Y, 14);
+        splash(g, bob.x, LANE_Y, 10, 70); ripple(g, bob.x, LANE_Y, 14); snd(g, 'plop');
         startWait(g);
       }
       break;
@@ -201,13 +228,13 @@ export function update(g, dt) {
           bob.dipV += b.next === 2 ? 110 : 70;
           g.sw.shake = Math.max(g.sw.shake, 0.5);
           ripple(g, bob.x, LANE_Y, 8 + b.next * 3);
-          if (b.next === 2) { bob.dipTarget = 6; g.emote = { icon: 'bang', age: 0 }; }
+          if (b.next === 2) { bob.dipTarget = 6; g.emote = { icon: 'bang', age: 0 }; snd(g, 'bite'); } else snd(g, 'nibble');
           b.next++;
         }
       } else if (!b.started) {
         b.started = true; bob.dipTarget = 9; bob.dipV += 90;
         g.sw.target.speed = 0.6;
-        ripple(g, bob.x, LANE_Y, 12); g.emote = { icon: 'bang', age: 0 };
+        ripple(g, bob.x, LANE_Y, 12); g.emote = { icon: 'bang', age: 0 }; snd(g, 'bite');
       }
       if (g.t > b.openAt + b.window) {
         say(g, '놓쳤다…', '#ffd0c0'); g.emote = { icon: 'tear', age: 0 }; flee(g); reelIn(g);
@@ -233,12 +260,22 @@ export function update(g, dt) {
     }
     case 'breach': {
       rodTarget = 1.45; leanTarget = 0.5; rodRate = 6;
-      updateBreach(g, dt);
       camTarget = (g.breach.x - BOAT_X) * 0.03;
+      ({ zoomTarget, dimTarget } = updateBreach(g, dt));
       break;
     }
-    case 'result':
-      rodTarget = 0.9; break;
+    case 'result': {
+      rodTarget = 0.9;
+      const r = g.result;
+      if (g.t > 0.3 && g.t < 0.95) {                 // 숫자가 올라가는 동안 틱틱
+        r.tickT -= g.realDt;
+        if (r.tickT <= 0) { r.tickT = 0.06; snd(g, 'tick'); }
+      }
+      if (!r.stamped && (r.isNew || r.isRecord) && g.t > 1.0) {   // 도장 쾅
+        r.stamped = true; snd(g, 'stamp'); g.shake = 2.5; buzz(40);
+      }
+      break;
+    }
     case 'fail': {
       rodTarget = 0.9;
       const tip = rodPose(g).tip;
@@ -274,6 +311,8 @@ export function update(g, dt) {
     if (B.sprayT <= 0) { B.sprayT = 0.05; splash(g, BOAT_X - 15, BOAT_Y + 2, 2, 30 + Math.abs(B.drift) * 2); }
   }
   g.cam.x = approach(g.cam.x, camTarget, 1.5, dt);
+  g.cam.zoom = approach(g.cam.zoom, zoomTarget, 5, g.realDt);
+  g.dim = approach(g.dim, dimTarget, 5, g.realDt);
 
   g.rodAngle = approach(g.rodAngle, rodTarget, rodRate, dt);
   g.rodBend = approach(g.rodBend, bendTarget, 10, dt);
@@ -334,7 +373,7 @@ function updateWait(g, dt) {
     const touching = md < 6 + s.len * 0.015;
     if (touching && step.fake) {
       w.fakeT = TIMING.fakeWindow;
-      bob.dipV += 55; ripple(g, bob.x, LANE_Y, 7);
+      bob.dipV += 55; ripple(g, bob.x, LANE_Y, 7); snd(g, 'nibble');
       s.shake = 0.6;
       w.step++;
     } else if ((touching && g.t >= w.minTime) || g.t > w.minTime + 12) {
@@ -456,7 +495,7 @@ function updateFight(g, dt) {
       splash(g, sp.x, sp.y, Math.round(10 + L * 0.03), 110 + L * 0.2);
       burst(g, 'fx_crown', sp.x, sp.y, Math.min(260, 50 + L * 0.25), 0.7);
       ripple(g, sp.x, sp.y, 20 + L * 0.1);
-      kick(g, 0.3 + p * 0.3); heave(g, -8 - L * 0.01);
+      kick(g, 0.3 + p * 0.3); heave(g, -8 - L * 0.01); snd(g, 'splash');
       g.shake = Math.max(g.shake, 1.5 + p);
     }
     if (f.slap.age > 0.9) f.slap = null;
@@ -500,7 +539,7 @@ function startMode(g) {
     const dir = Math.random() < 0.65 ? -1 : 1;     // 대부분 배에서 멀어지는 쪽으로
     f.runTo = { x: clamp(s.x + dir * (160 + s.len * 0.25), -60, BOAT_X - 60), z: rand(-60, 80) };
   }
-  if (SURGE_MODES.includes(f.mode)) { kick(g, 0.25 + g.fish.power * 0.2); g.emote = { icon: 'sweat', age: 0 }; }
+  if (SURGE_MODES.includes(f.mode)) { kick(g, 0.25 + g.fish.power * 0.2); g.emote = { icon: 'sweat', age: 0 }; snd(g, 'surge'); buzz(20); }
   f.slap = null;
 }
 
@@ -521,13 +560,20 @@ function startBreach(g) {
     hmax: clamp(L * 0.45, 100, 240), sink: L * 0.32,
     dur: Math.min(4.4, 2.3 + L / 380), fx: 0,
     x: start.x, y: undefined, angle: 0, splashed: 0,
+    gi: GRADES.indexOf(g.fish.gradeInfo), skip: false,
   };
   g.fight = null;
   setState(g, 'breach');
 }
 
+// 등급별 연출 강도 (0 일반 ~ 5 환상): 슬로모션 속도, 카메라 확대, 주변 어두워짐
+const SLOW = [1, 0.7, 0.5, 0.32, 0.25, 0.2];
+const ZOOM = [0, 0.02, 0.04, 0.07, 0.1, 0.1];
+const DIM = [0, 0.08, 0.16, 0.3, 0.4, 0.5];
+
 function updateBreach(g, dt) {
-  const br = g.breach, bob = g.bob, L = g.fish.len;
+  const br = g.breach, bob = g.bob, L = g.fish.len, gi = br.gi;
+  if (br.skip) g.t = br.dur;
   const s = Math.min(1, g.t / br.dur);
   const u = s + 0.1 * Math.sin(2 * Math.PI * s);          // 꼭대기에서 잠깐 머무는 느낌
   const prevY = br.y;
@@ -536,30 +582,56 @@ function updateBreach(g, dt) {
   br.y = yAt(u);
   const du = 1e-3;
   br.angle = Math.atan2(-(yAt(u + du) - br.y), (br.xe - br.xs) * du);
-  // 수면을 통과하는 순간: 큰 물보라 + 배 흔들림
-  if (prevY !== undefined && (prevY > br.waterY) !== (br.y > br.waterY)) {
-    const down = br.y > br.waterY;
+
+  // 수면을 통과하는 순간
+  if (prevY !== undefined && (prevY > br.waterY) !== (br.y > br.waterY) && !br.skip) {
+    const down = br.y > br.waterY, size = L / 600;
     for (let i = 0; i < 3; i++) splash(g, br.x + (i - 1) * Math.min(L, 500) * 0.15, br.waterY, Math.round(Math.min(26, 8 + L * 0.03)), Math.min(300, 120 + L * 0.15));
     burst(g, down ? 'fx_crown' : 'fx_column', br.x, br.waterY, Math.min(420, 80 + L * 0.35), 0.9);
     ripple(g, br.x, br.waterY, Math.min(260, 30 + L * 0.25));
     kick(g, (down ? -1 : 1) * Math.min(2.2, 0.5 + L / 300));
     heave(g, down ? -20 - Math.min(40, L * 0.03) : -8);   // 떨어질 때 큰 파도가 배를 들어 올린다
     g.shake = Math.min(7, 2 + L / 90);
+    if (down) {
+      g.flash = 0.25; snd(g, 'breachIn', size); buzz(50);
+    } else {
+      // 뚫고 나오는 순간: 히트스톱 + 번쩍임 + 쿵. 이어지는 슬로모션에 올라가는 음을 깐다.
+      g.freeze = 0.07 + gi * 0.02; g.flash = 0.5 + gi * 0.1;
+      snd(g, 'breachOut', size); buzz(40 + gi * 15);
+      if (gi >= 1) snd(g, 'riser', Math.min(2.6, br.dur * 0.3 / SLOW[gi]));
+    }
   }
   if (br.y < br.waterY + br.sink * 0.6) {
     br.fx -= dt;
     if (br.fx <= 0 && s < 0.9) { br.fx = 0.06; splash(g, br.x + rand(-1, 1) * Math.min(L, 500) * 0.35, br.waterY, 2, Math.min(220, 70 + L * 0.12)); }
   }
+
+  // 솟구쳐 오르는 동안 슬로모션, 꼭대기 직전에 "낚았다!"
+  const rising = s > 0.1 && s < 0.5 && !br.skip;
+  if (rising) g.slowTarget = SLOW[gi];
+  if (!g.catchFx && (s >= 0.36 || br.skip)) {
+    g.catchFx = { age: 0, gi };
+    snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]);
+  }
+
   if (g.sw) g.sw.vis = approach(g.sw.vis, 0, 8, dt);
   const tip = rodPose(g).tip;
   bob.x = approach(bob.x, tip.x, 6, dt); bob.y = approach(bob.y, tip.y + 12, 6, dt);
   bob.inWater = false; bob.dipTarget = 0;
   if (g.t === dt) g.emote = { icon: 'bang', age: 0 };
-  if (s >= 1) { g.result = { creature: g.fish }; g.sw = null; setState(g, 'result'); }
+  if (s >= 1) {
+    // 기록: 처음 잡은 종인지, 최고 기록을 넘었는지
+    const f = g.fish, prev = g.records[f.name];
+    g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
+    g.records[f.name] = Math.max(prev || 0, f.meters);
+    g.sw = null; snd(g, 'card');
+    setState(g, 'result');
+  }
+  return { zoomTarget: rising ? 1 + ZOOM[gi] : 1, dimTarget: s > 0.08 && s < 0.78 && !br.skip ? DIM[gi] : 0 };
 }
 
 function fail(g, text) {
-  say(g, text, '#ffb0a0');
+  say(g, text, '#ffb0a0'); snd(g, text.includes('끊') ? 'snap' : 'lost'); buzz(text.includes('끊') ? [40, 30, 40] : 30);
   g.emote = { icon: 'tear', age: 0 };
   g.bob.inWater = false; g.fight = null; g.bob.dipTarget = 0;
   kick(g, -0.5);

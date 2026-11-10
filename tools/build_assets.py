@@ -72,6 +72,8 @@ SHEETS = {
                  'snow', 'auto_cast', 'auto_sell', 'auto_hook', 'auto_fight', 'check', 'question', 'crown']],
     'item_icon': [dict(name=f'item_{i + 1}', w=24, grid=(3, 8)) for i in range(24)],
     'web_icon': [dict(name=f'web_icon_{i + 1}', w=24, grid=(3, 6)) for i in range(18)],
+    'fx_rays': [dict(name='fx_rays', w=256, upscale=True)],
+    'fx_stamp': [dict(name='fx_stamp', w=48)],
     'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
 

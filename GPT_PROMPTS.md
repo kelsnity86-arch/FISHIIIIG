@@ -3529,3 +3529,48 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name web_node.png
 ```
 
+---
+
+## ⑬ 추가 — 획득 연출
+
+### 118. `fx_rays` — 획득 연출 빛줄기
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
+palette matching the palette image, no anti-aliasing, no text or letters, no drop shadow,
+fully transparent background. Match the style of the reference image.
+
+One sprite: a radial burst of light rays, like a sunburst seen from the front. About 16 soft
+rays of alternating long and short length spreading evenly from the center in all directions,
+pure white fading to transparent toward the tips, with an empty transparent center. Perfectly
+symmetrical and centered, square image. It will be tinted and rotated slowly behind a caught fish.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_rays.png
+```
+
+### 119. `fx_stamp` — 신기록 도장 틀
+
+```
+Style references: open assets/raw/style_palette.png (color palette) and
+assets/raw/style_key.webp (reference scene) from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Use them for every
+mention of the palette image and the reference image below.
+
+16-bit pixel art game asset, cute warm storybook style, small fine clean pixels, soft pastel
+palette matching the palette image, no anti-aliasing, no text or letters, no drop shadow,
+fully transparent background. Match the style of the reference image.
+
+One sprite: a round rubber-stamp seal, slightly rough inked edge, with a double ring border and
+a small star at the top and bottom of the ring. The middle is a flat empty area for text
+(no letters). Single flat white color so it can be tinted. Centered, square image.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_stamp.png
+```
+
