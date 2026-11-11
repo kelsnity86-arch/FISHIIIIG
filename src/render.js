@@ -175,10 +175,10 @@ function drawResultCard(ctx, g) {
   ctx.fillText(`몸길이 ${(f.meters * count).toFixed(1)} m`, cx + 18, cy + 114);
   ctx.textAlign = 'right';
   if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 18, cy + 114); }
-  else ctx.fillText(`판매가 ${Math.round(f.price * count).toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 114);
+  else ctx.fillText(`값 ${Math.round(f.price * count).toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 114);
   if (g.t > 1.1) {
     ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
-    ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 판매하고 계속', cx + cw / 2, cy + ch - 15);
+    ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw / 2, cy + ch - 15);
   }
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
@@ -642,6 +642,7 @@ function drawSprays(ctx, g) {
 function drawHud(ctx, g) {
   draw(ctx, sprite('icon_gold'), 8, 8, 15, 15);
   text(ctx, Math.round(g.goldShown).toLocaleString('ko-KR'), 28, 16.5, 12, COLORS.cream, 'left');
+  text(ctx, `어창 ${g.cargo.length}/${g.cargoMax}`, 10, 34, 10, g.cargo.length >= g.cargoMax ? '#ffb0a0' : 'rgba(255,244,220,0.85)', 'left', 600);
 
   if (g.state === 'charge') text(ctx, `힘 ${Math.round(g.power * 100)}%`, W / 2, H - 34, 12, COLORS.cream);
   if (g.state === 'fight') {

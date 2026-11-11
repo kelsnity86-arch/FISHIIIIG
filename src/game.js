@@ -19,6 +19,8 @@ export function createGame() {
   return {
     state: 'idle', t: 0, time: 0,
     gold: 0, hold: false,
+    cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
+    region: 1,                               // 지금 있는 해역 (1~8)
     forceGrade: null, phase: 0,
     power: 0, powerDir: 1, castX: CAST_NEAR,
     rodAngle: 0.32, rodBend: 0, pose: 1,
@@ -111,10 +113,28 @@ function snd(g, name, arg) { g.sfx.push([name, arg]); }
 function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch { /* 진동 미지원 */ } }
 
 // ── 입력 ──
+// 항구로 돌아가 어창의 생물을 모두 판다 (항구 화면이 생기기 전까지는 바로 판다)
+export function sellAll(g) {
+  if (g.state !== 'idle' || !g.cargo.length) return false;
+  const sum = g.cargo.reduce((a, c) => a + c.price, 0), n = Math.min(14, 4 + g.cargo.length);
+  g.gold += sum;
+  for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.035 - 0.1, life: 0.55, sx: W / 2 + rand(-50, 50), sy: H / 2 + rand(-10, 30) });
+  snd(g, 'coin', n);
+  say(g, `항구에서 ${g.cargo.length}마리 판매  +${sum.toLocaleString('ko-KR')} G`, '#ffe27a');
+  g.cargo.length = 0;
+  return true;
+}
+export function setRegion(g, n) {
+  if (g.state !== 'idle') return false;
+  g.region = n;
+  return true;
+}
+
 export function press(g) {
   g.hold = true;
   switch (g.state) {
     case 'idle':
+      if (g.cargo.length >= g.cargoMax) { say(g, '어창이 가득 찼다. 항구로!', '#ffd0c0'); break; }
       g.power = 0; g.powerDir = 1; setState(g, 'charge'); break;
     case 'wait':
       if (g.wait.fakeT > 0) { say(g, '앗, 도망갔다!', '#ffd0c0'); g.emote = { icon: 'tear', age: 0 }; }
@@ -139,10 +159,9 @@ export function press(g) {
         const f = g.fish;
         if (f.isFantasy) { g.catch.phase = 'release'; }
         else {
-          g.gold += f.price;
-          const n = Math.min(14, 4 + Math.floor(Math.log10(f.price + 1) * 2.5));
-          for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.035 - 0.25, life: 0.55, sx: W / 2 + rand(-50, 50), sy: H / 2 + rand(-10, 30) });
-          snd(g, 'coin', n);
+          g.cargo.push({ name: f.name, price: f.price, grade: f.grade });      // 어창에 싣는다 (판매는 항구에서)
+          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`);
+          snd(g, 'card');
           g.catch.phase = 'stow';
         }
         g.catch.pt = 0; g.result = null; g.catchFx = null;
@@ -342,7 +361,7 @@ export function update(g, dt) {
 
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
-  g.fish = rollCreature(g.forceGrade);
+  g.fish = rollCreature(g.forceGrade, g.region);
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기

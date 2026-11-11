@@ -1,6 +1,7 @@
 import { W, H, GRADES, PHASES } from './config.js';
 import { loadAssets } from './assets.js';
-import { createGame, update, press, release } from './game.js';
+import { createGame, update, press, release, sellAll, setRegion } from './game.js';
+import { REGIONS } from './creatures.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn } from './audio.js';
 
@@ -54,6 +55,15 @@ const btnSound = document.getElementById('btnSound');
 if (btnSound) btnSound.addEventListener('click', () => {
   initAudio(); setSound(!soundOn());
   btnSound.textContent = '소리: ' + (soundOn() ? '켬' : '끔');
+});
+
+// 항구로 (지금은 바로 판매), 해역 바꾸기 — 낚시 중이 아닐 때만
+const btnHarbor = document.getElementById('btnHarbor');
+if (btnHarbor) btnHarbor.addEventListener('click', () => { initAudio(); sellAll(game); });
+const btnRegion = document.getElementById('btnRegion');
+if (btnRegion) btnRegion.addEventListener('click', () => {
+  const n = game.region % 8 + 1;
+  if (setRegion(game, n)) btnRegion.textContent = `해역: ${n} ${REGIONS[n]}`;
 });
 
 // 검사용: window.__manual = true 로 두면 자동 진행을 멈추고, __tick(dt) 로 한 프레임씩 넘길 수 있다

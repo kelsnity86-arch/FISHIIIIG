@@ -49,7 +49,9 @@ FANTASY.forEach((name, i) => {
 
 const rand = (a, b) => a + Math.random() * (b - a);
 
-export function rollCreature(forcedGrade) {
+export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다'];
+
+export function rollCreature(forcedGrade, region = 1) {
   let grade;
   if (forcedGrade) {
     grade = GRADES.find((g) => g.id === forcedGrade);
@@ -58,8 +60,11 @@ export function rollCreature(forcedGrade) {
     let r = Math.random() * total;
     grade = GRADES.find((g) => (r -= g.weight) < 0) || GRADES[0];
   }
-  // 도트 생물: 그 등급의 목록에서 하나. (놀람 표정 그림은 아직 없어 평소 그림을 같이 쓴다)
-  const pool = DOTS.filter((d) => d[2] === grade.id);
+  // 그 해역의 생물과 모든 해역 공용(평범한 물고기) 가운데, 그 등급에서 하나.
+  // 그 등급이 이 해역에 없으면 한 등급씩 낮춰 찾는다.
+  const here = DOTS.filter((d) => d[3] === region || d[3] === 0);
+  let pool = [];
+  for (let i = GRADES.indexOf(grade); i >= 0 && !pool.length; i--) { grade = GRADES[i]; pool = here.filter((d) => d[2] === grade.id); }
   const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
   const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1] + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
   const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
