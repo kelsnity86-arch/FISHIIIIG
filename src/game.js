@@ -49,9 +49,10 @@ export function surfaceY(g, x) {
     y -= s.amp * Math.exp(-d * d) * Math.max(0, 1 - s.age / s.life);
   }
   const sw = g.sw;                       // 거대한 몸이 수면 바로 밑에 있으면 물이 부풀어 오른다
-  if (sw && !sw.fleeing && sw.y < sw.floor + 30) {
-    const d = (x - sw.x) / (sw.len * 0.38);
-    y -= (1 - sw.y / 45) * Math.min(7, 2 + sw.len * 0.01) * Math.exp(-d * d) * sw.vis;
+  if (sw && !sw.fleeing) {
+    // 얕을수록 서서히 커진다 (어느 깊이에서 갑자기 켜지지 않는다)
+    const k = clamp((sw.floor + 40 - sw.y) / 40, 0, 1), d = (x - sw.x) / (sw.len * 0.38);
+    y -= k * k * Math.min(4, 1.2 + sw.len * 0.005) * Math.exp(-d * d) * sw.vis;
   }
   return y;
 }

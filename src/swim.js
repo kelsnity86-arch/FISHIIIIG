@@ -41,30 +41,27 @@ export function steer(s, dt, { arrive = true } = {}) {
   const dx = t.x - s.x, dy = Math.max(t.y, s.floor) - s.y;   // 올라갈 수 없는 깊이를 향해 계속 고개를 들고 있지 않게
   const near = Math.abs(dx) < s.len * 0.12;
 
-  // 볼 방향: 목표가 있는 쪽. 다 왔으면 지정된 방향(없으면 그대로).
-  // 목표가 살짝 뒤에 있을 뿐이면 돌아서지 않는다: 큰 몸을 돌리는 대신 그대로 천천히 뒷걸음질한다.
-  const cur = Math.sign(s.face) || 1;
-  const behind = dx * cur < 0, slight = behind && Math.abs(dx) < s.len * 0.75 && (!t.face || t.face === cur);
-  let want = cur;
-  if (!near && !slight) want = Math.sign(dx);
-  else if (near && t.face) want = t.face;
-  const maxF = 2 / s.turnTime;
-  s.faceV = approach(s.faceV, clamp((want - s.face) * 4, -maxF, maxF), 5, dt);
+  // 그림자는 돌아서지 않는다. 늘 같은 쪽(배 쪽)을 본 채 앞으로 나아가거나 뒷걸음질한다.
+  // (큰 몸이 좌우로 몸을 틀 때마다 모양이 크게 바뀌어 부자연스러웠다)
+  const cur = Math.sign(s.face) || 1, want = cur;
+  s.faceV = approach(s.faceV, clamp((want - s.face) * 4, -2, 2), 5, dt);
   s.face = clamp(s.face + s.faceV * dt, -1, 1);
 
-  // 속도: 가속 → 순항 → 감속. 몸을 트는 동안은 거의 멈춘다.
-  const facing = Math.max(0, s.face * want);
-  let wantSpeed = s.maxSpeed * (t.speed ?? 1) * facing * facing;
-  if (arrive) wantSpeed = Math.min(wantSpeed, Math.abs(dx) * 1.3 + Math.abs(dy) * 0.6);
-  if (slight) wantSpeed = -Math.min(s.maxSpeed * 0.22, Math.abs(dx) * 0.9);      // 뒷걸음질
+  // 속도: 가속 → 순항 → 감속. 목표가 뒤에 있으면 뒷걸음질(앞으로 갈 때보다 느리다).
+  const behind = dx * cur < 0, top = s.maxSpeed * (t.speed ?? 1);
+  let wantSpeed = behind ? -top * 0.6 : top;
+  if (arrive || behind) {
+    const lim = Math.abs(dx) * 1.3 + (behind ? 0 : Math.abs(dy) * 0.6);
+    wantSpeed = behind ? -Math.min(-wantSpeed, lim) : Math.min(wantSpeed, lim);
+  }
   const prev = s.speed;
-  s.speed = approach(s.speed, wantSpeed, s.accel * (wantSpeed > s.speed ? 1 : 1.8), dt);
+  s.speed = approach(s.speed, wantSpeed, s.accel * (Math.abs(wantSpeed) > Math.abs(s.speed) ? 1 : 1.8), dt);
 
   // 오르내림: 머리를 들거나 숙이고 그 방향으로 나아간다. 제자리에서도 천천히 깊이를 맞춘다.
   const wantPitch = clamp(Math.atan2(dy, Math.max(Math.abs(dx), s.len * 0.35)), -0.5, 0.5);
   s.pitch = approach(s.pitch, wantPitch, 2.2, dt);
   s.x += s.face * Math.cos(s.pitch) * s.speed * dt;
-  s.y += (Math.sin(s.pitch) * s.speed + clamp(dy, -1, 1) * Math.min(Math.abs(dy), s.maxSpeed * 0.35)) * dt;
+  s.y += (Math.sin(s.pitch) * Math.abs(s.speed) + clamp(dy, -1, 1) * Math.min(Math.abs(dy), s.maxSpeed * 0.35)) * dt;
   s.y = Math.max(s.floor, s.y);
 
   // 꼬리: 빠를수록 빠르게, 가속할 때 크게
