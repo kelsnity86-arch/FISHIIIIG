@@ -249,20 +249,43 @@ export function render(ctx, g) {
 const wrapX = (v, span) => ((v % span) + span) % span;
 
 // 배경: 하늘·구름·섬, 먼 바다 띠, 물의 단면
-function drawBackdrop(ctx, g) {
-  const sky = sprite('c_sky');
-  draw(ctx, sky, -10, HORIZON - sky.h - 2, W + 20, sky.h + 3);
-  const sea = sprite('c_sea');
-  draw(ctx, sea, -10, WL - 8, W + 20, H - WL + 18);
-  const far = sprite('c_farsea');
-  const fx = wrapX(g.time * 2.5, W);
-  draw(ctx, far, fx - W, HORIZON - 4, W + 0.5, far.h);
-  draw(ctx, far, fx, HORIZON - 4, W + 0.5, far.h);
+// 하늘 그림 맨 윗줄에서 구름이 아닌 하늘색(가장 흔한 어두운 쪽 색)을 한 번만 뽑아 둔다
+let skyTopColor = null;
+function skyTop(sky) {
+  if (skyTopColor) return skyTopColor;
+  const c = document.createElement('canvas'); c.width = 64; c.height = 1;
+  const x = c.getContext('2d'); x.drawImage(sky.img, 0, 0, sky.img.width, 1, 0, 0, 64, 1);
+  const d = x.getImageData(0, 0, 64, 1).data;
+  const px = []; for (let i = 0; i < 64; i++) px.push([d[i * 4], d[i * 4 + 1], d[i * 4 + 2]]);
+  px.sort((p, q) => (p[0] + p[1] + p[2]) - (q[0] + q[1] + q[2]));
+  const m = px[16];                                   // 어두운 쪽 1/4 지점 = 구름이 아닌 하늘
+  return (skyTopColor = `rgb(${m[0]},${m[1]},${m[2]})`);
 }
 
-// 수면선 파도: 이어 붙는 띠를 세로 조각으로 그려 수면 높이를 따라 출렁이게 한다.
-// 잔잔한 띠 위에, 바다가 거칠어질수록 거친 띠가 겹쳐 나타난다.
-// (조각끼리 겹치면 반투명한 부분에 줄무늬가 생기므로 겹치지 않게, 흐름도 조각 경계에 맞춘다)
+function drawBackdrop(ctx, g) {
+  const sea = sprite('c_sea');
+  draw(ctx, sea, -10, WL - 8, W + 20, H - WL + 18);
+  // 카메라가 물러나면 하늘·섬·먼바다도 배를 기준으로 작아진다 (가까운 것보다는 덜).
+  // 드러나는 가장자리는 같은 하늘 그림을 좌우로 뒤집어 이어 붙이고, 위쪽은 맨 윗줄 색으로 잇는다.
+  const bz = 1 - (1 - g.cam.zoom) * 0.6;
+  const sky = sprite('c_sky'), far = sprite('c_farsea');
+  const sw = W + 20, sy = HORIZON - sky.h - 2, sh = sky.h + 3;
+  ctx.save();
+  ctx.translate(CAM_X, HORIZON); ctx.scale(bz, bz); ctx.translate(-CAM_X, -HORIZON);
+  const skyAt = (x, flip) => {
+    ctx.save();
+    if (flip) { ctx.translate(x + sw, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); }
+    draw(ctx, sky, x, sy, sw, sh);
+    if (bz < 0.999) { ctx.fillStyle = skyTop(sky); ctx.fillRect(x, sy - 500, sw, 501); }
+    ctx.restore();
+  };
+  if (bz < 0.999) { skyAt(-10 - sw + 1, true); skyAt(-10 + sw - 1, true); }
+  skyAt(-10, false);
+  const fx = wrapX(g.time * 2.5, W);
+  for (let i = bz < 0.999 ? -2 : -1; i <= (bz < 0.999 ? 1 : 0); i++) draw(ctx, far, fx + i * W, HORIZON - 4, W + 0.5, far.h);
+  ctx.restore();
+}
+
 function drawWave(ctx, g, view, dy, alpha, scroll, front) {
   const STEP = 8, N = W / STEP;
   scroll = Math.round(scroll * 2) / 2;
@@ -415,7 +438,7 @@ function drawLeap(ctx, g, under) {
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
-    ctx.rotate(c.rot + (flop ? step[0] * Math.min(1, 380 / (c.lw * c.zoom)) : 0));   // 큰 몸은 덜 기울여 얼굴이 화면 밖으로 나가지 않게
+    ctx.rotate(c.rot + (flop ? step[0] : 0));   // 큰 몸은 덜 기울여 얼굴이 화면 밖으로 나가지 않게
     ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   }
   ctx.restore();
