@@ -1,0 +1,17 @@
+{
+  "name": "horizon-angler",
+  "private": true,
+  "version": "0.1.0",
+  "description": "수평선 낚시꾼 — 안드로이드 앱 포장용 (게임 자체는 빌드 없이 index.html 로 돈다)",
+  "scripts": {
+    "www": "node tools/build_www.mjs",
+    "android": "node tools/build_www.mjs && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0"
+  }
+}

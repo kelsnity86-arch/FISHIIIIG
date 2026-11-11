@@ -1,0 +1,6 @@
+{
+  "appId": "com.horizonangler.game",
+  "appName": "수평선 낚시꾼",
+  "webDir": "www",
+  "android": { "backgroundColor": "#0e1a2e" }
+}

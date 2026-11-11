@@ -35,6 +35,9 @@ function lockLandscape() {
   } catch { /* 지원하지 않는 기기 */ }
 }
 
+// 앱(안드로이드)으로 돌 때는 시험용 버튼 줄을 숨긴다
+if (window.Capacitor) { const bar = document.getElementById('debug'); if (bar) bar.style.display = 'none'; }
+
 await loadAssets();
 const game = createGame();
 window.game = game; // 시험·디버깅용 (주의: canvas id 'game' 과 이름이 같아 로딩 전엔 canvas 를 가리킴)
