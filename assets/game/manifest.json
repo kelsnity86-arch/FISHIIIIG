@@ -3972,76 +3972,154 @@
    "h": 47.65,
    "smooth": true
   },
-  "d_tmp_shark_1": {
-   "file": "d_tmp_shark_1.png",
-   "w": 46,
-   "h": 20,
-   "smooth": false
-  },
-  "d_tmp_shark_2": {
-   "file": "d_tmp_shark_2.png",
-   "w": 46,
-   "h": 23,
-   "smooth": false
-  },
-  "d_tmp_puffer_1": {
-   "file": "d_tmp_puffer_1.png",
-   "w": 46,
-   "h": 28,
-   "smooth": false
-  },
-  "d_tmp_puffer_2": {
-   "file": "d_tmp_puffer_2.png",
-   "w": 46,
-   "h": 31,
-   "smooth": false
-  },
-  "d_tmp_octopus_1": {
-   "file": "d_tmp_octopus_1.png",
-   "w": 46,
-   "h": 20,
-   "smooth": false
-  },
-  "d_tmp_octopus_2": {
-   "file": "d_tmp_octopus_2.png",
-   "w": 46,
-   "h": 21,
-   "smooth": false
-  },
-  "d_tmp_turtle_1": {
-   "file": "d_tmp_turtle_1.png",
-   "w": 46,
+  "d_hammer_shark": {
+   "file": "d_hammer_shark.png",
+   "w": 41,
    "h": 25,
    "smooth": false
   },
-  "d_tmp_turtle_2": {
-   "file": "d_tmp_turtle_2.png",
-   "w": 46,
+  "d_saw_shark": {
+   "file": "d_saw_shark.png",
+   "w": 39,
+   "h": 22,
+   "smooth": false
+  },
+  "d_bulb_angler": {
+   "file": "d_bulb_angler.png",
+   "w": 40,
+   "h": 30,
+   "smooth": false
+  },
+  "d_straw_seahorse": {
+   "file": "d_straw_seahorse.png",
+   "w": 31,
+   "h": 34,
+   "smooth": false
+  },
+  "d_scissor_crab": {
+   "file": "d_scissor_crab.png",
+   "w": 40,
+   "h": 34,
+   "smooth": false
+  },
+  "d_umbrella_jelly": {
+   "file": "d_umbrella_jelly.png",
+   "w": 38,
+   "h": 37,
+   "smooth": false
+  },
+  "d_drill_narwhal": {
+   "file": "d_drill_narwhal.png",
+   "w": 43,
+   "h": 24,
+   "smooth": false
+  },
+  "d_pizza_ray": {
+   "file": "d_pizza_ray.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_ball_turtle": {
+   "file": "d_ball_turtle.png",
+   "w": 39,
+   "h": 28,
+   "smooth": false
+  },
+  "d_cactus_puffer": {
+   "file": "d_cactus_puffer.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_fan_puffer": {
+   "file": "d_fan_puffer.png",
+   "w": 39,
+   "h": 28,
+   "smooth": false
+  },
+  "d_candle_eel": {
+   "file": "d_candle_eel.png",
+   "w": 41,
+   "h": 28,
+   "smooth": false
+  },
+  "d_trumpet_fish": {
+   "file": "d_trumpet_fish.png",
+   "w": 42,
+   "h": 18,
+   "smooth": false
+  },
+  "d_knight_swordfish": {
+   "file": "d_knight_swordfish.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_crown_tuna": {
+   "file": "d_crown_tuna.png",
+   "w": 40,
+   "h": 33,
+   "smooth": false
+  },
+  "d_plug_octopus": {
+   "file": "d_plug_octopus.png",
+   "w": 41,
+   "h": 34,
+   "smooth": false
+  },
+  "d_train_eel": {
+   "file": "d_train_eel.png",
+   "w": 44,
+   "h": 11,
+   "smooth": false
+  },
+  "d_teapot_whale": {
+   "file": "d_teapot_whale.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_sub_whale": {
+   "file": "d_sub_whale.png",
+   "w": 40,
    "h": 32,
    "smooth": false
   },
-  "d_tmp_whale_1": {
-   "file": "d_tmp_whale_1.png",
-   "w": 46,
-   "h": 15,
+  "d_dino_shark": {
+   "file": "d_dino_shark.png",
+   "w": 42,
+   "h": 26,
    "smooth": false
   },
-  "d_tmp_whale_2": {
-   "file": "d_tmp_whale_2.png",
-   "w": 46,
-   "h": 16,
+  "d_volcano_turtle": {
+   "file": "d_volcano_turtle.png",
+   "w": 39,
+   "h": 38,
    "smooth": false
   },
-  "d_tmp_crab_1": {
-   "file": "d_tmp_crab_1.png",
-   "w": 46,
-   "h": 21,
+  "d_rocket_marlin": {
+   "file": "d_rocket_marlin.png",
+   "w": 45,
+   "h": 25,
    "smooth": false
   },
-  "d_tmp_crab_2": {
-   "file": "d_tmp_crab_2.png",
-   "w": 46,
-   "h": 19,
+  "d_castle_kraken": {
+   "file": "d_castle_kraken.png",
+   "w": 40,
+   "h": 40,
+   "smooth": false
+  },
+  "d_ship_whale": {
+   "file": "d_ship_whale.png",
+   "w": 40,
+   "h": 37,
+   "smooth": false
+  },
+  "d_moon_whale": {
+   "file": "d_moon_whale.png",
+   "w": 41,
+   "h": 38,
    "smooth": false
   }
  }

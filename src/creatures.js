@@ -46,6 +46,20 @@ FANTASY.forEach((name, i) => {
   LIST.push({ name, grade: 'fantasy', sprite: 'fantasy_' + String(i + 1).padStart(2, '0'), bite: 'pull' });
 });
 
+// 도트 생물 (전부 상상 속 생물): [이름, 그림(d_<이름>), 등급]
+const DOTS = [
+  ['가위게', 'scissor_crab', 'common'], ['우산해파리', 'umbrella_jelly', 'common'], ['피자가오리', 'pizza_ray', 'common'],
+  ['축구공거북', 'ball_turtle', 'common'], ['선인장복어', 'cactus_puffer', 'common'], ['선풍기복어', 'fan_puffer', 'common'],
+  ['양초장어', 'candle_eel', 'common'], ['빨대해마', 'straw_seahorse', 'common'],
+  ['망치상어', 'hammer_shark', 'uncommon'], ['톱상어', 'saw_shark', 'uncommon'], ['전구아귀', 'bulb_angler', 'uncommon'],
+  ['트럼펫고기', 'trumpet_fish', 'uncommon'], ['주전자고래', 'teapot_whale', 'uncommon'],
+  ['드릴일각고래', 'drill_narwhal', 'rare'], ['기사황새치', 'knight_swordfish', 'rare'], ['왕관참치', 'crown_tuna', 'rare'],
+  ['콘센트문어', 'plug_octopus', 'rare'], ['기차장어', 'train_eel', 'rare'],
+  ['잠수함고래', 'sub_whale', 'epic'], ['공룡상어', 'dino_shark', 'epic'], ['화산거북', 'volcano_turtle', 'epic'], ['해적선고래', 'ship_whale', 'epic'],
+  ['로켓청새치', 'rocket_marlin', 'legendary'], ['성문어', 'castle_kraken', 'legendary'],
+  ['달고래', 'moon_whale', 'fantasy'],
+];
+
 const rand = (a, b) => a + Math.random() * (b - a);
 
 export function rollCreature(forcedGrade) {
@@ -57,10 +71,10 @@ export function rollCreature(forcedGrade) {
     let r = Math.random() * total;
     grade = GRADES.find((g) => (r -= g.weight) < 0) || GRADES[0];
   }
-  // 도트 생물 그림(d_*)이 오기 전까지는 임시 도트가 낚인다. 그림은 <sprite>_1(평소), <sprite>_2(놀람).
-  const TEMP = [['상어', 'shark'], ['복어', 'puffer'], ['문어', 'octopus'], ['거북', 'turtle'], ['고래', 'whale'], ['게', 'crab']];
-  const pick = TEMP[Math.floor(Math.random() * TEMP.length)];
-  const base = { name: '(임시) ' + pick[0], grade: grade.id, sprite: 'd_tmp_' + pick[1] + '_1', sprite2: 'd_tmp_' + pick[1] + '_2', bite: 'pull' };
+  // 도트 생물: 그 등급의 목록에서 하나. (놀람 표정 그림은 아직 없어 평소 그림을 같이 쓴다)
+  const pool = DOTS.filter((d) => d[2] === grade.id);
+  const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
+  const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1], bite: 'pull' };
   const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
   return {

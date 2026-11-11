@@ -257,7 +257,8 @@ def build():
                 crop.save(OUT / file)
             manifest[item['name']] = dict(file=file, w=round(w, 2), h=round(h, 2), smooth=smooth)
         print(f'{src.name}: {len(items)}개 변환')
-    temp_dots(manifest)
+    import slice_dots
+    problems += slice_dots.dot_sheets(manifest)
     (OUT / 'manifest.json').write_text(json.dumps(dict(sprites=manifest), indent=1, ensure_ascii=False) + '\n')
     print(f'manifest.json: 그림 {len(manifest)}개 등록')
     for p in problems:
