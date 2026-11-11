@@ -8619,3 +8619,51 @@ on the main branch, in the folder assets/raw/, with the file name d_style_test2.
 ```
 
 ---
+
+
+## ⑲ gotzoo 방식 — 한 장에 25마리, 진짜 저해상도 도트
+
+> `kelsnity86-arch/gotzoo`에서 검증된 주문 방식 그대로: 격자·도트 크기·팔레트를 숫자로 못 박고, 변환 도구가 원래 해상도 도트로 되돌린다.
+
+### 275. `d_sheet_01` — 도트 생물 25마리 (gotzoo 방식 시험 장)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET d_sheet_01.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. hammer shark - a hammerhead shark whose wide head is a steel claw hammer
+2. saw shark - a shark whose long nose is a hand saw blade with teeth
+3. bulb anglerfish - an anglerfish whose lure is a glowing light bulb
+4. straw seahorse - a seahorse whose snout is a striped bendy drinking straw
+5. scissor crab - a red crab whose two claws are steel scissors
+6. umbrella jellyfish - a jellyfish whose bell is an open red-and-white umbrella with a hook handle
+7. drill narwhal - a narwhal whose horn is a spiral drill bit
+8. pizza ray - a stingray that is a triangular pizza slice with pepperoni
+9. soccer turtle - a sea turtle whose shell is a black-and-white soccer ball
+10. cactus puffer - a round green pufferfish covered in cactus spines with one pink flower
+11. fan puffer - a round pufferfish with three fan blades on its nose
+12. candle eel - a long white eel with a small flame on its head like a candle
+13. trumpet fish - a long golden fish whose mouth is a flared trumpet bell
+14. knight swordfish - a swordfish wearing a steel knight helmet, its bill is a sword
+15. crown tuna - a fat tuna wearing a golden crown
+16. plug octopus - an octopus whose arms end in electric plugs
+17. train eel - an eel whose body is three linked train carriages with windows
+18. teapot whale - a small round whale with a teapot spout and handle
+19. submarine whale - a whale with a periscope, round portholes and a propeller
+20. dino shark - a shark with a green T-rex head and tiny arms
+21. volcano turtle - a sea turtle carrying a small smoking volcano on its shell
+22. rocket marlin - a marlin with red rocket fins and a flame at the tail
+23. castle octopus - an octopus wearing a stone castle tower as its shell
+24. pirate whale - a whale with a mast, a skull flag and an eye patch
+25. moon whale - a pale yellow whale shaped like a crescent moon wearing a sleeping cap
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_01.png
+```
+
+---
