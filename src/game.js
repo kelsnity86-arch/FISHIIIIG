@@ -149,7 +149,7 @@ export function press(g) {
       if (g.t > 0.4) g.catch.skip = true;      // 연출 넘기기
       break;
     case 'result':
-      if (g.t > 1.1) {
+      if (g.t > (g.catch.quick ? 0.55 : 1.1)) {
         const f = g.fish;
         if (f.isFantasy) { g.catch.phase = 'release'; }
         else {
@@ -614,6 +614,7 @@ const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
+const QUICK = 2;            // 이미 본 일반 등급의 연출 빠르기
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
 const PULL_BACK = 1.7;     // 카메라가 물러나는 데 걸리는 시간(초)
 
@@ -634,6 +635,7 @@ function startCatch(g) {
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
     phase: 'pull', pt: 0, lw, gi, zoom, zs, ex, big, fit, ax, ay, fx,
+    quick: g.fish.grade === 'common' && g.records[g.fish.name] != null,
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
@@ -662,6 +664,8 @@ function updateCatch(g, dt) {
     apex.x = c.ax; apex.y = c.ay;
   }
   const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.reveal ? c.zoom : 1, zoomRate: 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
+  // 이미 도감에 있는 일반 등급은 같은 연출을 빠르게 넘긴다 (수백 번 되풀이되는 장면이라 짧게)
+  if (c.quick) dt *= QUICK;
   c.pt += dt;
 
   if (c.phase === 'pull') {
@@ -722,11 +726,11 @@ function updateCatch(g, dt) {
       g.sprays.length = 0;                                            // 확대된 얼굴 앞에 물방울이 크게 떠다니지 않게
       snd(g, 'pop');
     }
-    if (c.reveal) { c.popT += g.realDt; c.rot = 0; }
+    if (c.reveal) { c.popT += g.realDt * (c.quick ? QUICK : 1); c.rot = 0; }
     const reach = c.lw * 0.42 * (c.reveal ? c.fit : 1);
     c.mx = c.x + reach * Math.cos(c.rot); c.my = c.y + reach * Math.sin(c.rot);
     c.out = e;
-    if (u > 0.12 && !c.reveal && !c.skip) g.slowTarget = SLOW[gi];
+    if (u > 0.12 && !c.reveal && !c.skip && !c.quick) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
     c.shed -= dt;                                   // 몸에서 물이 흩어진다
     if (c.shed <= 0 && !c.reveal) { c.shed = 0.05; spray(g, c.eruptX + rand(-0.2, 0.2) * lw, WL - rand(4, lh * 0.5), 1, 110 + lw * 0.12, lw * 0.3); }   // 물보라가 그림자를 감싼다

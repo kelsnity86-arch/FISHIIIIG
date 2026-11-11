@@ -155,7 +155,7 @@ function drawResultCard(ctx, g) {
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
   fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
-  if (T > 1.1 && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
+  if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
   if (r.stamped) {
