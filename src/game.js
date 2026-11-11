@@ -5,6 +5,7 @@ import {
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
+import { newEconomy, priceMult, speedMult, pullOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 
@@ -19,6 +20,7 @@ export function createGame() {
   return {
     state: 'idle', t: 0, time: 0,
     gold: 0, hold: false,
+    eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
     forceGrade: null, phase: 0,
@@ -120,12 +122,12 @@ export function sellAll(g) {
   g.gold += sum;
   for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.035 - 0.1, life: 0.55, sx: W / 2 + rand(-50, 50), sy: H / 2 + rand(-10, 30) });
   snd(g, 'coin', n);
-  say(g, `항구에서 ${g.cargo.length}마리 판매  +${sum.toLocaleString('ko-KR')} G`, '#ffe27a');
+  say(g, `항구에서 ${g.cargo.length}마리 판매  +${fmt(sum)} G`, '#ffe27a');
   g.cargo.length = 0;
   return true;
 }
 export function setRegion(g, n) {
-  if (g.state !== 'idle') return false;
+  if (g.state !== 'idle' || n > maxRegion(g.eco)) return false;
   g.region = n;
   return true;
 }
@@ -362,6 +364,8 @@ export function update(g, dt) {
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
   g.fish = rollCreature(g.forceGrade, g.region);
+  g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·복장·스킬에 따른 값
+  g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 내 장비에 비해 얼마나 센가
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
@@ -379,7 +383,7 @@ function startWait(g) {
   const sw = createSwimmer(L, fx - 60 - L * 0.35, DEEP + 110, 1);
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
   g.sw = sw;
-  g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2), minTime: rand(2.5, 4) * (1 + g.power * 0.4) };
+  g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2) / speedMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / speedMult(g.eco) };
   setState(g, 'wait');
 }
 
@@ -479,7 +483,7 @@ function updateFight(g, dt) {
   const tired = f.mode === 'tired';
   if (g.hold) {
     f.tension += (0.4 + 0.12 * p + (f.surging ? 0.9 * p : 0) - (tired ? 0.15 : 0)) * dt;
-    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * dt;
+    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * speedMult(g.eco) * dt;
   } else {
     f.tension -= (f.surging ? 0.4 : 0.75) * dt;
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);

@@ -8,6 +8,7 @@
 //   앞쪽 파도 / 물 폭발·몸부림 파도 / 물보라 조각
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
+import { fmt } from './economy.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -175,7 +176,7 @@ function drawResultCard(ctx, g) {
   ctx.fillText(`몸길이 ${(f.meters * count).toFixed(1)} m`, cx + 18, cy + 114);
   ctx.textAlign = 'right';
   if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 18, cy + 114); }
-  else ctx.fillText(`값 ${Math.round(f.price * count).toLocaleString('ko-KR')} G`, cx + cw - 18, cy + 114);
+  else ctx.fillText(`값 ${fmt(f.price * count)} G`, cx + cw - 18, cy + 114);
   if (g.t > 1.1) {
     ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
     ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw / 2, cy + ch - 15);
@@ -641,7 +642,7 @@ function drawSprays(ctx, g) {
 
 function drawHud(ctx, g) {
   draw(ctx, sprite('icon_gold'), 8, 8, 15, 15);
-  text(ctx, Math.round(g.goldShown).toLocaleString('ko-KR'), 28, 16.5, 12, COLORS.cream, 'left');
+  text(ctx, fmt(g.goldShown), 28, 16.5, 12, COLORS.cream, 'left');
   text(ctx, `어창 ${g.cargo.length}/${g.cargoMax}`, 10, 34, 10, g.cargo.length >= g.cargoMax ? '#ffb0a0' : 'rgba(255,244,220,0.85)', 'left', 600);
 
   if (g.state === 'charge') text(ctx, `힘 ${Math.round(g.power * 100)}%`, W / 2, H - 34, 12, COLORS.cream);
