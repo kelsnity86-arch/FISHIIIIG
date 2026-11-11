@@ -8159,3 +8159,46 @@ on the main branch, in the folder assets/raw/, with the file name d_king_leviath
 ```
 
 ---
+
+## ⑱ 그림체 찾기 — 같은 생물을 6가지 그림체로
+
+### 273. `d_style_test` — 식빵상어를 6가지 그림체로 (고르기용)
+
+```
+No text, no labels, no numbers. Fully transparent background.
+
+A style test sheet: the SAME creature drawn 6 times in 6 clearly different retro styles,
+arranged in a grid of 3 columns x 2 rows, each in its own cell with wide empty gaps,
+never touching.
+
+THE CREATURE - "Toast Shark". Build it literally, like a child would:
+- The body is ONE SQUARE SLICE OF TOAST seen flat from the front: a square with slightly
+  rounded top corners, pale inside, a darker crust border all around. It must read as
+  "a slice of bread" from the silhouette alone. Do NOT round it into a fish shape.
+- Shark parts are simply stuck onto the square: one sharp triangular shark fin on the top
+  edge, a crescent shark tail on the left edge, and on the right edge a pointed shark
+  snout with one dot eye and a zig-zag row of teeth.
+- A small pat of butter sits on the toast face. Facing RIGHT. Stiff, no pose.
+
+It must look cheap, crude and funny - NOT cute, NOT polished, NOT a modern mobile game
+sprite. Wobbly, awkward, a bit ugly is correct.
+
+THE 6 STYLES (top row left to right, then bottom row):
+1) 1990s Tamagotchi LCD: about 20 pixels wide, ONLY black pixels on transparent, no grey,
+   no outline color - just black blocks forming the shape, eye and teeth.
+2) Original Game Boy: about 24 pixels wide, exactly 4 shades of olive green, chunky.
+3) NES 8-bit: about 24 pixels wide, exactly 3 flat colors plus black outline.
+4) Ultra tiny icon: only about 14 pixels wide, 4 flat colors, barely readable but funny.
+5) Bad MS Paint doodle: NOT pixel grid - drawn with a shaky mouse, wobbly black line,
+   flat bucket-fill colors that slightly miss the lines.
+6) Cheap 16-bit shareware game: about 40 pixels wide, 7 flat colors, thick dark outline.
+
+For the pixel styles (1, 2, 3, 4, 6): every pixel is a big, perfectly square block of one
+flat color on one grid; hard edges, no blur, no anti-aliasing, no gradients.
+Draw all 6 at the same displayed size so they can be compared.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_style_test.png
+```
+
+---
