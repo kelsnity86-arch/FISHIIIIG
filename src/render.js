@@ -9,12 +9,14 @@
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
+import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const easeOut = (k) => 1 - Math.pow(1 - k, 3);
-const FONT = 'system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
+const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';     // 낚기 전: 차분한 명조
+const FONT2 = '"Jua", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';        // 낚은 뒤: 통통한 글씨
 const CAM_X = W * 0.82;      // 카메라가 물러날 때의 기준점 = 배의 자리 (수면선 위)
 const easeOutBack = (k) => { const c = 1.70158; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); };
 
@@ -83,60 +85,21 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
 }
 
 // "낚았다!" — 문구는 고정, 등급이 높을수록 글자 연출이 화려해진다
+// "낚았다!" — 등급별 현판 그림. 톡 튀어나와 자리를 잡고, 높은 등급일수록 크고 들썩인다.
 function drawCatchText(ctx, g) {
   const fx = g.catchFx;
   if (!fx) return;
-  const gi = fx.gi, grade = GRADES[gi], str = '낚았다!';
-  const size = [24, 28, 32, 38, 44, 50][gi];
-  const t = performance.now() / 1000;
-  const pulse = gi >= 4 ? 1 + 0.04 * Math.sin(t * 6) : 1;
+  const gi = fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;
+  const w = [150, 162, 176, 190, 208, 232][gi], h = w * spr.h / spr.w;
+  const pop = easeOutBack(Math.min(1, fx.age / 0.32));
+  const sway = gi >= 3 ? Math.sin(t * 5) * 0.035 : gi >= 1 ? Math.sin(t * 3) * 0.015 : 0;
+  const bob = gi >= 4 ? Math.sin(t * 4) * 2.5 : 0;
   ctx.save();
-  ctx.font = `900 ${size}px ${FONT}`;
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
-  const widths = [...str].map((ch) => ctx.measureText(ch).width + size * 0.04);
-  const total = widths.reduce((a, b) => a + b, 0);
-  const cy = H - 72, mid = W * 0.6;          // 솟구친 생물을 가리지 않게 바다 위쪽에
-  let x = mid - total / 2;
-  const stagger = gi >= 2 ? 0.07 : 0;
-  [...str].forEach((ch, i) => {
-    const w = widths[i], age = fx.age - i * stagger;
-    const cx = x + w / 2; x += w;
-    if (age < 0) return;
-    const pop = easeOutBack(Math.min(1, age / 0.3)) * pulse;
-    let dy = 0, rot = 0;
-    if (gi === 1) dy = -Math.abs(Math.sin(age * 9)) * 7 * Math.exp(-age * 3);            // 통통 튐
-    if (gi === 3) { dy = Math.sin(t * 24 + i * 2) * 1.6 * Math.exp(-age * 1.5); rot = Math.sin(t * 20 + i) * 0.05 * Math.exp(-age * 1.5); }  // 떨림
-    if (gi >= 4) { dy = Math.sin(t * 5 - i * 0.9) * (gi === 5 ? 5 : 3.5); rot = Math.sin(t * 5 - i * 0.9 + 1) * 0.06; }                      // 물결
-    const color = gi === 5 ? `hsl(${(t * 140 + i * 45) % 360},95%,68%)` : grade.color;
-    ctx.save();
-    ctx.translate(cx, cy + dy); ctx.rotate(rot); ctx.scale(pop, pop);
-    if (gi >= 3) { ctx.shadowColor = color; ctx.shadowBlur = (10 + gi * 4) * (0.75 + 0.25 * Math.sin(t * 7)); }
-    ctx.lineWidth = size * 0.26; ctx.strokeStyle = COLORS.navy; ctx.strokeText(ch, 0, 0);
-    ctx.shadowBlur = 0;
-    if (gi >= 4) { ctx.lineWidth = size * 0.11; ctx.strokeStyle = COLORS.cream; ctx.strokeText(ch, 0, 0); }
-    const grad = ctx.createLinearGradient(0, -size / 2, 0, size / 2);
-    grad.addColorStop(0, gi === 0 ? COLORS.cream : '#ffffff'); grad.addColorStop(0.45, gi === 0 ? COLORS.cream : color); grad.addColorStop(1, gi === 0 ? '#d8cdb0' : color);
-    ctx.fillStyle = grad; ctx.fillText(ch, 0, 0);
-    ctx.restore();
-  });
-  // 높은 등급: 글자 주변을 도는 반짝이
-  const n = [0, 0, 0, 6, 10, 16][gi];
-  if (n) {
-    const sp = gi === 5 ? sprite('fx_sparkle') : tinted('fx_sparkle', grade.color, 0.45);
-    const show = Math.min(1, fx.age / 0.4);
-    for (let i = 0; i < n; i++) {
-      const a = t * (0.9 + (i % 3) * 0.25) + i * (Math.PI * 2 / n);
-      const sx = mid + Math.cos(a) * (total * 0.62 + 8), sy = cy + Math.sin(a * 1.3) * size * 0.75;
-      const sz = (6 + (i % 4) * 2.5) * (0.6 + 0.4 * Math.sin(t * 6 + i)) * show;
-      ctx.globalAlpha = 0.6 + 0.4 * Math.sin(t * 5 + i * 1.7);
-      draw(ctx, sp, sx - sz / 2, sy - sz / 2, sz, sz * sp.h / sp.w);
-    }
-    ctx.globalAlpha = 1;
-  }
+  ctx.translate(W * 0.6, H - 70 + bob); ctx.rotate(sway + (1 - Math.min(1, fx.age / 0.32)) * -0.25); ctx.scale(pop, pop);
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.restore();
 }
-
-// 판매한 동전이 골드 표시로 날아간다
 function drawCoins(ctx, g) {
   const spr = sprite('icon_gold');
   for (const c of g.coins) {
@@ -149,59 +112,79 @@ function drawCoins(ctx, g) {
   }
 }
 
+// 결과 카드: 등급별 틀 그림. 위 창에 생물, 아래 두 줄에 이름과 치수·값.
 function drawResultCard(ctx, g) {
-  const f = g.fish, grade = f.gradeInfo;
+  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite('ui_card_' + (gi + 1));
   const k = clamp(g.t / 0.3, 0, 1), e = 1 - Math.pow(1 - k, 3);
-  const cw = 230, ch = 150, cx = 12, cy = H - ch - 12 + (1 - e) * 26;   // 왼쪽 아래: 생물과 배를 가리지 않는다
+  const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26;   // 왼쪽 아래: 생물과 배를 가리지 않는다
   ctx.save();
-  // (화면 전체를 어둡게 덮지 않는다: 낚은 생물과 하늘이 탁해진다)
   ctx.globalAlpha = e;
-  draw9(ctx, sprite('ui_panel'), cx, cy, cw, ch, 0.3);
-  const rib = tinted('ui_ribbon', grade.color, 0.65);
-  draw(ctx, rib, cx + 12, cy + 12, 54, 54 * rib.h / rib.w);
-  text(ctx, grade.name, cx + 39, cy + 12 + 27 * rib.h / rib.w, 10, '#fff');
-  ctx.font = `700 15px ${FONT}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-  ctx.fillStyle = COLORS.navy; ctx.fillText(f.name, cx + 74, cy + 22);
+  // 창 안: 옅은 양피지 바탕 위에 생물
+  ctx.fillStyle = '#f3e3c2'; ctx.fillRect(cx + cw * 0.09, cy + ch * 0.13, cw * 0.82, ch * 0.44);
+  const spr = sprite(f.sprite), fit = Math.min(cw * 0.66 / spr.w, ch * 0.36 / spr.h);
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(spr.img, cx + cw / 2 - spr.w * fit / 2, cy + ch * 0.35 - spr.h * fit / 2, spr.w * fit, spr.h * fit);
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(fr.img, cx, cy, cw, ch);
 
-  const spr = sprite(f.sprite);
-  const fit = Math.min(170 / spr.w, 62 / spr.h);
-  ctx.save();
-  ctx.translate(cx + cw / 2, cy + 68);
-  draw(ctx, spr, -spr.w * fit / 2, -spr.h * fit / 2, spr.w * fit, spr.h * fit);
-  ctx.restore();
-
-  ctx.font = `600 11px ${FONT}`; ctx.fillStyle = COLORS.navy; ctx.textAlign = 'left';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `400 13px ${FONT2}`; ctx.fillStyle = COLORS.navy;
+  ctx.fillText(f.name, cx + cw / 2, cy + ch * 0.672);
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((g.t - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
-  ctx.fillText(`몸길이 ${(f.meters * count).toFixed(1)} m`, cx + 18, cy + 114);
-  ctx.textAlign = 'right';
-  if (f.isFantasy) { ctx.fillStyle = '#a06a00'; ctx.fillText(`${f.name}의 증표 획득`, cx + cw - 18, cy + 114); }
-  else ctx.fillText(`값 ${fmt(f.price * count)} G`, cx + cw - 18, cy + 114);
-  if (g.t > 1.1) {
-    ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(29,43,74,0.6)'; ctx.font = `600 10px ${FONT}`;
-    ctx.fillText(f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw / 2, cy + ch - 15);
-  }
+  ctx.font = `600 9px ${FONT}`; ctx.fillStyle = '#5a4630';
+  ctx.fillText(f.isFantasy ? `${(f.meters * count).toFixed(1)} m · ${f.name}의 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, cx + cw / 2, cy + ch * 0.812);
+  if (g.t > 1.1) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
   const r = g.result;
   if (r.stamped) {
     const age = g.t - 1.0, k2 = Math.min(1, age / 0.16);
     const sc = lerp(2.8, 1, 1 - Math.pow(1 - k2, 3));
-    const st = hasSprite('fx_stamp') ? tinted('fx_stamp', '#d8483a', 0.95) : tinted('ui_badge_star', '#d8483a', 0.7);
+    const st = sprite(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
     ctx.save();
     ctx.globalAlpha = e * Math.min(1, k2 * 2);
-    ctx.translate(cx + cw - 42, cy + 44); ctx.rotate(-0.22); ctx.scale(sc, sc);
-    draw(ctx, st, -24, -24 * st.h / st.w, 48, 48 * st.h / st.w);
-    ctx.font = `900 9px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.lineWidth = 2.5; ctx.strokeStyle = '#fff4dc'; ctx.strokeText(r.isNew ? '첫 포획' : '신기록', 0, 0);
-    ctx.fillStyle = '#c0392b'; ctx.fillText(r.isNew ? '첫 포획' : '신기록', 0, 0);
+    ctx.translate(cx + cw - 30, cy + ch * 0.2); ctx.rotate(-0.2); ctx.scale(sc, sc);
+    ctx.drawImage(st.img, -21, -21 * st.h / st.w, 42, 42 * st.h / st.w);
     ctx.restore();
   }
   ctx.restore();
 }
 
-
 export function render(ctx, g) {
+  if (g.scene === 'harbor') {
+    drawHarbor(ctx, g);
+    drawGold(ctx, g);
+    drawPanel(ctx, g);
+    drawMsg(ctx, g);
+    drawCoins(ctx, g);
+    drawVeil(ctx, g);
+    return;
+  }
+  renderSea(ctx, g);
+  drawPanel(ctx, g);
+  if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
+  drawVeil(ctx, g);
+}
+function drawVeil(ctx, g) {
+  if (g.veil > 0.01) { ctx.fillStyle = `rgba(12,22,46,${g.veil})`; ctx.fillRect(0, 0, W, H); }
+}
+// 골드 판 (바다·항구 공용)
+function drawGold(ctx, g) {
+  const pl = sprite('ui_plaque_gold'), pw = 92, ph = pw * pl.h / pl.w;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(pl.img, 5, 4, pw, ph);
+  ctx.font = `600 11px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#ffe9b8'; ctx.fillText(fmt(g.goldShown), 5 + pw * 0.62, 4 + ph / 2 + 0.5);
+}
+function drawMsg(ctx, g) {
+  if (!g.msg || g.msg.age < 0) return;
+  const k = g.msg.age / 1.4;
+  ctx.globalAlpha = clamp((1 - k) * 3, 0, 1);
+  text(ctx, g.msg.text, W / 2, 100 - k * 14, 18, g.msg.color);
+  ctx.globalAlpha = 1;
+}
+function renderSea(ctx, g) {
   const phase = PHASES[g.phase];
   ctx.save();
   if (g.shake > 0.05) ctx.translate(Math.sin(g.time * 61) * g.shake, Math.cos(g.time * 47) * g.shake);
@@ -252,27 +235,37 @@ const wrapX = (v, span) => ((v % span) + span) % span;
 
 // 배경: 하늘·구름·섬, 먼 바다 띠, 물의 단면
 // 하늘 그림 맨 윗줄에서 구름이 아닌 하늘색(가장 흔한 어두운 쪽 색)을 한 번만 뽑아 둔다
-let skyTopColor = null;
+const skyTopColors = new Map();
 function skyTop(sky) {
-  if (skyTopColor) return skyTopColor;
+  if (skyTopColors.has(sky.img)) return skyTopColors.get(sky.img);
   const c = document.createElement('canvas'); c.width = 64; c.height = 1;
   const x = c.getContext('2d'); x.drawImage(sky.img, 0, 0, sky.img.width, 1, 0, 0, 64, 1);
   const d = x.getImageData(0, 0, 64, 1).data;
   const px = []; for (let i = 0; i < 64; i++) px.push([d[i * 4], d[i * 4 + 1], d[i * 4 + 2]]);
   px.sort((p, q) => (p[0] + p[1] + p[2]) - (q[0] + q[1] + q[2]));
   const m = px[16];                                   // 어두운 쪽 1/4 지점 = 구름이 아닌 하늘
-  return (skyTopColor = `rgb(${m[0]},${m[1]},${m[2]})`);
+  const col = `rgb(${m[0]},${m[1]},${m[2]})`;
+  skyTopColors.set(sky.img, col);
+  return col;
+}
+
+// 수면 띠·파도 그림은 한 벌뿐이라, 해역의 물빛에 맞춰 색을 입혀 쓴다
+const REGION_TINT = { 2: ['#35d6c4', 0.22], 3: ['#93a3a6', 0.5], 4: ['#1d55a8', 0.28], 5: ['#cfeaf6', 0.34], 6: ['#5c2016', 0.56], 7: ['#261e5c', 0.58], 8: ['#8d5fd6', 0.42] };
+function regional(name, g) {
+  const t = REGION_TINT[g.region];
+  return t ? tinted(name, t[0], t[1]) : sprite(name);
 }
 
 function drawBackdrop(ctx, g) {
   const z = g.cam.zoom, ox = g.cam.ox, oy = g.cam.oy;
-  const sea = sprite('c_sea');
+  const rg = g.region > 1 && hasSprite('c_sky_' + g.region) ? '_' + g.region : '';     // 해역마다 다른 하늘과 물
+  const sea = sprite('c_sea' + rg);
   const seaY = WL * z + oy - 8;                      // 물속 그림은 화면에서 수면선이 있는 높이부터 아래로
   if (seaY < H + 10) draw(ctx, sea, -10, seaY, W + 20, Math.max(H - WL + 18, H - seaY + 10));
   // 하늘·섬·먼바다도 같은 카메라를 따라 커지고 작아진다 (가까운 것보다는 덜). 수평선은 늘 수면선에 붙어 있다.
   // 드러나는 가장자리는 같은 하늘 그림을 좌우로 뒤집어 이어 붙이고, 위쪽은 하늘색으로 잇는다.
   const bz = Math.pow(z, 0.6), still = Math.abs(z - 1) < 0.001 && Math.abs(ox) < 0.01;
-  const sky = sprite('c_sky'), far = sprite('c_farsea');
+  const sky = sprite('c_sky' + rg), far = regional('c_farsea', g);
   const sw = W + 20, sy = HORIZON - sky.h - 2, sh = sky.h + 3;
   // 세로는 하늘 그림이 화면 맨 위부터 수평선까지 늘 덮도록 필요한 만큼만 더 늘인다 (위쪽에 빈 띠가 생기지 않게)
   const hy = HORIZON * z + oy, vz = Math.max(bz, (hy + 6) / (sky.h + 2));
@@ -302,7 +295,7 @@ function drawWave(ctx, g, view, dy, alpha, scroll, front) {
   ctx.imageSmoothingEnabled = true;
   for (const [name, surf, hs, a] of layers) {
     if (a < 0.02) continue;
-    const spr = sprite(name), sw = spr.img.width / N, h = spr.h * hs;
+    const spr = regional(name, g), sw = spr.img.width / N, h = spr.h * hs;
     ctx.globalAlpha = a;
     const k0 = Math.floor((view.l + scroll) / STEP), k1 = Math.ceil((view.r + scroll) / STEP);
     for (let k = k0; k <= k1; k++) {
@@ -640,18 +633,34 @@ function drawSprays(ctx, g) {
   }
 }
 
-function drawHud(ctx, g) {
-  draw(ctx, sprite('icon_gold'), 8, 8, 15, 15);
-  text(ctx, fmt(g.goldShown), 28, 16.5, 12, COLORS.cream, 'left');
-  text(ctx, `어창 ${g.cargo.length}/${g.cargoMax}`, 10, 34, 10, g.cargo.length >= g.cargoMax ? '#ffb0a0' : 'rgba(255,244,220,0.85)', 'left', 600);
+// 게이지: 틀 그림 위에 채움 그림을 채워진 만큼만 잘라 얹는다. x0·x1 = 틀에서 홈이 시작하고 끝나는 자리(폭 대비)
+function gauge(ctx, name, cx, cy, w, v, x0, x1) {
+  const fr = sprite(name), fl = sprite(name + '_fill'), h = w * fr.h / fr.w, x = cx - w / 2, y = cy - h / 2;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(fr.img, x, y, w, h);
+  const tw = w * (x1 - x0), th = tw * fl.h / fl.w, k = clamp(v, 0, 1);
+  if (k > 0.004) ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, x + w * x0, cy - th / 2, tw * k, th);
+}
 
-  if (g.state === 'charge') text(ctx, `힘 ${Math.round(g.power * 100)}%`, W / 2, H - 34, 12, COLORS.cream);
+function drawHud(ctx, g) {
+  // 골드와 어창 판
+  drawGold(ctx, g);
+  const hp = sprite('ui_plaque_hold'), hw = 78, hh = hw * hp.h / hp.w;
+  ctx.drawImage(hp.img, 100, 4 + (92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w - hh) / 2, hw, hh);
+  ctx.font = `600 10.5px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = g.cargo.length >= g.cargoMax ? '#ffb39a' : '#ffe9b8';
+  ctx.fillText(`${g.cargo.length} / ${g.cargoMax}`, 100 + hw * 0.7, 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w / 2 + 0.5);
+
+  // 던질 힘
+  if (g.state === 'charge') gauge(ctx, 'ui_power', W / 2, H - 40, 190, g.power, 0.105, 0.972);
   if (g.state === 'fight') {
     const f = g.fight;
-    text(ctx, `${Math.max(0, f.dist).toFixed(0)} m`, W / 2, 18, 10.5, 'rgba(255,244,220,0.85)', 'center', 600);
-    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 40, 13, '#ffd0c0');
-    else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, 40, 13, '#ff8a7a');
+    gauge(ctx, 'ui_tension', W / 2, 16, 230, clamp(f.tension / f.maxTension, 0, 1), 0.118, 0.972);   // 줄 장력: 빨강까지 차면 끊어진다
+    text(ctx, `${Math.max(0, f.dist).toFixed(0)} m`, W / 2 + 132, 16, 10, 'rgba(255,244,220,0.9)', 'left', 600);
+    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 42, 12, '#ffd0c0');
+    else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, 42, 12, '#ff8a7a');
   }
+  drawSeaButtons(ctx, g);
 
   const hint = {
     idle: '꾹 눌러 힘 조절 → 떼면 던지기',
@@ -667,12 +676,7 @@ function drawHud(ctx, g) {
     if (a > 0.01) { ctx.globalAlpha = a; text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }
   }
 
-  if (g.msg) {
-    const k = g.msg.age / 1.4;
-    ctx.globalAlpha = clamp((1 - k) * 3, 0, 1);
-    text(ctx, g.msg.text, W / 2, 100 - k * 14, 20, g.msg.color);
-    ctx.globalAlpha = 1;
-  }
+  if (!g.panel) drawMsg(ctx, g);
 
   if (g.state === 'result') drawResultCard(ctx, g);
   drawCatchText(ctx, g);

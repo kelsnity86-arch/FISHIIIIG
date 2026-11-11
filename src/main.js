@@ -1,8 +1,8 @@
 import { W, H, GRADES, PHASES } from './config.js';
 import { loadAssets } from './assets.js';
-import { createGame, update, press, release, sellAll, setRegion } from './game.js';
-import { REGIONS } from './creatures.js';
-import { GEAR, SKILLS, SHOPS, TOWN_NAMES, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, cargoMax, fmt, townCost, townNeedDex, shopCost, shopLocked, skillCap } from './economy.js';
+import { createGame, update, press, release } from './game.js';
+import { pointer } from './harbor.js';
+import { maxRegion, cargoMax } from './economy.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn } from './audio.js';
 
@@ -14,8 +14,7 @@ let scale = 1;
 function resize() {
   const dpr = window.devicePixelRatio || 1;
   const stage = canvas.parentElement, bar = document.getElementById('debug');
-  const shopEl = document.getElementById('shop');
-  const availW = stage.clientWidth, availH = stage.clientHeight - (bar ? bar.offsetHeight : 0) - (shopEl ? shopEl.offsetHeight : 0);
+  const availW = stage.clientWidth, availH = stage.clientHeight - (bar ? bar.offsetHeight : 0);
   const fit = Math.min(availW / W, availH / H) * dpr;
   const whole = Math.floor(fit);
   scale = whole >= 2 && whole / fit >= 0.8 ? whole : fit;
@@ -32,7 +31,12 @@ window.game = game; // 시험·디버깅용 (주의: canvas id 'game' 과 이름
 resize();
 
 // 입력: 클릭 / 터치 / 스페이스바 (원터치)
-canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); canvas.setPointerCapture(e.pointerId); initAudio(); press(game); });
+canvas.addEventListener('pointerdown', (e) => {
+  e.preventDefault(); canvas.setPointerCapture(e.pointerId); initAudio();
+  const r = canvas.getBoundingClientRect();
+  if (pointer(game, (e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H)) { save(); return; }   // 단추·가게 판
+  press(game);
+});
 canvas.addEventListener('pointerup', () => release(game));
 canvas.addEventListener('pointercancel', () => release(game));
 canvas.addEventListener('contextmenu', (e) => e.preventDefault());
@@ -59,15 +63,6 @@ if (btnSound) btnSound.addEventListener('click', () => {
   btnSound.textContent = '소리: ' + (soundOn() ? '켬' : '끔');
 });
 
-// 항구로 (지금은 바로 판매), 해역 바꾸기 — 낚시 중이 아닐 때만
-const btnHarbor = document.getElementById('btnHarbor');
-if (btnHarbor) btnHarbor.addEventListener('click', () => { initAudio(); sellAll(game); });
-const btnRegion = document.getElementById('btnRegion');
-if (btnRegion) btnRegion.addEventListener('click', () => {
-  const n = game.region % maxRegion(game.eco) + 1;          // 배로 갈 수 있는 해역까지만
-  if (setRegion(game, n)) btnRegion.textContent = `해역: ${n} ${REGIONS[n]}`;
-});
-
 // ── 저장 (이 기기의 브라우저에만 남는다) ──
 const SAVE = 'horizon-angler-save-1';
 function save() {
@@ -81,44 +76,13 @@ try {
     Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
     game.cargoMax = cargoMax(game.eco);
-    if (btnRegion) btnRegion.textContent = `해역: ${game.region} ${REGIONS[game.region]}`;
   }
 } catch { /* 저장된 것이 없거나 읽을 수 없으면 새로 시작 */ }
 
-// ── 장비·스킬 구매 (임시 화면: 항구·업그레이드 화면 그림이 오기 전까지 글자 단추로) ──
-const shop = document.createElement('div');
-shop.id = 'shop';
-shop.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:4px 6px 8px;font:12px system-ui,sans-serif;';
-canvas.parentElement.appendChild(shop);
-const items = [['town', { id: 'town', name: '시청', desc: '마을 등급 +, 판매가 +5%' }], ...SHOPS.map((x) => ['shop', x]), ...GEAR.map((x) => ['gear', x]), ...SKILLS.map((x) => ['skill', x])];
-const btns = items.map(([kind, x]) => {
-  const b = document.createElement('button');
-  b.style.cssText = 'font:inherit;color:#fff4dc;background:#24385c;border:1px solid #3d5788;border-radius:6px;padding:4px 8px;cursor:pointer;text-align:left;line-height:1.35;min-width:104px;';
-  b.addEventListener('click', () => { initAudio(); if (buy(game, kind, x.id)) { playSfx('coin', 3); save(); refreshShop(true); } });
-  shop.appendChild(b);
-  return b;
-});
-let shopKey = '';
-function refreshShop(force) {
-  const e = game.eco, key = Math.floor(game.gold) + '|' + JSON.stringify(e) + game.cargo.length + '|' + Object.keys(game.records).length;
-  if (!force && key === shopKey) return;
-  shopKey = key;
-  const dex = Object.keys(game.records).length;
-  items.forEach(([kind, x], i) => {
-    const b = btns[i];
-    let cost, level, block = null;
-    if (kind === 'gear') { cost = gearCost(e, x.id); level = gearLabel(e.gear[x.id]); block = gearBlock(e, x.id); }
-    else if (kind === 'skill') { cost = skillCost(e, x.id); level = `Lv.${e.skill[x.id]}/${skillCap(e)}`; if (e.skill[x.id] >= skillCap(e)) block = '길드 레벨'; }
-    else if (kind === 'shop') { cost = shopCost(e, x.id); level = 'Lv.' + e.shop[x.id]; if (shopLocked(e, x.id)) block = e.shop[x.id] >= 8 ? '끝' : '마을 등급'; }
-    else { cost = townCost(e); level = `${e.town}등급 ${TOWN_NAMES[e.town]}`; if (e.town >= 8) block = '끝'; else if (dex < townNeedDex(e)) block = `도감 ${dex}/${townNeedDex(e)}`; }
-    b.innerHTML = `<b>${x.name}</b> ${level}<br><span style="opacity:.75">${x.desc}</span><br>${block ? block + ' 필요' : fmt(cost) + ' G'}`.replace('끝 필요', '끝');
-    const can = !block && game.gold >= cost;
-    b.disabled = !can; b.style.opacity = can ? 1 : 0.5; b.style.borderColor = can ? '#f2c14e' : '#3d5788';
-  });
-}
-refreshShop(true);
-setInterval(() => { refreshShop(false); save(); }, 500);
-resize();
+setInterval(save, 2000);
+// 글꼴을 받은 뒤 시작한다 (못 받아도 2초 뒤에는 기기 글꼴로 시작)
+await Promise.race([Promise.all([document.fonts.load('600 12px Hahmlet', '낚'), document.fonts.load('400 12px Jua', '낚')]), new Promise((r) => setTimeout(r, 2000))]).catch(() => {});
+window.__pointer = (x, y) => pointer(game, x, y);
 
 // 검사용: window.__manual = true 로 두면 자동 진행을 멈추고, __tick(dt) 로 한 프레임씩 넘길 수 있다
 window.__tick = (dt) => update(game, dt);

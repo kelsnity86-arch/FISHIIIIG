@@ -5,6 +5,7 @@ import {
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
+import { updateTravel, updateHarbor } from './harbor.js';
 import { newEconomy, priceMult, speedMult, pullOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
@@ -20,6 +21,7 @@ export function createGame() {
   return {
     state: 'idle', t: 0, time: 0,
     gold: 0, hold: false,
+    scene: 'sea', panel: null, travel: null, veil: 0,     // 바다 / 항구, 열려 있는 가게 판, 화면 넘기기
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
@@ -115,24 +117,8 @@ function snd(g, name, arg) { g.sfx.push([name, arg]); }
 function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch { /* 진동 미지원 */ } }
 
 // ── 입력 ──
-// 항구로 돌아가 어창의 생물을 모두 판다 (항구 화면이 생기기 전까지는 바로 판다)
-export function sellAll(g) {
-  if (g.state !== 'idle' || !g.cargo.length) return false;
-  const sum = g.cargo.reduce((a, c) => a + c.price, 0), n = Math.min(14, 4 + g.cargo.length);
-  g.gold += sum;
-  for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.035 - 0.1, life: 0.55, sx: W / 2 + rand(-50, 50), sy: H / 2 + rand(-10, 30) });
-  snd(g, 'coin', n);
-  say(g, `항구에서 ${g.cargo.length}마리 판매  +${fmt(sum)} G`, '#ffe27a');
-  g.cargo.length = 0;
-  return true;
-}
-export function setRegion(g, n) {
-  if (g.state !== 'idle' || n > maxRegion(g.eco)) return false;
-  g.region = n;
-  return true;
-}
-
 export function press(g) {
+  if (g.scene !== 'sea' || g.panel || g.travel) return;
   g.hold = true;
   switch (g.state) {
     case 'idle':
@@ -206,6 +192,9 @@ export function update(g, dt) {
   g.goldShown = Math.abs(g.gold - g.goldShown) < 0.6 ? g.gold : approach(g.goldShown, g.gold, 6, dt);
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
+  updateTravel(g, dt); updateHarbor(g, dt);
+  if (g.msg && (g.scene !== 'sea' || g.panel)) { g.msg.age += dt; if (g.msg.age > 1.6) g.msg = null; }
+  if (g.scene !== 'sea') { g.time += dt; return; }                    // 항구에 있는 동안 바다는 멈춰 있다
   if (g.freeze > 0) { g.freeze -= dt; return; }
   g.timeScale = approach(g.timeScale, g.slowTarget, 9, dt);
   g.slowTarget = 1;
