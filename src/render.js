@@ -296,7 +296,7 @@ function drawShafts(ctx, g) {
 // 버퍼에 이음매 없이 휘어 그린 뒤, 물색을 어둡게 물들이는 방식(multiply)으로 찍는다.
 const SH_N = 96, SH_W = 10;                      // 조각 수 × 조각 폭(px) = 버퍼 안의 몸길이
 const shadowBuf = document.createElement('canvas');
-shadowBuf.width = SH_N * SH_W + 64; shadowBuf.height = 420;
+shadowBuf.width = SH_N * SH_W + 64; shadowBuf.height = 600;   // 크게 휠 때도 잘리지 않게 넉넉히
 const shadowCtx = shadowBuf.getContext('2d');
 
 function drawShadow(ctx, g) {
@@ -308,7 +308,7 @@ function drawShadow(ctx, g) {
   shadowCtx.imageSmoothingEnabled = true;
   for (let i = 0; i < SH_N; i++) {               // 머리(왼쪽)는 거의 그대로, 꼬리로 갈수록 크게 위아래로
     const k = i / (SH_N - 1);
-    let off = Math.sin(s.tail - k * 4.2) * inner * s.tailAmp * (0.12 + k * 0.88);
+    let off = Math.sin(s.tail - k * 4.2) * inner * s.tailAmp * (0.28 + k * 0.72);   // 온몸이 물결치고 꼬리가 가장 크게
     off += s.shake * 0.5 * Math.sin(g.time * 16) * inner * 0.04 * (1 - k) * (1 - k);
     shadowCtx.drawImage(spr.img, i * sw, 0, sw, spr.img.height, 32 + i * SH_W, (shadowBuf.height - bh) / 2 + off, SH_W, bh);
   }
@@ -362,14 +362,15 @@ function drawRays(ctx, g) {
 function drawLeap(ctx, g, under) {
   const c = g.catch;
   if (!c || c.phase === 'pull') return;
-  const base = under ? tinted('c_whale_leap', '#0c2b4d', 0.72) : sprite('c_whale_leap');
-  const fall = under ? tinted('c_whale_fall', '#0c2b4d', 0.72) : sprite('c_whale_fall');
+  // 물에 잠긴 부분은 무늬가 보이지 않는 어두운 그림자 덩어리로 (물속 그림자와 같은 색)
+  const base = under ? tinted('c_whale_leap', '#0a2140', 0.94) : sprite('c_whale_leap');
+  const fall = under ? tinted('c_whale_fall', '#0a2140', 0.94) : sprite('c_whale_fall');
   const w = c.lw * c.scale;
   ctx.save();
   if (!under) { ctx.beginPath(); ctx.rect(-4000, -4000, 8000, 4000 + WL + 1.5); ctx.clip(); }
   ctx.translate(c.x, c.y); ctx.rotate(c.rot);
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
-  const a = c.alpha * (under ? 0.8 : 1);
+  const a = c.alpha * (under ? 0.88 : 1);
   if (c.mix < 1) { ctx.globalAlpha = a * (1 - c.mix); ctx.drawImage(base.img, -w / 2, -w * base.h / base.w / 2, w, w * base.h / base.w); }
   if (c.mix > 0) { ctx.globalAlpha = a * c.mix; ctx.drawImage(fall.img, -w / 2, -w * fall.h / fall.w / 2, w, w * fall.h / fall.w); }
   ctx.restore();

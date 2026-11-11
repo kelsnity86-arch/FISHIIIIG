@@ -255,7 +255,7 @@ export function update(g, dt) {
     case 'hook': {
       rodTarget = 1.15; rodRate = 22; bendTarget = 0.55; pose = 2; roughTarget = 0.3;
       const s = g.sw;
-      if (g.t === dt) { burst(g, 'c_thrash', bob.x, Math.min(150, 40 + s.len * 0.12), 0.9); spray(g, bob.x, WL, 3, 90, 26); bubbles(g, s.x, WL + s.y, 3, s.len * 0.2); }
+      if (g.t === dt) { const mx = mouthPos(g).x; burst(g, 'c_thrash', mx, Math.min(150, 40 + s.len * 0.12), 0.9); spray(g, mx, WL, 3, 90, 26); bubbles(g, s.x, WL + s.y, 3, s.len * 0.2); }
       s.target = { x: s.x - 70, y: 40, speed: 1.3 };
       steer(s, dt, { arrive: false });
       followLine(g, dt);
@@ -338,7 +338,8 @@ function startWait(g) {
     plan.push({ x: fx - 90 - L * 0.2, y: rand(50, 90), speed: 0.6 });
   }
   plan.push({ touch: true, fake: false });
-  const sw = createSwimmer(L, fx - 300 - L * 0.5, DEEP + 30, 1);
+  // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
+  const sw = createSwimmer(L, fx - 60 - L * 0.35, DEEP + 110, 1);
   g.sw = sw;
   g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2), minTime: rand(2.5, 4) * (1 + g.power * 0.4) };
   setState(g, 'wait');
@@ -519,7 +520,7 @@ function followLine(g, dt) {
 // 등급별 연출 강도 (0 일반 ~ 5 환상)
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
-const T_PULL = 0.6;
+const T_PULL = 0.95;
 
 function startCatch(g) {
   const L = g.fish.len, lw = L * LEAP_SCALE;
@@ -531,7 +532,7 @@ function startCatch(g) {
     phase: 'pull', pt: 0, lw, gi: GRADES.indexOf(g.fish.gradeInfo), zoom, ex,
     rise: 1.15 + clamp(L / 1500, 0, 0.6),
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
-    erupted: false, shed: 0, skip: false,
+    erupted: false, shed: 0, skip: false, from: null, trail: 0,
   };
   g.fight = null;
   snd(g, 'surge');
@@ -554,13 +555,35 @@ function updateCatch(g, dt) {
   c.pt += dt;
 
   if (c.phase === 'pull') {
-    // 낚싯대를 채는 순간: 그림자가 솟구칠 자리로 급히 떠오르고 수면이 부푼다
+    // 낚싯대를 채는 순간. 그림자가 솟구칠 자리 밑으로 물러나 몸을 웅크렸다가(전반),
+    // 머리를 치켜들고 수면으로 돌진한다(후반). 솟구치는 몸은 그림자가 수면에 닿은 바로 그 자리에서 나온다.
     out.rodTarget = 1.5; out.bendTarget = 0.9; out.roughTarget = 0.7;
-    if (s) { s.target = { x: c.ex - L * 0.25, y: 8, speed: 1.6, face: 1 }; steer(s, dt); s.shake = 1; followLine(g, dt); }
-    if (c.pt > T_PULL * 0.4 && !c.bulge) { c.bulge = true; burst(g, 'c_thrash', c.ex - lw * 0.1, clamp(lw * 0.7, 120, 520), 0.9); bubbles(g, c.ex, WL + 30, 5, lw * 0.3); }
+    if (s) {
+      if (!c.from) c.from = { x: s.x, y: s.y, pitch: s.pitch, face: s.face };
+      const u = clamp(c.pt / T_PULL, 0, 1), f = c.from;
+      const coil = { x: c.ex - lw * 0.3, y: Math.min(DEEP * 0.6, 40 + lh * 0.15) }, hit = { x: c.ex - lw * 0.12, y: 14 };
+      if (u < 0.55) {
+        const k = u / 0.55, e = k * k * (3 - 2 * k);
+        s.x = lerp(f.x, coil.x, e); s.y = lerp(f.y, coil.y, e); s.pitch = lerp(f.pitch, 0.15, e);
+      } else {
+        const k = (u - 0.55) / 0.45, e = k * k;                       // 점점 빨라지며 돌진
+        s.x = lerp(coil.x, hit.x, e); s.y = lerp(coil.y, hit.y, e); s.pitch = lerp(0.15, -0.9, Math.min(1, k * 1.6));
+        c.trail -= dt;
+        if (c.trail <= 0) { c.trail = 0.05; bubbles(g, s.x - lw * 0.2, WL + s.y + 10, 1, lw * 0.08); }
+      }
+      s.face = approach(s.face, 1, 10, dt); s.vis = 1; s.shake = 1;
+      s.tail += dt * s.beat * 2.4; s.tailAmp = approach(s.tailAmp, 0.11, 6, dt);
+      followLine(g, dt);
+      if (u > 0.72 && !c.bulge) {                                    // 머리가 수면을 밀어 올리며 물이 부서지기 시작한다
+        c.bulge = true;
+        burst(g, 'c_thrash', hit.x + lw * 0.1, clamp(lw * 0.55, 110, 460), 0.7);
+        swell(g, hit.x, 4 + lw * 0.01, 1, 110, 50); swell(g, hit.x, 4 + lw * 0.01, -1, 110, 50);
+      }
+    }
     if (c.pt >= T_PULL || c.skip) {
       // 수면이 터진다: 히트스톱 + 번쩍임 + 물 폭발 + 사방으로 물보라 + 큰 물결
       c.phase = 'leap'; c.pt = 0;
+      if (s) s.vis = 0;                                              // 그림자는 이 순간 솟구치는 몸으로 바뀐다
       g.freeze = 0.08 + gi * 0.02; g.flash = 0.55 + gi * 0.08;
       spray(g, c.ex - lw * 0.1, WL, 9, 190 + lw * 0.35, lw * 0.3);
       bubbles(g, c.ex - lw * 0.1, WL + 20, 9, lw * 0.45);
@@ -577,7 +600,6 @@ function updateCatch(g, dt) {
     const u = clamp(c.pt / c.rise, 0, 1), e = easeOut(u);
     c.x = lerp(start.x, apex.x, e); c.y = lerp(start.y, apex.y, e); c.rot = lerp(-0.5, 0, e);
     c.out = e;
-    if (s) s.vis = approach(s.vis, 0, 12, g.realDt);      // 물속 그림자는 솟구친 몸으로 바뀐다
     if (u > 0.12 && u < 1 && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
     c.shed -= dt;                                   // 몸에서 물이 흩어진다

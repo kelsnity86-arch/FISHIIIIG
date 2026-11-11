@@ -64,7 +64,7 @@ export function steer(s, dt, { arrive = true } = {}) {
   const pace = s.speed / s.maxSpeed;
   s.tail += dt * s.beat * (0.4 + pace * 1.3);
   const kick = Math.max(0, (s.speed - prev) / dt) / s.maxSpeed;
-  s.tailAmp = approach(s.tailAmp, 0.025 + pace * 0.04 + kick * 0.06, 4, dt);
+  s.tailAmp = approach(s.tailAmp, 0.035 + pace * 0.06 + kick * 0.08, 4, dt);
   s.shake = approach(s.shake, 0, 3, dt);
   return Math.hypot(dx, dy);
 }

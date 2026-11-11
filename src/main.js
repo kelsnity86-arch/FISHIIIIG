@@ -56,12 +56,19 @@ if (btnSound) btnSound.addEventListener('click', () => {
   btnSound.textContent = '소리: ' + (soundOn() ? '켬' : '끔');
 });
 
+// 검사용: window.__manual = true 로 두면 자동 진행을 멈추고, __tick(dt) 로 한 프레임씩 넘길 수 있다
+window.__tick = (dt) => update(game, dt);
+window.__press = () => press(game);
+window.__release = () => release(game);
+
 let last = performance.now();
 function frame(now) {
   const dt = Math.min(0.05, (now - last) / 1000); // 탭이 멈췄다 돌아와도 튀지 않게
   last = now;
-  update(game, dt);
-  for (const [name, arg] of game.sfx) playSfx(name, arg);
+  if (!window.__manual) {
+    update(game, dt);
+    for (const [name, arg] of game.sfx) playSfx(name, arg);
+  }
   game.sfx.length = 0;
   reel(game.state === 'fight' && game.hold && game.freeze <= 0, game.fight ? game.fight.tension : 0);
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
