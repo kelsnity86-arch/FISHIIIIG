@@ -224,9 +224,10 @@ export function render(ctx, g) {
 
   drawWave(ctx, g, view, -2.5, 0.75, -g.time * 5, false);     // 뒤쪽 파도
   drawRays(ctx, g);
-  drawLeap(ctx, g, false);
-  drawBulge(ctx, g);
-  drawBursts(ctx, g);
+  // 물기둥은 솟아오르는 그림자의 밑동을 가리지만, 드러난 생물은 가리지 않는다
+  const revealed = g.catch && g.catch.reveal;
+  if (revealed) { drawBulge(ctx, g); drawBursts(ctx, g); drawLeap(ctx, g, false); }
+  else { drawLeap(ctx, g, false); drawBulge(ctx, g); drawBursts(ctx, g); }
   drawBoat(ctx, g);
   drawWave(ctx, g, view, 0, 1, g.time * 9, true);             // 앞쪽 파도 (배 밑동을 가린다)
   drawLineAndFloat(ctx, g, phase);
@@ -519,12 +520,12 @@ function drawLineAndFloat(ctx, g, phase) {
 const easeIn = (t) => t * t;
 function drawBursts(ctx, g) {
   for (const b of g.bursts) {
-    const spr = sprite(b.sprite), k = b.age / b.life;
+    const spr = tinted(b.sprite, '#ffffff', 0.4), k = b.age / b.life;      // 목표 화면처럼 흰 물거품에 가깝게
     const grow = easeOut(Math.min(1, k * 3.2));
-    const fall = 1 - 0.6 * easeIn(clamp((k - 0.3) / 0.7, 0, 1));      // 솟은 물이 무너져 내린다
+    const fall = 1 - 0.75 * easeIn(clamp((k - 0.25) / 0.75, 0, 1));      // 솟은 물이 무너져 내린다
     const w = b.size * (0.55 + 0.45 * grow) * (1 + 0.12 * (1 - fall)), h = w * spr.h / spr.w * (0.3 + 0.7 * grow) * fall;
     ctx.save();
-    ctx.globalAlpha = k < 0.55 ? 1 : 1 - (k - 0.55) / 0.45;
+    ctx.globalAlpha = k < 0.5 ? 1 : 1 - (k - 0.5) / 0.5;
     ctx.translate(b.x, surfaceY(g, b.x) + 4 + k * k * 10);
     if (b.flip) ctx.scale(-1, 1);
     ctx.imageSmoothingEnabled = true;
@@ -536,7 +537,7 @@ function drawBursts(ctx, g) {
 // 날아가는 물보라 조각
 function drawSprays(ctx, g) {
   for (const p of g.sprays) {
-    const spr = sprite(p.sprite), k = p.age / p.life;
+    const spr = tinted(p.sprite, '#ffffff', 0.4), k = p.age / p.life;
     const w = p.size * (0.7 + k * 0.5), h = w * spr.h / spr.w;
     ctx.save();
     ctx.globalAlpha = k < 0.5 ? 1 : 1 - (k - 0.5) / 0.5;

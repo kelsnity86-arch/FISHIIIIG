@@ -84,12 +84,13 @@ export function mouthPos(g) { const m = mouth(g.sw); return { x: m.x, y: WL + m.
 // ── 효과 ──
 // 물보라 조각이 날아간다
 function spray(g, x, y, n, power, size) {
+  n = Math.ceil(n * 2.4);
   for (let i = 0; i < n; i++) {
-    const a = rand(-Math.PI * 0.9, -Math.PI * 0.1), v = rand(0.45, 1) * power;
+    const a = rand(-Math.PI * 0.88, -Math.PI * 0.12), v = rand(0.5, 1.15) * power;
     g.sprays.push({
-      sprite: 'c_spray_' + (1 + Math.floor(Math.random() * 4)), x: x + rand(-0.3, 0.3) * size, y,
-      vx: Math.cos(a) * v * 0.7, vy: Math.sin(a) * v, rot: rand(-0.6, 0.6), vr: rand(-1.5, 1.5),
-      size: size * rand(0.5, 1), age: 0, life: rand(0.7, 1.3), flip: Math.random() < 0.5,
+      sprite: 'c_spray_' + (1 + Math.floor(Math.random() * 4)), x: x + rand(-0.5, 0.5) * size, y,
+      vx: Math.cos(a) * v * 0.8, vy: Math.sin(a) * v, rot: rand(-0.6, 0.6), vr: rand(-2.5, 2.5),
+      size: size * rand(0.22, 0.55), age: 0, life: rand(0.6, 1.2), flip: Math.random() < 0.5,
     });
   }
 }
@@ -317,9 +318,9 @@ export function update(g, dt) {
 
   for (const s of g.swells) s.age += dt;
   g.swells = g.swells.filter((s) => s.age < s.life);
-  for (const p of g.sprays) { p.age += dt; p.vy += 240 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt; }
+  for (const p of g.sprays) { p.age += dt; p.vy += 330 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt; }
   g.sprays = g.sprays.filter((p) => p.age < p.life && !(p.vy > 0 && p.y > WL + 3));   // 떨어져 수면에 닿으면 사라진다 (물속으로 가라앉지 않는다)
-  for (const b of g.bursts) b.age += dt;
+  for (const b of g.bursts) b.age += g.realDt;                      // 슬로모션 중에도 물은 제 속도로 솟고 무너진다
   g.bursts = g.bursts.filter((b) => b.age < b.life);
   for (const b of g.bubbles) { b.age += dt; b.y -= b.rise * dt; }
   g.bubbles = g.bubbles.filter((b) => b.age < b.life && b.y > WL + 4);
@@ -556,7 +557,7 @@ function startCatch(g) {
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
-    bulgeK: 0, hitX: ex, reveal: false, popT: 0, swished: false, tadaT: 0, mx: ex, my: WL,
+    bulgeK: 0, hitX: ex, reveal: false, popT: 0, churn: 0, swished: false, tadaT: 0, mx: ex, my: WL,
   };
   g.fight = null;
   snd(g, 'surge');
@@ -614,7 +615,7 @@ function updateCatch(g, dt) {
       if (s) s.vis = 0;                                              // 그림자는 이 순간 솟구치는 몸으로 바뀐다
       g.freeze = 0.08 + gi * 0.02; g.flash = 0.55 + gi * 0.08;
       spray(g, c.ex - lw * 0.1, WL, 9, 190 + lw * 0.35, lw * 0.3);
-      burst(g, 'c_erupt', c.ex - lw * 0.16, lw * 0.95, 2.2);
+      burst(g, 'c_erupt', c.ex - lw * 0.16, lw * 0.95, 1.3); c.churn = 0.45;
       bubbles(g, c.ex - lw * 0.1, WL + 20, 9, lw * 0.45);
       swell(g, c.ex, 9 + lw * 0.02, 1, 150, 80); swell(g, c.ex, 9 + lw * 0.02, -1, 150, 80);
       g.shake = Math.min(8, 3 + lw / 120); kick(g, 0.35);
@@ -634,7 +635,7 @@ function updateCatch(g, dt) {
     if (!c.reveal && u >= 0.86) {
       c.reveal = true; c.popT = 0;
       c.lw = c.big; c.ex = c.bigEx;
-      burst(g, 'c_erupt', c.bigEx - c.big * 0.16, c.big * 0.8, 2.6);                                   // 여기서부터 등급에 맞는 크기
+                                   // 여기서부터 등급에 맞는 크기
       g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
       spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
       snd(g, 'pop');
@@ -645,8 +646,12 @@ function updateCatch(g, dt) {
     c.out = e;
     if (u > 0.12 && !c.reveal && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
+    if (!c.reveal) {
+      c.churn -= g.realDt;
+      if (c.churn <= 0) { c.churn = rand(0.32, 0.5); burst(g, 'c_erupt', c.ex + rand(-0.3, 0.12) * lw, lw * rand(0.45, 0.7), rand(0.9, 1.2), Math.random() < 0.5); }
+    }
     c.shed -= dt;                                   // 몸에서 물이 흩어진다
-    if (c.shed <= 0 && !c.reveal) { c.shed = 0.035; spray(g, c.x + rand(-0.4, 0.4) * lw, c.y + rand(-0.25, 0.2) * lh, 1, 70 + lw * 0.12, lw * 0.2); }   // 물보라가 그림자를 감싼다
+    if (c.shed <= 0 && !c.reveal) { c.shed = 0.035; spray(g, c.x + rand(-0.45, 0.2) * lw, Math.min(WL - 4, c.y + rand(0.15, 0.5) * lh), 1, 90 + lw * 0.15, lw * 0.2); }   // 물보라가 그림자를 감싼다
     // 뿅(얼굴이 화면 가득) → 스윽(카메라가 물러나 전신이 드러남) → 짜잔(팡파르 + "낚았다!" + 카드)
     const far = c.zoomFace > c.zoom * 1.05;                         // 물러날 거리가 있는 큰 생물인가
     if (c.reveal && far && !c.swished && c.popT >= FACE_HOLD) { c.swished = true; snd(g, 'swish'); }
