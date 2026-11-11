@@ -10489,3 +10489,84 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name ui_story.png
 ```
 
+---
+
+## ㉘ 도감·해역 지도
+
+### 343. `ui_dex` — 도감 화면 (펼친 책, 생물 칸, 해역 탭, 넘김 단추)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/h_panel.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no numbers, no creatures. Fully transparent background.
+
+UI pieces for a creature encyclopedia screen, never touching, warm storybook style
+(cream parchment, polished wood, brass, rope), elegant and calm, arranged top to bottom:
+1) a large open book seen straight from the front (16:9, fills the width): two blank cream
+   pages, leather cover edges, a ribbon bookmark, brass corners. The pages must be empty.
+2) a row of 3 small square creature slots (about 1:1 each): a) an empty parchment slot with
+   a thin brass frame, b) the same slot in an "undiscovered" state (darker, faded paper),
+   c) the same slot highlighted (glowing golden frame),
+3) a row of 6 thin square frames of the same size, one per rarity colour, left to right:
+   grey, green, blue, purple, orange, shining gold,
+4) a row of 2 book tabs (small rounded parchment tabs): a) normal, b) selected (brighter,
+   slightly larger),
+5) a row of 2 round brass arrow buttons: a) pointing left, b) pointing right.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_dex.png
+```
+
+---
+
+### 344. `ui_map` — 해역 지도 배경 (양피지 해도, 8개 해역과 항로)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/h_panel.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no numbers, no labels, no compass letters.
+
+One full image, exactly 16:9, no transparency: an old nautical chart painted on parchment,
+seen straight from above, filling the whole image. A small harbor town sits at the far
+left edge. From it a dotted sailing route winds to the right through 8 clearly separate
+sea areas, in this order, each about the same size and each leaving a clear empty spot in
+its middle for a marker:
+1) a sunny calm coast, 2) a tropical coral reef sea, 3) a group of misty islands,
+4) a wide open ocean with big swells, 5) a polar sea with icebergs, 6) a volcanic sea with
+glowing lava islands, 7) a very dark deep-sea trench, 8) a dreamlike shining fantasy sea
+at the far right. Decorative chart border, a compass rose without letters in one corner,
+soft warm light. Keep the bottom-right corner fairly empty (buttons go there).
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_map.png
+```
+
+---
+
+### 345. `ui_map_pins` — 해역 표식 8개, 잠김 표식, 배 표식, 환상종 증표
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/h_panel.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no numbers. Fully transparent background.
+
+A sprite sheet in a grid of 4 columns x 3 rows, never touching, every piece the same size.
+Rows 1 and 2: eight round brass map markers, each with a tiny painted scene inside:
+1) sunny coast, 2) coral reef, 3) misty islands, 4) open ocean swell, 5) iceberg,
+6) volcano island, 7) dark deep trench, 8) shining fantasy sea with stars.
+Row 3: 9) the same round marker but locked (dark, with a small padlock),
+10) a tiny wooden fishing boat seen from the side (marks where the player is),
+11) a glowing golden ring (selection highlight, empty inside),
+12) a shining golden medal with a star-shaped fish scale on it (a proof token for
+releasing a fantasy creature).
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_map_pins.png
+```
+
