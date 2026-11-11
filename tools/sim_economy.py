@@ -113,3 +113,96 @@ if __name__ == '__main__':
         for i, (m, f, gaps) in enumerate(r):
             print(f'   {i + 1} → {i + 2}    | {m:6.0f} ({f:4.0f})   | ' + '  '.join(f'{x:4.0f}' for x in gaps))
         print(f'   합계        | {sum(x[0] for x in r) / 60:6.1f} 시간')
+
+
+# ══ 골드로 계속 찍는 구조: 장비 5종 × 단계마다 10강 + 스킬 노드(레벨 무제한) ══
+# 계산은 평균값으로 한다 (수입 = 초당 평균 골드). 사는 순서: 본전을 가장 빨리 뽑는 것부터,
+# 본전이 4분 넘게 걸리는 것만 남으면 다음 해역에 필요한 것(줄·낚싯대·배)을 모아서 산다.
+import math
+
+STEP_W = [1.15 ** j for j in range(9)] + [1.15 ** 9 * 3]          # 한 단계 안의 10번: 9번의 강화 + 마지막은 새 장비(3배)
+STEP_W = [w / sum(STEP_W) for w in STEP_W]
+# 스킬 노드: 수익·행운은 레벨마다 값이 조금씩 곱해지고(×1.02, ×1.015), 효율은 낚는 속도가 더해진다(+2%, 최대 2배).
+# 값은 레벨마다 1.15배. 효과를 약하게 잡아야 한다: 세게 잡으면 스킬만으로 수입이 폭발해 해역의 벽이 무의미해진다.
+SK = {'수익': 1.02, '효율': 0.02, '행운': 1.015}
+MILE = {10: 1.1, 25: 1.1, 50: 1.15, 100: 1.2}                     # 마일스톤 보너스 (그 노드 전체에 곱)
+
+def plan(pow_x, price_x, gear_x, first_gear, payback=600.0, skill_base=0.003):
+    lv = {g[0]: 0 for g in GEAR}                                   # 장비 레벨: 10 = 다음 단계 장비
+    sk = {k: 0 for k in SK}
+    gold = t = 0.0; region = 1; log = []; buys = 0; t0 = 0.0; b0 = 0
+
+    def rate(lv, sk, region):
+        power = 0.9 * pow_x ** (0.05 * (lv['줄'] + lv['낚싯대']))
+        def node(n):
+            v = SK[n] ** sk[n] if SK[n] > 1 else 1 + SK[n] * sk[n]
+            for m, b in MILE.items():
+                if sk[n] >= m: v *= b
+            return v
+        price_m = 1.25 ** (lv['복장'] / 10) * node('수익') * node('행운')
+        time_m = max(0.3, 0.8 ** (lv['릴'] / 10)) / min(2.0, node('효율'))
+        cap = HOLD + 2 * (lv['배'] // 10)
+        wsum = sum(g[2] for g in GRADES); val = sec = landed = 0.0
+        for name, gp, w, price in GRADES:
+            p = land_chance(gp * pow_x ** (region - 1) / power); w /= wsum
+            val += w * p * price * price_x ** (region - 1) * 1.2 * price_m
+            sec += w * (p * CATCH_SEC + (1 - p) * FAIL_SEC) * time_m
+            landed += w * p
+        return val / (sec + landed * HARBOR_SEC / cap)
+
+    def gear_cost(name, share):
+        tier, step = divmod(lv[name], 10)
+        return first_gear * gear_x ** tier * share * STEP_W[step]
+
+    while region < 8:
+        r = rate(lv, sk, region)
+        opts = []
+        for name, share, kind in GEAR:
+            if lv[name] >= region * 10: continue                    # 이 해역에서 살 수 있는 것은 다음 단계 장비까지
+            c = gear_cost(name, share); l2 = dict(lv); l2[name] += 1
+            opts.append((c, rate(l2, sk, region) - r, 'g', name))
+        for node in SK:
+            c = first_gear * skill_base * 1.15 ** sk[node]; s2 = dict(sk); s2[node] += 1
+            opts.append((c, rate(lv, s2, region) - r, 's', node))
+        good = [o for o in opts if o[1] > 0 and o[0] / o[1] < payback]
+        if good: c, _, kind, name = min(good, key=lambda o: o[0] / o[1])
+        else:
+            need = [o for o in opts if o[2] == 'g' and o[3] in ('줄', '낚싯대', '배')]
+            if not need: need = [o for o in opts if o[2] == 'g']
+            c, _, kind, name = min(need, key=lambda o: o[0])
+        if gold < c: t += (c - gold) / r; gold = c
+        gold -= c; buys += 1
+        if kind == 'g': lv[name] += 1
+        else: sk[name] += 1
+        if all(lv[n] >= region * 10 for n in ('줄', '낚싯대', '배')):
+            log.append(((t - t0) / 60, buys - b0, dict(sk))); t0, b0 = t, buys; region += 1
+    return t / 3600, log
+
+
+def tune(target_h, gear_x, pow_x=4, price_x=6):
+    """전체 길이가 target_h 시간이 되는 첫 장비 값"""
+    lo, hi = 500.0, 5e7
+    for _ in range(50):
+        mid = math.sqrt(lo * hi)
+        if plan(pow_x, price_x, gear_x, mid)[0] < target_h: lo = mid
+        else: hi = mid
+    return math.sqrt(lo * hi)
+
+
+if __name__ == '__main__':
+    print('\n\n=== 골드로 계속 찍는 구조 (장비 5종 × 10강, 스킬 노드 무제한) — 힘×4 값×6 고정 ===')
+    print('장비 배율은 "해역마다 걸리는 시간이 고르게 늘어나도록", 첫 장비 값은 전체 길이에 맞춰 찾는다.')
+    for h in (3, 5, 10):
+        best = None
+        for gx in range(14, 71, 2):
+            first = tune(h, gx); total, log = plan(4, 6, gx, first)
+            ms = [x[0] for x in log]
+            # 고르게 늘어나는 정도: 이웃한 해역의 시간 비율이 1.4 에서 얼마나 벗어나는가
+            err = sum(abs(math.log(ms[i + 1] / ms[i]) - math.log(1.4)) for i in range(len(ms) - 1))
+            if best is None or err < best[0]: best = (err, gx, first, total, log)
+        _, gx, first, total, log = best
+        n = sum(x[1] for x in log)
+        print(f'\n목표 {h}시간 → 장비 배율 ×{gx}, 첫 단계 장비 한 벌 {first:,.0f} G  (실제 {total:.1f}시간, 구매 {n}번, 평균 {total * 3600 / n:.0f}초마다 한 번)')
+        print('  넘어갈 해역 | 분    | 구매 수 | 초/구매 | 스킬 레벨 (수익·효율·행운)')
+        for i, (m, b, sk_) in enumerate(log):
+            print(f'   {i + 1} → {i + 2}    | {m:5.0f} | {b:5d}   | {m * 60 / b:5.0f}   | {sk_["수익"]}·{sk_["효율"]}·{sk_["행운"]}')
