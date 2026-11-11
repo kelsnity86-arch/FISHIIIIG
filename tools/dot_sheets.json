@@ -1,0 +1,1574 @@
+{
+ "1": {
+  "region": 1,
+  "theme": "sunny coast: first sheet",
+  "creatures": [
+   {
+    "id": "hammer_shark",
+    "ko": "망치상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "saw_shark",
+    "ko": "톱상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "bulb_angler",
+    "ko": "전구아귀",
+    "grade": "uncommon"
+   },
+   {
+    "id": "straw_seahorse",
+    "ko": "빨대해마",
+    "grade": "common"
+   },
+   {
+    "id": "scissor_crab",
+    "ko": "가위게",
+    "grade": "common"
+   },
+   {
+    "id": "umbrella_jelly",
+    "ko": "우산해파리",
+    "grade": "common"
+   },
+   {
+    "id": "drill_narwhal",
+    "ko": "드릴일각고래",
+    "grade": "rare"
+   },
+   {
+    "id": "pizza_ray",
+    "ko": "피자가오리",
+    "grade": "common"
+   },
+   {
+    "id": "ball_turtle",
+    "ko": "축구공거북",
+    "grade": "common"
+   },
+   {
+    "id": "cactus_puffer",
+    "ko": "선인장복어",
+    "grade": "common"
+   },
+   {
+    "id": "fan_puffer",
+    "ko": "선풍기복어",
+    "grade": "common"
+   },
+   {
+    "id": "candle_eel",
+    "ko": "양초장어",
+    "grade": "common"
+   },
+   {
+    "id": "trumpet_fish",
+    "ko": "트럼펫고기",
+    "grade": "uncommon"
+   },
+   {
+    "id": "knight_swordfish",
+    "ko": "기사황새치",
+    "grade": "rare"
+   },
+   {
+    "id": "crown_tuna",
+    "ko": "왕관참치",
+    "grade": "rare"
+   },
+   {
+    "id": "plug_octopus",
+    "ko": "콘센트문어",
+    "grade": "rare"
+   },
+   {
+    "id": "train_eel",
+    "ko": "기차장어",
+    "grade": "rare"
+   },
+   {
+    "id": "teapot_whale",
+    "ko": "주전자고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "sub_whale",
+    "ko": "잠수함고래",
+    "grade": "epic"
+   },
+   {
+    "id": "dino_shark",
+    "ko": "공룡상어",
+    "grade": "epic"
+   },
+   {
+    "id": "volcano_turtle",
+    "ko": "화산거북",
+    "grade": "epic"
+   },
+   {
+    "id": "rocket_marlin",
+    "ko": "로켓청새치",
+    "grade": "legendary"
+   },
+   {
+    "id": "castle_kraken",
+    "ko": "성문어",
+    "grade": "legendary"
+   },
+   {
+    "id": "ship_whale",
+    "ko": "해적선고래",
+    "grade": "epic"
+   },
+   {
+    "id": "moon_whale",
+    "ko": "달고래",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "2": {
+  "region": 1,
+  "theme": "sunny coast: things from a house and a kitchen",
+  "creatures": [
+   {
+    "id": "sock_mackerel",
+    "ko": "양말고등어",
+    "grade": "common"
+   },
+   {
+    "id": "spoon_flounder",
+    "ko": "숟가락넙치",
+    "grade": "common"
+   },
+   {
+    "id": "fork_squid",
+    "ko": "포크오징어",
+    "grade": "common"
+   },
+   {
+    "id": "button_crab",
+    "ko": "단추게",
+    "grade": "common"
+   },
+   {
+    "id": "toothbrush_shrimp",
+    "ko": "칫솔새우",
+    "grade": "common"
+   },
+   {
+    "id": "key_goby",
+    "ko": "열쇠망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "clip_seahorse",
+    "ko": "집게해마",
+    "grade": "common"
+   },
+   {
+    "id": "cup_snail",
+    "ko": "머그컵소라",
+    "grade": "common"
+   },
+   {
+    "id": "pencil_gar",
+    "ko": "연필꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "broom_ray",
+    "ko": "빗자루가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "lamp_angler",
+    "ko": "스탠드아귀",
+    "grade": "uncommon"
+   },
+   {
+    "id": "iron_turtle",
+    "ko": "다리미거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "bell_puffer",
+    "ko": "종복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "ladle_seal",
+    "ko": "국자물개",
+    "grade": "uncommon"
+   },
+   {
+    "id": "whisk_jelly",
+    "ko": "거품기해파리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "clock_starfish",
+    "ko": "시계불가사리",
+    "grade": "rare"
+   },
+   {
+    "id": "vacuum_eel",
+    "ko": "청소기장어",
+    "grade": "rare"
+   },
+   {
+    "id": "ladder_lobster",
+    "ko": "사다리바닷가재",
+    "grade": "rare"
+   },
+   {
+    "id": "mailbox_whale",
+    "ko": "우체통고래",
+    "grade": "rare"
+   },
+   {
+    "id": "faucet_dolphin",
+    "ko": "수도꼭지돌고래",
+    "grade": "rare"
+   },
+   {
+    "id": "sofa_manatee",
+    "ko": "소파매너티",
+    "grade": "epic"
+   },
+   {
+    "id": "fridge_orca",
+    "ko": "냉장고범고래",
+    "grade": "epic"
+   },
+   {
+    "id": "bathtub_whale",
+    "ko": "욕조고래",
+    "grade": "epic"
+   },
+   {
+    "id": "house_turtle",
+    "ko": "집거북",
+    "grade": "legendary"
+   },
+   {
+    "id": "sun_ray",
+    "ko": "해님가오리",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "3": {
+  "region": 2,
+  "theme": "tropical coral reef: fruit and food",
+  "creatures": [
+   {
+    "id": "banana_eel",
+    "ko": "바나나장어",
+    "grade": "common"
+   },
+   {
+    "id": "lemon_puffer",
+    "ko": "레몬복어",
+    "grade": "common"
+   },
+   {
+    "id": "cherry_crab",
+    "ko": "체리게",
+    "grade": "common"
+   },
+   {
+    "id": "carrot_squid",
+    "ko": "당근오징어",
+    "grade": "common"
+   },
+   {
+    "id": "corn_gar",
+    "ko": "옥수수동갈치",
+    "grade": "common"
+   },
+   {
+    "id": "melon_turtle",
+    "ko": "수박거북",
+    "grade": "common"
+   },
+   {
+    "id": "donut_seal",
+    "ko": "도넛물개",
+    "grade": "common"
+   },
+   {
+    "id": "egg_jelly",
+    "ko": "계란해파리",
+    "grade": "common"
+   },
+   {
+    "id": "pepper_shrimp",
+    "ko": "고추새우",
+    "grade": "common"
+   },
+   {
+    "id": "candy_seahorse",
+    "ko": "사탕해마",
+    "grade": "uncommon"
+   },
+   {
+    "id": "cake_turtle",
+    "ko": "케이크거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "icecream_narwhal",
+    "ko": "아이스크림일각고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "burger_clam",
+    "ko": "버거조개",
+    "grade": "uncommon"
+   },
+   {
+    "id": "sushi_ray",
+    "ko": "초밥가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "pineapple_puffer",
+    "ko": "파인애플복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "noodle_octopus",
+    "ko": "라면문어",
+    "grade": "rare"
+   },
+   {
+    "id": "kettle_dolphin",
+    "ko": "주전자돌고래",
+    "grade": "rare"
+   },
+   {
+    "id": "grill_shark",
+    "ko": "불판상어",
+    "grade": "rare"
+   },
+   {
+    "id": "coconut_crab",
+    "ko": "야자게",
+    "grade": "rare"
+   },
+   {
+    "id": "wok_ray",
+    "ko": "웍가오리",
+    "grade": "rare"
+   },
+   {
+    "id": "pot_whale",
+    "ko": "냄비고래",
+    "grade": "epic"
+   },
+   {
+    "id": "feast_whale",
+    "ko": "잔칫상고래",
+    "grade": "epic"
+   },
+   {
+    "id": "palm_turtle",
+    "ko": "야자섬거북",
+    "grade": "epic"
+   },
+   {
+    "id": "cake_kraken",
+    "ko": "웨딩케이크문어",
+    "grade": "legendary"
+   },
+   {
+    "id": "rainbow_parrotfish",
+    "ko": "무지개비늘돔",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "4": {
+  "region": 2,
+  "theme": "tropical coral reef: beach, party and toys",
+  "creatures": [
+   {
+    "id": "balloon_puffer",
+    "ko": "풍선복어",
+    "grade": "common"
+   },
+   {
+    "id": "ring_seal",
+    "ko": "튜브물개",
+    "grade": "common"
+   },
+   {
+    "id": "flipper_frogfish",
+    "ko": "오리발씬벵이",
+    "grade": "common"
+   },
+   {
+    "id": "sunglass_ray",
+    "ko": "선글라스가오리",
+    "grade": "common"
+   },
+   {
+    "id": "bucket_crab",
+    "ko": "양동이게",
+    "grade": "common"
+   },
+   {
+    "id": "kite_flyingfish",
+    "ko": "연날치",
+    "grade": "common"
+   },
+   {
+    "id": "ball_dolphin",
+    "ko": "비치볼돌고래",
+    "grade": "common"
+   },
+   {
+    "id": "snorkel_goby",
+    "ko": "스노클망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "dice_boxfish",
+    "ko": "주사위거북복",
+    "grade": "common"
+   },
+   {
+    "id": "yoyo_snail",
+    "ko": "요요소라",
+    "grade": "uncommon"
+   },
+   {
+    "id": "drum_puffer",
+    "ko": "북복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "guitar_ray",
+    "ko": "기타가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "camera_crab",
+    "ko": "카메라게",
+    "grade": "uncommon"
+   },
+   {
+    "id": "parasol_jelly",
+    "ko": "파라솔해파리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "surf_shark",
+    "ko": "서핑상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "robot_lobster",
+    "ko": "로봇바닷가재",
+    "grade": "rare"
+   },
+   {
+    "id": "magic_octopus",
+    "ko": "마술사문어",
+    "grade": "rare"
+   },
+   {
+    "id": "disco_sunfish",
+    "ko": "미러볼개복치",
+    "grade": "rare"
+   },
+   {
+    "id": "clown_shark",
+    "ko": "광대상어",
+    "grade": "rare"
+   },
+   {
+    "id": "kart_turtle",
+    "ko": "카트거북",
+    "grade": "rare"
+   },
+   {
+    "id": "carousel_seahorse",
+    "ko": "회전목마해마",
+    "grade": "epic"
+   },
+   {
+    "id": "ferris_jelly",
+    "ko": "관람차해파리",
+    "grade": "epic"
+   },
+   {
+    "id": "circus_whale",
+    "ko": "서커스고래",
+    "grade": "epic"
+   },
+   {
+    "id": "coaster_eel",
+    "ko": "롤러코스터장어",
+    "grade": "legendary"
+   },
+   {
+    "id": "firework_squid",
+    "ko": "불꽃놀이오징어",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "5": {
+  "region": 3,
+  "theme": "foggy islands: old, antique and spooky things",
+  "creatures": [
+   {
+    "id": "lantern_angler",
+    "ko": "호롱아귀",
+    "grade": "common"
+   },
+   {
+    "id": "candle_squid",
+    "ko": "촛대오징어",
+    "grade": "common"
+   },
+   {
+    "id": "ghost_jelly",
+    "ko": "유령해파리",
+    "grade": "common"
+   },
+   {
+    "id": "broomstick_eel",
+    "ko": "마녀장어",
+    "grade": "common"
+   },
+   {
+    "id": "cobweb_crab",
+    "ko": "거미줄게",
+    "grade": "common"
+   },
+   {
+    "id": "quill_shrimp",
+    "ko": "깃펜새우",
+    "grade": "common"
+   },
+   {
+    "id": "bottle_goby",
+    "ko": "유리병망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "skull_puffer",
+    "ko": "해골복어",
+    "grade": "common"
+   },
+   {
+    "id": "teacup_snail",
+    "ko": "찻잔소라",
+    "grade": "common"
+   },
+   {
+    "id": "pocketwatch_turtle",
+    "ko": "회중시계거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "violin_ray",
+    "ko": "바이올린가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "gramophone_snail",
+    "ko": "축음기소라",
+    "grade": "uncommon"
+   },
+   {
+    "id": "umbrella_seal",
+    "ko": "우산물개",
+    "grade": "uncommon"
+   },
+   {
+    "id": "top_hat_walrus",
+    "ko": "신사바다코끼리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "book_flounder",
+    "ko": "책넙치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "chest_crab",
+    "ko": "보물상자게",
+    "grade": "rare"
+   },
+   {
+    "id": "piano_shark",
+    "ko": "피아노상어",
+    "grade": "rare"
+   },
+   {
+    "id": "knight_lobster",
+    "ko": "갑옷바닷가재",
+    "grade": "rare"
+   },
+   {
+    "id": "mummy_eel",
+    "ko": "미라장어",
+    "grade": "rare"
+   },
+   {
+    "id": "coffin_whale",
+    "ko": "관고래",
+    "grade": "rare"
+   },
+   {
+    "id": "bell_tower_turtle",
+    "ko": "종탑거북",
+    "grade": "epic"
+   },
+   {
+    "id": "ghost_ship_whale",
+    "ko": "유령선고래",
+    "grade": "epic"
+   },
+   {
+    "id": "organ_octopus",
+    "ko": "파이프오르간문어",
+    "grade": "epic"
+   },
+   {
+    "id": "lighthouse_squid",
+    "ko": "등대오징어",
+    "grade": "legendary"
+   },
+   {
+    "id": "mist_dragon_eel",
+    "ko": "안개용장어",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "6": {
+  "region": 3,
+  "theme": "foggy islands: tools and workshop",
+  "creatures": [
+   {
+    "id": "nail_gar",
+    "ko": "못꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "wrench_crab",
+    "ko": "스패너게",
+    "grade": "common"
+   },
+   {
+    "id": "screw_shrimp",
+    "ko": "나사새우",
+    "grade": "common"
+   },
+   {
+    "id": "pliers_lobster",
+    "ko": "펜치바닷가재",
+    "grade": "common"
+   },
+   {
+    "id": "tape_snail",
+    "ko": "줄자소라",
+    "grade": "common"
+   },
+   {
+    "id": "brush_squid",
+    "ko": "붓오징어",
+    "grade": "common"
+   },
+   {
+    "id": "magnet_ray",
+    "ko": "자석가오리",
+    "grade": "common"
+   },
+   {
+    "id": "bucket_jelly",
+    "ko": "페인트통해파리",
+    "grade": "common"
+   },
+   {
+    "id": "ruler_eel",
+    "ko": "자장어",
+    "grade": "common"
+   },
+   {
+    "id": "helmet_turtle",
+    "ko": "안전모거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "axe_shark",
+    "ko": "도끼상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "shovel_ray",
+    "ko": "삽가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "anvil_puffer",
+    "ko": "모루복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "chainsaw_swordfish",
+    "ko": "전기톱황새치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "ladder_seahorse",
+    "ko": "소방해마",
+    "grade": "uncommon"
+   },
+   {
+    "id": "crane_crab",
+    "ko": "크레인게",
+    "grade": "rare"
+   },
+   {
+    "id": "forklift_lobster",
+    "ko": "지게차바닷가재",
+    "grade": "rare"
+   },
+   {
+    "id": "bulldozer_shark",
+    "ko": "불도저상어",
+    "grade": "rare"
+   },
+   {
+    "id": "mixer_whale",
+    "ko": "레미콘고래",
+    "grade": "rare"
+   },
+   {
+    "id": "tractor_walrus",
+    "ko": "트랙터바다코끼리",
+    "grade": "rare"
+   },
+   {
+    "id": "excavator_crab",
+    "ko": "굴착기게",
+    "grade": "epic"
+   },
+   {
+    "id": "tank_turtle",
+    "ko": "탱크거북",
+    "grade": "epic"
+   },
+   {
+    "id": "factory_whale",
+    "ko": "공장고래",
+    "grade": "epic"
+   },
+   {
+    "id": "robot_kraken",
+    "ko": "로봇문어",
+    "grade": "legendary"
+   },
+   {
+    "id": "clockwork_whale",
+    "ko": "태엽고래",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "7": {
+  "region": 4,
+  "theme": "open ocean: vehicles and travel",
+  "creatures": [
+   {
+    "id": "skate_ray",
+    "ko": "스케이트보드가오리",
+    "grade": "common"
+   },
+   {
+    "id": "scooter_seahorse",
+    "ko": "킥보드해마",
+    "grade": "common"
+   },
+   {
+    "id": "bike_crab",
+    "ko": "자전거게",
+    "grade": "common"
+   },
+   {
+    "id": "paper_plane_flyingfish",
+    "ko": "종이비행기날치",
+    "grade": "common"
+   },
+   {
+    "id": "sail_tuna",
+    "ko": "돛참치",
+    "grade": "common"
+   },
+   {
+    "id": "anchor_eel",
+    "ko": "닻장어",
+    "grade": "common"
+   },
+   {
+    "id": "buoy_puffer",
+    "ko": "부표복어",
+    "grade": "common"
+   },
+   {
+    "id": "oar_squid",
+    "ko": "노오징어",
+    "grade": "common"
+   },
+   {
+    "id": "compass_starfish",
+    "ko": "나침반불가사리",
+    "grade": "common"
+   },
+   {
+    "id": "taxi_turtle",
+    "ko": "택시거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "bus_whale",
+    "ko": "버스고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "jet_swordfish",
+    "ko": "제트황새치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "heli_ray",
+    "ko": "헬리콥터가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "balloon_jelly",
+    "ko": "열기구해파리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "police_shark",
+    "ko": "경찰상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "truck_walrus",
+    "ko": "트럭바다코끼리",
+    "grade": "rare"
+   },
+   {
+    "id": "ambulance_seal",
+    "ko": "구급차물개",
+    "grade": "rare"
+   },
+   {
+    "id": "race_marlin",
+    "ko": "경주차청새치",
+    "grade": "rare"
+   },
+   {
+    "id": "airship_whale",
+    "ko": "비행선고래",
+    "grade": "rare"
+   },
+   {
+    "id": "ferry_whale",
+    "ko": "여객선고래",
+    "grade": "rare"
+   },
+   {
+    "id": "carrier_turtle",
+    "ko": "항공모함거북",
+    "grade": "epic"
+   },
+   {
+    "id": "freight_eel",
+    "ko": "화물열차장어",
+    "grade": "epic"
+   },
+   {
+    "id": "airport_ray",
+    "ko": "공항가오리",
+    "grade": "epic"
+   },
+   {
+    "id": "space_shark",
+    "ko": "우주왕복선상어",
+    "grade": "legendary"
+   },
+   {
+    "id": "ufo_ray",
+    "ko": "유에프오가오리",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "8": {
+  "region": 4,
+  "theme": "open ocean: sports and jobs",
+  "creatures": [
+   {
+    "id": "soccer_seal",
+    "ko": "축구물개",
+    "grade": "common"
+   },
+   {
+    "id": "glove_crab",
+    "ko": "권투게",
+    "grade": "common"
+   },
+   {
+    "id": "bat_swordfish",
+    "ko": "야구황새치",
+    "grade": "common"
+   },
+   {
+    "id": "racket_ray",
+    "ko": "라켓가오리",
+    "grade": "common"
+   },
+   {
+    "id": "whistle_puffer",
+    "ko": "호루라기복어",
+    "grade": "common"
+   },
+   {
+    "id": "medal_starfish",
+    "ko": "메달불가사리",
+    "grade": "common"
+   },
+   {
+    "id": "cap_goby",
+    "ko": "모자망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "dumbbell_shrimp",
+    "ko": "아령새우",
+    "grade": "common"
+   },
+   {
+    "id": "skate_penguin_fish",
+    "ko": "스케이트돔",
+    "grade": "common"
+   },
+   {
+    "id": "golf_snail",
+    "ko": "골프소라",
+    "grade": "uncommon"
+   },
+   {
+    "id": "chef_octopus",
+    "ko": "요리사문어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "doctor_dolphin",
+    "ko": "의사돌고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "painter_squid",
+    "ko": "화가오징어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "farmer_walrus",
+    "ko": "농부바다코끼리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "judge_seal",
+    "ko": "판사물개",
+    "grade": "uncommon"
+   },
+   {
+    "id": "sumo_puffer",
+    "ko": "스모복어",
+    "grade": "rare"
+   },
+   {
+    "id": "ninja_eel",
+    "ko": "닌자장어",
+    "grade": "rare"
+   },
+   {
+    "id": "pirate_shark",
+    "ko": "해적상어",
+    "grade": "rare"
+   },
+   {
+    "id": "astronaut_turtle",
+    "ko": "우주인거북",
+    "grade": "rare"
+   },
+   {
+    "id": "wizard_octopus",
+    "ko": "마법사문어",
+    "grade": "rare"
+   },
+   {
+    "id": "samurai_crab",
+    "ko": "사무라이게",
+    "grade": "epic"
+   },
+   {
+    "id": "king_walrus",
+    "ko": "임금바다코끼리",
+    "grade": "epic"
+   },
+   {
+    "id": "stadium_turtle",
+    "ko": "경기장거북",
+    "grade": "epic"
+   },
+   {
+    "id": "champion_whale",
+    "ko": "챔피언고래",
+    "grade": "legendary"
+   },
+   {
+    "id": "trophy_narwhal",
+    "ko": "트로피일각고래",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "9": {
+  "region": 5,
+  "theme": "polar ice sea: ice, snow and winter things",
+  "creatures": [
+   {
+    "id": "scarf_seal",
+    "ko": "목도리물범",
+    "grade": "common"
+   },
+   {
+    "id": "mitten_crab",
+    "ko": "벙어리장갑게",
+    "grade": "common"
+   },
+   {
+    "id": "icecube_boxfish",
+    "ko": "얼음거북복",
+    "grade": "common"
+   },
+   {
+    "id": "beanie_puffer",
+    "ko": "털모자복어",
+    "grade": "common"
+   },
+   {
+    "id": "snowman_jelly",
+    "ko": "눈사람해파리",
+    "grade": "common"
+   },
+   {
+    "id": "sled_ray",
+    "ko": "썰매가오리",
+    "grade": "common"
+   },
+   {
+    "id": "icicle_gar",
+    "ko": "고드름꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "earmuff_goby",
+    "ko": "귀마개망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "popsicle_squid",
+    "ko": "하드오징어",
+    "grade": "common"
+   },
+   {
+    "id": "ski_seal",
+    "ko": "스키물개",
+    "grade": "uncommon"
+   },
+   {
+    "id": "igloo_turtle",
+    "ko": "이글루거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "snowglobe_puffer",
+    "ko": "스노볼복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "heater_walrus",
+    "ko": "난로바다코끼리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "penguin_shark",
+    "ko": "펭귄상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "skate_narwhal",
+    "ko": "피겨일각고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "snowplow_whale",
+    "ko": "제설차고래",
+    "grade": "rare"
+   },
+   {
+    "id": "yeti_seal",
+    "ko": "설인물범",
+    "grade": "rare"
+   },
+   {
+    "id": "icebreaker_orca",
+    "ko": "쇄빙선범고래",
+    "grade": "rare"
+   },
+   {
+    "id": "frost_dragon_eel",
+    "ko": "얼음용장어",
+    "grade": "rare"
+   },
+   {
+    "id": "mammoth_walrus",
+    "ko": "매머드바다코끼리",
+    "grade": "rare"
+   },
+   {
+    "id": "iceberg_whale",
+    "ko": "빙산고래",
+    "grade": "epic"
+   },
+   {
+    "id": "castle_narwhal",
+    "ko": "얼음성일각고래",
+    "grade": "epic"
+   },
+   {
+    "id": "glacier_turtle",
+    "ko": "빙하거북",
+    "grade": "epic"
+   },
+   {
+    "id": "polar_king_bear_seal",
+    "ko": "북극왕물범",
+    "grade": "legendary"
+   },
+   {
+    "id": "aurora_whale",
+    "ko": "오로라고래",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "10": {
+  "region": 6,
+  "theme": "volcano sea: fire, heat, metal and dinosaurs",
+  "creatures": [
+   {
+    "id": "match_gar",
+    "ko": "성냥꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "coal_puffer",
+    "ko": "숯복어",
+    "grade": "common"
+   },
+   {
+    "id": "pepper_eel",
+    "ko": "매운장어",
+    "grade": "common"
+   },
+   {
+    "id": "kettle_crab",
+    "ko": "주전자게",
+    "grade": "common"
+   },
+   {
+    "id": "candle_seahorse",
+    "ko": "양초해마",
+    "grade": "common"
+   },
+   {
+    "id": "toaster_boxfish",
+    "ko": "토스터거북복",
+    "grade": "common"
+   },
+   {
+    "id": "lava_snail",
+    "ko": "용암소라",
+    "grade": "common"
+   },
+   {
+    "id": "sauna_seal",
+    "ko": "찜질물개",
+    "grade": "common"
+   },
+   {
+    "id": "grill_ray",
+    "ko": "석쇠가오리",
+    "grade": "common"
+   },
+   {
+    "id": "torch_squid",
+    "ko": "횃불오징어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "furnace_turtle",
+    "ko": "화로거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "dragon_seahorse",
+    "ko": "용해마",
+    "grade": "uncommon"
+   },
+   {
+    "id": "bomb_puffer",
+    "ko": "폭탄복어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "rocket_squid",
+    "ko": "로켓오징어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "forge_crab",
+    "ko": "대장장이게",
+    "grade": "uncommon"
+   },
+   {
+    "id": "stego_turtle",
+    "ko": "스테고거북",
+    "grade": "rare"
+   },
+   {
+    "id": "ptero_ray",
+    "ko": "익룡가오리",
+    "grade": "rare"
+   },
+   {
+    "id": "tricera_shark",
+    "ko": "트리케라상어",
+    "grade": "rare"
+   },
+   {
+    "id": "lava_whale",
+    "ko": "용암고래",
+    "grade": "rare"
+   },
+   {
+    "id": "magma_crab",
+    "ko": "마그마게",
+    "grade": "rare"
+   },
+   {
+    "id": "bronto_eel",
+    "ko": "브론토장어",
+    "grade": "epic"
+   },
+   {
+    "id": "volcano_whale",
+    "ko": "화산고래",
+    "grade": "epic"
+   },
+   {
+    "id": "steel_kraken",
+    "ko": "용광로문어",
+    "grade": "epic"
+   },
+   {
+    "id": "trex_whale",
+    "ko": "티라노고래",
+    "grade": "legendary"
+   },
+   {
+    "id": "phoenix_ray",
+    "ko": "불사조가오리",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "11": {
+  "region": 7,
+  "theme": "abyss trench: lights, electronics and neon",
+  "creatures": [
+   {
+    "id": "led_goby",
+    "ko": "엘이디망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "battery_shrimp",
+    "ko": "건전지새우",
+    "grade": "common"
+   },
+   {
+    "id": "remote_flounder",
+    "ko": "리모컨넙치",
+    "grade": "common"
+   },
+   {
+    "id": "mouse_ray",
+    "ko": "마우스가오리",
+    "grade": "common"
+   },
+   {
+    "id": "bulb_jelly",
+    "ko": "전구해파리",
+    "grade": "common"
+   },
+   {
+    "id": "plug_eel",
+    "ko": "플러그장어",
+    "grade": "common"
+   },
+   {
+    "id": "flashlight_squid",
+    "ko": "손전등오징어",
+    "grade": "common"
+   },
+   {
+    "id": "headphone_puffer",
+    "ko": "헤드폰복어",
+    "grade": "common"
+   },
+   {
+    "id": "usb_gar",
+    "ko": "유에스비꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "tv_boxfish",
+    "ko": "텔레비전거북복",
+    "grade": "uncommon"
+   },
+   {
+    "id": "radio_crab",
+    "ko": "라디오게",
+    "grade": "uncommon"
+   },
+   {
+    "id": "neon_seahorse",
+    "ko": "네온해마",
+    "grade": "uncommon"
+   },
+   {
+    "id": "gamepad_ray",
+    "ko": "게임패드가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "camera_angler",
+    "ko": "감시카메라아귀",
+    "grade": "uncommon"
+   },
+   {
+    "id": "phone_flounder",
+    "ko": "휴대폰넙치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "laser_swordfish",
+    "ko": "레이저황새치",
+    "grade": "rare"
+   },
+   {
+    "id": "robot_shark",
+    "ko": "로봇상어",
+    "grade": "rare"
+   },
+   {
+    "id": "satellite_ray",
+    "ko": "인공위성가오리",
+    "grade": "rare"
+   },
+   {
+    "id": "server_whale",
+    "ko": "서버고래",
+    "grade": "rare"
+   },
+   {
+    "id": "tesla_eel",
+    "ko": "번개장어",
+    "grade": "rare"
+   },
+   {
+    "id": "arcade_whale",
+    "ko": "오락실고래",
+    "grade": "epic"
+   },
+   {
+    "id": "neon_city_turtle",
+    "ko": "네온도시거북",
+    "grade": "epic"
+   },
+   {
+    "id": "reactor_kraken",
+    "ko": "원자로문어",
+    "grade": "epic"
+   },
+   {
+    "id": "hologram_whale",
+    "ko": "홀로그램고래",
+    "grade": "legendary"
+   },
+   {
+    "id": "blackhole_angler",
+    "ko": "블랙홀아귀",
+    "grade": "fantasy"
+   }
+  ]
+ },
+ "12": {
+  "region": 8,
+  "theme": "fantasy sea: sky, stars, royalty and myth",
+  "creatures": [
+   {
+    "id": "star_starfish",
+    "ko": "별불가사리",
+    "grade": "common"
+   },
+   {
+    "id": "cloud_puffer",
+    "ko": "구름복어",
+    "grade": "common"
+   },
+   {
+    "id": "feather_flyingfish",
+    "ko": "깃털날치",
+    "grade": "common"
+   },
+   {
+    "id": "rainbow_eel",
+    "ko": "무지개장어",
+    "grade": "common"
+   },
+   {
+    "id": "comet_gar",
+    "ko": "혜성꽁치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "crown_seahorse",
+    "ko": "왕관해마",
+    "grade": "uncommon"
+   },
+   {
+    "id": "harp_ray",
+    "ko": "하프가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "unicorn_dolphin",
+    "ko": "유니콘돌고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "planet_puffer",
+    "ko": "행성복어",
+    "grade": "rare"
+   },
+   {
+    "id": "moon_jelly",
+    "ko": "초승달해파리",
+    "grade": "rare"
+   },
+   {
+    "id": "pegasus_seahorse",
+    "ko": "페가수스해마",
+    "grade": "rare"
+   },
+   {
+    "id": "crystal_turtle",
+    "ko": "수정거북",
+    "grade": "rare"
+   },
+   {
+    "id": "throne_walrus",
+    "ko": "옥좌바다코끼리",
+    "grade": "epic"
+   },
+   {
+    "id": "galaxy_ray",
+    "ko": "은하가오리",
+    "grade": "epic"
+   },
+   {
+    "id": "sun_whale",
+    "ko": "태양고래",
+    "grade": "epic"
+   },
+   {
+    "id": "dragon_king_eel",
+    "ko": "용왕장어",
+    "grade": "epic"
+   },
+   {
+    "id": "floating_island_whale",
+    "ko": "하늘섬고래",
+    "grade": "legendary"
+   },
+   {
+    "id": "temple_turtle",
+    "ko": "신전거북",
+    "grade": "legendary"
+   },
+   {
+    "id": "world_whale",
+    "ko": "세계고래",
+    "grade": "legendary"
+   },
+   {
+    "id": "constellation_shark",
+    "ko": "별자리상어",
+    "grade": "legendary"
+   },
+   {
+    "id": "star_whale",
+    "ko": "별고래",
+    "grade": "fantasy"
+   },
+   {
+    "id": "rainbow_serpent",
+    "ko": "무지개바다뱀",
+    "grade": "fantasy"
+   },
+   {
+    "id": "cosmos_kraken",
+    "ko": "우주문어",
+    "grade": "fantasy"
+   },
+   {
+    "id": "angel_whale",
+    "ko": "천사고래",
+    "grade": "fantasy"
+   },
+   {
+    "id": "sea_god_leviathan",
+    "ko": "바다신리바이어던",
+    "grade": "fantasy"
+   }
+  ]
+ }
+}

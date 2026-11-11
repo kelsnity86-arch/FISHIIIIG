@@ -1,5 +1,6 @@
 // 생물 목록 (임시 데이터). 정식 500종+ 데이터 생성은 1단계 후반 작업.
 // 그림: 일반 생물 = fish_<체형>[_c2~_c4][_s], 환상종 = fantasy_NN[_s]  (_s = 놀란 표정)
+import { DOTS } from './dots.js';
 import { GRADES } from './config.js';
 
 // [영문 체형, 이름, 기본 등급 0~4, 입질 패턴]
@@ -45,20 +46,6 @@ for (const [shape, name, base, bite] of BODIES) {
 FANTASY.forEach((name, i) => {
   LIST.push({ name, grade: 'fantasy', sprite: 'fantasy_' + String(i + 1).padStart(2, '0'), bite: 'pull' });
 });
-
-// 도트 생물 (전부 상상 속 생물): [이름, 그림(d_<이름>), 등급]
-const DOTS = [
-  ['가위게', 'scissor_crab', 'common'], ['우산해파리', 'umbrella_jelly', 'common'], ['피자가오리', 'pizza_ray', 'common'],
-  ['축구공거북', 'ball_turtle', 'common'], ['선인장복어', 'cactus_puffer', 'common'], ['선풍기복어', 'fan_puffer', 'common'],
-  ['양초장어', 'candle_eel', 'common'], ['빨대해마', 'straw_seahorse', 'common'],
-  ['망치상어', 'hammer_shark', 'uncommon'], ['톱상어', 'saw_shark', 'uncommon'], ['전구아귀', 'bulb_angler', 'uncommon'],
-  ['트럼펫고기', 'trumpet_fish', 'uncommon'], ['주전자고래', 'teapot_whale', 'uncommon'],
-  ['드릴일각고래', 'drill_narwhal', 'rare'], ['기사황새치', 'knight_swordfish', 'rare'], ['왕관참치', 'crown_tuna', 'rare'],
-  ['콘센트문어', 'plug_octopus', 'rare'], ['기차장어', 'train_eel', 'rare'],
-  ['잠수함고래', 'sub_whale', 'epic'], ['공룡상어', 'dino_shark', 'epic'], ['화산거북', 'volcano_turtle', 'epic'], ['해적선고래', 'ship_whale', 'epic'],
-  ['로켓청새치', 'rocket_marlin', 'legendary'], ['성문어', 'castle_kraken', 'legendary'],
-  ['달고래', 'moon_whale', 'fantasy'],
-];
 
 const rand = (a, b) => a + Math.random() * (b - a);
 

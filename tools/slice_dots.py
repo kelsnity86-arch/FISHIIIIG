@@ -11,14 +11,21 @@ import slice16 as S
 ROOT = Path(__file__).resolve().parents[1]
 RAW, OUT = ROOT / 'assets' / 'raw', ROOT / 'assets' / 'game'
 
-# 시트마다 줄 순서(왼→오, 위→아래)대로의 이름
-SHEETS = {
-    'd_sheet_01': ['hammer_shark', 'saw_shark', 'bulb_angler', 'straw_seahorse', 'scissor_crab',
-                   'umbrella_jelly', 'drill_narwhal', 'pizza_ray', 'ball_turtle', 'cactus_puffer',
-                   'fan_puffer', 'candle_eel', 'trumpet_fish', 'knight_swordfish', 'crown_tuna',
-                   'plug_octopus', 'train_eel', 'teapot_whale', 'sub_whale', 'dino_shark',
-                   'volcano_turtle', 'rocket_marlin', 'castle_kraken', 'ship_whale', 'moon_whale'],
-}
+# 시트마다 줄 순서(왼→오, 위→아래)대로의 생물 목록: tools/dot_sheets.json (해역·등급·이름 포함)
+import json
+DATA = json.loads((ROOT / 'tools' / 'dot_sheets.json').read_text(encoding='utf-8'))
+SHEETS = {f'd_sheet_{int(n):02d}': [c['id'] for c in v['creatures']] for n, v in DATA.items()}
+
+
+def write_game_list(manifest):
+    """그림이 실제로 들어온 생물만 게임 목록(src/dots.js)에 올린다"""
+    rows = []
+    for n, v in sorted(DATA.items(), key=lambda kv: int(kv[0])):
+        for c in v['creatures']:
+            if 'd_' + c['id'] in manifest:
+                rows.append(f"  ['{c['ko']}', '{c['id']}', '{c['grade']}', {v['region']}],")
+    (ROOT / 'src' / 'dots.js').write_text('// 자동으로 만들어지는 파일 (tools/slice_dots.py). 직접 고치지 않는다.\n// 도트 생물: [이름, 그림(d_<이름>), 등급, 해역]\nexport const DOTS = [\n' + '\n'.join(rows) + '\n];\n', encoding='utf-8')
+    print(f'src/dots.js: 생물 {len(rows)}마리')
 
 
 def bg_mask(a):
@@ -77,6 +84,7 @@ def dot_sheets(manifest):
             Image.fromarray(arr, 'RGBA').save(OUT / (key + '.png'))
             manifest[key] = dict(file=key + '.png', w=arr.shape[1], h=arr.shape[0], smooth=False)
         print(f'{sheet}: 도트 1칸 {s:.2f}px, {len(names)}마리')
+    write_game_list(manifest)
     return problems
 
 

@@ -8667,3 +8667,518 @@ on the main branch, in the folder assets/raw/, with the file name d_sheet_01.png
 ```
 
 ---
+
+## ⑳ 도트 생물 300마리 — 해역별 12장 (1번 장은 완성)
+
+### 276. `d_sheet_02` — 도트 생물 25마리 · 햇살 연안
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: sunny coast: things from a house and a kitchen.
+
+SHEET d_sheet_02.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. sock mackerel - a mackerel wearing a striped sock over its tail
+2. spoon flounder - a flat flounder whose tail is a silver spoon handle
+3. fork squid - a squid whose arms are the prongs of a silver fork
+4. button crab - a small crab whose shell is a big round coat button with four holes
+5. toothbrush shrimp - a shrimp whose legs are white toothbrush bristles
+6. key goby - a goby whose tail is the toothed blade of a brass key
+7. clip seahorse - a seahorse whose tail is a wooden clothespin
+8. cup snail - a sea snail whose shell is a white coffee mug with a handle
+9. pencil gar - a long thin needlefish whose beak is a sharpened yellow pencil tip
+10. broom ray - a stingray whose tail is a broom with straw bristles
+11. lamp angler - an anglerfish whose lure is a small desk lamp shade
+12. iron turtle - a sea turtle whose shell is a steam iron with a handle
+13. bell puffer - a round pufferfish wearing a golden bell on a red ribbon collar
+14. ladle seal - a seal balancing a soup ladle on its nose
+15. whisk jelly - a jellyfish whose tentacles are the wire loops of a whisk
+16. clock starfish - a starfish with a round clock face and two hands in its center
+17. vacuum eel - an eel whose mouth is a vacuum cleaner nozzle with a ribbed hose neck
+18. ladder lobster - a lobster whose long tail is a short wooden ladder
+19. mailbox whale - a small red whale with a mail slot mouth and a letter sticking out
+20. faucet dolphin - a dolphin whose blowhole is a chrome faucet dripping water
+21. sofa manatee - a fat manatee with sofa cushions on its back and little wooden legs
+22. fridge orca - an orca with a white refrigerator door on its side, slightly open
+23. bathtub whale - a whale carrying a white bathtub with bubbles on its back
+24. house turtle - a giant sea turtle whose shell is a small house with a red roof and chimney
+25. sun ray - a golden manta ray with a smiling sun face and triangle sun rays along its wings
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_02.png
+```
+
+---
+
+### 277. `d_sheet_03` — 도트 생물 25마리 · 산호초 열대
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: tropical coral reef: fruit and food.
+
+SHEET d_sheet_03.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. banana eel - a yellow eel with a half peeled banana skin around its head
+2. lemon puffer - a pufferfish shaped like itself but wearing a lemon slice as a collar fin
+3. cherry crab - a crab holding two red cherries as its claws
+4. carrot squid - an orange squid whose arms are green carrot leaves
+5. corn gar - a long fish with rows of yellow corn kernels as scales and green husk fins
+6. melon turtle - a sea turtle whose shell is half a watermelon with black seeds
+7. donut seal - a seal wearing a pink frosted donut around its neck
+8. egg jelly - a jellyfish whose bell is a fried egg with a yellow yolk
+9. pepper shrimp - a red shrimp whose body is curved like a chili pepper with a green stem hat
+10. candy seahorse - a seahorse whose curled tail is a spiral lollipop
+11. cake turtle - a sea turtle whose shell is a strawberry cake with one candle
+12. icecream narwhal - a narwhal whose horn is an upside-down ice cream cone
+13. burger clam - a clam whose two shells are burger buns with lettuce and a patty inside
+14. sushi ray - a ray with a strip of seaweed around its middle and rice under its belly
+15. pineapple puffer - a spiky pufferfish with a green pineapple crown on its head
+16. noodle octopus - an octopus whose arms are curly yellow noodles, wearing a ramen bowl hat
+17. kettle dolphin - a dolphin with a kettle spout nose puffing steam
+18. grill shark - a shark with grill marks on its side carrying a sausage on its dorsal fin
+19. coconut crab - a big crab whose shell is a coconut with a straw and a tiny umbrella
+20. wok ray - a manta ray shaped like itself with a wok handle tail and vegetables on its back
+21. pot whale - a whale whose back is a cooking pot with a lid and steam
+22. feast whale - a huge whale carrying a table full of dishes on its back
+23. palm turtle - a giant turtle whose shell is a sandy island with two palm trees
+24. cake kraken - a giant octopus wearing a three-tier wedding cake as its head
+25. rainbow parrotfish - a parrotfish with seven rainbow color bands and a small cloud tail
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_03.png
+```
+
+---
+
+### 278. `d_sheet_04` — 도트 생물 25마리 · 산호초 열대
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: tropical coral reef: beach, party and toys.
+
+SHEET d_sheet_04.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. balloon puffer - a pufferfish with a red balloon knot tail and a string
+2. ring seal - a seal wearing a yellow swim ring with a duck head
+3. flipper frogfish - a small frogfish wearing two blue swim flippers
+4. sunglass ray - a ray wearing black sunglasses
+5. bucket crab - a hermit crab living in a red sand bucket with a tiny shovel
+6. kite flyingfish - a flying fish whose wings are a diamond kite with a ribbon tail
+7. ball dolphin - a dolphin balancing a striped beach ball on its nose
+8. snorkel goby - a goby wearing a diving mask and snorkel
+9. dice boxfish - a cube-shaped boxfish that is a white dice with black dots
+10. yoyo snail - a sea snail whose shell is a red yo-yo with a string
+11. drum puffer - a round pufferfish with a drum skin belly and two drumsticks as fins
+12. guitar ray - a guitarfish ray with six strings and tuning pegs on its tail
+13. camera crab - a crab whose shell is a camera with a big lens eye
+14. parasol jelly - a jellyfish whose bell is a striped beach parasol
+15. surf shark - a shark riding on a surfboard, wearing swim shorts
+16. robot lobster - a tin toy lobster with a wind-up key on its back
+17. magic octopus - an octopus wearing a black top hat with a rabbit peeking out
+18. disco sunfish - an ocean sunfish with a mirror ball pattern on its round body
+19. clown shark - a shark with a red clown nose and a ruffled collar
+20. kart turtle - a sea turtle with four wheels and a racing number on its shell
+21. carousel seahorse - a seahorse with a golden carousel pole through its back and a saddle
+22. ferris jelly - a giant jellyfish whose bell is a ferris wheel with colored cabins
+23. circus whale - a whale wearing a red and white striped circus tent on its back
+24. coaster eel - a very long eel whose looping body is a roller coaster track with a tiny cart
+25. firework squid - a squid shooting colorful firework sparks from its arms
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_04.png
+```
+
+---
+
+### 279. `d_sheet_05` — 도트 생물 25마리 · 안개 군도
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: foggy islands: old, antique and spooky things.
+
+SHEET d_sheet_05.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. lantern angler - an anglerfish whose lure is an old oil lantern
+2. candle squid - a squid holding a lit candle on its head
+3. ghost jelly - a jellyfish that is a white bedsheet ghost with two black hole eyes
+4. broomstick eel - an eel wearing a pointed black witch hat
+5. cobweb crab - a grey crab with a cobweb stretched between its claws
+6. quill shrimp - a shrimp whose tail is a white feather quill pen with ink
+7. bottle goby - a goby living inside a glass bottle with a cork, a message beside it
+8. skull puffer - a white pufferfish with a skull face pattern
+9. teacup snail - a sea snail whose shell is a cracked porcelain teacup on a saucer
+10. pocketwatch turtle - a sea turtle whose shell is a golden pocket watch with a chain
+11. violin ray - a ray shaped like itself with violin f-holes and four strings, a bow as its tail
+12. gramophone snail - a snail whose shell is a gramophone horn
+13. umbrella seal - a seal holding a black umbrella, wearing a bowler hat
+14. top hat walrus - a walrus with a monocle, a top hat and a big moustache
+15. book flounder - a flat flounder that opens like a book with pages for fins
+16. chest crab - a hermit crab living in a small treasure chest with gold coins
+17. piano shark - a black shark whose teeth are white and black piano keys
+18. knight lobster - a lobster in steel knight armor with a red plume
+19. mummy eel - a long eel wrapped in white bandages with one eye showing
+20. coffin whale - a pale whale with a wooden coffin lid on its back and a bat sitting on it
+21. bell tower turtle - a giant turtle carrying an old stone bell tower on its shell
+22. ghost ship whale - a pale whale with a torn-sailed ghost ship growing from its back
+23. organ octopus - a giant octopus whose head is a row of golden organ pipes
+24. lighthouse squid - a giant squid whose mantle is a red and white lighthouse with a shining lamp
+25. mist dragon eel - a long pale eel with an eastern dragon head, antlers and whiskers, trailing mist
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_05.png
+```
+
+---
+
+### 280. `d_sheet_06` — 도트 생물 25마리 · 안개 군도
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: foggy islands: tools and workshop.
+
+SHEET d_sheet_06.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. nail gar - a thin needlefish whose beak is an iron nail
+2. wrench crab - a crab whose two claws are steel wrenches
+3. screw shrimp - a shrimp whose tail is a spiral metal screw
+4. pliers lobster - a lobster whose claws are red-handled pliers
+5. tape snail - a sea snail whose shell is a yellow tape measure with the tape sticking out
+6. brush squid - a squid whose arms are a paintbrush tip dripping paint
+7. magnet ray - a ray with a red horseshoe magnet for a tail, paperclips stuck to it
+8. bucket jelly - a jellyfish whose bell is a paint bucket dripping colored paint tentacles
+9. ruler eel - a straight yellow eel with ruler marks along its body
+10. helmet turtle - a sea turtle whose shell is a yellow hard hat with a headlamp
+11. axe shark - a shark whose dorsal fin is a steel axe blade with a wooden handle
+12. shovel ray - a ray whose snout is a steel shovel blade
+13. anvil puffer - a heavy grey pufferfish with an iron anvil on its head
+14. chainsaw swordfish - a swordfish whose bill is a chainsaw bar with teeth
+15. ladder seahorse - a red seahorse wearing a firefighter helmet with a hose tail
+16. crane crab - a big yellow crab whose one claw is a crane hook on a cable
+17. forklift lobster - a yellow lobster whose claws are forklift forks carrying a crate
+18. bulldozer shark - a yellow shark with a bulldozer blade jaw and a smokestack fin
+19. mixer whale - a whale whose back is a striped cement mixer drum
+20. tractor walrus - a walrus with big tractor wheels and a green cab
+21. excavator crab - a giant yellow crab whose claw is an excavator arm with a toothed bucket
+22. tank turtle - a green sea turtle with a tank turret and cannon on its shell
+23. factory whale - a giant whale with brick factory chimneys puffing smoke on its back
+24. robot kraken - a giant metal octopus with riveted steel arms and a glowing red eye
+25. clockwork whale - a brass whale covered in turning gears with a big wind-up key on its back
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_06.png
+```
+
+---
+
+### 281. `d_sheet_07` — 도트 생물 25마리 · 원양 대해
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: open ocean: vehicles and travel.
+
+SHEET d_sheet_07.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. skate ray - a ray with four small wheels under its belly like a skateboard
+2. scooter seahorse - a seahorse riding a kick scooter
+3. bike crab - a crab with two bicycle wheels instead of side legs
+4. paper plane flyingfish - a flying fish whose wings are folded paper plane wings
+5. sail tuna - a tuna whose dorsal fin is a white triangular boat sail
+6. anchor eel - an eel whose tail is an iron anchor
+7. buoy puffer - a red and white pufferfish with a blinking light on top like a buoy
+8. oar squid - a squid holding two wooden oars
+9. compass starfish - a starfish with a compass face and a red needle in its center
+10. taxi turtle - a yellow sea turtle with a taxi sign on its shell
+11. bus whale - a yellow whale with a row of bus windows and a stop sign fin
+12. jet swordfish - a swordfish with jet fighter wings and a tail flame
+13. heli ray - a ray with a helicopter rotor on its back
+14. balloon jelly - a jellyfish whose bell is a striped hot air balloon with a basket below
+15. police shark - a shark wearing a police cap with a flashing light on its fin
+16. truck walrus - a walrus with a truck cargo box on its back and headlight eyes
+17. ambulance seal - a white seal with a red cross and a siren light on its head
+18. race marlin - a marlin painted like a race car with a spoiler fin and the number 1
+19. airship whale - a silver whale shaped like itself with airship fins and a gondola cabin below
+20. ferry whale - a white whale with rows of ship windows, a funnel and tiny lifeboats
+21. carrier turtle - a giant grey turtle whose shell is a flat aircraft carrier deck with tiny planes
+22. freight eel - a very long eel made of linked cargo containers in different colors
+23. airport ray - a giant manta ray with a runway down its back and a control tower
+24. space shark - a white shark with space shuttle wings, a black nose and three engine flames
+25. ufo ray - a silver manta ray with a glass dome, ring lights and a beam underneath
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_07.png
+```
+
+---
+
+### 282. `d_sheet_08` — 도트 생물 25마리 · 원양 대해
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: open ocean: sports and jobs.
+
+SHEET d_sheet_08.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. soccer seal - a seal wearing a striped soccer jersey kicking a ball
+2. glove crab - a crab whose claws are two red boxing gloves
+3. bat swordfish - a swordfish whose bill is a wooden baseball bat, wearing a cap
+4. racket ray - a round ray with tennis racket strings on its body and a handle tail
+5. whistle puffer - a pufferfish blowing a silver whistle
+6. medal starfish - a gold starfish hanging from a red ribbon like a medal
+7. cap goby - a goby wearing a baseball cap backwards
+8. dumbbell shrimp - a muscular shrimp lifting a dumbbell
+9. skate penguin fish - a sea bream wearing ice skates and a scarf
+10. golf snail - a sea snail whose shell is a white golf ball on a tee
+11. chef octopus - an octopus wearing a tall chef hat, holding a pan
+12. doctor dolphin - a dolphin wearing a doctor head mirror and a stethoscope
+13. painter squid - a squid wearing a beret, holding a palette
+14. farmer walrus - a walrus wearing a straw hat with a pitchfork
+15. judge seal - a seal wearing a white curly judge wig holding a gavel
+16. sumo puffer - a huge round pufferfish with a sumo belt and topknot
+17. ninja eel - a black eel with a ninja headband holding a throwing star
+18. pirate shark - a shark with an eye patch, a pirate hat and a hook fin
+19. astronaut turtle - a sea turtle wearing a round space helmet with a flag on its shell
+20. wizard octopus - a purple octopus with a pointed star hat and a magic wand
+21. samurai crab - a giant crab in samurai armor with a horned helmet and two swords
+22. king walrus - a giant walrus wearing a crown and a red royal cape, holding a scepter
+23. stadium turtle - a giant turtle whose shell is an oval sports stadium with lights
+24. champion whale - a giant whale wearing a golden champion belt and a laurel wreath
+25. trophy narwhal - a golden narwhal whose horn rises from a shining trophy cup on its head
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_08.png
+```
+
+---
+
+### 283. `d_sheet_09` — 도트 생물 25마리 · 극지 빙해
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: polar ice sea: ice, snow and winter things.
+
+SHEET d_sheet_09.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. scarf seal - a white seal pup wearing a red knitted scarf
+2. mitten crab - a crab whose claws are two red knitted mittens
+3. icecube boxfish - a cube boxfish that is a clear blue ice cube
+4. beanie puffer - a pufferfish wearing a knitted beanie with a pompom
+5. snowman jelly - a jellyfish whose bell is a snowman head with a carrot nose and coal eyes
+6. sled ray - a ray with wooden sled runners under its belly
+7. icicle gar - a thin needlefish whose beak is an icicle
+8. earmuff goby - a goby wearing fluffy pink earmuffs
+9. popsicle squid - a blue squid frozen on a wooden popsicle stick
+10. ski seal - a seal wearing ski goggles and two skis
+11. igloo turtle - a sea turtle whose shell is an igloo made of ice blocks
+12. snowglobe puffer - a round pufferfish inside a glass snow globe on a base
+13. heater walrus - a walrus hugging a small red stove, with a kettle on top
+14. penguin shark - a shark with a black and white penguin tuxedo pattern and a bow tie
+15. skate narwhal - a narwhal wearing ice skates and a sparkly skirt
+16. snowplow whale - a whale with an orange snowplow blade on its face
+17. yeti seal - a huge shaggy white seal with a yeti face
+18. icebreaker orca - an orca with a red icebreaker ship bow as its face
+19. frost dragon eel - a pale blue eel with an ice dragon head and icicle spikes
+20. mammoth walrus - a walrus with shaggy brown fur, a trunk and huge curved tusks
+21. iceberg whale - a giant whale carrying a white iceberg on its back
+22. castle narwhal - a giant narwhal carrying an ice castle with blue towers on its back
+23. glacier turtle - a giant turtle whose shell is a blue glacier with a tiny research hut
+24. polar king bear seal - a giant white seal wearing an ice crown and a fur cape
+25. aurora whale - a dark whale with green and pink aurora ribbons flowing from its back
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_09.png
+```
+
+---
+
+### 284. `d_sheet_10` — 도트 생물 25마리 · 화산 해역
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: volcano sea: fire, heat, metal and dinosaurs.
+
+SHEET d_sheet_10.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. match gar - a thin needlefish whose beak is a lit matchstick
+2. coal puffer - a black pufferfish glowing orange in its cracks
+3. pepper eel - a red eel breathing a small flame with tears in its eyes
+4. kettle crab - a crab whose shell is a whistling kettle with steam
+5. candle seahorse - a seahorse with a lit candle flame on its head and wax drips
+6. toaster boxfish - a boxfish that is a toaster with two slices of toast popping out
+7. lava snail - a sea snail whose shell is a tiny volcano with a drop of lava
+8. sauna seal - a red-faced seal with a towel on its head shaped like sheep horns
+9. grill ray - a ray with a grill grate pattern and one sausage on its back
+10. torch squid - a squid holding a flaming torch
+11. furnace turtle - a sea turtle whose shell is an iron stove with a glowing door
+12. dragon seahorse - a red seahorse with small dragon wings breathing a puff of fire
+13. bomb puffer - a round black pufferfish with a lit fuse on its head
+14. rocket squid - a squid whose mantle is a red rocket with flames from its arms
+15. forge crab - a crab holding a hammer and tongs, with a glowing horseshoe
+16. stego turtle - a sea turtle with stegosaurus plates along its shell and a spiked tail
+17. ptero ray - a manta ray with a pterodactyl head crest and beak
+18. tricera shark - a shark with a triceratops frill and three horns
+19. lava whale - a black rock whale with glowing orange lava cracks, spouting lava
+20. magma crab - a giant crab made of black rock with molten orange claws
+21. bronto eel - a long-necked giant eel with a brontosaurus head and four small flippers
+22. volcano whale - a giant whale with an erupting volcano on its back
+23. steel kraken - a giant octopus whose head is a steel smelting pot pouring molten metal
+24. trex whale - a giant whale with a T-rex head, tiny arms and a striped tail
+25. phoenix ray - a manta ray with flaming phoenix wings and a long fire tail
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_10.png
+```
+
+---
+
+### 285. `d_sheet_11` — 도트 생물 25마리 · 심연 해구
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: abyss trench: lights, electronics and neon.
+
+SHEET d_sheet_11.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. led goby - a dark goby with a row of small colored LED lights along its side
+2. battery shrimp - a shrimp whose body is a battery with plus and minus ends
+3. remote flounder - a flat flounder with remote control buttons on its back
+4. mouse ray - a small ray shaped like itself with two mouse buttons and a cable tail
+5. bulb jelly - a jellyfish whose bell is a glowing light bulb with a screw base
+6. plug eel - an electric eel whose tail is a power plug
+7. flashlight squid - a squid whose mantle is a flashlight shining a beam
+8. headphone puffer - a pufferfish wearing big headphones
+9. usb gar - a thin fish whose snout is a USB connector
+10. tv boxfish - a boxfish that is an old TV with two antennas and static on screen
+11. radio crab - a crab whose shell is a radio with an antenna and speaker
+12. neon seahorse - a seahorse made of a glowing pink neon tube
+13. gamepad ray - a ray shaped like itself with a d-pad and four colored buttons
+14. camera angler - an anglerfish whose lure is a security camera with a red light
+15. phone flounder - a flat flounder with a phone screen on its back showing a cracked display
+16. laser swordfish - a swordfish whose bill is a glowing red laser beam
+17. robot shark - a steel robot shark with rivets, a red visor eye and a jet tail
+18. satellite ray - a manta ray whose wings are blue solar panels with an antenna dish
+19. server whale - a dark whale with rows of blinking server lights along its side
+20. tesla eel - a giant eel crackling with yellow lightning bolts between two coils on its back
+21. arcade whale - a giant whale with an arcade cabinet screen and joystick on its side
+22. neon city turtle - a giant turtle carrying a tiny city of glowing neon signs on its shell
+23. reactor kraken - a giant octopus wearing a glowing green reactor dome as its head
+24. hologram whale - a transparent blue whale made of glowing grid lines
+25. blackhole angler - a huge dark anglerfish whose lure is a tiny swirling black hole with a light ring
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_11.png
+```
+
+---
+
+### 286. `d_sheet_12` — 도트 생물 25마리 · 환상의 바다
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET THEME: fantasy sea: sky, stars, royalty and myth.
+
+SHEET d_sheet_12.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. star starfish - a glowing yellow starfish with a sleepy face and a small sparkle
+2. cloud puffer - a white fluffy pufferfish shaped like itself but made of cloud puffs, raining a little
+3. feather flyingfish - a flying fish with white angel feather wings and a halo
+4. rainbow eel - an eel with seven rainbow color bands along its body
+5. comet gar - a thin fish with a glowing comet tail of sparkles
+6. crown seahorse - a golden seahorse wearing a tiny crown and a cape
+7. harp ray - a ray whose wing is strung like a golden harp
+8. unicorn dolphin - a white dolphin with a spiral horn and a rainbow mane
+9. planet puffer - a round pufferfish with a ring around it like Saturn
+10. moon jelly - a jellyfish whose bell is a glowing crescent moon
+11. pegasus seahorse - a white seahorse with large feathered wings
+12. crystal turtle - a sea turtle whose shell is a cluster of purple crystals
+13. throne walrus - a walrus sitting on a golden throne with a jeweled crown
+14. galaxy ray - a dark manta ray with a spiral galaxy and stars on its back
+15. sun whale - a golden whale with flame rays around its body like the sun
+16. dragon king eel - a giant eel with a dragon head wearing an emperor crown, holding a glowing pearl
+17. floating island whale - a giant whale carrying a floating island with a waterfall on its back
+18. temple turtle - a giant turtle carrying a white marble temple with columns on its shell
+19. world whale - a colossal whale carrying a tiny globe with continents on its back
+20. constellation shark - a dark blue shark made of white star dots joined by lines
+21. star whale - a night-sky whale covered in stars, spouting a fountain of stars
+22. rainbow serpent - a huge sea serpent arched like a rainbow with clouds at both ends
+23. cosmos kraken - a giant octopus whose head is a purple nebula, each arm ending in a planet
+24. angel whale - a white whale with huge feathered wings and a golden halo
+25. sea god leviathan - a huge sea dragon with a golden crown, a long white beard and a trident
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_12.png
+```
+
+---
+
+### 287. `d_sheet_01_s` — 놀람 표정 시험: 1번 장의 25마리를 놀란 얼굴로
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_01.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_01_s.png
+```
+
+---
