@@ -153,7 +153,7 @@ function drawResultCard(ctx, g) {
   const k = clamp(g.t / 0.3, 0, 1), e = 1 - Math.pow(1 - k, 3);
   const cw = 230, ch = 150, cx = 12, cy = H - ch - 12 + (1 - e) * 26;   // 왼쪽 아래: 생물과 배를 가리지 않는다
   ctx.save();
-  ctx.fillStyle = `rgba(14,26,46,${0.4 * e})`; ctx.fillRect(0, 0, W, H);
+  // (화면 전체를 어둡게 덮지 않는다: 낚은 생물과 하늘이 탁해진다)
   ctx.globalAlpha = e;
   draw9(ctx, sprite('ui_panel'), cx, cy, cw, ch, 0.3);
   const rib = tinted('ui_ribbon', grade.color, 0.65);
@@ -410,7 +410,8 @@ function drawLeap(ctx, g, under) {
     const flop = c.phase === 'leap' || c.phase === 'hang';
     const f = g.fish, spr = sprite(flop && step[2] ? f.sprite2 : f.sprite);
     const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
-    const w = c.lw * c.scale * pop * over, h = w * spr.h / spr.w;
+    const fit = Math.min(1, 0.56 / (spr.h / spr.w));                 // 가로 lw × 세로 lw×0.56 상자 안에 들어오게
+    const w = c.lw * fit * c.scale * pop * over, h = w * spr.h / spr.w;
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));

@@ -42,9 +42,12 @@ export function steer(s, dt, { arrive = true } = {}) {
   const near = Math.abs(dx) < s.len * 0.12;
 
   // 볼 방향: 목표가 있는 쪽. 다 왔으면 지정된 방향(없으면 그대로).
-  let want = Math.sign(s.face) || 1;
-  if (!near) want = Math.sign(dx);
-  else if (t.face) want = t.face;
+  // 목표가 살짝 뒤에 있을 뿐이면 돌아서지 않는다: 큰 몸을 돌리는 대신 그대로 천천히 뒷걸음질한다.
+  const cur = Math.sign(s.face) || 1;
+  const behind = dx * cur < 0, slight = behind && Math.abs(dx) < s.len * 0.75 && (!t.face || t.face === cur);
+  let want = cur;
+  if (!near && !slight) want = Math.sign(dx);
+  else if (near && t.face) want = t.face;
   const maxF = 2 / s.turnTime;
   s.faceV = approach(s.faceV, clamp((want - s.face) * 4, -maxF, maxF), 5, dt);
   s.face = clamp(s.face + s.faceV * dt, -1, 1);
@@ -53,6 +56,7 @@ export function steer(s, dt, { arrive = true } = {}) {
   const facing = Math.max(0, s.face * want);
   let wantSpeed = s.maxSpeed * (t.speed ?? 1) * facing * facing;
   if (arrive) wantSpeed = Math.min(wantSpeed, Math.abs(dx) * 1.3 + Math.abs(dy) * 0.6);
+  if (slight) wantSpeed = -Math.min(s.maxSpeed * 0.22, Math.abs(dx) * 0.9);      // 뒷걸음질
   const prev = s.speed;
   s.speed = approach(s.speed, wantSpeed, s.accel * (wantSpeed > s.speed ? 1 : 1.8), dt);
 
@@ -64,7 +68,7 @@ export function steer(s, dt, { arrive = true } = {}) {
   s.y = Math.max(s.floor, s.y);
 
   // 꼬리: 빠를수록 빠르게, 가속할 때 크게
-  const pace = s.speed / s.maxSpeed;
+  const pace = Math.abs(s.speed) / s.maxSpeed;
   s.tail += dt * s.beat * (0.4 + pace * 1.3);
   const kick = Math.max(0, (s.speed - prev) / dt) / s.maxSpeed;
   s.tailAmp = approach(s.tailAmp, 0.035 + pace * 0.06 + kick * 0.08, 4, dt);

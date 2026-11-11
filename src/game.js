@@ -332,14 +332,14 @@ function startWait(g) {
   g.fish = rollCreature(g.forceGrade);
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
+  // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)
   const plan = [
-    { x: fx + 60 + L * 0.1, y: DEEP * 0.75, speed: 0.55 },
-    { x: fx - 80 - L * 0.15, y: DEEP * 0.5, speed: 0.5 },
+    { x: fx - L * 0.2, y: DEEP * 0.7, speed: 0.5 },
   ];
   const fakes = Math.floor(rand(0, 2.6));
   for (let i = 0; i < fakes; i++) {
     plan.push({ touch: true, fake: true });
-    plan.push({ x: fx - 90 - L * 0.2, y: rand(50, 90), speed: 0.6 });
+    plan.push({ x: fx - L * 0.62, y: rand(95, 120), speed: 0.45, face: 1 });   // 건드려 보고는 뒷걸음질로 물러났다가 다시 온다
   }
   plan.push({ touch: true, fake: false });
   // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
@@ -366,7 +366,7 @@ function updateWait(g, dt) {
     s.target = floatTarget(g, step.fake ? 0.5 : 0.42);
     steer(s, dt);
     const m = mouth(s);
-    const touching = Math.hypot(g.castX - m.x, 10 - m.y) < 9 + s.len * 0.02 && s.face > 0.8;
+    const touching = Math.abs(g.castX - m.x) < 9 + s.len * 0.02 && s.y < s.floor + 12 && s.face > 0.8;   // 찌 바로 밑, 올라올 수 있는 가장 얕은 곳
     if (touching && step.fake) {
       w.fakeT = TIMING.fakeWindow;
       bob.dipV += 55; swell(g, bob.x, 1.4, 1, 50, 12); swell(g, bob.x, 1.4, -1, 50, 12); snd(g, 'nibble');
