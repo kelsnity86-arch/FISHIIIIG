@@ -9182,3 +9182,91 @@ on the main branch, in the folder assets/raw/, with the file name d_sheet_01_s.p
 ```
 
 ---
+
+## ㉑ 평범한 물고기 50마리 — 모든 해역 공용 (2장)
+
+### 288. `d_sheet_13` — 평범한 물고기 25마리 (공용 1/2)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: these are ORDINARY real sea creatures, the plain everyday catch. Draw each one as itself with its real body shape and natural colors, instantly recognizable from the silhouette. No objects, no costumes, no gags. Simple friendly deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET d_sheet_13.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. mackerel with blue wavy back stripes
+2. tiny silver anchovy
+3. small sardine with a row of dark dots
+4. silver herring
+5. red sea bream
+6. flat brown flounder with both eyes on top
+7. round yellow-brown pufferfish with small spikes
+8. small sandy goby with big eyes
+9. slim grey-brown pollock
+10. yellow croaker
+11. grey mullet
+12. dark chunky rockfish with spiny fin
+13. diamond-shaped filefish with a small horn spine
+14. long thin silver-blue saury
+15. very long ribbon-like silver hairtail
+16. pale pink squid
+17. red-brown octopus
+18. pink shrimp
+19. blue-grey swimming crab
+20. closed clam with ridged shell
+21. spiral sea snail shell with a snail peeking out
+22. orange starfish
+23. pale blue jellyfish
+24. black spiky sea urchin
+25. yellow seahorse
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_13.png
+```
+
+---
+
+### 289. `d_sheet_14` — 평범한 물고기 25마리 (공용 2/2)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: these are ORDINARY real sea creatures, the plain everyday catch. Draw each one as itself with its real body shape and natural colors, instantly recognizable from the silhouette. No objects, no costumes, no gags. Simple friendly deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+SHEET d_sheet_14.png. EXACT ROW-MAJOR ORDER (never print names/numbers):
+1. orange clownfish with white bands
+2. blue tang with a yellow tail
+3. yellow butterflyfish with a black eye stripe
+4. flying fish with wide wing fins
+5. dark brown eel
+6. big-headed cod with a chin whisker
+7. silver salmon with pink side
+8. yellowtail amberjack with a yellow side stripe
+9. striped bonito
+10. bluefin tuna
+11. red lobster
+12. hermit crab in a spiral shell
+13. striped cuttlefish
+14. brown stingray with a long tail
+15. green sea turtle
+16. grey spotted seal
+17. grey dolphin
+18. grey shark with white belly
+19. swordfish with a long bill
+20. round ocean sunfish
+21. black and white manta ray
+22. dark anglerfish with a small glowing lure
+23. black and white orca
+24. blue-grey whale with a small spout
+25. spotted whale shark
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_14.png
+```
+
+---

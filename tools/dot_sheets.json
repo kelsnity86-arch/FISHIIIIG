@@ -1570,5 +1570,267 @@
     "grade": "fantasy"
    }
   ]
+ },
+ "13": {
+  "region": 0,
+  "theme": "ordinary sea creatures shared by all regions",
+  "creatures": [
+   {
+    "id": "mackerel",
+    "ko": "고등어",
+    "grade": "common"
+   },
+   {
+    "id": "anchovy",
+    "ko": "멸치",
+    "grade": "common"
+   },
+   {
+    "id": "sardine",
+    "ko": "정어리",
+    "grade": "common"
+   },
+   {
+    "id": "herring",
+    "ko": "청어",
+    "grade": "common"
+   },
+   {
+    "id": "sea_bream",
+    "ko": "도미",
+    "grade": "common"
+   },
+   {
+    "id": "flounder",
+    "ko": "넙치",
+    "grade": "common"
+   },
+   {
+    "id": "pufferfish",
+    "ko": "복어",
+    "grade": "common"
+   },
+   {
+    "id": "goby",
+    "ko": "망둥어",
+    "grade": "common"
+   },
+   {
+    "id": "pollock",
+    "ko": "명태",
+    "grade": "common"
+   },
+   {
+    "id": "croaker",
+    "ko": "조기",
+    "grade": "common"
+   },
+   {
+    "id": "mullet",
+    "ko": "숭어",
+    "grade": "common"
+   },
+   {
+    "id": "rockfish",
+    "ko": "우럭",
+    "grade": "common"
+   },
+   {
+    "id": "filefish",
+    "ko": "쥐치",
+    "grade": "common"
+   },
+   {
+    "id": "saury",
+    "ko": "꽁치",
+    "grade": "common"
+   },
+   {
+    "id": "hairtail",
+    "ko": "갈치",
+    "grade": "common"
+   },
+   {
+    "id": "squid",
+    "ko": "오징어",
+    "grade": "common"
+   },
+   {
+    "id": "octopus",
+    "ko": "문어",
+    "grade": "common"
+   },
+   {
+    "id": "shrimp",
+    "ko": "새우",
+    "grade": "common"
+   },
+   {
+    "id": "crab",
+    "ko": "꽃게",
+    "grade": "common"
+   },
+   {
+    "id": "clam",
+    "ko": "조개",
+    "grade": "common"
+   },
+   {
+    "id": "sea_snail",
+    "ko": "소라",
+    "grade": "common"
+   },
+   {
+    "id": "starfish",
+    "ko": "불가사리",
+    "grade": "common"
+   },
+   {
+    "id": "jellyfish",
+    "ko": "해파리",
+    "grade": "common"
+   },
+   {
+    "id": "sea_urchin",
+    "ko": "성게",
+    "grade": "common"
+   },
+   {
+    "id": "seahorse",
+    "ko": "해마",
+    "grade": "common"
+   }
+  ]
+ },
+ "14": {
+  "region": 0,
+  "theme": "ordinary sea creatures shared by all regions",
+  "creatures": [
+   {
+    "id": "clownfish",
+    "ko": "흰동가리",
+    "grade": "common"
+   },
+   {
+    "id": "blue_tang",
+    "ko": "블루탱",
+    "grade": "common"
+   },
+   {
+    "id": "butterflyfish",
+    "ko": "나비고기",
+    "grade": "common"
+   },
+   {
+    "id": "flying_fish",
+    "ko": "날치",
+    "grade": "common"
+   },
+   {
+    "id": "eel",
+    "ko": "장어",
+    "grade": "common"
+   },
+   {
+    "id": "cod",
+    "ko": "대구",
+    "grade": "uncommon"
+   },
+   {
+    "id": "salmon",
+    "ko": "연어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "yellowtail",
+    "ko": "방어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "bonito",
+    "ko": "가다랑어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "tuna",
+    "ko": "참치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "lobster",
+    "ko": "바닷가재",
+    "grade": "uncommon"
+   },
+   {
+    "id": "hermit_crab",
+    "ko": "소라게",
+    "grade": "uncommon"
+   },
+   {
+    "id": "cuttlefish",
+    "ko": "갑오징어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "stingray",
+    "ko": "가오리",
+    "grade": "uncommon"
+   },
+   {
+    "id": "sea_turtle",
+    "ko": "바다거북",
+    "grade": "uncommon"
+   },
+   {
+    "id": "seal",
+    "ko": "물범",
+    "grade": "uncommon"
+   },
+   {
+    "id": "dolphin",
+    "ko": "돌고래",
+    "grade": "uncommon"
+   },
+   {
+    "id": "shark",
+    "ko": "상어",
+    "grade": "uncommon"
+   },
+   {
+    "id": "swordfish",
+    "ko": "황새치",
+    "grade": "uncommon"
+   },
+   {
+    "id": "sunfish",
+    "ko": "개복치",
+    "grade": "rare"
+   },
+   {
+    "id": "manta_ray",
+    "ko": "쥐가오리",
+    "grade": "rare"
+   },
+   {
+    "id": "anglerfish",
+    "ko": "아귀",
+    "grade": "rare"
+   },
+   {
+    "id": "orca",
+    "ko": "범고래",
+    "grade": "rare"
+   },
+   {
+    "id": "whale",
+    "ko": "고래",
+    "grade": "rare"
+   },
+   {
+    "id": "whale_shark",
+    "ko": "고래상어",
+    "grade": "rare"
+   }
+  ]
  }
 }
