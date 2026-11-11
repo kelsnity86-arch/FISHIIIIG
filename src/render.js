@@ -125,10 +125,11 @@ const CARD = [
 ];
 // 글자를 칸 한가운데에 놓는다. 칸보다 길면 글자를 줄인다.
 function fitText(ctx, str, box, size, font, weight, color) {
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';     // 재기 전에 기준선부터: 기준선이 다르면 잰 높이가 틀어진다
   ctx.font = `${weight} ${size}px ${font}`;
   const w = ctx.measureText(str).width, max = (box[2] - box[0]) * 0.9;
   if (w > max) ctx.font = `${weight} ${size * max / w}px ${font}`;
-  const mt = ctx.measureText(str), asc = mt.actualBoundingBoxAscent, desc = mt.actualBoundingBoxDescent;
+  const mt = ctx.measureText(/[가-힣]/.test(str) ? '가힣' : '0G'), asc = mt.actualBoundingBoxAscent, desc = mt.actualBoundingBoxDescent;
   ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = color;
   ctx.fillText(str, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 + (asc - desc) / 2);     // 실제 글자 높이의 가운데를 칸의 가운데에
 }
