@@ -4137,3 +4137,128 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name c_whale_fall.png
 ```
 
+---
+
+## ⑯ 움직임용 자세 그림 — 그림자의 헤엄·돌아서기, 수면을 뚫고 나오는 과정
+
+그림 한 장을 늘리고 뒤집는 대신, 자세 그림을 이어 붙여 움직임을 만든다.
+
+### 148. `c_shadow_swim` — 그림자: 헤엄 4동작
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_shadow.png and
+assets/raw/c_whale_leap.png. Every image you make must look like it belongs to those: the same
+painterly storybook rendering, colors and lighting.
+
+No text. Fully transparent background.
+
+A sprite sheet of 4 frames in one row showing one swimming cycle, side view facing left.
+Each one is the huge soft dark shadow of a whale seen through water, exactly like
+assets/raw/c_shadow.png: dark blue-teal, blurry feathered edges, no details, no eye. All
+the same size and the same whale. Evenly spaced, not touching.
+The whale swims by moving its tail up and down, so the body bends gently in a wave:
+1) tail fluke raised high, back slightly arched down,
+2) tail passing the middle on its way down, body nearly straight,
+3) tail fluke pushed low, back slightly arched up,
+4) tail passing the middle on its way up, body nearly straight.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_shadow_swim.png
+```
+
+### 149. `c_shadow_turn` — 그림자: 돌아서기 3동작
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_shadow.png and
+assets/raw/c_whale_leap.png. Every image you make must look like it belongs to those: the same
+painterly storybook rendering, colors and lighting.
+
+No text. Fully transparent background.
+
+A sprite sheet of 3 frames in one row showing the whale turning around toward the viewer.
+Each one is the huge soft dark shadow of a whale seen through water, exactly like
+assets/raw/c_shadow.png: dark blue-teal, blurry feathered edges, no details, no eye. All
+the same size and the same whale. Evenly spaced, not touching.
+1) side view facing left but starting to turn: the head swings toward the viewer and the body
+   curves into a C shape, so it looks a little shorter,
+2) three-quarter view coming toward the viewer: clearly foreshortened, the head large and near,
+   the body curving away behind it, one flipper visible,
+3) seen head-on from the front: a rounded oval body with both flippers spread to the sides and
+   the tail fluke visible behind and above.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_shadow_turn.png
+```
+
+### 150. `c_shadow_act` — 그림자: 몸부림·잠수·솟구침 3동작
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_shadow.png and
+assets/raw/c_whale_leap.png. Every image you make must look like it belongs to those: the same
+painterly storybook rendering, colors and lighting.
+
+No text. Fully transparent background.
+
+A sprite sheet of 3 frames in one row, side view facing left.
+Each one is the huge soft dark shadow of a whale seen through water, exactly like
+assets/raw/c_shadow.png: dark blue-teal, blurry feathered edges, no details, no eye. All
+the same size and the same whale. Evenly spaced, not touching.
+1) thrashing: the body twisted in a strong S curve, tail whipping, flippers flung out,
+2) diving: the body curved downward like a bow, head pointing down-left, tail up,
+3) surging upward: the body curved upward like a bow, head pointing up-left toward the
+   surface, tail down, about to burst out of the water.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_shadow_act.png
+```
+
+### 151. `c_bulge` — 수면이 부풀어 터지기 2동작
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_shadow.png and
+assets/raw/c_whale_leap.png. Every image you make must look like it belongs to those: the same
+painterly storybook rendering, colors and lighting.
+
+No text. Fully transparent background.
+
+A sprite sheet of 2 frames side by side, not touching, showing the sea surface seen from the
+side just before a giant whale bursts out, in the style of the water in concept_3:
+1) a smooth, wide dome of water swelling upward, glassy turquoise with a dark shape under it
+   and thin lines of foam sliding off the top,
+2) the dome splitting open: taller, the top breaking into white foam and spray, sheets of
+   water peeling off both sides.
+Each frame is wide (about 2:1), base at the bottom.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_bulge.png
+```
+
+### 152. `c_whale_rise` — 고래: 수면을 뚫고 나오는 2동작
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_shadow.png and
+assets/raw/c_whale_leap.png. Every image you make must look like it belongs to those: the same
+painterly storybook rendering, colors and lighting.
+
+No text. Fully transparent background.
+
+A sprite sheet of 2 frames side by side, not touching, of the same whale as
+assets/raw/c_whale_leap.png, same style and colors, facing right, bursting out of the sea.
+Draw only the whale with water streaming off it; no sea, no splash base, no fishing line.
+1) only the head and throat out of the water, pointing steeply up and to the right, mouth
+   slightly open, water pouring off the head; the picture ends where the body would enter
+   the water,
+2) the front half of the body out, rising steeply up and to the right, flippers starting to
+   spread, water streaming down the sides; the picture ends where the body would enter the
+   water.
+Both must match the leaping pose in c_whale_leap.png so the three can be shown in sequence.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_whale_rise.png
+```
+

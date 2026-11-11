@@ -102,6 +102,12 @@ SHEETS = {
     'c_shafts': [dict(name='c_shafts', w=320, soft=True, upscale=True)],
     'c_whale_leap': [dict(name='c_whale_leap', w=300, upscale=True)],
     'c_whale_fall': [dict(name='c_whale_fall', w=300, upscale=True)],
+    # ── 움직임용 자세 그림 ──
+    'c_shadow_swim': [dict(name=f'c_shadow_swim_{i + 1}', w=256, grid=(1, 4), soft=True, upscale=True) for i in range(4)],
+    'c_shadow_turn': [dict(name=f'c_shadow_turn_{i + 1}', w=256, grid=(1, 3), soft=True, upscale=True) for i in range(3)],
+    'c_shadow_act': [dict(name=f'c_shadow_{n}', w=256, grid=(1, 3), soft=True, upscale=True) for n in ['thrash', 'dive', 'surge']],
+    'c_bulge': [dict(name=f'c_bulge_{i + 1}', w=256, grid=(1, 2), soft=True, upscale=True) for i in range(2)],
+    'c_whale_rise': [dict(name=f'c_whale_rise_{i + 1}', w=300, grid=(1, 2), upscale=True) for i in range(2)],
     'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
 
