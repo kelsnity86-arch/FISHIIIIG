@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="manifest" href="manifest.webmanifest">
 <title>수평선 낚시꾼 — 바다 화면 시험판</title>
 <style>
 @font-face { font-family: "Hahmlet"; font-weight: 600; src: url(assets/fonts/Hahmlet.woff2) format("woff2"); font-display: swap; }
@@ -15,6 +16,11 @@
   #debug { display: flex; gap: 8px; align-items: center; padding: 6px 0; color: #9fb0c8; font-size: 12px; }
   #debug button { font: inherit; color: #fff4dc; background: #24385c; border: 1px solid #3d5788;
                   border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+
+/* 폰은 가로 화면 고정. 세로로 들고 있으면 화면 전체를 90도 돌려 가로로 보여 준다 (세로용 배치는 없다). */
+@media (orientation: portrait) and (pointer: coarse) {
+  #stage { position: fixed; left: 0; top: 100%; width: 100vh; height: 100vw; transform: rotate(-90deg); transform-origin: left top; }
+}
 </style>
 </head>
 <body>

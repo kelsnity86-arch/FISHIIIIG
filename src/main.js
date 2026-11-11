@@ -24,6 +24,16 @@ function resize() {
   canvas.style.height = canvas.height / dpr + 'px';
 }
 window.addEventListener('resize', resize);
+// 폰은 가로 화면 고정: 될 때는 기기의 화면 방향을 가로로 잠그고, 안 되는 기기에서는 CSS 가 화면을 돌려 준다
+const turned = () => getComputedStyle(canvas.parentElement).transform !== 'none';
+function lockLandscape() {
+  try {
+    if (screen.orientation && screen.orientation.lock) {
+      const go = document.fullscreenElement ? Promise.resolve() : document.documentElement.requestFullscreen();
+      go.then(() => screen.orientation.lock('landscape')).catch(() => {});
+    }
+  } catch { /* 지원하지 않는 기기 */ }
+}
 
 await loadAssets();
 const game = createGame();
@@ -33,8 +43,12 @@ resize();
 // 입력: 클릭 / 터치 / 스페이스바 (원터치)
 canvas.addEventListener('pointerdown', (e) => {
   e.preventDefault(); canvas.setPointerCapture(e.pointerId); initAudio();
+  if (e.pointerType === 'touch' && turned()) lockLandscape();
   const r = canvas.getBoundingClientRect();
-  if (pointer(game, (e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H)) { save(); return; }   // 단추·가게 판
+  // 화면을 돌려 놓은 상태면 좌표도 돌려서 읽는다 (게임의 가로 = 기기의 세로 아래→위)
+  const gx = turned() ? (r.bottom - e.clientY) / r.height * W : (e.clientX - r.left) / r.width * W;
+  const gy = turned() ? (e.clientX - r.left) / r.width * H : (e.clientY - r.top) / r.height * H;
+  if (pointer(game, gx, gy)) { save(); return; }   // 단추·가게 판
   press(game);
 });
 canvas.addEventListener('pointerup', () => release(game));

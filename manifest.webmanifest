@@ -1,0 +1,9 @@
+{
+  "name": "수평선 낚시꾼",
+  "short_name": "수평선 낚시꾼",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0e1a2e",
+  "theme_color": "#0e1a2e",
+  "start_url": "index.html"
+}
