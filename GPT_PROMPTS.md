@@ -5012,3 +5012,3132 @@ on the main branch, in the folder assets/raw/, with the file name d_moon_whale.p
 ```
 
 ---
+
+### 177. `d_sausage_seal` — 일반: 소시지물개
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a seal that is a fat pink sausage: tied sausage ends as nose and tail, grill marks on
+the back, two tiny flippers.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sausage_seal.png
+```
+
+---
+### 178. `d_egg_jelly` — 일반: 계란프라이해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish that is a fried egg: wobbly white with a big yellow yolk on top, four short
+wavy tentacles.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_egg_jelly.png
+```
+
+---
+### 179. `d_pencil_gar` — 일반: 연필꽁치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a long thin fish that is a yellow pencil: sharpened graphite tip as the nose, pink
+eraser and metal band as the tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_pencil_gar.png
+```
+
+---
+### 180. `d_toothbrush_shrimp` — 일반: 칫솔새우
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a shrimp whose body is a toothbrush: blue handle body, white bristles as legs, a blob of
+striped toothpaste on its head.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_toothbrush_shrimp.png
+```
+
+---
+### 181. `d_sushi_tuna` — 일반: 초밥참치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a tuna that is a piece of nigiri sushi: red fish slab on top of a white rice block
+belly, a seaweed belt around the middle.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sushi_tuna.png
+```
+
+---
+### 182. `d_mitten_crab` — 일반: 장갑게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a crab whose claws are two big red knitted mittens, small body, eyes on stalks.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_mitten_crab.png
+```
+
+---
+### 183. `d_balloon_puffer` — 일반: 풍선복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a pufferfish that is a red party balloon: shiny round body, the knot is its mouth, a
+string hanging as the tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_balloon_puffer.png
+```
+
+---
+### 184. `d_carrot_squid` — 일반: 당근오징어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a squid shaped like an orange carrot: pointed carrot body, green leafy top as the
+tentacles.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_carrot_squid.png
+```
+
+---
+### 185. `d_button_ray` — 일반: 단추가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a small round stingray that is a coat button: four thread holes in the middle, a loose
+thread as the tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_button_ray.png
+```
+
+---
+### 186. `d_spoon_fish` — 일반: 숟가락치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a silver fish shaped like a spoon: round bowl head with one eye, long thin handle body,
+tiny tail fin.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_spoon_fish.png
+```
+
+---
+### 187. `d_donut_eel` — 일반: 도넛장어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+an eel curled into a ring that is a pink frosted donut with colored sprinkles, head and
+tail meeting.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_donut_eel.png
+```
+
+---
+### 188. `d_tofu_fish` — 일반: 두부돔
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a perfectly square white tofu block with tiny fins and tail, a slice of green onion on
+top, nervous face.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_tofu_fish.png
+```
+
+---
+### 189. `d_lemon_puffer` — 일반: 레몬복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a lemon-shaped yellow pufferfish with a pointy lemon tip nose, one green leaf as the
+dorsal fin, sour scrunched face.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_lemon_puffer.png
+```
+
+---
+### 190. `d_clothespin_fish` — 일반: 빨래집게치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a fish that is a wooden clothespin: long split mouth with a metal spring in the middle,
+tiny fins.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_clothespin_fish.png
+```
+
+---
+### 191. `d_corn_fish` — 일반: 옥수수고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a fish that is a corn cob: rows of yellow kernels as scales, green husk leaves as fins
+and tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_corn_fish.png
+```
+
+---
+### 192. `d_sock_octopus` — 일반: 양말문어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a small octopus made of mismatched socks: head is a sock ball, each arm a different
+striped sock.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sock_octopus.png
+```
+
+---
+### 193. `d_ramen_squid` — 일반: 라면오징어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a squid whose tentacles are curly yellow instant noodles, wearing a red ramen cup as a
+hat.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ramen_squid.png
+```
+
+---
+### 194. `d_key_fish` — 일반: 열쇠고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a gold fish shaped like a door key: round head with a hole for an eye, a toothed key
+blade as the body and tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_key_fish.png
+```
+
+---
+### 195. `d_broom_ray` — 일반: 빗자루가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a ray shaped like a broom head: straw bristles as the back fringe, a long wooden handle
+as the tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_broom_ray.png
+```
+
+---
+### 196. `d_ice_cream_cone` — 일반: 아이스크림소라
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a sea snail whose shell is a waffle ice cream cone with a pink scoop on top and a
+cherry.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ice_cream_cone.png
+```
+
+---
+### 197. `d_tape_snail` — 일반: 테이프달팽이
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a sea snail whose shell is a roll of clear sticky tape in a red dispenser, a strip of
+tape trailing behind.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_tape_snail.png
+```
+
+---
+### 198. `d_glove_starfish` — 일반: 고무장갑불가사리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a starfish that is a pink rubber kitchen glove with five fingers spread out, a face on
+the palm.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_glove_starfish.png
+```
+
+---
+### 199. `d_burger_clam` — 일반: 햄버거조개
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a clam that is a hamburger: bun shells, with lettuce, cheese and a patty inside, a
+tongue sticking out.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_burger_clam.png
+```
+
+---
+### 200. `d_comb_fish` — 일반: 빗고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a flat fish that is a pocket comb: long row of teeth along the belly, a few hairs stuck
+in it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_comb_fish.png
+```
+
+---
+### 201. `d_cup_jelly` — 일반: 컵라면해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish that is an upside-down paper cup with steam lines above and noodle tentacles
+below.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_cup_jelly.png
+```
+
+---
+### 202. `d_pea_fish` — 일반: 완두콩떼
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+three round green peas in an open pod swimming together as one fish, each pea with its
+own face.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_pea_fish.png
+```
+
+---
+### 203. `d_mushroom_jelly` — 일반: 버섯해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish that is a red mushroom with white spots, a thick white stem instead of
+tentacles.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_mushroom_jelly.png
+```
+
+---
+### 204. `d_soap_fish` — 일반: 비누고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a pink bar of soap with a fish tail, covered in foam bubbles, slipping.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_soap_fish.png
+```
+
+---
+### 205. `d_teapot_whale` — 고급: 주전자고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a small round whale that is a teapot: a spout as the blowhole puffing steam, a handle on
+the back, a lid with a knob.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_teapot_whale.png
+```
+
+---
+### 206. `d_boot_fish` — 고급: 장화고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a fish living in an old yellow rain boot: head poking out of the top, the boot toe is
+the tail, a patch on the side.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_boot_fish.png
+```
+
+---
+### 207. `d_cactus_puffer` — 고급: 선인장복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a green cactus-shaped pufferfish with long spines and one pink flower on its head.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_cactus_puffer.png
+```
+
+---
+### 208. `d_bowtie_butterfly` — 고급: 나비넥타이나비고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a butterflyfish whose whole body is a red polka-dot bow tie with a knot in the middle.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_bowtie_butterfly.png
+```
+
+---
+### 209. `d_piano_fish` — 고급: 피아노고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a black fish whose mouth is a long row of white and black piano keys, music notes
+floating out.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_piano_fish.png
+```
+
+---
+### 210. `d_trumpet_fish` — 고급: 트럼펫대치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a long golden fish that is a trumpet: flared bell mouth, three valves on the back.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_trumpet_fish.png
+```
+
+---
+### 211. `d_dice_box` — 고급: 주사위복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a cube boxfish that is a white dice with black pips, tiny fins on the corners.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_dice_box.png
+```
+
+---
+### 212. `d_camera_crab` — 고급: 카메라게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a crab whose shell is an old camera with a big lens eye and a flash going off.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_camera_crab.png
+```
+
+---
+### 213. `d_popcorn_coral` — 고급: 팝콘새우
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a shrimp sitting in a striped popcorn bucket, body made of puffed popcorn.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_popcorn_coral.png
+```
+
+---
+### 214. `d_wig_seal` — 고급: 가발물개
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a grey seal wearing a tall curly blonde wig and red lipstick.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_wig_seal.png
+```
+
+---
+### 215. `d_hammer_shark` — 고급: 망치상어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a hammerhead shark whose head is a real steel claw hammer with a wooden handle body.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_hammer_shark.png
+```
+
+---
+### 216. `d_saw_shark` — 고급: 톱상어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a shark whose nose is a hand saw with an orange plastic handle.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_saw_shark.png
+```
+
+---
+### 217. `d_magnet_ray` — 고급: 자석가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a ray shaped like a red and silver horseshoe magnet with nails and paperclips stuck to
+it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_magnet_ray.png
+```
+
+---
+### 218. `d_lamp_jelly` — 고급: 스탠드해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish that is a table lamp: fringed lampshade head, a glowing bulb, an electric
+cord tentacle with a plug.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_lamp_jelly.png
+```
+
+---
+### 219. `d_pineapple_turtle` — 고급: 파인애플거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a turtle whose shell is a pineapple with the spiky green crown on top, wearing
+sunglasses.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_pineapple_turtle.png
+```
+
+---
+### 220. `d_candle_eel` — 고급: 양초장어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+an eel that is a long white candle with a small flame on its head and wax dripping down.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_candle_eel.png
+```
+
+---
+### 221. `d_helmet_crab` — 고급: 헬멧게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a hermit crab living in a yellow construction helmet with a headlamp.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_helmet_crab.png
+```
+
+---
+### 222. `d_sandwich_flounder` — 고급: 샌드위치넙치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a flounder that is a triangle sandwich: bread on both sides, lettuce and ham sticking
+out, a toothpick with an olive.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sandwich_flounder.png
+```
+
+---
+### 223. `d_vacuum_ray` — 고급: 청소기가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a ray that is a robot vacuum cleaner: round disc body, a blinking light, sucking up
+bubbles.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_vacuum_ray.png
+```
+
+---
+### 224. `d_watermelon_puffer` — 고급: 수박복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a round pufferfish that is a watermelon: green stripes outside, with one slice cut out
+showing red flesh and black seeds.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_watermelon_puffer.png
+```
+
+---
+### 225. `d_scarf_snake` — 고급: 목도리바다뱀
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a sea snake that is a long striped knitted scarf with tassels at the tail.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_scarf_snake.png
+```
+
+---
+### 226. `d_bell_fish` — 고급: 종고기
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a fish that is a golden bell with a clapper tongue, ringing lines around it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_bell_fish.png
+```
+
+---
+### 227. `d_bus_whale` — 희귀: 버스고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a whale that is a yellow school bus: rows of windows, wheels along the belly, a stop
+sign fin.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_bus_whale.png
+```
+
+---
+### 228. `d_fridge_boxfish` — 희귀: 냉장고복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a tall white refrigerator with fins, the door slightly open with light and a fish bone
+inside, magnets on the door.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_fridge_boxfish.png
+```
+
+---
+### 229. `d_drill_narwhal` — 희귀: 드릴일각고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a narwhal whose horn is a spinning power drill bit, wearing safety goggles.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_drill_narwhal.png
+```
+
+---
+### 230. `d_clock_turtle` — 희귀: 시계거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a turtle whose shell is a big round alarm clock with two bells on top and clock hands.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_clock_turtle.png
+```
+
+---
+### 231. `d_tank_crab` — 희귀: 탱크게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a crab that is a green army tank: caterpillar tracks instead of legs, one claw is the
+cannon.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_tank_crab.png
+```
+
+---
+### 232. `d_accordion_eel` — 희귀: 아코디언장어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+an eel whose middle is a stretched accordion bellows, with keys on the head and tail
+ends.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_accordion_eel.png
+```
+
+---
+### 233. `d_ufo_ray` — 희귀: 유에프오가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a manta ray that is a flying saucer: a glass dome with a tiny alien on top, lights
+around the rim, a beam underneath.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ufo_ray.png
+```
+
+---
+### 234. `d_chandelier_jelly` — 희귀: 샹들리에해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish that is a crystal chandelier with lit candles and hanging jewels.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_chandelier_jelly.png
+```
+
+---
+### 235. `d_bulldozer_shark` — 희귀: 불도저상어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a yellow shark with a bulldozer blade for a jaw and a smokestack on its back.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_bulldozer_shark.png
+```
+
+---
+### 236. `d_wizard_octopus` — 희귀: 마법사문어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a purple octopus wearing a pointed wizard hat with stars, holding a magic wand in one
+arm.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_wizard_octopus.png
+```
+
+---
+### 237. `d_knight_swordfish` — 희귀: 기사황새치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a swordfish wearing a steel knight helmet with a red plume, its bill is a sword with a
+hilt.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_knight_swordfish.png
+```
+
+---
+### 238. `d_disco_sunfish` — 희귀: 미러볼개복치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+an ocean sunfish that is a disco mirror ball with square mirror tiles and light spots
+around it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_disco_sunfish.png
+```
+
+---
+### 239. `d_cake_turtle` — 희귀: 케이크거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a turtle whose shell is a three-layer birthday cake with lit candles and strawberries.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_cake_turtle.png
+```
+
+---
+### 240. `d_helicopter_fish` — 희귀: 헬리콥터날치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a flying fish with a helicopter rotor on its back and landing skids under its belly.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_helicopter_fish.png
+```
+
+---
+### 241. `d_umbrella_squid` — 희귀: 파라솔오징어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a squid wearing a beach parasol as its mantle, holding a tropical drink.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_umbrella_squid.png
+```
+
+---
+### 242. `d_robot_lobster` — 희귀: 로봇바닷가재
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a boxy tin toy robot lobster with a wind-up key on its back and pincer hands.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_robot_lobster.png
+```
+
+---
+### 243. `d_sofa_manatee` — 희귀: 소파매너티
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a manatee that is a fat brown leather sofa with cushions and a TV remote on it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sofa_manatee.png
+```
+
+---
+### 244. `d_ghost_squid` — 희귀: 유령오징어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a white bedsheet ghost with squid tentacles poking out underneath, two black hole eyes.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ghost_squid.png
+```
+
+---
+### 245. `d_ship_whale` — 영웅: 해적선고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a whale wearing a wooden pirate ship on its back: a mast with a skull flag, cannons
+along the side, an eye patch.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ship_whale.png
+```
+
+---
+### 246. `d_pyramid_turtle` — 영웅: 피라미드거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant turtle carrying a sandstone pyramid with a small sphinx on its shell.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_pyramid_turtle.png
+```
+
+---
+### 247. `d_dragon_eel` — 영웅: 용장어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a long eel with an eastern dragon head: antlers, whiskers, a tiny flame from its mouth.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_dragon_eel.png
+```
+
+---
+### 248. `d_train_whale` — 영웅: 기관차고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a whale that is a black steam locomotive: a cowcatcher jaw, a funnel puffing smoke, big
+red wheels.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_train_whale.png
+```
+
+---
+### 249. `d_excavator_crab` — 영웅: 굴착기게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant yellow crab whose one claw is an excavator arm with a toothed bucket.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_excavator_crab.png
+```
+
+---
+### 250. `d_lighthouse_squid` — 영웅: 등대오징어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant squid whose mantle is a red and white striped lighthouse with a shining lamp at
+the top.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_lighthouse_squid.png
+```
+
+---
+### 251. `d_volcano_puffer` — 영웅: 용암복어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a black rock pufferfish with glowing orange lava cracks and smoke coming from its mouth.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_volcano_puffer.png
+```
+
+---
+### 252. `d_circus_seal` — 영웅: 서커스물개
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a huge seal in a red and white circus tent costume balancing a ball on its nose.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_circus_seal.png
+```
+
+---
+### 253. `d_mammoth_walrus` — 영웅: 매머드바다코끼리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a walrus with shaggy brown mammoth fur, a trunk and enormous curved tusks.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_mammoth_walrus.png
+```
+
+---
+### 254. `d_samurai_crab` — 영웅: 사무라이게
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant crab wearing samurai armor with a horned helmet, its claws are two swords.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_samurai_crab.png
+```
+
+---
+### 255. `d_windmill_ray` — 영웅: 풍차가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant ray carrying a wooden windmill with four sails turning on its back.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_windmill_ray.png
+```
+
+---
+### 256. `d_ferris_jelly` — 영웅: 관람차해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a giant jellyfish that is a ferris wheel with colored cabins and lights.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_ferris_jelly.png
+```
+
+---
+### 257. `d_island_whale` — 전설: 섬고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal whale that is an island: grass, three palm trees and a tiny hut on its back,
+a waterfall spout.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_island_whale.png
+```
+
+---
+### 258. `d_city_turtle` — 전설: 도시거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal turtle carrying a tiny city of skyscrapers with lit windows on its shell.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_city_turtle.png
+```
+
+---
+### 259. `d_kraken_ship` — 전설: 문어발유조선
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal octopus tangled around a rusty cargo ship which it wears like a belt.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_kraken_ship.png
+```
+
+---
+### 260. `d_dragon_turtle` — 전설: 용거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal turtle with a dragon head and a spiked shell, breathing a small pixel flame.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_dragon_turtle.png
+```
+
+---
+### 261. `d_space_shark` — 전설: 우주왕복선상어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a shark that is a white space shuttle with black nose, wings, a flag mark and three
+engine flames.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_space_shark.png
+```
+
+---
+### 262. `d_golden_carp` — 전설: 황금잉어왕
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal golden koi carp with a long white moustache, wearing an emperor crown.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_golden_carp.png
+```
+
+---
+### 263. `d_clocktower_eel` — 전설: 시계탑장어
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal eel whose head is a stone clock tower with a big clock face.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_clocktower_eel.png
+```
+
+---
+### 264. `d_thunder_ray` — 전설: 번개가오리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal dark ray shaped like a storm cloud with yellow lightning bolts for a tail and
+rain falling below.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_thunder_ray.png
+```
+
+---
+### 265. `d_castle_crab` — 전설: 성게성
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a colossal spiky sea urchin that is a round fortress with towers and tiny flags among
+the spines.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_castle_crab.png
+```
+
+---
+### 266. `d_sun_fish_god` — 환상: 해님개복치
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+an ocean sunfish that is the sun itself: round yellow face with triangle rays all
+around, a calm smile.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sun_fish_god.png
+```
+
+---
+### 267. `d_star_whale` — 환상: 별자리고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a dark blue whale made of night sky with white star dots joined by lines like a
+constellation.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_star_whale.png
+```
+
+---
+### 268. `d_rainbow_serpent` — 환상: 무지개바다뱀
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a huge sea serpent shaped like a rainbow arc with seven color bands, clouds at both
+ends.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_rainbow_serpent.png
+```
+
+---
+### 269. `d_planet_turtle` — 환상: 행성거북
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a turtle whose shell is a ringed planet like Saturn with a small moon orbiting it.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_planet_turtle.png
+```
+
+---
+### 270. `d_cloud_whale` — 환상: 구름고래
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a fluffy white cloud shaped like a whale, raining from its belly, a small rainbow from
+its spout.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_cloud_whale.png
+```
+
+---
+### 271. `d_galaxy_jelly` — 환상: 은하해파리
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a jellyfish whose bell is a purple spiral galaxy with star dots, tentacles of shooting
+stars.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_galaxy_jelly.png
+```
+
+---
+### 272. `d_king_leviathan` — 환상: 임금님용
+
+```
+No text. Fully transparent background.
+
+Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
+MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
+everyday object and a cartoon gag:
+a huge sea dragon wearing a golden crown and royal robe, holding a tiny scepter, long
+whiskers.
+
+Rules (important):
+- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
+  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
+  hard edges - no blur, no smoothing, no anti-aliasing.
+- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
+  or two single pixels.
+- A thick 1-pixel dark navy outline around the whole creature.
+- Side view, facing RIGHT, body straight and stiff.
+- The one or two defining features described above must be huge, exaggerated and instantly
+  readable. Leave out all other detail.
+- Big simple dumb eyes: a white square with a black pixel.
+
+A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
+1) normal: blank, calm, slightly stupid stare,
+2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
+   two or three sweat-drop pixels flying off.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_king_leviathan.png
+```
+
+---
