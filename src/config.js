@@ -3,28 +3,28 @@
 export const W = 640;
 export const H = 360;
 
-export const HORIZON = 150;          // 수평선 y
-export const BOAT_X = W * 0.62;      // 배 위치 (고정)
-export const BOAT_Y = 236;           // 배가 떠 있는 수면 y
-export const LANE_Y = 250;           // 찌·물고기가 있는 수면 y (배보다 살짝 앞쪽)
-export const CAST_NEAR = W * 0.35;   // 약하게 던졌을 때 찌 위치
+// 구도: 순수 옆모습 (assets/concept 의 목표 화면 기준)
+export const HORIZON = 208;          // 수평선 y (하늘 그림의 아래 끝)
+export const WL = 216;               // 수면선 y. 이 아래는 물의 단면.
+export const BOAT_X = W * 0.82;      // 배 위치 (목표 화면: 오른쪽 끝 가까이)
+export const CAST_NEAR = W * 0.38;   // 약하게 던졌을 때 찌 위치
 export const CAST_FAR = W * 0.20;    // 세게 던졌을 때 찌 위치
-export const ROD_LEN = 36;
-export const Z_SQUASH = 0.35;         // 수면을 비스듬히 보는 각도 (그림자 평면의 세로 압축)
+export const ROD_LEN = 46;
+export const DEEP = 135;             // 그림자가 내려갈 수 있는 가장 깊은 곳 (수면선 아래 px)
+export const LEAP_X = W * 0.44;      // 낚아 올릴 때 생물이 솟구치는 자리
+export const LEAP_SCALE = 0.8;       // 솟구치는 자세 그림의 폭 = 몸길이 × 이 값
 
 // 파이팅 중 물고기 동작: 등급별로 쓸 수 있는 동작 (기획서 §3)
 export const FIGHT_MODES = {
-  common:    ['hold', 'run'],
+  common:    ['hold', 'run', 'thrash'],
   uncommon:  ['hold', 'run', 'dive'],
   rare:      ['hold', 'run', 'dive', 'circle'],
-  epic:      ['hold', 'run', 'dive', 'circle', 'slap'],
-  legendary: ['hold', 'run', 'dive', 'circle', 'slap'],
-  fantasy:   ['hold', 'run', 'dive', 'circle', 'slap'],
+  epic:      ['hold', 'run', 'dive', 'circle', 'thrash'],
+  legendary: ['hold', 'run', 'dive', 'circle', 'thrash'],
+  fantasy:   ['hold', 'run', 'dive', 'circle', 'thrash'],
 };
-export const SURGE_MODES = ['run', 'dive', 'slap'];   // 날뛰는 동작: 계속 감으면 장력이 급격히 오름
+export const SURGE_MODES = ['run', 'dive', 'thrash'];   // 날뛰는 동작: 계속 감으면 장력이 급격히 오름
 export const TELEGRAPH = 0.35;                        // 날뛰기 직전 조짐 시간(초)
-
-export const PERSON_SCALE = 0.72;     // 바다용 실루엣 크기 배율 (8×9 그림 기준 → 약 6px)
 
 export const TIMING = {
   chargeSpeed: 1.1,      // 파워 게이지 왕복 속도 (초당)

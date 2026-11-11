@@ -57,8 +57,9 @@ export function rollCreature(forcedGrade) {
     let r = Math.random() * total;
     grade = GRADES.find((g) => (r -= g.weight) < 0) || GRADES[0];
   }
-  const pool = LIST.filter((c) => c.grade === grade.id);
-  const base = pool[Math.floor(Math.random() * pool.length)];
+  // 목표 화면 재현 단계: 솟구치는 자세 그림이 고래 한 종뿐이라 지금은 고래만 낚인다.
+  // (다른 생물은 자세 그림을 받은 뒤 아래 줄을 원래 목록으로 되돌린다)
+  const base = { name: '고래', grade: grade.id, sprite: 'c_whale_leap', bite: 'pull' };
   const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
   return {

@@ -83,6 +83,25 @@ SHEETS = {
     'fx_spray': [dict(name=f'fx_spray_{i + 1}', w=128, grid=(2, 2), upscale=True) for i in range(4)],
     'fx_drips': [dict(name=f'fx_drip_{i + 1}', w=64, grid=(1, 3), upscale=True) for i in range(3)],
     'fx_drops': [dict(name=f'fx_drop2_{i + 1}', w=24, grid=(2, 4)) for i in range(8)],
+    # ── 목표 화면(assets/concept) 재현용 레이어. 전부 원본 해상도 유지 ──
+    'c_sky': [dict(name='c_sky', w=640, whole=True, opaque=True, upscale=True)],
+    'c_sea': [dict(name='c_sea', w=640, whole=True, opaque=True, upscale=True)],
+    'c_farsea': [dict(name='c_farsea', w=640, whole=True, soft=True, upscale=True)],
+    'c_wave': [dict(name='c_wave', w=640, whole=True, soft=True, upscale=True, fade=(0.3, 0.8))],
+    'c_wave_rough': [dict(name='c_wave_rough', w=640, whole=True, soft=True, upscale=True, fade=(0.5, 0.78))],
+    'c_boat': [dict(name=f'c_boat_{i + 1}', w=36, grid=(1, 3), upscale=True) for i in range(3)],
+    'c_rod': [dict(name='c_rod', w=44, upscale=True)],
+    'c_float': [dict(name='c_float', h=24, upscale=True)],
+    'c_shadow': [dict(name='c_shadow', w=256, soft=True, upscale=True)],
+    'c_bubbles': [dict(name=f'c_bubbles_{i + 1}', w=64, grid=(2, 2), upscale=True) for i in range(4)],
+    'c_thrash': [dict(name='c_thrash', w=200, soft=True, upscale=True)],
+    'c_bowspray': [dict(name=f'c_bowspray_{i + 1}', w=40, grid=(1, 2), upscale=True) for i in range(2)],
+    'c_erupt': [dict(name='c_erupt', w=320, soft=True, upscale=True)],
+    'c_spray': [dict(name=f'c_spray_{i + 1}', w=96, grid=(2, 2), upscale=True) for i in range(4)],
+    'c_rays': [dict(name='c_rays', w=256, soft=True, upscale=True)],
+    'c_shafts': [dict(name='c_shafts', w=320, soft=True, upscale=True)],
+    'c_whale_leap': [dict(name='c_whale_leap', w=300, upscale=True)],
+    'c_whale_fall': [dict(name='c_whale_fall', w=300, upscale=True)],
     'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
 
@@ -93,7 +112,7 @@ MIN_GAP = 6         # 그림 사이로 인정하는 최소 빈 줄 수
 MIN_SIZE = 12       # 이보다 작은 조각은 잡티로 보고 버린다
 
 
-def load(path, opaque=False):
+def load(path, opaque=False, soft=False):
     im = Image.open(path).convert('RGBA')
     a = np.array(im)
     if opaque:
@@ -107,7 +126,8 @@ def load(path, opaque=False):
         a[key, 3] = 0
         alpha = Image.fromarray(a[..., 3]).filter(ImageFilter.MinFilter(3))   # 가장자리 흰 테 제거
         a[..., 3] = np.array(alpha)
-    a[a[..., 3] < ALPHA_MIN] = 0     # 배경 제거 후 남은 희미한 잡티 제거
+    if not soft:                     # soft: 가장자리가 번지는 그림(그림자·빛·물안개)은 희미한 부분도 살린다
+        a[a[..., 3] < ALPHA_MIN] = 0     # 배경 제거 후 남은 희미한 잡티 제거
     return a
 
 
@@ -177,10 +197,14 @@ def build():
         if not src:
             continue
         first = items[0]
-        a = load(src, first.get('opaque', False))
+        soft = first.get('soft', False)
+        a = load(src, first.get('opaque', False), soft)
+        thr = 6 if soft else ALPHA_MIN
+        ys = np.where((a[..., 3] > thr).any(axis=1))[0]; xs = np.where((a[..., 3] > thr).any(axis=0))[0]
         if first.get('whole'):
-            ys = np.where((a[..., 3] > ALPHA_MIN).any(axis=1))[0]; xs = np.where((a[..., 3] > ALPHA_MIN).any(axis=0))[0]
             boxes = [(0, ys[0], a.shape[1], ys[-1] + 1)]   # 가로는 전체 폭 유지 (풍경 위치가 바뀌지 않게)
+        elif soft and len(items) == 1:
+            boxes = [(xs[0], ys[0], xs[-1] + 1, ys[-1] + 1)]
         elif first.get('grid'):
             boxes = split_grid(a, *first['grid']) or []
         else:
@@ -193,7 +217,12 @@ def build():
             problems.append(f'{src.name}: 그림 {len(items)}개가 필요한데 {len(boxes)}개를 찾음 → 건너뜀')
             continue
         for item, (x0, y0, x1, y1) in zip(items, boxes):
-            crop = Image.fromarray(a[y0:y1, x0:x1])
+            part = a[y0:y1, x0:x1].copy()
+            if item.get('fade'):                                 # 아래쪽을 서서히 투명하게 (물 단면과 자연스럽게 이어지도록)
+                f0, f1 = item['fade']
+                ramp = np.clip((f1 - np.linspace(0, 1, part.shape[0])) / (f1 - f0), 0, 1)
+                part[..., 3] = (part[..., 3] * ramp[:, None]).astype(np.uint8)
+            crop = Image.fromarray(part)
             ratio = crop.width / crop.height
             w = item.get('w') or item['h'] * ratio
             h = item.get('h') or w / ratio

@@ -3648,6 +3648,174 @@
    "h": 20.46,
    "smooth": true
   },
+  "fx_stamp": {
+   "file": "fx_stamp.png",
+   "w": 48,
+   "h": 48.27,
+   "smooth": true
+  },
+  "c_sky": {
+   "file": "c_sky.webp",
+   "w": 640,
+   "h": 213.33,
+   "smooth": false
+  },
+  "c_sea": {
+   "file": "c_sea.webp",
+   "w": 640,
+   "h": 279.68,
+   "smooth": false
+  },
+  "c_farsea": {
+   "file": "c_farsea.webp",
+   "w": 640,
+   "h": 14.14,
+   "smooth": false
+  },
+  "c_wave": {
+   "file": "c_wave.webp",
+   "w": 640,
+   "h": 39.78,
+   "smooth": false
+  },
+  "c_wave_rough": {
+   "file": "c_wave_rough.webp",
+   "w": 640,
+   "h": 125.52,
+   "smooth": false
+  },
+  "c_boat_1": {
+   "file": "c_boat_1.webp",
+   "w": 36,
+   "h": 19.0,
+   "smooth": false
+  },
+  "c_boat_2": {
+   "file": "c_boat_2.webp",
+   "w": 36,
+   "h": 18.55,
+   "smooth": false
+  },
+  "c_boat_3": {
+   "file": "c_boat_3.webp",
+   "w": 36,
+   "h": 23.23,
+   "smooth": false
+  },
+  "c_rod": {
+   "file": "c_rod.webp",
+   "w": 44,
+   "h": 1.06,
+   "smooth": false
+  },
+  "c_float": {
+   "file": "c_float.webp",
+   "w": 8.26,
+   "h": 24,
+   "smooth": false
+  },
+  "c_shadow": {
+   "file": "c_shadow.webp",
+   "w": 256,
+   "h": 66.18,
+   "smooth": false
+  },
+  "c_bubbles_1": {
+   "file": "c_bubbles_1.webp",
+   "w": 64,
+   "h": 67.37,
+   "smooth": false
+  },
+  "c_bubbles_2": {
+   "file": "c_bubbles_2.webp",
+   "w": 64,
+   "h": 50.72,
+   "smooth": false
+  },
+  "c_bubbles_3": {
+   "file": "c_bubbles_3.webp",
+   "w": 64,
+   "h": 106.33,
+   "smooth": false
+  },
+  "c_bubbles_4": {
+   "file": "c_bubbles_4.webp",
+   "w": 64,
+   "h": 60.03,
+   "smooth": false
+  },
+  "c_thrash": {
+   "file": "c_thrash.webp",
+   "w": 200,
+   "h": 88.1,
+   "smooth": false
+  },
+  "c_bowspray_1": {
+   "file": "c_bowspray_1.webp",
+   "w": 40,
+   "h": 12.59,
+   "smooth": false
+  },
+  "c_bowspray_2": {
+   "file": "c_bowspray_2.webp",
+   "w": 40,
+   "h": 17.09,
+   "smooth": false
+  },
+  "c_erupt": {
+   "file": "c_erupt.webp",
+   "w": 320,
+   "h": 168.2,
+   "smooth": false
+  },
+  "c_spray_1": {
+   "file": "c_spray_1.webp",
+   "w": 96,
+   "h": 71.1,
+   "smooth": false
+  },
+  "c_spray_2": {
+   "file": "c_spray_2.webp",
+   "w": 96,
+   "h": 55.38,
+   "smooth": false
+  },
+  "c_spray_3": {
+   "file": "c_spray_3.webp",
+   "w": 96,
+   "h": 42.46,
+   "smooth": false
+  },
+  "c_spray_4": {
+   "file": "c_spray_4.webp",
+   "w": 96,
+   "h": 45.95,
+   "smooth": false
+  },
+  "c_rays": {
+   "file": "c_rays.webp",
+   "w": 256,
+   "h": 261.83,
+   "smooth": false
+  },
+  "c_shafts": {
+   "file": "c_shafts.webp",
+   "w": 320,
+   "h": 132.9,
+   "smooth": false
+  },
+  "c_whale_leap": {
+   "file": "c_whale_leap.webp",
+   "w": 300,
+   "h": 211.49,
+   "smooth": false
+  },
+  "c_whale_fall": {
+   "file": "c_whale_fall.webp",
+   "w": 300,
+   "h": 148.88,
+   "smooth": false
+  },
   "web_node_1": {
    "file": "web_node_1.png",
    "w": 48,
