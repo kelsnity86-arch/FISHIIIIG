@@ -657,7 +657,7 @@ function updateCatch(g, dt) {
       c.lw = c.big; c.ex = c.ax;
                                    // 여기서부터 등급에 맞는 크기
       g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
-      spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
+      g.sprays.length = 0;                                            // 확대된 얼굴 앞에 물방울이 크게 떠다니지 않게
       snd(g, 'pop');
     }
     if (c.reveal) { c.popT += g.realDt; c.rot = 0; }
