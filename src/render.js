@@ -225,6 +225,7 @@ export function render(ctx, g) {
   drawWave(ctx, g, view, -2.5, 0.75, -g.time * 5, false);     // 뒤쪽 파도
   drawRays(ctx, g);
   drawLeap(ctx, g, false);
+  drawBulge(ctx, g);
   drawBursts(ctx, g);
   drawBoat(ctx, g);
   drawWave(ctx, g, view, 0, 1, g.time * 9, true);             // 앞쪽 파도 (배 밑동을 가린다)
@@ -292,44 +293,54 @@ function drawShafts(ctx, g) {
   ctx.restore();
 }
 
-// 그림자 (모든 생물 공통). 방향을 바꿀 때는 뒤집지 않고 몸을 틀어 짧아졌다 길어진다.
-// 버퍼에 이음매 없이 휘어 그린 뒤, 물색을 어둡게 물들이는 방식(multiply)으로 찍는다.
-const SH_N = 96, SH_W = 10;                      // 조각 수 × 조각 폭(px) = 버퍼 안의 몸길이
-const shadowBuf = document.createElement('canvas');
-shadowBuf.width = SH_N * SH_W + 64; shadowBuf.height = 600;   // 크게 휠 때도 잘리지 않게 넉넉히
-const shadowCtx = shadowBuf.getContext('2d');
+// 그림자 (모든 생물 공통). 그림 한 장을 늘리거나 뒤집지 않고 자세 그림을 넘긴다:
+//   헤엄 = 꼬리가 오르내리는 4동작을 번갈아, 돌아서기 = 몸을 트는 3동작을 거쳐 반대쪽으로,
+//   몸부림·잠수·솟구침 = 각각의 자세.
+// 물색을 어둡게 물들이는 방식(multiply)으로 찍어 물속에 잠긴 것처럼 보이게 한다.
+//                 그림 폭 ÷ 몸길이   기울기 반영 정도
+const POSE = {
+  swim:   { span: 1.0,  tilt: 1 },
+  turn_1: { span: 0.8,  tilt: 0.3 },
+  turn_2: { span: 0.68, tilt: 0.2 },
+  turn_3: { span: 0.62, tilt: 0 },
+  thrash: { span: 0.92, tilt: 0.3 },
+  dive:   { span: 0.86, tilt: 0.3 },
+  surge:  { span: 0.86, tilt: 0.3 },
+};
+
+function drawShadowPose(ctx, s, name, pose, alpha) {
+  if (alpha < 0.01) return;
+  const spr = sprite(name), d = POSE[pose];
+  const w = s.len * d.span, h = w * spr.h / spr.w;
+  const depth = clamp(s.y / DEEP, 0, 1);
+  ctx.save();
+  ctx.translate(s.x, WL + s.y);
+  ctx.scale(s.face > 0 ? -1 : 1, 1);            // 그림은 왼쪽을 본다
+  ctx.rotate(-s.pitch * d.tilt);
+  ctx.imageSmoothingEnabled = true;
+  ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게
+  ctx.globalAlpha = lerp(1, 0.6, depth) * s.vis * alpha;
+  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+  ctx.globalCompositeOperation = 'source-over';  // 형태가 또렷이 읽히도록 한 번 더 옅게
+  ctx.globalAlpha = lerp(0.3, 0.08, depth) * s.vis * alpha;
+  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+  ctx.restore();
+}
 
 function drawShadow(ctx, g) {
   const s = g.sw;
   if (!s || s.vis < 0.01) return;
-  const spr = sprite('c_shadow');
-  const inner = SH_N * SH_W, bh = inner * spr.h / spr.w, sw = spr.img.width / SH_N;
-  shadowCtx.clearRect(0, 0, shadowBuf.width, shadowBuf.height);
-  shadowCtx.imageSmoothingEnabled = true;
-  for (let i = 0; i < SH_N; i++) {               // 머리(왼쪽)는 거의 그대로, 꼬리로 갈수록 크게 위아래로
-    const k = i / (SH_N - 1);
-    let off = Math.sin(s.tail - k * 4.2) * inner * s.tailAmp * (0.28 + k * 0.72);   // 온몸이 물결치고 꼬리가 가장 크게
-    off += s.shake * 0.5 * Math.sin(g.time * 16) * inner * 0.04 * (1 - k) * (1 - k);
-    shadowCtx.drawImage(spr.img, i * sw, 0, sw, spr.img.height, 32 + i * SH_W, (shadowBuf.height - bh) / 2 + off, SH_W, bh);
-  }
-  const k = s.len / inner;
-  // 그림은 왼쪽을 본다. 몸을 트는 동안에도 정면에서 본 몸통 굵기(약 30%)보다 좁아지지 않는다.
-  const fx = (s.face <= 0 ? 1 : -1) * Math.max(0.3, Math.abs(s.face));
-  const depth = clamp(s.y / DEEP, 0, 1);
-  ctx.save();
-  ctx.translate(s.x, WL + s.y);
-  ctx.scale(fx, 1);
-  ctx.rotate(-s.pitch * Math.abs(s.face));
-  ctx.imageSmoothingEnabled = true;
-  const dx = -shadowBuf.width * k / 2, dy = -shadowBuf.height * k / 2, dw = shadowBuf.width * k, dh = shadowBuf.height * k;
-  ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게
-  ctx.globalAlpha = lerp(1, 0.6, depth) * s.vis;
-  ctx.drawImage(shadowBuf, dx, dy, dw, dh);
-  ctx.drawImage(shadowBuf, dx, dy, dw, dh);
-  ctx.globalCompositeOperation = 'source-over';  // 형태가 또렷이 읽히도록 한 번 더 옅게
-  ctx.globalAlpha = lerp(0.35, 0.1, depth) * s.vis;
-  ctx.drawImage(shadowBuf, dx, dy, dw, dh);
-  ctx.restore();
+  const one = (pose, alpha) => {
+    if (pose !== 'swim') return drawShadowPose(ctx, s, 'c_shadow_' + pose, pose, alpha);
+    // 헤엄: 꼬리 박자에 맞춰 4동작을 이어 넘긴다
+    const ph = wrapX(s.tail / (Math.PI * 2), 1) * 4, i = Math.floor(ph), f = ph - i;
+    const k = f * f * (3 - 2 * f);
+    drawShadowPose(ctx, s, 'c_shadow_swim_' + (i + 1), 'swim', alpha * (1 - k));
+    drawShadowPose(ctx, s, 'c_shadow_swim_' + ((i + 1) % 4 + 1), 'swim', alpha * k);
+  };
+  if (s.prevPose && s.mix < 1) one(s.prevPose, 1 - s.mix);
+  one(s.pose, s.prevPose ? s.mix : 1);
 }
 
 function drawBubbles(ctx, g) {
@@ -358,21 +369,57 @@ function drawRays(ctx, g) {
   ctx.restore();
 }
 
-// 낚아 올린 생물. under=true 는 수면 아래에 잠긴 부분(어둡게), false 는 물 위 부분.
+// 낚아 올린 생물. under=true 는 수면 아래에 잠긴 부분(어두운 덩어리), false 는 물 위 부분.
+// 솟구치는 동안에는 입의 위치를 기준으로 자세 그림을 넘긴다: 머리만 → 몸 절반 → 온몸.
+//                    그림              폭 ÷ 온몸 폭   그림 안에서 입의 위치(가로, 세로)
+const RISE = [
+  ['c_whale_rise_1', 0.52, 0.93, 0.20],
+  ['c_whale_rise_2', 0.72, 0.95, 0.14],
+  ['c_whale_leap',   1.00, 0.96, 0.22],
+];
+const UNDER_TINT = ['#0a2140', 0.94];
+
 function drawLeap(ctx, g, under) {
   const c = g.catch;
   if (!c || c.phase === 'pull') return;
-  // 물에 잠긴 부분은 무늬가 보이지 않는 어두운 그림자 덩어리로 (물속 그림자와 같은 색)
-  const base = under ? tinted('c_whale_leap', '#0a2140', 0.94) : sprite('c_whale_leap');
-  const fall = under ? tinted('c_whale_fall', '#0a2140', 0.94) : sprite('c_whale_fall');
-  const w = c.lw * c.scale;
   ctx.save();
   if (!under) { ctx.beginPath(); ctx.rect(-4000, -4000, 8000, 4000 + WL + 1.5); ctx.clip(); }
-  ctx.translate(c.x, c.y); ctx.rotate(c.rot);
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
   const a = c.alpha * (under ? 0.88 : 1);
-  if (c.mix < 1) { ctx.globalAlpha = a * (1 - c.mix); ctx.drawImage(base.img, -w / 2, -w * base.h / base.w / 2, w, w * base.h / base.w); }
-  if (c.mix > 0) { ctx.globalAlpha = a * c.mix; ctx.drawImage(fall.img, -w / 2, -w * fall.h / fall.w / 2, w, w * fall.h / fall.w); }
+  if (c.phase === 'leap') {
+    const [name, wk, fx, fy] = RISE[c.stage];
+    if (!under || c.stage === 2) {               // 머리·절반 자세는 물에 잠긴 부분이 그림에 없다
+      const spr = under ? tinted(name, ...UNDER_TINT) : sprite(name);
+      const w = c.lw * wk, h = w * spr.h / spr.w;
+      ctx.globalAlpha = a;
+      ctx.translate(c.mx, c.my); ctx.rotate(c.rot);
+      ctx.drawImage(spr.img, -fx * w, -fy * h, w, h);
+    }
+  } else {
+    const base = under ? tinted('c_whale_leap', ...UNDER_TINT) : sprite('c_whale_leap');
+    const fall = under ? tinted('c_whale_fall', ...UNDER_TINT) : sprite('c_whale_fall');
+    const w = c.lw * c.scale;
+    ctx.translate(c.x, c.y); ctx.rotate(c.rot);
+    if (c.mix < 1) { ctx.globalAlpha = a * (1 - c.mix); ctx.drawImage(base.img, -w / 2, -w * base.h / base.w / 2, w, w * base.h / base.w); }
+    if (c.mix > 0) { ctx.globalAlpha = a * c.mix; ctx.drawImage(fall.img, -w / 2, -w * fall.h / fall.w / 2, w, w * fall.h / fall.w); }
+  }
+  ctx.restore();
+}
+
+// 낚이기 직전: 머리가 밀어 올린 수면이 둥글게 부풀다가(1) 터지며 갈라진다(2)
+function drawBulge(ctx, g) {
+  const c = g.catch;
+  if (!c) return;
+  let k, frame, a = 1;
+  if (c.phase === 'pull' && c.bulgeK > 0) { k = Math.min(1, c.bulgeK); frame = c.bulgeK > 1 ? 2 : 1; }
+  else if (c.phase === 'leap' && c.pt < 0.3) { k = 1; frame = 2; a = 1 - c.pt / 0.3; }
+  else return;
+  const spr = sprite('c_bulge_' + frame);
+  const w = c.lw * 0.85 * (0.45 + 0.55 * k), h = w * spr.h / spr.w * (0.35 + 0.65 * k);
+  ctx.save();
+  ctx.globalAlpha = a * Math.min(1, k * 3);
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(spr.img, c.hitX - w / 2, surfaceY(g, c.hitX) + h * 0.4 - h, w, h);
   ctx.restore();
 }
 

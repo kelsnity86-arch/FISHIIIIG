@@ -167,8 +167,8 @@
 | 145 | `c_shafts` | 물속 빛살 | **DONE** | |
 | 146 | `c_whale_leap` | 고래: 솟구치는 자세 | **DONE** | |
 | 147 | `c_whale_fall` | 고래: 떨어지는 자세 | **DONE** | |
-| 148 | `c_shadow_swim` | 그림자: 헤엄 4동작 | **TODO** | |
-| 149 | `c_shadow_turn` | 그림자: 돌아서기 3동작 | **TODO** | |
-| 150 | `c_shadow_act` | 그림자: 몸부림·잠수·솟구침 3동작 | **TODO** | |
-| 151 | `c_bulge` | 수면이 부풀어 터지기 2동작 | **TODO** | |
-| 152 | `c_whale_rise` | 고래: 수면을 뚫고 나오는 2동작 | **TODO** | |
+| 148 | `c_shadow_swim` | 그림자: 헤엄 4동작 | DONE | |
+| 149 | `c_shadow_turn` | 그림자: 돌아서기 3동작 | DONE | |
+| 150 | `c_shadow_act` | 그림자: 몸부림·잠수·솟구침 3동작 | DONE | |
+| 151 | `c_bulge` | 수면이 부풀어 터지기 2동작 | DONE | |
+| 152 | `c_whale_rise` | 고래: 수면을 뚫고 나오는 2동작 | DONE | |

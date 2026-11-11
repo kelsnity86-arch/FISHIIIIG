@@ -92,7 +92,7 @@ SHEETS = {
     'c_boat': [dict(name=f'c_boat_{i + 1}', w=36, grid=(1, 3), upscale=True) for i in range(3)],
     'c_rod': [dict(name='c_rod', w=44, upscale=True)],
     'c_float': [dict(name='c_float', h=24, upscale=True)],
-    'c_shadow': [dict(name='c_shadow', w=256, soft=True, upscale=True)],
+    'c_shadow': [dict(name='c_shadow', w=256, soft=True, upscale=True, silhouette=True)],
     'c_bubbles': [dict(name=f'c_bubbles_{i + 1}', w=64, grid=(2, 2), upscale=True) for i in range(4)],
     'c_thrash': [dict(name='c_thrash', w=200, soft=True, upscale=True)],
     'c_bowspray': [dict(name=f'c_bowspray_{i + 1}', w=40, grid=(1, 2), upscale=True) for i in range(2)],
@@ -103,10 +103,10 @@ SHEETS = {
     'c_whale_leap': [dict(name='c_whale_leap', w=300, upscale=True)],
     'c_whale_fall': [dict(name='c_whale_fall', w=300, upscale=True)],
     # ── 움직임용 자세 그림 ──
-    'c_shadow_swim': [dict(name=f'c_shadow_swim_{i + 1}', w=256, grid=(1, 4), soft=True, upscale=True) for i in range(4)],
-    'c_shadow_turn': [dict(name=f'c_shadow_turn_{i + 1}', w=256, grid=(1, 3), soft=True, upscale=True) for i in range(3)],
-    'c_shadow_act': [dict(name=f'c_shadow_{n}', w=256, grid=(1, 3), soft=True, upscale=True) for n in ['thrash', 'dive', 'surge']],
-    'c_bulge': [dict(name=f'c_bulge_{i + 1}', w=256, grid=(1, 2), soft=True, upscale=True) for i in range(2)],
+    'c_shadow_swim': [dict(name=f'c_shadow_swim_{i + 1}', w=256, grid=(1, 4), soft=True, upscale=True, silhouette=True) for i in range(4)],
+    'c_shadow_turn': [dict(name=f'c_shadow_turn_{i + 1}', w=256, grid=(1, 3), soft=True, upscale=True, silhouette=True) for i in range(3)],
+    'c_shadow_act': [dict(name=f'c_shadow_{n}', w=256, grid=(1, 3), soft=True, upscale=True, silhouette=True) for n in ['thrash', 'dive', 'surge']],
+    'c_bulge': [dict(name=f'c_bulge_{i + 1}', w=256, grid=(1, 2), soft=True, upscale=True, fade=(0.55, 0.92), fade_x=0.14) for i in range(2)],
     'c_whale_rise': [dict(name=f'c_whale_rise_{i + 1}', w=300, grid=(1, 2), upscale=True) for i in range(2)],
     'web_node': [dict(name=f'web_node_{i + 1}', w=48, grid=(3, 4)) for i in range(12)],
 }
@@ -205,6 +205,12 @@ def build():
         first = items[0]
         soft = first.get('soft', False)
         a = load(src, first.get('opaque', False), soft)
+        if first.get('silhouette'):
+            # 그림자: 장마다 색·가장자리가 달라서, 모양만 살리고 한 가지 색과 번짐으로 통일한다
+            mask = Image.fromarray(((a[..., 3] > 60) * 255).astype(np.uint8))
+            blur = np.array(mask.filter(ImageFilter.GaussianBlur(a.shape[1] * 0.004)), dtype=np.float32) / 255
+            a[..., 0], a[..., 1], a[..., 2] = 16, 46, 78
+            a[..., 3] = (np.clip(blur * 1.15, 0, 1) * 242).astype(np.uint8)
         thr = 6 if soft else ALPHA_MIN
         ys = np.where((a[..., 3] > thr).any(axis=1))[0]; xs = np.where((a[..., 3] > thr).any(axis=0))[0]
         if first.get('whole'):
@@ -228,6 +234,10 @@ def build():
                 f0, f1 = item['fade']
                 ramp = np.clip((f1 - np.linspace(0, 1, part.shape[0])) / (f1 - f0), 0, 1)
                 part[..., 3] = (part[..., 3] * ramp[:, None]).astype(np.uint8)
+            if item.get('fade_x'):                               # 좌우 끝도 서서히 투명하게
+                e = item['fade_x']; xs_ = np.linspace(0, 1, part.shape[1])
+                ramp = np.clip(np.minimum(xs_, 1 - xs_) / e, 0, 1)
+                part[..., 3] = (part[..., 3] * ramp[None, :]).astype(np.uint8)
             crop = Image.fromarray(part)
             ratio = crop.width / crop.height
             w = item.get('w') or item['h'] * ratio

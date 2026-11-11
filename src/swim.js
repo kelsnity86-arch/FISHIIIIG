@@ -18,6 +18,8 @@ export function createSwimmer(len, x, y, face = 1) {
     pitch: 0,             // 머리를 숙인 정도(+) / 든 정도(-)
     speed: 0, vis: 0,
     tail: 0, tailAmp: 0.03, shake: 0,
+    act: null,            // 특별한 자세: 'thrash' 몸부림 / 'dive' 잠수 / 'surge' 솟구침 (없으면 헤엄)
+    pose: 'swim', prevPose: null, mix: 1,   // 지금 자세, 직전 자세, 넘어가는 정도
     maxSpeed: 60 / Math.sqrt(big) + len * 0.1,
     turnTime: 0.9 * Math.sqrt(big),      // 완전히 돌아서는 데 걸리는 시간(초)
     accel: 1.8 / Math.sqrt(big),
@@ -67,4 +69,12 @@ export function steer(s, dt, { arrive = true } = {}) {
   s.tailAmp = approach(s.tailAmp, 0.035 + pace * 0.06 + kick * 0.08, 4, dt);
   s.shake = approach(s.shake, 0, 3, dt);
   return Math.hypot(dx, dy);
+}
+
+// 지금 보여줄 자세 그림. 돌아설 때는 몸을 트는 3동작을 거쳐 반대쪽을 본다.
+export function updatePose(s, dt) {
+  const af = Math.abs(s.face);
+  const p = af < 0.22 ? 'turn_3' : af < 0.52 ? 'turn_2' : af < 0.8 ? 'turn_1' : (s.act || 'swim');
+  if (p !== s.pose) { s.prevPose = s.pose; s.pose = p; s.mix = 0; }
+  s.mix = Math.min(1, s.mix + dt / 0.18);
 }

@@ -6,7 +6,7 @@ import {
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { preloadCreature } from './assets.js';
-import { createSwimmer, steer, mouth } from './swim.js';
+import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -170,7 +170,7 @@ function reelIn(g) {
 function flee(g) {
   if (!g.sw) return;
   const s = g.sw;
-  s.fleeing = true;
+  s.fleeing = true; s.act = 'dive';
   s.target = { x: s.x - 320 - s.len * 0.4, y: DEEP + 20, speed: 1.4 };
 }
 
@@ -288,6 +288,8 @@ export function update(g, dt) {
       break;
     }
   }
+
+  if (g.sw) updatePose(g.sw, dt);
 
   // 달아나는 그림자: 깊어지고 흐려지다 사라진다
   if (g.sw && g.sw.fleeing) {
@@ -479,6 +481,7 @@ function updateFight(g, dt) {
   }
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.vis = 1;
+  s.act = f.mode === 'thrash' && s.y < 30 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
 
   followLine(g, dt);
   g.bob.dipTarget = f.surging ? 8 : 5;
@@ -540,6 +543,7 @@ function startCatch(g) {
     rise: 1.15 + clamp(L / 1500, 0, 0.6),
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
+    bulgeK: 0, hitX: ex, stage: 0, mx: ex, my: WL,
   };
   g.fight = null;
   snd(g, 'surge');
@@ -549,6 +553,7 @@ function startCatch(g) {
 // 솟구치는 자세 그림 안에서 입의 위치 (그림 폭·높이 대비, 가운데 기준)
 export const LEAP_MOUTH = [0.46, -0.28];
 export function leapMouth(c, lh) {
+  if (c.phase === 'leap') return { x: c.mx, y: c.my };
   const mx = LEAP_MOUTH[0] * c.lw * c.scale, my = LEAP_MOUTH[1] * lh * c.scale;
   const cs = Math.cos(c.rot), sn = Math.sin(c.rot);
   return { x: c.x + mx * cs - my * sn, y: c.y + mx * sn + my * cs };
@@ -571,21 +576,22 @@ function updateCatch(g, dt) {
       const coil = { x: c.ex - lw * 0.3, y: Math.min(DEEP * 0.6, 40 + lh * 0.15) }, hit = { x: c.ex - lw * 0.12, y: 14 };
       if (u < 0.55) {
         const k = u / 0.55, e = k * k * (3 - 2 * k);
-        s.x = lerp(f.x, coil.x, e); s.y = lerp(f.y, coil.y, e); s.pitch = lerp(f.pitch, 0.15, e);
+        s.x = lerp(f.x, coil.x, e); s.y = lerp(f.y, coil.y, e); s.pitch = lerp(f.pitch, 0.2, e);
+        s.act = k > 0.35 ? 'dive' : null;
       } else {
         const k = (u - 0.55) / 0.45, e = k * k;                       // 점점 빨라지며 돌진
-        s.x = lerp(coil.x, hit.x, e); s.y = lerp(coil.y, hit.y, e); s.pitch = lerp(0.15, -0.9, Math.min(1, k * 1.6));
+        s.x = lerp(coil.x, hit.x, e); s.y = lerp(coil.y, hit.y, e); s.pitch = lerp(0.2, -0.5, Math.min(1, k * 1.6));
+        s.act = 'surge';
         c.trail -= dt;
         if (c.trail <= 0) { c.trail = 0.05; bubbles(g, s.x - lw * 0.2, WL + s.y + 10, 1, lw * 0.08); }
       }
       s.face = approach(s.face, 1, 10, dt); s.vis = 1; s.shake = 1;
-      s.tail += dt * s.beat * 2.4; s.tailAmp = approach(s.tailAmp, 0.11, 6, dt);
+      s.tail += dt * s.beat * 2.4;
       followLine(g, dt);
-      if (u > 0.72 && !c.bulge) {                                    // 머리가 수면을 밀어 올리며 물이 부서지기 시작한다
-        c.bulge = true;
-        burst(g, 'c_thrash', hit.x + lw * 0.1, clamp(lw * 0.55, 110, 460), 0.7);
-        swell(g, hit.x, 4 + lw * 0.01, 1, 110, 50); swell(g, hit.x, 4 + lw * 0.01, -1, 110, 50);
-      }
+      // 머리가 수면을 밀어 올린다: 둥글게 부풀다가(1) 터지며 갈라진다(2)
+      c.hitX = hit.x + lw * 0.08;
+      c.bulgeK = clamp((u - 0.5) / 0.36, 0, 1) + (u > 0.9 ? 1 : 0);
+      if (u > 0.7 && !c.bulge) { c.bulge = true; swell(g, hit.x, 4 + lw * 0.01, 1, 110, 50); swell(g, hit.x, 4 + lw * 0.01, -1, 110, 50); }
     }
     if (c.pt >= T_PULL || c.skip) {
       // 수면이 터진다: 히트스톱 + 번쩍임 + 물 폭발 + 사방으로 물보라 + 큰 물결
@@ -605,7 +611,13 @@ function updateCatch(g, dt) {
     // 줄에 끌려 물 밖으로 뽑혀 나온다: 빠르게 솟았다가 꼭대기에서 느려진다
     if (c.skip) c.pt = Math.max(c.pt, c.rise);
     const u = clamp(c.pt / c.rise, 0, 1), e = easeOut(u);
-    c.x = lerp(start.x, apex.x, e); c.y = lerp(start.y, apex.y, e); c.rot = lerp(-0.5, 0, e);
+    // 입이 지나가는 길(수면 → 꼭대기)을 따라, 머리만(0) → 몸 절반(1) → 온몸(2) 순서로 자세 그림을 넘긴다
+    const m0 = { x: c.ex + lw * 0.12, y: WL + lh * 0.04 }, m1 = { x: apex.x + lw * LEAP_MOUTH[0], y: apex.y + lh * LEAP_MOUTH[1] };
+    c.mx = lerp(m0.x, m1.x, Math.pow(e, 1.25)); c.my = lerp(m0.y, m1.y, e);
+    const stage = e < 0.22 ? 0 : e < 0.48 ? 1 : 2;
+    if (stage !== c.stage) { c.stage = stage; spray(g, c.mx - lw * 0.25, WL, 4, 150 + lw * 0.25, lw * 0.22); }
+    c.rot = stage === 2 ? lerp(-0.3, 0, easeOut((e - 0.48) / 0.52)) : 0;
+    c.x = c.mx - lw * LEAP_MOUTH[0]; c.y = c.my - lh * LEAP_MOUTH[1];
     c.out = e;
     if (u > 0.12 && u < 1 && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
