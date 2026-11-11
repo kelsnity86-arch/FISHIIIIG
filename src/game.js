@@ -1,7 +1,7 @@
 // 낚시 진행(상태·수치). 그리기는 render.js 가 담당.
 // 구도는 순수 옆모습: 수면선(WL) 위는 하늘, 아래는 물의 단면. (목표 화면: assets/concept)
 import {
-  W, H, WL, BOAT_X, CAST_NEAR, CAST_FAR, ROD_LEN, DEEP, LEAP_X, LEAP_SCALE,
+  W, H, WL, BOAT_X, CAST_NEAR, CAST_FAR, ROD_LEN, DEEP, LEAP_X, LEAP_SCALE, SHADOW_LEN,
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
@@ -199,6 +199,7 @@ export function update(g, dt) {
   bob.dip += bob.dipV * dt;
 
   let rodTarget = 0.32, rodRate = 8, bendTarget = 0, pose = 1;
+  let zoomRate = 2.6;
   let tiltTarget = 0, dxTarget = 0, roughTarget = 0, zoomTarget = 1, dimTarget = 0, shaftsTarget = 0, raysTarget = 0;
 
   switch (g.state) {
@@ -273,6 +274,7 @@ export function update(g, dt) {
       pose = 3; rodRate = 7;
       const r = updateCatch(g, dt);
       ({ rodTarget, bendTarget, roughTarget, zoomTarget, dimTarget, shaftsTarget, raysTarget, tiltTarget } = r);
+      if (r.zoomRate) zoomRate = r.zoomRate;
       if (g.state === 'result') {
         const res = g.result;
         if (g.t > 0.3 && g.t < 0.95) { res.tickT -= g.realDt; if (res.tickT <= 0) { res.tickT = 0.06; snd(g, 'tick'); } }
@@ -305,7 +307,7 @@ export function update(g, dt) {
   B.dx = approach(B.dx, dxTarget, 1.6, dt);
   B.spray = approach(B.spray, clamp(Math.abs(B.dx - prevDx) / Math.max(dt, 1e-4) / 14, 0, 1), 4, dt);
   g.rough = approach(g.rough, roughTarget, roughTarget > g.rough ? 3 : 0.7, dt);
-  g.cam.zoom = approach(g.cam.zoom, zoomTarget, 2.6, g.realDt);
+  g.cam.zoom = approach(g.cam.zoom, zoomTarget, zoomRate, g.realDt);
   g.dim = approach(g.dim, dimTarget, 5, g.realDt);
   g.shafts = approach(g.shafts, shaftsTarget, 3, g.realDt);
   g.rays = approach(g.rays, raysTarget, 3.5, g.realDt);
@@ -329,7 +331,7 @@ export function update(g, dt) {
 function startWait(g) {
   g.fish = rollCreature(g.forceGrade);
 
-  const L = g.fish.len, fx = g.castX;
+  const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
   const plan = [
     { x: fx + 60 + L * 0.1, y: DEEP * 0.75, speed: 0.55 },
     { x: fx - 80 - L * 0.15, y: DEEP * 0.5, speed: 0.5 },
@@ -532,17 +534,18 @@ const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const T_PULL = 0.95;
 
 function startCatch(g) {
-  const L = g.fish.len, lw = L * LEAP_SCALE;
-  // 화면보다 큰 생물은 카메라가 배를 기준으로 뒤로 빠진다 (배는 제자리에서 점처럼 작아진다).
-  // 솟구치는 자리는 입이 배 왼쪽 가까이에 오도록 잡는다.
-  // 화면에서 차지하는 폭: 일반 등급이 이미 화면의 절반을 넘고, 등급이 오를수록 화면을 넘어선다.
-  const gi0 = GRADES.indexOf(g.fish.gradeInfo);
-  const zoom = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi0] / lw, 0.2, 1);
-  let ex = BOAT_X + (W * 0.72 - lw * zoom * 0.5 - BOAT_X) / zoom;
-  if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40) * zoom;      // 그림자가 있는 자리에 가깝게
+  // 솟아오르는 것은 모두 같은 크기의 그림자. 꼭대기에서 뿅 하는 순간에만 등급에 맞는 크기의 생물로 바뀐다.
+  const big = g.fish.len * LEAP_SCALE, gi = GRADES.indexOf(g.fish.gradeInfo);
+  // 드러난 뒤 화면에서 차지하는 폭: 일반 등급이 이미 화면의 절반을 넘고, 등급이 오를수록 화면을 넘어선다.
+  // 카메라는 배를 기준으로 물러나고(배가 점처럼 작아진다), 생물의 입이 배 왼쪽 가까이에 오도록 자리를 잡는다.
+  const zoom = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi] / big, 0.2, 1);
+  const bigEx = BOAT_X + (W * 0.72 - big * zoom * 0.5 - BOAT_X) / zoom;
+  const lw = SHADOW_LEN;
+  let ex = W * 0.42;
+  if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
-    phase: 'pull', pt: 0, lw, gi: GRADES.indexOf(g.fish.gradeInfo), zoom, ex,
-    rise: 1.15 + clamp(L / 1500, 0, 0.6),
+    phase: 'pull', pt: 0, lw, gi, zoom, ex, big, bigEx,
+    rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
     bulgeK: 0, hitX: ex, reveal: false, popT: 0, mx: ex, my: WL,
@@ -563,9 +566,9 @@ export function leapMouth(c, lh) {
 export const leapHeight = (c) => c.lw * 0.705;
 
 function updateCatch(g, dt) {
-  const c = g.catch, s = g.sw, L = g.fish.len, lw = c.lw, lh = leapHeight(c), gi = c.gi;
+  const c = g.catch, s = g.sw, lw = c.lw, lh = leapHeight(c), gi = c.gi;
   const start = { x: c.ex - lw * 0.1, y: WL + lh * 0.62 }, apex = { x: c.ex + lw * 0.03, y: WL - lh * 0.42 };
-  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.zoom, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
+  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.reveal ? c.zoom : 1, zoomRate: 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
   c.pt += dt;
 
   if (c.phase === 'pull') {
@@ -616,8 +619,10 @@ function updateCatch(g, dt) {
     // 구구구구…: 정체 모를 거대한 그림자가 물보라에 싸인 채 솟아오른다. 꼭대기에 닿는 순간 뿅 — 정체가 드러난다.
     c.x = lerp(start.x, apex.x, e); c.y = lerp(start.y, apex.y, e);
     c.rot = lerp(-0.75, -0.1, e);
+    if (c.reveal) { c.x = apex.x; c.y = apex.y; }
     if (!c.reveal && u >= 0.86) {
       c.reveal = true; c.popT = 0;
+      c.lw = c.big; c.ex = c.bigEx;                                   // 여기서부터 등급에 맞는 크기
       g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
       spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
       snd(g, 'pop');
