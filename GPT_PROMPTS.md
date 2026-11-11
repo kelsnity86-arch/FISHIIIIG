@@ -9270,3 +9270,379 @@ on the main branch, in the folder assets/raw/, with the file name d_sheet_14.png
 ```
 
 ---
+
+## ㉒ 놀람 표정 — 나머지 13장
+
+### 290. `d_sheet_02_s` — 놀람 표정: 2번 장 25마리 (햇살 연안)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_02.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_02_s.png
+```
+
+
+---
+
+### 291. `d_sheet_03_s` — 놀람 표정: 3번 장 25마리 (산호초 열대)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_03.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_03_s.png
+```
+
+
+---
+
+### 292. `d_sheet_04_s` — 놀람 표정: 4번 장 25마리 (산호초 열대)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_04.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_04_s.png
+```
+
+
+---
+
+### 293. `d_sheet_05_s` — 놀람 표정: 5번 장 25마리 (안개 군도)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_05.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_05_s.png
+```
+
+
+---
+
+### 294. `d_sheet_06_s` — 놀람 표정: 6번 장 25마리 (안개 군도)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_06.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_06_s.png
+```
+
+
+---
+
+### 295. `d_sheet_07_s` — 놀람 표정: 7번 장 25마리 (원양 대해)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_07.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_07_s.png
+```
+
+
+---
+
+### 296. `d_sheet_08_s` — 놀람 표정: 8번 장 25마리 (원양 대해)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_08.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_08_s.png
+```
+
+
+---
+
+### 297. `d_sheet_09_s` — 놀람 표정: 9번 장 25마리 (극지 빙해)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_09.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_09_s.png
+```
+
+
+---
+
+### 298. `d_sheet_10_s` — 놀람 표정: 10번 장 25마리 (화산 해역)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_10.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_10_s.png
+```
+
+
+---
+
+### 299. `d_sheet_11_s` — 놀람 표정: 11번 장 25마리 (심연 해구)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_11.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_11_s.png
+```
+
+
+---
+
+### 300. `d_sheet_12_s` — 놀람 표정: 12번 장 25마리 (환상의 바다)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: every creature is a funny imaginary sea animal. It is an ANIMAL FIRST - the real animal's body shape, fins and tail must be instantly readable from the silhouette. The gag is ONE everyday object that replaces ONE body part or sits on the body as one accessory. Never turn the whole animal into the object. Dumb deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_12.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_12_s.png
+```
+
+
+---
+
+### 301. `d_sheet_13_s` — 놀람 표정: 13번 장 25마리 (모든 해역 공용)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: these are ORDINARY real sea creatures, the plain everyday catch. Draw each one as itself with its real body shape and natural colors, instantly recognizable from the silhouette. No objects, no costumes, no gags. Simple friendly deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_13.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_13_s.png
+```
+
+
+---
+
+### 302. `d_sheet_14_s` — 놀람 표정: 14번 장 25마리 (모든 해역 공용)
+
+```
+Create a production game sprite sheet for a fishing game. OUTPUT EXACTLY 1024x1024 square. Exactly 25 distinct whole-body sea creature sprites on a strictly invisible 5 columns x 5 rows grid. Evenly spaced cell centers at about x=102,307,512,717,922 and y=102,307,512,717,922. All 25 sprites visible and separate. No missing rows, no extra creatures, no captions.
+TRUE LOW-RES PIXEL ART: each creature must fit a 22 wide by 16 tall logical-pixel bitmap, enlarged NEAREST NEIGHBOR 8x to approximately 176x128 image pixels; one logical pixel is an 8x8 SOLID SQUARE block. Never draw sub-pixel details. Dark one-logical-pixel outline #1a1c2c. Use chunky stepped contours, one-pixel square eye, big head, expressive species silhouette, appealing polished handheld-console sprite design, like the pets on a modern color Tamagotchi screen. Pure SIDE view facing RIGHT. Whole body with no amputated fins or tail. No smooth vector curves. Only 1-2 tone flat shading, absolutely no gradients, antialiasing, blur, soft shadows, checkerboard, water, bubbles, ground or cast shadows, frames, borders, grid lines, typography, numerals, labels, watermarks.
+Background MUST be perfectly uniform solid MAGENTA #FF00FF over all empty space. Do not use magenta/pink-magenta in creatures. Ample margins and gaps; artwork within each 180x150 central cell area.
+Only permitted colors: #1a1c2c #333c57 #566c86 #94b0c2 #f4f4f4 #2b1d14 #5d3a24 #8a5a3b #c28a5c #e8c39e #f6e6c8 #8b1e2d #d83a3a #ef7d32 #f7c948 #fff3a3 #e0a526 #1f5d3a #38a35b #a7d65b #2a9d8f #29366f #3b5dc9 #41a6f6 #73eff7 #5d275d #8e44ad #f08cbe #ffc8dd #c7cfdd #ffb7d0 #b8452e #d9822b #6b8f2e #e9f3ff #7fb5d6 #3e2f5b #f2e3a0.
+DESIGN RULE: these are ORDINARY real sea creatures, the plain everyday catch. Draw each one as itself with its real body shape and natural colors, instantly recognizable from the silhouette. No objects, no costumes, no gags. Simple friendly deadpan face.
+IMPORTANT: readability through deliberate bold pixel clusters, not through adding high-resolution details. All creatures share the same pixel size and art direction.
+
+THIS IS A SECOND FRAME FOR AN EXISTING SHEET. Open assets/raw/d_sheet_14.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Redraw the SAME 25 creatures, in the SAME 25 cells, same order, same size, same colors, same pixel grid and same body outline. Change ONLY the expression to SHOCKED: the eye becomes twice as big with a tiny pupil, the mouth opens wide, fins or limbs stick straight out a little, and 2 or 3 single sweat-drop pixels fly off the head. Everything else must stay pixel-for-pixel identical so that flipping between the two sheets looks like a 2-frame animation.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_sheet_14_s.png
+```
+
+
+---
+
+## ㉓ 낚시 이펙트 — 연속 동작 그림
+
+### 303. `c_erupt_seq` — 물 폭발 6동작 (솟음 → 퍼짐 → 무너짐 → 잔거품)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_erupt.png and
+assets/raw/c_wave.png. Every image you make must look like it belongs to those: the same
+painterly storybook sea, the same white foam with soft turquoise shadows, same lighting.
+
+No text. Fully transparent background. Draw only the water effect: no sea surface below it,
+no sky, no boat, no creature.
+
+A sprite sheet of 6 frames in a grid of 3 columns x 2 rows, never touching, showing ONE huge
+water eruption from the sea surface over time (as if something enormous burst out). Every
+frame is drawn at the same scale with its bottom edge on the same flat waterline, centered
+in its cell, so the frames can be shown in sequence as an animation:
+1) the surface domes up and cracks, first jets of white water shooting up from the middle,
+2) a tall thick column of white water and foam rising fast, narrow at the base,
+3) the column at full height, crown opening outward at the top, heavy sheets of water,
+4) the top spreading wide and starting to fall, curtains of water and many falling drops,
+5) the column collapsing, most water falling back, a wide low ring of foam at the base,
+6) only a low mound of churning white foam and a few last drops.
+White and pale turquoise water only - NOT cream, NOT orange, no flame-like streaks.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_erupt_seq.png
+```
+
+---
+
+### 304. `c_drops` — 물방울·물줄기 조각 8개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_erupt.png and
+assets/raw/c_wave.png. Every image you make must look like it belongs to those: the same
+painterly storybook sea, the same white foam with soft turquoise shadows, same lighting.
+
+No text. Fully transparent background. Draw only the water effect: no sea surface below it,
+no sky, no boat, no creature.
+
+A sprite sheet of 8 separate small water pieces in a grid of 4 columns x 2 rows, never
+touching: flying water thrown up by a big splash. Real water shapes, not decorative swirls:
+1) a single round drop with a highlight, 2) a teardrop with a short tail, 3) a cluster of
+three small drops, 4) a short thick splash arc, 5) a longer thin streak of water breaking
+into beads at the end, 6) a small crown splash, 7) a flat blob of foam, 8) a fan of fine
+spray mist. White with pale turquoise shading and a thin soft outline.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_drops.png
+```
+
+---
+
+### 305. `c_plop` — 작은 튐 4동작 (찌가 떨어질 때·입질 때)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_erupt.png and
+assets/raw/c_wave.png. Every image you make must look like it belongs to those: the same
+painterly storybook sea, the same white foam with soft turquoise shadows, same lighting.
+
+No text. Fully transparent background. Draw only the water effect: no sea surface below it,
+no sky, no boat, no creature.
+
+A sprite sheet of 4 frames in one row, never touching, showing ONE small splash where a
+fishing float lands on calm water, over time. Same scale, bottom edge on the same flat
+waterline in every frame:
+1) a tiny crown of water just rising, 2) the crown at full height with a few drops flying,
+3) the crown falling, a ring starting to spread, 4) only a thin wide ripple ring and one drop.
+Small, light and delicate.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_plop.png
+```
+
+---
+
+### 306. `c_foam` — 수면 거품 띠 4동작 (물속에서 몸부림칠 때)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_erupt.png and
+assets/raw/c_wave.png. Every image you make must look like it belongs to those: the same
+painterly storybook sea, the same white foam with soft turquoise shadows, same lighting.
+
+No text. Fully transparent background. Draw only the water effect: no sea surface below it,
+no sky, no boat, no creature.
+
+A sprite sheet of 4 frames stacked in 4 rows, never touching. Each frame is one long
+horizontal strip of churning white foam and small waves lying ON the water surface, seen
+from the side - what the surface looks like when something huge thrashes just below it.
+Each strip is about 6 times wider than tall, fades out softly at its left and right ends,
+and sits on the same flat waterline. From top to bottom the foam gets stronger:
+1) light ripples and a little foam, 2) lumpy small waves with foam caps, 3) tall choppy
+peaks with spray, 4) violent boiling water with spray flying up.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_foam.png
+```
+
+---
+
+### 307. `c_rays2` — 금빛 빛줄기
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_erupt.png and
+assets/raw/c_wave.png. Every image you make must look like it belongs to those: the same
+painterly storybook sea, the same white foam with soft turquoise shadows, same lighting.
+
+No text. Fully transparent background. Draw only the water effect: no sea surface below it,
+no sky, no boat, no creature.
+
+One image: a radial burst of warm GOLDEN sunlight rays, seen from the front, like the glow
+behind a holy treasure. A bright soft golden-white center fading into long alternating wide
+and narrow rays of rich gold and amber that reach the edges and fade to fully transparent.
+No hard outline. Perfectly centered and symmetric so it can be rotated slowly.
+Strong saturated gold - not white, not grey.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_rays2.png
+```
+
+---
