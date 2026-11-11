@@ -619,7 +619,7 @@ function updateCatch(g, dt) {
       followLine(g, dt);
       // 머리가 수면을 밀어 올린다: 둥글게 부풀다가(1) 터지며 갈라진다(2)
       c.hitX = hit.x + lw * 0.08;
-      c.bulgeK = clamp((u - 0.5) / 0.36, 0, 1) + (u > 0.9 ? 1 : 0);
+      c.bulgeK = clamp((u - 0.4) / 0.48, 0, 1) + (u > 0.9 ? 1 : 0);
       if (u > 0.7 && !c.bulge) { c.bulge = true; swell(g, hit.x, 4 + lw * 0.01, 1, 110, 50); swell(g, hit.x, 4 + lw * 0.01, -1, 110, 50); }
     }
     if (c.pt >= T_PULL || c.skip) {

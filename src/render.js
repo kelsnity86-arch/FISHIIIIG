@@ -76,8 +76,8 @@ function drawEmote(ctx, g) {
 function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
   ctx.font = `${weight} ${size}px ${FONT}`;
   ctx.textAlign = align; ctx.textBaseline = 'middle';
-  ctx.lineWidth = Math.max(2, size * 0.22); ctx.lineJoin = 'round';
-  ctx.strokeStyle = 'rgba(20,30,60,0.75)'; ctx.strokeText(str, x, y);
+  ctx.lineWidth = Math.max(1.6, size * 0.17); ctx.lineJoin = 'round';
+  ctx.strokeStyle = 'rgba(16,28,56,0.5)'; ctx.strokeText(str, x, y);
   ctx.fillStyle = color; ctx.fillText(str, x, y);
 }
 
@@ -273,9 +273,11 @@ function drawBackdrop(ctx, g) {
   const bz = Math.pow(z, 0.6), still = Math.abs(z - 1) < 0.001 && Math.abs(ox) < 0.01;
   const sky = sprite('c_sky'), far = sprite('c_farsea');
   const sw = W + 20, sy = HORIZON - sky.h - 2, sh = sky.h + 3;
-  const bx = lerp(CAM_X, CAM_X * z + ox, 0.6) - CAM_X * bz, by = HORIZON * z + oy - HORIZON * bz;
+  // 세로는 하늘 그림이 화면 맨 위부터 수평선까지 늘 덮도록 필요한 만큼만 더 늘인다 (위쪽에 빈 띠가 생기지 않게)
+  const hy = HORIZON * z + oy, vz = Math.max(bz, (hy + 6) / (sky.h + 2));
+  const bx = lerp(CAM_X, CAM_X * z + ox, 0.6) - CAM_X * bz, by = hy - HORIZON * vz;
   ctx.save();
-  ctx.translate(bx, by); ctx.scale(bz, bz);
+  ctx.translate(bx, by); ctx.scale(bz, vz);
   const skyAt = (x, flip) => {
     ctx.save();
     if (flip) { ctx.translate(x + sw, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); }
@@ -459,20 +461,28 @@ function drawBulge(ctx, g) {
   else if (c.phase === 'leap' && c.pt < 0.3) { k = 1; frame = 2; a = 1 - c.pt / 0.3; }
   else return;
   const spr = sprite('c_bulge_' + frame);
-  const w = c.lw * 0.85 * (0.45 + 0.55 * k), h = w * spr.h / spr.w * (0.35 + 0.65 * k);
+  const e2 = k * k * (3 - 2 * k);
+  const w = c.lw * 0.85 * (0.3 + 0.7 * e2), h = w * spr.h / spr.w * (0.1 + 0.9 * e2);
   ctx.save();
-  ctx.globalAlpha = a * Math.min(1, k * 3);
+  ctx.globalAlpha = a * Math.min(1, k * 2.2);
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(spr.img, c.hitX - w / 2, surfaceY(g, c.hitX) + h * 0.4 - h, w, h);
   ctx.restore();
 }
 
+const boatFade = { cur: null, prev: null, t0: 0 };
 function drawBoat(ctx, g) {
   const pose = rodPose(g), b = pose.boat;
   const boat = sprite('c_boat_' + b.pose), rod = sprite('c_rod');
+  // 낚시꾼 자세 그림은 뚝 바뀌지 않고 0.16초 동안 겹쳐 넘어간다
+  const now = performance.now() / 1000;
+  if (b.pose !== boatFade.cur) { boatFade.prev = boatFade.cur; boatFade.cur = b.pose; boatFade.t0 = now; }
+  const mixB = boatFade.prev ? clamp((now - boatFade.t0) / 0.16, 0, 1) : 1;
   ctx.save();
   ctx.translate(b.x, b.y); ctx.rotate(b.rot);
+  if (mixB < 1) { const old = sprite('c_boat_' + boatFade.prev); draw(ctx, old, -old.w / 2, -old.h); ctx.globalAlpha = mixB; }
   draw(ctx, boat, -boat.w / 2, -boat.h);
+  ctx.globalAlpha = 1;
   if (g.boat.spray > 0.04) {                 // 끌려갈 때 뱃머리 물살
     const sp = sprite('c_bowspray_2'), k = 0.6 + g.boat.spray * 0.6;
     ctx.globalAlpha = clamp(g.boat.spray * 1.5, 0, 1);
@@ -585,7 +595,7 @@ function drawHud(ctx, g) {
   if (g.state === 'charge') text(ctx, `힘 ${Math.round(g.power * 100)}%`, W / 2, H - 34, 12, COLORS.cream);
   if (g.state === 'fight') {
     const f = g.fight;
-    text(ctx, `남은 거리 ${Math.max(0, f.dist).toFixed(0)}m`, W / 2, 20, 11, COLORS.cream);
+    text(ctx, `${Math.max(0, f.dist).toFixed(0)} m`, W / 2, 18, 10.5, 'rgba(255,244,220,0.85)', 'center', 600);
     if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 40, 13, '#ffd0c0');
     else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, 40, 13, '#ff8a7a');
   }
@@ -597,7 +607,12 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint) text(ctx, hint, W / 2, H - 16, 11, 'rgba(255,244,220,0.92)', 'center', 600);
+  if (hint) {
+    // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
+    const fades = g.state === 'wait' || g.state === 'fight';
+    const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
+    if (a > 0.01) { ctx.globalAlpha = a; text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }
+  }
 
   if (g.msg) {
     const k = g.msg.age / 1.4;
