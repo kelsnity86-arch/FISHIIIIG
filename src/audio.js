@@ -58,6 +58,25 @@ SONGS.dawn.alts = [
 
 // 해역마다 조를 옮겨 같은 곡도 다르게 들린다 (열대는 높고 밝게, 심연은 낮게)
 const REGION_SHIFT = [0, 0, 2, -3, -1, 4, -4, -6, 3];
+// 해역마다 음악의 성격이 다르다. 시간대의 곡 위에 그 바다의 빛깔을 입힌다 (전부 잔잔하게, 튀는 소리 없이).
+//   tempo 빠르기 배수 · dens 반주의 촘촘함 배수 · mel 가락의 잦기 배수 · lead 가락 악기 · scale 가락 음계
+//   minor 단조 화음 진행 · low 한 옥타브 낮게 · pulse 여린 북(몇 마디마다) · bell 먼 종소리(잦기) · arp 반짝이는 오름 가락 · drone 깔리는 낮은 음
+//   old "옛 노래" 가락을 몇 음까지 들려주는가 (이야기: 멀리 갈수록 잊힌 노래가 조금씩 이어진다. 8번 해역에서 끝까지)
+const REGION_MUS = [null,
+  { tempo: 1,    dens: 1,    mel: 1,    old: 2 },                                                              // 1 햇살 연안: 따뜻하고 편안하게 (기본)
+  { tempo: 1.08, dens: 1.15, mel: 1.1,  lead: 'box', sway: true, old: 3 },                                      // 2 산호초 열대: 밝고 살랑이는 엇박
+  { tempo: 0.88, dens: 0.6,  mel: 0.7,  lead: 'box', scale: [0, 2, 3, 7, 9], bell: 0.16, drone: 0.02, old: 3 }, // 3 안개 군도: 듬성듬성, 안개 너머 종소리
+  { tempo: 0.92, dens: 0.85, mel: 0.85, low: true, drone: 0.035, old: 4 },                                      // 4 원양 대해: 넓고 느긋하게, 깊은 울림
+  { tempo: 0.84, dens: 0.55, mel: 0.8,  lead: 'box', high: true, scale: [0, 2, 4, 7, 11], old: 5 },             // 5 극지 빙해: 높고 맑은 오르골, 여백
+  { tempo: 0.9,  dens: 0.8,  mel: 0.75, minor: true, pulse: 2, drone: 0.03, old: 6 },                           // 6 화산 해역: 단조, 낮고 묵직한 맥박
+  { tempo: 0.78, dens: 0.4,  mel: 0.5,  minor: true, low: true, lead: 'box', drone: 0.045, bell: 0.06, old: 7 },// 7 심연 해구: 느리고 어둡게, 거의 정적
+  { tempo: 0.94, dens: 0.9,  mel: 0.9,  lead: 'box', arp: true, old: 8 },                                       // 8 환상의 바다: 꿈결, 옛 노래가 끝까지
+];
+const MINOR_PROGS = [[[0, 'm9'], [8, 'maj7'], [5, 'm7'], [7, 'm7']], [[0, 'm7'], [5, 'm7'], [8, 'maj7'], [7, 'm7']], [[5, 'm7'], [0, 'm9'], [8, 'maj7'], [3, 'maj7']]];
+const MINOR_SCALE = [0, 3, 5, 7, 10];
+// 옛 노래: 잊힌 자장가 한 소절 (으뜸음에서의 반음, 길이(박)). 장조/단조 해역에 맞춰 3음과 6음이 바뀐다.
+const OLD_SONG = [[7, 1], [12, 1], [16, 1.5], [14, 0.5], [12, 1], [9, 1], [7, 1], [12, 3]];
+const OLD_MINOR = { 16: 15, 9: 8, 14: 14 };
 
 export function createEngine(ctx) {
   // ── 흐름: 음악 / 효과음 / 환경음 → (울림) → 누르개 → 출력 ──
@@ -248,7 +267,7 @@ export function createEngine(ctx) {
   const st = { scene: 'sea', phase: 'day', fight: 0, region: 1, town: 1, quiet: false };
   let beatN = 0, barN = 0, nextT = 0, song = SONGS.day, songId = 'day', shift = 0;
   const rand = rng(20261111);
-  let melDeg = 2, lastBeat = 0, variant = 0, wasFight = false;
+  let melDeg = 2, lastBeat = 0, variant = 0, wasFight = false, R = REGION_MUS[1];
   function scheduleBeat(t) {
     const b = beatN % song.beats;
     if (b === 0) {                                          // 마디가 바뀔 때 곡을 고른다
@@ -260,6 +279,11 @@ export function createEngine(ctx) {
         variant = v; song = v === 0 ? base : { ...base, ...base.alts[v - 1], theme: null };
       }
       shift = st.scene === 'harbor' ? 0 : REGION_SHIFT[st.region] || 0;
+      // 그 해역의 성격을 곡에 입힌다 (항구는 그대로)
+      R = st.scene === 'harbor' ? REGION_MUS[1] : REGION_MUS[st.region] || REGION_MUS[1];
+      const src = variant === 0 ? base : { ...base, ...base.alts[variant - 1], theme: null };
+      song = { ...src, bpm: src.bpm * R.tempo, dens: src.dens * R.dens, mel: src.mel * R.mel, lead: R.lead || src.lead, scale: R.minor ? MINOR_SCALE : R.scale || src.scale,
+        low: src.low || R.low, prog: R.minor ? MINOR_PROGS[variant % MINOR_PROGS.length] : src.prog, theme: R.minor || R.scale ? null : src.theme, oct: (src.oct || 0) + (R.high ? 12 : 0) };
     }
     const fi = song.waltz ? 0 : st.fight;                    // 줄다리기의 긴박함 0~1
     const hot = fi > 0.12;                                   // 줄다리기 중
@@ -313,6 +337,23 @@ export function createEngine(ctx) {
       if (fi > 0.5 && b === song.beats - 1) { taiko(t + beatDur * 0.5, 0.4 * fi); taiko(t + beatDur * 0.75, 0.46 * fi); }           // 마디 끝 북 몰아치기
       // 장력이 높으면 높은 음이 다급하게 오르내린다
       if (fi > 0.7) for (let h = 0; h < 4; h++) chip(t + h * beatDur / 4, root + 12 + tones[(beatN * 4 + h) % 3], beatDur * 0.2, 0.035 * fi, 'triangle');
+    }
+    // ── 해역의 빛깔 (줄다리기 중에는 쉰다) ──
+    if (!hot && !song.waltz) {
+      if (R.drone && b === 0) pad(t, [root - 24 + (root - 24 < 31 ? 12 : 0), root - 17 + (root - 24 < 31 ? 12 : 0)], beatDur * song.beats, R.drone, 320);   // 깔리는 낮은 음
+      if (R.sway && b % 2 === 1) ep(t + beatDur / 2, root + tones[2] + 12, beatDur * 0.4, 0.12);                           // 살랑이는 엇박
+      if (R.pulse && b === 0 && barN % R.pulse === 0) taiko(t, 0.1);                                                      // 먼 곳의 여린 북
+      if (R.bell && b === 0 && rand() < R.bell) box(t + beatDur * (1 + rand()), root + 19, 0.22);                         // 안개 너머 종소리
+      if (R.arp && barN % 4 === 2) box(t + beatDur / 2, root + tones[b % 3] + 24, 0.2);                                   // 반짝이며 오르는 가락
+      // 옛 노래: 16마디에 한 번, 주제 가락이 쉬는 사이에 오르골이 아주 여리게. 멀리 갈수록 한 음씩 더 이어진다.
+      if (b === 0 && barN % 16 === 12) {
+        let x = 0;
+        for (const [n, len] of OLD_SONG.slice(0, R.old)) {
+          const nn = R.minor ? OLD_MINOR[n] ?? n : n;
+          box(t + x * beatDur, song.key + shift + nn + 12, 0.26);
+          x += len;
+        }
+      }
     }
     // 환경음: 갈매기(밤에는 없다), 항구의 종
     if (b === 0 && !hot && st.phase !== 'night' && rand() < (st.scene === 'harbor' ? 0.14 : 0.07)) S.gull(t + rand() * 2, rand());
