@@ -586,14 +586,14 @@ function drawLineAndFloat(ctx, g, phase) {
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다
 const easeIn = (t) => t * t;
 // 연속 동작 그림을 순서대로 넘겨 그린다 (앞 동작 위에 다음 동작이 겹쳐 나타난다). pos 0~1.
-function drawSeq(ctx, names, pos, x, y, w, alpha, flip = false) {
+function drawSeq(ctx, names, pos, x, y, w, alpha, flip = false, squash = 1) {
   const f = clamp(pos, 0, 1) * (names.length - 1), i = Math.min(names.length - 2, Math.floor(f)), k = f - i;
   ctx.save();
   ctx.translate(x, y); if (flip) ctx.scale(-1, 1);
   ctx.imageSmoothingEnabled = true;
   for (const [n, a] of [[names[i], 1 - k * k], [names[i + 1], k]]) {
     if (a < 0.02) continue;
-    const spr = sprite(n), h = w * spr.h / spr.w;
+    const spr = sprite(n), h = w * spr.h / spr.w * squash;
     ctx.globalAlpha = alpha * a;
     ctx.drawImage(spr.img, -w / 2, -h, w, h);
   }
@@ -602,20 +602,27 @@ function drawSeq(ctx, names, pos, x, y, w, alpha, flip = false) {
 const SEQ = {
   c_erupt: [1, 2, 3, 4, 5, 6].map((i) => 'c_erupt_seq_' + i),        // 솟음 → 퍼짐 → 무너짐 → 잔거품
   c_plop: [1, 2, 3, 4].map((i) => 'c_plop_' + i),                    // 찌가 떨어질 때의 작은 튐
-  c_thrash: [1, 3, 4, 4, 3, 2, 1].map((i) => 'c_foam_' + i),         // 몸부림: 수면이 끓어올랐다 가라앉는다
+  c_thrash: [1, 2, 3, 3, 2, 1].map((i) => 'c_foam_' + i),         // 몸부림: 수면이 끓어올랐다 가라앉는다
 };
 function drawBursts(ctx, g) {
-  // 걸린 그림자가 몸부림치는 동안 그 위 수면에 거품이 인다 (세게 칠수록 거칠게)
-  const s = g.sw;
+  // 걸린 동안: 줄이 물을 가르는 자리에 작은 거품이 인다 (세게 당길수록 거칠게). 수면에 낮게 붙어 있다.
+  const s = g.sw, c = g.catch;
   if (s && g.state === 'fight' && s.shake > 0.05) {
-    const names = SEQ.c_thrash.slice(0, 3);
-    drawSeq(ctx, names, clamp((s.shake - 0.3) / 0.7, 0, 1), s.x + s.len * 0.1, surfaceY(g, s.x) + 5, s.len * 0.95, clamp(s.shake * 1.6, 0, 1) * s.vis);
+    const k = clamp(s.shake, 0, 1), x = g.bob.x;
+    drawSeq(ctx, SEQ.c_thrash.slice(0, 2), clamp((k - 0.5) / 0.5, 0, 1), x, surfaceY(g, x) + 3, 46 + k * 34, clamp(k * 1.4, 0, 0.9), false, 0.55);
+  }
+  // 낚아 올릴 때: 몸이 수면을 뚫는 자리에 물기둥 하나. 몸이 솟는 만큼 같이 솟고, 정체가 드러나면 무너져 잔거품이 된다.
+  if (c && c.eruptW && (c.phase === 'leap' || c.phase === 'hang')) {
+    const pos = !c.reveal ? Math.min(0.62, c.out * 0.72) : 0.62 + 0.38 * clamp(c.popT / 0.9, 0, 1);
+    const fade = c.reveal ? 1 - clamp((c.popT - 0.9) / 0.5, 0, 1) : 1;
+    if (fade > 0.01) drawSeq(ctx, SEQ.c_erupt, pos, c.eruptX, surfaceY(g, c.eruptX) + 6, c.eruptW, fade);
   }
   for (const b of g.bursts) {
     const k = b.age / b.life, names = SEQ[b.sprite];
     if (!names) continue;
     const fade = k < 0.8 ? 1 : 1 - (k - 0.8) / 0.2;
-    drawSeq(ctx, names, k, b.x, surfaceY(g, b.x) + (b.sprite === 'c_plop' ? 3 : 6), b.size * (b.sprite === 'c_thrash' ? 1.5 : 1), fade, b.flip);
+    const foam = b.sprite === 'c_thrash';
+    drawSeq(ctx, names, k, b.x, surfaceY(g, b.x) + (b.sprite === 'c_plop' ? 3 : 5), b.size * (foam ? 0.9 : 1), fade, b.flip, foam ? 0.6 : 1);
   }
 }
 function drawSprays(ctx, g) {
