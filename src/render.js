@@ -571,7 +571,7 @@ function drawLineAndFloat(ctx, g, phase) {
   if (hooked && g.sw) {
     // 걸린 뒤: 줄이 수면을 가르고 물속 주둥이까지 이어진다. 찌는 그 자리에 끌려 잠긴다.
     const sy = surfaceY(g, bob.x), entry = { x: bob.x, y: sy };
-    stroke([entry, mouthPos(g)], 0.02, 0.55, 0.85, false, 0.12);
+    stroke([entry, mouthPos(g)], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
     stroke([tip, entry], 0.1 * Math.pow(1 - clamp(tension, 0, 1), 2), 1, 0.95, true);
     drawFloat(bob.x, sy + bob.dip, Math.sin(g.time * 9) * 0.25, true);
     return;
@@ -615,7 +615,7 @@ function drawBursts(ctx, g) {
   if (c && c.eruptW && (c.phase === 'leap' || c.phase === 'hang')) {
     const pos = !c.reveal ? Math.min(0.62, c.out * 0.72) : 0.62 + 0.38 * clamp(c.popT / 0.9, 0, 1);
     const fade = c.reveal ? 1 - clamp((c.popT - 0.9) / 0.5, 0, 1) : 1;
-    if (fade > 0.01) drawSeq(ctx, SEQ.c_erupt, pos, c.eruptX, surfaceY(g, c.eruptX) + 6, c.eruptW, fade);
+    if (fade > 0.01) drawSeq(ctx, SEQ.c_erupt, pos, c.eruptX, surfaceY(g, c.eruptX) + 6, c.eruptW, fade, false, 0.8);
   }
   for (const b of g.bursts) {
     const k = b.age / b.life, names = SEQ[b.sprite];

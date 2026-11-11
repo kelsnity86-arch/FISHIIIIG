@@ -477,7 +477,7 @@ function updateFight(g, dt) {
       s.shake = Math.max(s.shake, 0.45 + 0.3 * Math.sin(g.time * 3));
       break;
     case 'run': s.target = { ...f.runTo, speed: 1.5 }; break;
-    case 'dive': s.target = { x: ax - 40, y: DEEP, speed: 0.9 }; break;
+    case 'dive': s.target = { x: ax - 40, y: 106, speed: 0.9 }; break;      // 너무 깊이 가면 어두운 물에 묻혀 머리가 안 보인다
     case 'thrash':     // 수면 바로 밑에서 몸부림: 수면이 부풀고 큰 파도가 터진다
       s.target = { x: ax, y: 10, speed: 0.7, face: 1 };
       s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.09);
@@ -501,6 +501,7 @@ function updateFight(g, dt) {
   // 걸린 내내 몸부림친다: 날뛸 때 가장 세고, 지치면 잦아든다
   s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.35 : 0.8);
   steer(s, dt, { arrive: f.mode !== 'run' });
+  s.y = Math.min(s.y, 110);                        // 걸린 동안은 그림자가 또렷이 보이는 깊이까지만
   s.vis = 1;
   s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
 
@@ -634,7 +635,7 @@ function updateCatch(g, dt) {
       if (s) s.vis = 0;                                              // 그림자는 이 순간 솟구치는 몸으로 바뀐다
       g.freeze = 0.08 + gi * 0.02; g.flash = 0.55 + gi * 0.08;
       spray(g, c.ex - lw * 0.1, WL, 9, 190 + lw * 0.35, lw * 0.3);
-      c.eruptX = c.ex - lw * 0.04; c.eruptW = lw * 0.62;             // 물기둥은 몸이 수면을 뚫는 바로 그 자리에 하나만 선다
+      c.eruptX = c.ex - lw * 0.04; c.eruptW = lw * 0.4;             // 물기둥은 몸이 수면을 뚫는 바로 그 자리에 하나만 선다
       bubbles(g, c.ex - lw * 0.1, WL + 20, 9, lw * 0.45);
       swell(g, c.ex, 9 + lw * 0.02, 1, 150, 80); swell(g, c.ex, 9 + lw * 0.02, -1, 150, 80);
       g.shake = Math.min(8, 3 + lw / 120); kick(g, 0.35);

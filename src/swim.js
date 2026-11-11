@@ -33,8 +33,10 @@ export function createSwimmer(len, x, y, face = 1) {
 
 // 주둥이 위치 (찌·줄이 걸리는 곳)
 export function mouth(s) {
-  const L = s.len * 0.46;
-  return { x: s.x + s.face * L * Math.cos(s.pitch), y: s.y + Math.abs(s.face) * L * Math.sin(s.pitch) };
+  // 그림자 그림에서 머리 끝이 있는 자리(몸 가운데에서 몸길이의 0.47 앞, 살짝 위)를 그대로 따라간다.
+  // 몸을 숙이거나 비틀면(pitch, wob) 그만큼 같이 돈다 → 줄 끝이 늘 입에 닿는다.
+  const a = s.len * 0.47, b = -s.len * 0.008, f = s.pitch + (s.wob || 0);
+  return { x: s.x + s.face * (a * Math.cos(f) + b * Math.sin(f)), y: s.y + a * Math.sin(f) + b * Math.cos(f) };
 }
 
 // target: { x, y, speed(최고 속도 대비 0~1.6), face(도착했을 때 볼 방향, 선택) }
