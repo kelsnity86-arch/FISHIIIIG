@@ -4275,39 +4275,40 @@ No text. Fully transparent background.
 
 This single sprite sets the art style for 120 creatures of a fishing game, so take extra care.
 
-THE JOKE OF THE GAME: the sea and sky are beautiful, rich, painterly pixel art - but the
-creature the player hauls out is a deliberately crude, tiny, low-quality sprite, like the
-pet on a 1990s Tamagotchi / early Game Boy screen, blown up to fill half the screen.
-It must look cheap, stiff and adorable-stupid - and still be instantly recognizable.
+MOST IMPORTANT RULE - IT IS A FISH FIRST:
+The silhouette must clearly be a SHARK: a long torpedo-shaped body about 2.5 times longer
+than it is tall, a pointed snout, one tall triangular dorsal fin on the back, a pectoral
+fin on the side, and a crescent-shaped tail with two lobes. If the sprite were filled
+solid black, anyone must say "shark". Do NOT draw a slice of bread with a face. Do NOT
+draw a round blob.
 
-THE CREATURE: "Toast Shark" - a shark whose body IS a slice of white bread.
-- Body: a square slice of sandwich bread seen from the side, pale cream inside, with a
-  brown crust running all around the edge. The rounded top of the loaf is the shark's back.
-- Dorsal fin: a square pat of yellow butter, half melted, sitting on top.
-- Tail and side fin: simple brown crust-colored triangles.
-- Face (at the RIGHT end, this is the most important part): one big square white eye with
-  a single black pixel pupil, and a wide mouth with a row of 4 or 5 tiny white triangle
-  teeth. The face takes up about one third of the sprite. In the game the camera zooms in
-  on this face until it fills the screen, so the eye and the teeth must be clear, big and
-  funny even when every pixel is the size of a thumb.
+THE GAG - the shark is MADE OF TOAST (applied to the shark body, without changing its
+shape):
+- The back, fins and tail are golden-brown toasted crust.
+- The side and belly are the pale cream color of the inside of white bread, with 3 or 4
+  darker "air hole" pixels like bread crumb.
+- One small square pat of yellow butter melting on its back just behind the head.
+- That is all. No other objects.
 
-STYLE RULES (follow exactly):
-- VERY low resolution: draw it on a grid about 44 pixels wide and 30 pixels tall. Every
-  pixel is a big, clearly visible, perfectly square block of one flat color, all blocks
-  the same size and aligned to one grid. Scale the sprite up large with hard edges:
-  no blur, no smoothing, no anti-aliasing, no half-pixels.
-- At most 7 flat colors in total (cream, crust brown, dark brown, butter yellow, white,
-  black, dark navy outline). No gradients, no shading, no glow, no texture, no highlights.
-- A 1-pixel dark navy outline around the whole silhouette.
-- Pure side view, facing RIGHT. Body straight and stiff like a board.
-- Leave out every detail not listed above.
+FACE (at the RIGHT end): one big round white eye with a black pupil, a wide mouth with a
+zig-zag row of small white triangle teeth. Dumb, deadpan, slightly stupid expression.
+In the game the camera zooms in on this face until it fills the screen, so the eye and
+teeth must be big and clear.
+
+ART STYLE - modern color Tamagotchi screen quality (like Tamagotchi Uni / Paradise):
+- Clean pixel art on a grid about 48 pixels wide and 24 pixels tall. Every pixel is a
+  perfectly square block of one flat color, all on one grid. Scale the sprite up large
+  with hard edges: no blur, no smoothing, no anti-aliasing, no half-pixels.
+- About 8 flat colors: each main color plus one darker tone for simple shading.
+  No gradients, no glow, no texture noise.
+- A clean 1-pixel dark navy outline around the whole silhouette.
+- Pure side view, facing RIGHT, body straight.
 
 A sprite sheet of 2 frames side by side, with a clear gap between them, same creature,
 same size, same pixel grid:
-1) normal: blank, calm, slightly stupid stare, mouth closed in a flat line with the teeth
-   showing,
-2) shocked: the eye twice as big, mouth wide open in a square scream, fins and tail
-   sticking straight out, three sweat-drop pixels flying off the head.
+1) normal: calm deadpan stare, mouth closed with the teeth showing,
+2) shocked: the eye twice as big, mouth wide open, fins and tail sticking straight out,
+   three sweat-drop pixels flying off the head.
 The two frames must differ only in the face, fins and sweat drops, so that flipping
 between them looks like a 2-frame Tamagotchi animation.
 
@@ -4334,6 +4335,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4365,6 +4369,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4396,6 +4403,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4427,6 +4437,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4458,6 +4471,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4489,6 +4505,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4520,6 +4539,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4551,6 +4573,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4582,6 +4607,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4613,6 +4641,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4644,6 +4675,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4675,6 +4709,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4706,6 +4743,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4737,6 +4777,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4768,6 +4811,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4799,6 +4845,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4830,6 +4879,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4861,6 +4913,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4892,6 +4947,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4923,6 +4981,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4954,6 +5015,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -4985,6 +5049,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5016,6 +5083,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5050,6 +5120,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5083,6 +5156,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5116,6 +5192,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5149,6 +5228,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5182,6 +5264,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5214,6 +5299,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5247,6 +5335,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5280,6 +5371,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5313,6 +5407,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5346,6 +5443,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5379,6 +5479,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5412,6 +5515,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5445,6 +5551,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5478,6 +5587,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5511,6 +5623,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5544,6 +5659,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5577,6 +5695,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5610,6 +5731,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5643,6 +5767,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5676,6 +5803,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5709,6 +5839,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5742,6 +5875,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5775,6 +5911,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5808,6 +5947,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5841,6 +5983,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5874,6 +6019,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5907,6 +6055,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5939,6 +6090,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -5972,6 +6126,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6005,6 +6162,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6037,6 +6197,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6069,6 +6232,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6102,6 +6268,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6134,6 +6303,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6166,6 +6338,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6198,6 +6373,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6230,6 +6408,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6262,6 +6443,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6294,6 +6478,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6326,6 +6513,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6359,6 +6549,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6392,6 +6585,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6425,6 +6621,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6457,6 +6656,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6489,6 +6691,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6522,6 +6727,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6555,6 +6763,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6588,6 +6799,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6620,6 +6834,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6652,6 +6869,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6685,6 +6905,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6718,6 +6941,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6750,6 +6976,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6782,6 +7011,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6815,6 +7047,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6848,6 +7083,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6881,6 +7119,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6913,6 +7154,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6945,6 +7189,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -6978,6 +7225,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7011,6 +7261,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7044,6 +7297,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7076,6 +7332,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7108,6 +7367,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7140,6 +7402,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7172,6 +7437,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7204,6 +7472,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7236,6 +7507,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7269,6 +7543,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7301,6 +7578,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7333,6 +7613,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7366,6 +7649,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7398,6 +7684,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7431,6 +7720,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7463,6 +7755,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7495,6 +7790,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7527,6 +7825,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7559,6 +7860,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7591,6 +7895,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7623,6 +7930,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7656,6 +7966,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7688,6 +8001,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7720,6 +8036,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7752,6 +8071,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7785,6 +8107,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7817,6 +8142,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7849,6 +8177,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7882,6 +8213,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7915,6 +8249,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7948,6 +8285,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -7981,6 +8321,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -8014,6 +8357,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -8046,6 +8392,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -8079,6 +8428,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -8112,6 +8464,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
@@ -8145,6 +8500,9 @@ Rules (important):
   or two single pixels.
 - A thick 1-pixel dark navy outline around the whole creature.
 - Side view, facing RIGHT, body straight and stiff.
+- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
+  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
+  or one accessory - never replace the animal's shape with the object.
 - The one or two defining features described above must be huge, exaggerated and instantly
   readable. Leave out all other detail.
 - Big simple dumb eyes: a white square with a black pixel.
