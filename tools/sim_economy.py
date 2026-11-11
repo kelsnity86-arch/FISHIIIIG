@@ -127,6 +127,9 @@ STEP_W = [w / sum(STEP_W) for w in STEP_W]
 SK = {'수익': 1.02, '효율': 0.02, '행운': 1.015}
 MILE = {10: 1.1, 25: 1.1, 50: 1.15, 100: 1.2}                     # 마일스톤 보너스 (그 노드 전체에 곱)
 
+START_CUT = 1.0     # 첫 해역 장비 값에 곱하는 값 (1보다 작으면 시작이 빨라진다)
+
+
 def plan(pow_x, price_x, gear_x, first_gear, payback=600.0, skill_base=0.003):
     lv = {g[0]: 0 for g in GEAR}                                   # 장비 레벨: 10 = 다음 단계 장비
     sk = {k: 0 for k in SK}
@@ -152,7 +155,7 @@ def plan(pow_x, price_x, gear_x, first_gear, payback=600.0, skill_base=0.003):
 
     def gear_cost(name, share):
         tier, step = divmod(lv[name], 10)
-        return first_gear * gear_x ** tier * share * STEP_W[step]
+        return first_gear * gear_x ** tier * share * STEP_W[step] * (START_CUT if tier == 0 else 1)
 
     while region < 8:
         r = rate(lv, sk, region)
@@ -162,7 +165,7 @@ def plan(pow_x, price_x, gear_x, first_gear, payback=600.0, skill_base=0.003):
             c = gear_cost(name, share); l2 = dict(lv); l2[name] += 1
             opts.append((c, rate(l2, sk, region) - r, 'g', name))
         for node in SK:
-            c = first_gear * skill_base * 1.15 ** sk[node]; s2 = dict(sk); s2[node] += 1
+            c = first_gear * skill_base * START_CUT * 1.15 ** sk[node]; s2 = dict(sk); s2[node] += 1
             opts.append((c, rate(lv, s2, region) - r, 's', node))
         good = [o for o in opts if o[1] > 0 and o[0] / o[1] < payback]
         if good: c, _, kind, name = min(good, key=lambda o: o[0] / o[1])
@@ -175,7 +178,7 @@ def plan(pow_x, price_x, gear_x, first_gear, payback=600.0, skill_base=0.003):
         if kind == 'g': lv[name] += 1
         else: sk[name] += 1
         if all(lv[n] >= region * 10 for n in ('줄', '낚싯대', '배')):
-            log.append(((t - t0) / 60, buys - b0, dict(sk))); t0, b0 = t, buys; region += 1
+            log.append(((t - t0) / 60, buys - b0, dict(sk), rate(lv, sk, region))); t0, b0 = t, buys; region += 1
     return t / 3600, log
 
 
@@ -204,5 +207,23 @@ if __name__ == '__main__':
         n = sum(x[1] for x in log)
         print(f'\n목표 {h}시간 → 장비 배율 ×{gx}, 첫 단계 장비 한 벌 {first:,.0f} G  (실제 {total:.1f}시간, 구매 {n}번, 평균 {total * 3600 / n:.0f}초마다 한 번)')
         print('  넘어갈 해역 | 분    | 구매 수 | 초/구매 | 스킬 레벨 (수익·효율·행운)')
-        for i, (m, b, sk_) in enumerate(log):
+        for i, (m, b, sk_, _r) in enumerate(log):
             print(f'   {i + 1} → {i + 2}    | {m:5.0f} | {b:5d}   | {m * 60 / b:5.0f}   | {sk_["수익"]}·{sk_["효율"]}·{sk_["행운"]}')
+
+
+    print('\n\n=== 처음부터 끝까지 같은 속도 (해역마다 걸리는 시간이 같게, 첫 해역 장비는 30% 값) ===')
+    START_CUT = 0.3
+    for h in (3, 5, 10):
+        best = None
+        for gx10 in range(120, 400, 5):
+            gx = gx10 / 10
+            first = tune(h, gx); total, log = plan(4, 6, gx, first)
+            ms = [x[0] for x in log]
+            err = max(ms) / min(ms)
+            if best is None or err < best[0]: best = (err, gx, first, total, log)
+        _, gx, first, total, log = best
+        n = sum(x[1] for x in log)
+        print(f'\n목표 {h}시간 → 장비 배율 ×{gx}, 첫 단계 장비 한 벌 {first:,.0f} G  (구매 {n}번, 평균 {total * 3600 / n:.0f}초마다 한 번)')
+        print('  넘어갈 해역 | 분    | 구매 수 | 초/구매 | 떠날 때 분당 수입 | 스킬 레벨 (수익·효율·행운)')
+        for i, (m, b, sk_, r) in enumerate(log):
+            print(f'   {i + 1} → {i + 2}    | {m:5.0f} | {b:5d}   | {m * 60 / b:5.0f}   | {r * 60:17,.0f} | {sk_["수익"]}·{sk_["효율"]}·{sk_["행운"]}')
