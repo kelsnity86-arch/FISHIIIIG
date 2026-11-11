@@ -22,7 +22,7 @@ export function createSwimmer(len, x, y, face = 1) {
     act: null,            // 특별한 자세: 'thrash' 몸부림 / 'dive' 잠수 / 'surge' 솟구침 (없으면 헤엄)
     pose: 'swim', prevPose: null, mix: 1,   // 지금 자세, 직전 자세, 넘어가는 정도
     maxSpeed: 60 / Math.sqrt(big) + len * 0.1,
-    turnTime: 0.9 * Math.sqrt(big),      // 완전히 돌아서는 데 걸리는 시간(초)
+    turnTime: 1.5 * Math.sqrt(big),      // 완전히 돌아서는 데 걸리는 시간(초)
     accel: 1.8 / Math.sqrt(big),
     beat: 6 / Math.sqrt(big),
     target: { x, y, speed: 1 },
@@ -38,7 +38,7 @@ export function mouth(s) {
 // target: { x, y, speed(최고 속도 대비 0~1.6), face(도착했을 때 볼 방향, 선택) }
 export function steer(s, dt, { arrive = true } = {}) {
   const t = s.target;
-  const dx = t.x - s.x, dy = t.y - s.y;
+  const dx = t.x - s.x, dy = Math.max(t.y, s.floor) - s.y;   // 올라갈 수 없는 깊이를 향해 계속 고개를 들고 있지 않게
   const near = Math.abs(dx) < s.len * 0.12;
 
   // 볼 방향: 목표가 있는 쪽. 다 왔으면 지정된 방향(없으면 그대로).
@@ -75,7 +75,7 @@ export function steer(s, dt, { arrive = true } = {}) {
 // 지금 보여줄 자세 그림. 돌아설 때는 몸을 트는 3동작을 거쳐 반대쪽을 본다.
 export function updatePose(s, dt) {
   const af = Math.abs(s.face);
-  const p = af < 0.22 ? 'turn_3' : af < 0.52 ? 'turn_2' : af < 0.8 ? 'turn_1' : (s.act || 'swim');
+  const p = af < 0.22 ? 'turn_3' : af < 0.52 ? 'turn_2' : af < 0.8 ? 'turn_1' : 'swim';
   if (p !== s.pose) { s.prevPose = s.pose; s.pose = p; s.mix = 0; }
-  s.mix = Math.min(1, s.mix + dt / 0.18);
+  s.mix = Math.min(1, s.mix + dt / 0.3);
 }

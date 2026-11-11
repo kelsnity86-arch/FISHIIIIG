@@ -318,7 +318,7 @@ export function update(g, dt) {
   for (const s of g.swells) s.age += dt;
   g.swells = g.swells.filter((s) => s.age < s.life);
   for (const p of g.sprays) { p.age += dt; p.vy += 240 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.rot += p.vr * dt; }
-  g.sprays = g.sprays.filter((p) => p.age < p.life);
+  g.sprays = g.sprays.filter((p) => p.age < p.life && !(p.vy > 0 && p.y > WL + 3));   // 떨어져 수면에 닿으면 사라진다 (물속으로 가라앉지 않는다)
   for (const b of g.bursts) b.age += dt;
   g.bursts = g.bursts.filter((b) => b.age < b.life);
   for (const b of g.bubbles) { b.age += dt; b.y -= b.rise * dt; }
@@ -455,7 +455,7 @@ function updateFight(g, dt) {
 
   // 동작별 헤엄 목표. 기준점 = 감은 만큼 배 쪽으로 다가온 위치
   const far = clamp(f.dist / f.dist0, 0, 1.2);
-  const ax = lerp(BOAT_X - 150 - L * 0.3, g.castX - L * 0.3, far);
+  const ax = lerp(BOAT_X - 150 - L * 0.25, Math.max(g.castX - L * 0.3, 210), far);   // 그림자가 화면 밖으로 밀려나지 않는 범위
   switch (f.mode) {
     case 'hold':
       s.target = { x: ax, y: 26 + Math.sin(g.time * 0.9) * 8, speed: 0.4, face: 1 };
@@ -481,6 +481,7 @@ function updateFight(g, dt) {
       break;
     case 'tired': s.target = { x: ax + 20, y: 14, speed: 0.25, face: 1 }; break;
   }
+  if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 200);
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.vis = 1;
   s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
@@ -608,6 +609,7 @@ function updateCatch(g, dt) {
       if (s) s.vis = 0;                                              // 그림자는 이 순간 솟구치는 몸으로 바뀐다
       g.freeze = 0.08 + gi * 0.02; g.flash = 0.55 + gi * 0.08;
       spray(g, c.ex - lw * 0.1, WL, 9, 190 + lw * 0.35, lw * 0.3);
+      burst(g, 'c_erupt', c.ex - lw * 0.16, lw * 0.95, 2.2);
       bubbles(g, c.ex - lw * 0.1, WL + 20, 9, lw * 0.45);
       swell(g, c.ex, 9 + lw * 0.02, 1, 150, 80); swell(g, c.ex, 9 + lw * 0.02, -1, 150, 80);
       g.shake = Math.min(8, 3 + lw / 120); kick(g, 0.35);
@@ -626,7 +628,8 @@ function updateCatch(g, dt) {
     if (c.reveal) { c.x = apex.x; c.y = apex.y; }
     if (!c.reveal && u >= 0.86) {
       c.reveal = true; c.popT = 0;
-      c.lw = c.big; c.ex = c.bigEx;                                   // 여기서부터 등급에 맞는 크기
+      c.lw = c.big; c.ex = c.bigEx;
+      burst(g, 'c_erupt', c.bigEx - c.big * 0.16, c.big * 0.8, 2.6);                                   // 여기서부터 등급에 맞는 크기
       g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
       spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
       snd(g, 'pop');

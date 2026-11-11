@@ -516,22 +516,13 @@ function drawLineAndFloat(ctx, g, phase) {
 }
 
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다
+const easeIn = (t) => t * t;
 function drawBursts(ctx, g) {
-  // 낚아 올린 몸의 밑동: 물이 솟구쳐 올라 계속 끓는다 (목표 화면 3)
-  const c = g.catch;
-  if (c && (c.phase === 'leap' || c.phase === 'hang')) {
-    const spr = sprite('c_erupt'), t = performance.now() / 1000;
-    const grow = c.phase === 'leap' ? easeOut(Math.min(1, c.out * 2.2)) : 1;
-    const settle = c.phase === 'hang' ? 0.62 + 0.04 * Math.sin(t * 3.1) : 1;
-    const w = c.lw * 0.8 * (0.7 + 0.3 * grow) * (1 + 0.015 * Math.sin(t * 5.3)), h = w * spr.h / spr.w * (0.25 + 0.75 * grow) * settle;
-    const x = c.ex - c.lw * 0.16;
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(spr.img, x - w / 2, surfaceY(g, x) + 6 - h, w, h);
-  }
   for (const b of g.bursts) {
     const spr = sprite(b.sprite), k = b.age / b.life;
     const grow = easeOut(Math.min(1, k * 3.2));
-    const w = b.size * (0.55 + 0.45 * grow), h = w * spr.h / spr.w * (0.3 + 0.7 * grow);
+    const fall = 1 - 0.6 * easeIn(clamp((k - 0.3) / 0.7, 0, 1));      // 솟은 물이 무너져 내린다
+    const w = b.size * (0.55 + 0.45 * grow) * (1 + 0.12 * (1 - fall)), h = w * spr.h / spr.w * (0.3 + 0.7 * grow) * fall;
     ctx.save();
     ctx.globalAlpha = k < 0.55 ? 1 : 1 - (k - 0.55) / 0.45;
     ctx.translate(b.x, surfaceY(g, b.x) + 4 + k * k * 10);
