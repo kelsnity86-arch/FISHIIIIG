@@ -156,6 +156,7 @@ function drawResultCard(ctx, g) {
 export function render(ctx, g) {
   if (g.scene === 'harbor') {
     drawHarbor(ctx, g);
+    drawTint(ctx, g);
     drawGold(ctx, g);
     drawPanel(ctx, g);
     drawMsg(ctx, g);
@@ -167,6 +168,18 @@ export function render(ctx, g) {
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
   drawVeil(ctx, g);
+}
+// 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
+const tintNow = [255, 255, 255]; let tintT = 0;
+function drawTint(ctx, g) {
+  const hex = PHASES[g.phase].tint, want = hex ? [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)) : [255, 255, 255];
+  const now = performance.now() / 1000, dt = Math.min(0.1, now - tintT); tintT = now;
+  for (let i = 0; i < 3; i++) tintNow[i] += (want[i] - tintNow[i]) * (1 - Math.exp(-0.35 * dt));
+  if (tintNow[0] + tintNow[1] + tintNow[2] > 762) return;
+  ctx.globalCompositeOperation = 'multiply';
+  ctx.fillStyle = `rgb(${tintNow.map(Math.round).join(',')})`;
+  ctx.fillRect(-20, -20, W + 40, H + 40);
+  ctx.globalCompositeOperation = 'source-over';
 }
 function drawVeil(ctx, g) {
   if (g.veil > 0.01) { ctx.fillStyle = `rgba(12,22,46,${g.veil})`; ctx.fillRect(0, 0, W, H); }
@@ -225,12 +238,7 @@ function renderSea(ctx, g) {
   drawSprays(ctx, g);
   ctx.restore();
 
-  if (phase.tint) {
-    ctx.globalCompositeOperation = 'multiply';
-    ctx.fillStyle = phase.tint;
-    ctx.fillRect(-20, -20, W + 40, H + 40);
-    ctx.globalCompositeOperation = 'source-over';
-  }
+  drawTint(ctx, g);
   if (g.flash > 0.01) { ctx.fillStyle = `rgba(255,255,255,${g.flash})`; ctx.fillRect(-20, -20, W + 40, H + 40); }
   ctx.restore();
 

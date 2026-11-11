@@ -4,7 +4,7 @@ import { createGame, update, press, release } from './game.js';
 import { pointer } from './harbor.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { render } from './render.js';
-import { initAudio, playSfx, reel, setSound, soundOn } from './audio.js';
+import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
@@ -116,6 +116,15 @@ function frame(now) {
   }
   game.sfx.length = 0;
   reel(game.state === 'fight' && game.hold && game.freeze <= 0, game.fight ? game.fight.tension : 0);
+  {
+    // 음악과 환경음을 지금 장면에 맞춘다: 시간대, 해역, 줄다리기의 긴박함, 낚는 순간의 정적
+    const f = game.state === 'fight' ? game.fight : null, c = game.catch;
+    const tension = f ? Math.min(1, f.tension / f.maxTension) : 0;
+    const catching = !c || game.state === 'leave' ? 0 : (c.phase === 'leap' && !c.reveal && c.pt / c.rise > 0.7) ? 2 : 1;
+    setScene({ scene: game.scene, phase: PHASES[game.phase].id, region: game.region, town: game.eco.town,
+      fight: f ? Math.min(1, 0.35 + 0.5 * tension + (f.surging ? 0.25 : 0)) : 0, tension, catching, rough: game.rough });
+    if (btnTime.dataset.p !== String(game.phase)) { btnTime.dataset.p = game.phase; btnTime.textContent = '시간: ' + PHASES[game.phase].name; }
+  }
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
   render(ctx, game);
   requestAnimationFrame(frame);

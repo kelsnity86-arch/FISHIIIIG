@@ -41,6 +41,7 @@ function img(ctx, name, x, y, w, h) {
 export function travel(g, fn) {
   if (g.travel) return false;
   g.travel = { t: 0, fn, done: false };
+  g.sfx.push(['travel']);
   return true;
 }
 export function updateTravel(g, dt) {
@@ -117,7 +118,7 @@ const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 54 + i * 51, w: 280, h: 
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30, y: PANEL.y + 4, w: 28, h: 28 });
 
 export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null }; }
-function closePanel(g) { if (g.panel && g.panel.closing == null) g.panel.closing = 0; }      // 뚝 사라지지 않고 스르르 닫힌다
+function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }      // 뚝 사라지지 않고 스르르 닫힌다
 
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
@@ -129,8 +130,8 @@ export function pointer(g, x, y) {
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
-        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push(['coin', 3]); }
-        else { g.panel.hit = -2 - i; g.panel.hitT = 0; }
+        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); }
+        else { g.panel.hit = -2 - i; g.panel.hitT = 0; g.sfx.push(['deny']); }
         return true;
       }
     }
@@ -140,14 +141,14 @@ export function pointer(g, x, y) {
   if (g.scene === 'harbor') {
     if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 && Math.abs(y - LEAVE.y) < LEAVE.h / 2) { leaveHarbor(g); return true; }
     for (let i = 0; i < HOUSES.length; i++) {
-      if (Math.abs(x - HX(i)) < HW / 2 + 4 && y > HY - 92 && y < HY + 22) { openPanel(g, HOUSES[i]); g.sfx.push(['card']); return true; }
+      if (Math.abs(x - HX(i)) < HW / 2 + 4 && y > HY - 92 && y < HY + 22) { openPanel(g, HOUSES[i]); g.sfx.push(['door']); return true; }
     }
     return true;
   }
   if (g.state === 'idle') {
     for (const b of SEA_BTNS) {
       if (Math.hypot(x - b.x, y - b.y) <= b.r + 3) {
-        if (b.id === 'harbor') enterHarbor(g); else if (b.id === 'map') nextRegion(g); else { openPanel(g, 'skills'); g.sfx.push(['card']); }
+        if (b.id === 'harbor') enterHarbor(g); else if (b.id === 'map') nextRegion(g); else { openPanel(g, 'skills'); g.sfx.push(['paper']); }
         return true;
       }
     }
