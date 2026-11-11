@@ -5,7 +5,7 @@ import {
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
-import { preloadCreature } from './assets.js';
+import { sprite } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -541,13 +541,18 @@ function startCatch(g) {
   // 드러난 직후에는 얼굴이 화면 가득 보이고(zoomFace: 등급이 높을수록 몸이 화면을 넘친다),
   // 이어서 카메라가 배를 기준으로 부드럽게 물러나 전신이 드러난다(zoom: 배가 점처럼 작아진다).
   const zoomFace = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi] / big, 0.2, 1);
-  const zoom = Math.min(zoomFace, clamp(W * 0.6 / big, 0.12, 1));
-  const bigEx = BOAT_X + (W * 0.74 - big * zoom * 0.5 - BOAT_X) / zoom;
+  // 전신이 보이는 자리: 몸 전체가 수면 위 하늘에 떠서, 물기둥에 가리지 않고 화면 위로도 잘리지 않게.
+  const spr = sprite(g.fish.sprite), asp = spr.h / spr.w;
+  const fit = Math.min(1, 0.56 / asp);                               // 키 큰 생물은 높이에 맞춰 줄인다
+  const dw = big * fit, dh = dw * asp;                               // 그려지는 폭·높이 (세계 좌표)
+  const zoom = Math.min(zoomFace, W * 0.58 / dw, (WL - 46) / dh);
+  const bigEx = BOAT_X + (W * 0.74 - dw * zoom * 0.5 - BOAT_X) / zoom;
+  const bigY = WL - dh / 2 - 26 / zoom;                              // 몸 아래쪽이 수면에서 26px 떠 있다
   const lw = SHADOW_LEN;
   let ex = W * 0.42;
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
-    phase: 'pull', pt: 0, lw, gi, zoom, zoomFace, ex, big, bigEx,
+    phase: 'pull', pt: 0, lw, gi, zoom, zoomFace, ex, big, bigEx, bigY, fit,
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
@@ -562,7 +567,7 @@ function startCatch(g) {
 export const LEAP_MOUTH = [0.42, 0];
 export function leapMouth(c, lh) {
   if (c.phase === 'leap') return { x: c.mx, y: c.my };
-  const mx = LEAP_MOUTH[0] * c.lw * c.scale, my = LEAP_MOUTH[1] * lh * c.scale;
+  const mx = LEAP_MOUTH[0] * c.lw * c.fit * c.scale, my = LEAP_MOUTH[1] * lh * c.scale;
   const cs = Math.cos(c.rot), sn = Math.sin(c.rot);
   return { x: c.x + mx * cs - my * sn, y: c.y + mx * sn + my * cs };
 }
@@ -572,7 +577,7 @@ function updateCatch(g, dt) {
   const c = g.catch, s = g.sw, lw = c.lw, lh = leapHeight(c), gi = c.gi;
   const start = { x: c.ex - lw * 0.1, y: WL + lh * 0.62 }, apex = { x: c.ex + lw * 0.03, y: WL - lh * 0.42 };
   // 드러난 생물은 얼굴(오른쪽 끝)이 하늘 한가운데에 오도록 건다. 화면을 넘는 몸은 왼쪽·위아래로 잘려도 얼굴은 반드시 보인다.
-  if (c.reveal) apex.y = WL + (138 - WL) / c.zoom;
+  if (c.reveal) apex.y = c.bigY;
   const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: !c.reveal ? 1 : c.popT < FACE_HOLD ? c.zoomFace : c.zoom, zoomRate: c.reveal && c.popT >= FACE_HOLD ? 2.6 : 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
   c.pt += dt;
 
@@ -635,7 +640,8 @@ function updateCatch(g, dt) {
       snd(g, 'pop');
     }
     if (c.reveal) { c.popT += g.realDt; c.rot = 0; }
-    c.mx = c.x + lw * 0.42 * Math.cos(c.rot); c.my = c.y + lw * 0.42 * Math.sin(c.rot);
+    const reach = lw * 0.42 * (c.reveal ? c.fit : 1);
+    c.mx = c.x + reach * Math.cos(c.rot); c.my = c.y + reach * Math.sin(c.rot);
     c.out = e;
     if (u > 0.12 && !c.reveal && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];

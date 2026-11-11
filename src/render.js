@@ -410,8 +410,7 @@ function drawLeap(ctx, g, under) {
     const flop = c.phase === 'leap' || c.phase === 'hang';
     const f = g.fish, spr = sprite(flop && step[2] ? f.sprite2 : f.sprite);
     const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
-    const fit = Math.min(1, 0.56 / (spr.h / spr.w));                 // 가로 lw × 세로 lw×0.56 상자 안에 들어오게
-    const w = c.lw * fit * c.scale * pop * over, h = w * spr.h / spr.w;
+    const w = c.lw * c.fit * c.scale * pop * over, h = w * spr.h / spr.w;
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
