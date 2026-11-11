@@ -440,7 +440,7 @@ function drawLeap(ctx, g, under) {
   } else if (!under) {
     const step = FLOP[Math.floor(c.popT * 5) % 4];
     const flop = c.phase === 'leap' || c.phase === 'hang';
-    const f = g.fish, base = sprite(f.sprite), shocked = flop && step[2] && hasSprite(f.sprite2);
+    const f = g.fish, base = sprite(f.sprite), shocked = hasSprite(f.sprite2);   // 낚인 뒤에는 내내 놀란 얼굴 (평소 얼굴은 카드·도감에)
     const spr = shocked ? sprite(f.sprite2) : base;
     const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
     const w = c.lw * c.fit * c.scale * pop * over, h = w * base.h / base.w;
