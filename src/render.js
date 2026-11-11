@@ -336,13 +336,12 @@ function drawShadowPose(ctx, s, name, pose, alpha) {
   if (alpha < 0.01) return;
   const spr = sprite(name), d = POSE[pose];
   const w = s.len * d.span, h = w * spr.h / spr.w;
-  const depth = clamp(s.y / DEEP, 0, 1);
   ctx.save();
   ctx.translate(s.x, WL + s.y);
   ctx.scale(s.face > 0 ? -1 : 1, 1);            // 그림은 왼쪽을 본다
   ctx.rotate(-s.pitch * d.tilt);
   ctx.imageSmoothingEnabled = true;
-  ctx.globalAlpha = lerp(0.8, 0.5, depth) * s.vis * alpha;   // 목표 화면처럼 물빛이 비쳐 보이는 농도
+  ctx.globalAlpha = alpha;                       // 농도는 판을 화면에 얹을 때 한 번에 준다
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.restore();
 }
@@ -361,6 +360,8 @@ function drawShadow(ctx, g) {
   b.globalCompositeOperation = 'source-over'; b.globalAlpha = 1;
   b.clearRect(0, 0, cv.width, cv.height);
   b.setTransform(ctx.getTransform());
+  // 자세를 넘길 때 두 그림의 농도를 더해서 합친다: 겹치는 곳은 늘 같은 농도라, 넘어가는 중간에 흐려졌다 진해지며 깜빡이지 않는다
+  b.globalCompositeOperation = 'lighter';
   const one = (pose, alpha) => {
     if (pose !== 'swim') return drawShadowPose(b, s, 'c_shadow_' + pose, pose, alpha);
     // 헤엄: 꼬리 박자에 맞춰 4동작을 이어 넘긴다
@@ -380,10 +381,11 @@ function drawShadow(ctx, g) {
   ctx.save();
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게 물들인다
-  ctx.globalAlpha = 1;
+  const depth = clamp(s.y / DEEP, 0, 1), dens = lerp(0.8, 0.5, depth) * s.vis;   // 목표 화면처럼 물빛이 비쳐 보이는 농도
+  ctx.globalAlpha = dens;
   ctx.drawImage(shadowBuf, 0, 0);
   ctx.globalCompositeOperation = 'source-over';  // 형태가 읽히도록 한 번 더 옅게
-  ctx.globalAlpha = 0.1;
+  ctx.globalAlpha = 0.1 * dens;
   ctx.drawImage(shadowBuf, 0, 0);
   ctx.restore();
 }

@@ -3818,26 +3818,26 @@
   },
   "c_shadow_swim_1": {
    "file": "c_shadow_swim_1.webp",
-   "w": 256,
-   "h": 97.08,
+   "w": 257.24,
+   "h": 107.59,
    "smooth": false
   },
   "c_shadow_swim_2": {
    "file": "c_shadow_swim_2.webp",
-   "w": 256,
-   "h": 83.48,
+   "w": 257.24,
+   "h": 107.59,
    "smooth": false
   },
   "c_shadow_swim_3": {
    "file": "c_shadow_swim_3.webp",
-   "w": 256,
-   "h": 88.62,
+   "w": 256.0,
+   "h": 107.08,
    "smooth": false
   },
   "c_shadow_swim_4": {
    "file": "c_shadow_swim_4.webp",
-   "w": 256,
-   "h": 83.68,
+   "w": 257.86,
+   "h": 107.85,
    "smooth": false
   },
   "c_shadow_turn_1": {

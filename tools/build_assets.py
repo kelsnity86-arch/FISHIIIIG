@@ -257,6 +257,7 @@ def build():
                 crop.save(OUT / file)
             manifest[item['name']] = dict(file=file, w=round(w, 2), h=round(h, 2), smooth=smooth)
         print(f'{src.name}: {len(items)}개 변환')
+    align_swim(manifest)
     import slice_dots
     problems += slice_dots.dot_sheets(manifest)
     (OUT / 'manifest.json').write_text(json.dumps(dict(sprites=manifest), indent=1, ensure_ascii=False) + '\n')
@@ -293,6 +294,31 @@ def temp_dots(manifest, wpx=44, ncol=8):
             key = f'd_tmp_{name}_{i + 1}'
             Image.fromarray(out).save(OUT / (key + '.png'))
             manifest[key] = dict(file=key + '.png', w=out.shape[1], h=out.shape[0], smooth=False)
+
+
+def align_swim(manifest):
+    """헤엄 4동작을 몸통 위치에 맞춰 같은 크기의 판에 올린다.
+    GPT 그림은 동작마다 꼬리 높이가 달라 그림 크기가 제각각이라, 그림 가운데를 기준으로 넘기면
+    몸통이 위아래로 덜컥거린다. 몸통(앞쪽 20~60% 구간)의 높이 중심을 판의 가운데에 맞춘다."""
+    keys = [f'c_shadow_swim_{i}' for i in range(1, 5)]
+    if not all(k in manifest for k in keys):
+        return
+    ims = [np.array(Image.open(OUT / manifest[k]['file']).convert('RGBA')) for k in keys]
+    cys = []
+    for im in ims:
+        a = im[..., 3] > 40
+        w = a.shape[1]
+        ys, _ = np.nonzero(a[:, int(w * 0.2):int(w * 0.6)])
+        cys.append(ys.mean())
+    half = int(np.ceil(max(max(cy, im.shape[0] - cy) for cy, im in zip(cys, ims)))) + 2
+    W_ = max(im.shape[1] for im in ims)
+    for k, im, cy in zip(keys, ims, cys):
+        canvas = np.zeros((half * 2, W_, 4), np.uint8)
+        top = int(round(half - cy))
+        canvas[top:top + im.shape[0], :im.shape[1]] = im
+        Image.fromarray(canvas).save(OUT / manifest[k]['file'], 'WEBP', quality=88, method=4)
+        scale = manifest[k]['w'] / im.shape[1]                     # 그림 1픽셀이 화면에서 차지하는 크기는 그대로
+        manifest[k]['w'] = round(W_ * scale, 2); manifest[k]['h'] = round(half * 2 * scale, 2)
 
 
 if __name__ == '__main__':
