@@ -9,7 +9,8 @@ from PIL import Image
 import slice16 as S
 
 ROOT = Path(__file__).resolve().parents[1]
-RAW, OUT = ROOT / 'assets' / 'raw', ROOT / 'assets' / 'game'
+RAW, OUT = ROOT / 'assets' / 'raw', ROOT / 'assets' / 'dots'      # 생물 한 마리씩의 도트 그림 (중간 결과)
+GAME = ROOT / 'assets' / 'game'                                    # 게임이 읽는 곳: 전부 한 장(d_atlas.png)으로 묶어 넣는다
 
 # 시트마다 줄 순서(왼→오, 위→아래)대로의 생물 목록: tools/dot_sheets.json (해역·등급·이름 포함)
 import json
@@ -71,10 +72,6 @@ def dot_sheets(manifest):
         # 이미 변환한 장은 건너뛴다 (원본이 바뀌지 않았으면)
         outs = [OUT / f'd_{n}.png' for n in names]
         if all(o.exists() and o.stat().st_mtime >= src.stat().st_mtime for o in outs):
-            for n, o in zip(names, outs):
-                w, h = Image.open(o).size
-                old = manifest.get('d_' + n, {})
-                manifest['d_' + n] = dict(file=o.name, w=w, h=h, smooth=False, **{k: old[k] for k in ('sw', 'sh') if k in old})
             continue
         a = np.array(Image.open(src).convert('RGB'))
         fg = ~bg_mask(a)
@@ -91,11 +88,28 @@ def dot_sheets(manifest):
             arr = flatten_colors(clean_fringe(arr.copy()))
             key = 'd_' + name
             Image.fromarray(arr, 'RGBA').save(OUT / (key + '.png'))
-            manifest[key] = dict(file=key + '.png', w=arr.shape[1], h=arr.shape[0], smooth=False)
         print(f'{sheet}: 도트 1칸 {s:.2f}px, {len(names)}마리')
+    pack(manifest)
     source_sizes(manifest)
     write_game_list(manifest)
     return problems
+
+
+def pack(manifest, width=1024, pad=1):
+    """생물 그림 전부를 한 장(d_atlas.png)에 줄지어 담는다. 게임은 이 한 장만 받아 필요한 칸을 잘라 쓴다."""
+    files = sorted(OUT.glob('d_*.png'))
+    ims = [(f.stem, Image.open(f).convert('RGBA')) for f in files]
+    x = y = rowh = 0; places = []
+    for key, im in ims:
+        if x + im.width + pad > width: x, y, rowh = 0, y + rowh + pad, 0
+        places.append((key, im, x, y)); x += im.width + pad; rowh = max(rowh, im.height)
+    atlas = Image.new('RGBA', (width, y + rowh + pad), (0, 0, 0, 0))
+    for key, im, px, py in places:
+        atlas.paste(im, (px, py))
+        old = manifest.get(key, {})
+        manifest[key] = dict(atlas='d_atlas.png', ax=px, ay=py, w=im.width, h=im.height, smooth=False, **{k: old[k] for k in ('sw', 'sh') if k in old})
+    atlas.save(GAME / 'd_atlas.png', optimize=True)
+    print(f'd_atlas.png: {len(places)}장, {atlas.size[0]}x{atlas.size[1]}')
 
 
 def source_sizes(manifest):
@@ -114,7 +128,7 @@ def source_sizes(manifest):
 
 if __name__ == '__main__':
     import json
-    mf = OUT / 'manifest.json'
+    mf = GAME / 'manifest.json'
     m = json.loads(mf.read_text())['sprites']
     for p in dot_sheets(m):
         print('문제:', p)

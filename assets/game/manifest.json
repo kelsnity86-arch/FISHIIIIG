@@ -3973,7 +3973,9 @@
    "smooth": true
   },
   "d_hammer_shark": {
-   "file": "d_hammer_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 288,
+   "ay": 486,
    "w": 41,
    "h": 25,
    "smooth": false,
@@ -3981,7 +3983,9 @@
    "sh": 138.1
   },
   "d_saw_shark": {
-   "file": "d_saw_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 781,
+   "ay": 875,
    "w": 39,
    "h": 22,
    "smooth": false,
@@ -3989,7 +3993,9 @@
    "sh": 121.5
   },
   "d_bulb_angler": {
-   "file": "d_bulb_angler.png",
+   "atlas": "d_atlas.png",
+   "ax": 882,
+   "ay": 87,
    "w": 40,
    "h": 30,
    "smooth": false,
@@ -3997,7 +4003,9 @@
    "sh": 165.7
   },
   "d_straw_seahorse": {
-   "file": "d_straw_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 835,
+   "ay": 994,
    "w": 31,
    "h": 35,
    "smooth": false,
@@ -4005,7 +4013,9 @@
    "sh": 193.4
   },
   "d_scissor_crab": {
-   "file": "d_scissor_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 940,
+   "ay": 875,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -4013,7 +4023,9 @@
    "sh": 187.8
   },
   "d_umbrella_jelly": {
-   "file": "d_umbrella_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 451,
+   "ay": 1121,
    "w": 38,
    "h": 37,
    "smooth": false,
@@ -4021,7 +4033,9 @@
    "sh": 204.4
   },
   "d_drill_narwhal": {
-   "file": "d_drill_narwhal.png",
+   "atlas": "d_atlas.png",
+   "ax": 874,
+   "ay": 310,
    "w": 43,
    "h": 24,
    "smooth": false,
@@ -4029,7 +4043,9 @@
    "sh": 132.6
   },
   "d_pizza_ray": {
-   "file": "d_pizza_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 826,
+   "ay": 749,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -4037,7 +4053,9 @@
    "sh": 165.7
   },
   "d_ball_turtle": {
-   "file": "d_ball_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 43,
+   "ay": 39,
    "w": 39,
    "h": 29,
    "smooth": false,
@@ -4045,7 +4063,9 @@
    "sh": 160.2
   },
   "d_cactus_puffer": {
-   "file": "d_cactus_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 503,
+   "ay": 131,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -4053,7 +4073,9 @@
    "sh": 187.8
   },
   "d_fan_puffer": {
-   "file": "d_fan_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 513,
+   "ay": 356,
    "w": 39,
    "h": 28,
    "smooth": false,
@@ -4061,7 +4083,9 @@
    "sh": 154.7
   },
   "d_candle_eel": {
-   "file": "d_candle_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 910,
+   "ay": 131,
    "w": 41,
    "h": 28,
    "smooth": false,
@@ -4069,7 +4093,9 @@
    "sh": 154.7
   },
   "d_trumpet_fish": {
-   "file": "d_trumpet_fish.png",
+   "atlas": "d_atlas.png",
+   "ax": 131,
+   "ay": 1121,
    "w": 42,
    "h": 18,
    "smooth": false,
@@ -4077,7 +4103,9 @@
    "sh": 99.4
   },
   "d_knight_swordfish": {
-   "file": "d_knight_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 480,
+   "ay": 563,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -4085,7 +4113,9 @@
    "sh": 165.7
   },
   "d_crown_tuna": {
-   "file": "d_crown_tuna.png",
+   "atlas": "d_atlas.png",
+   "ax": 925,
+   "ay": 267,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -4093,7 +4123,9 @@
    "sh": 182.3
   },
   "d_plug_octopus": {
-   "file": "d_plug_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 163,
+   "ay": 790,
    "w": 41,
    "h": 34,
    "smooth": false,
@@ -4101,7 +4133,9 @@
    "sh": 187.8
   },
   "d_train_eel": {
-   "file": "d_train_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 697,
+   "ay": 1076,
    "w": 44,
    "h": 11,
    "smooth": false,
@@ -4109,7 +4143,9 @@
    "sh": 60.8
   },
   "d_teapot_whale": {
-   "file": "d_teapot_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 952,
+   "ay": 1035,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -4117,7 +4153,9 @@
    "sh": 165.7
   },
   "d_sub_whale": {
-   "file": "d_sub_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 900,
+   "ay": 994,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -4125,7 +4163,9 @@
    "sh": 182.3
   },
   "d_dino_shark": {
-   "file": "d_dino_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 304,
+   "ay": 310,
    "w": 42,
    "h": 26,
    "smooth": false,
@@ -4133,7 +4173,9 @@
    "sh": 143.6
   },
   "d_volcano_turtle": {
-   "file": "d_volcano_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 972,
+   "ay": 1121,
    "w": 39,
    "h": 38,
    "smooth": false,
@@ -4141,7 +4183,9 @@
    "sh": 209.9
   },
   "d_rocket_marlin": {
-   "file": "d_rocket_marlin.png",
+   "atlas": "d_atlas.png",
+   "ax": 928,
+   "ay": 833,
    "w": 45,
    "h": 25,
    "smooth": false,
@@ -4149,7 +4193,9 @@
    "sh": 138.1
   },
   "d_castle_kraken": {
-   "file": "d_castle_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 498,
+   "ay": 176,
    "w": 40,
    "h": 40,
    "smooth": false,
@@ -4157,7 +4203,9 @@
    "sh": 221.0
   },
   "d_ship_whale": {
-   "file": "d_ship_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 778,
+   "ay": 916,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -4165,7 +4213,9 @@
    "sh": 204.4
   },
   "d_moon_whale": {
-   "file": "d_moon_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 659,
+   "ay": 656,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -4173,7 +4223,9 @@
    "sh": 209.9
   },
   "d_sock_mackerel": {
-   "file": "d_sock_mackerel.png",
+   "atlas": "d_atlas.png",
+   "ax": 861,
+   "ay": 955,
    "w": 42,
    "h": 24,
    "smooth": false,
@@ -4181,7 +4233,9 @@
    "sh": 130.2
   },
   "d_spoon_flounder": {
-   "file": "d_spoon_flounder.png",
+   "atlas": "d_atlas.png",
+   "ax": 139,
+   "ay": 994,
    "w": 42,
    "h": 27,
    "smooth": false,
@@ -4189,7 +4243,9 @@
    "sh": 146.5
   },
   "d_fork_squid": {
-   "file": "d_fork_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 754,
+   "ay": 398,
    "w": 38,
    "h": 34,
    "smooth": false,
@@ -4197,7 +4253,9 @@
    "sh": 184.4
   },
   "d_button_crab": {
-   "file": "d_button_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 422,
+   "ay": 131,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -4205,7 +4263,9 @@
    "sh": 146.5
   },
   "d_toothbrush_shrimp": {
-   "file": "d_toothbrush_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 354,
+   "ay": 1076,
    "w": 40,
    "h": 29,
    "smooth": false,
@@ -4213,7 +4273,9 @@
    "sh": 157.3
   },
   "d_key_goby": {
-   "file": "d_key_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 124,
+   "ay": 563,
    "w": 43,
    "h": 21,
    "smooth": false,
@@ -4221,7 +4283,9 @@
    "sh": 113.9
   },
   "d_clip_seahorse": {
-   "file": "d_clip_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 240,
+   "ay": 222,
    "w": 28,
    "h": 39,
    "smooth": false,
@@ -4229,7 +4293,9 @@
    "sh": 211.6
   },
   "d_cup_snail": {
-   "file": "d_cup_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 79,
+   "ay": 310,
    "w": 38,
    "h": 28,
    "smooth": false,
@@ -4237,7 +4303,9 @@
    "sh": 151.9
   },
   "d_pencil_gar": {
-   "file": "d_pencil_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 75,
+   "ay": 749,
    "w": 43,
    "h": 17,
    "smooth": false,
@@ -4245,7 +4313,9 @@
    "sh": 92.2
   },
   "d_broom_ray": {
-   "file": "d_broom_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 470,
+   "ay": 87,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -4253,7 +4323,9 @@
    "sh": 157.3
   },
   "d_lamp_angler": {
-   "file": "d_lamp_angler.png",
+   "atlas": "d_atlas.png",
+   "ax": 799,
+   "ay": 563,
    "w": 44,
    "h": 37,
    "smooth": false,
@@ -4261,7 +4333,9 @@
    "sh": 200.7
   },
   "d_iron_turtle": {
-   "file": "d_iron_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 552,
+   "ay": 525,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -4269,7 +4343,9 @@
    "sh": 162.7
   },
   "d_bell_puffer": {
-   "file": "d_bell_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 670,
+   "ay": 39,
    "w": 38,
    "h": 32,
    "smooth": false,
@@ -4277,7 +4353,9 @@
    "sh": 173.6
   },
   "d_ladle_seal": {
-   "file": "d_ladle_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 715,
+   "ay": 563,
    "w": 41,
    "h": 37,
    "smooth": false,
@@ -4285,7 +4363,9 @@
    "sh": 200.7
   },
   "d_whisk_jelly": {
-   "file": "d_whisk_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 261,
+   "ay": 1164,
    "w": 33,
    "h": 38,
    "smooth": false,
@@ -4293,7 +4373,9 @@
    "sh": 206.1
   },
   "d_clock_starfish": {
-   "file": "d_clock_starfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 300,
+   "ay": 222,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -4301,7 +4383,9 @@
    "sh": 195.3
   },
   "d_vacuum_eel": {
-   "file": "d_vacuum_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 785,
+   "ay": 1121,
    "w": 46,
    "h": 18,
    "smooth": false,
@@ -4309,7 +4393,9 @@
    "sh": 97.6
   },
   "d_ladder_lobster": {
-   "file": "d_ladder_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 564,
+   "ay": 563,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -4317,7 +4403,9 @@
    "sh": 162.7
   },
   "d_mailbox_whale": {
-   "file": "d_mailbox_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 866,
+   "ay": 607,
    "w": 43,
    "h": 32,
    "smooth": false,
@@ -4325,7 +4413,9 @@
    "sh": 173.6
   },
   "d_faucet_dolphin": {
-   "file": "d_faucet_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 687,
+   "ay": 356,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -4333,7 +4423,9 @@
    "sh": 195.3
   },
   "d_sofa_manatee": {
-   "file": "d_sofa_manatee.png",
+   "atlas": "d_atlas.png",
+   "ax": 945,
+   "ay": 955,
    "w": 41,
    "h": 35,
    "smooth": false,
@@ -4341,7 +4433,9 @@
    "sh": 189.9
   },
   "d_fridge_orca": {
-   "file": "d_fridge_orca.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 439,
    "w": 43,
    "h": 33,
    "smooth": false,
@@ -4349,7 +4443,9 @@
    "sh": 179.0
   },
   "d_bathtub_whale": {
-   "file": "d_bathtub_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 439,
+   "ay": 39,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -4357,7 +4453,9 @@
    "sh": 200.7
   },
   "d_house_turtle": {
-   "file": "d_house_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 525,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -4365,7 +4463,9 @@
    "sh": 189.9
   },
   "d_sun_ray": {
-   "file": "d_sun_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 41,
+   "ay": 1035,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -4373,7 +4473,9 @@
    "sh": 184.4
   },
   "d_banana_eel": {
-   "file": "d_banana_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 264,
+   "ay": 39,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -4381,7 +4483,9 @@
    "sh": 159.5
   },
   "d_lemon_puffer": {
-   "file": "d_lemon_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 318,
+   "ay": 607,
    "w": 36,
    "h": 31,
    "smooth": false,
@@ -4389,7 +4493,9 @@
    "sh": 170.5
   },
   "d_cherry_crab": {
-   "file": "d_cherry_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 920,
+   "ay": 176,
    "w": 37,
    "h": 33,
    "smooth": false,
@@ -4397,7 +4503,9 @@
    "sh": 181.5
   },
   "d_carrot_squid": {
-   "file": "d_carrot_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 422,
+   "ay": 176,
    "w": 37,
    "h": 38,
    "smooth": false,
@@ -4405,7 +4513,9 @@
    "sh": 209.0
   },
   "d_corn_gar": {
-   "file": "d_corn_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 449,
+   "ay": 267,
    "w": 44,
    "h": 22,
    "smooth": false,
@@ -4413,7 +4523,9 @@
    "sh": 121.0
   },
   "d_melon_turtle": {
-   "file": "d_melon_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 251,
+   "ay": 656,
    "w": 40,
    "h": 30,
    "smooth": false,
@@ -4421,7 +4533,9 @@
    "sh": 165.0
   },
   "d_donut_seal": {
-   "file": "d_donut_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 632,
+   "ay": 310,
    "w": 40,
    "h": 32,
    "smooth": false,
@@ -4429,7 +4543,9 @@
    "sh": 176.0
   },
   "d_egg_jelly": {
-   "file": "d_egg_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 260,
+   "ay": 356,
    "w": 35,
    "h": 34,
    "smooth": false,
@@ -4437,7 +4553,9 @@
    "sh": 187.0
   },
   "d_pepper_shrimp": {
-   "file": "d_pepper_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 318,
+   "ay": 749,
    "w": 37,
    "h": 37,
    "smooth": false,
@@ -4445,7 +4563,9 @@
    "sh": 203.5
   },
   "d_candy_seahorse": {
-   "file": "d_candy_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 110,
+   "ay": 176,
    "w": 28,
    "h": 40,
    "smooth": false,
@@ -4453,7 +4573,9 @@
    "sh": 220.0
   },
   "d_cake_turtle": {
-   "file": "d_cake_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 667,
+   "ay": 131,
    "w": 40,
    "h": 39,
    "smooth": false,
@@ -4461,7 +4583,9 @@
    "sh": 214.5
   },
   "d_icecream_narwhal": {
-   "file": "d_icecream_narwhal.png",
+   "atlas": "d_atlas.png",
+   "ax": 243,
+   "ay": 525,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -4469,7 +4593,9 @@
    "sh": 176.0
   },
   "d_burger_clam": {
-   "file": "d_burger_clam.png",
+   "atlas": "d_atlas.png",
+   "ax": 193,
+   "ay": 131,
    "w": 37,
    "h": 30,
    "smooth": false,
@@ -4477,7 +4603,9 @@
    "sh": 165.0
   },
   "d_sushi_ray": {
-   "file": "d_sushi_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 450,
+   "ay": 1035,
    "w": 43,
    "h": 26,
    "smooth": false,
@@ -4485,7 +4613,9 @@
    "sh": 143.0
   },
   "d_pineapple_puffer": {
-   "file": "d_pineapple_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 653,
+   "ay": 749,
    "w": 37,
    "h": 37,
    "smooth": false,
@@ -4493,7 +4623,9 @@
    "sh": 203.5
   },
   "d_noodle_octopus": {
-   "file": "d_noodle_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 296,
+   "ay": 702,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -4501,7 +4633,9 @@
    "sh": 203.5
   },
   "d_kettle_dolphin": {
-   "file": "d_kettle_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 40,
+   "ay": 563,
    "w": 42,
    "h": 34,
    "smooth": false,
@@ -4509,7 +4643,9 @@
    "sh": 187.0
   },
   "d_grill_shark": {
-   "file": "d_grill_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 40,
+   "ay": 486,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -4517,7 +4653,9 @@
    "sh": 187.0
   },
   "d_coconut_crab": {
-   "file": "d_coconut_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 948,
+   "ay": 222,
    "w": 45,
    "h": 44,
    "smooth": false,
@@ -4525,7 +4663,9 @@
    "sh": 242.0
   },
   "d_wok_ray": {
-   "file": "d_wok_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 510,
+   "ay": 1164,
    "w": 44,
    "h": 29,
    "smooth": false,
@@ -4533,7 +4673,9 @@
    "sh": 159.5
   },
   "d_pot_whale": {
-   "file": "d_pot_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 631,
+   "ay": 790,
    "w": 41,
    "h": 42,
    "smooth": false,
@@ -4541,7 +4683,9 @@
    "sh": 231.0
   },
   "d_feast_whale": {
-   "file": "d_feast_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 774,
+   "ay": 356,
    "w": 46,
    "h": 41,
    "smooth": false,
@@ -4549,7 +4693,9 @@
    "sh": 225.5
   },
   "d_palm_turtle": {
-   "file": "d_palm_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 781,
+   "ay": 702,
    "w": 44,
    "h": 41,
    "smooth": false,
@@ -4557,7 +4703,9 @@
    "sh": 225.5
   },
   "d_cake_kraken": {
-   "file": "d_cake_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 579,
+   "ay": 131,
    "w": 40,
    "h": 44,
    "smooth": false,
@@ -4565,7 +4713,9 @@
    "sh": 242.0
   },
   "d_rainbow_parrotfish": {
-   "file": "d_rainbow_parrotfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 276,
+   "ay": 833,
    "w": 44,
    "h": 28,
    "smooth": false,
@@ -4573,7 +4723,9 @@
    "sh": 154.0
   },
   "d_balloon_puffer": {
-   "file": "d_balloon_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 183,
+   "ay": 39,
    "w": 37,
    "h": 30,
    "smooth": false,
@@ -4581,7 +4733,9 @@
    "sh": 172.5
   },
   "d_ring_seal": {
-   "file": "d_ring_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 601,
+   "ay": 833,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -4589,7 +4743,9 @@
    "sh": 161.0
   },
   "d_flipper_frogfish": {
-   "file": "d_flipper_frogfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 369,
+   "ay": 398,
    "w": 37,
    "h": 31,
    "smooth": false,
@@ -4597,7 +4753,9 @@
    "sh": 178.2
   },
   "d_sunglass_ray": {
-   "file": "d_sunglass_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 274,
+   "ay": 1035,
    "w": 41,
    "h": 28,
    "smooth": false,
@@ -4605,7 +4763,9 @@
    "sh": 161.0
   },
   "d_bucket_crab": {
-   "file": "d_bucket_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 736,
+   "ay": 87,
    "w": 33,
    "h": 34,
    "smooth": false,
@@ -4613,7 +4773,9 @@
    "sh": 195.5
   },
   "d_kite_flyingfish": {
-   "file": "d_kite_flyingfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 301,
+   "ay": 563,
    "w": 40,
    "h": 32,
    "smooth": false,
@@ -4621,7 +4783,9 @@
    "sh": 184.0
   },
   "d_ball_dolphin": {
-   "file": "d_ball_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 966,
+   "ay": 0,
    "w": 38,
    "h": 36,
    "smooth": false,
@@ -4629,7 +4793,9 @@
    "sh": 207.0
   },
   "d_snorkel_goby": {
-   "file": "d_snorkel_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 480,
+   "ay": 955,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -4637,7 +4803,9 @@
    "sh": 155.2
   },
   "d_dice_boxfish": {
-   "file": "d_dice_boxfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 226,
+   "ay": 310,
    "w": 36,
    "h": 27,
    "smooth": false,
@@ -4645,7 +4813,9 @@
    "sh": 155.2
   },
   "d_yoyo_snail": {
-   "file": "d_yoyo_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 900,
+   "ay": 1164,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -4653,7 +4823,9 @@
    "sh": 161.0
   },
   "d_drum_puffer": {
-   "file": "d_drum_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 962,
+   "ay": 310,
    "w": 40,
    "h": 30,
    "smooth": false,
@@ -4661,7 +4833,9 @@
    "sh": 172.5
   },
   "d_guitar_ray": {
-   "file": "d_guitar_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 125,
+   "ay": 486,
    "w": 42,
    "h": 28,
    "smooth": false,
@@ -4669,7 +4843,9 @@
    "sh": 161.0
   },
   "d_camera_crab": {
-   "file": "d_camera_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 828,
+   "ay": 131,
    "w": 37,
    "h": 30,
    "smooth": false,
@@ -4677,7 +4853,9 @@
    "sh": 172.5
   },
   "d_parasol_jelly": {
-   "file": "d_parasol_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 948,
+   "ay": 702,
    "w": 34,
    "h": 35,
    "smooth": false,
@@ -4685,7 +4863,9 @@
    "sh": 201.2
   },
   "d_surf_shark": {
-   "file": "d_surf_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 364,
+   "ay": 1035,
    "w": 41,
    "h": 31,
    "smooth": false,
@@ -4693,7 +4873,9 @@
    "sh": 178.2
   },
   "d_robot_lobster": {
-   "file": "d_robot_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 772,
+   "ay": 833,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -4701,7 +4883,9 @@
    "sh": 189.7
   },
   "d_magic_octopus": {
-   "file": "d_magic_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 621,
+   "ay": 607,
    "w": 39,
    "h": 39,
    "smooth": false,
@@ -4709,7 +4893,9 @@
    "sh": 224.2
   },
   "d_disco_sunfish": {
-   "file": "d_disco_sunfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 390,
+   "ay": 310,
    "w": 42,
    "h": 39,
    "smooth": false,
@@ -4717,7 +4903,9 @@
    "sh": 224.2
   },
   "d_clown_shark": {
-   "file": "d_clown_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 552,
+   "ay": 222,
    "w": 42,
    "h": 29,
    "smooth": false,
@@ -4725,7 +4913,9 @@
    "sh": 166.7
   },
   "d_kart_turtle": {
-   "file": "d_kart_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 880,
+   "ay": 525,
    "w": 42,
    "h": 31,
    "smooth": false,
@@ -4733,7 +4923,9 @@
    "sh": 178.2
   },
   "d_carousel_seahorse": {
-   "file": "d_carousel_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 255,
+   "ay": 176,
    "w": 36,
    "h": 39,
    "smooth": false,
@@ -4741,7 +4933,9 @@
    "sh": 224.2
   },
   "d_ferris_jelly": {
-   "file": "d_ferris_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 943,
+   "ay": 356,
    "w": 39,
    "h": 38,
    "smooth": false,
@@ -4749,7 +4943,9 @@
    "sh": 218.5
   },
   "d_circus_whale": {
-   "file": "d_circus_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 89,
+   "ay": 222,
    "w": 42,
    "h": 37,
    "smooth": false,
@@ -4757,7 +4953,9 @@
    "sh": 212.7
   },
   "d_coaster_eel": {
-   "file": "d_coaster_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 777,
+   "ay": 222,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -4765,7 +4963,9 @@
    "sh": 207.0
   },
   "d_firework_squid": {
-   "file": "d_firework_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 204,
+   "ay": 398,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -4773,7 +4973,9 @@
    "sh": 201.2
   },
   "d_lantern_angler": {
-   "file": "d_lantern_angler.png",
+   "atlas": "d_atlas.png",
+   "ax": 889,
+   "ay": 563,
    "w": 48,
    "h": 37,
    "smooth": false,
@@ -4781,7 +4983,9 @@
    "sh": 185.0
   },
   "d_candle_squid": {
-   "file": "d_candle_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 29,
+   "ay": 176,
    "w": 39,
    "h": 45,
    "smooth": false,
@@ -4789,7 +4993,9 @@
    "sh": 225.0
   },
   "d_ghost_jelly": {
-   "file": "d_ghost_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 410,
+   "ay": 439,
    "w": 40,
    "h": 38,
    "smooth": false,
@@ -4797,7 +5003,9 @@
    "sh": 190.0
   },
   "d_broomstick_eel": {
-   "file": "d_broomstick_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 559,
+   "ay": 87,
    "w": 47,
    "h": 38,
    "smooth": false,
@@ -4805,7 +5013,9 @@
    "sh": 190.0
   },
   "d_cobweb_crab": {
-   "file": "d_cobweb_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 860,
+   "ay": 222,
    "w": 43,
    "h": 35,
    "smooth": false,
@@ -4813,7 +5023,9 @@
    "sh": 175.0
   },
   "d_quill_shrimp": {
-   "file": "d_quill_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 868,
+   "ay": 790,
    "w": 47,
    "h": 35,
    "smooth": false,
@@ -4821,7 +5033,9 @@
    "sh": 175.0
   },
   "d_bottle_goby": {
-   "file": "d_bottle_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 296,
+   "ay": 87,
    "w": 44,
    "h": 30,
    "smooth": false,
@@ -4829,7 +5043,9 @@
    "sh": 150.0
   },
   "d_skull_puffer": {
-   "file": "d_skull_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 319,
+   "ay": 955,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -4837,7 +5053,9 @@
    "sh": 165.0
   },
   "d_teacup_snail": {
-   "file": "d_teacup_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 867,
+   "ay": 1035,
    "w": 43,
    "h": 31,
    "smooth": false,
@@ -4845,7 +5063,9 @@
    "sh": 155.0
   },
   "d_pocketwatch_turtle": {
-   "file": "d_pocketwatch_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 247,
+   "ay": 790,
    "w": 47,
    "h": 40,
    "smooth": false,
@@ -4853,7 +5073,9 @@
    "sh": 200.0
   },
   "d_violin_ray": {
-   "file": "d_violin_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 879,
+   "ay": 1121,
    "w": 48,
    "h": 40,
    "smooth": false,
@@ -4861,7 +5083,9 @@
    "sh": 200.0
   },
   "d_gramophone_snail": {
-   "file": "d_gramophone_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 885,
+   "ay": 439,
    "w": 44,
    "h": 38,
    "smooth": false,
@@ -4869,7 +5093,9 @@
    "sh": 190.0
   },
   "d_umbrella_seal": {
-   "file": "d_umbrella_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 529,
+   "ay": 1121,
    "w": 50,
    "h": 42,
    "smooth": false,
@@ -4877,7 +5103,9 @@
    "sh": 210.0
   },
   "d_top_hat_walrus": {
-   "file": "d_top_hat_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 437,
+   "ay": 1076,
    "w": 47,
    "h": 41,
    "smooth": false,
@@ -4885,7 +5113,9 @@
    "sh": 205.0
   },
   "d_book_flounder": {
-   "file": "d_book_flounder.png",
+   "atlas": "d_atlas.png",
+   "ax": 205,
+   "ay": 87,
    "w": 46,
    "h": 35,
    "smooth": false,
@@ -4893,7 +5123,9 @@
    "sh": 175.0
   },
   "d_chest_crab": {
-   "file": "d_chest_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 222,
    "w": 43,
    "h": 39,
    "smooth": false,
@@ -4901,7 +5133,9 @@
    "sh": 195.0
   },
   "d_piano_shark": {
-   "file": "d_piano_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 560,
+   "ay": 749,
    "w": 47,
    "h": 31,
    "smooth": false,
@@ -4909,7 +5143,9 @@
    "sh": 155.0
   },
   "d_knight_lobster": {
-   "file": "d_knight_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 385,
+   "ay": 563,
    "w": 47,
    "h": 40,
    "smooth": false,
@@ -4917,7 +5153,9 @@
    "sh": 200.0
   },
   "d_mummy_eel": {
-   "file": "d_mummy_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 898,
+   "ay": 656,
    "w": 50,
    "h": 33,
    "smooth": false,
@@ -4925,7 +5163,9 @@
    "sh": 165.0
   },
   "d_coffin_whale": {
-   "file": "d_coffin_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 112,
+   "ay": 267,
    "w": 48,
    "h": 38,
    "smooth": false,
@@ -4933,7 +5173,9 @@
    "sh": 190.0
   },
   "d_bell_tower_turtle": {
-   "file": "d_bell_tower_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 751,
+   "ay": 39,
    "w": 46,
    "h": 47,
    "smooth": false,
@@ -4941,7 +5183,9 @@
    "sh": 235.0
   },
   "d_ghost_ship_whale": {
-   "file": "d_ghost_ship_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 491,
+   "ay": 439,
    "w": 46,
    "h": 46,
    "smooth": false,
@@ -4949,7 +5193,9 @@
    "sh": 230.0
   },
   "d_organ_octopus": {
-   "file": "d_organ_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 601,
+   "ay": 702,
    "w": 45,
    "h": 46,
    "smooth": false,
@@ -4957,7 +5203,9 @@
    "sh": 230.0
   },
   "d_lighthouse_squid": {
-   "file": "d_lighthouse_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 398,
+   "ay": 607,
    "w": 41,
    "h": 48,
    "smooth": false,
@@ -4965,7 +5213,9 @@
    "sh": 240.0
   },
   "d_mist_dragon_eel": {
-   "file": "d_mist_dragon_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 335,
+   "ay": 656,
    "w": 48,
    "h": 43,
    "smooth": false,
@@ -4973,7 +5223,9 @@
    "sh": 215.0
   },
   "d_nail_gar": {
-   "file": "d_nail_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 702,
    "w": 39,
    "h": 17,
    "smooth": false,
@@ -4981,7 +5233,9 @@
    "sh": 102.0
   },
   "d_wrench_crab": {
-   "file": "d_wrench_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 678,
+   "ay": 1164,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -4989,7 +5243,9 @@
    "sh": 168.0
   },
   "d_screw_shrimp": {
-   "file": "d_screw_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 59,
+   "ay": 916,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -4997,7 +5253,9 @@
    "sh": 168.0
   },
   "d_pliers_lobster": {
-   "file": "d_pliers_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 790,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -5005,7 +5263,9 @@
    "sh": 168.0
   },
   "d_tape_snail": {
-   "file": "d_tape_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 693,
+   "ay": 1035,
    "w": 39,
    "h": 22,
    "smooth": false,
@@ -5013,7 +5273,9 @@
    "sh": 132.0
   },
   "d_brush_squid": {
-   "file": "d_brush_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 654,
+   "ay": 87,
    "w": 36,
    "h": 32,
    "smooth": false,
@@ -5021,7 +5283,9 @@
    "sh": 192.0
   },
   "d_magnet_ray": {
-   "file": "d_magnet_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 783,
+   "ay": 607,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -5029,7 +5293,9 @@
    "sh": 156.0
   },
   "d_bucket_jelly": {
-   "file": "d_bucket_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 812,
+   "ay": 87,
    "w": 26,
    "h": 36,
    "smooth": false,
@@ -5037,7 +5303,9 @@
    "sh": 216.0
   },
   "d_ruler_eel": {
-   "file": "d_ruler_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 154,
+   "ay": 875,
    "w": 38,
    "h": 16,
    "smooth": false,
@@ -5045,7 +5313,9 @@
    "sh": 96.0
   },
   "d_helmet_turtle": {
-   "file": "d_helmet_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 691,
+   "ay": 486,
    "w": 38,
    "h": 29,
    "smooth": false,
@@ -5053,7 +5323,9 @@
    "sh": 174.0
   },
   "d_axe_shark": {
-   "file": "d_axe_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 884,
+   "ay": 0,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -5061,7 +5333,9 @@
    "sh": 180.0
   },
   "d_shovel_ray": {
-   "file": "d_shovel_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 863,
+   "ay": 916,
    "w": 39,
    "h": 28,
    "smooth": false,
@@ -5069,7 +5343,9 @@
    "sh": 168.0
   },
   "d_anvil_puffer": {
-   "file": "d_anvil_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 556,
+   "ay": 0,
    "w": 33,
    "h": 32,
    "smooth": false,
@@ -5077,7 +5353,9 @@
    "sh": 192.0
   },
   "d_chainsaw_swordfish": {
-   "file": "d_chainsaw_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 655,
+   "ay": 176,
    "w": 40,
    "h": 25,
    "smooth": false,
@@ -5085,7 +5363,9 @@
    "sh": 150.0
   },
   "d_ladder_seahorse": {
-   "file": "d_ladder_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 649,
+   "ay": 563,
    "w": 27,
    "h": 35,
    "smooth": false,
@@ -5093,7 +5373,9 @@
    "sh": 210.0
   },
   "d_crane_crab": {
-   "file": "d_crane_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 698,
+   "ay": 267,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -5101,7 +5383,9 @@
    "sh": 204.0
   },
   "d_forklift_lobster": {
-   "file": "d_forklift_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 833,
+   "ay": 398,
    "w": 39,
    "h": 25,
    "smooth": false,
@@ -5109,7 +5393,9 @@
    "sh": 150.0
   },
   "d_bulldozer_shark": {
-   "file": "d_bulldozer_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 33,
+   "ay": 131,
    "w": 38,
    "h": 32,
    "smooth": false,
@@ -5117,7 +5403,9 @@
    "sh": 192.0
   },
   "d_mixer_whale": {
-   "file": "d_mixer_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 501,
+   "ay": 656,
    "w": 39,
    "h": 30,
    "smooth": false,
@@ -5125,7 +5413,9 @@
    "sh": 180.0
   },
   "d_tractor_walrus": {
-   "file": "d_tractor_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 608,
+   "ay": 1076,
    "w": 39,
    "h": 30,
    "smooth": false,
@@ -5133,7 +5423,9 @@
    "sh": 180.0
   },
   "d_excavator_crab": {
-   "file": "d_excavator_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 336,
+   "ay": 356,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -5141,7 +5433,9 @@
    "sh": 192.0
   },
   "d_tank_turtle": {
-   "file": "d_tank_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 609,
+   "ay": 1035,
    "w": 37,
    "h": 29,
    "smooth": false,
@@ -5149,7 +5443,9 @@
    "sh": 174.0
   },
   "d_factory_whale": {
-   "file": "d_factory_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 422,
+   "ay": 356,
    "w": 39,
    "h": 35,
    "smooth": false,
@@ -5157,7 +5453,9 @@
    "sh": 210.0
   },
   "d_robot_kraken": {
-   "file": "d_robot_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 681,
+   "ay": 833,
    "w": 38,
    "h": 35,
    "smooth": false,
@@ -5165,7 +5463,9 @@
    "sh": 210.0
   },
   "d_clockwork_whale": {
-   "file": "d_clockwork_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 389,
+   "ay": 222,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -5173,7 +5473,9 @@
    "sh": 204.0
   },
   "d_skate_ray": {
-   "file": "d_skate_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 158,
+   "ay": 955,
    "w": 41,
    "h": 27,
    "smooth": false,
@@ -5181,7 +5483,9 @@
    "sh": 152.5
   },
   "d_scooter_seahorse": {
-   "file": "d_scooter_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 916,
    "w": 27,
    "h": 34,
    "smooth": false,
@@ -5189,7 +5493,9 @@
    "sh": 192.1
   },
   "d_bike_crab": {
-   "file": "d_bike_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 841,
+   "ay": 39,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -5197,7 +5503,9 @@
    "sh": 169.5
   },
   "d_paper_plane_flyingfish": {
-   "file": "d_paper_plane_flyingfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 869,
+   "ay": 702,
    "w": 38,
    "h": 24,
    "smooth": false,
@@ -5205,7 +5513,9 @@
    "sh": 135.6
   },
   "d_sail_tuna": {
-   "file": "d_sail_tuna.png",
+   "atlas": "d_atlas.png",
+   "ax": 238,
+   "ay": 875,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -5213,7 +5523,9 @@
    "sh": 175.1
   },
   "d_anchor_eel": {
-   "file": "d_anchor_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 256,
+   "ay": 0,
    "w": 41,
    "h": 29,
    "smooth": false,
@@ -5221,7 +5533,9 @@
    "sh": 163.8
   },
   "d_buoy_puffer": {
-   "file": "d_buoy_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 123,
+   "ay": 131,
    "w": 32,
    "h": 34,
    "smooth": false,
@@ -5229,7 +5543,9 @@
    "sh": 192.1
   },
   "d_oar_squid": {
-   "file": "d_oar_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 378,
+   "ay": 702,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -5237,7 +5553,9 @@
    "sh": 214.7
   },
   "d_compass_starfish": {
-   "file": "d_compass_starfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 287,
+   "ay": 267,
    "w": 37,
    "h": 35,
    "smooth": false,
@@ -5245,7 +5563,9 @@
    "sh": 197.7
   },
   "d_taxi_turtle": {
-   "file": "d_taxi_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 780,
+   "ay": 1035,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -5253,7 +5573,9 @@
    "sh": 169.5
   },
   "d_bus_whale": {
-   "file": "d_bus_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 276,
+   "ay": 131,
    "w": 41,
    "h": 32,
    "smooth": false,
@@ -5261,7 +5583,9 @@
    "sh": 180.8
   },
   "d_jet_swordfish": {
-   "file": "d_jet_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 701,
+   "ay": 525,
    "w": 41,
    "h": 27,
    "smooth": false,
@@ -5269,7 +5593,9 @@
    "sh": 152.5
   },
   "d_heli_ray": {
-   "file": "d_heli_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 611,
+   "ay": 486,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -5277,7 +5603,9 @@
    "sh": 169.5
   },
   "d_balloon_jelly": {
-   "file": "d_balloon_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 123,
+   "ay": 39,
    "w": 27,
    "h": 37,
    "smooth": false,
@@ -5285,7 +5613,9 @@
    "sh": 209.0
   },
   "d_police_shark": {
-   "file": "d_police_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 415,
+   "ay": 790,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -5293,7 +5623,9 @@
    "sh": 169.5
   },
   "d_truck_walrus": {
-   "file": "d_truck_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 44,
+   "ay": 1121,
    "w": 40,
    "h": 29,
    "smooth": false,
@@ -5301,7 +5633,9 @@
    "sh": 163.8
   },
   "d_ambulance_seal": {
-   "file": "d_ambulance_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 179,
+   "ay": 0,
    "w": 36,
    "h": 31,
    "smooth": false,
@@ -5309,7 +5643,9 @@
    "sh": 175.1
   },
   "d_race_marlin": {
-   "file": "d_race_marlin.png",
+   "atlas": "d_atlas.png",
+   "ax": 960,
+   "ay": 790,
    "w": 42,
    "h": 24,
    "smooth": false,
@@ -5317,7 +5653,9 @@
    "sh": 135.6
   },
   "d_airship_whale": {
-   "file": "d_airship_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 84,
+   "ay": 0,
    "w": 45,
    "h": 26,
    "smooth": false,
@@ -5325,7 +5663,9 @@
    "sh": 146.9
   },
   "d_ferry_whale": {
-   "file": "d_ferry_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 44,
+   "ay": 398,
    "w": 42,
    "h": 33,
    "smooth": false,
@@ -5333,7 +5673,9 @@
    "sh": 186.4
   },
   "d_carrier_turtle": {
-   "file": "d_carrier_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 333,
+   "ay": 176,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -5341,7 +5683,9 @@
    "sh": 197.7
   },
   "d_freight_eel": {
-   "file": "d_freight_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 922,
+   "ay": 398,
    "w": 39,
    "h": 14,
    "smooth": false,
@@ -5349,7 +5693,9 @@
    "sh": 79.1
   },
   "d_airport_ray": {
-   "file": "d_airport_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 0,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -5357,7 +5703,9 @@
    "sh": 203.4
   },
   "d_space_shark": {
-   "file": "d_space_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 43,
+   "ay": 994,
    "w": 45,
    "h": 29,
    "smooth": false,
@@ -5365,7 +5713,9 @@
    "sh": 163.8
   },
   "d_ufo_ray": {
-   "file": "d_ufo_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 364,
+   "ay": 1121,
    "w": 42,
    "h": 31,
    "smooth": false,
@@ -5373,7 +5723,9 @@
    "sh": 175.1
   },
   "d_soccer_seal": {
-   "file": "d_soccer_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 775,
+   "ay": 955,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -5381,7 +5733,9 @@
    "sh": 165.7
   },
   "d_glove_crab": {
-   "file": "d_glove_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 658,
+   "ay": 439,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -5389,7 +5743,9 @@
    "sh": 154.7
   },
   "d_bat_swordfish": {
-   "file": "d_bat_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 351,
+   "ay": 39,
    "w": 42,
    "h": 25,
    "smooth": false,
@@ -5397,7 +5753,9 @@
    "sh": 138.1
   },
   "d_racket_ray": {
-   "file": "d_racket_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 45,
+   "ay": 833,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -5405,7 +5763,9 @@
    "sh": 149.2
   },
   "d_whistle_puffer": {
-   "file": "d_whistle_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 332,
+   "ay": 1164,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -5413,7 +5773,9 @@
    "sh": 160.2
   },
   "d_medal_starfish": {
-   "file": "d_medal_starfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 190,
+   "ay": 656,
    "w": 27,
    "h": 35,
    "smooth": false,
@@ -5421,7 +5783,9 @@
    "sh": 193.4
   },
   "d_cap_goby": {
-   "file": "d_cap_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 173,
+   "ay": 176,
    "w": 40,
    "h": 24,
    "smooth": false,
@@ -5429,7 +5793,9 @@
    "sh": 132.6
   },
   "d_dumbbell_shrimp": {
-   "file": "d_dumbbell_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 43,
+   "ay": 356,
    "w": 38,
    "h": 33,
    "smooth": false,
@@ -5437,7 +5803,9 @@
    "sh": 182.3
   },
   "d_skate_penguin_fish": {
-   "file": "d_skate_penguin_fish.png",
+   "atlas": "d_atlas.png",
+   "ax": 77,
+   "ay": 955,
    "w": 38,
    "h": 32,
    "smooth": false,
@@ -5445,7 +5813,9 @@
    "sh": 176.8
   },
   "d_golf_snail": {
-   "file": "d_golf_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 808,
+   "ay": 439,
    "w": 36,
    "h": 32,
    "smooth": false,
@@ -5453,7 +5823,9 @@
    "sh": 176.8
   },
   "d_chef_octopus": {
-   "file": "d_chef_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 834,
+   "ay": 176,
    "w": 41,
    "h": 37,
    "smooth": false,
@@ -5461,7 +5833,9 @@
    "sh": 204.4
   },
   "d_doctor_dolphin": {
-   "file": "d_doctor_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 479,
+   "ay": 310,
    "w": 41,
    "h": 34,
    "smooth": false,
@@ -5469,7 +5843,9 @@
    "sh": 187.8
   },
   "d_painter_squid": {
-   "file": "d_painter_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 691,
+   "ay": 702,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -5477,7 +5853,9 @@
    "sh": 198.9
   },
   "d_farmer_walrus": {
-   "file": "d_farmer_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 594,
+   "ay": 356,
    "w": 47,
    "h": 35,
    "smooth": false,
@@ -5485,7 +5863,9 @@
    "sh": 193.4
   },
   "d_judge_seal": {
-   "file": "d_judge_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 787,
+   "ay": 525,
    "w": 45,
    "h": 32,
    "smooth": false,
@@ -5493,7 +5873,9 @@
    "sh": 176.8
   },
   "d_sumo_puffer": {
-   "file": "d_sumo_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 983,
+   "ay": 994,
    "w": 38,
    "h": 37,
    "smooth": false,
@@ -5501,7 +5883,9 @@
    "sh": 204.4
   },
   "d_ninja_eel": {
-   "file": "d_ninja_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 216,
+   "ay": 702,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -5509,7 +5893,9 @@
    "sh": 171.3
   },
   "d_pirate_shark": {
-   "file": "d_pirate_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 732,
+   "ay": 749,
    "w": 45,
    "h": 36,
    "smooth": false,
@@ -5517,7 +5903,9 @@
    "sh": 198.9
   },
   "d_astronaut_turtle": {
-   "file": "d_astronaut_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 716,
+   "ay": 0,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -5525,7 +5913,9 @@
    "sh": 176.8
   },
   "d_wizard_octopus": {
-   "file": "d_wizard_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 422,
+   "ay": 1164,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -5533,7 +5923,9 @@
    "sh": 198.9
   },
   "d_samurai_crab": {
-   "file": "d_samurai_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 393,
+   "ay": 875,
    "w": 44,
    "h": 32,
    "smooth": false,
@@ -5541,7 +5933,9 @@
    "sh": 176.8
   },
   "d_king_walrus": {
-   "file": "d_king_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 211,
+   "ay": 563,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -5549,7 +5943,9 @@
    "sh": 198.9
   },
   "d_stadium_turtle": {
-   "file": "d_stadium_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 302,
+   "ay": 994,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -5557,7 +5953,9 @@
    "sh": 182.3
   },
   "d_champion_whale": {
-   "file": "d_champion_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 744,
+   "ay": 176,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -5565,7 +5963,9 @@
    "sh": 187.8
   },
   "d_trophy_narwhal": {
-   "file": "d_trophy_narwhal.png",
+   "atlas": "d_atlas.png",
+   "ax": 958,
+   "ay": 1076,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -5573,7 +5973,9 @@
    "sh": 209.9
   },
   "d_scarf_seal": {
-   "file": "d_scarf_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 868,
+   "ay": 875,
    "w": 34,
    "h": 25,
    "smooth": false,
@@ -5581,7 +5983,9 @@
    "sh": 156.2
   },
   "d_mitten_crab": {
-   "file": "d_mitten_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 431,
+   "ay": 656,
    "w": 33,
    "h": 26,
    "smooth": false,
@@ -5589,7 +5993,9 @@
    "sh": 162.5
   },
   "d_icecube_boxfish": {
-   "file": "d_icecube_boxfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 331,
+   "ay": 525,
    "w": 32,
    "h": 24,
    "smooth": false,
@@ -5597,7 +6003,9 @@
    "sh": 150.0
   },
   "d_beanie_puffer": {
-   "file": "d_beanie_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 600,
+   "ay": 39,
    "w": 31,
    "h": 33,
    "smooth": false,
@@ -5605,7 +6013,9 @@
    "sh": 206.2
   },
   "d_snowman_jelly": {
-   "file": "d_snowman_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 635,
+   "ay": 955,
    "w": 28,
    "h": 30,
    "smooth": false,
@@ -5613,7 +6023,9 @@
    "sh": 187.5
   },
   "d_sled_ray": {
-   "file": "d_sled_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 407,
+   "ay": 955,
    "w": 35,
    "h": 22,
    "smooth": false,
@@ -5621,7 +6033,9 @@
    "sh": 137.5
   },
   "d_icicle_gar": {
-   "file": "d_icicle_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 401,
+   "ay": 525,
    "w": 37,
    "h": 12,
    "smooth": false,
@@ -5629,7 +6043,9 @@
    "sh": 75.0
   },
   "d_earmuff_goby": {
-   "file": "d_earmuff_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 123,
+   "ay": 356,
    "w": 33,
    "h": 19,
    "smooth": false,
@@ -5637,7 +6053,9 @@
    "sh": 118.7
   },
   "d_popsicle_squid": {
-   "file": "d_popsicle_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 576,
+   "ay": 790,
    "w": 23,
    "h": 33,
    "smooth": false,
@@ -5645,7 +6063,9 @@
    "sh": 206.2
   },
   "d_ski_seal": {
-   "file": "d_ski_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 243,
+   "ay": 955,
    "w": 36,
    "h": 25,
    "smooth": false,
@@ -5653,7 +6073,9 @@
    "sh": 156.2
   },
   "d_igloo_turtle": {
-   "file": "d_igloo_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 478,
+   "ay": 525,
    "w": 36,
    "h": 24,
    "smooth": false,
@@ -5661,7 +6083,9 @@
    "sh": 150.0
   },
   "d_snowglobe_puffer": {
-   "file": "d_snowglobe_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 567,
+   "ay": 955,
    "w": 29,
    "h": 32,
    "smooth": false,
@@ -5669,7 +6093,9 @@
    "sh": 200.0
   },
   "d_heater_walrus": {
-   "file": "d_heater_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 533,
+   "ay": 486,
    "w": 37,
    "h": 30,
    "smooth": false,
@@ -5677,7 +6103,9 @@
    "sh": 187.5
   },
   "d_penguin_shark": {
-   "file": "d_penguin_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 163,
+   "ay": 749,
    "w": 36,
    "h": 24,
    "smooth": false,
@@ -5685,7 +6113,9 @@
    "sh": 150.0
   },
   "d_skate_narwhal": {
-   "file": "d_skate_narwhal.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 955,
    "w": 37,
    "h": 29,
    "smooth": false,
@@ -5693,7 +6123,9 @@
    "sh": 181.2
   },
   "d_snowplow_whale": {
-   "file": "d_snowplow_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 699,
+   "ay": 955,
    "w": 37,
    "h": 24,
    "smooth": false,
@@ -5701,7 +6133,9 @@
    "sh": 150.0
   },
   "d_yeti_seal": {
-   "file": "d_yeti_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 824,
+   "ay": 1164,
    "w": 34,
    "h": 26,
    "smooth": false,
@@ -5709,7 +6143,9 @@
    "sh": 162.5
   },
   "d_icebreaker_orca": {
-   "file": "d_icebreaker_orca.png",
+   "atlas": "d_atlas.png",
+   "ax": 163,
+   "ay": 525,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -5717,7 +6153,9 @@
    "sh": 162.5
   },
   "d_frost_dragon_eel": {
-   "file": "d_frost_dragon_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 87,
+   "ay": 439,
    "w": 37,
    "h": 24,
    "smooth": false,
@@ -5725,7 +6163,9 @@
    "sh": 150.0
   },
   "d_mammoth_walrus": {
-   "file": "d_mammoth_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 953,
+   "ay": 607,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -5733,7 +6173,9 @@
    "sh": 175.0
   },
   "d_iceberg_whale": {
-   "file": "d_iceberg_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 87,
+   "ay": 525,
    "w": 37,
    "h": 31,
    "smooth": false,
@@ -5741,7 +6183,9 @@
    "sh": 193.7
   },
   "d_castle_narwhal": {
-   "file": "d_castle_narwhal.png",
+   "atlas": "d_atlas.png",
+   "ax": 579,
+   "ay": 176,
    "w": 36,
    "h": 32,
    "smooth": false,
@@ -5749,7 +6193,9 @@
    "sh": 200.0
   },
   "d_glacier_turtle": {
-   "file": "d_glacier_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 584,
+   "ay": 439,
    "w": 36,
    "h": 32,
    "smooth": false,
@@ -5757,7 +6203,9 @@
    "sh": 200.0
   },
   "d_polar_king_bear_seal": {
-   "file": "d_polar_king_bear_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 341,
+   "ay": 790,
    "w": 35,
    "h": 31,
    "smooth": false,
@@ -5765,7 +6213,9 @@
    "sh": 193.7
   },
   "d_aurora_whale": {
-   "file": "d_aurora_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 804,
+   "ay": 0,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -5773,7 +6223,9 @@
    "sh": 193.7
   },
   "d_match_gar": {
-   "file": "d_match_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 110,
+   "ay": 656,
    "w": 39,
    "h": 17,
    "smooth": false,
@@ -5781,7 +6233,9 @@
    "sh": 102.0
   },
   "d_coal_puffer": {
-   "file": "d_coal_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 704,
+   "ay": 222,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -5789,7 +6243,9 @@
    "sh": 168.0
   },
   "d_pepper_eel": {
-   "file": "d_pepper_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 238,
+   "ay": 749,
    "w": 39,
    "h": 27,
    "smooth": false,
@@ -5797,7 +6253,9 @@
    "sh": 162.0
   },
   "d_kettle_crab": {
-   "file": "d_kettle_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 968,
+   "ay": 525,
    "w": 37,
    "h": 29,
    "smooth": false,
@@ -5805,7 +6263,9 @@
    "sh": 174.0
   },
   "d_candle_seahorse": {
-   "file": "d_candle_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 997,
+   "ay": 131,
    "w": 23,
    "h": 38,
    "smooth": false,
@@ -5813,7 +6273,9 @@
    "sh": 228.0
   },
   "d_toaster_boxfish": {
-   "file": "d_toaster_boxfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 277,
+   "ay": 1076,
    "w": 36,
    "h": 29,
    "smooth": false,
@@ -5821,7 +6283,9 @@
    "sh": 174.0
   },
   "d_lava_snail": {
-   "file": "d_lava_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 84,
+   "ay": 607,
    "w": 36,
    "h": 26,
    "smooth": false,
@@ -5829,7 +6293,9 @@
    "sh": 156.0
   },
   "d_sauna_seal": {
-   "file": "d_sauna_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 626,
+   "ay": 875,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -5837,7 +6303,9 @@
    "sh": 156.0
   },
   "d_grill_ray": {
-   "file": "d_grill_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 974,
+   "ay": 439,
    "w": 39,
    "h": 28,
    "smooth": false,
@@ -5845,7 +6313,9 @@
    "sh": 168.0
   },
   "d_torch_squid": {
-   "file": "d_torch_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 533,
+   "ay": 1076,
    "w": 36,
    "h": 34,
    "smooth": false,
@@ -5853,7 +6323,9 @@
    "sh": 204.0
   },
   "d_furnace_turtle": {
-   "file": "d_furnace_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 164,
+   "ay": 439,
    "w": 37,
    "h": 33,
    "smooth": false,
@@ -5861,7 +6333,9 @@
    "sh": 198.0
   },
   "d_dragon_seahorse": {
-   "file": "d_dragon_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 797,
+   "ay": 310,
    "w": 37,
    "h": 35,
    "smooth": false,
@@ -5869,7 +6343,9 @@
    "sh": 210.0
   },
   "d_bomb_puffer": {
-   "file": "d_bomb_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 63,
+   "ay": 87,
    "w": 33,
    "h": 35,
    "smooth": false,
@@ -5877,7 +6353,9 @@
    "sh": 210.0
   },
   "d_rocket_squid": {
-   "file": "d_rocket_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 875,
    "w": 40,
    "h": 35,
    "smooth": false,
@@ -5885,7 +6363,9 @@
    "sh": 210.0
   },
   "d_forge_crab": {
-   "file": "d_forge_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 669,
+   "ay": 398,
    "w": 41,
    "h": 27,
    "smooth": false,
@@ -5893,7 +6373,9 @@
    "sh": 162.0
   },
   "d_stego_turtle": {
-   "file": "d_stego_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 682,
+   "ay": 994,
    "w": 40,
    "h": 29,
    "smooth": false,
@@ -5901,7 +6383,9 @@
    "sh": 174.0
   },
   "d_ptero_ray": {
-   "file": "d_ptero_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 716,
+   "ay": 790,
    "w": 38,
    "h": 28,
    "smooth": false,
@@ -5909,7 +6393,9 @@
    "sh": 168.0
   },
   "d_tricera_shark": {
-   "file": "d_tricera_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 875,
+   "ay": 1076,
    "w": 40,
    "h": 27,
    "smooth": false,
@@ -5917,7 +6403,9 @@
    "sh": 162.0
   },
   "d_lava_whale": {
-   "file": "d_lava_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 161,
+   "ay": 607,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -5925,7 +6413,9 @@
    "sh": 204.0
   },
   "d_magma_crab": {
-   "file": "d_magma_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 700,
+   "ay": 607,
    "w": 41,
    "h": 27,
    "smooth": false,
@@ -5933,7 +6423,9 @@
    "sh": 162.0
   },
   "d_bronto_eel": {
-   "file": "d_bronto_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 387,
+   "ay": 87,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -5941,7 +6433,9 @@
    "sh": 192.0
   },
   "d_volcano_whale": {
-   "file": "d_volcano_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 40,
+   "ay": 1164,
    "w": 38,
    "h": 38,
    "smooth": false,
@@ -5949,7 +6443,9 @@
    "sh": 228.0
   },
   "d_steel_kraken": {
-   "file": "d_steel_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 601,
+   "ay": 994,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -5957,7 +6453,9 @@
    "sh": 210.0
   },
   "d_trex_whale": {
-   "file": "d_trex_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 788,
+   "ay": 1076,
    "w": 41,
    "h": 28,
    "smooth": false,
@@ -5965,7 +6463,9 @@
    "sh": 168.0
   },
   "d_phoenix_ray": {
-   "file": "d_phoenix_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 397,
+   "ay": 749,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -5973,7 +6473,9 @@
    "sh": 198.0
   },
   "d_led_goby": {
-   "file": "d_led_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 239,
+   "ay": 607,
    "w": 38,
    "h": 21,
    "smooth": false,
@@ -5981,7 +6483,9 @@
    "sh": 126.0
   },
   "d_battery_shrimp": {
-   "file": "d_battery_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 524,
+   "ay": 39,
    "w": 35,
    "h": 25,
    "smooth": false,
@@ -5989,7 +6493,9 @@
    "sh": 150.0
   },
   "d_remote_flounder": {
-   "file": "d_remote_flounder.png",
+   "atlas": "d_atlas.png",
+   "ax": 522,
+   "ay": 833,
    "w": 38,
    "h": 25,
    "smooth": false,
@@ -5997,7 +6503,9 @@
    "sh": 150.0
   },
   "d_mouse_ray": {
-   "file": "d_mouse_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 744,
+   "ay": 656,
    "w": 37,
    "h": 24,
    "smooth": false,
@@ -6005,7 +6513,9 @@
    "sh": 144.0
   },
   "d_bulb_jelly": {
-   "file": "d_bulb_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 965,
+   "ay": 87,
    "w": 26,
    "h": 34,
    "smooth": false,
@@ -6013,7 +6523,9 @@
    "sh": 204.0
   },
   "d_plug_eel": {
-   "file": "d_plug_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 82,
+   "ay": 790,
    "w": 39,
    "h": 29,
    "smooth": false,
@@ -6021,7 +6533,9 @@
    "sh": 174.0
   },
   "d_flashlight_squid": {
-   "file": "d_flashlight_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 291,
+   "ay": 398,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -6029,7 +6543,9 @@
    "sh": 156.0
   },
   "d_headphone_puffer": {
-   "file": "d_headphone_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 457,
+   "ay": 486,
    "w": 36,
    "h": 32,
    "smooth": false,
@@ -6037,7 +6553,9 @@
    "sh": 192.0
   },
   "d_usb_gar": {
-   "file": "d_usb_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 706,
+   "ay": 1121,
    "w": 39,
    "h": 19,
    "smooth": false,
@@ -6045,7 +6563,9 @@
    "sh": 114.0
   },
   "d_tv_boxfish": {
-   "file": "d_tv_boxfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 290,
+   "ay": 1121,
    "w": 35,
    "h": 32,
    "smooth": false,
@@ -6053,7 +6573,9 @@
    "sh": 192.0
   },
   "d_radio_crab": {
-   "file": "d_radio_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 125,
+   "ay": 833,
    "w": 37,
    "h": 31,
    "smooth": false,
@@ -6061,7 +6583,9 @@
    "sh": 186.0
   },
   "d_neon_seahorse": {
-   "file": "d_neon_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 163,
+   "ay": 702,
    "w": 22,
    "h": 31,
    "smooth": false,
@@ -6069,7 +6593,9 @@
    "sh": 186.0
   },
   "d_gamepad_ray": {
-   "file": "d_gamepad_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 329,
+   "ay": 439,
    "w": 39,
    "h": 29,
    "smooth": false,
@@ -6077,7 +6603,9 @@
    "sh": 174.0
   },
   "d_camera_angler": {
-   "file": "d_camera_angler.png",
+   "atlas": "d_atlas.png",
+   "ax": 747,
+   "ay": 131,
    "w": 39,
    "h": 30,
    "smooth": false,
@@ -6085,7 +6613,9 @@
    "sh": 180.0
   },
   "d_phone_flounder": {
-   "file": "d_phone_flounder.png",
+   "atlas": "d_atlas.png",
+   "ax": 482,
+   "ay": 749,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -6093,7 +6623,9 @@
    "sh": 156.0
   },
   "d_laser_swordfish": {
-   "file": "d_laser_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 607,
    "w": 41,
    "h": 23,
    "smooth": false,
@@ -6101,7 +6633,9 @@
    "sh": 138.0
   },
   "d_robot_shark": {
-   "file": "d_robot_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 852,
+   "ay": 833,
    "w": 38,
    "h": 24,
    "smooth": false,
@@ -6109,7 +6643,9 @@
    "sh": 144.0
   },
   "d_satellite_ray": {
-   "file": "d_satellite_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 547,
+   "ay": 875,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -6117,7 +6653,9 @@
    "sh": 192.0
   },
   "d_server_whale": {
-   "file": "d_server_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 633,
+   "ay": 916,
    "w": 39,
    "h": 27,
    "smooth": false,
@@ -6125,7 +6663,9 @@
    "sh": 162.0
   },
   "d_tesla_eel": {
-   "file": "d_tesla_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 121,
+   "ay": 1076,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -6133,7 +6673,9 @@
    "sh": 186.0
   },
   "d_arcade_whale": {
-   "file": "d_arcade_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 635,
+   "ay": 0,
    "w": 40,
    "h": 27,
    "smooth": false,
@@ -6141,7 +6683,9 @@
    "sh": 162.0
   },
   "d_neon_city_turtle": {
-   "file": "d_neon_city_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 85,
+   "ay": 702,
    "w": 38,
    "h": 33,
    "smooth": false,
@@ -6149,7 +6693,9 @@
    "sh": 198.0
   },
   "d_reactor_kraken": {
-   "file": "d_reactor_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 445,
+   "ay": 833,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -6157,7 +6703,9 @@
    "sh": 204.0
   },
   "d_hologram_whale": {
-   "file": "d_hologram_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 912,
+   "ay": 486,
    "w": 39,
    "h": 25,
    "smooth": false,
@@ -6165,7 +6713,9 @@
    "sh": 150.0
   },
   "d_blackhole_angler": {
-   "file": "d_blackhole_angler.png",
+   "atlas": "d_atlas.png",
+   "ax": 923,
+   "ay": 39,
    "w": 40,
    "h": 32,
    "smooth": false,
@@ -6173,7 +6723,9 @@
    "sh": 192.0
   },
   "d_star_starfish": {
-   "file": "d_star_starfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 388,
+   "ay": 994,
    "w": 33,
    "h": 31,
    "smooth": false,
@@ -6181,7 +6733,9 @@
    "sh": 181.3
   },
   "d_cloud_puffer": {
-   "file": "d_cloud_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 478,
+   "ay": 222,
    "w": 35,
    "h": 33,
    "smooth": false,
@@ -6189,7 +6743,9 @@
    "sh": 193.0
   },
   "d_feather_flyingfish": {
-   "file": "d_feather_flyingfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 865,
+   "ay": 356,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -6197,7 +6753,9 @@
    "sh": 163.8
   },
   "d_rainbow_eel": {
-   "file": "d_rainbow_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 202,
+   "ay": 833,
    "w": 36,
    "h": 25,
    "smooth": false,
@@ -6205,7 +6763,9 @@
    "sh": 146.2
   },
   "d_comet_gar": {
-   "file": "d_comet_gar.png",
+   "atlas": "d_atlas.png",
+   "ax": 208,
+   "ay": 267,
    "w": 39,
    "h": 24,
    "smooth": false,
@@ -6213,7 +6773,9 @@
    "sh": 140.4
   },
   "d_crown_seahorse": {
-   "file": "d_crown_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 856,
+   "ay": 267,
    "w": 32,
    "h": 38,
    "smooth": false,
@@ -6221,7 +6783,9 @@
    "sh": 222.3
   },
   "d_harp_ray": {
-   "file": "d_harp_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 374,
+   "ay": 486,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -6229,7 +6793,9 @@
    "sh": 193.0
   },
   "d_unicorn_dolphin": {
-   "file": "d_unicorn_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 626,
+   "ay": 1121,
    "w": 38,
    "h": 34,
    "smooth": false,
@@ -6237,7 +6803,9 @@
    "sh": 198.9
   },
   "d_planet_puffer": {
-   "file": "d_planet_puffer.png",
+   "atlas": "d_atlas.png",
+   "ax": 911,
+   "ay": 749,
    "w": 38,
    "h": 29,
    "smooth": false,
@@ -6245,7 +6813,9 @@
    "sh": 169.6
   },
   "d_moon_jelly": {
-   "file": "d_moon_jelly.png",
+   "atlas": "d_atlas.png",
+   "ax": 588,
+   "ay": 656,
    "w": 32,
    "h": 36,
    "smooth": false,
@@ -6253,7 +6823,9 @@
    "sh": 210.6
   },
   "d_pegasus_seahorse": {
-   "file": "d_pegasus_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 749,
    "w": 35,
    "h": 36,
    "smooth": false,
@@ -6261,7 +6833,9 @@
    "sh": 210.6
   },
   "d_crystal_turtle": {
-   "file": "d_crystal_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 310,
    "w": 37,
    "h": 32,
    "smooth": false,
@@ -6269,7 +6843,9 @@
    "sh": 187.2
   },
   "d_throne_walrus": {
-   "file": "d_throne_walrus.png",
+   "atlas": "d_atlas.png",
+   "ax": 201,
+   "ay": 1076,
    "w": 36,
    "h": 37,
    "smooth": false,
@@ -6277,7 +6853,9 @@
    "sh": 216.4
   },
   "d_galaxy_ray": {
-   "file": "d_galaxy_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 240,
+   "ay": 439,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -6285,7 +6863,9 @@
    "sh": 169.6
   },
   "d_sun_whale": {
-   "file": "d_sun_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 129,
+   "ay": 1035,
    "w": 41,
    "h": 36,
    "smooth": false,
@@ -6293,7 +6873,9 @@
    "sh": 210.6
   },
   "d_dragon_king_eel": {
-   "file": "d_dragon_king_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 716,
+   "ay": 310,
    "w": 38,
    "h": 42,
    "smooth": false,
@@ -6301,7 +6883,9 @@
    "sh": 245.7
   },
   "d_floating_island_whale": {
-   "file": "d_floating_island_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 451,
+   "ay": 398,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -6309,7 +6893,9 @@
    "sh": 198.9
   },
   "d_temple_turtle": {
-   "file": "d_temple_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 43,
+   "ay": 1076,
    "w": 37,
    "h": 33,
    "smooth": false,
@@ -6317,7 +6903,9 @@
    "sh": 193.0
   },
   "d_world_whale": {
-   "file": "d_world_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 597,
+   "ay": 1164,
    "w": 39,
    "h": 33,
    "smooth": false,
@@ -6325,7 +6913,9 @@
    "sh": 193.0
   },
   "d_constellation_shark": {
-   "file": "d_constellation_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 365,
+   "ay": 267,
    "w": 41,
    "h": 28,
    "smooth": false,
@@ -6333,7 +6923,9 @@
    "sh": 163.8
   },
   "d_star_whale": {
-   "file": "d_star_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 457,
+   "ay": 994,
    "w": 39,
    "h": 37,
    "smooth": false,
@@ -6341,7 +6933,9 @@
    "sh": 216.4
   },
   "d_rainbow_serpent": {
-   "file": "d_rainbow_serpent.png",
+   "atlas": "d_atlas.png",
+   "ax": 364,
+   "ay": 833,
    "w": 39,
    "h": 33,
    "smooth": false,
@@ -6349,7 +6943,9 @@
    "sh": 193.0
   },
   "d_cosmos_kraken": {
-   "file": "d_cosmos_kraken.png",
+   "atlas": "d_atlas.png",
+   "ax": 537,
+   "ay": 267,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -6357,7 +6953,9 @@
    "sh": 210.6
   },
   "d_angel_whale": {
-   "file": "d_angel_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 404,
+   "ay": 0,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -6365,7 +6963,9 @@
    "sh": 210.6
   },
   "d_sea_god_leviathan": {
-   "file": "d_sea_god_leviathan.png",
+   "atlas": "d_atlas.png",
+   "ax": 217,
+   "ay": 916,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -6373,7 +6973,9 @@
    "sh": 210.6
   },
   "d_hammer_shark_s": {
-   "file": "d_hammer_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 330,
+   "ay": 486,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -6381,7 +6983,9 @@
    "sh": 157.3
   },
   "d_saw_shark_s": {
-   "file": "d_saw_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 821,
+   "ay": 875,
    "w": 46,
    "h": 26,
    "smooth": false,
@@ -6389,7 +6993,9 @@
    "sh": 141.0
   },
   "d_bulb_angler_s": {
-   "file": "d_bulb_angler_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 923,
+   "ay": 87,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -6397,7 +7003,9 @@
    "sh": 179.0
   },
   "d_straw_seahorse_s": {
-   "file": "d_straw_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 867,
+   "ay": 994,
    "w": 32,
    "h": 38,
    "smooth": false,
@@ -6405,7 +7013,9 @@
    "sh": 206.1
   },
   "d_scissor_crab_s": {
-   "file": "d_scissor_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 981,
+   "ay": 875,
    "w": 41,
    "h": 34,
    "smooth": false,
@@ -6413,7 +7023,9 @@
    "sh": 184.4
   },
   "d_umbrella_jelly_s": {
-   "file": "d_umbrella_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 490,
+   "ay": 1121,
    "w": 38,
    "h": 39,
    "smooth": false,
@@ -6421,7 +7033,9 @@
    "sh": 211.6
   },
   "d_drill_narwhal_s": {
-   "file": "d_drill_narwhal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 918,
+   "ay": 310,
    "w": 43,
    "h": 29,
    "smooth": false,
@@ -6429,7 +7043,9 @@
    "sh": 157.3
   },
   "d_pizza_ray_s": {
-   "file": "d_pizza_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 868,
+   "ay": 749,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -6437,7 +7053,9 @@
    "sh": 173.6
   },
   "d_ball_turtle_s": {
-   "file": "d_ball_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 83,
+   "ay": 39,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -6445,7 +7063,9 @@
    "sh": 168.2
   },
   "d_cactus_puffer_s": {
-   "file": "d_cactus_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 541,
+   "ay": 131,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -6453,7 +7073,9 @@
    "sh": 184.4
   },
   "d_fan_puffer_s": {
-   "file": "d_fan_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 553,
+   "ay": 356,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -6461,7 +7083,9 @@
    "sh": 184.4
   },
   "d_candle_eel_s": {
-   "file": "d_candle_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 952,
+   "ay": 131,
    "w": 44,
    "h": 28,
    "smooth": false,
@@ -6469,7 +7093,9 @@
    "sh": 151.9
   },
   "d_trumpet_fish_s": {
-   "file": "d_trumpet_fish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 174,
+   "ay": 1121,
    "w": 44,
    "h": 24,
    "smooth": false,
@@ -6477,7 +7103,9 @@
    "sh": 130.2
   },
   "d_knight_swordfish_s": {
-   "file": "d_knight_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 522,
+   "ay": 563,
    "w": 41,
    "h": 31,
    "smooth": false,
@@ -6485,7 +7113,9 @@
    "sh": 168.2
   },
   "d_crown_tuna_s": {
-   "file": "d_crown_tuna_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 966,
+   "ay": 267,
    "w": 42,
    "h": 33,
    "smooth": false,
@@ -6493,7 +7123,9 @@
    "sh": 179.0
   },
   "d_plug_octopus_s": {
-   "file": "d_plug_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 205,
+   "ay": 790,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -6501,7 +7133,9 @@
    "sh": 206.1
   },
   "d_train_eel_s": {
-   "file": "d_train_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 742,
+   "ay": 1076,
    "w": 45,
    "h": 19,
    "smooth": false,
@@ -6509,7 +7143,9 @@
    "sh": 103.1
   },
   "d_teapot_whale_s": {
-   "file": "d_teapot_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 1076,
    "w": 42,
    "h": 31,
    "smooth": false,
@@ -6517,7 +7153,9 @@
    "sh": 168.2
   },
   "d_sub_whale_s": {
-   "file": "d_sub_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 941,
+   "ay": 994,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -6525,7 +7163,9 @@
    "sh": 179.0
   },
   "d_dino_shark_s": {
-   "file": "d_dino_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 347,
+   "ay": 310,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -6533,7 +7173,9 @@
    "sh": 173.6
   },
   "d_volcano_turtle_s": {
-   "file": "d_volcano_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 1164,
    "w": 39,
    "h": 39,
    "smooth": false,
@@ -6541,7 +7183,9 @@
    "sh": 211.6
   },
   "d_rocket_marlin_s": {
-   "file": "d_rocket_marlin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 974,
+   "ay": 833,
    "w": 45,
    "h": 28,
    "smooth": false,
@@ -6549,7 +7193,9 @@
    "sh": 151.9
   },
   "d_castle_kraken_s": {
-   "file": "d_castle_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 539,
+   "ay": 176,
    "w": 39,
    "h": 41,
    "smooth": false,
@@ -6557,7 +7203,9 @@
    "sh": 222.4
   },
   "d_ship_whale_s": {
-   "file": "d_ship_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 819,
+   "ay": 916,
    "w": 43,
    "h": 38,
    "smooth": false,
@@ -6565,7 +7213,9 @@
    "sh": 206.1
   },
   "d_moon_whale_s": {
-   "file": "d_moon_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 701,
+   "ay": 656,
    "w": 42,
    "h": 42,
    "smooth": false,
@@ -6573,7 +7223,9 @@
    "sh": 227.8
   },
   "d_mackerel": {
-   "file": "d_mackerel.png",
+   "atlas": "d_atlas.png",
+   "ax": 547,
+   "ay": 607,
    "w": 34,
    "h": 19,
    "smooth": false,
@@ -6581,7 +7233,9 @@
    "sh": 125.9
   },
   "d_anchovy": {
-   "file": "d_anchovy.png",
+   "atlas": "d_atlas.png",
+   "ax": 342,
+   "ay": 0,
    "w": 27,
    "h": 11,
    "smooth": false,
@@ -6589,7 +7243,9 @@
    "sh": 72.9
   },
   "d_sardine": {
-   "file": "d_sardine.png",
+   "atlas": "d_atlas.png",
+   "ax": 482,
+   "ay": 875,
    "w": 29,
    "h": 13,
    "smooth": false,
@@ -6597,7 +7253,9 @@
    "sh": 86.1
   },
   "d_herring": {
-   "file": "d_herring.png",
+   "atlas": "d_atlas.png",
+   "ax": 841,
+   "ay": 486,
    "w": 33,
    "h": 17,
    "smooth": false,
@@ -6605,7 +7263,9 @@
    "sh": 112.6
   },
   "d_sea_bream": {
-   "file": "d_sea_bream.png",
+   "atlas": "d_atlas.png",
+   "ax": 143,
+   "ay": 916,
    "w": 34,
    "h": 23,
    "smooth": false,
@@ -6613,7 +7273,9 @@
    "sh": 152.4
   },
   "d_flounder": {
-   "file": "d_flounder.png",
+   "atlas": "d_atlas.png",
+   "ax": 529,
+   "ay": 398,
    "w": 35,
    "h": 24,
    "smooth": false,
@@ -6621,7 +7283,9 @@
    "sh": 159.0
   },
   "d_pufferfish": {
-   "file": "d_pufferfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 794,
+   "ay": 790,
    "w": 30,
    "h": 25,
    "smooth": false,
@@ -6629,7 +7293,9 @@
    "sh": 165.6
   },
   "d_goby": {
-   "file": "d_goby.png",
+   "atlas": "d_atlas.png",
+   "ax": 736,
+   "ay": 439,
    "w": 32,
    "h": 16,
    "smooth": false,
@@ -6637,7 +7303,9 @@
    "sh": 106.0
   },
   "d_pollock": {
-   "file": "d_pollock.png",
+   "atlas": "d_atlas.png",
+   "ax": 501,
+   "ay": 790,
    "w": 35,
    "h": 17,
    "smooth": false,
@@ -6645,7 +7313,9 @@
    "sh": 112.6
   },
   "d_croaker": {
-   "file": "d_croaker.png",
+   "atlas": "d_atlas.png",
+   "ax": 782,
+   "ay": 267,
    "w": 34,
    "h": 20,
    "smooth": false,
@@ -6653,7 +7323,9 @@
    "sh": 132.5
   },
   "d_mullet": {
-   "file": "d_mullet.png",
+   "atlas": "d_atlas.png",
+   "ax": 821,
+   "ay": 656,
    "w": 35,
    "h": 18,
    "smooth": false,
@@ -6661,7 +7333,9 @@
    "sh": 119.2
   },
   "d_rockfish": {
-   "file": "d_rockfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 81,
+   "ay": 875,
    "w": 33,
    "h": 22,
    "smooth": false,
@@ -6669,7 +7343,9 @@
    "sh": 145.7
   },
   "d_filefish": {
-   "file": "d_filefish.png",
+   "atlas": "d_atlas.png",
+   "ax": 133,
+   "ay": 398,
    "w": 32,
    "h": 24,
    "smooth": false,
@@ -6677,7 +7353,9 @@
    "sh": 159.0
   },
   "d_saury": {
-   "file": "d_saury.png",
+   "atlas": "d_atlas.png",
+   "ax": 706,
+   "ay": 875,
    "w": 35,
    "h": 11,
    "smooth": false,
@@ -6685,7 +7363,9 @@
    "sh": 72.9
   },
   "d_hairtail": {
-   "file": "d_hairtail.png",
+   "atlas": "d_atlas.png",
+   "ax": 212,
+   "ay": 486,
    "w": 34,
    "h": 19,
    "smooth": false,
@@ -6693,7 +7373,9 @@
    "sh": 125.9
   },
   "d_squid": {
-   "file": "d_squid.png",
+   "atlas": "d_atlas.png",
+   "ax": 226,
+   "ay": 994,
    "w": 35,
    "h": 27,
    "smooth": false,
@@ -6701,7 +7383,9 @@
    "sh": 178.9
   },
   "d_octopus": {
-   "file": "d_octopus.png",
+   "atlas": "d_atlas.png",
+   "ax": 464,
+   "ay": 702,
    "w": 31,
    "h": 29,
    "smooth": false,
@@ -6709,7 +7393,9 @@
    "sh": 192.1
   },
   "d_shrimp": {
-   "file": "d_shrimp.png",
+   "atlas": "d_atlas.png",
+   "ax": 947,
+   "ay": 916,
    "w": 31,
    "h": 28,
    "smooth": false,
@@ -6717,7 +7403,9 @@
    "sh": 185.5
   },
   "d_crab": {
-   "file": "d_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 619,
+   "ay": 267,
    "w": 36,
    "h": 25,
    "smooth": false,
@@ -6725,7 +7413,9 @@
    "sh": 165.6
   },
   "d_clam": {
-   "file": "d_clam.png",
+   "atlas": "d_atlas.png",
+   "ax": 176,
+   "ay": 222,
    "w": 29,
    "h": 21,
    "smooth": false,
@@ -6733,7 +7423,9 @@
    "sh": 139.1
   },
   "d_sea_snail": {
-   "file": "d_sea_snail.png",
+   "atlas": "d_atlas.png",
+   "ax": 300,
+   "ay": 916,
    "w": 31,
    "h": 23,
    "smooth": false,
@@ -6741,7 +7433,9 @@
    "sh": 152.4
   },
   "d_starfish": {
-   "file": "d_starfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 537,
+   "ay": 994,
    "w": 29,
    "h": 27,
    "smooth": false,
@@ -6749,7 +7443,9 @@
    "sh": 178.9
   },
   "d_jellyfish": {
-   "file": "d_jellyfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 640,
+   "ay": 525,
    "w": 26,
    "h": 29,
    "smooth": false,
@@ -6757,7 +7453,9 @@
    "sh": 192.1
   },
   "d_sea_urchin": {
-   "file": "d_sea_urchin.png",
+   "atlas": "d_atlas.png",
+   "ax": 441,
+   "ay": 916,
    "w": 29,
    "h": 27,
    "smooth": false,
@@ -6765,7 +7463,9 @@
    "sh": 178.9
   },
   "d_seahorse": {
-   "file": "d_seahorse.png",
+   "atlas": "d_atlas.png",
+   "ax": 507,
+   "ay": 916,
    "w": 24,
    "h": 31,
    "smooth": false,
@@ -6773,7 +7473,9 @@
    "sh": 205.4
   },
   "d_clownfish": {
-   "file": "d_clownfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 638,
+   "ay": 222,
    "w": 30,
    "h": 21,
    "smooth": false,
@@ -6781,7 +7483,9 @@
    "sh": 147.0
   },
   "d_blue_tang": {
-   "file": "d_blue_tang.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 87,
    "w": 28,
    "h": 19,
    "smooth": false,
@@ -6789,7 +7493,9 @@
    "sh": 133.0
   },
   "d_butterflyfish": {
-   "file": "d_butterflyfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 363,
+   "ay": 131,
    "w": 26,
    "h": 22,
    "smooth": false,
@@ -6797,7 +7503,9 @@
    "sh": 154.0
   },
   "d_flying_fish": {
-   "file": "d_flying_fish.png",
+   "atlas": "d_atlas.png",
+   "ax": 605,
+   "ay": 398,
    "w": 29,
    "h": 23,
    "smooth": false,
@@ -6805,7 +7513,9 @@
    "sh": 161.0
   },
   "d_eel": {
-   "file": "d_eel.png",
+   "atlas": "d_atlas.png",
+   "ax": 195,
+   "ay": 356,
    "w": 30,
    "h": 20,
    "smooth": false,
@@ -6813,7 +7523,9 @@
    "sh": 140.0
   },
   "d_cod": {
-   "file": "d_cod.png",
+   "atlas": "d_atlas.png",
+   "ax": 41,
+   "ay": 267,
    "w": 32,
    "h": 21,
    "smooth": false,
@@ -6821,7 +7533,9 @@
    "sh": 147.0
   },
   "d_salmon": {
-   "file": "d_salmon.png",
+   "atlas": "d_atlas.png",
+   "ax": 321,
+   "ay": 875,
    "w": 36,
    "h": 18,
    "smooth": false,
@@ -6829,7 +7543,9 @@
    "sh": 126.0
   },
   "d_yellowtail": {
-   "file": "d_yellowtail.png",
+   "atlas": "d_atlas.png",
+   "ax": 757,
+   "ay": 1164,
    "w": 31,
    "h": 20,
    "smooth": false,
@@ -6837,7 +7553,9 @@
    "sh": 140.0
   },
   "d_bonito": {
-   "file": "d_bonito.png",
+   "atlas": "d_atlas.png",
+   "ax": 137,
+   "ay": 87,
    "w": 31,
    "h": 19,
    "smooth": false,
@@ -6845,7 +7563,9 @@
    "sh": 133.0
   },
   "d_tuna": {
-   "file": "d_tuna.png",
+   "atlas": "d_atlas.png",
+   "ax": 219,
+   "ay": 1121,
    "w": 33,
    "h": 21,
    "smooth": false,
@@ -6853,7 +7573,9 @@
    "sh": 147.0
   },
   "d_lobster": {
-   "file": "d_lobster.png",
+   "atlas": "d_atlas.png",
+   "ax": 479,
+   "ay": 607,
    "w": 31,
    "h": 24,
    "smooth": false,
@@ -6861,7 +7583,9 @@
    "sh": 168.0
   },
   "d_hermit_crab": {
-   "file": "d_hermit_crab.png",
+   "atlas": "d_atlas.png",
+   "ax": 778,
+   "ay": 486,
    "w": 28,
    "h": 23,
    "smooth": false,
@@ -6869,7 +7593,9 @@
    "sh": 161.0
   },
   "d_cuttlefish": {
-   "file": "d_cuttlefish.png",
+   "atlas": "d_atlas.png",
+   "ax": 158,
+   "ay": 310,
    "w": 31,
    "h": 19,
    "smooth": false,
@@ -6877,7 +7603,9 @@
    "sh": 133.0
   },
   "d_stingray": {
-   "file": "d_stingray.png",
+   "atlas": "d_atlas.png",
+   "ax": 765,
+   "ay": 994,
    "w": 32,
    "h": 21,
    "smooth": false,
@@ -6885,7 +7613,9 @@
    "sh": 147.0
   },
   "d_sea_turtle": {
-   "file": "d_sea_turtle.png",
+   "atlas": "d_atlas.png",
+   "ax": 370,
+   "ay": 916,
    "w": 32,
    "h": 21,
    "smooth": false,
@@ -6893,7 +7623,9 @@
    "sh": 147.0
   },
   "d_seal": {
-   "file": "d_seal.png",
+   "atlas": "d_atlas.png",
+   "ax": 564,
+   "ay": 916,
    "w": 31,
    "h": 20,
    "smooth": false,
@@ -6901,7 +7633,9 @@
    "sh": 140.0
   },
   "d_dolphin": {
-   "file": "d_dolphin.png",
+   "atlas": "d_atlas.png",
+   "ax": 564,
+   "ay": 310,
    "w": 32,
    "h": 23,
    "smooth": false,
@@ -6909,7 +7643,9 @@
    "sh": 161.0
   },
   "d_shark": {
-   "file": "d_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 712,
+   "ay": 916,
    "w": 31,
    "h": 21,
    "smooth": false,
@@ -6917,7 +7653,9 @@
    "sh": 147.0
   },
   "d_swordfish": {
-   "file": "d_swordfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 538,
+   "ay": 1035,
    "w": 33,
    "h": 20,
    "smooth": false,
@@ -6925,7 +7663,9 @@
    "sh": 140.0
   },
   "d_sunfish": {
-   "file": "d_sunfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 214,
+   "ay": 1035,
    "w": 27,
    "h": 29,
    "smooth": false,
@@ -6933,7 +7673,9 @@
    "sh": 203.0
   },
   "d_manta_ray": {
-   "file": "d_manta_ray.png",
+   "atlas": "d_atlas.png",
+   "ax": 41,
+   "ay": 656,
    "w": 32,
    "h": 26,
    "smooth": false,
@@ -6941,7 +7683,9 @@
    "sh": 182.0
   },
   "d_anglerfish": {
-   "file": "d_anglerfish.png",
+   "atlas": "d_atlas.png",
+   "ax": 487,
+   "ay": 0,
    "w": 30,
    "h": 24,
    "smooth": false,
@@ -6949,7 +7693,9 @@
    "sh": 168.0
   },
   "d_orca": {
-   "file": "d_orca.png",
+   "atlas": "d_atlas.png",
+   "ax": 534,
+   "ay": 702,
    "w": 32,
    "h": 22,
    "smooth": false,
@@ -6957,7 +7703,9 @@
    "sh": 154.0
   },
   "d_whale": {
-   "file": "d_whale.png",
+   "atlas": "d_atlas.png",
+   "ax": 122,
+   "ay": 1164,
    "w": 32,
    "h": 25,
    "smooth": false,
@@ -6965,7 +7713,9 @@
    "sh": 175.0
   },
   "d_whale_shark": {
-   "file": "d_whale_shark.png",
+   "atlas": "d_atlas.png",
+   "ax": 191,
+   "ay": 1164,
    "w": 33,
    "h": 21,
    "smooth": false,
@@ -6973,7 +7723,9 @@
    "sh": 147.0
   },
   "d_sock_mackerel_s": {
-   "file": "d_sock_mackerel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 904,
+   "ay": 955,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -6981,7 +7733,9 @@
    "sh": 167.4
   },
   "d_spoon_flounder_s": {
-   "file": "d_spoon_flounder_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 182,
+   "ay": 994,
    "w": 43,
    "h": 30,
    "smooth": false,
@@ -6989,7 +7743,9 @@
    "sh": 162.0
   },
   "d_fork_squid_s": {
-   "file": "d_fork_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 793,
+   "ay": 398,
    "w": 39,
    "h": 35,
    "smooth": false,
@@ -6997,7 +7753,9 @@
    "sh": 189.0
   },
   "d_button_crab_s": {
-   "file": "d_button_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 461,
+   "ay": 131,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -7005,7 +7763,9 @@
    "sh": 178.2
   },
   "d_toothbrush_shrimp_s": {
-   "file": "d_toothbrush_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 395,
+   "ay": 1076,
    "w": 41,
    "h": 35,
    "smooth": false,
@@ -7013,7 +7773,9 @@
    "sh": 189.0
   },
   "d_key_goby_s": {
-   "file": "d_key_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 168,
+   "ay": 563,
    "w": 42,
    "h": 29,
    "smooth": false,
@@ -7021,7 +7783,9 @@
    "sh": 156.6
   },
   "d_clip_seahorse_s": {
-   "file": "d_clip_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 269,
+   "ay": 222,
    "w": 30,
    "h": 39,
    "smooth": false,
@@ -7029,7 +7793,9 @@
    "sh": 210.6
   },
   "d_cup_snail_s": {
-   "file": "d_cup_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 118,
+   "ay": 310,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -7037,7 +7803,9 @@
    "sh": 172.8
   },
   "d_pencil_gar_s": {
-   "file": "d_pencil_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 119,
+   "ay": 749,
    "w": 43,
    "h": 25,
    "smooth": false,
@@ -7045,7 +7813,9 @@
    "sh": 135.0
   },
   "d_broom_ray_s": {
-   "file": "d_broom_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 514,
+   "ay": 87,
    "w": 44,
    "h": 36,
    "smooth": false,
@@ -7053,7 +7823,9 @@
    "sh": 194.4
   },
   "d_lamp_angler_s": {
-   "file": "d_lamp_angler_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 844,
+   "ay": 563,
    "w": 44,
    "h": 42,
    "smooth": false,
@@ -7061,7 +7833,9 @@
    "sh": 226.8
   },
   "d_iron_turtle_s": {
-   "file": "d_iron_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 594,
+   "ay": 525,
    "w": 45,
    "h": 37,
    "smooth": false,
@@ -7069,7 +7843,9 @@
    "sh": 199.8
   },
   "d_bell_puffer_s": {
-   "file": "d_bell_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 709,
+   "ay": 39,
    "w": 41,
    "h": 37,
    "smooth": false,
@@ -7077,7 +7853,9 @@
    "sh": 199.8
   },
   "d_ladle_seal_s": {
-   "file": "d_ladle_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 757,
+   "ay": 563,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -7085,7 +7863,9 @@
    "sh": 205.2
   },
   "d_whisk_jelly_s": {
-   "file": "d_whisk_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 295,
+   "ay": 1164,
    "w": 36,
    "h": 38,
    "smooth": false,
@@ -7093,7 +7873,9 @@
    "sh": 205.2
   },
   "d_clock_starfish_s": {
-   "file": "d_clock_starfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 344,
+   "ay": 222,
    "w": 44,
    "h": 36,
    "smooth": false,
@@ -7101,7 +7883,9 @@
    "sh": 194.4
   },
   "d_vacuum_eel_s": {
-   "file": "d_vacuum_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 832,
+   "ay": 1121,
    "w": 46,
    "h": 24,
    "smooth": false,
@@ -7109,7 +7893,9 @@
    "sh": 129.6
   },
   "d_ladder_lobster_s": {
-   "file": "d_ladder_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 606,
+   "ay": 563,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -7117,7 +7903,9 @@
    "sh": 172.8
   },
   "d_mailbox_whale_s": {
-   "file": "d_mailbox_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 910,
+   "ay": 607,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -7125,7 +7913,9 @@
    "sh": 172.8
   },
   "d_faucet_dolphin_s": {
-   "file": "d_faucet_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 730,
+   "ay": 356,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -7133,7 +7923,9 @@
    "sh": 183.6
   },
   "d_sofa_manatee_s": {
-   "file": "d_sofa_manatee_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 994,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -7141,7 +7933,9 @@
    "sh": 194.4
   },
   "d_fridge_orca_s": {
-   "file": "d_fridge_orca_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 44,
+   "ay": 439,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -7149,7 +7943,9 @@
    "sh": 189.0
   },
   "d_bathtub_whale_s": {
-   "file": "d_bathtub_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 480,
+   "ay": 39,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -7157,7 +7953,9 @@
    "sh": 194.4
   },
   "d_house_turtle_s": {
-   "file": "d_house_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 43,
+   "ay": 525,
    "w": 43,
    "h": 37,
    "smooth": false,
@@ -7165,7 +7963,9 @@
    "sh": 199.8
   },
   "d_sun_ray_s": {
-   "file": "d_sun_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 85,
+   "ay": 1035,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -7173,7 +7973,9 @@
    "sh": 194.4
   },
   "d_banana_eel_s": {
-   "file": "d_banana_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 308,
+   "ay": 39,
    "w": 42,
    "h": 34,
    "smooth": false,
@@ -7181,7 +7983,9 @@
    "sh": 187.8
   },
   "d_lemon_puffer_s": {
-   "file": "d_lemon_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 355,
+   "ay": 607,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -7189,7 +7993,9 @@
    "sh": 198.9
   },
   "d_cherry_crab_s": {
-   "file": "d_cherry_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 958,
+   "ay": 176,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -7197,7 +8003,9 @@
    "sh": 198.9
   },
   "d_carrot_squid_s": {
-   "file": "d_carrot_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 460,
+   "ay": 176,
    "w": 37,
    "h": 38,
    "smooth": false,
@@ -7205,7 +8013,9 @@
    "sh": 209.9
   },
   "d_corn_gar_s": {
-   "file": "d_corn_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 494,
+   "ay": 267,
    "w": 42,
    "h": 28,
    "smooth": false,
@@ -7213,7 +8023,9 @@
    "sh": 154.7
   },
   "d_melon_turtle_s": {
-   "file": "d_melon_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 292,
+   "ay": 656,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -7221,7 +8033,9 @@
    "sh": 198.9
   },
   "d_donut_seal_s": {
-   "file": "d_donut_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 673,
+   "ay": 310,
    "w": 42,
    "h": 37,
    "smooth": false,
@@ -7229,7 +8043,9 @@
    "sh": 204.4
   },
   "d_egg_jelly_s": {
-   "file": "d_egg_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 296,
+   "ay": 356,
    "w": 39,
    "h": 37,
    "smooth": false,
@@ -7237,7 +8053,9 @@
    "sh": 204.4
   },
   "d_pepper_shrimp_s": {
-   "file": "d_pepper_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 356,
+   "ay": 749,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -7245,7 +8063,9 @@
    "sh": 198.9
   },
   "d_candy_seahorse_s": {
-   "file": "d_candy_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 139,
+   "ay": 176,
    "w": 33,
    "h": 40,
    "smooth": false,
@@ -7253,7 +8073,9 @@
    "sh": 221.0
   },
   "d_cake_turtle_s": {
-   "file": "d_cake_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 708,
+   "ay": 131,
    "w": 38,
    "h": 39,
    "smooth": false,
@@ -7261,7 +8083,9 @@
    "sh": 215.5
   },
   "d_icecream_narwhal_s": {
-   "file": "d_icecream_narwhal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 286,
+   "ay": 525,
    "w": 44,
    "h": 37,
    "smooth": false,
@@ -7269,7 +8093,9 @@
    "sh": 204.4
   },
   "d_burger_clam_s": {
-   "file": "d_burger_clam_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 231,
+   "ay": 131,
    "w": 44,
    "h": 35,
    "smooth": false,
@@ -7277,7 +8103,9 @@
    "sh": 193.4
   },
   "d_sushi_ray_s": {
-   "file": "d_sushi_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 494,
+   "ay": 1035,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -7285,7 +8113,9 @@
    "sh": 187.8
   },
   "d_pineapple_puffer_s": {
-   "file": "d_pineapple_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 691,
+   "ay": 749,
    "w": 40,
    "h": 39,
    "smooth": false,
@@ -7293,7 +8123,9 @@
    "sh": 215.5
   },
   "d_noodle_octopus_s": {
-   "file": "d_noodle_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 337,
+   "ay": 702,
    "w": 40,
    "h": 38,
    "smooth": false,
@@ -7301,7 +8133,9 @@
    "sh": 209.9
   },
   "d_kettle_dolphin_s": {
-   "file": "d_kettle_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 83,
+   "ay": 563,
    "w": 40,
    "h": 35,
    "smooth": false,
@@ -7309,7 +8143,9 @@
    "sh": 193.4
   },
   "d_grill_shark_s": {
-   "file": "d_grill_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 84,
+   "ay": 486,
    "w": 40,
    "h": 35,
    "smooth": false,
@@ -7317,7 +8153,9 @@
    "sh": 193.4
   },
   "d_coconut_crab_s": {
-   "file": "d_coconut_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 267,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -7325,7 +8163,9 @@
    "sh": 204.4
   },
   "d_wok_ray_s": {
-   "file": "d_wok_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 555,
+   "ay": 1164,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -7333,7 +8173,9 @@
    "sh": 182.3
   },
   "d_pot_whale_s": {
-   "file": "d_pot_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 673,
+   "ay": 790,
    "w": 42,
    "h": 39,
    "smooth": false,
@@ -7341,7 +8183,9 @@
    "sh": 215.5
   },
   "d_feast_whale_s": {
-   "file": "d_feast_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 821,
+   "ay": 356,
    "w": 43,
    "h": 41,
    "smooth": false,
@@ -7349,7 +8193,9 @@
    "sh": 226.5
   },
   "d_palm_turtle_s": {
-   "file": "d_palm_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 826,
+   "ay": 702,
    "w": 42,
    "h": 42,
    "smooth": false,
@@ -7357,7 +8203,9 @@
    "sh": 232.0
   },
   "d_cake_kraken_s": {
-   "file": "d_cake_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 620,
+   "ay": 131,
    "w": 46,
    "h": 43,
    "smooth": false,
@@ -7365,7 +8213,9 @@
    "sh": 237.6
   },
   "d_rainbow_parrotfish_s": {
-   "file": "d_rainbow_parrotfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 321,
+   "ay": 833,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -7373,7 +8223,9 @@
    "sh": 176.8
   },
   "d_balloon_puffer_s": {
-   "file": "d_balloon_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 221,
+   "ay": 39,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -7381,7 +8233,9 @@
    "sh": 191.6
   },
   "d_ring_seal_s": {
-   "file": "d_ring_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 639,
+   "ay": 833,
    "w": 41,
    "h": 35,
    "smooth": false,
@@ -7389,7 +8243,9 @@
    "sh": 191.6
   },
   "d_flipper_frogfish_s": {
-   "file": "d_flipper_frogfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 407,
+   "ay": 398,
    "w": 43,
    "h": 35,
    "smooth": false,
@@ -7397,7 +8253,9 @@
    "sh": 191.6
   },
   "d_sunglass_ray_s": {
-   "file": "d_sunglass_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 316,
+   "ay": 1035,
    "w": 47,
    "h": 32,
    "smooth": false,
@@ -7405,7 +8263,9 @@
    "sh": 175.2
   },
   "d_bucket_crab_s": {
-   "file": "d_bucket_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 770,
+   "ay": 87,
    "w": 41,
    "h": 35,
    "smooth": false,
@@ -7413,7 +8273,9 @@
    "sh": 191.6
   },
   "d_kite_flyingfish_s": {
-   "file": "d_kite_flyingfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 342,
+   "ay": 563,
    "w": 42,
    "h": 38,
    "smooth": false,
@@ -7421,7 +8283,9 @@
    "sh": 208.0
   },
   "d_ball_dolphin_s": {
-   "file": "d_ball_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 39,
    "w": 42,
    "h": 38,
    "smooth": false,
@@ -7429,7 +8293,9 @@
    "sh": 208.0
   },
   "d_snorkel_goby_s": {
-   "file": "d_snorkel_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 519,
+   "ay": 955,
    "w": 47,
    "h": 33,
    "smooth": false,
@@ -7437,7 +8303,9 @@
    "sh": 180.7
   },
   "d_dice_boxfish_s": {
-   "file": "d_dice_boxfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 263,
+   "ay": 310,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -7445,7 +8313,9 @@
    "sh": 180.7
   },
   "d_yoyo_snail_s": {
-   "file": "d_yoyo_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 938,
+   "ay": 1164,
    "w": 41,
    "h": 32,
    "smooth": false,
@@ -7453,7 +8323,9 @@
    "sh": 175.2
   },
   "d_drum_puffer_s": {
-   "file": "d_drum_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 356,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -7461,7 +8333,9 @@
    "sh": 191.6
   },
   "d_guitar_ray_s": {
-   "file": "d_guitar_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 168,
+   "ay": 486,
    "w": 43,
    "h": 32,
    "smooth": false,
@@ -7469,7 +8343,9 @@
    "sh": 175.2
   },
   "d_camera_crab_s": {
-   "file": "d_camera_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 866,
+   "ay": 131,
    "w": 43,
    "h": 35,
    "smooth": false,
@@ -7477,7 +8353,9 @@
    "sh": 191.6
   },
   "d_parasol_jelly_s": {
-   "file": "d_parasol_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 983,
+   "ay": 702,
    "w": 37,
    "h": 38,
    "smooth": false,
@@ -7485,7 +8363,9 @@
    "sh": 208.0
   },
   "d_surf_shark_s": {
-   "file": "d_surf_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 406,
+   "ay": 1035,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -7493,7 +8373,9 @@
    "sh": 197.1
   },
   "d_robot_lobster_s": {
-   "file": "d_robot_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 813,
+   "ay": 833,
    "w": 38,
    "h": 37,
    "smooth": false,
@@ -7501,7 +8383,9 @@
    "sh": 202.6
   },
   "d_magic_octopus_s": {
-   "file": "d_magic_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 661,
+   "ay": 607,
    "w": 38,
    "h": 40,
    "smooth": false,
@@ -7509,7 +8393,9 @@
    "sh": 219.0
   },
   "d_disco_sunfish_s": {
-   "file": "d_disco_sunfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 433,
+   "ay": 310,
    "w": 45,
    "h": 39,
    "smooth": false,
@@ -7517,7 +8403,9 @@
    "sh": 213.5
   },
   "d_clown_shark_s": {
-   "file": "d_clown_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 595,
+   "ay": 222,
    "w": 42,
    "h": 33,
    "smooth": false,
@@ -7525,7 +8413,9 @@
    "sh": 180.7
   },
   "d_kart_turtle_s": {
-   "file": "d_kart_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 923,
+   "ay": 525,
    "w": 44,
    "h": 34,
    "smooth": false,
@@ -7533,7 +8423,9 @@
    "sh": 186.1
   },
   "d_carousel_seahorse_s": {
-   "file": "d_carousel_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 292,
+   "ay": 176,
    "w": 40,
    "h": 40,
    "smooth": false,
@@ -7541,7 +8433,9 @@
    "sh": 219.0
   },
   "d_ferris_jelly_s": {
-   "file": "d_ferris_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 398,
    "w": 43,
    "h": 40,
    "smooth": false,
@@ -7549,7 +8443,9 @@
    "sh": 219.0
   },
   "d_circus_whale_s": {
-   "file": "d_circus_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 132,
+   "ay": 222,
    "w": 43,
    "h": 38,
    "smooth": false,
@@ -7557,7 +8453,9 @@
    "sh": 208.0
   },
   "d_coaster_eel_s": {
-   "file": "d_coaster_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 817,
+   "ay": 222,
    "w": 42,
    "h": 38,
    "smooth": false,
@@ -7565,7 +8463,9 @@
    "sh": 208.0
   },
   "d_firework_squid_s": {
-   "file": "d_firework_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 247,
+   "ay": 398,
    "w": 43,
    "h": 39,
    "smooth": false,
@@ -7573,7 +8473,9 @@
    "sh": 213.5
   },
   "d_lantern_angler_s": {
-   "file": "d_lantern_angler_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 938,
+   "ay": 563,
    "w": 45,
    "h": 39,
    "smooth": false,
@@ -7581,7 +8483,9 @@
    "sh": 206.7
   },
   "d_candle_squid_s": {
-   "file": "d_candle_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 69,
+   "ay": 176,
    "w": 40,
    "h": 43,
    "smooth": false,
@@ -7589,7 +8493,9 @@
    "sh": 227.9
   },
   "d_ghost_jelly_s": {
-   "file": "d_ghost_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 451,
+   "ay": 439,
    "w": 39,
    "h": 39,
    "smooth": false,
@@ -7597,7 +8503,9 @@
    "sh": 206.7
   },
   "d_broomstick_eel_s": {
-   "file": "d_broomstick_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 607,
+   "ay": 87,
    "w": 46,
    "h": 38,
    "smooth": false,
@@ -7605,7 +8513,9 @@
    "sh": 201.4
   },
   "d_cobweb_crab_s": {
-   "file": "d_cobweb_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 904,
+   "ay": 222,
    "w": 43,
    "h": 39,
    "smooth": false,
@@ -7613,7 +8523,9 @@
    "sh": 206.7
   },
   "d_quill_shrimp_s": {
-   "file": "d_quill_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 916,
+   "ay": 790,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -7621,7 +8533,9 @@
    "sh": 190.8
   },
   "d_bottle_goby_s": {
-   "file": "d_bottle_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 341,
+   "ay": 87,
    "w": 45,
    "h": 32,
    "smooth": false,
@@ -7629,7 +8543,9 @@
    "sh": 169.6
   },
   "d_skull_puffer_s": {
-   "file": "d_skull_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 361,
+   "ay": 955,
    "w": 45,
    "h": 35,
    "smooth": false,
@@ -7637,7 +8553,9 @@
    "sh": 185.5
   },
   "d_teacup_snail_s": {
-   "file": "d_teacup_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 911,
+   "ay": 1035,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -7645,7 +8563,9 @@
    "sh": 196.1
   },
   "d_pocketwatch_turtle_s": {
-   "file": "d_pocketwatch_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 295,
+   "ay": 790,
    "w": 45,
    "h": 37,
    "smooth": false,
@@ -7653,7 +8573,9 @@
    "sh": 196.1
   },
   "d_violin_ray_s": {
-   "file": "d_violin_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 928,
+   "ay": 1121,
    "w": 43,
    "h": 38,
    "smooth": false,
@@ -7661,7 +8583,9 @@
    "sh": 201.4
   },
   "d_gramophone_snail_s": {
-   "file": "d_gramophone_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 930,
+   "ay": 439,
    "w": 43,
    "h": 37,
    "smooth": false,
@@ -7669,7 +8593,9 @@
    "sh": 196.1
   },
   "d_umbrella_seal_s": {
-   "file": "d_umbrella_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 580,
+   "ay": 1121,
    "w": 45,
    "h": 41,
    "smooth": false,
@@ -7677,7 +8603,9 @@
    "sh": 217.3
   },
   "d_top_hat_walrus_s": {
-   "file": "d_top_hat_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 485,
+   "ay": 1076,
    "w": 47,
    "h": 40,
    "smooth": false,
@@ -7685,7 +8613,9 @@
    "sh": 212.0
   },
   "d_book_flounder_s": {
-   "file": "d_book_flounder_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 252,
+   "ay": 87,
    "w": 43,
    "h": 36,
    "smooth": false,
@@ -7693,7 +8623,9 @@
    "sh": 190.8
   },
   "d_chest_crab_s": {
-   "file": "d_chest_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 44,
+   "ay": 222,
    "w": 44,
    "h": 38,
    "smooth": false,
@@ -7701,7 +8633,9 @@
    "sh": 201.4
   },
   "d_piano_shark_s": {
-   "file": "d_piano_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 608,
+   "ay": 749,
    "w": 44,
    "h": 33,
    "smooth": false,
@@ -7709,7 +8643,9 @@
    "sh": 174.9
   },
   "d_knight_lobster_s": {
-   "file": "d_knight_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 433,
+   "ay": 563,
    "w": 46,
    "h": 37,
    "smooth": false,
@@ -7717,7 +8653,9 @@
    "sh": 196.1
   },
   "d_mummy_eel_s": {
-   "file": "d_mummy_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 949,
+   "ay": 656,
    "w": 44,
    "h": 45,
    "smooth": false,
@@ -7725,7 +8663,9 @@
    "sh": 238.5
   },
   "d_coffin_whale_s": {
-   "file": "d_coffin_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 161,
+   "ay": 267,
    "w": 46,
    "h": 38,
    "smooth": false,
@@ -7733,7 +8673,9 @@
    "sh": 201.4
   },
   "d_bell_tower_turtle_s": {
-   "file": "d_bell_tower_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 798,
+   "ay": 39,
    "w": 42,
    "h": 45,
    "smooth": false,
@@ -7741,7 +8683,9 @@
    "sh": 238.5
   },
   "d_ghost_ship_whale_s": {
-   "file": "d_ghost_ship_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 538,
+   "ay": 439,
    "w": 45,
    "h": 44,
    "smooth": false,
@@ -7749,7 +8693,9 @@
    "sh": 233.2
   },
   "d_organ_octopus_s": {
-   "file": "d_organ_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 647,
+   "ay": 702,
    "w": 43,
    "h": 44,
    "smooth": false,
@@ -7757,7 +8703,9 @@
    "sh": 233.2
   },
   "d_lighthouse_squid_s": {
-   "file": "d_lighthouse_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 440,
+   "ay": 607,
    "w": 38,
    "h": 45,
    "smooth": false,
@@ -7765,7 +8713,9 @@
    "sh": 238.5
   },
   "d_mist_dragon_eel_s": {
-   "file": "d_mist_dragon_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 384,
+   "ay": 656,
    "w": 46,
    "h": 44,
    "smooth": false,
@@ -7773,7 +8723,9 @@
    "sh": 233.2
   },
   "d_nail_gar_s": {
-   "file": "d_nail_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 40,
+   "ay": 702,
    "w": 44,
    "h": 26,
    "smooth": false,
@@ -7781,7 +8733,9 @@
    "sh": 130.0
   },
   "d_wrench_crab_s": {
-   "file": "d_wrench_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 713,
+   "ay": 1164,
    "w": 43,
    "h": 37,
    "smooth": false,
@@ -7789,7 +8743,9 @@
    "sh": 185.0
   },
   "d_screw_shrimp_s": {
-   "file": "d_screw_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 94,
+   "ay": 916,
    "w": 48,
    "h": 35,
    "smooth": false,
@@ -7797,7 +8753,9 @@
    "sh": 175.0
   },
   "d_pliers_lobster_s": {
-   "file": "d_pliers_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 38,
+   "ay": 790,
    "w": 43,
    "h": 35,
    "smooth": false,
@@ -7805,7 +8763,9 @@
    "sh": 175.0
   },
   "d_tape_snail_s": {
-   "file": "d_tape_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 733,
+   "ay": 1035,
    "w": 46,
    "h": 30,
    "smooth": false,
@@ -7813,7 +8773,9 @@
    "sh": 150.0
   },
   "d_brush_squid_s": {
-   "file": "d_brush_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 691,
+   "ay": 87,
    "w": 44,
    "h": 39,
    "smooth": false,
@@ -7821,7 +8783,9 @@
    "sh": 195.0
   },
   "d_magnet_ray_s": {
-   "file": "d_magnet_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 822,
+   "ay": 607,
    "w": 43,
    "h": 35,
    "smooth": false,
@@ -7829,7 +8793,9 @@
    "sh": 175.0
   },
   "d_bucket_jelly_s": {
-   "file": "d_bucket_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 839,
+   "ay": 87,
    "w": 42,
    "h": 43,
    "smooth": false,
@@ -7837,7 +8803,9 @@
    "sh": 215.0
   },
   "d_ruler_eel_s": {
-   "file": "d_ruler_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 193,
+   "ay": 875,
    "w": 44,
    "h": 28,
    "smooth": false,
@@ -7845,7 +8813,9 @@
    "sh": 140.0
   },
   "d_helmet_turtle_s": {
-   "file": "d_helmet_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 730,
+   "ay": 486,
    "w": 47,
    "h": 37,
    "smooth": false,
@@ -7853,7 +8823,9 @@
    "sh": 185.0
   },
   "d_axe_shark_s": {
-   "file": "d_axe_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 923,
+   "ay": 0,
    "w": 42,
    "h": 35,
    "smooth": false,
@@ -7861,7 +8833,9 @@
    "sh": 175.0
   },
   "d_shovel_ray_s": {
-   "file": "d_shovel_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 903,
+   "ay": 916,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -7869,7 +8843,9 @@
    "sh": 170.0
   },
   "d_anvil_puffer_s": {
-   "file": "d_anvil_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 590,
+   "ay": 0,
    "w": 44,
    "h": 38,
    "smooth": false,
@@ -7877,7 +8853,9 @@
    "sh": 190.0
   },
   "d_chainsaw_swordfish_s": {
-   "file": "d_chainsaw_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 696,
+   "ay": 176,
    "w": 47,
    "h": 30,
    "smooth": false,
@@ -7885,7 +8863,9 @@
    "sh": 150.0
   },
   "d_ladder_seahorse_s": {
-   "file": "d_ladder_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 677,
+   "ay": 563,
    "w": 37,
    "h": 43,
    "smooth": false,
@@ -7893,7 +8873,9 @@
    "sh": 215.0
   },
   "d_crane_crab_s": {
-   "file": "d_crane_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 736,
+   "ay": 267,
    "w": 45,
    "h": 42,
    "smooth": false,
@@ -7901,7 +8883,9 @@
    "sh": 210.0
   },
   "d_forklift_lobster_s": {
-   "file": "d_forklift_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 873,
+   "ay": 398,
    "w": 48,
    "h": 36,
    "smooth": false,
@@ -7909,7 +8893,9 @@
    "sh": 180.0
   },
   "d_bulldozer_shark_s": {
-   "file": "d_bulldozer_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 72,
+   "ay": 131,
    "w": 50,
    "h": 38,
    "smooth": false,
@@ -7917,7 +8903,9 @@
    "sh": 190.0
   },
   "d_mixer_whale_s": {
-   "file": "d_mixer_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 541,
+   "ay": 656,
    "w": 46,
    "h": 37,
    "smooth": false,
@@ -7925,7 +8913,9 @@
    "sh": 185.0
   },
   "d_tractor_walrus_s": {
-   "file": "d_tractor_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 648,
+   "ay": 1076,
    "w": 48,
    "h": 38,
    "smooth": false,
@@ -7933,7 +8923,9 @@
    "sh": 190.0
   },
   "d_excavator_crab_s": {
-   "file": "d_excavator_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 376,
+   "ay": 356,
    "w": 45,
    "h": 40,
    "smooth": false,
@@ -7941,7 +8933,9 @@
    "sh": 200.0
   },
   "d_tank_turtle_s": {
-   "file": "d_tank_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 647,
+   "ay": 1035,
    "w": 45,
    "h": 40,
    "smooth": false,
@@ -7949,7 +8943,9 @@
    "sh": 200.0
   },
   "d_factory_whale_s": {
-   "file": "d_factory_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 462,
+   "ay": 356,
    "w": 50,
    "h": 41,
    "smooth": false,
@@ -7957,7 +8953,9 @@
    "sh": 205.0
   },
   "d_robot_kraken_s": {
-   "file": "d_robot_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 720,
+   "ay": 833,
    "w": 51,
    "h": 41,
    "smooth": false,
@@ -7965,7 +8963,9 @@
    "sh": 205.0
   },
   "d_clockwork_whale_s": {
-   "file": "d_clockwork_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 430,
+   "ay": 222,
    "w": 47,
    "h": 42,
    "smooth": false,
@@ -7973,7 +8973,9 @@
    "sh": 210.0
   },
   "d_skate_ray_s": {
-   "file": "d_skate_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 200,
+   "ay": 955,
    "w": 42,
    "h": 29,
    "smooth": false,
@@ -7981,7 +8983,9 @@
    "sh": 152.2
   },
   "d_scooter_seahorse_s": {
-   "file": "d_scooter_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 28,
+   "ay": 916,
    "w": 30,
    "h": 37,
    "smooth": false,
@@ -7989,7 +8993,9 @@
    "sh": 194.2
   },
   "d_bike_crab_s": {
-   "file": "d_bike_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 880,
+   "ay": 39,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -7997,7 +9003,9 @@
    "sh": 168.0
   },
   "d_paper_plane_flyingfish_s": {
-   "file": "d_paper_plane_flyingfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 908,
+   "ay": 702,
    "w": 39,
    "h": 26,
    "smooth": false,
@@ -8005,7 +9013,9 @@
    "sh": 136.5
   },
   "d_sail_tuna_s": {
-   "file": "d_sail_tuna_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 279,
+   "ay": 875,
    "w": 41,
    "h": 34,
    "smooth": false,
@@ -8013,7 +9023,9 @@
    "sh": 178.5
   },
   "d_anchor_eel_s": {
-   "file": "d_anchor_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 298,
+   "ay": 0,
    "w": 43,
    "h": 31,
    "smooth": false,
@@ -8021,7 +9033,9 @@
    "sh": 162.7
   },
   "d_buoy_puffer_s": {
-   "file": "d_buoy_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 156,
+   "ay": 131,
    "w": 36,
    "h": 38,
    "smooth": false,
@@ -8029,7 +9043,9 @@
    "sh": 199.5
   },
   "d_oar_squid_s": {
-   "file": "d_oar_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 420,
+   "ay": 702,
    "w": 43,
    "h": 38,
    "smooth": false,
@@ -8037,7 +9053,9 @@
    "sh": 199.5
   },
   "d_compass_starfish_s": {
-   "file": "d_compass_starfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 325,
+   "ay": 267,
    "w": 39,
    "h": 35,
    "smooth": false,
@@ -8045,7 +9063,9 @@
    "sh": 183.7
   },
   "d_taxi_turtle_s": {
-   "file": "d_taxi_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 822,
+   "ay": 1035,
    "w": 44,
    "h": 32,
    "smooth": false,
@@ -8053,7 +9073,9 @@
    "sh": 168.0
   },
   "d_bus_whale_s": {
-   "file": "d_bus_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 318,
+   "ay": 131,
    "w": 44,
    "h": 34,
    "smooth": false,
@@ -8061,7 +9083,9 @@
    "sh": 178.5
   },
   "d_jet_swordfish_s": {
-   "file": "d_jet_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 743,
+   "ay": 525,
    "w": 43,
    "h": 30,
    "smooth": false,
@@ -8069,7 +9093,9 @@
    "sh": 157.5
   },
   "d_heli_ray_s": {
-   "file": "d_heli_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 650,
+   "ay": 486,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8077,7 +9103,9 @@
    "sh": 162.7
   },
   "d_balloon_jelly_s": {
-   "file": "d_balloon_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 151,
+   "ay": 39,
    "w": 31,
    "h": 40,
    "smooth": false,
@@ -8085,7 +9113,9 @@
    "sh": 210.0
   },
   "d_police_shark_s": {
-   "file": "d_police_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 457,
+   "ay": 790,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -8093,7 +9123,9 @@
    "sh": 178.5
   },
   "d_truck_walrus_s": {
-   "file": "d_truck_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 85,
+   "ay": 1121,
    "w": 45,
    "h": 31,
    "smooth": false,
@@ -8101,7 +9133,9 @@
    "sh": 162.7
   },
   "d_ambulance_seal_s": {
-   "file": "d_ambulance_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 216,
+   "ay": 0,
    "w": 39,
    "h": 35,
    "smooth": false,
@@ -8109,7 +9143,9 @@
    "sh": 183.7
   },
   "d_race_marlin_s": {
-   "file": "d_race_marlin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 833,
    "w": 44,
    "h": 26,
    "smooth": false,
@@ -8117,7 +9153,9 @@
    "sh": 136.5
   },
   "d_airship_whale_s": {
-   "file": "d_airship_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 130,
+   "ay": 0,
    "w": 48,
    "h": 32,
    "smooth": false,
@@ -8125,7 +9163,9 @@
    "sh": 168.0
   },
   "d_ferry_whale_s": {
-   "file": "d_ferry_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 87,
+   "ay": 398,
    "w": 45,
    "h": 34,
    "smooth": false,
@@ -8133,7 +9173,9 @@
    "sh": 178.5
   },
   "d_carrier_turtle_s": {
-   "file": "d_carrier_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 376,
+   "ay": 176,
    "w": 45,
    "h": 37,
    "smooth": false,
@@ -8141,7 +9183,9 @@
    "sh": 194.2
   },
   "d_freight_eel_s": {
-   "file": "d_freight_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 962,
+   "ay": 398,
    "w": 41,
    "h": 20,
    "smooth": false,
@@ -8149,7 +9193,9 @@
    "sh": 105.0
   },
   "d_airport_ray_s": {
-   "file": "d_airport_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 41,
+   "ay": 0,
    "w": 42,
    "h": 38,
    "smooth": false,
@@ -8157,7 +9203,9 @@
    "sh": 199.5
   },
   "d_space_shark_s": {
-   "file": "d_space_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 89,
+   "ay": 994,
    "w": 49,
    "h": 32,
    "smooth": false,
@@ -8165,7 +9213,9 @@
    "sh": 168.0
   },
   "d_ufo_ray_s": {
-   "file": "d_ufo_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 407,
+   "ay": 1121,
    "w": 43,
    "h": 34,
    "smooth": false,
@@ -8173,7 +9223,9 @@
    "sh": 178.5
   },
   "d_soccer_seal_s": {
-   "file": "d_soccer_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 817,
+   "ay": 955,
    "w": 43,
    "h": 37,
    "smooth": false,
@@ -8181,7 +9233,9 @@
    "sh": 196.1
   },
   "d_glove_crab_s": {
-   "file": "d_glove_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 695,
+   "ay": 439,
    "w": 40,
    "h": 37,
    "smooth": false,
@@ -8189,7 +9243,9 @@
    "sh": 196.1
   },
   "d_bat_swordfish_s": {
-   "file": "d_bat_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 394,
+   "ay": 39,
    "w": 44,
    "h": 33,
    "smooth": false,
@@ -8197,7 +9253,9 @@
    "sh": 174.9
   },
   "d_racket_ray_s": {
-   "file": "d_racket_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 84,
+   "ay": 833,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -8205,7 +9263,9 @@
    "sh": 180.2
   },
   "d_whistle_puffer_s": {
-   "file": "d_whistle_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 376,
+   "ay": 1164,
    "w": 45,
    "h": 35,
    "smooth": false,
@@ -8213,7 +9273,9 @@
    "sh": 185.5
   },
   "d_medal_starfish_s": {
-   "file": "d_medal_starfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 218,
+   "ay": 656,
    "w": 32,
    "h": 36,
    "smooth": false,
@@ -8221,7 +9283,9 @@
    "sh": 190.8
   },
   "d_cap_goby_s": {
-   "file": "d_cap_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 214,
+   "ay": 176,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8229,7 +9293,9 @@
    "sh": 164.3
   },
   "d_dumbbell_shrimp_s": {
-   "file": "d_dumbbell_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 82,
+   "ay": 356,
    "w": 40,
    "h": 40,
    "smooth": false,
@@ -8237,7 +9303,9 @@
    "sh": 212.0
   },
   "d_skate_penguin_fish_s": {
-   "file": "d_skate_penguin_fish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 116,
+   "ay": 955,
    "w": 41,
    "h": 38,
    "smooth": false,
@@ -8245,7 +9313,9 @@
    "sh": 201.4
   },
   "d_golf_snail_s": {
-   "file": "d_golf_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 845,
+   "ay": 439,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -8253,7 +9323,9 @@
    "sh": 190.8
   },
   "d_chef_octopus_s": {
-   "file": "d_chef_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 876,
+   "ay": 176,
    "w": 43,
    "h": 38,
    "smooth": false,
@@ -8261,7 +9333,9 @@
    "sh": 201.4
   },
   "d_doctor_dolphin_s": {
-   "file": "d_doctor_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 521,
+   "ay": 310,
    "w": 42,
    "h": 39,
    "smooth": false,
@@ -8269,7 +9343,9 @@
    "sh": 206.7
   },
   "d_painter_squid_s": {
-   "file": "d_painter_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 735,
+   "ay": 702,
    "w": 45,
    "h": 36,
    "smooth": false,
@@ -8277,7 +9353,9 @@
    "sh": 190.8
   },
   "d_farmer_walrus_s": {
-   "file": "d_farmer_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 642,
+   "ay": 356,
    "w": 44,
    "h": 40,
    "smooth": false,
@@ -8285,7 +9363,9 @@
    "sh": 212.0
   },
   "d_judge_seal_s": {
-   "file": "d_judge_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 833,
+   "ay": 525,
    "w": 46,
    "h": 37,
    "smooth": false,
@@ -8293,7 +9373,9 @@
    "sh": 196.1
   },
   "d_sumo_puffer_s": {
-   "file": "d_sumo_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 1035,
    "w": 40,
    "h": 39,
    "smooth": false,
@@ -8301,7 +9383,9 @@
    "sh": 206.7
   },
   "d_ninja_eel_s": {
-   "file": "d_ninja_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 255,
+   "ay": 702,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -8309,7 +9393,9 @@
    "sh": 180.2
   },
   "d_pirate_shark_s": {
-   "file": "d_pirate_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 778,
+   "ay": 749,
    "w": 47,
    "h": 40,
    "smooth": false,
@@ -8317,7 +9403,9 @@
    "sh": 212.0
   },
   "d_astronaut_turtle_s": {
-   "file": "d_astronaut_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 759,
+   "ay": 0,
    "w": 44,
    "h": 35,
    "smooth": false,
@@ -8325,7 +9413,9 @@
    "sh": 185.5
   },
   "d_wizard_octopus_s": {
-   "file": "d_wizard_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 465,
+   "ay": 1164,
    "w": 44,
    "h": 39,
    "smooth": false,
@@ -8333,7 +9423,9 @@
    "sh": 206.7
   },
   "d_samurai_crab_s": {
-   "file": "d_samurai_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 438,
+   "ay": 875,
    "w": 43,
    "h": 40,
    "smooth": false,
@@ -8341,7 +9433,9 @@
    "sh": 212.0
   },
   "d_king_walrus_s": {
-   "file": "d_king_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 255,
+   "ay": 563,
    "w": 45,
    "h": 39,
    "smooth": false,
@@ -8349,7 +9443,9 @@
    "sh": 206.7
   },
   "d_stadium_turtle_s": {
-   "file": "d_stadium_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 344,
+   "ay": 994,
    "w": 43,
    "h": 40,
    "smooth": false,
@@ -8357,7 +9453,9 @@
    "sh": 212.0
   },
   "d_champion_whale_s": {
-   "file": "d_champion_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 788,
+   "ay": 176,
    "w": 45,
    "h": 40,
    "smooth": false,
@@ -8365,7 +9463,9 @@
    "sh": 212.0
   },
   "d_trophy_narwhal_s": {
-   "file": "d_trophy_narwhal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 1121,
    "w": 43,
    "h": 41,
    "smooth": false,
@@ -8373,7 +9473,9 @@
    "sh": 217.3
   },
   "d_scarf_seal_s": {
-   "file": "d_scarf_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 903,
+   "ay": 875,
    "w": 36,
    "h": 29,
    "smooth": false,
@@ -8381,7 +9483,9 @@
    "sh": 174.0
   },
   "d_mitten_crab_s": {
-   "file": "d_mitten_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 465,
+   "ay": 656,
    "w": 35,
    "h": 30,
    "smooth": false,
@@ -8389,7 +9493,9 @@
    "sh": 180.0
   },
   "d_icecube_boxfish_s": {
-   "file": "d_icecube_boxfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 364,
+   "ay": 525,
    "w": 36,
    "h": 27,
    "smooth": false,
@@ -8397,7 +9503,9 @@
    "sh": 162.0
   },
   "d_beanie_puffer_s": {
-   "file": "d_beanie_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 632,
+   "ay": 39,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -8405,7 +9513,9 @@
    "sh": 204.0
   },
   "d_snowman_jelly_s": {
-   "file": "d_snowman_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 664,
+   "ay": 955,
    "w": 34,
    "h": 33,
    "smooth": false,
@@ -8413,7 +9523,9 @@
    "sh": 198.0
   },
   "d_sled_ray_s": {
-   "file": "d_sled_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 443,
+   "ay": 955,
    "w": 36,
    "h": 27,
    "smooth": false,
@@ -8421,7 +9533,9 @@
    "sh": 162.0
   },
   "d_icicle_gar_s": {
-   "file": "d_icicle_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 439,
+   "ay": 525,
    "w": 38,
    "h": 20,
    "smooth": false,
@@ -8429,7 +9543,9 @@
    "sh": 120.0
   },
   "d_earmuff_goby_s": {
-   "file": "d_earmuff_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 157,
+   "ay": 356,
    "w": 37,
    "h": 25,
    "smooth": false,
@@ -8437,7 +9553,9 @@
    "sh": 150.0
   },
   "d_popsicle_squid_s": {
-   "file": "d_popsicle_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 600,
+   "ay": 790,
    "w": 30,
    "h": 35,
    "smooth": false,
@@ -8445,7 +9563,9 @@
    "sh": 210.0
   },
   "d_ski_seal_s": {
-   "file": "d_ski_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 280,
+   "ay": 955,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -8453,7 +9573,9 @@
    "sh": 180.0
   },
   "d_igloo_turtle_s": {
-   "file": "d_igloo_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 515,
+   "ay": 525,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -8461,7 +9583,9 @@
    "sh": 168.0
   },
   "d_snowglobe_puffer_s": {
-   "file": "d_snowglobe_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 597,
+   "ay": 955,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -8469,7 +9593,9 @@
    "sh": 204.0
   },
   "d_heater_walrus_s": {
-   "file": "d_heater_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 571,
+   "ay": 486,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -8477,7 +9603,9 @@
    "sh": 186.0
   },
   "d_penguin_shark_s": {
-   "file": "d_penguin_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 200,
+   "ay": 749,
    "w": 37,
    "h": 27,
    "smooth": false,
@@ -8485,7 +9613,9 @@
    "sh": 162.0
   },
   "d_skate_narwhal_s": {
-   "file": "d_skate_narwhal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 38,
+   "ay": 955,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -8493,7 +9623,9 @@
    "sh": 180.0
   },
   "d_snowplow_whale_s": {
-   "file": "d_snowplow_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 737,
+   "ay": 955,
    "w": 37,
    "h": 29,
    "smooth": false,
@@ -8501,7 +9633,9 @@
    "sh": 174.0
   },
   "d_yeti_seal_s": {
-   "file": "d_yeti_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 859,
+   "ay": 1164,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8509,7 +9643,9 @@
    "sh": 186.0
   },
   "d_icebreaker_orca_s": {
-   "file": "d_icebreaker_orca_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 202,
+   "ay": 525,
    "w": 40,
    "h": 29,
    "smooth": false,
@@ -8517,7 +9653,9 @@
    "sh": 174.0
   },
   "d_frost_dragon_eel_s": {
-   "file": "d_frost_dragon_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 125,
+   "ay": 439,
    "w": 38,
    "h": 28,
    "smooth": false,
@@ -8525,7 +9663,9 @@
    "sh": 168.0
   },
   "d_mammoth_walrus_s": {
-   "file": "d_mammoth_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 656,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8533,7 +9673,9 @@
    "sh": 186.0
   },
   "d_iceberg_whale_s": {
-   "file": "d_iceberg_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 125,
+   "ay": 525,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -8541,7 +9683,9 @@
    "sh": 204.0
   },
   "d_castle_narwhal_s": {
-   "file": "d_castle_narwhal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 616,
+   "ay": 176,
    "w": 38,
    "h": 33,
    "smooth": false,
@@ -8549,7 +9693,9 @@
    "sh": 198.0
   },
   "d_glacier_turtle_s": {
-   "file": "d_glacier_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 621,
+   "ay": 439,
    "w": 36,
    "h": 33,
    "smooth": false,
@@ -8557,7 +9703,9 @@
    "sh": 198.0
   },
   "d_polar_king_bear_seal_s": {
-   "file": "d_polar_king_bear_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 377,
+   "ay": 790,
    "w": 37,
    "h": 35,
    "smooth": false,
@@ -8565,7 +9713,9 @@
    "sh": 210.0
   },
   "d_aurora_whale_s": {
-   "file": "d_aurora_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 843,
+   "ay": 0,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -8573,7 +9723,9 @@
    "sh": 204.0
   },
   "d_match_gar_s": {
-   "file": "d_match_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 150,
+   "ay": 656,
    "w": 39,
    "h": 23,
    "smooth": false,
@@ -8581,7 +9733,9 @@
    "sh": 134.5
   },
   "d_coal_puffer_s": {
-   "file": "d_coal_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 739,
+   "ay": 222,
    "w": 37,
    "h": 31,
    "smooth": false,
@@ -8589,7 +9743,9 @@
    "sh": 181.3
   },
   "d_pepper_eel_s": {
-   "file": "d_pepper_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 278,
+   "ay": 749,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -8597,7 +9753,9 @@
    "sh": 181.3
   },
   "d_kettle_crab_s": {
-   "file": "d_kettle_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 563,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -8605,7 +9763,9 @@
    "sh": 187.2
   },
   "d_candle_seahorse_s": {
-   "file": "d_candle_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 176,
    "w": 28,
    "h": 39,
    "smooth": false,
@@ -8613,7 +9773,9 @@
    "sh": 228.1
   },
   "d_toaster_boxfish_s": {
-   "file": "d_toaster_boxfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 314,
+   "ay": 1076,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -8621,7 +9783,9 @@
    "sh": 181.3
   },
   "d_lava_snail_s": {
-   "file": "d_lava_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 121,
+   "ay": 607,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -8629,7 +9793,9 @@
    "sh": 181.3
   },
   "d_sauna_seal_s": {
-   "file": "d_sauna_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 665,
+   "ay": 875,
    "w": 40,
    "h": 32,
    "smooth": false,
@@ -8637,7 +9803,9 @@
    "sh": 187.2
   },
   "d_grill_ray_s": {
-   "file": "d_grill_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 486,
    "w": 39,
    "h": 34,
    "smooth": false,
@@ -8645,7 +9813,9 @@
    "sh": 198.9
   },
   "d_torch_squid_s": {
-   "file": "d_torch_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 570,
+   "ay": 1076,
    "w": 37,
    "h": 35,
    "smooth": false,
@@ -8653,7 +9823,9 @@
    "sh": 204.7
   },
   "d_furnace_turtle_s": {
-   "file": "d_furnace_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 202,
+   "ay": 439,
    "w": 37,
    "h": 33,
    "smooth": false,
@@ -8661,7 +9833,9 @@
    "sh": 193.0
   },
   "d_dragon_seahorse_s": {
-   "file": "d_dragon_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 835,
+   "ay": 310,
    "w": 38,
    "h": 36,
    "smooth": false,
@@ -8669,7 +9843,9 @@
    "sh": 210.6
   },
   "d_bomb_puffer_s": {
-   "file": "d_bomb_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 97,
+   "ay": 87,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -8677,7 +9853,9 @@
    "sh": 210.6
   },
   "d_rocket_squid_s": {
-   "file": "d_rocket_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 41,
+   "ay": 875,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -8685,7 +9863,9 @@
    "sh": 210.6
   },
   "d_forge_crab_s": {
-   "file": "d_forge_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 711,
+   "ay": 398,
    "w": 42,
    "h": 33,
    "smooth": false,
@@ -8693,7 +9873,9 @@
    "sh": 193.0
   },
   "d_stego_turtle_s": {
-   "file": "d_stego_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 723,
+   "ay": 994,
    "w": 41,
    "h": 30,
    "smooth": false,
@@ -8701,7 +9883,9 @@
    "sh": 175.5
   },
   "d_ptero_ray_s": {
-   "file": "d_ptero_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 755,
+   "ay": 790,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -8709,7 +9893,9 @@
    "sh": 181.3
   },
   "d_tricera_shark_s": {
-   "file": "d_tricera_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 916,
+   "ay": 1076,
    "w": 41,
    "h": 32,
    "smooth": false,
@@ -8717,7 +9903,9 @@
    "sh": 187.2
   },
   "d_lava_whale_s": {
-   "file": "d_lava_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 199,
+   "ay": 607,
    "w": 39,
    "h": 37,
    "smooth": false,
@@ -8725,7 +9913,9 @@
    "sh": 216.4
   },
   "d_magma_crab_s": {
-   "file": "d_magma_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 742,
+   "ay": 607,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8733,7 +9923,9 @@
    "sh": 181.3
   },
   "d_bronto_eel_s": {
-   "file": "d_bronto_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 427,
+   "ay": 87,
    "w": 42,
    "h": 37,
    "smooth": false,
@@ -8741,7 +9933,9 @@
    "sh": 216.4
   },
   "d_volcano_whale_s": {
-   "file": "d_volcano_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 79,
+   "ay": 1164,
    "w": 42,
    "h": 38,
    "smooth": false,
@@ -8749,7 +9943,9 @@
    "sh": 222.3
   },
   "d_steel_kraken_s": {
-   "file": "d_steel_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 644,
+   "ay": 994,
    "w": 37,
    "h": 36,
    "smooth": false,
@@ -8757,7 +9953,9 @@
    "sh": 210.6
   },
   "d_trex_whale_s": {
-   "file": "d_trex_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 830,
+   "ay": 1076,
    "w": 44,
    "h": 34,
    "smooth": false,
@@ -8765,7 +9963,9 @@
    "sh": 198.9
   },
   "d_phoenix_ray_s": {
-   "file": "d_phoenix_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 439,
+   "ay": 749,
    "w": 42,
    "h": 37,
    "smooth": false,
@@ -8773,7 +9973,9 @@
    "sh": 216.4
   },
   "d_led_goby_s": {
-   "file": "d_led_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 278,
+   "ay": 607,
    "w": 39,
    "h": 26,
    "smooth": false,
@@ -8781,7 +9983,9 @@
    "sh": 156.0
   },
   "d_battery_shrimp_s": {
-   "file": "d_battery_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 560,
+   "ay": 39,
    "w": 39,
    "h": 29,
    "smooth": false,
@@ -8789,7 +9993,9 @@
    "sh": 174.0
   },
   "d_remote_flounder_s": {
-   "file": "d_remote_flounder_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 561,
+   "ay": 833,
    "w": 39,
    "h": 28,
    "smooth": false,
@@ -8797,7 +10003,9 @@
    "sh": 168.0
   },
   "d_mouse_ray_s": {
-   "file": "d_mouse_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 782,
+   "ay": 656,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -8805,7 +10013,9 @@
    "sh": 162.0
   },
   "d_bulb_jelly_s": {
-   "file": "d_bulb_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 0,
+   "ay": 131,
    "w": 32,
    "h": 34,
    "smooth": false,
@@ -8813,7 +10023,9 @@
    "sh": 204.0
   },
   "d_plug_eel_s": {
-   "file": "d_plug_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 122,
+   "ay": 790,
    "w": 40,
    "h": 32,
    "smooth": false,
@@ -8821,7 +10033,9 @@
    "sh": 192.0
   },
   "d_flashlight_squid_s": {
-   "file": "d_flashlight_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 330,
+   "ay": 398,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -8829,7 +10043,9 @@
    "sh": 186.0
   },
   "d_headphone_puffer_s": {
-   "file": "d_headphone_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 494,
+   "ay": 486,
    "w": 38,
    "h": 33,
    "smooth": false,
@@ -8837,7 +10053,9 @@
    "sh": 198.0
   },
   "d_usb_gar_s": {
-   "file": "d_usb_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 746,
+   "ay": 1121,
    "w": 38,
    "h": 23,
    "smooth": false,
@@ -8845,7 +10063,9 @@
    "sh": 138.0
   },
   "d_tv_boxfish_s": {
-   "file": "d_tv_boxfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 326,
+   "ay": 1121,
    "w": 37,
    "h": 32,
    "smooth": false,
@@ -8853,7 +10073,9 @@
    "sh": 192.0
   },
   "d_radio_crab_s": {
-   "file": "d_radio_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 163,
+   "ay": 833,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -8861,7 +10083,9 @@
    "sh": 186.0
   },
   "d_neon_seahorse_s": {
-   "file": "d_neon_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 186,
+   "ay": 702,
    "w": 29,
    "h": 33,
    "smooth": false,
@@ -8869,7 +10093,9 @@
    "sh": 198.0
   },
   "d_gamepad_ray_s": {
-   "file": "d_gamepad_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 369,
+   "ay": 439,
    "w": 40,
    "h": 31,
    "smooth": false,
@@ -8877,7 +10103,9 @@
    "sh": 186.0
   },
   "d_camera_angler_s": {
-   "file": "d_camera_angler_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 787,
+   "ay": 131,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -8885,7 +10113,9 @@
    "sh": 216.0
   },
   "d_phone_flounder_s": {
-   "file": "d_phone_flounder_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 521,
+   "ay": 749,
    "w": 38,
    "h": 29,
    "smooth": false,
@@ -8893,7 +10123,9 @@
    "sh": 174.0
   },
   "d_laser_swordfish_s": {
-   "file": "d_laser_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 42,
+   "ay": 607,
    "w": 41,
    "h": 24,
    "smooth": false,
@@ -8901,7 +10133,9 @@
    "sh": 144.0
   },
   "d_robot_shark_s": {
-   "file": "d_robot_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 891,
+   "ay": 833,
    "w": 36,
    "h": 26,
    "smooth": false,
@@ -8909,7 +10143,9 @@
    "sh": 156.0
   },
   "d_satellite_ray_s": {
-   "file": "d_satellite_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 587,
+   "ay": 875,
    "w": 38,
    "h": 32,
    "smooth": false,
@@ -8917,7 +10153,9 @@
    "sh": 192.0
   },
   "d_server_whale_s": {
-   "file": "d_server_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 673,
+   "ay": 916,
    "w": 38,
    "h": 31,
    "smooth": false,
@@ -8925,7 +10163,9 @@
    "sh": 186.0
   },
   "d_tesla_eel_s": {
-   "file": "d_tesla_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 162,
+   "ay": 1076,
    "w": 38,
    "h": 30,
    "smooth": false,
@@ -8933,7 +10173,9 @@
    "sh": 180.0
   },
   "d_arcade_whale_s": {
-   "file": "d_arcade_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 676,
+   "ay": 0,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -8941,7 +10183,9 @@
    "sh": 192.0
   },
   "d_neon_city_turtle_s": {
-   "file": "d_neon_city_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 124,
+   "ay": 702,
    "w": 38,
    "h": 35,
    "smooth": false,
@@ -8949,7 +10193,9 @@
    "sh": 210.0
   },
   "d_reactor_kraken_s": {
-   "file": "d_reactor_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 483,
+   "ay": 833,
    "w": 38,
    "h": 36,
    "smooth": false,
@@ -8957,7 +10203,9 @@
    "sh": 216.0
   },
   "d_hologram_whale_s": {
-   "file": "d_hologram_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 952,
+   "ay": 486,
    "w": 38,
    "h": 29,
    "smooth": false,
@@ -8965,7 +10213,9 @@
    "sh": 174.0
   },
   "d_blackhole_angler_s": {
-   "file": "d_blackhole_angler_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 964,
+   "ay": 39,
    "w": 41,
    "h": 36,
    "smooth": false,
@@ -8973,7 +10223,9 @@
    "sh": 216.0
   },
   "d_star_starfish_s": {
-   "file": "d_star_starfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 422,
+   "ay": 994,
    "w": 34,
    "h": 32,
    "smooth": false,
@@ -8981,7 +10233,9 @@
    "sh": 184.0
   },
   "d_cloud_puffer_s": {
-   "file": "d_cloud_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 514,
+   "ay": 222,
    "w": 37,
    "h": 36,
    "smooth": false,
@@ -8989,7 +10243,9 @@
    "sh": 207.0
   },
   "d_feather_flyingfish_s": {
-   "file": "d_feather_flyingfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 902,
+   "ay": 356,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -8997,7 +10253,9 @@
    "sh": 189.7
   },
   "d_rainbow_eel_s": {
-   "file": "d_rainbow_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 239,
+   "ay": 833,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -9005,7 +10263,9 @@
    "sh": 161.0
   },
   "d_comet_gar_s": {
-   "file": "d_comet_gar_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 248,
+   "ay": 267,
    "w": 38,
    "h": 25,
    "smooth": false,
@@ -9013,7 +10273,9 @@
    "sh": 143.7
   },
   "d_crown_seahorse_s": {
-   "file": "d_crown_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 889,
+   "ay": 267,
    "w": 35,
    "h": 39,
    "smooth": false,
@@ -9021,7 +10283,9 @@
    "sh": 224.2
   },
   "d_harp_ray_s": {
-   "file": "d_harp_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 416,
+   "ay": 486,
    "w": 40,
    "h": 38,
    "smooth": false,
@@ -9029,7 +10293,9 @@
    "sh": 218.5
   },
   "d_unicorn_dolphin_s": {
-   "file": "d_unicorn_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 665,
+   "ay": 1121,
    "w": 40,
    "h": 39,
    "smooth": false,
@@ -9037,7 +10303,9 @@
    "sh": 224.2
   },
   "d_planet_puffer_s": {
-   "file": "d_planet_puffer_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 950,
+   "ay": 749,
    "w": 39,
    "h": 34,
    "smooth": false,
@@ -9045,7 +10313,9 @@
    "sh": 195.5
   },
   "d_moon_jelly_s": {
-   "file": "d_moon_jelly_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 621,
+   "ay": 656,
    "w": 37,
    "h": 39,
    "smooth": false,
@@ -9053,7 +10323,9 @@
    "sh": 224.2
   },
   "d_pegasus_seahorse_s": {
-   "file": "d_pegasus_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 36,
+   "ay": 749,
    "w": 38,
    "h": 38,
    "smooth": false,
@@ -9061,7 +10333,9 @@
    "sh": 218.5
   },
   "d_crystal_turtle_s": {
-   "file": "d_crystal_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 38,
+   "ay": 310,
    "w": 40,
    "h": 35,
    "smooth": false,
@@ -9069,7 +10343,9 @@
    "sh": 201.2
   },
   "d_throne_walrus_s": {
-   "file": "d_throne_walrus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 238,
+   "ay": 1076,
    "w": 38,
    "h": 38,
    "smooth": false,
@@ -9077,7 +10353,9 @@
    "sh": 218.5
   },
   "d_galaxy_ray_s": {
-   "file": "d_galaxy_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 284,
+   "ay": 439,
    "w": 44,
    "h": 33,
    "smooth": false,
@@ -9085,7 +10363,9 @@
    "sh": 189.7
   },
   "d_sun_whale_s": {
-   "file": "d_sun_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 171,
+   "ay": 1035,
    "w": 42,
    "h": 36,
    "smooth": false,
@@ -9093,7 +10373,9 @@
    "sh": 207.0
   },
   "d_dragon_king_eel_s": {
-   "file": "d_dragon_king_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 755,
+   "ay": 310,
    "w": 41,
    "h": 45,
    "smooth": false,
@@ -9101,7 +10383,9 @@
    "sh": 258.7
   },
   "d_floating_island_whale_s": {
-   "file": "d_floating_island_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 489,
+   "ay": 398,
    "w": 39,
    "h": 35,
    "smooth": false,
@@ -9109,7 +10393,9 @@
    "sh": 201.2
   },
   "d_temple_turtle_s": {
-   "file": "d_temple_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 81,
+   "ay": 1076,
    "w": 39,
    "h": 44,
    "smooth": false,
@@ -9117,7 +10403,9 @@
    "sh": 253.0
   },
   "d_world_whale_s": {
-   "file": "d_world_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 637,
+   "ay": 1164,
    "w": 40,
    "h": 34,
    "smooth": false,
@@ -9125,7 +10413,9 @@
    "sh": 195.5
   },
   "d_constellation_shark_s": {
-   "file": "d_constellation_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 407,
+   "ay": 267,
    "w": 41,
    "h": 33,
    "smooth": false,
@@ -9133,7 +10423,9 @@
    "sh": 189.7
   },
   "d_star_whale_s": {
-   "file": "d_star_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 497,
+   "ay": 994,
    "w": 39,
    "h": 36,
    "smooth": false,
@@ -9141,7 +10433,9 @@
    "sh": 207.0
   },
   "d_rainbow_serpent_s": {
-   "file": "d_rainbow_serpent_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 404,
+   "ay": 833,
    "w": 40,
    "h": 33,
    "smooth": false,
@@ -9149,7 +10443,9 @@
    "sh": 189.7
   },
   "d_cosmos_kraken_s": {
-   "file": "d_cosmos_kraken_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 578,
+   "ay": 267,
    "w": 40,
    "h": 36,
    "smooth": false,
@@ -9157,7 +10453,9 @@
    "sh": 207.0
   },
   "d_angel_whale_s": {
-   "file": "d_angel_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 445,
+   "ay": 0,
    "w": 41,
    "h": 36,
    "smooth": false,
@@ -9165,7 +10463,9 @@
    "sh": 207.0
   },
   "d_sea_god_leviathan_s": {
-   "file": "d_sea_god_leviathan_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 258,
+   "ay": 916,
    "w": 41,
    "h": 36,
    "smooth": false,
@@ -9173,7 +10473,9 @@
    "sh": 207.0
   },
   "d_mackerel_s": {
-   "file": "d_mackerel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 582,
+   "ay": 607,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -9181,7 +10483,9 @@
    "sh": 151.4
   },
   "d_anchovy_s": {
-   "file": "d_anchovy_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 370,
+   "ay": 0,
    "w": 33,
    "h": 18,
    "smooth": false,
@@ -9189,7 +10493,9 @@
    "sh": 104.8
   },
   "d_sardine_s": {
-   "file": "d_sardine_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 512,
+   "ay": 875,
    "w": 34,
    "h": 22,
    "smooth": false,
@@ -9197,7 +10503,9 @@
    "sh": 128.1
   },
   "d_herring_s": {
-   "file": "d_herring_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 875,
+   "ay": 486,
    "w": 36,
    "h": 23,
    "smooth": false,
@@ -9205,7 +10513,9 @@
    "sh": 134.0
   },
   "d_sea_bream_s": {
-   "file": "d_sea_bream_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 178,
+   "ay": 916,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -9213,7 +10523,9 @@
    "sh": 157.3
   },
   "d_flounder_s": {
-   "file": "d_flounder_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 565,
+   "ay": 398,
    "w": 39,
    "h": 31,
    "smooth": false,
@@ -9221,7 +10533,9 @@
    "sh": 180.6
   },
   "d_pufferfish_s": {
-   "file": "d_pufferfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 825,
+   "ay": 790,
    "w": 42,
    "h": 32,
    "smooth": false,
@@ -9229,7 +10543,9 @@
    "sh": 186.4
   },
   "d_goby_s": {
-   "file": "d_goby_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 769,
+   "ay": 439,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -9237,7 +10553,9 @@
    "sh": 157.3
   },
   "d_pollock_s": {
-   "file": "d_pollock_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 537,
+   "ay": 790,
    "w": 38,
    "h": 26,
    "smooth": false,
@@ -9245,7 +10563,9 @@
    "sh": 151.4
   },
   "d_croaker_s": {
-   "file": "d_croaker_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 817,
+   "ay": 267,
    "w": 38,
    "h": 27,
    "smooth": false,
@@ -9253,7 +10573,9 @@
    "sh": 157.3
   },
   "d_mullet_s": {
-   "file": "d_mullet_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 857,
+   "ay": 656,
    "w": 40,
    "h": 27,
    "smooth": false,
@@ -9261,7 +10583,9 @@
    "sh": 157.3
   },
   "d_rockfish_s": {
-   "file": "d_rockfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 115,
+   "ay": 875,
    "w": 38,
    "h": 29,
    "smooth": false,
@@ -9269,7 +10593,9 @@
    "sh": 168.9
   },
   "d_filefish_s": {
-   "file": "d_filefish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 166,
+   "ay": 398,
    "w": 37,
    "h": 31,
    "smooth": false,
@@ -9277,7 +10603,9 @@
    "sh": 180.6
   },
   "d_saury_s": {
-   "file": "d_saury_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 742,
+   "ay": 875,
    "w": 38,
    "h": 20,
    "smooth": false,
@@ -9285,7 +10613,9 @@
    "sh": 116.5
   },
   "d_hairtail_s": {
-   "file": "d_hairtail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 247,
+   "ay": 486,
    "w": 40,
    "h": 30,
    "smooth": false,
@@ -9293,7 +10623,9 @@
    "sh": 174.7
   },
   "d_squid_s": {
-   "file": "d_squid_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 262,
+   "ay": 994,
    "w": 39,
    "h": 32,
    "smooth": false,
@@ -9301,7 +10633,9 @@
    "sh": 186.4
   },
   "d_octopus_s": {
-   "file": "d_octopus_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 496,
+   "ay": 702,
    "w": 37,
    "h": 34,
    "smooth": false,
@@ -9309,7 +10643,9 @@
    "sh": 198.0
   },
   "d_shrimp_s": {
-   "file": "d_shrimp_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 979,
+   "ay": 916,
    "w": 35,
    "h": 35,
    "smooth": false,
@@ -9317,7 +10653,9 @@
    "sh": 203.9
   },
   "d_crab_s": {
-   "file": "d_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 656,
+   "ay": 267,
    "w": 41,
    "h": 34,
    "smooth": false,
@@ -9325,7 +10663,9 @@
    "sh": 198.0
   },
   "d_clam_s": {
-   "file": "d_clam_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 206,
+   "ay": 222,
    "w": 33,
    "h": 28,
    "smooth": false,
@@ -9333,7 +10673,9 @@
    "sh": 163.1
   },
   "d_sea_snail_s": {
-   "file": "d_sea_snail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 332,
+   "ay": 916,
    "w": 37,
    "h": 30,
    "smooth": false,
@@ -9341,7 +10683,9 @@
    "sh": 174.7
   },
   "d_starfish_s": {
-   "file": "d_starfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 567,
+   "ay": 994,
    "w": 33,
    "h": 34,
    "smooth": false,
@@ -9349,7 +10693,9 @@
    "sh": 198.0
   },
   "d_jellyfish_s": {
-   "file": "d_jellyfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 667,
+   "ay": 525,
    "w": 33,
    "h": 36,
    "smooth": false,
@@ -9357,7 +10703,9 @@
    "sh": 209.7
   },
   "d_sea_urchin_s": {
-   "file": "d_sea_urchin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 471,
+   "ay": 916,
    "w": 35,
    "h": 35,
    "smooth": false,
@@ -9365,7 +10713,9 @@
    "sh": 203.9
   },
   "d_seahorse_s": {
-   "file": "d_seahorse_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 532,
+   "ay": 916,
    "w": 31,
    "h": 36,
    "smooth": false,
@@ -9373,7 +10723,9 @@
    "sh": 209.7
   },
   "d_clownfish_s": {
-   "file": "d_clownfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 669,
+   "ay": 222,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -9381,7 +10733,9 @@
    "sh": 171.5
   },
   "d_blue_tang_s": {
-   "file": "d_blue_tang_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 29,
+   "ay": 87,
    "w": 33,
    "h": 29,
    "smooth": false,
@@ -9389,7 +10743,9 @@
    "sh": 177.6
   },
   "d_butterflyfish_s": {
-   "file": "d_butterflyfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 390,
+   "ay": 131,
    "w": 31,
    "h": 29,
    "smooth": false,
@@ -9397,7 +10753,9 @@
    "sh": 177.6
   },
   "d_flying_fish_s": {
-   "file": "d_flying_fish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 635,
+   "ay": 398,
    "w": 33,
    "h": 28,
    "smooth": false,
@@ -9405,7 +10763,9 @@
    "sh": 171.5
   },
   "d_eel_s": {
-   "file": "d_eel_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 226,
+   "ay": 356,
    "w": 33,
    "h": 27,
    "smooth": false,
@@ -9413,7 +10773,9 @@
    "sh": 165.4
   },
   "d_cod_s": {
-   "file": "d_cod_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 74,
+   "ay": 267,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -9421,7 +10783,9 @@
    "sh": 171.5
   },
   "d_salmon_s": {
-   "file": "d_salmon_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 358,
+   "ay": 875,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -9429,7 +10793,9 @@
    "sh": 171.5
   },
   "d_yellowtail_s": {
-   "file": "d_yellowtail_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 789,
+   "ay": 1164,
    "w": 34,
    "h": 27,
    "smooth": false,
@@ -9437,7 +10803,9 @@
    "sh": 165.4
   },
   "d_bonito_s": {
-   "file": "d_bonito_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 169,
+   "ay": 87,
    "w": 35,
    "h": 27,
    "smooth": false,
@@ -9445,7 +10813,9 @@
    "sh": 165.4
   },
   "d_tuna_s": {
-   "file": "d_tuna_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 253,
+   "ay": 1121,
    "w": 36,
    "h": 27,
    "smooth": false,
@@ -9453,7 +10823,9 @@
    "sh": 165.4
   },
   "d_lobster_s": {
-   "file": "d_lobster_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 511,
+   "ay": 607,
    "w": 35,
    "h": 32,
    "smooth": false,
@@ -9461,7 +10833,9 @@
    "sh": 196.0
   },
   "d_hermit_crab_s": {
-   "file": "d_hermit_crab_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 807,
+   "ay": 486,
    "w": 33,
    "h": 27,
    "smooth": false,
@@ -9469,7 +10843,9 @@
    "sh": 165.4
   },
   "d_cuttlefish_s": {
-   "file": "d_cuttlefish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 190,
+   "ay": 310,
    "w": 35,
    "h": 29,
    "smooth": false,
@@ -9477,7 +10853,9 @@
    "sh": 177.6
   },
   "d_stingray_s": {
-   "file": "d_stingray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 798,
+   "ay": 994,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -9485,7 +10863,9 @@
    "sh": 171.5
   },
   "d_sea_turtle_s": {
-   "file": "d_sea_turtle_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 403,
+   "ay": 916,
    "w": 37,
    "h": 29,
    "smooth": false,
@@ -9493,7 +10873,9 @@
    "sh": 177.6
   },
   "d_seal_s": {
-   "file": "d_seal_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 596,
+   "ay": 916,
    "w": 36,
    "h": 28,
    "smooth": false,
@@ -9501,7 +10883,9 @@
    "sh": 171.5
   },
   "d_dolphin_s": {
-   "file": "d_dolphin_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 597,
+   "ay": 310,
    "w": 34,
    "h": 28,
    "smooth": false,
@@ -9509,7 +10893,9 @@
    "sh": 171.5
   },
   "d_shark_s": {
-   "file": "d_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 744,
+   "ay": 916,
    "w": 33,
    "h": 26,
    "smooth": false,
@@ -9517,7 +10903,9 @@
    "sh": 159.2
   },
   "d_swordfish_s": {
-   "file": "d_swordfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 572,
+   "ay": 1035,
    "w": 36,
    "h": 25,
    "smooth": false,
@@ -9525,7 +10913,9 @@
    "sh": 153.1
   },
   "d_sunfish_s": {
-   "file": "d_sunfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 242,
+   "ay": 1035,
    "w": 31,
    "h": 33,
    "smooth": false,
@@ -9533,7 +10923,9 @@
    "sh": 202.1
   },
   "d_manta_ray_s": {
-   "file": "d_manta_ray_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 74,
+   "ay": 656,
    "w": 35,
    "h": 29,
    "smooth": false,
@@ -9541,7 +10933,9 @@
    "sh": 177.6
   },
   "d_anglerfish_s": {
-   "file": "d_anglerfish_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 518,
+   "ay": 0,
    "w": 37,
    "h": 28,
    "smooth": false,
@@ -9549,7 +10943,9 @@
    "sh": 171.5
   },
   "d_orca_s": {
-   "file": "d_orca_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 567,
+   "ay": 702,
    "w": 33,
    "h": 29,
    "smooth": false,
@@ -9557,7 +10953,9 @@
    "sh": 177.6
   },
   "d_whale_s": {
-   "file": "d_whale_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 155,
+   "ay": 1164,
    "w": 35,
    "h": 28,
    "smooth": false,
@@ -9565,7 +10963,9 @@
    "sh": 171.5
   },
   "d_whale_shark_s": {
-   "file": "d_whale_shark_s.png",
+   "atlas": "d_atlas.png",
+   "ax": 225,
+   "ay": 1164,
    "w": 35,
    "h": 28,
    "smooth": false,

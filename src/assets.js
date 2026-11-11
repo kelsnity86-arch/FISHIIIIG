@@ -140,17 +140,31 @@ let manifest = {};
 const pending = new Map();
 const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_') || name.startsWith('d_');   // 생물 그림은 필요할 때 받는다
 
+const images = new Map();
+function loadImage(file) {
+  if (!images.has(file)) images.set(file, new Promise((done) => {
+    const img = new Image();
+    img.onload = () => done(img); img.onerror = () => done(null);
+    img.src = 'assets/game/' + file;
+  }));
+  return images.get(file);
+}
+
 function loadOne(name) {
   if (sprites[name] && !sprites[name].placeholder) return Promise.resolve();
   if (pending.has(name)) return pending.get(name);
   const info = manifest[name];
   if (!info) return Promise.resolve();
-  const p = new Promise((done) => {
-    const img = new Image();
-    img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h }; done(); };
-    img.onerror = () => done(); // 파일이 없으면 임시 그림 유지
-    img.src = 'assets/game/' + info.file;
-  });
+  const meta = { w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h };
+  const p = info.atlas
+    // 여러 그림을 한 장에 묶은 것: 묶음 그림을 한 번만 받고, 필요한 칸을 잘라 쓴다
+    ? loadImage(info.atlas).then((img) => {
+      if (!img) return;
+      const c = document.createElement('canvas'); c.width = info.w; c.height = info.h;
+      c.getContext('2d').drawImage(img, info.ax, info.ay, info.w, info.h, 0, 0, info.w, info.h);
+      sprites[name] = { img: c, ...meta };
+    })
+    : loadImage(info.file).then((img) => { if (img) sprites[name] = { img, ...meta }; });   // 파일이 없으면 임시 그림 유지
   pending.set(name, p);
   return p;
 }
