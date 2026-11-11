@@ -8564,3 +8564,46 @@ on the main branch, in the folder assets/raw/, with the file name d_style_test.p
 ```
 
 ---
+
+### 274. `d_style_test2` — 식빵상어를 도트 그림체 8가지로 (고르기용)
+
+```
+No text, no labels, no numbers. Fully transparent background.
+
+A style test sheet: the SAME creature drawn 8 times in 8 clearly different pixel-art
+styles, arranged in a grid of 4 columns x 2 rows, each in its own cell with wide empty
+gaps, never touching. Draw all 8 at the same displayed size so they can be compared.
+
+THE CREATURE - "Toast Shark". IT IS A FISH FIRST:
+The silhouette must clearly be a SHARK in every cell: a long torpedo-shaped body about
+2.5 times longer than tall, a pointed snout, one tall triangular dorsal fin, a pectoral
+fin, and a crescent tail with two lobes. Filled solid black it must still read "shark".
+Do NOT draw a slice of bread with a face. Do NOT draw a round blob.
+The gag: the shark is MADE OF TOAST - back, fins and tail are golden-brown crust; side
+and belly are pale cream bread with a few darker crumb-hole pixels; one small square pat
+of yellow butter melting on its back. Nothing else.
+Face at the RIGHT end: one big eye, a wide mouth with a zig-zag row of white teeth, dumb
+deadpan expression. Side view, facing RIGHT, body straight.
+
+THE 8 STYLES (top row left to right, then bottom row):
+1) Modern color Tamagotchi screen (Tamagotchi Uni / Paradise): about 32 pixels wide,
+   bright flat colors with one darker tone, clean dark outline.
+2) The same modern Tamagotchi look at about 48 pixels wide with a little more detail.
+3) Classic 1990s Tamagotchi LCD: about 20 pixels wide, ONLY black pixels on transparent.
+4) Game Boy Color era: about 24 pixels wide, 4 flat colors plus black outline, chunky.
+5) NES 8-bit: about 24 pixels wide, exactly 3 flat colors plus black, no shading at all.
+6) PICO-8 fantasy console: about 32 pixels wide, its bold 16-color palette, no outline,
+   shapes separated by color only.
+7) 16-bit SNES RPG monster sprite: about 64 pixels wide, 12 colors, 3-tone shading and
+   highlights, the most detailed one.
+8) Clumsy beginner pixel art: about 28 pixels wide, uneven wobbly outline, mismatched
+   colors, lopsided eye - honestly badly made, and funny because of it.
+
+For all 8: every pixel is a big, perfectly square block of one flat color on one grid;
+hard edges, no blur, no smoothing, no anti-aliasing, no gradients.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name d_style_test2.png
+```
+
+---
