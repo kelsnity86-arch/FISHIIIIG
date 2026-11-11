@@ -425,7 +425,16 @@ function drawRays(ctx, g) {
 // 낚아 올린 생물. under=true 는 수면 아래에 잠긴 부분, false 는 물 위 부분.
 // 솟아오르는 동안은 정체 모를 그림자(공통 그림)이고, 꼭대기에서 뿅 하고 도트 생물로 바뀐다.
 // 도트 생물은 옛 휴대용 게임기처럼 2동작을 뚝뚝 끊어 넘기며 펄떡인다 (이것만은 일부러 부드럽지 않게).
-const FLOP = [[0, 0, 0], [-0.22, -0.05, 1], [0, 0, 0], [0.2, -0.03, 1]];   // 기울기, 튀는 높이(몸길이 대비), 표정
+// 낚인 뒤의 몸짓 (1.9초 주기, 옛 휴대용 게임기처럼 뚝뚝 끊어서):
+//   파닥파닥 발버둥(놀란 얼굴) → 축 늘어져 멈춤(놀란 얼굴) → 잠깐 멍한 평소 얼굴 → 다시 화들짝.
+// 돌려주는 값: [기울기, 튀는 높이(몸길이 대비), 얼굴(1 놀람 / 0 평소), 크기]
+function flopStep(t) {
+  const u = t % 1.9;
+  if (u < 0.9) { const i = Math.floor(u / 0.1) % 2; return [i ? 0.2 : -0.22, i ? -0.03 : -0.06, 1, 1]; }   // 발버둥
+  if (u < 1.45) return [0.05, 0.015, 1, 1];                                                               // 늘어짐
+  if (u < 1.8) return [0.08, 0.02, 0, 0.97];                                                              // 멍
+  return [-0.12, -0.07, 1, 1.1];                                                                          // 화들짝
+}
 function drawLeap(ctx, g, under) {
   const c = g.catch;
   if (!c || c.phase === 'pull') return;
@@ -438,12 +447,12 @@ function drawLeap(ctx, g, under) {
     ctx.translate(c.x, c.y); ctx.scale(-1, 1); ctx.rotate(-c.rot * 0.4);
     ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   } else if (!under) {
-    const step = FLOP[Math.floor(c.popT * 5) % 4];
+    const step = flopStep(c.popT);
     const flop = c.phase === 'leap' || c.phase === 'hang';
-    const f = g.fish, base = sprite(f.sprite), shocked = hasSprite(f.sprite2);   // 낚인 뒤에는 내내 놀란 얼굴 (평소 얼굴은 카드·도감에)
+    const f = g.fish, base = sprite(f.sprite), shocked = hasSprite(f.sprite2) && !(flop && step[2] === 0);
     const spr = shocked ? sprite(f.sprite2) : base;
     const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
-    const w = c.lw * c.fit * c.scale * pop * over, h = w * base.h / base.w;
+    const w = c.lw * c.fit * c.scale * pop * over * (flop ? step[3] : 1), h = w * base.h / base.w;
     // 놀람 그림은 평소 그림과 몸 크기가 같게, 왼쪽 아래를 맞춰 겹친다 (땀방울만큼 위·오른쪽으로 더 나온다)
     const k = w / base.sw, w2 = spr.sw * k, h2 = spr.sh * k;
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
