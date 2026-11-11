@@ -6460,41 +6460,53 @@ on the main branch, in the folder assets/raw/, with the file name d_wig_seal.png
 ```
 
 ---
-### 215. `d_hammer_shark` — 고급: 망치상어
+### 215. `d_hammer_shark` — 고급: 망치상어 ★ 그림체 기준 (이 한 장으로 나머지의 그림체를 정한다)
 
 ```
-No text. Fully transparent background.
+No text. Fully transparent background. ONE creature only, one art style only.
 
-Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
-MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
-everyday object and a cartoon gag:
-a hammerhead shark whose head is a real steel claw hammer with a wooden handle body.
+This single sprite sets the art style for 120 creatures of a fishing game, so take extra care.
 
-Rules (important):
-- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
-  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
-  hard edges - no blur, no smoothing, no anti-aliasing.
-- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
-  or two single pixels.
-- A thick 1-pixel dark navy outline around the whole creature.
-- Side view, facing RIGHT, body straight and stiff.
-- ANIMAL FIRST: the silhouette must clearly be the sea animal itself (its real body shape,
-  fins, tail, limbs). The object or gag is applied to that body as its material, pattern
-  or one accessory - never replace the animal's shape with the object.
-- The one or two defining features described above must be huge, exaggerated and instantly
-  readable. Leave out all other detail.
-- Big simple dumb eyes: a white square with a black pixel.
+THE CREATURE - "Hammer Shark": a hammerhead shark whose head is literally a carpenter's
+claw hammer.
+- BODY (keep it a real shark): grey-blue torpedo body, white belly, one tall triangular
+  dorsal fin, a pectoral fin, a crescent tail with two lobes. Filled solid black, the
+  back two thirds must still read "shark".
+- HEAD (the gag, must be unmistakable): where a hammerhead's wide head would be, there is
+  a real steel hammer head, mounted sideways like a hammerhead shark's head: a flat round
+  striking face on one end and a curved split nail-pulling claw on the other, shiny grey
+  steel. The shark's neck continues into a short piece of wooden hammer handle (brown,
+  with wood grain lines) before it becomes shark skin.
+- FACE: two round white eyes with black pupils sit on the two ends of the hammer head,
+  far apart, looking in slightly different directions (dumb and deadpan). Under the
+  hammer, a wide mouth with a zig-zag row of white teeth.
+- BIG HEAD: the hammer head and face take up about 40% of the whole sprite, like a
+  chibi / super-deformed character. In the game the camera zooms in on this face until
+  it fills the screen, so eyes, teeth and hammer must be large and clear.
+- One bent nail stuck in its lip like a toothpick. Nothing else.
 
-A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
-1) normal: blank, calm, slightly stupid stare,
-2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
-   two or three sweat-drop pixels flying off.
+ART STYLE - modern color Tamagotchi screen quality (like Tamagotchi Uni / Paradise):
+- Clean pixel art on a grid about 48 pixels wide. Every pixel is a perfectly square block
+  of one flat color, all on one grid. Scale it up large with hard edges: no blur, no
+  smoothing, no anti-aliasing, no half-pixels.
+- About 8 flat colors: each main color plus one darker tone. No gradients, no glow.
+- A clean 1-pixel dark navy outline around the whole silhouette.
+- Pure side view, facing RIGHT, body straight.
+
+A sprite sheet of 2 frames side by side, with a clear gap between them, same creature,
+same size, same pixel grid:
+1) normal: calm deadpan stare, mouth closed with the teeth showing,
+2) shocked: both eyes twice as big, mouth wide open, fins and tail sticking straight out,
+   the nail flying out of its mouth, three sweat-drop pixels.
+The two frames must differ only in the face, fins, nail and sweat drops, so that flipping
+between them looks like a 2-frame Tamagotchi animation.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name d_hammer_shark.png
 ```
 
 ---
+
 ### 216. `d_saw_shark` — 고급: 톱상어
 
 ```
