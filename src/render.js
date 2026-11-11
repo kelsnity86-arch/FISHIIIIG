@@ -211,11 +211,12 @@ export function render(ctx, g) {
   // 세계: 화면보다 큰 생물을 낚아 올릴 때 수면선을 기준으로 물러난다
   const z = g.cam.zoom;
   ctx.save();
-  ctx.translate(CAM_X, WL); ctx.scale(z, z); ctx.translate(-CAM_X, -WL);
-  const view = { l: CAM_X - CAM_X / z - 12, r: CAM_X + (W - CAM_X) / z + 12 };
+  const ox = g.cam.ox, oy = g.cam.oy;
+  ctx.translate(ox, oy); ctx.scale(z, z);
+  const view = { l: -ox / z - 12, r: (W - ox) / z + 12 };
 
   ctx.save();                                   // 수면 아래에만 그리는 것들
-  ctx.beginPath(); ctx.rect(view.l, WL - 2, view.r - view.l, (H - WL) / z + 40); ctx.clip();
+  ctx.beginPath(); ctx.rect(view.l, WL - 2, view.r - view.l, Math.max(4, (H - oy) / z - WL + 42)); ctx.clip();
   drawShafts(ctx, g);
   drawShadow(ctx, g);
   drawLeap(ctx, g, true);
@@ -263,26 +264,29 @@ function skyTop(sky) {
 }
 
 function drawBackdrop(ctx, g) {
+  const z = g.cam.zoom, ox = g.cam.ox, oy = g.cam.oy;
   const sea = sprite('c_sea');
-  draw(ctx, sea, -10, WL - 8, W + 20, H - WL + 18);
-  // 카메라가 물러나면 하늘·섬·먼바다도 배를 기준으로 작아진다 (가까운 것보다는 덜).
-  // 드러나는 가장자리는 같은 하늘 그림을 좌우로 뒤집어 이어 붙이고, 위쪽은 맨 윗줄 색으로 잇는다.
-  const bz = 1 - (1 - g.cam.zoom) * 0.6;
+  const seaY = WL * z + oy - 8;                      // 물속 그림은 화면에서 수면선이 있는 높이부터 아래로
+  if (seaY < H + 10) draw(ctx, sea, -10, seaY, W + 20, Math.max(H - WL + 18, H - seaY + 10));
+  // 하늘·섬·먼바다도 같은 카메라를 따라 커지고 작아진다 (가까운 것보다는 덜). 수평선은 늘 수면선에 붙어 있다.
+  // 드러나는 가장자리는 같은 하늘 그림을 좌우로 뒤집어 이어 붙이고, 위쪽은 하늘색으로 잇는다.
+  const bz = Math.pow(z, 0.6), still = Math.abs(z - 1) < 0.001 && Math.abs(ox) < 0.01;
   const sky = sprite('c_sky'), far = sprite('c_farsea');
   const sw = W + 20, sy = HORIZON - sky.h - 2, sh = sky.h + 3;
+  const bx = lerp(CAM_X, CAM_X * z + ox, 0.6) - CAM_X * bz, by = HORIZON * z + oy - HORIZON * bz;
   ctx.save();
-  ctx.translate(CAM_X, HORIZON); ctx.scale(bz, bz); ctx.translate(-CAM_X, -HORIZON);
+  ctx.translate(bx, by); ctx.scale(bz, bz);
   const skyAt = (x, flip) => {
     ctx.save();
     if (flip) { ctx.translate(x + sw, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); }
     draw(ctx, sky, x, sy, sw, sh);
-    if (bz < 0.999) { ctx.fillStyle = skyTop(sky); ctx.fillRect(x, sy - 500, sw, 501); }
+    if (!still) { ctx.fillStyle = skyTop(sky); ctx.fillRect(x, sy - 900, sw, 901); }
     ctx.restore();
   };
-  if (bz < 0.999) { skyAt(-10 - sw + 1, true); skyAt(-10 + sw - 1, true); }
+  if (!still) { skyAt(-10 - sw + 1, true); skyAt(-10 + sw - 1, true); }
   skyAt(-10, false);
   const fx = wrapX(g.time * 2.5, W);
-  for (let i = bz < 0.999 ? -2 : -1; i <= (bz < 0.999 ? 1 : 0); i++) draw(ctx, far, fx + i * W, HORIZON - 4, W + 0.5, far.h);
+  for (let i = still ? -1 : -2; i <= (still ? 0 : 1); i++) draw(ctx, far, fx + i * W, HORIZON - 4, W + 0.5, far.h);
   ctx.restore();
 }
 

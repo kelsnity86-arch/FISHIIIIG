@@ -24,7 +24,7 @@ export function createGame() {
     rodAngle: 0.32, rodBend: 0, pose: 1,
     rock: 0, rockV: 0, shake: 0,
     boat: { dx: 0, tilt: 0, spray: 0 },      // dx: 줄에 끌려간 거리, spray: 뱃머리 물살 세기
-    cam: { zoom: 1 },
+    cam: { zoom: 1, ox: 0, oy: 0 },         // 화면 좌표 = 세계 좌표 × zoom + (ox, oy)
     rough: 0,                                 // 바다의 거칠기 0(잔잔) ~ 1(폭발 직후)
     swells: [],                               // 수면을 타고 퍼지는 큰 물결
     bob: { x: BOAT_X - 40, y: WL - 30, dip: 0, dipV: 0, inWater: false },
@@ -309,6 +309,17 @@ export function update(g, dt) {
   B.spray = approach(B.spray, clamp(Math.abs(B.dx - prevDx) / Math.max(dt, 1e-4) / 14, 0, 1), 4, dt);
   g.rough = approach(g.rough, roughTarget, roughTarget > g.rough ? 3 : 0.7, dt);
   g.cam.zoom = approach(g.cam.zoom, zoomTarget, zoomRate, g.realDt);
+  g.cam.ox = BOAT_X * (1 - g.cam.zoom); g.cam.oy = WL * (1 - g.cam.zoom);          // 평소: 배를 기준으로 물러난다
+  const cc = g.catch;
+  if (cc && cc.reveal && (cc.phase === 'leap' || cc.phase === 'hang')) {
+    // 막 건진 순간에는 생물에 바짝 붙어 있어 몸의 일부만 화면에 들어온다 → 카메라가 물러나며 전신이 드러나고 배는 점이 된다.
+    // 생물도 배도 바다도 하늘도 같은 카메라로 함께 멀어진다 (생물만 따로 줄이지 않는다).
+    const k = clamp((cc.popT - FACE_HOLD) / PULL_BACK, 0, 1), e = k * k * (3 - 2 * k);
+    const z = cc.zs * Math.pow(cc.zoom / cc.zs, e);
+    const endX = cc.fx * cc.zoom + BOAT_X * (1 - cc.zoom), endY = cc.ay * cc.zoom + WL * (1 - cc.zoom);
+    const px = lerp(W * 0.56, endX, e), py = lerp(118, endY, e);                   // 얼굴이 화면에서 지나가는 길
+    g.cam.zoom = z; g.cam.ox = px - cc.fx * z; g.cam.oy = py - cc.ay * z;
+  }
   g.dim = approach(g.dim, dimTarget, 5, g.realDt);
   g.shafts = approach(g.shafts, shaftsTarget, 3, g.realDt);
   g.rays = approach(g.rays, raysTarget, 3.5, g.realDt);
@@ -534,23 +545,26 @@ function followLine(g, dt) {
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const T_PULL = 0.95;
-const FACE_HOLD = 0.35;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
+const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
+const PULL_BACK = 1.7;     // 카메라가 물러나는 데 걸리는 시간(초)
 
 function startCatch(g) {
   // 솟아오르는 것은 모두 같은 크기의 그림자. 꼭대기에서 뿅 하는 순간에만 등급에 맞는 크기의 생물로 바뀐다.
   const big = g.fish.len * LEAP_SCALE, gi = GRADES.indexOf(g.fish.gradeInfo);
-  // 드러난 생물은 화면에서 늘 같은 크기·같은 자리(몸 전체가 수면 위 하늘에 뜬다)에 있고 작아지지 않는다.
-  // 대신 카메라가 물러나며 배·사람·바다·배경이 작아진다 → 생물이 점점 더 거대해 보인다.
+  // 다 물러났을 때의 구도: 몸 전체가 수면 위 하늘에 떠서 다 보이고, 배는 등급이 높을수록 작은 점이 된다.
   const spr = sprite(g.fish.sprite), asp = spr.h / spr.w;
   const fit = Math.min(1, 0.56 / asp);                               // 키 큰 생물은 높이에 맞춰 줄인다
-  const dwS = Math.min(W * 0.58, (WL - 46) / asp), dhS = dwS * asp;  // 화면에서의 폭·높이
-  const sx = W * 0.74 - dwS / 2, sy = WL - dhS / 2 - 26;             // 화면에서의 중심 (몸 아래쪽이 수면에서 26px 떠 있다)
-  const zoom = clamp(Math.min(0.85, dwS / (big * fit)), 0.12, 1);    // 다 물러났을 때: 생물과 배의 크기 비율이 실제 비율이 된다
+  const dw = big * fit, dh = dw * asp;                               // 생물의 실제 크기 (세계 좌표, 변하지 않는다)
+  const dwS = Math.min(W * 0.58, (WL - 46) / asp);                   // 다 물러났을 때 화면에서의 폭
+  const zoom = clamp(Math.min(0.85, dwS / dw), 0.1, 1);
+  const ax = BOAT_X + (W * 0.74 - dwS / 2 - BOAT_X) / zoom, ay = WL - dh / 2 - 26 / zoom;   // 생물이 걸려 있는 자리
+  // 막 건진 순간의 구도: 얼굴 쪽에 바짝 붙어, 몸이 화면보다 커서 일부만 보인다.
+  const zs = Math.max(zoom * 1.9, Math.min(3, W * 1.35 / dw)), fx = ax + dw * 0.26;
   const lw = SHADOW_LEN;
   let ex = W * 0.42;
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
-    phase: 'pull', pt: 0, lw, gi, zoom, ex, big, fit, dwS, sx, sy, ax: ex, ay: WL,
+    phase: 'pull', pt: 0, lw, gi, zoom, zs, ex, big, fit, ax, ay, fx,
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
@@ -576,13 +590,9 @@ function updateCatch(g, dt) {
   const start = { x: c.ex - lw * 0.1, y: WL + lh * 0.62 }, apex = { x: c.ex + lw * 0.03, y: WL - lh * 0.42 };
   // 드러난 생물은 얼굴(오른쪽 끝)이 하늘 한가운데에 오도록 건다. 화면을 넘는 몸은 왼쪽·위아래로 잘려도 얼굴은 반드시 보인다.
   if (c.reveal) {
-    if (c.phase === 'leap' || c.phase === 'hang') {
-      const z = g.cam.zoom;                                          // 화면의 정해진 자리·크기를 세계 좌표로 되돌린다
-      c.lw = c.dwS / z / c.fit; c.ax = BOAT_X + (c.sx - BOAT_X) / z; c.ay = WL + (c.sy - WL) / z;
-    }
     apex.x = c.ax; apex.y = c.ay;
   }
-  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.reveal && c.popT >= FACE_HOLD ? c.zoom : 1, zoomRate: c.reveal ? 1.9 : 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
+  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.reveal ? c.zoom : 1, zoomRate: 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
   c.pt += dt;
 
   if (c.phase === 'pull') {
@@ -637,7 +647,7 @@ function updateCatch(g, dt) {
     if (c.reveal) { c.x = apex.x; c.y = apex.y; }
     if (!c.reveal && u >= 0.86) {
       c.reveal = true; c.popT = 0;
-      c.ex = c.sx;
+      c.lw = c.big; c.ex = c.ax;
                                    // 여기서부터 등급에 맞는 크기
       g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
       spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
@@ -658,7 +668,7 @@ function updateCatch(g, dt) {
     // 뿅(얼굴이 화면 가득) → 스윽(카메라가 물러나 전신이 드러남) → 짜잔(팡파르 + "낚았다!" + 카드)
     const far = true;
     if (c.reveal && far && !c.swished && c.popT >= FACE_HOLD) { c.swished = true; snd(g, 'swish'); }
-    const tadaAt = FACE_HOLD + 1.35;
+    const tadaAt = FACE_HOLD + PULL_BACK - 0.15;
     if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
     if (g.catchFx && c.reveal && (c.popT >= c.tadaT + 0.3 || c.skip)) {
       const f = g.fish, prev = g.records[f.name];
