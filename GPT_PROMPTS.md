@@ -10089,3 +10089,374 @@ on the main branch, in the folder assets/raw/, with the file name ui2_hud.png
 ```
 
 ---
+
+## ㉖ 항구 마을 — 배경 5단계, 건물 5단계, 주인, 가게 판, 아이콘
+
+### 327. `h_town_1` — 항구 배경 1단계: 작은 어촌
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Opaque image.
+
+The harbor town screen background, stage 1 of 5 of the same town growing over time:
+a tiny poor fishing hamlet: a short rickety wooden pier, a few thatched huts, nets drying on poles, one small rowboat.
+Side view, same eye level and same horizon height as the sea screens (horizon at about 58% of
+the image height). The lower part is calm harbor water with the pier or quay running along
+the waterline; the town sits on a low green shore behind it; sky above like in c_sky.png.
+Leave the row of shop buildings OUT - keep an empty strip of ground along the quay where 6
+buildings will be placed later. No people, no text on signs. 16:9 image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_1.png
+```
+
+---
+
+### 328. `h_town_2` — 항구 배경 2단계: 포구 마을
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Opaque image.
+
+The harbor town screen background, stage 2 of 5 of the same town growing over time:
+a small fishing village: a proper wooden pier, tiled-roof houses, a few lanterns, barrels and crates.
+Side view, same eye level and same horizon height as the sea screens (horizon at about 58% of
+the image height). The lower part is calm harbor water with the pier or quay running along
+the waterline; the town sits on a low green shore behind it; sky above like in c_sky.png.
+Leave the row of shop buildings OUT - keep an empty strip of ground along the quay where 6
+buildings will be placed later. No people, no text on signs. 16:9 image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_2.png
+```
+
+---
+
+### 329. `h_town_3` — 항구 배경 3단계: 항구 마을
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Opaque image.
+
+The harbor town screen background, stage 3 of 5 of the same town growing over time:
+a lively harbor town: a stone quay, two-storey houses, a small white lighthouse, flags, market stalls.
+Side view, same eye level and same horizon height as the sea screens (horizon at about 58% of
+the image height). The lower part is calm harbor water with the pier or quay running along
+the waterline; the town sits on a low green shore behind it; sky above like in c_sky.png.
+Leave the row of shop buildings OUT - keep an empty strip of ground along the quay where 6
+buildings will be placed later. No people, no text on signs. 16:9 image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_3.png
+```
+
+---
+
+### 330. `h_town_4` — 항구 배경 4단계: 큰 항구
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Opaque image.
+
+The harbor town screen background, stage 4 of 5 of the same town growing over time:
+a big prosperous port: long stone docks, tall houses, a clock tower, a tall lighthouse, cranes, many masts in the distance.
+Side view, same eye level and same horizon height as the sea screens (horizon at about 58% of
+the image height). The lower part is calm harbor water with the pier or quay running along
+the waterline; the town sits on a low green shore behind it; sky above like in c_sky.png.
+Leave the row of shop buildings OUT - keep an empty strip of ground along the quay where 6
+buildings will be placed later. No people, no text on signs. 16:9 image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_4.png
+```
+
+---
+
+### 331. `h_town_5` — 항구 배경 5단계: 환상의 항구
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Opaque image.
+
+The harbor town screen background, stage 5 of 5 of the same town growing over time:
+a legendary dream port: gleaming white and gold buildings, a grand lighthouse with a glowing lamp, floating lanterns, pennants, a golden domed hall.
+Side view, same eye level and same horizon height as the sea screens (horizon at about 58% of
+the image height). The lower part is calm harbor water with the pier or quay running along
+the waterline; the town sits on a low green shore behind it; sky above like in c_sky.png.
+Leave the row of shop buildings OUT - keep an empty strip of ground along the quay where 6
+buildings will be placed later. No people, no text on signs. 16:9 image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_5.png
+```
+
+---
+
+### 332. `h_shops_1` — 건물 6채 1단계: 작은 어촌
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no letters on signs (icons only). Fully transparent background.
+
+A sprite sheet of 6 separate harbor buildings in a grid of 3 columns x 2 rows, never
+touching, each seen from the front, standing on a flat bottom edge. They are stage 1 of 5
+of the same town, so they are small, humble and worn: weathered planks, thatch or patched roofs, hand-painted signs.
+Same six buildings in every stage, in this order, each recognizable by its sign icon and props:
+1) fish market - fish sign, crates of ice, a scale,
+2) tackle shop - fishing rod sign, rods and reels in the window,
+3) shipyard - boat sign, a hull on a slipway, timber,
+4) tailor - coat and hat sign, clothes on a rack,
+5) fisher's guild - open book and anchor sign, a notice board,
+6) town hall - a small bell tower and a flag.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shops_1.png
+```
+
+---
+
+### 333. `h_shops_2` — 건물 6채 2단계: 포구 마을
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no letters on signs (icons only). Fully transparent background.
+
+A sprite sheet of 6 separate harbor buildings in a grid of 3 columns x 2 rows, never
+touching, each seen from the front, standing on a flat bottom edge. They are stage 2 of 5
+of the same town, so they are modest but tidy: fresh paint, tiled roofs, wooden signs with carved icons.
+Same six buildings in every stage, in this order, each recognizable by its sign icon and props:
+1) fish market - fish sign, crates of ice, a scale,
+2) tackle shop - fishing rod sign, rods and reels in the window,
+3) shipyard - boat sign, a hull on a slipway, timber,
+4) tailor - coat and hat sign, clothes on a rack,
+5) fisher's guild - open book and anchor sign, a notice board,
+6) town hall - a small bell tower and a flag.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shops_2.png
+```
+
+---
+
+### 334. `h_shops_3` — 건물 6채 3단계: 항구 마을
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no letters on signs (icons only). Fully transparent background.
+
+A sprite sheet of 6 separate harbor buildings in a grid of 3 columns x 2 rows, never
+touching, each seen from the front, standing on a flat bottom edge. They are stage 3 of 5
+of the same town, so they are two-storey, solid timber and stone, awnings, lanterns, flower boxes.
+Same six buildings in every stage, in this order, each recognizable by its sign icon and props:
+1) fish market - fish sign, crates of ice, a scale,
+2) tackle shop - fishing rod sign, rods and reels in the window,
+3) shipyard - boat sign, a hull on a slipway, timber,
+4) tailor - coat and hat sign, clothes on a rack,
+5) fisher's guild - open book and anchor sign, a notice board,
+6) town hall - a small bell tower and a flag.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shops_3.png
+```
+
+---
+
+### 335. `h_shops_4` — 건물 6채 4단계: 큰 항구
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no letters on signs (icons only). Fully transparent background.
+
+A sprite sheet of 6 separate harbor buildings in a grid of 3 columns x 2 rows, never
+touching, each seen from the front, standing on a flat bottom edge. They are stage 4 of 5
+of the same town, so they are large and rich: stone ground floors, balconies, brass fittings, banners, glass windows.
+Same six buildings in every stage, in this order, each recognizable by its sign icon and props:
+1) fish market - fish sign, crates of ice, a scale,
+2) tackle shop - fishing rod sign, rods and reels in the window,
+3) shipyard - boat sign, a hull on a slipway, timber,
+4) tailor - coat and hat sign, clothes on a rack,
+5) fisher's guild - open book and anchor sign, a notice board,
+6) town hall - a small bell tower and a flag.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shops_4.png
+```
+
+---
+
+### 336. `h_shops_5` — 건물 6채 5단계: 환상의 항구
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no letters on signs (icons only). Fully transparent background.
+
+A sprite sheet of 6 separate harbor buildings in a grid of 3 columns x 2 rows, never
+touching, each seen from the front, standing on a flat bottom edge. They are stage 5 of 5
+of the same town, so they are grand and magical: white stone and gold trim, glowing lamps, stained glass, small star ornaments.
+Same six buildings in every stage, in this order, each recognizable by its sign icon and props:
+1) fish market - fish sign, crates of ice, a scale,
+2) tackle shop - fishing rod sign, rods and reels in the window,
+3) shipyard - boat sign, a hull on a slipway, timber,
+4) tailor - coat and hat sign, clothes on a rack,
+5) fisher's guild - open book and anchor sign, a notice board,
+6) town hall - a small bell tower and a flag.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shops_5.png
+```
+
+---
+
+### 337. `h_npc` — 가게 주인 6명
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Fully transparent background.
+
+A sprite sheet of 6 separate characters in one row, never touching: half-body portraits
+(waist up, facing the viewer, friendly), each about the same size. Warm storybook
+characters, not chibi, not cartoonish:
+1) fish market owner - a cheerful stout woman in an apron holding a fish,
+2) tackle shop owner - a weathered old fisherman with a straw hat and a pipe,
+3) shipwright - a big bearded man with a hammer and rolled-up sleeves,
+4) tailor - an elegant woman with a measuring tape around her neck,
+5) guild master - a wise old man with round glasses holding a thick book,
+6) mayor - a small proud man with a sash and a top hat.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_npc.png
+```
+
+---
+
+### 338. `h_panel` — 가게 판 (틀·물건 칸·단추)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no numbers. Fully transparent background.
+
+UI pieces for a shop window, never touching, warm storybook style (cream parchment,
+polished wood, brass, rope), elegant and calm:
+1) a large empty shop panel (about 4:3): parchment sheet on a wooden board with brass
+   corners, with an empty round portrait frame at the top left,
+2) an empty item row (very wide, about 6:1): a square icon slot on the left, empty space
+   for text, a small price plaque on the right,
+3) the same item row in a locked / unavailable state (greyed, with a small padlock),
+4) a wide BUY button, normal, 5) the same button pressed, 6) the same button disabled (grey),
+7) a round close button with an X made of crossed oars,
+8) a long empty title ribbon,
+9) a small level badge (round brass medal, empty),
+10) a progress bar frame and its golden fill (two pieces).
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_panel.png
+```
+
+---
+
+### 339. `h_gear_a` — 장비 아이콘: 낚싯대·줄·릴 × 8단계
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Fully transparent background.
+
+A sprite sheet of 24 item icons in a grid of 8 columns x 3 rows, never touching, each
+centered in its cell, same size. Each ROW is one item drawn in 8 tiers from left (poor)
+to right (legendary) - the same object getting finer:
+tier 1 driftwood and twine, 2 bamboo, 3 polished oak, 4 steel, 5 silver, 6 gold,
+7 glowing crystal, 8 radiant starlight with tiny stars.
+Row 1: fishing ROD (diagonal). Row 2: a coil of fishing LINE on a spool.
+Row 3: fishing REEL.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_gear_a.png
+```
+
+---
+
+### 340. `h_gear_b` — 장비 아이콘: 배·복장 × 8단계
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Fully transparent background.
+
+A sprite sheet of 16 item icons in a grid of 8 columns x 2 rows, never touching, each
+centered in its cell, same size. Each ROW is one item drawn in 8 tiers from left (poor)
+to right (legendary):
+Row 1: a small BOAT seen from the side, facing left - 1 tiny rowboat, 2 rowboat with a
+small sail, 3 fishing sailboat, 4 sturdy fishing boat with a cabin, 5 large trawler,
+6 handsome schooner, 7 great galleon, 8 a shining golden dream ship with star sails.
+Row 2: a fisherman's OUTFIT (hat and coat on a stand) - 1 patched rags and straw hat,
+2 plain work clothes, 3 oilskin raincoat, 4 sturdy captain's jacket, 5 fine navy coat,
+6 embroidered admiral coat, 7 shimmering sea-silk robe, 8 radiant golden starlight cloak.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_gear_b.png
+```
+
+---
+
+### 341. `h_skill` — 스킬 아이콘 12개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text. Fully transparent background.
+
+A sprite sheet of 12 round skill icons in a grid of 4 columns x 3 rows, never touching.
+Each is a symbol inside a round brass ring, like a star on a night-sea chart:
+1) a gold coin (haggling), 2) a quick hand turning a reel (speed), 3) a huge fish next to
+a tiny one (big catch), 4) a four-leaf clover (luck), 5) a float (bite speed),
+6) a taut fishing line (line strength), 7) a crate (hold size), 8) a compass (travel),
+9) a gear (automation), 10) an open book (encyclopedia), 11) a star (rare catch),
+12) a treasure chest.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_skill.png
+```
+
+---

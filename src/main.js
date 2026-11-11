@@ -2,7 +2,7 @@ import { W, H, GRADES, PHASES } from './config.js';
 import { loadAssets } from './assets.js';
 import { createGame, update, press, release, sellAll, setRegion } from './game.js';
 import { REGIONS } from './creatures.js';
-import { GEAR, SKILLS, buy, gearCost, skillCost, gearLocked, gearLabel, maxRegion, cargoMax, fmt } from './economy.js';
+import { GEAR, SKILLS, SHOPS, TOWN_NAMES, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, cargoMax, fmt, townCost, townNeedDex, shopCost, shopLocked, skillCap } from './economy.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn } from './audio.js';
 
@@ -78,6 +78,7 @@ try {
   if (d) {
     game.gold = game.goldShown = d.gold || 0;
     Object.assign(game.eco.gear, d.eco && d.eco.gear); Object.assign(game.eco.skill, d.eco && d.eco.skill);
+    Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
     game.cargoMax = cargoMax(game.eco);
     if (btnRegion) btnRegion.textContent = `해역: ${game.region} ${REGIONS[game.region]}`;
@@ -89,7 +90,7 @@ const shop = document.createElement('div');
 shop.id = 'shop';
 shop.style.cssText = 'display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:4px 6px 8px;font:12px system-ui,sans-serif;';
 canvas.parentElement.appendChild(shop);
-const items = [...GEAR.map((x) => ['gear', x]), ...SKILLS.map((x) => ['skill', x])];
+const items = [['town', { id: 'town', name: '시청', desc: '마을 등급 +, 판매가 +5%' }], ...SHOPS.map((x) => ['shop', x]), ...GEAR.map((x) => ['gear', x]), ...SKILLS.map((x) => ['skill', x])];
 const btns = items.map(([kind, x]) => {
   const b = document.createElement('button');
   b.style.cssText = 'font:inherit;color:#fff4dc;background:#24385c;border:1px solid #3d5788;border-radius:6px;padding:4px 8px;cursor:pointer;text-align:left;line-height:1.35;min-width:104px;';
@@ -99,15 +100,19 @@ const btns = items.map(([kind, x]) => {
 });
 let shopKey = '';
 function refreshShop(force) {
-  const e = game.eco, key = Math.floor(game.gold) + '|' + JSON.stringify(e) + game.cargo.length;
+  const e = game.eco, key = Math.floor(game.gold) + '|' + JSON.stringify(e) + game.cargo.length + '|' + Object.keys(game.records).length;
   if (!force && key === shopKey) return;
   shopKey = key;
+  const dex = Object.keys(game.records).length;
   items.forEach(([kind, x], i) => {
-    const b = btns[i], locked = kind === 'gear' && gearLocked(e, x.id);
-    const cost = kind === 'gear' ? gearCost(e, x.id) : skillCost(e, x.id);
-    const level = kind === 'gear' ? gearLabel(e.gear[x.id]) : 'Lv.' + e.skill[x.id];
-    b.innerHTML = `<b>${x.name}</b> ${level}<br><span style="opacity:.75">${x.desc}</span><br>${locked ? '배를 먼저' : fmt(cost) + ' G'}`;
-    const can = !locked && game.gold >= cost;
+    const b = btns[i];
+    let cost, level, block = null;
+    if (kind === 'gear') { cost = gearCost(e, x.id); level = gearLabel(e.gear[x.id]); block = gearBlock(e, x.id); }
+    else if (kind === 'skill') { cost = skillCost(e, x.id); level = `Lv.${e.skill[x.id]}/${skillCap(e)}`; if (e.skill[x.id] >= skillCap(e)) block = '길드 레벨'; }
+    else if (kind === 'shop') { cost = shopCost(e, x.id); level = 'Lv.' + e.shop[x.id]; if (shopLocked(e, x.id)) block = e.shop[x.id] >= 8 ? '끝' : '마을 등급'; }
+    else { cost = townCost(e); level = `${e.town}등급 ${TOWN_NAMES[e.town]}`; if (e.town >= 8) block = '끝'; else if (dex < townNeedDex(e)) block = `도감 ${dex}/${townNeedDex(e)}`; }
+    b.innerHTML = `<b>${x.name}</b> ${level}<br><span style="opacity:.75">${x.desc}</span><br>${block ? block + ' 필요' : fmt(cost) + ' G'}`.replace('끝 필요', '끝');
+    const can = !block && game.gold >= cost;
     b.disabled = !can; b.style.opacity = can ? 1 : 0.5; b.style.borderColor = can ? '#f2c14e' : '#3d5788';
   });
 }
