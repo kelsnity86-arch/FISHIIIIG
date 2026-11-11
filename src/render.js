@@ -319,11 +319,10 @@ function drawShadowPose(ctx, s, name, pose, alpha) {
   ctx.rotate(-s.pitch * d.tilt);
   ctx.imageSmoothingEnabled = true;
   ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게
-  ctx.globalAlpha = lerp(1, 0.6, depth) * s.vis * alpha;
-  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+  ctx.globalAlpha = lerp(0.8, 0.45, depth) * s.vis * alpha;   // 목표 화면처럼 물빛이 비쳐 보이는 농도
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.globalCompositeOperation = 'source-over';  // 형태가 또렷이 읽히도록 한 번 더 옅게
-  ctx.globalAlpha = lerp(0.3, 0.08, depth) * s.vis * alpha;
+  ctx.globalAlpha = lerp(0.1, 0.03, depth) * s.vis * alpha;
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.restore();
 }
@@ -358,7 +357,7 @@ function drawBubbles(ctx, g) {
 function drawRays(ctx, g) {
   const c = g.catch;
   if (!c || g.rays < 0.02) return;
-  const spr = sprite('c_rays'), size = c.lw * 1.55 * c.scale, lh = leapHeight(c);
+  const spr = tinted('c_rays', '#ffc860', 0.55), size = c.lw * 1.7 * c.scale, lh = leapHeight(c);
   const t = performance.now() / 1000;
   ctx.save();
   ctx.globalCompositeOperation = 'screen';
@@ -377,7 +376,7 @@ const RISE = [
   ['c_whale_rise_2', 0.72, 0.95, 0.14],
   ['c_whale_leap',   1.00, 0.96, 0.22],
 ];
-const UNDER_TINT = ['#0a2140', 0.94];
+const UNDER_TINT = ['#14507c', 0.72];
 
 function drawLeap(ctx, g, under) {
   const c = g.catch;
@@ -385,7 +384,7 @@ function drawLeap(ctx, g, under) {
   ctx.save();
   if (!under) { ctx.beginPath(); ctx.rect(-4000, -4000, 8000, 4000 + WL + 1.5); ctx.clip(); }
   ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
-  const a = c.alpha * (under ? 0.88 : 1);
+  const a = c.alpha * (under ? 0.6 : 1);
   if (c.phase === 'leap') {
     const [name, wk, fx, fy] = RISE[c.stage];
     if (!under || c.stage === 2) {               // 머리·절반 자세는 물에 잠긴 부분이 그림에 없다
@@ -508,8 +507,8 @@ function drawBursts(ctx, g) {
   if (c && (c.phase === 'leap' || c.phase === 'hang')) {
     const spr = sprite('c_erupt'), t = performance.now() / 1000;
     const grow = c.phase === 'leap' ? easeOut(Math.min(1, c.out * 2.2)) : 1;
-    const settle = c.phase === 'hang' ? 0.86 + 0.04 * Math.sin(t * 3.1) : 1;
-    const w = c.lw * 0.9 * (0.7 + 0.3 * grow) * (1 + 0.015 * Math.sin(t * 5.3)), h = w * spr.h / spr.w * (0.25 + 0.75 * grow) * settle;
+    const settle = c.phase === 'hang' ? 0.62 + 0.04 * Math.sin(t * 3.1) : 1;
+    const w = c.lw * 0.8 * (0.7 + 0.3 * grow) * (1 + 0.015 * Math.sin(t * 5.3)), h = w * spr.h / spr.w * (0.25 + 0.75 * grow) * settle;
     const x = c.ex - c.lw * 0.16;
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(spr.img, x - w / 2, surfaceY(g, x) + 6 - h, w, h);

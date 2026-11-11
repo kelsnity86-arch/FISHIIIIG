@@ -12,7 +12,7 @@ export const CAST_FAR = W * 0.20;    // 세게 던졌을 때 찌 위치
 export const ROD_LEN = 46;
 export const DEEP = 135;             // 그림자가 내려갈 수 있는 가장 깊은 곳 (수면선 아래 px)
 export const LEAP_X = W * 0.44;      // 낚아 올릴 때 생물이 솟구치는 자리
-export const LEAP_SCALE = 0.8;       // 솟구치는 자세 그림의 폭 = 몸길이 × 이 값
+export const LEAP_SCALE = 1;         // 솟구치는 자세 그림의 폭 = 몸길이 × 이 값
 
 // 파이팅 중 물고기 동작: 등급별로 쓸 수 있는 동작 (기획서 §3)
 export const FIGHT_MODES = {

@@ -535,7 +535,9 @@ function startCatch(g) {
   const L = g.fish.len, lw = L * LEAP_SCALE;
   // 화면보다 큰 생물은 카메라가 배를 기준으로 뒤로 빠진다 (배는 제자리에서 점처럼 작아진다).
   // 솟구치는 자리는 입이 배 왼쪽 가까이에 오도록 잡는다.
-  const zoom = clamp(300 / lw, 0.3, 1);
+  // 화면에서 차지하는 폭: 일반 등급이 이미 화면의 절반을 넘고, 등급이 오를수록 화면을 넘어선다.
+  const gi0 = GRADES.indexOf(g.fish.gradeInfo);
+  const zoom = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi0] / lw, 0.2, 1);
   let ex = BOAT_X + (W * 0.72 - lw * zoom * 0.5 - BOAT_X) / zoom;
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40) * zoom;      // 그림자가 있는 자리에 가깝게
   g.catch = {
