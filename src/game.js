@@ -357,6 +357,7 @@ function startWait(g) {
   plan.push({ touch: true, fake: false });
   // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
   const sw = createSwimmer(L, fx - 60 - L * 0.35, DEEP + 110, 1);
+  sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
   g.sw = sw;
   g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2), minTime: rand(2.5, 4) * (1 + g.power * 0.4) };
   setState(g, 'wait');
@@ -489,12 +490,15 @@ function updateFight(g, dt) {
         g.shake = Math.max(g.shake, 1.5 + p); snd(g, 'splash'); buzz(30);
       }
       break;
-    case 'circle':     // 배 밑을 크게 지나갔다 돌아온다
-      s.target = { x: f.modeT > 1.5 ? BOAT_X + 30 : ax - 60, y: 85, speed: 0.95 };
+    case 'circle':     // 배 바로 앞까지 들이닥쳤다가 물러난다 (배 밑을 넘어가지는 않는다)
+      s.target = { x: f.modeT > 1.5 ? s.maxX : ax - 60, y: 85, speed: 0.95 };
       break;
     case 'tired': s.target = { x: ax + 20, y: 14, speed: 0.25, face: 1 }; break;
   }
   if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 200);
+  s.target.x = Math.min(s.target.x, s.maxX);
+  // 걸린 내내 몸부림친다: 날뛸 때 가장 세고, 지치면 잦아든다
+  s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.25 : 0.6);
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.vis = 1;
   s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;

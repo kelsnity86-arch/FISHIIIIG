@@ -345,7 +345,7 @@ function drawShadowPose(ctx, s, name, pose, alpha) {
   ctx.save();
   ctx.translate(s.x, WL + s.y);
   ctx.scale(s.face > 0 ? -1 : 1, 1);            // 그림은 왼쪽을 본다
-  ctx.rotate(-s.pitch * d.tilt);
+  ctx.rotate(-s.pitch * d.tilt - (s.wob || 0));     // 몸부림칠 때 몸을 비튼다
   ctx.imageSmoothingEnabled = true;
   ctx.globalAlpha = alpha;                       // 농도는 판을 화면에 얹을 때 한 번에 준다
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
