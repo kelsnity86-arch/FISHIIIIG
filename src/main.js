@@ -2,6 +2,7 @@ import { W, H, GRADES, PHASES, DAY_SEC, DAY_PLAN } from './config.js';
 import { loadAssets } from './assets.js';
 import { createGame, update, press, release } from './game.js';
 import { pointer } from './harbor.js';
+import { startTalk, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
@@ -83,7 +84,7 @@ if (btnSound) btnSound.addEventListener('click', () => {
 // ── 저장 (이 기기의 브라우저에만 남는다) ──
 const SAVE = 'horizon-angler-save-1';
 function save() {
-  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
+  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
 }
 try {
   const d = JSON.parse(localStorage.getItem(SAVE) || 'null');
@@ -93,9 +94,11 @@ try {
     Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
     game.cargoMax = cargoMax(game.eco); game.dayT = d.dayT || 0;
+    if (d.story) game.story.seen = d.story; else skipBasics(game);     // 이야기가 생기기 전의 저장: 처음 안내는 건너뛴다
   }
 } catch { /* 저장된 것이 없거나 읽을 수 없으면 새로 시작 */ }
 
+startTalk(game, 'intro');                // 처음 시작이면 시장의 이야기부터 (이미 본 저장이면 아무 일도 없다)
 setInterval(save, 2000);
 addEventListener('pagehide', save); document.addEventListener('visibilitychange', () => { if (document.hidden) save(); });   // 끄거나 다른 앱으로 넘어갈 때 저장
 // 글꼴을 받은 뒤 시작한다 (못 받아도 2초 뒤에는 기기 글꼴로 시작)

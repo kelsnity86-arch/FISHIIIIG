@@ -10460,3 +10460,32 @@ on the main branch, in the folder assets/raw/, with the file name h_skill.png
 ```
 
 ---
+
+---
+
+## ㉗ 이야기·튜토리얼 UI
+
+### 342. `ui_story` — 대화창 틀, 시간 넘기기 단추, 튜토리얼 손가락
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/h_panel.png.
+Every image you make must look like it belongs to the same game: the same painterly
+storybook rendering, warm light, soft shading, the same level of detail.
+
+No text, no numbers. Fully transparent background.
+
+UI pieces, never touching, warm storybook style (cream parchment, polished wood, brass,
+rope), elegant and calm, arranged top to bottom:
+1) an empty dialogue box (very wide, about 6:1): a clean cream parchment sheet in a thin
+   polished wooden frame with small brass corners, a small empty brass name plate sitting
+   on the top-left edge, nothing else inside (no icon slot, no button),
+2) a round brass button with two arrowheads pointing right (fast-forward), with a tiny
+   sun and moon engraved on the rim,
+3) the same fast-forward button pressed (slightly darker, pushed in),
+4) a pointing hand in a fisherman's glove, index finger pointing down (tutorial pointer),
+5) a small brass arrow pointing down.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_story.png
+```
+

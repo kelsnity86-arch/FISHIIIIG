@@ -2,6 +2,7 @@
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
+import { tapTalk, tapSkip, storyTown, storyRegion } from './story.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
@@ -74,7 +75,7 @@ export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.pan
 function nextRegion(g) {
   const n = g.region % maxRegion(g.eco) + 1;
   if (n === g.region) { g.msg = { text: '더 큰 배가 있어야 먼바다로 나갈 수 있다', color: '#ffd0c0', age: 0 }; return; }
-  travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; });
+  travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
 }
 
 // ── 가게 판에 놓이는 줄 ──
@@ -123,6 +124,8 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
+  if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
+  if (tapSkip(g, x, y) || g.skip) return true;
   if (g.panel) {
     if (g.panel.closing != null) return true;
     const rows = rowsOf(g, g.panel.id), c = closeRect();
@@ -130,7 +133,7 @@ export function pointer(g, x, y) {
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
-        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); }
+        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g); }
         else { g.panel.hit = -2 - i; g.panel.hitT = 0; g.sfx.push(['deny']); }
         return true;
       }

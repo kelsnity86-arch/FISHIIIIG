@@ -10,6 +10,7 @@ import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
 import { newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, luckOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
+import { newStory, updateStory, tapTalk } from './story.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -26,6 +27,7 @@ export function createGame() {
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
+    story: newStory(), talk: null, skip: null,   // 이야기 진행, 지금 떠 있는 대화, 시간 넘기는 중
     forceGrade: null, phase: 3, dayT: 0, dayWarned: false,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
     power: 0, powerDir: 1, castX: CAST_NEAR,
     rodAngle: 0.32, rodBend: 0, pose: 1,
@@ -119,6 +121,8 @@ function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern)
 
 // ── 입력 ──
 export function press(g) {
+  if (g.talk) { tapTalk(g); return; }                 // 대화 중에는 누르면 다음 줄
+  if (g.skip) return;
   if (g.scene !== 'sea' || g.panel || g.travel) return;
   g.hold = true;
   switch (g.state) {
@@ -196,13 +200,13 @@ export function update(g, dt) {
   g.goldShown = Math.abs(g.gold - g.goldShown) < 0.6 ? g.gold : approach(g.goldShown, g.gold, 6, dt);
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
-  updateTravel(g, dt); updateHarbor(g, dt);
+  updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt);
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
-    g.dayT += dt;
+    if (!g.talk && !g.skip) g.dayT += dt;                // 대화하는 동안은 시간이 흐르지 않는다
     g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
     if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
-    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
+    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
       if (enterHarbor(g)) g.msg = { text: '하루가 저물어 항구로 돌아간다', color: '#cfd8ff', age: 0 };
     }
   }

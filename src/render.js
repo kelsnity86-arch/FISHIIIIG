@@ -10,6 +10,7 @@ import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } fr
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
+import { drawTalk, drawHint, drawSkip } from './story.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -178,12 +179,14 @@ export function render(ctx, g) {
     drawPanel(ctx, g);
     drawMsg(ctx, g);
     drawCoins(ctx, g);
+    drawHint(ctx, g); drawTalk(ctx, g);
     drawVeil(ctx, g);
     return;
   }
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
+  drawSkip(ctx, g); drawHint(ctx, g); drawTalk(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
@@ -680,6 +683,8 @@ let lastTension = 0, lastPower = 0, lastDist = 0;
 
 // 하루 시계 (위쪽 가운데): 해가 길을 따라 가다가 노을을 지나 달이 되고, 끝에 닿으면 하루가 저문다.
 const DAY_ICON = ['icon_day', 'icon_dusk', 'icon_night', 'icon_dawn'];
+// 하루의 네 구간: 새벽 · 낮 · 오후 · 밤. 구간마다 빛깔이 다르고 사이가 떨어져 있어 한눈에 구분된다.
+const DAY_SEG = { 3: ['새벽', '#c9a8f0'], 0: ['낮', '#ffd24a'], 1: ['오후', '#ff8a45'], 2: ['밤', '#5a6fd8'] };
 function drawDayClock(ctx, g) {
   const k = clamp(g.dayT / DAY_SEC, 0, 1), w = 170, x0 = W / 2 - w / 2, y = 15;
   const bar = sprite('h_bar'), bh = w * bar.h / bar.w, fl = sprite('h_bar_fill');
@@ -688,13 +693,27 @@ function drawDayClock(ctx, g) {
   // 틀 안쪽 홈(둥근 끝)의 자리. 채움도 아이콘도 이 안에서만 움직인다 → 틀 밖으로 삐져나오지 않는다.
   const gx = x0 + w * 0.03, gw = w * 0.94, gh = bh * 0.6, gy = y - gh / 2 + bh * 0.005, r = gh / 2;
   const s = gh * 0.92, ix = gx + r + (gw - 2 * r) * k;                       // 해·달: 홈 높이에 맞춘 크기, 홈의 둥근 끝 안쪽까지만
+  const segX = (at) => gx + r + (gw - 2 * r) * at;
   ctx.save();
   ctx.beginPath(); ctx.roundRect(gx, gy, gw, gh, r); ctx.clip();            // 홈 모양대로 잘라 낸다
-  ctx.globalAlpha = 0.55;
-  ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, gx, gy, ix - gx, gh);
+  DAY_PLAN.forEach(([at, id], i) => {
+    const a0 = i === 0 ? gx : segX(at) + 0.6, a1 = i === DAY_PLAN.length - 1 ? gx + gw : segX(DAY_PLAN[i + 1][0]) - 0.6;   // 구간 사이는 홈이 비쳐 보이는 틈
+    const part = (xa, xb, alpha) => {
+      if (xb - xa < 0.2) return;
+      ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'source-over';
+      ctx.drawImage(fl.img, (xa - gx) / gw * fl.img.width, 0, (xb - xa) / gw * fl.img.width, fl.img.height, xa, gy, xb - xa, gh);
+      ctx.globalCompositeOperation = 'color'; ctx.fillStyle = DAY_SEG[id][1]; ctx.fillRect(xa, gy, xb - xa, gh);          // 채움 그림에 구간의 빛깔을 입힌다
+    };
+    part(a0, Math.min(a1, Math.max(a0, ix)), 0.95);     // 지나온 만큼은 또렷하게
+    part(Math.max(a0, Math.min(a1, ix)), a1, 0.3);      // 남은 만큼은 흐리게
+  });
   ctx.restore();
-  // 시간대가 바뀌는 자리에 그 시간대의 작은 표시
-  for (const [at, id] of DAY_PLAN) { if (at === 0) continue; const ic = sprite(DAY_ICON[id]), m = 7; ctx.globalAlpha = 0.45; ctx.drawImage(ic.img, gx + r + (gw - 2 * r) * at - m / 2, y - m * ic.h / ic.w / 2, m, m * ic.h / ic.w); }
+  // 구간 이름: 지금 구간은 밝게, 나머지는 흐리게
+  DAY_PLAN.forEach(([at, id], i) => {
+    const end = i === DAY_PLAN.length - 1 ? 1 : DAY_PLAN[i + 1][0], now = g.phase === id;
+    ctx.globalAlpha = now ? 1 : 0.55;
+    text(ctx, DAY_SEG[id][0], segX((at + end) / 2), y + bh / 2 + 5, 7, now ? DAY_SEG[id][1] : '#fff4dc', 'center', 600);
+  });
   ctx.globalAlpha = 1;
   const ic = sprite(DAY_ICON[g.phase]), late = k > 0.9 ? 1 + 0.1 * Math.sin(performance.now() / 160) : 1;   // 끝이 가까우면 두근거린다
   const iw = s * late * Math.min(1, ic.w / ic.h), ih = iw * ic.h / ic.w;     // 세로로 긴 그림도 홈 높이를 넘지 않게
@@ -747,7 +766,7 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint && !(g.msg && g.msg.y)) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
+  if (hint && !(g.msg && g.msg.y) && !g.talk) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
