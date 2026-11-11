@@ -89,9 +89,9 @@ function spray(g, x, y, n, power, size) {
   for (let i = 0; i < n; i++) {
     const a = rand(-Math.PI * 0.88, -Math.PI * 0.12), v = rand(0.5, 1.15) * power;
     g.sprays.push({
-      sprite: 'c_spray_' + (1 + Math.floor(Math.random() * 4)), x: x + rand(-0.5, 0.5) * size, y,
+      sprite: 'c_drops_' + (1 + Math.floor(Math.random() * 8)), x: x + rand(-0.5, 0.5) * size, y,
       vx: Math.cos(a) * v * 0.8, vy: Math.sin(a) * v, rot: rand(-0.6, 0.6), vr: rand(-2.5, 2.5),
-      size: size * rand(0.22, 0.55), age: 0, life: rand(0.6, 1.2), flip: Math.random() < 0.5,
+      size: size * rand(0.16, 0.42), age: 0, life: rand(0.6, 1.2), flip: Math.random() < 0.5,
     });
   }
 }
@@ -228,7 +228,7 @@ export function update(g, dt) {
       bob.y = lerp(g.cast.fromY, WL, u) - Math.sin(u * Math.PI) * (60 + g.power * 50);
       if (u >= 1) {
         bob.inWater = true; bob.dipV = 60;
-        spray(g, bob.x, WL, 2, 50, 16); swell(g, bob.x, 1.6, 1, 60, 14); swell(g, bob.x, 1.6, -1, 60, 14); snd(g, 'plop');
+        burst(g, 'c_plop', bob.x, 34, 0.55); spray(g, bob.x, WL, 2, 50, 16); swell(g, bob.x, 1.6, 1, 60, 14); swell(g, bob.x, 1.6, -1, 60, 14); snd(g, 'plop');
         startWait(g);
       }
       break;

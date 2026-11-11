@@ -411,7 +411,7 @@ function drawBubbles(ctx, g) {
 function drawRays(ctx, g) {
   const c = g.catch;
   if (!c || g.rays < 0.02) return;
-  const spr = tinted('c_rays', '#ffc860', 0.55), size = c.lw * 1.7 * c.scale, lh = leapHeight(c);
+  const spr = sprite('c_rays2'), size = c.lw * 1.9 * c.scale, lh = leapHeight(c);
   const t = performance.now() / 1000;
   ctx.save();
   ctx.globalCompositeOperation = 'screen';
@@ -585,26 +585,42 @@ function drawLineAndFloat(ctx, g, phase) {
 
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다
 const easeIn = (t) => t * t;
-function drawBursts(ctx, g) {
-  for (const b of g.bursts) {
-    const spr = tinted(b.sprite, '#ffffff', 0.4), k = b.age / b.life;      // 목표 화면처럼 흰 물거품에 가깝게
-    const grow = easeOut(Math.min(1, k * 3.2));
-    const fall = 1 - 0.75 * easeIn(clamp((k - 0.25) / 0.75, 0, 1));      // 솟은 물이 무너져 내린다
-    const w = b.size * (0.55 + 0.45 * grow) * (1 + 0.12 * (1 - fall)), h = w * spr.h / spr.w * (0.3 + 0.7 * grow) * fall;
-    ctx.save();
-    ctx.globalAlpha = k < 0.5 ? 1 : 1 - (k - 0.5) / 0.5;
-    ctx.translate(b.x, surfaceY(g, b.x) + 4 + k * k * 10);
-    if (b.flip) ctx.scale(-1, 1);
-    ctx.imageSmoothingEnabled = true;
+// 연속 동작 그림을 순서대로 넘겨 그린다 (앞 동작 위에 다음 동작이 겹쳐 나타난다). pos 0~1.
+function drawSeq(ctx, names, pos, x, y, w, alpha, flip = false) {
+  const f = clamp(pos, 0, 1) * (names.length - 1), i = Math.min(names.length - 2, Math.floor(f)), k = f - i;
+  ctx.save();
+  ctx.translate(x, y); if (flip) ctx.scale(-1, 1);
+  ctx.imageSmoothingEnabled = true;
+  for (const [n, a] of [[names[i], 1 - k * k], [names[i + 1], k]]) {
+    if (a < 0.02) continue;
+    const spr = sprite(n), h = w * spr.h / spr.w;
+    ctx.globalAlpha = alpha * a;
     ctx.drawImage(spr.img, -w / 2, -h, w, h);
-    ctx.restore();
+  }
+  ctx.restore();
+}
+const SEQ = {
+  c_erupt: [1, 2, 3, 4, 5, 6].map((i) => 'c_erupt_seq_' + i),        // 솟음 → 퍼짐 → 무너짐 → 잔거품
+  c_plop: [1, 2, 3, 4].map((i) => 'c_plop_' + i),                    // 찌가 떨어질 때의 작은 튐
+  c_thrash: [1, 3, 4, 4, 3, 2, 1].map((i) => 'c_foam_' + i),         // 몸부림: 수면이 끓어올랐다 가라앉는다
+};
+function drawBursts(ctx, g) {
+  // 걸린 그림자가 몸부림치는 동안 그 위 수면에 거품이 인다 (세게 칠수록 거칠게)
+  const s = g.sw;
+  if (s && g.state === 'fight' && s.shake > 0.05) {
+    const names = SEQ.c_thrash.slice(0, 3);
+    drawSeq(ctx, names, clamp((s.shake - 0.3) / 0.7, 0, 1), s.x + s.len * 0.1, surfaceY(g, s.x) + 5, s.len * 0.95, clamp(s.shake * 1.6, 0, 1) * s.vis);
+  }
+  for (const b of g.bursts) {
+    const k = b.age / b.life, names = SEQ[b.sprite];
+    if (!names) continue;
+    const fade = k < 0.8 ? 1 : 1 - (k - 0.8) / 0.2;
+    drawSeq(ctx, names, k, b.x, surfaceY(g, b.x) + (b.sprite === 'c_plop' ? 3 : 6), b.size * (b.sprite === 'c_thrash' ? 1.5 : 1), fade, b.flip);
   }
 }
-
-// 날아가는 물보라 조각
 function drawSprays(ctx, g) {
   for (const p of g.sprays) {
-    const spr = tinted(p.sprite, '#ffffff', 0.4), k = p.age / p.life;
+    const spr = sprite(p.sprite), k = p.age / p.life;
     const w = p.size * (0.7 + k * 0.5), h = w * spr.h / spr.w;
     ctx.save();
     ctx.globalAlpha = k < 0.5 ? 1 : 1 - (k - 0.5) / 0.5;

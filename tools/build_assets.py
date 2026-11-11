@@ -258,6 +258,8 @@ def build():
             manifest[item['name']] = dict(file=file, w=round(w, 2), h=round(h, 2), smooth=smooth)
         print(f'{src.name}: {len(items)}개 변환')
     align_swim(manifest)
+    import slice_fx
+    slice_fx.run(manifest)
     import slice_dots
     problems += slice_dots.dot_sheets(manifest)
     (OUT / 'manifest.json').write_text(json.dumps(dict(sprites=manifest), indent=1, ensure_ascii=False) + '\n')

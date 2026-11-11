@@ -9571,6 +9571,144 @@
    "smooth": false,
    "sw": 214.4,
    "sh": 171.5
+  },
+  "c_erupt_seq_1": {
+   "file": "c_erupt_seq_1.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_erupt_seq_2": {
+   "file": "c_erupt_seq_2.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_erupt_seq_3": {
+   "file": "c_erupt_seq_3.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_erupt_seq_4": {
+   "file": "c_erupt_seq_4.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_erupt_seq_5": {
+   "file": "c_erupt_seq_5.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_erupt_seq_6": {
+   "file": "c_erupt_seq_6.webp",
+   "w": 300,
+   "h": 293.62,
+   "smooth": true
+  },
+  "c_drops_1": {
+   "file": "c_drops_1.webp",
+   "w": 28,
+   "h": 27.08,
+   "smooth": true
+  },
+  "c_drops_2": {
+   "file": "c_drops_2.webp",
+   "w": 28,
+   "h": 18.87,
+   "smooth": true
+  },
+  "c_drops_3": {
+   "file": "c_drops_3.webp",
+   "w": 28,
+   "h": 29.53,
+   "smooth": true
+  },
+  "c_drops_4": {
+   "file": "c_drops_4.webp",
+   "w": 28,
+   "h": 19.03,
+   "smooth": true
+  },
+  "c_drops_5": {
+   "file": "c_drops_5.webp",
+   "w": 28,
+   "h": 20.04,
+   "smooth": true
+  },
+  "c_drops_6": {
+   "file": "c_drops_6.webp",
+   "w": 28,
+   "h": 18.56,
+   "smooth": true
+  },
+  "c_drops_7": {
+   "file": "c_drops_7.webp",
+   "w": 28,
+   "h": 12.77,
+   "smooth": true
+  },
+  "c_drops_8": {
+   "file": "c_drops_8.webp",
+   "w": 28,
+   "h": 23.27,
+   "smooth": true
+  },
+  "c_plop_1": {
+   "file": "c_plop_1.webp",
+   "w": 40,
+   "h": 22.16,
+   "smooth": true
+  },
+  "c_plop_2": {
+   "file": "c_plop_2.webp",
+   "w": 40,
+   "h": 22.16,
+   "smooth": true
+  },
+  "c_plop_3": {
+   "file": "c_plop_3.webp",
+   "w": 40,
+   "h": 22.16,
+   "smooth": true
+  },
+  "c_plop_4": {
+   "file": "c_plop_4.webp",
+   "w": 40,
+   "h": 22.16,
+   "smooth": true
+  },
+  "c_foam_1": {
+   "file": "c_foam_1.webp",
+   "w": 300,
+   "h": 54.51,
+   "smooth": true
+  },
+  "c_foam_2": {
+   "file": "c_foam_2.webp",
+   "w": 300,
+   "h": 54.51,
+   "smooth": true
+  },
+  "c_foam_3": {
+   "file": "c_foam_3.webp",
+   "w": 300,
+   "h": 54.51,
+   "smooth": true
+  },
+  "c_foam_4": {
+   "file": "c_foam_4.webp",
+   "w": 300,
+   "h": 54.51,
+   "smooth": true
+  },
+  "c_rays2": {
+   "file": "c_rays2.webp",
+   "w": 300,
+   "h": 311.13,
+   "smooth": true
   }
  }
 }
