@@ -414,7 +414,7 @@ function drawLeap(ctx, g, under) {
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
-    ctx.rotate(c.rot + (flop ? step[0] : 0));
+    ctx.rotate(c.rot + (flop ? step[0] * Math.min(1, 380 / (c.lw * c.zoom)) : 0));   // 큰 몸은 덜 기울여 얼굴이 화면 밖으로 나가지 않게
     ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   }
   ctx.restore();

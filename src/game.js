@@ -532,23 +532,25 @@ function followLine(g, dt) {
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const T_PULL = 0.95;
+const FACE_HOLD = 0.7;     // 뿅 한 뒤 얼굴을 화면 가득 보여주는 시간(초)
 
 function startCatch(g) {
   // 솟아오르는 것은 모두 같은 크기의 그림자. 꼭대기에서 뿅 하는 순간에만 등급에 맞는 크기의 생물로 바뀐다.
   const big = g.fish.len * LEAP_SCALE, gi = GRADES.indexOf(g.fish.gradeInfo);
-  // 드러난 뒤 화면에서 차지하는 폭: 일반 등급이 이미 화면의 절반을 넘고, 등급이 오를수록 화면을 넘어선다.
-  // 카메라는 배를 기준으로 물러나고(배가 점처럼 작아진다), 생물의 입이 배 왼쪽 가까이에 오도록 자리를 잡는다.
-  const zoom = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi] / big, 0.2, 1);
-  const bigEx = BOAT_X + (W * 0.72 - big * zoom * 0.5 - BOAT_X) / zoom;
+  // 드러난 직후에는 얼굴이 화면 가득 보이고(zoomFace: 등급이 높을수록 몸이 화면을 넘친다),
+  // 이어서 카메라가 배를 기준으로 부드럽게 물러나 전신이 드러난다(zoom: 배가 점처럼 작아진다).
+  const zoomFace = clamp(W * [0.56, 0.66, 0.78, 0.92, 1.08, 1.3][gi] / big, 0.2, 1);
+  const zoom = Math.min(zoomFace, clamp(W * 0.6 / big, 0.12, 1));
+  const bigEx = BOAT_X + (W * 0.74 - big * zoom * 0.5 - BOAT_X) / zoom;
   const lw = SHADOW_LEN;
   let ex = W * 0.42;
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
-    phase: 'pull', pt: 0, lw, gi, zoom, ex, big, bigEx,
+    phase: 'pull', pt: 0, lw, gi, zoom, zoomFace, ex, big, bigEx,
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
-    bulgeK: 0, hitX: ex, reveal: false, popT: 0, mx: ex, my: WL,
+    bulgeK: 0, hitX: ex, reveal: false, popT: 0, swished: false, tadaT: 0, mx: ex, my: WL,
   };
   g.fight = null;
   snd(g, 'surge');
@@ -568,7 +570,9 @@ export const leapHeight = (c) => c.lw * 0.705;
 function updateCatch(g, dt) {
   const c = g.catch, s = g.sw, lw = c.lw, lh = leapHeight(c), gi = c.gi;
   const start = { x: c.ex - lw * 0.1, y: WL + lh * 0.62 }, apex = { x: c.ex + lw * 0.03, y: WL - lh * 0.42 };
-  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: c.reveal ? c.zoom : 1, zoomRate: 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
+  // 드러난 생물은 얼굴(오른쪽 끝)이 하늘 한가운데에 오도록 건다. 화면을 넘는 몸은 왼쪽·위아래로 잘려도 얼굴은 반드시 보인다.
+  if (c.reveal) apex.y = WL + (138 - WL) / c.zoom;
+  const out = { rodTarget: 1.2, bendTarget: -0.25, roughTarget: 0.5, zoomTarget: !c.reveal ? 1 : c.popT < FACE_HOLD ? c.zoomFace : c.zoom, zoomRate: c.reveal && c.popT >= FACE_HOLD ? 2.6 : 12, dimTarget: 0, shaftsTarget: 0, raysTarget: 0, tiltTarget: -0.1 };
   c.pt += dt;
 
   if (c.phase === 'pull') {
@@ -627,15 +631,19 @@ function updateCatch(g, dt) {
       spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
       snd(g, 'pop');
     }
-    if (c.reveal) { c.popT += dt; c.rot = 0; }
+    if (c.reveal) { c.popT += g.realDt; c.rot = 0; }
     c.mx = c.x + lw * 0.42 * Math.cos(c.rot); c.my = c.y + lw * 0.42 * Math.sin(c.rot);
     c.out = e;
-    if (u > 0.12 && u < 1 && !c.skip) g.slowTarget = SLOW[gi];
+    if (u > 0.12 && !c.reveal && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
     c.shed -= dt;                                   // 몸에서 물이 흩어진다
     if (c.shed <= 0 && !c.reveal) { c.shed = 0.035; spray(g, c.x + rand(-0.4, 0.4) * lw, c.y + rand(-0.25, 0.2) * lh, 1, 70 + lw * 0.12, lw * 0.2); }   // 물보라가 그림자를 감싼다
-    if (!g.catchFx && c.reveal) { g.catchFx = { age: 0, gi }; snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
-    if (u >= 1) {
+    // 뿅(얼굴이 화면 가득) → 스윽(카메라가 물러나 전신이 드러남) → 짜잔(팡파르 + "낚았다!" + 카드)
+    const far = c.zoomFace > c.zoom * 1.05;                         // 물러날 거리가 있는 큰 생물인가
+    if (c.reveal && far && !c.swished && c.popT >= FACE_HOLD) { c.swished = true; snd(g, 'swish'); }
+    const tadaAt = far ? FACE_HOLD + 1.25 : 0.4;
+    if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
+    if (g.catchFx && c.reveal && (c.popT >= c.tadaT + 0.3 || c.skip)) {
       const f = g.fish, prev = g.records[f.name];
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
       g.records[f.name] = Math.max(prev || 0, f.meters);
