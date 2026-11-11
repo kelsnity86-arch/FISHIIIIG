@@ -509,19 +509,35 @@ function drawBoat(ctx, g) {
 }
 
 // 낚싯줄(코드로 그리는 유일한 선)과 찌
+const lineSpring = { o: 0, v: 0, t: 0, on: false };
 function drawLineAndFloat(ctx, g, phase) {
   const tip = rodPose(g).tip, bob = g.bob, c = g.catch;
   const tension = g.fight ? g.fight.tension : (c && c.phase !== 'stow' ? 0.5 : 0);
   const fl = sprite('c_float'), WATER = 0.27;          // 찌 그림에서 수면이 걸리는 높이
   const [r, gg, b] = lineColor(tension);
-  const stroke = (pts, sag, alpha, width) => {
+  // 줄은 가운데가 처지는 곡선. 처짐은 뚝 바뀌지 않고 용수철처럼 따라온다:
+  // 팽팽해지면 튕기듯 펴지고, 느슨해지면 출렁이며 늘어진다. 물속 부분은 깊어질수록 옅어진다.
+  const stroke = (pts, sag, alpha, width, spring = false, fadeTo = alpha) => {
     const [p0, p1] = pts, d = Math.hypot(p1.x - p0.x, p1.y - p0.y);
     let cx = (p0.x + p1.x) / 2, cy = (p0.y + p1.y) / 2 + d * sag;
-    if (tension > 0.8) { const j = Math.sin(g.time * 95) * 2 * (tension - 0.8) / 0.2; cy += j; cx += j * 0.4; }
-    const path = (dy) => { ctx.beginPath(); ctx.moveTo(p0.x, p0.y + dy); ctx.quadraticCurveTo(cx, cy + dy, p1.x, p1.y + dy); };
+    if (spring) {
+      const L = lineSpring, now = performance.now() / 1000, dt = Math.min(0.05, now - L.t); L.t = now;
+      const sw = Math.sin(g.time * 1.3) * d * 0.006 * (1 - clamp(tension, 0, 1));      // 느슨한 줄은 바람에 살짝 흔들린다
+      const tx = d * sag, mx = (p0.x + p1.x) / 2, my = (p0.y + p1.y) / 2;
+      if (!L.on || Math.abs(L.o - tx) > 120) { L.o = tx; L.v = 0; L.on = true; }
+      for (let i = 0; i < 2; i++) { L.v += ((tx - L.o) * 130 - L.v * 9) * dt / 2; L.o += L.v * dt / 2; }
+      cx = mx + sw; cy = my + L.o;
+    }
+    if (tension > 0.8) { const j = Math.sin(g.time * 95) * 0.9 * (tension - 0.8) / 0.2; cy += j; cx += j * 0.4; }
+    const path = () => { ctx.beginPath(); ctx.moveTo(p0.x, p0.y); ctx.quadraticCurveTo(cx, cy, p1.x, p1.y); };
+    const col = (a) => `rgba(${r},${gg},${b},${a})`;
+    const paint = (a0, a1) => {
+      if (a0 === a1) return col(a0);
+      const gr = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y); gr.addColorStop(0, col(a0)); gr.addColorStop(1, col(a1)); return gr;
+    };
     ctx.lineCap = 'round';
-    ctx.strokeStyle = `rgba(${r},${gg},${b},${0.25 * alpha})`; ctx.lineWidth = width * 3; path(0); ctx.stroke();   // 빛 번짐
-    ctx.strokeStyle = `rgba(${r},${gg},${b},${alpha})`; ctx.lineWidth = width; path(0); ctx.stroke();
+    ctx.strokeStyle = paint(0.16 * alpha, 0.16 * fadeTo); ctx.lineWidth = width * 2.6; path(); ctx.stroke();   // 빛 번짐
+    ctx.strokeStyle = paint(alpha, fadeTo); ctx.lineWidth = width; path(); ctx.stroke();
     return (u) => ({ x: (1 - u) * (1 - u) * p0.x + 2 * (1 - u) * u * cx + u * u * p1.x, y: (1 - u) * (1 - u) * p0.y + 2 * (1 - u) * u * cy + u * u * p1.y });
   };
   const drawFloat = (x, y, rot, wet) => {
@@ -543,15 +559,15 @@ function drawLineAndFloat(ctx, g, phase) {
   if (hooked && g.sw) {
     // 걸린 뒤: 줄이 수면을 가르고 물속 주둥이까지 이어진다. 찌는 그 자리에 끌려 잠긴다.
     const sy = surfaceY(g, bob.x), entry = { x: bob.x, y: sy };
-    stroke([entry, mouthPos(g)], 0, 0.45, 0.9);
-    stroke([tip, entry], 0.05 * Math.pow(1 - clamp(tension, 0, 1), 2), 1, 1.1);
+    stroke([entry, mouthPos(g)], 0.02, 0.55, 0.85, false, 0.12);
+    stroke([tip, entry], 0.1 * Math.pow(1 - clamp(tension, 0, 1), 2), 1, 0.95, true);
     drawFloat(bob.x, sy + bob.dip, Math.sin(g.time * 9) * 0.25, true);
     return;
   }
   const wet = bob.inWater;
   const fy = wet ? bob.y : bob.y;
   const top = { x: bob.x, y: wet ? fy - fl.h * WATER + bob.dip : fy - fl.h * 0.2 };
-  stroke([tip, top], g.state === 'wait' || g.state === 'bite' ? 0.045 : g.state === 'cast' ? -0.04 : 0, 1, 1.1);
+  stroke([tip, top], g.state === 'wait' || g.state === 'bite' ? 0.06 : g.state === 'cast' ? -0.05 : 0, 1, 0.95, true);
   drawFloat(bob.x, wet ? fy + bob.dip + Math.sin(g.time * 2.3) * 0.5 : fy, wet ? Math.sin(g.time * 1.7) * 0.07 : 0, wet);
 }
 

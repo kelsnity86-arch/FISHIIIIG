@@ -498,7 +498,7 @@ function updateFight(g, dt) {
   if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 200);
   s.target.x = Math.min(s.target.x, s.maxX);
   // 걸린 내내 몸부림친다: 날뛸 때 가장 세고, 지치면 잦아든다
-  s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.25 : 0.6);
+  s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.35 : 0.8);
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.vis = 1;
   s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;

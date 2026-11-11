@@ -19,7 +19,7 @@ export function createSwimmer(len, x, y, face = 1) {
     speed: 0, vis: 0,
     tail: 0, tailAmp: 0.03, shake: 0,
     maxX: Infinity,       // 이보다 오른쪽으로는 못 간다 (배 밑을 넘어가지 않는다)
-    jt: 0, jv: 0, jp: 0, wob: 0,   // 몸부림: 다음 움찔까지 남은 시간, 움찔 속도, 몸 비틀기 목표·현재
+    jt: 0, jv: 0, jvy: 0, jp: 0, wob: 0,   // 몸부림: 다음 움찔까지 남은 시간, 움찔 속도, 몸 비틀기 목표·현재
     floor: Math.min(len * 0.19 + 8, 96),   // 이보다 얕게는 올라오지 않는다 (수면선에 몸이 잘려 보이지 않게)
     act: null,            // 특별한 자세: 'thrash' 몸부림 / 'dive' 잠수 / 'surge' 솟구침 (없으면 헤엄)
     pose: 'swim', prevPose: null, mix: 1,   // 지금 자세, 직전 자세, 넘어가는 정도
@@ -75,13 +75,15 @@ export function steer(s, dt, { arrive = true } = {}) {
   const k = s.shake;
   s.jt -= dt;
   if (s.jt <= 0 && k > 0.05) {
-    s.jt = (0.14 + Math.random() * 0.3) / (0.6 + k);
-    s.jv = (Math.random() * 2 - 1.3) * k * s.maxSpeed * 1.5;         // 뒤로 당기는 쪽이 더 잦다
-    s.jp = (Math.random() * 2 - 1) * 0.26 * k;
+    s.jt = (0.1 + Math.random() * 0.24) / (0.6 + k);
+    s.jv = (Math.random() * 2 - 1.3) * k * s.maxSpeed * 2.8;         // 뒤로 당기는 쪽이 더 잦다
+    s.jvy = (Math.random() * 2 - 0.7) * k * s.maxSpeed * 1.1;        // 아래로 처박는 쪽이 더 잦다
+    s.jp = (Math.random() * 2 - 1) * 0.44 * k;
   }
   s.jv = approach(s.jv, 0, 5, dt); s.x += s.jv * dt;
-  s.wob = approach(s.wob, s.jp, 10, dt); s.jp = approach(s.jp, 0, 4, dt);
-  s.tail += dt * s.beat * k * 2.4;                                    // 꼬리도 다급하게
+  s.jvy = approach(s.jvy, 0, 5, dt); s.y = Math.max(s.floor, s.y + s.jvy * dt);
+  s.wob = approach(s.wob, s.jp, 13, dt); s.jp = approach(s.jp, 0, 4, dt);
+  s.tail += dt * s.beat * k * 3.4;                                    // 꼬리도 다급하게
   s.x = Math.min(s.x, s.maxX);
   s.shake = approach(s.shake, 0, 3, dt);
   return Math.hypot(dx, dy);
