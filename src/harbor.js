@@ -99,7 +99,7 @@ function rowInfo(g, kind, id) {
   }
   if (kind === 'skill') {
     const x = SKILLS.find((v) => v.id === id), lv = e.skill[id];
-    return { name: x.name, level: `Lv.${lv}`, desc: x.desc, cost: skillCost(e, id), block: lv >= skillCap(e) ? `길드 Lv.${e.shop.guild + 1}` : null, icon: SKILL_ICON[id] };
+    return { name: x.name, level: `Lv.${lv}`, desc: x.desc, cost: skillCost(e, id), block: lv >= skillCap(e) ? (e.shop.guild >= 8 ? '끝' : `길드 Lv.${e.shop.guild + 1}`) : null, icon: SKILL_ICON[id] };
   }
   if (kind === 'shop') {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];
@@ -116,14 +116,16 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 54 + i * 51, w: 280, h: 48 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30, y: PANEL.y + 4, w: 28, h: 28 });
 
-export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0 }; }
+export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null }; }
+function closePanel(g) { if (g.panel && g.panel.closing == null) g.panel.closing = 0; }      // 뚝 사라지지 않고 스르르 닫힌다
 
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
   if (g.panel) {
+    if (g.panel.closing != null) return true;
     const rows = rowsOf(g, g.panel.id), c = closeRect();
-    if (x >= c.x - 4 && x <= c.x + c.w + 4 && y >= c.y - 4 && y <= c.y + c.h + 4) { g.panel = null; return true; }
+    if (x >= c.x - 4 && x <= c.x + c.w + 4 && y >= c.y - 4 && y <= c.y + c.h + 4) { closePanel(g); return true; }
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
@@ -132,7 +134,7 @@ export function pointer(g, x, y) {
         return true;
       }
     }
-    if (x < PANEL.x - 100 || x > PANEL.x + PANEL.w || y < PANEL.y || y > PANEL.y + panelH()) g.panel = null;   // 판 밖을 누르면 닫힌다
+    if (x < PANEL.x - 100 || x > PANEL.x + PANEL.w || y < PANEL.y || y > PANEL.y + panelH()) closePanel(g);   // 판 밖을 누르면 닫힌다
     return true;
   }
   if (g.scene === 'harbor') {
@@ -154,7 +156,10 @@ export function pointer(g, x, y) {
 }
 
 export function updateHarbor(g, dt) {
-  if (g.panel) { g.panel.t += dt; g.panel.hitT += dt; }
+  if (g.panel) {
+    g.panel.t += dt; g.panel.hitT += dt;
+    if (g.panel.closing != null && (g.panel.closing += dt) > 0.18) g.panel = null;
+  }
   g.harborT = (g.harborT || 0) + dt;
 }
 
@@ -164,10 +169,12 @@ function canBuyAt(g, id) {
 }
 
 // ── 그리기 ──
+let btnA = 0, btnT = 0;
 export function drawSeaButtons(ctx, g) {
-  if (g.state !== 'idle' || g.scene !== 'sea') return;
-  const a = clamp(g.t / 0.4, 0, 1);
-  ctx.save(); ctx.globalAlpha = a;
+  const now = performance.now() / 1000, dt = Math.min(0.1, now - btnT); btnT = now;
+  btnA += ((g.state === 'idle' && g.scene === 'sea' ? 1 : 0) - btnA) * (1 - Math.exp(-9 * dt));
+  if (btnA < 0.01) return;
+  ctx.save(); ctx.globalAlpha = btnA;
   for (const b of SEA_BTNS) {
     img(ctx, b.icon, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
     if (b.id === 'book' && canBuyAt(g, 'skills')) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
@@ -184,8 +191,10 @@ export function drawHarbor(ctx, g) {
     const open = g.panel && g.panel.id === id, lift = open ? 3 : 0;
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(s.img, x - w / 2, HY - h - lift, w, h);
-    label(ctx, HOUSE_NAME[id], x, HY + 9, 9.5, '#fff4dc');
-    label(ctx, id === 'hall' ? `${e.town}등급` : `Lv.${e.shop[id]}`, x, HY + 20, 8, 'rgba(255,244,220,0.8)', 'center', 600);
+    const tag = `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
+    ctx.font = `600 9px ${FONT}`; const tw = ctx.measureText(tag).width + 12;
+    ctx.fillStyle = 'rgba(16,28,56,0.62)'; ctx.beginPath(); ctx.roundRect(x - tw / 2, HY + 5, tw, 14, 7); ctx.fill();
+    label(ctx, tag, x, HY + 12.5, 9, '#fff4dc', 'center', 600, null);
     if (!g.panel && canBuyAt(g, id)) img(ctx, 'icon_gold', x - 6, HY - h - 15 + Math.sin(t * 4 + i) * 2, 12, 12);
   });
   // 정박한 내 배
@@ -205,7 +214,7 @@ export function drawHarbor(ctx, g) {
 export function drawPanel(ctx, g) {
   const p = g.panel;
   if (!p) return;
-  const k = easeOut(clamp(p.t / 0.22, 0, 1)), ph = panelH();
+  const k = easeOut(clamp(p.t / 0.22, 0, 1)) * (p.closing != null ? 1 - clamp(p.closing / 0.18, 0, 1) : 1), ph = panelH();
   const shopId = p.id === 'skills' ? 'guild' : p.id;
   ctx.save();
   ctx.fillStyle = `rgba(10,18,40,${0.42 * k})`; ctx.fillRect(0, 0, W, H);
@@ -232,14 +241,16 @@ export function drawPanel(ctx, g) {
     const shake = p.hit === -2 - i ? Math.sin(p.hitT * 50) * 2 * clamp(1 - p.hitT / 0.25, 0, 1) : 0;   // 못 살 때 도리도리
     ctx.save();
     ctx.translate(shake, -bump);
-    if (!can) ctx.globalAlpha = k * (info.block ? 0.8 : 0.72);
-    img(ctx, info.block ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
+    const done = info.block === '끝';                       // 끝까지 올린 것: 잠긴 것이 아니라 완성된 것으로 보인다
+    if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
+    img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
     const ic = sprite(info.icon), is = 34, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
     ctx.drawImage(ic.img, r.x + 27 - iw / 2, r.y + r.h / 2 - ih / 2, iw, ih);
     label(ctx, info.name, r.x + 52, r.y + 17, 11, COLORS.navy, 'left', 600, null);
     label(ctx, info.level, r.x + 52 + ctx.measureText(info.name).width + 6, r.y + 17, 9, '#8a5a2b', 'left', 600, null);
-    label(ctx, info.block && info.block !== '끝' ? `${info.block} 필요` : info.desc, r.x + 52, r.y + 32, 8.5, info.block ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
-    if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, info.block ? '#5a5a5a' : can ? '#4a2a08' : '#9a3b2b', 'center', 600, null);
+    label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 52, r.y + 32, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
+    if (done) label(ctx, '완성', r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, '#4a2a08', 'center', 600, null);
+    else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
   ctx.restore();

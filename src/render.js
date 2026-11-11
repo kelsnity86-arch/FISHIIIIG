@@ -80,7 +80,7 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
   ctx.font = `${weight} ${size}px ${FONT}`;
   ctx.textAlign = align; ctx.textBaseline = 'middle';
   ctx.lineWidth = Math.max(1.6, size * 0.17); ctx.lineJoin = 'round';
-  ctx.strokeStyle = 'rgba(16,28,56,0.5)'; ctx.strokeText(str, x, y);
+  ctx.strokeStyle = 'rgba(16,28,56,0.72)'; ctx.strokeText(str, x, y);
   ctx.fillStyle = color; ctx.fillText(str, x, y);
 }
 
@@ -91,11 +91,13 @@ function drawCatchText(ctx, g) {
   if (!fx) return;
   const gi = fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;
   const w = [150, 162, 176, 190, 208, 232][gi], h = w * spr.h / spr.w;
-  const pop = easeOutBack(Math.min(1, fx.age / 0.32));
+  const gone = fx.out != null ? clamp(fx.out / 0.25, 0, 1) : 0;
+  const pop = easeOutBack(Math.min(1, fx.age / 0.32)) * (1 - 0.25 * gone);
   const sway = gi >= 3 ? Math.sin(t * 5) * 0.035 : gi >= 1 ? Math.sin(t * 3) * 0.015 : 0;
   const bob = gi >= 4 ? Math.sin(t * 4) * 2.5 : 0;
   ctx.save();
-  ctx.translate(W * 0.6, H - 70 + bob); ctx.rotate(sway + (1 - Math.min(1, fx.age / 0.32)) * -0.25); ctx.scale(pop, pop);
+  ctx.globalAlpha = 1 - gone;
+  ctx.translate(W * 0.6, H - 70 + bob + gone * 8); ctx.rotate(sway + (1 - Math.min(1, fx.age / 0.32)) * -0.25); ctx.scale(pop, pop);
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.restore();
@@ -115,8 +117,9 @@ function drawCoins(ctx, g) {
 // 결과 카드: 등급별 틀 그림. 위 창에 생물, 아래 두 줄에 이름과 치수·값.
 function drawResultCard(ctx, g) {
   const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite('ui_card_' + (gi + 1));
-  const k = clamp(g.t / 0.3, 0, 1), e = 1 - Math.pow(1 - k, 3);
-  const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26;   // 왼쪽 아래: 생물과 배를 가리지 않는다
+  const r = g.result, T = r.age || 0, gone = r.out != null ? clamp(r.out / 0.25, 0, 1) : 0;
+  const k = clamp(T / 0.3, 0, 1), e = (1 - Math.pow(1 - k, 3)) * (1 - gone);
+  const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26 + gone * 10;   // 왼쪽 아래: 생물과 배를 가리지 않는다
   ctx.save();
   ctx.globalAlpha = e;
   // 창 안: 옅은 양피지 바탕 위에 생물
@@ -131,15 +134,14 @@ function drawResultCard(ctx, g) {
   ctx.font = `400 13px ${FONT2}`; ctx.fillStyle = COLORS.navy;
   ctx.fillText(f.name, cx + cw / 2, cy + ch * 0.672);
   // 숫자가 차르르 올라가며 측정된다
-  const cu = clamp((g.t - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
+  const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
   ctx.font = `600 9px ${FONT}`; ctx.fillStyle = '#5a4630';
   ctx.fillText(f.isFantasy ? `${(f.meters * count).toFixed(1)} m · ${f.name}의 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, cx + cw / 2, cy + ch * 0.812);
-  if (g.t > 1.1) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
+  if (T > 1.1 && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
-  const r = g.result;
   if (r.stamped) {
-    const age = g.t - 1.0, k2 = Math.min(1, age / 0.16);
+    const age = T - 1.0, k2 = Math.min(1, age / 0.16);
     const sc = lerp(2.8, 1, 1 - Math.pow(1 - k2, 3));
     const st = sprite(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
     ctx.save();
@@ -179,9 +181,13 @@ function drawGold(ctx, g) {
 }
 function drawMsg(ctx, g) {
   if (!g.msg || g.msg.age < 0) return;
-  const k = g.msg.age / 1.4;
-  ctx.globalAlpha = clamp((1 - k) * 3, 0, 1);
-  text(ctx, g.msg.text, W / 2, 100 - k * 14, 18, g.msg.color);
+  const k = g.msg.age / 1.4, y = g.msg.y || 100;
+  let size = 18;
+  ctx.font = `700 ${size}px ${FONT}`;
+  const tw = ctx.measureText(g.msg.text).width;
+  if (tw > W - 60) size = Math.max(11, size * (W - 60) / tw);        // 긴 글은 화면 안에 들어오게 줄인다
+  ctx.globalAlpha = clamp(k * 8, 0, 1) * clamp((1 - k) * 3, 0, 1);
+  text(ctx, g.msg.text, W / 2, y - k * 10, size, g.msg.color);
   ctx.globalAlpha = 1;
 }
 function renderSea(ctx, g) {
@@ -633,6 +639,17 @@ function drawSprays(ctx, g) {
   }
 }
 
+// 나타났다 사라지는 UI 의 진하기 (0~1). 켜고 끌 때 뚝 바뀌지 않게 실제 시간 기준으로 따라간다.
+const fades = new Map();
+function fade(key, on, rate = 9) {
+  const now = performance.now() / 1000, f = fades.get(key) || { v: 0, t: now };
+  const dt = Math.min(0.1, now - f.t);
+  f.v += ((on ? 1 : 0) - f.v) * (1 - Math.exp(-rate * dt)); f.t = now;
+  fades.set(key, f);
+  return f.v;
+}
+let lastTension = 0, lastPower = 0, lastDist = 0;
+
 // 게이지: 틀 그림 위에 채움 그림을 채워진 만큼만 잘라 얹는다. x0·x1 = 틀에서 홈이 시작하고 끝나는 자리(폭 대비)
 function gauge(ctx, name, cx, cy, w, v, x0, x1) {
   const fr = sprite(name), fl = sprite(name + '_fill'), h = w * fr.h / fr.w, x = cx - w / 2, y = cy - h / 2;
@@ -649,14 +666,23 @@ function drawHud(ctx, g) {
   ctx.drawImage(hp.img, 100, 4 + (92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w - hh) / 2, hw, hh);
   ctx.font = `600 10.5px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillStyle = g.cargo.length >= g.cargoMax ? '#ffb39a' : '#ffe9b8';
-  ctx.fillText(`${g.cargo.length} / ${g.cargoMax}`, 100 + hw * 0.7, 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w / 2 + 0.5);
+  ctx.font = `600 ${g.cargoMax >= 10 ? 9.5 : 10.5}px ${FONT}`;
+  ctx.fillText(`${g.cargo.length}/${g.cargoMax}`, 100 + hw * 0.7, 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w / 2 + 0.5);
 
   // 던질 힘
-  if (g.state === 'charge') gauge(ctx, 'ui_power', W / 2, H - 40, 190, g.power, 0.105, 0.972);
+  if (g.state === 'charge') lastPower = g.power;
+  const pa = fade('power', g.state === 'charge');
+  if (pa > 0.01) { ctx.globalAlpha = pa; gauge(ctx, 'ui_power', W / 2, H - 40, 190, lastPower, 0.105, 0.972); ctx.globalAlpha = 1; }
+  const ta = fade('tension', g.state === 'fight');
+  if (g.state === 'fight') { lastTension = clamp(g.fight.tension / g.fight.maxTension, 0, 1); lastDist = g.fight.dist; }
+  if (ta > 0.01) {
+    ctx.globalAlpha = ta;
+    gauge(ctx, 'ui_tension', W / 2, 16, 230, lastTension, 0.118, 0.972);                              // 줄 장력: 빨강까지 차면 끊어진다
+    text(ctx, `${Math.max(0, lastDist).toFixed(0)} m`, W / 2 + 132, 16, 10, 'rgba(255,244,220,0.9)', 'left', 600);
+    ctx.globalAlpha = 1;
+  }
   if (g.state === 'fight') {
     const f = g.fight;
-    gauge(ctx, 'ui_tension', W / 2, 16, 230, clamp(f.tension / f.maxTension, 0, 1), 0.118, 0.972);   // 줄 장력: 빨강까지 차면 끊어진다
-    text(ctx, `${Math.max(0, f.dist).toFixed(0)} m`, W / 2 + 132, 16, 10, 'rgba(255,244,220,0.9)', 'left', 600);
     if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 42, 12, '#ffd0c0');
     else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, 42, 12, '#ff8a7a');
   }
@@ -669,7 +695,7 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint) {
+  if (hint && !(g.msg && g.msg.y)) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
@@ -678,7 +704,7 @@ function drawHud(ctx, g) {
 
   if (!g.panel) drawMsg(ctx, g);
 
-  if (g.state === 'result') drawResultCard(ctx, g);
+  if (g.result) drawResultCard(ctx, g);
   drawCatchText(ctx, g);
   drawCoins(ctx, g);
 }

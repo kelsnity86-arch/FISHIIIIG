@@ -133,7 +133,8 @@ export function press(g) {
       const b = g.bite, tau = g.t - b.openAt;
       if (tau < 0) { say(g, '너무 빨랐다!', '#ffd0c0'); flee(g); reelIn(g); break; }
       b.perfect = tau < b.perfectWin;
-      say(g, b.perfect ? 'PERFECT!' : 'GOOD', b.perfect ? '#ffe27a' : '#fff4dc');
+      if (g.fish.power > OVERPOWER) say(g, '엄청난 힘이다…!', '#ffb39a');
+      else say(g, b.perfect ? 'PERFECT!' : 'GOOD', b.perfect ? '#ffe27a' : '#fff4dc');
       kick(g, 0.25); snd(g, 'hook', b.perfect); buzz(25);
       g.sw.shake = 1; g.sw.tailAmp = 0.14;
       setState(g, 'hook');
@@ -148,11 +149,13 @@ export function press(g) {
         if (f.isFantasy) { g.catch.phase = 'release'; }
         else {
           g.cargo.push({ name: f.name, price: f.price, grade: f.grade });      // 어창에 싣는다 (판매는 항구에서)
-          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`);
+          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'card');
           g.catch.phase = 'stow';
         }
-        g.catch.pt = 0; g.result = null; g.catchFx = null;
+        g.catch.pt = 0;
+        if (g.result) g.result.out = 0;          // 카드와 현판은 뚝 사라지지 않고 스르르 물러난다
+        if (g.catchFx) g.catchFx.out = 0;
         setState(g, 'leave');
       }
       break;
@@ -188,7 +191,8 @@ export function update(g, dt) {
   // 연출용 시간 조절: 히트스톱(완전 정지)과 슬로모션. 화면 효과(번쩍임·글자·동전)는 실제 시간으로 흐른다.
   g.realDt = dt;
   g.flash = approach(g.flash, 0, 7, dt);
-  if (g.catchFx) g.catchFx.age += dt;
+  if (g.catchFx) { g.catchFx.age += dt; if (g.catchFx.out != null && (g.catchFx.out += dt) > 0.25) g.catchFx = null; }
+  if (g.result) { g.result.age = (g.result.age || 0) + dt; if (g.result.out != null && (g.result.out += dt) > 0.25) g.result = null; }
   g.goldShown = Math.abs(g.gold - g.goldShown) < 0.6 ? g.gold : approach(g.goldShown, g.gold, 6, dt);
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
@@ -370,6 +374,7 @@ function startWait(g) {
   plan.push({ touch: true, fake: false });
   // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
   const sw = createSwimmer(L, fx - 60 - L * 0.35, DEEP + 110, 1);
+  { const q = speedMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 릴·손놀림: 입질이 빨리 온다
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
   g.sw = sw;
   g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2) / speedMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / speedMult(g.eco) };
@@ -475,6 +480,8 @@ function updateFight(g, dt) {
     f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * speedMult(g.eco) * dt;
   } else {
     f.tension -= (f.surging ? 0.4 : 0.75) * dt;
+    // 장비로 감당 못 하는 힘(1.75배 넘게): 날뛸 때는 줄을 풀어 줘도 장력이 오른다 → 장비가 한 단계 모자라면 버티지 못한다
+    if (f.surging && p > OVERPOWER) f.tension += (p - OVERPOWER) * 2.6 * dt;
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);
   }
   f.tension = Math.max(0, f.tension);
@@ -529,7 +536,7 @@ function updateFight(g, dt) {
     g.shake = Math.max(g.shake, 0.4 + p * 0.3);
   }
 
-  if (f.tension >= f.maxTension) { fail(g, '줄이 끊어졌다!'); return null; }
+  if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '줄이 버티지 못했다! 더 좋은 줄과 낚싯대가 필요하다' : '줄이 끊어졌다!'); return null; }
   if (f.slack > FIGHT.slackTime) { fail(g, '바늘이 빠졌다…'); return null; }
   if (f.dist <= 0) {
     // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,
@@ -563,6 +570,7 @@ function followLine(g, dt) {
 // 등급별 연출 강도 (0 일반 ~ 5 환상)
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
+const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
 const PULL_BACK = 1.7;     // 카메라가 물러나는 데 걸리는 시간(초)
@@ -699,12 +707,14 @@ function updateCatch(g, dt) {
     c.shed -= dt;
     if (c.shed <= 0) { c.shed = 0.35; spray(g, c.x + rand(-0.3, 0.3) * lw, c.y + rand(0, 0.3) * lh, 1, 30, lw * 0.1); }
   } else if (c.phase === 'stow') {
+    out.zoomTarget = c.zoom;                        // 생물이 배에 실릴 때까지 카메라는 그대로 (먼저 당기면 생물이 불쑥 커 보인다)
     // 판매: 줄에 끌려 배 쪽으로 빨려 들어가며 작아진다
     const b = boatPose(g), u = clamp(c.pt / 0.45, 0, 1), e = u * u;
     c.x = lerp(apex.x, b.x, e); c.y = lerp(apex.y, b.y - 10, e); c.scale = lerp(1, 0.02, e); c.rot = e * 0.6;
-    out.roughTarget = 0.3; out.zoomTarget = 1;
+    out.roughTarget = 0.3;
     if (u >= 1) endCatch(g);
   } else if (c.phase === 'release') {
+    out.zoomRate = 3.2;
     // 놓아주기(환상종): 몸을 뒤집으며 바다로 떨어져 큰 물벽을 일으킨다
     const u = clamp(c.pt / 0.9, 0, 1), e = u * u;
     c.x = lerp(apex.x, apex.x + lw * 0.2, u); c.y = lerp(apex.y, WL + lh * 0.55, e); c.rot = e * 0.9; c.mix = clamp(u * 3, 0, 1);
