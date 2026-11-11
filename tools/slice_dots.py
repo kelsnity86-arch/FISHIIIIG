@@ -35,15 +35,23 @@ def clean_fringe(arr):
         tr = arr[..., 3] == 0
         pad = np.pad(tr, 1, constant_values=True)
         near = pad[:-2, 1:-1] | pad[2:, 1:-1] | pad[1:-1, :-2] | pad[1:-1, 2:]
-        pur = np.zeros(tr.shape, bool)
-        for c in FRINGE:
-            pur |= (arr[..., 0] == c[0]) & (arr[..., 1] == c[1]) & (arr[..., 2] == c[2])
+        r, g, b = arr[..., 0].astype(int), arr[..., 1].astype(int), arr[..., 2].astype(int)
+        pur = (r > 70) & (b > 70) & (g < 0.6 * np.minimum(r, b)) & (np.abs(r - b) < 60)
         kill = pur & near & ~tr
         if not kill.any(): break
         arr[kill] = 0
     al = arr[..., 3] > 0
     ys, xs = np.nonzero(al)
     return arr[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+
+
+def flatten_colors(arr, n=14):
+    """생물 하나의 색을 n가지로 정리한다: 같은 면이 한 색으로 고르게 칠해지고, 색감은 원본 그대로."""
+    al = arr[..., 3] > 0
+    px = arr[al][:, :3]
+    q = Image.fromarray(px.reshape(1, -1, 3)).quantize(n, method=Image.MEDIANCUT, kmeans=4, dither=Image.NONE).convert('RGB')
+    arr[al, :3] = np.array(q).reshape(-1, 3)
+    return arr
 
 
 def dot_sheets(manifest):
@@ -55,11 +63,16 @@ def dot_sheets(manifest):
         a = np.array(Image.open(src).convert('RGB'))
         fg = ~bg_mask(a)
         s = S.pixel_size(a, fg)
+        # 색은 GPT 그림의 색을 그대로 쓴다. (gotzoo 의 고정 38색에 맞추면 상어의 회청색 같은 중간색이
+        # 엉뚱한 파랑·남색으로 갈라져 얼룩진다.) 먼저 시트 전체의 색 256가지로 뽑고, 아래에서 생물마다 정리한다.
+        px = a[fg]
+        pal = Image.fromarray(px[:: max(1, len(px) // 400000)].reshape(1, -1, 3)).quantize(256, method=Image.MEDIANCUT, dither=Image.NONE).getpalette()[:768]
+        S.PAL = np.array(pal, dtype=np.float32).reshape(-1, 3)
         cells = S.grid_cells(a, fg, 5, 5, s)
         for name, arr in zip(names, cells):
             if arr is None or arr.size == 0:
                 problems.append(f'{sheet}: {name} 칸이 비어 있음'); continue
-            arr = clean_fringe(arr.copy())
+            arr = flatten_colors(clean_fringe(arr.copy()))
             key = 'd_' + name
             Image.fromarray(arr, 'RGBA').save(OUT / (key + '.png'))
             manifest[key] = dict(file=key + '.png', w=arr.shape[1], h=arr.shape[0], smooth=False)

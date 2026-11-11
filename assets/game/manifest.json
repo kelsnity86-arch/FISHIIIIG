@@ -3993,7 +3993,7 @@
   "d_straw_seahorse": {
    "file": "d_straw_seahorse.png",
    "w": 31,
-   "h": 34,
+   "h": 35,
    "smooth": false
   },
   "d_scissor_crab": {
@@ -4023,7 +4023,7 @@
   "d_ball_turtle": {
    "file": "d_ball_turtle.png",
    "w": 39,
-   "h": 28,
+   "h": 29,
    "smooth": false
   },
   "d_cactus_puffer": {
@@ -4083,7 +4083,7 @@
   "d_sub_whale": {
    "file": "d_sub_whale.png",
    "w": 40,
-   "h": 32,
+   "h": 33,
    "smooth": false
   },
   "d_dino_shark": {
