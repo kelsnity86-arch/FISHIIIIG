@@ -8182,20 +8182,23 @@ THE CREATURE - "Toast Shark". Build it literally, like a child would:
 
 It must be simple and funny, with a dumb deadpan face.
 
-THE 6 STYLES (top row left to right, then bottom row):
+THE 6 STYLES. Top row = pixel art, bottom row = hand-drawn:
 1) Modern color Tamagotchi screen (like Tamagotchi Uni / Paradise): about 32 pixels wide,
    bright flat colors with one darker tone, clean dark outline, simple friendly face.
-2) The same modern color Tamagotchi look but about 48 pixels wide with a little more
-   detail (crust texture dots, butter shine pixel).
-3) The same modern color Tamagotchi look, about 32 pixels wide, but with a deliberately
-   derpy, ugly-funny face: eyes pointing different ways, crooked teeth.
-4) Game Boy Color era: about 24 pixels wide, 4 flat colors plus black outline, chunky.
-5) Classic 1990s Tamagotchi LCD: about 20 pixels wide, ONLY black pixels on transparent.
-6) Bad MS Paint doodle: NOT pixel grid - drawn with a shaky mouse, wobbly black line,
-   flat bucket-fill colors that slightly miss the lines.
+2) The same modern color Tamagotchi look, but with a deliberately derpy, ugly-funny face:
+   eyes pointing different ways, crooked teeth.
+3) Game Boy Color era: about 24 pixels wide, 4 flat colors plus black outline, chunky.
+4) Bad MS Paint doodle: drawn with a shaky mouse - wobbly uneven black line that does not
+   quite close, flat bucket-fill colors that slightly miss the lines.
+5) A small child's crayon drawing: thick waxy crayon strokes, scribbled coloring that goes
+   outside the lines, lopsided shape, huge uneven eyes.
+6) A bored student's ballpoint-pen doodle colored with two highlighter markers: thin
+   confident-but-bad pen line, quick hatching, deadpan stupid face.
 
-For the pixel styles (1 to 5): every pixel is a big, perfectly square block of one flat
+For the pixel styles (1 to 3): every pixel is a big, perfectly square block of one flat
 color on one grid; hard edges, no blur, no anti-aliasing, no gradients.
+For the hand-drawn styles (4 to 6): no paper, no background - only the drawing itself on
+transparent; it must look genuinely badly drawn by hand, not like a clean vector cartoon.
 Draw all 6 at the same displayed size so they can be compared.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
