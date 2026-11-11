@@ -163,8 +163,8 @@ function drawResultCard(ctx, g) {
     const st = sprite(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
     ctx.save();
     ctx.globalAlpha = e * Math.min(1, k2 * 2);
-    ctx.translate(wn[2] - 14, wn[1] + 12); ctx.rotate(-0.2); ctx.scale(sc, sc);
-    ctx.drawImage(st.img, -21, -21 * st.h / st.w, 42, 42 * st.h / st.w);
+    ctx.translate(wn[2] - 5, wn[1] + 4); ctx.rotate(-0.2); ctx.scale(sc, sc);     // 틀 모서리에 걸쳐 찍는다: 생물을 가리지 않게
+    ctx.drawImage(st.img, -17, -17 * st.h / st.w, 34, 34 * st.h / st.w);
     ctx.restore();
   }
   ctx.restore();

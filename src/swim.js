@@ -28,8 +28,16 @@ export function createSwimmer(len, x, y, face = 1) {
     accel: 1.8 / Math.sqrt(big),
     beat: 6 / Math.sqrt(big),
     target: { x, y, speed: 1 },
+    // 떠돌기: 마리마다 다른 박자로 목표 둘레를 느릿하게 맴돈다 → 같은 길을 되풀이하는 것처럼 보이지 않는다.
+    // roam(0~1)은 얼마나 크게 떠돌지. 규칙(배 쪽을 본다·배를 못 넘는다·수면으로 안 올라온다)은 그대로 지킨다.
+    roam: 0, roamK: 0, life: Math.random() * 100,
+    nx: wave(), ny: wave(), ns: wave(),
   };
 }
+
+// 겹친 느린 물결 3개 = 되풀이가 눈에 띄지 않는 부드러운 흔들림 (-1~1)
+function wave() { return [0, 1, 2].map((i) => ({ f: (0.07 + Math.random() * 0.16) * (1 + i * 0.9), p: Math.random() * 6.283, a: 1 / (1 + i * 0.7) })); }
+const drift = (n, t) => (n[0].a * Math.sin(t * 6.283 * n[0].f + n[0].p) + n[1].a * Math.sin(t * 6.283 * n[1].f + n[1].p) + n[2].a * Math.sin(t * 6.283 * n[2].f + n[2].p)) / 2.17;
 
 // 주둥이 위치 (찌·줄이 걸리는 곳)
 export function mouth(s) {
@@ -42,7 +50,11 @@ export function mouth(s) {
 // target: { x, y, speed(최고 속도 대비 0~1.6), face(도착했을 때 볼 방향, 선택) }
 export function steer(s, dt, { arrive = true } = {}) {
   const t = s.target;
-  const dx = t.x - s.x, dy = Math.max(t.y, s.floor) - s.y;   // 올라갈 수 없는 깊이를 향해 계속 고개를 들고 있지 않게
+  s.life += dt;
+  s.roamK = approach(s.roamK, s.roam, 1.2, dt);          // 떠도는 크기도 서서히 바뀐다
+  const rx = drift(s.nx, s.life) * s.len * 0.085 * s.roamK, ry = drift(s.ny, s.life) * 16 * s.roamK;
+  const pace0 = 1 + drift(s.ns, s.life) * 0.22 * s.roamK; // 빨라졌다 느려졌다
+  const dx = t.x + rx - s.x, dy = Math.max(t.y + ry, s.floor) - s.y;   // 올라갈 수 없는 깊이를 향해 계속 고개를 들고 있지 않게
   const near = Math.abs(dx) < s.len * 0.12;
 
   // 그림자는 돌아서지 않는다. 늘 같은 쪽(배 쪽)을 본 채 앞으로 나아가거나 뒷걸음질한다.
@@ -52,7 +64,7 @@ export function steer(s, dt, { arrive = true } = {}) {
   s.face = clamp(s.face + s.faceV * dt, -1, 1);
 
   // 속도: 가속 → 순항 → 감속. 목표가 뒤에 있으면 뒷걸음질(앞으로 갈 때보다 느리다).
-  const behind = dx * cur < 0, top = s.maxSpeed * (t.speed ?? 1);
+  const behind = dx * cur < 0, top = s.maxSpeed * (t.speed ?? 1) * pace0;
   let wantSpeed = behind ? -top * 0.6 : top;
   if (arrive || behind) {
     const lim = Math.abs(dx) * 1.3 + (behind ? 0 : Math.abs(dy) * 0.6);

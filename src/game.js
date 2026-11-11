@@ -372,21 +372,24 @@ function startWait(g) {
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
   // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)
+  // 매번 길이 다르다: 떠오르는 자리·깊이·빠르기, 찌 밑에서 뜸 들이기, 물러나는 거리가 그때그때 정해진다.
+  const q0 = speedMult(g.eco), linger = () => ({ x: fx - L * rand(0.5, 0.74), y: rand(62, 112), speed: rand(0.28, 0.4), hover: rand(0.4, 1.1) / q0 });
   const plan = [
-    { x: fx - L * 0.2, y: DEEP * 0.7, speed: 0.5 },
+    { x: fx - L * rand(0.1, 0.34), y: DEEP * rand(0.52, 0.86), speed: rand(0.42, 0.62) },
   ];
+  if (Math.random() < 0.35) plan.push(linger());                                // 가끔은 찌를 올려다보며 한참 뜸을 들인다
   const fakes = Math.floor(rand(0, 2.6));
   for (let i = 0; i < fakes; i++) {
-    plan.push({ touch: true, fake: true });
-    plan.push({ x: fx - L * 0.62, y: rand(95, 120), speed: 0.45, face: 1 });   // 건드려 보고는 뒷걸음질로 물러났다가 다시 온다
+    plan.push({ touch: true, fake: true, speed: rand(0.4, 0.6) });
+    plan.push({ x: fx - L * rand(0.52, 0.8), y: rand(82, 126), speed: rand(0.36, 0.56), face: 1, hover: Math.random() < 0.4 ? rand(0.3, 1) / q0 : 0 });   // 건드려 보고는 뒷걸음질로 물러났다가 다시 온다
   }
-  plan.push({ touch: true, fake: false });
+  plan.push({ touch: true, fake: false, speed: rand(0.36, 0.5) });
   // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
-  const sw = createSwimmer(L, fx - 60 - L * 0.35, DEEP + 110, 1);
+  const sw = createSwimmer(L, fx - 60 - L * rand(0.2, 0.55), DEEP + rand(95, 130), 1);
   { const q = speedMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 릴·손놀림: 입질이 빨리 온다
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
   g.sw = sw;
-  g.wait = { plan, step: 0, fakeT: 0, delay: rand(0.4, 1.2) / speedMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / speedMult(g.eco) };
+  g.wait = { plan, step: 0, fakeT: 0, hover: 0, delay: rand(0.4, 1.2) / speedMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / speedMult(g.eco) };
   setState(g, 'wait');
 }
 
@@ -404,7 +407,8 @@ function updateWait(g, dt) {
 
   const step = w.plan[Math.min(w.step, w.plan.length - 1)];
   if (step.touch) {
-    s.target = floatTarget(g, step.fake ? 0.5 : 0.42);
+    s.target = floatTarget(g, step.speed);
+    s.roam = 0.12;                                   // 찌에 입을 댈 때는 거의 흔들리지 않는다
     steer(s, dt);
     const m = mouth(s);
     const touching = Math.abs(g.castX - m.x) < 9 + s.len * 0.02 && s.y < s.floor + 12 && s.face > 0.8;   // 찌 바로 밑, 올라올 수 있는 가장 얕은 곳
@@ -418,12 +422,17 @@ function updateWait(g, dt) {
     }
   } else {
     s.target = { ...step };
-    if (steer(s, dt) < 30 + s.len * 0.1) w.step++;
+    s.roam = 1;
+    if (steer(s, dt) < 30 + s.len * 0.1) {
+      w.hover += dt;                                 // 다 와서는 잠깐 머뭇거리기도 한다
+      if (w.hover >= (step.hover || 0)) { w.step++; w.hover = 0; }
+    }
   }
 }
 
 function holdAtFloat(g, dt) {
   g.sw.target = floatTarget(g, 0.4);
+  g.sw.roam = 0.12;
   steer(g.sw, dt);
 }
 
@@ -443,6 +452,7 @@ function startFight(g) {
     maxTension: g.bite.perfect ? 1.12 : 1.0,
     mode: 'hold', modeT: rand(1, 1.8), tele: 0, next: null,
     surging: false, runTo: null, did: false, stamina: 1,
+    ox: rand(-24, 24), oy: rand(-6, 10), back: rand(40, 90), turnAt: rand(1.2, 1.9), deep: rand(90, 108),
   };
   setState(g, 'fight');
 }
@@ -458,6 +468,8 @@ function startMode(g) {
   const f = g.fight, s = g.sw;
   f.modeT = { hold: rand(1.2, 2.4), run: rand(1, 1.7), dive: rand(1.1, 1.7), thrash: 1.3, circle: rand(2.2, 3.4), tired: rand(1.4, 2.2) }[f.mode];
   f.did = false;
+  // 같은 동작이라도 할 때마다 자리·깊이·물러나는 거리가 조금씩 다르다
+  f.ox = rand(-28, 28); f.oy = rand(-8, 12); f.back = rand(40, 95); f.turnAt = rand(1.1, 2); f.deep = rand(88, 108);
   if (f.mode === 'run') {
     const dir = Math.random() < 0.7 ? -1 : 1;     // 대부분 배에서 멀어지는 쪽으로
     f.runTo = { x: clamp(s.x + dir * (200 + s.len * 0.3), -80, BOAT_X - 90), y: rand(30, 75) };
@@ -501,11 +513,11 @@ function updateFight(g, dt) {
   const ax = lerp(BOAT_X - 150 - L * 0.25, Math.max(g.castX - L * 0.3, 210), far);   // 그림자가 화면 밖으로 밀려나지 않는 범위
   switch (f.mode) {
     case 'hold':
-      s.target = { x: ax, y: 26 + Math.sin(g.time * 0.9) * 8, speed: 0.4, face: 1 };
+      s.target = { x: ax + f.ox, y: 26 + f.oy, speed: 0.4, face: 1 };
       s.shake = Math.max(s.shake, 0.45 + 0.3 * Math.sin(g.time * 3));
       break;
     case 'run': s.target = { ...f.runTo, speed: 1.5 }; break;
-    case 'dive': s.target = { x: ax - 40, y: 106, speed: 0.9 }; break;      // 너무 깊이 가면 어두운 물에 묻혀 머리가 안 보인다
+    case 'dive': s.target = { x: ax - 40 + f.ox, y: f.deep, speed: 0.9 }; break;      // 너무 깊이 가면 어두운 물에 묻혀 머리가 안 보인다
     case 'thrash':     // 수면 바로 밑에서 몸부림: 수면이 부풀고 큰 파도가 터진다
       s.target = { x: ax, y: 10, speed: 0.7, face: 1 };
       s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.09);
@@ -520,14 +532,15 @@ function updateFight(g, dt) {
       }
       break;
     case 'circle':     // 배 바로 앞까지 들이닥쳤다가 물러난다 (배 밑을 넘어가지는 않는다)
-      s.target = { x: f.modeT > 1.5 ? s.maxX : ax - 60, y: 85, speed: 0.95 };
+      s.target = { x: f.modeT > f.turnAt ? s.maxX : ax - f.back, y: 78 + f.oy, speed: 0.95 };
       break;
-    case 'tired': s.target = { x: ax + 20, y: 14, speed: 0.25, face: 1 }; break;
+    case 'tired': s.target = { x: ax + 20 + f.ox * 0.5, y: 14 + Math.max(0, f.oy), speed: 0.25, face: 1 }; break;
   }
   if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 200);
   s.target.x = Math.min(s.target.x, s.maxX);
   // 걸린 내내 몸부림친다: 날뛸 때 가장 세고, 지치면 잦아든다
   s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.35 : 0.8);
+  s.roam = f.mode === 'thrash' ? 0.15 : f.mode === 'run' ? 0.4 : 0.8;
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.y = Math.min(s.y, 110);                        // 걸린 동안은 그림자가 또렷이 보이는 깊이까지만
   s.vis = 1;
