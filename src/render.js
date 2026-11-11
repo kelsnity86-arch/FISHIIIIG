@@ -318,28 +318,50 @@ function drawShadowPose(ctx, s, name, pose, alpha) {
   ctx.scale(s.face > 0 ? -1 : 1, 1);            // 그림은 왼쪽을 본다
   ctx.rotate(-s.pitch * d.tilt);
   ctx.imageSmoothingEnabled = true;
-  ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게
-  ctx.globalAlpha = lerp(0.8, 0.45, depth) * s.vis * alpha;   // 목표 화면처럼 물빛이 비쳐 보이는 농도
-  ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
-  ctx.globalCompositeOperation = 'source-over';  // 형태가 또렷이 읽히도록 한 번 더 옅게
-  ctx.globalAlpha = lerp(0.1, 0.03, depth) * s.vis * alpha;
+  ctx.globalAlpha = lerp(0.8, 0.5, depth) * s.vis * alpha;   // 목표 화면처럼 물빛이 비쳐 보이는 농도
   ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   ctx.restore();
 }
 
+// 그림자는 따로 마련한 판에 먼저 그린 뒤, 수면에 가까운 쪽을 서서히 지워서 화면에 얹는다.
+// 수면선에서 칼로 자른 듯 끊기지 않고 물빛 속으로 풀려 사라진다.
+let shadowBuf = null;
 function drawShadow(ctx, g) {
   const s = g.sw;
   if (!s || s.vis < 0.01) return;
+  const cv = ctx.canvas;
+  if (!shadowBuf) shadowBuf = document.createElement('canvas');
+  if (shadowBuf.width !== cv.width || shadowBuf.height !== cv.height) { shadowBuf.width = cv.width; shadowBuf.height = cv.height; }
+  const b = shadowBuf.getContext('2d');
+  b.setTransform(1, 0, 0, 1, 0, 0);
+  b.globalCompositeOperation = 'source-over'; b.globalAlpha = 1;
+  b.clearRect(0, 0, cv.width, cv.height);
+  b.setTransform(ctx.getTransform());
   const one = (pose, alpha) => {
-    if (pose !== 'swim') return drawShadowPose(ctx, s, 'c_shadow_' + pose, pose, alpha);
+    if (pose !== 'swim') return drawShadowPose(b, s, 'c_shadow_' + pose, pose, alpha);
     // 헤엄: 꼬리 박자에 맞춰 4동작을 이어 넘긴다
     const ph = wrapX(s.tail / (Math.PI * 2), 1) * 4, i = Math.floor(ph), f = ph - i;
     const k = f * f * (3 - 2 * f);
-    drawShadowPose(ctx, s, 'c_shadow_swim_' + (i + 1), 'swim', alpha * (1 - k));
-    drawShadowPose(ctx, s, 'c_shadow_swim_' + ((i + 1) % 4 + 1), 'swim', alpha * k);
+    drawShadowPose(b, s, 'c_shadow_swim_' + (i + 1), 'swim', alpha * (1 - k));
+    drawShadowPose(b, s, 'c_shadow_swim_' + ((i + 1) % 4 + 1), 'swim', alpha * k);
   };
   if (s.prevPose && s.mix < 1) one(s.prevPose, 1 - s.mix);
   one(s.pose, s.prevPose ? s.mix : 1);
+  // 수면 쪽을 서서히 지운다
+  const fade = b.createLinearGradient(0, WL + 3, 0, WL + 46);
+  fade.addColorStop(0, 'rgba(0,0,0,0)'); fade.addColorStop(1, 'rgba(0,0,0,1)');
+  b.globalCompositeOperation = 'destination-in'; b.globalAlpha = 1; b.fillStyle = fade;
+  b.fillRect(-6000, -6000, 12000, 12000);
+
+  ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalCompositeOperation = 'multiply';     // 물을 어둡게 물들인다
+  ctx.globalAlpha = 1;
+  ctx.drawImage(shadowBuf, 0, 0);
+  ctx.globalCompositeOperation = 'source-over';  // 형태가 읽히도록 한 번 더 옅게
+  ctx.globalAlpha = 0.1;
+  ctx.drawImage(shadowBuf, 0, 0);
+  ctx.restore();
 }
 
 function drawBubbles(ctx, g) {

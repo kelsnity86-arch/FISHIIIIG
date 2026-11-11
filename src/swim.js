@@ -18,6 +18,7 @@ export function createSwimmer(len, x, y, face = 1) {
     pitch: 0,             // 머리를 숙인 정도(+) / 든 정도(-)
     speed: 0, vis: 0,
     tail: 0, tailAmp: 0.03, shake: 0,
+    floor: Math.min(len * 0.19 + 8, 96),   // 이보다 얕게는 올라오지 않는다 (수면선에 몸이 잘려 보이지 않게)
     act: null,            // 특별한 자세: 'thrash' 몸부림 / 'dive' 잠수 / 'surge' 솟구침 (없으면 헤엄)
     pose: 'swim', prevPose: null, mix: 1,   // 지금 자세, 직전 자세, 넘어가는 정도
     maxSpeed: 60 / Math.sqrt(big) + len * 0.1,
@@ -60,7 +61,7 @@ export function steer(s, dt, { arrive = true } = {}) {
   s.pitch = approach(s.pitch, wantPitch, 2.2, dt);
   s.x += s.face * Math.cos(s.pitch) * s.speed * dt;
   s.y += (Math.sin(s.pitch) * s.speed + clamp(dy, -1, 1) * Math.min(Math.abs(dy), s.maxSpeed * 0.35)) * dt;
-  s.y = Math.max(4, s.y);
+  s.y = Math.max(s.floor, s.y);
 
   // 꼬리: 빠를수록 빠르게, 가속할 때 크게
   const pace = s.speed / s.maxSpeed;

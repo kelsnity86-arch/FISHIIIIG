@@ -49,7 +49,7 @@ export function surfaceY(g, x) {
     y -= s.amp * Math.exp(-d * d) * Math.max(0, 1 - s.age / s.life);
   }
   const sw = g.sw;                       // 거대한 몸이 수면 바로 밑에 있으면 물이 부풀어 오른다
-  if (sw && !sw.fleeing && sw.y < 45) {
+  if (sw && !sw.fleeing && sw.y < sw.floor + 30) {
     const d = (x - sw.x) / (sw.len * 0.38);
     y -= (1 - sw.y / 45) * Math.min(7, 2 + sw.len * 0.01) * Math.exp(-d * d) * sw.vis;
   }
@@ -464,7 +464,7 @@ function updateFight(g, dt) {
     case 'thrash':     // 수면 바로 밑에서 몸부림: 수면이 부풀고 큰 파도가 터진다
       s.target = { x: ax, y: 10, speed: 0.7, face: 1 };
       s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.09);
-      if (!f.did && f.modeT < 0.85 && s.y < 22) {
+      if (!f.did && f.modeT < 0.85 && s.y < s.floor + 14) {
         f.did = true;
         const size = clamp(L * 0.5, 120, 330);
         burst(g, 'c_thrash', s.x, size, 1.3);
@@ -481,7 +481,7 @@ function updateFight(g, dt) {
   }
   steer(s, dt, { arrive: f.mode !== 'run' });
   s.vis = 1;
-  s.act = f.mode === 'thrash' && s.y < 30 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
+  s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
 
   followLine(g, dt);
   g.bob.dipTarget = f.surging ? 8 : 5;
@@ -575,7 +575,7 @@ function updateCatch(g, dt) {
     if (s) {
       if (!c.from) c.from = { x: s.x, y: s.y, pitch: s.pitch, face: s.face };
       const u = clamp(c.pt / T_PULL, 0, 1), f = c.from;
-      const coil = { x: c.ex - lw * 0.3, y: Math.min(DEEP * 0.6, 40 + lh * 0.15) }, hit = { x: c.ex - lw * 0.12, y: 14 };
+      const coil = { x: c.ex - lw * 0.3, y: Math.min(DEEP * 0.6, 40 + lh * 0.15) }, hit = { x: c.ex - lw * 0.12, y: s.floor * 0.6 };
       if (u < 0.55) {
         const k = u / 0.55, e = k * k * (3 - 2 * k);
         s.x = lerp(f.x, coil.x, e); s.y = lerp(f.y, coil.y, e); s.pitch = lerp(f.pitch, 0.2, e);
