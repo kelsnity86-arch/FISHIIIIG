@@ -4268,37 +4268,55 @@ on the main branch, in the folder assets/raw/, with the file name c_whale_rise.p
 
 > 바다·하늘은 고급스럽게, 생물은 일부러 단순하고 허접한 도트로. 특징 하나만은 확실하게.
 
-### 153. `d_toast_shark` — 일반: 식빵상어
+### 153. `d_toast_shark` — 일반: 식빵상어 ★ 그림체 기준 (이 한 장으로 나머지 119종의 그림체를 정한다)
 
 ```
 No text. Fully transparent background.
 
-Deliberately crude, low-quality, funny retro pixel art, like a sprite a beginner drew in
-MS Paint for a cheap 8-bit game. One imaginary sea creature that mixes a real animal, an
-everyday object and a cartoon gag: a shark whose body is a slice of white bread: square bread-shaped body with a brown crust edge, a pat of yellow butter as the dorsal fin, a row of tiny triangle teeth.
+This single sprite sets the art style for 120 creatures of a fishing game, so take extra care.
 
-Rules (important):
-- VERY low resolution: the creature is drawn on a grid only about 40 pixels wide. Every
-  pixel is a big, clearly visible, perfectly square block. Blow the sprite up large with
-  hard edges - no blur, no smoothing, no anti-aliasing.
-- At most 8 flat colors. No gradients, no soft shading, no glow, no highlights except one
-  or two single pixels.
-- A thick 1-pixel dark navy outline around the whole creature.
-- Side view, facing RIGHT, body straight and stiff.
-- The one or two defining features described above must be huge, exaggerated and instantly
-  readable. Leave out all other detail.
-- Big simple dumb eyes: a white square with a black pixel.
+THE JOKE OF THE GAME: the sea and sky are beautiful, rich, painterly pixel art - but the
+creature the player hauls out is a deliberately crude, tiny, low-quality sprite, like the
+pet on a 1990s Tamagotchi / early Game Boy screen, blown up to fill half the screen.
+It must look cheap, stiff and adorable-stupid - and still be instantly recognizable.
 
-A sprite sheet of 2 frames side by side, not touching, same creature and same pixel grid:
-1) normal: blank, calm, slightly stupid stare,
-2) shocked: eyes twice as big, mouth wide open, fins or limbs sticking straight out,
-   two or three sweat-drop pixels flying off.
+THE CREATURE: "Toast Shark" - a shark whose body IS a slice of white bread.
+- Body: a square slice of sandwich bread seen from the side, pale cream inside, with a
+  brown crust running all around the edge. The rounded top of the loaf is the shark's back.
+- Dorsal fin: a square pat of yellow butter, half melted, sitting on top.
+- Tail and side fin: simple brown crust-colored triangles.
+- Face (at the RIGHT end, this is the most important part): one big square white eye with
+  a single black pixel pupil, and a wide mouth with a row of 4 or 5 tiny white triangle
+  teeth. The face takes up about one third of the sprite. In the game the camera zooms in
+  on this face until it fills the screen, so the eye and the teeth must be clear, big and
+  funny even when every pixel is the size of a thumb.
+
+STYLE RULES (follow exactly):
+- VERY low resolution: draw it on a grid about 44 pixels wide and 30 pixels tall. Every
+  pixel is a big, clearly visible, perfectly square block of one flat color, all blocks
+  the same size and aligned to one grid. Scale the sprite up large with hard edges:
+  no blur, no smoothing, no anti-aliasing, no half-pixels.
+- At most 7 flat colors in total (cream, crust brown, dark brown, butter yellow, white,
+  black, dark navy outline). No gradients, no shading, no glow, no texture, no highlights.
+- A 1-pixel dark navy outline around the whole silhouette.
+- Pure side view, facing RIGHT. Body straight and stiff like a board.
+- Leave out every detail not listed above.
+
+A sprite sheet of 2 frames side by side, with a clear gap between them, same creature,
+same size, same pixel grid:
+1) normal: blank, calm, slightly stupid stare, mouth closed in a flat line with the teeth
+   showing,
+2) shocked: the eye twice as big, mouth wide open in a square scream, fins and tail
+   sticking straight out, three sweat-drop pixels flying off the head.
+The two frames must differ only in the face, fins and sweat drops, so that flipping
+between them looks like a 2-frame Tamagotchi animation.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name d_toast_shark.png
 ```
 
 ---
+
 ### 154. `d_sock_mackerel` — 일반: 양말고등어
 
 ```
