@@ -97,6 +97,7 @@ try {
 } catch { /* 저장된 것이 없거나 읽을 수 없으면 새로 시작 */ }
 
 setInterval(save, 2000);
+addEventListener('pagehide', save); document.addEventListener('visibilitychange', () => { if (document.hidden) save(); });   // 끄거나 다른 앱으로 넘어갈 때 저장
 // 글꼴을 받은 뒤 시작한다 (못 받아도 2초 뒤에는 기기 글꼴로 시작)
 await Promise.race([Promise.all([document.fonts.load('600 12px Hahmlet', '낚'), document.fonts.load('400 12px Jua', '낚')]), new Promise((r) => setTimeout(r, 2000))]).catch(() => {});
 window.__pointer = (x, y) => pointer(game, x, y);
@@ -113,6 +114,7 @@ function frame(now) {
   if (!window.__manual) {
     update(game, dt);
     for (const [name, arg] of game.sfx) playSfx(name, arg);
+    if (game.dirty) { game.dirty = false; save(); }
   }
   game.sfx.length = 0;
   reel(game.state === 'fight' && game.hold && game.freeze <= 0, game.fight ? game.fight.tension : 0);

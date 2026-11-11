@@ -149,7 +149,6 @@ export function press(g) {
         const f = g.fish;
         if (f.isFantasy) { g.catch.phase = 'release'; }
         else {
-          g.cargo.push({ name: f.name, price: f.price, grade: f.grade });      // 어창에 싣는다 (판매는 항구에서)
           say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'stow');
           g.catch.phase = 'stow';
@@ -707,6 +706,8 @@ function updateCatch(g, dt) {
       const f = g.fish, prev = g.records[f.name];
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
       g.records[f.name] = Math.max(prev || 0, f.meters);
+      if (!f.isFantasy) g.cargo.push({ name: f.name, price: f.price, grade: f.grade });   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)
+      g.dirty = true;
       c.phase = 'hang'; c.pt = 0; g.sw = null; snd(g, 'card');
       setState(g, 'result');
     }

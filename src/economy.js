@@ -54,6 +54,8 @@ export const shopCost = (e, id) => Math.ceil(tierTotal(e.shop[id] - 1) * SHOP_SH
 export const shopLocked = (e, id) => e.shop[id] >= e.town || e.shop[id] >= 8;                // 가게는 마을 등급까지만
 const shopOf = (id) => SHOPS.find((x) => x.gear && x.gear.includes(id));
 export const skillCap = (e) => 25 * e.shop.guild;
+// 손놀림은 2배가 한계: 거기 닿으면 더 팔지 않는다
+export const skillMaxed = (e, id) => { const sk = SKILLS.find((x) => x.id === id); return !!sk.max && node(e, sk) >= sk.max - 1e-6; };
 
 const node = (e, s) => {
   let v = s.mult ? s.mult ** e.skill[s.id] : 1 + s.add * e.skill[s.id];
@@ -66,7 +68,8 @@ export const maxRegion = (e) => Math.min(8, Math.floor(e.gear.boat / 10) + 1);  
 export const cargoMax = (e) => 8 + 2 * Math.floor(e.gear.boat / 10);
 export const priceMult = (e, region) => PRICE_X ** (region - 1) * 1.25 ** (e.gear.outfit / 10) * node(e, SK.profit) * node(e, SK.big)
   * 1.03 ** (e.shop.market - 1) * 1.05 ** (e.town - 1);                                          // 수산시장 +3%, 마을 등급 +5%
-export const speedMult = (e) => Math.min(3.3, 1.25 ** (e.gear.reel / 10) * node(e, SK.speed));   // 클수록 빨리 낚는다
+const SPEED_CAP = 3.3;
+export const speedMult = (e) => Math.min(SPEED_CAP, 1.25 ** (e.gear.reel / 10) * node(e, SK.speed));   // 클수록 빨리 낚는다
 // 줄다리기에서 생물이 당기는 세기: 생물의 힘 ÷ 내 장비의 힘. 그 해역 단계의 장비면 1배, 한 단계 모자라면 4배.
 export const pullOf = (e, region) => POWER_X ** (region - 1) / POWER_X ** (0.05 * (e.gear.line + e.gear.rod));
 
@@ -78,6 +81,7 @@ export function gearCost(e, id) {
 export function gearBlock(e, id) {
   const lv = e.gear[id];
   if (lv >= 70) return '끝';
+  if (id === 'reel' && speedMult(e) >= SPEED_CAP - 1e-6) return '끝';        // 더 사도 빨라지지 않으면 팔지 않는다
   if (id !== 'boat' && lv >= maxRegion(e) * 10) return '배를 먼저';
   if (lv % 10 === 9 && shopOf(id).id && e.shop[shopOf(id).id] < Math.floor(lv / 10) + 2) return shopOf(id).name + ' 레벨';
   return null;
@@ -89,7 +93,7 @@ export const gearLabel = (lv) => `${Math.floor(lv / 10) + 1}단계 +${lv % 10}`;
 export function buy(g, kind, id) {
   const e = g.eco;
   if (kind === 'gear' && gearLocked(e, id)) return false;
-  if (kind === 'skill' && e.skill[id] >= skillCap(e)) return false;
+  if (kind === 'skill' && (e.skill[id] >= skillCap(e) || skillMaxed(e, id))) return false;
   if (kind === 'shop' && shopLocked(e, id)) return false;
   if (kind === 'town' && (e.town >= 8 || Object.keys(g.records).length < townNeedDex(e))) return false;
   const cost = kind === 'gear' ? gearCost(e, id) : kind === 'skill' ? skillCost(e, id) : kind === 'shop' ? shopCost(e, id) : townCost(e);

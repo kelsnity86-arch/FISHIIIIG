@@ -34,6 +34,28 @@ SONGS.dawn.theme = T([[7, 2], [12, 2]], [[16, 2], [12, 1], [9, 1]], [[9, 1], [12
 SONGS.harbor.theme = T([[16, 1], [19, 1], [24, 1]], [[21, 2], [16, 1]], [[17, 1], [21, 1], [24, 1]], [[14, 2], [18, 1]],
   [[16, 1], [19, 1], [16, 1]], [[21, 1], [24, 1], [21, 1]], [[17, 1], [19, 1], [21, 1]], [[19, 3]]);
 
+// 같은 시간대에도 곡이 여럿이다: 16마디마다 다른 곡으로 넘어간다 (같은 조 안에서 화음 진행·빠르기·악기가 다르다 → 조가 튀지 않는다).
+SONGS.day.alts = [
+  { bpm: 70, prog: [[5, 'maj7'], [0, 'maj7'], [2, 'm7'], [7, 'sus4']], lead: 'box', dens: 0.5, mel: 0.4 },
+  { bpm: 72, prog: [[9, 'm7'], [5, 'maj7'], [0, 'add9'], [4, 'm7']], dens: 0.5, mel: 0.44 },
+  { bpm: 66, prog: [[0, 'add9'], [4, 'm7'], [5, 'maj7'], [5, 'maj7']], lead: 'box', dens: 0.4, mel: 0.36 },
+];
+SONGS.dusk.alts = [
+  { bpm: 62, prog: [[5, 'maj7'], [4, 'm7'], [2, 'm7'], [0, 'maj7']], dens: 0.4, mel: 0.34 },
+  { bpm: 64, prog: [[0, 'add9'], [5, 'maj7'], [9, 'm7'], [7, 'sus7']], lead: 'box', dens: 0.36, mel: 0.32 },
+  { bpm: 58, prog: [[2, 'm7'], [7, 'sus7'], [0, 'maj7'], [9, 'm7']], dens: 0.34, mel: 0.3 },
+];
+SONGS.night.alts = [
+  { bpm: 50, prog: [[0, 'm7'], [5, 'm7'], [8, 'maj7'], [7, 'm7']], lead: 'ep', dens: 0.24, mel: 0.28 },
+  { bpm: 56, prog: [[8, 'maj7'], [10, 'six'], [0, 'm9'], [0, 'm9']], dens: 0.26, mel: 0.3 },
+  { bpm: 48, prog: [[5, 'm7'], [0, 'm9'], [8, 'maj7'], [3, 'maj7']], dens: 0.2, mel: 0.26 },
+];
+SONGS.dawn.alts = [
+  { bpm: 58, prog: [[5, 'maj7'], [7, 'sus4'], [0, 'add9'], [9, 'm7']], dens: 0.32, mel: 0.38 },
+  { bpm: 62, prog: [[0, 'add9'], [4, 'm7'], [5, 'maj7'], [7, 'sus4']], lead: 'ep', dens: 0.34, mel: 0.36 },
+  { bpm: 56, prog: [[9, 'm7'], [5, 'maj7'], [0, 'sus2'], [7, 'sus4']], dens: 0.28, mel: 0.34 },
+];
+
 // 해역마다 조를 옮겨 같은 곡도 다르게 들린다 (열대는 높고 밝게, 심연은 낮게)
 const REGION_SHIFT = [0, 0, 2, -3, -1, 4, -4, -6, 3];
 
@@ -92,15 +114,14 @@ export function createEngine(ctx) {
   // 전자 피아노: 부드러운 기본음 + 옅은 배음, 길게 잦아든다
   function ep(t, m, dur, vel, dest = duck) {
     const f = mtof(m), d = Math.max(0.5, dur) * 1.5;
-    osc(t, d, f, 'sine', env(t, d, vel * 0.5, 0.006, dest));
-    osc(t, d * 0.6, f * 2, 'sine', env(t, d * 0.6, vel * 0.13, 0.004, dest));
-    osc(t, 0.12, f * 4, 'sine', env(t, 0.12, vel * 0.05, 0.002, dest));
+    osc(t, d, f, 'sine', env(t, d, vel * 0.5, 0.018, dest));
+    osc(t, d * 0.6, f * 2, 'sine', env(t, d * 0.6, vel * 0.1, 0.014, dest));
   }
   // 오르골: 맑고 높은 음, 금방 사라진다
   function box(t, m, vel, dest = duck) {
     const f = mtof(m);
-    osc(t, 1.6, f, 'sine', env(t, 1.6, vel * 0.42, 0.002, dest));
-    osc(t, 0.5, f * 3.01, 'sine', env(t, 0.5, vel * 0.1, 0.002, dest));
+    osc(t, 1.8, f, 'sine', env(t, 1.8, vel * 0.36, 0.008, dest));
+    osc(t, 0.5, f * 3.01, 'sine', env(t, 0.5, vel * 0.06, 0.006, dest));
   }
   // 패드: 천천히 부풀었다 가라앉는 화음
   function pad(t, notes, dur, vel, cut) {
@@ -118,6 +139,14 @@ export function createEngine(ctx) {
   const kick = (t, vel, dest = duck) => { osc(t, 0.2, 120, 'sine', env(t, 0.2, vel, 0.002, dest), 42); };
   const taiko = (t, vel, dest = duck) => { osc(t, 0.34, 92, 'sine', env(t, 0.34, vel, 0.003, dest), 52); noise(t, 0.09, { vol: vel * 0.3, from: 900, to: 200, dest }); };
   const hat = (t, vel) => noise(t, 0.04, { vol: vel, from: 9000, to: 6000, type: 'highpass', dest: duck });
+  // 줄다리기: 짧게 끊어 치는 현악기풍 화음, 작은북, 심벌
+  function stab(t, notes, dur, vel) {
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.setValueAtTime(2400, t); lp.frequency.exponentialRampToValueAtTime(600, t + dur); lp.Q.value = 1.2;
+    lp.connect(env(t, dur, vel, 0.008, duck));
+    for (const m of notes) for (const det of [-7, 7]) { const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = mtof(m); o.detune.value = det; o.connect(lp); o.start(t); o.stop(t + dur + 0.05); }
+  }
+  const snare = (t, vel) => { noise(t, 0.13, { vol: vel, from: 5200, to: 1800, type: 'bandpass', q: 0.7, dest: duck }); osc(t, 0.08, 190, 'triangle', env(t, 0.08, vel * 0.6, 0.002, duck), 130); };
+  const crash = (t, vel) => noise(t, 1.3, { vol: vel, from: 9000, to: 4000, type: 'highpass', dest: duck });
   // 옛 게임기 소리
   const chip = (t, m, dur, vel, type = 'square') => { osc(t, dur, mtof(m), type, env(t, dur, vel, 0.004, sfx)); };
 
@@ -211,7 +240,7 @@ export function createEngine(ctx) {
     townup(t) { [67, 71, 74, 79, 83, 86, 91].forEach((m, i) => { ep(t + i * 0.08, m, 0.5, 0.42, sfx); box(t + i * 0.08 + 0.02, m + 12, 0.3, sfx); }); [67, 74, 79, 83].forEach((m) => ep(t + 0.62, m, 1.6, 0.3, sfx)); noise(t + 0.6, 1.2, { vol: 0.07, from: 6000, to: 9000, type: 'highpass', attack: 0.3 }); },
     tap(t) { osc(t, 0.03, 720, 'sine', env(t, 0.03, 0.14, 0.002, sfx)); },
     travel(t) { noise(t, 0.7, { vol: 0.14, from: 500, to: 2600, type: 'bandpass', q: 0.8, attack: 0.3 }); ep(t + 0.3, 55, 0.9, 0.3, sfx); },
-    gull(t, r) { const f = 1900 + r * 500; for (let i = 0; i < 2 + Math.floor(r * 2); i++) { const x = t + i * 0.24; osc(x, 0.2, f, 'sine', env(x, 0.2, 0.05, 0.03, amb), f * 0.72); } },
+    gull(t, r) { const f = 1900 + r * 500; for (let i = 0; i < 2 + Math.floor(r * 2); i++) { const x = t + i * 0.24; osc(x, 0.24, f, 'sine', env(x, 0.24, 0.022, 0.06, amb), f * 0.74); } },
     bell(t) { [72, 79].forEach((m) => { osc(t, 2.6, mtof(m), 'sine', env(t, 2.6, 0.09, 0.004, amb)); osc(t, 1.2, mtof(m) * 2.4, 'sine', env(t, 1.2, 0.03, 0.004, amb)); }); },
   };
 
@@ -219,24 +248,34 @@ export function createEngine(ctx) {
   const st = { scene: 'sea', phase: 'day', fight: 0, region: 1, town: 1, quiet: false };
   let beatN = 0, barN = 0, nextT = 0, song = SONGS.day, songId = 'day', shift = 0;
   const rand = rng(20261111);
-  let melDeg = 2, lastBeat = 0;
+  let melDeg = 2, lastBeat = 0, variant = 0, wasFight = false;
   function scheduleBeat(t) {
     const b = beatN % song.beats;
     if (b === 0) {                                          // 마디가 바뀔 때 곡을 고른다
       const want = st.scene === 'harbor' ? 'harbor' : st.phase;
-      if (want !== songId) { songId = want; song = SONGS[want] || SONGS.day; barN = 0; }
+      const base = SONGS[want] || SONGS.day;
+      if (want !== songId) { songId = want; song = base; variant = 0; barN = 0; }
+      else if (base.alts && barN > 0 && barN % 16 === 0) {            // 다른 곡으로 (방금 것은 빼고 고른다)
+        let v = Math.floor(rand() * (base.alts.length + 1)); if (v === variant) v = (v + 1) % (base.alts.length + 1);
+        variant = v; song = v === 0 ? base : { ...base, ...base.alts[v - 1], theme: null };
+      }
       shift = st.scene === 'harbor' ? 0 : REGION_SHIFT[st.region] || 0;
     }
     const fi = song.waltz ? 0 : st.fight;                    // 줄다리기의 긴박함 0~1
-    const beatDur = 60 / (song.bpm * (1 + 0.32 * fi));
-    const [rootOff, kind] = song.prog[barN % song.prog.length], root = song.key + shift + rootOff, tones = CH[kind];
+    const hot = fi > 0.12;                                   // 줄다리기 중
+    const beatDur = hot ? 60 / (118 + 46 * fi) : 60 / song.bpm;   // 줄다리기는 곡의 빠르기와 상관없이 빠르게 몰아친다
+    // 줄다리기 중에는 어두운 화음 진행으로 바뀐다 (라단조풍: vi – IV – V – V)
+    const [rootOff, kind] = hot ? [[9, 'min'], [5, 'maj'], [7, 'maj'], [7, 'sus4']][barN % 4] : song.prog[barN % song.prog.length];
+    const root = song.key + shift + rootOff, tones = CH[kind];
+    if (hot && !wasFight) crash(t, 0.22);                    // 걸리는 순간 심벌
+    wasFight = hot;
     const low = song.low ? -12 : 0;
     if (b === 0) {
       const rich = song.waltz ? clamp((st.town - 1) / 7, 0, 1) : 1;
       if (!song.waltz || rich > 0.25) pad(t, [root - 12, ...tones.slice(0, 3).map((x) => root + x)], beatDur * song.beats, 0.05 * (song.waltz ? rich : 1), song.pad);
       bass(t, root - 24 + (root - 24 < 31 ? 12 : 0), beatDur * (song.waltz ? 1 : 2), song.waltz ? 0.3 : 0.2);
     }
-    if (song.waltz) {                                         // 항구: 쿵 짝 짝
+    if (hot) { /* 잔잔한 반주는 쉰다 */ } else if (song.waltz) {                                         // 항구: 쿵 짝 짝
       if (b > 0) tones.slice(0, 3).forEach((x) => ep(t, root + x, beatDur * 0.5, 0.17));
     } else {
       for (let h = 0; h < 2; h++) {                           // 화음을 풀어 치는 반주
@@ -246,7 +285,7 @@ export function createEngine(ctx) {
       }
     }
     // 가락: 8마디는 주제 가락, 다음 8마디는 음계 안에서 한두 칸씩 움직이는 자유로운 가락. (줄다리기 중에는 주제를 쉰다)
-    const themed = song.theme && Math.floor(barN / 8) % 2 === 0 && fi < 0.2;
+    const themed = song.theme && Math.floor(barN / 8) % 2 === 0 && !hot;
     if (themed && b === 0) {
       for (const [x, n, len] of song.theme[barN % 8]) {
         const m = song.key + shift + n + (song.oct || 0) + low, at = t + x * beatDur;
@@ -254,21 +293,29 @@ export function createEngine(ctx) {
       }
     }
     const restBar = barN % 4 === 3 && b > 0;
-    if (!themed && !restBar && rand() < song.mel * (b === 0 ? 1.4 : 1)) {
+    if (!hot && !themed && !restBar && rand() < song.mel * (b === 0 ? 1.4 : 1)) {
       melDeg = clamp(melDeg + Math.round((rand() - 0.5) * 3.4), 0, song.scale.length * 2 - 1);
       const oct = Math.floor(melDeg / song.scale.length), m = song.key + shift + 12 + oct * 12 + song.scale[melDeg % song.scale.length] + low;
       const at = t + (rand() < 0.3 ? beatDur / 2 : 0);
       if (song.lead === 'box') box(at, m + 12, 0.5 + rand() * 0.15); else ep(at, m, beatDur * 1.5, 0.34 + rand() * 0.1);
     }
-    // 줄다리기: 북과 낮은 음이 깔린다
-    if (fi > 0.08) {
-      for (let h = 0; h < 2; h++) bass(t + h * beatDur / 2, root - 24 + (root - 24 < 31 ? 12 : 0), beatDur * 0.4, 0.26 * fi);
-      if (b % 2 === 0) kick(t, 0.5 * fi);
-      if (fi > 0.45) { taiko(t + beatDur / 2, 0.4 * fi); if (b === song.beats - 1) taiko(t + beatDur * 0.75, 0.34 * fi); }
-      if (fi > 0.7) for (let h = 0; h < 4; h++) hat(t + h * beatDur / 4, 0.05 * fi);
+    // 줄다리기: 달리는 낮은 음, 북, 끊어 치는 화음. 장력이 오를수록 층이 늘고 세진다.
+    if (hot) {
+      const lowRoot = root - 24 + (root - 24 < 31 ? 12 : 0), v = 0.55 + 0.45 * fi;
+      for (let h = 0; h < 4; h++) bass(t + h * beatDur / 4, lowRoot + (h === 2 ? 12 : h === 3 ? 7 : 0), beatDur * 0.22, 0.3 * v);   // 16분음표로 달린다
+      kick(t, 0.6 * v);
+      if (b % 2 === 1) snare(t, 0.2 * v);
+      for (let h = 0; h < 2; h++) hat(t + h * beatDur / 2, 0.045 * v);
+      // 끊어 치는 화음: 쿵 . 짝짝 . 짝 . 짝 (엇박)
+      const pat = [[0, 1], [0.5, 0], [0.75, 1], [0.25, 0]][b % 4];
+      stab(t + pat[0] * beatDur, [root - 12, root - 12 + tones[1], root - 12 + tones[2]], beatDur * 0.3, (0.1 + pat[1] * 0.05) * v);
+      if (fi > 0.5) { taiko(t + beatDur / 2, 0.36 * fi); for (let h = 0; h < 4; h++) hat(t + h * beatDur / 4, 0.03 * fi); }
+      if (fi > 0.5 && b === song.beats - 1) { taiko(t + beatDur * 0.5, 0.4 * fi); taiko(t + beatDur * 0.75, 0.46 * fi); }           // 마디 끝 북 몰아치기
+      // 장력이 높으면 높은 음이 다급하게 오르내린다
+      if (fi > 0.7) for (let h = 0; h < 4; h++) chip(t + h * beatDur / 4, root + 12 + tones[(beatN * 4 + h) % 3], beatDur * 0.2, 0.035 * fi, 'triangle');
     }
     // 환경음: 갈매기(밤에는 없다), 항구의 종
-    if (b === 0 && st.phase !== 'night' && rand() < (st.scene === 'harbor' ? 0.2 : 0.12)) S.gull(t + rand() * 2, rand());
+    if (b === 0 && !hot && st.phase !== 'night' && rand() < (st.scene === 'harbor' ? 0.14 : 0.07)) S.gull(t + rand() * 2, rand());
     if (b === 0 && st.scene === 'harbor' && barN % 8 === 5) S.bell(t + beatDur);
     lastBeat = beatDur;
     beatN++; if (beatN % song.beats === 0) barN++;

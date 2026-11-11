@@ -4,7 +4,7 @@ import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
-  townCost, townNeedDex, shopCost, shopLocked, skillCap,
+  townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed,
 } from './economy.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
@@ -100,7 +100,7 @@ function rowInfo(g, kind, id) {
   }
   if (kind === 'skill') {
     const x = SKILLS.find((v) => v.id === id), lv = e.skill[id];
-    return { name: x.name, level: `Lv.${lv}`, desc: x.desc, cost: skillCost(e, id), block: lv >= skillCap(e) ? (e.shop.guild >= 8 ? '끝' : `길드 Lv.${e.shop.guild + 1}`) : null, icon: SKILL_ICON[id] };
+    return { name: x.name, level: `Lv.${lv}`, desc: x.desc, cost: skillCost(e, id), block: skillMaxed(e, id) ? '끝' : lv >= skillCap(e) ? (e.shop.guild >= 8 ? '끝' : `길드 Lv.${e.shop.guild + 1}`) : null, icon: SKILL_ICON[id] };
   }
   if (kind === 'shop') {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];

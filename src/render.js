@@ -114,30 +114,46 @@ function drawCoins(ctx, g) {
   }
 }
 
-// 결과 카드: 등급별 틀 그림. 위 창에 생물, 아래 두 줄에 이름과 치수·값.
+// 결과 카드: 등급별 틀 그림. 틀마다 창과 글자 칸의 자리가 달라서, 그림에서 잰 자리(폭·높이 대비 [왼, 위, 오른, 아래])에 맞춘다.
+const CARD = [
+  { win: [0.104, 0.136, 0.9, 0.589], name: [0.117, 0.642, 0.887, 0.735], stat: [0.121, 0.764, 0.887, 0.861] },
+  { win: [0.095, 0.186, 0.907, 0.623], name: [0.12, 0.673, 0.886, 0.764], stat: [0.12, 0.786, 0.886, 0.877] },
+  { win: [0.091, 0.239, 0.911, 0.622], name: [0.112, 0.67, 0.89, 0.757], stat: [0.112, 0.783, 0.89, 0.87] },
+  { win: [0.108, 0.145, 0.898, 0.602], name: [0.116, 0.655, 0.89, 0.752], stat: [0.121, 0.781, 0.886, 0.877] },
+  { win: [0.091, 0.2, 0.909, 0.608], name: [0.12, 0.656, 0.884, 0.745], stat: [0.12, 0.772, 0.884, 0.86] },
+  { win: [0.108, 0.23, 0.892, 0.617], name: [0.132, 0.664, 0.872, 0.749], stat: [0.136, 0.774, 0.868, 0.86] },
+];
+// 글자를 칸 한가운데에 놓는다. 칸보다 길면 글자를 줄인다.
+function fitText(ctx, str, box, size, font, weight, color) {
+  ctx.font = `${weight} ${size}px ${font}`;
+  const w = ctx.measureText(str).width, max = (box[2] - box[0]) * 0.9;
+  if (w > max) ctx.font = `${weight} ${size * max / w}px ${font}`;
+  const mt = ctx.measureText(str), asc = mt.actualBoundingBoxAscent, desc = mt.actualBoundingBoxDescent;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = color;
+  ctx.fillText(str, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 + (asc - desc) / 2);     // 실제 글자 높이의 가운데를 칸의 가운데에
+}
 function drawResultCard(ctx, g) {
-  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite('ui_card_' + (gi + 1));
+  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite('ui_card_' + (gi + 1)), L = CARD[gi];
   const r = g.result, T = r.age || 0, gone = r.out != null ? clamp(r.out / 0.25, 0, 1) : 0;
   const k = clamp(T / 0.3, 0, 1), e = (1 - Math.pow(1 - k, 3)) * (1 - gone);
   const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26 + gone * 10;   // 왼쪽 아래: 생물과 배를 가리지 않는다
+  const box = (b) => [cx + b[0] * cw, cy + b[1] * ch, cx + b[2] * cw, cy + b[3] * ch];
   ctx.save();
   ctx.globalAlpha = e;
-  // 창 안: 옅은 양피지 바탕 위에 생물
-  ctx.fillStyle = '#f3e3c2'; ctx.fillRect(cx + cw * 0.09, cy + ch * 0.13, cw * 0.82, ch * 0.44);
-  const spr = sprite(f.sprite), fit = Math.min(cw * 0.66 / spr.w, ch * 0.36 / spr.h);
+  // 창 안: 옅은 양피지 바탕 위에 생물 (창보다 살짝 크게 깔아 틀 밑으로 들어가게)
+  const wn = box(L.win), ww = wn[2] - wn[0], wh = wn[3] - wn[1];
+  ctx.fillStyle = '#f3e3c2'; ctx.fillRect(wn[0] - 3, wn[1] - 3, ww + 6, wh + 6);
+  const spr = sprite(f.sprite), fit = Math.min(ww * 0.78 / spr.w, wh * 0.78 / spr.h);
   ctx.imageSmoothingEnabled = false;
-  ctx.drawImage(spr.img, cx + cw / 2 - spr.w * fit / 2, cy + ch * 0.35 - spr.h * fit / 2, spr.w * fit, spr.h * fit);
+  ctx.drawImage(spr.img, (wn[0] + wn[2]) / 2 - spr.w * fit / 2, (wn[1] + wn[3]) / 2 - spr.h * fit / 2, spr.w * fit, spr.h * fit);
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(fr.img, cx, cy, cw, ch);
 
-  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.font = `400 13px ${FONT2}`; ctx.fillStyle = COLORS.navy;
-  ctx.fillText(f.name, cx + cw / 2, cy + ch * 0.672);
+  fitText(ctx, f.name, box(L.name), 12.5, FONT2, 400, COLORS.navy);
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
-  ctx.font = `600 9px ${FONT}`; ctx.fillStyle = '#5a4630';
-  ctx.fillText(f.isFantasy ? `${(f.meters * count).toFixed(1)} m · ${f.name}의 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, cx + cw / 2, cy + ch * 0.812);
-  if (T > 1.1 && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 어창에 싣기', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
+  fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
+  if (T > 1.1 && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
   if (r.stamped) {
@@ -146,7 +162,7 @@ function drawResultCard(ctx, g) {
     const st = sprite(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
     ctx.save();
     ctx.globalAlpha = e * Math.min(1, k2 * 2);
-    ctx.translate(cx + cw - 30, cy + ch * 0.2); ctx.rotate(-0.2); ctx.scale(sc, sc);
+    ctx.translate(wn[2] - 14, wn[1] + 12); ctx.rotate(-0.2); ctx.scale(sc, sc);
     ctx.drawImage(st.img, -21, -21 * st.h / st.w, 42, 42 * st.h / st.w);
     ctx.restore();
   }
@@ -293,7 +309,10 @@ function drawBackdrop(ctx, g) {
     if (!still) { ctx.fillStyle = skyTop(sky); ctx.fillRect(x, sy - 900, sw, 901); }
     ctx.restore();
   };
-  if (!still) { skyAt(-10 - sw + 1, true); skyAt(-10 + sw - 1, true); }
+  if (!still) {
+    const need = Math.ceil((W / bz + Math.abs(bx) / bz) / sw) + 1;        // 화면을 덮는 데 필요한 장 수
+    for (let i = 1; i <= Math.min(8, need); i++) { skyAt(-10 - i * (sw - 1), i % 2 === 1); skyAt(-10 + i * (sw - 1), i % 2 === 1); }
+  }
   skyAt(-10, false);
   const fx = wrapX(g.time * 2.5, W);
   for (let i = still ? -1 : -2; i <= (still ? 0 : 1); i++) draw(ctx, far, fx + i * W, HORIZON - 4, W + 0.5, far.h);
