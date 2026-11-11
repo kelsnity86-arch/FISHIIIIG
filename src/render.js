@@ -685,7 +685,13 @@ let lastTension = 0, lastPower = 0, lastDist = 0;
 const DAY_ICON = ['icon_day', 'icon_dusk', 'icon_night', 'icon_dawn'];
 // 하루의 네 구간: 새벽 · 낮 · 오후 · 밤. 구간마다 빛깔이 다르고 사이가 떨어져 있어 한눈에 구분된다.
 const DAY_SEG = { 3: ['새벽', '#c9a8f0'], 0: ['낮', '#ffd24a'], 1: ['오후', '#ff8a45'], 2: ['밤', '#5a6fd8'] };
+let clockA = 1;
 function drawDayClock(ctx, g) {
+  // 낚아 올리는 동안에는 큰 생물을 가리지 않게 서서히 사라졌다가, 끝나면 다시 나타난다
+  const hide = g.state === 'catch' || g.state === 'result';
+  clockA += ((hide ? 0 : 1) - clockA) * 0.1;
+  const A = clockA; if (A < 0.01) return;
+  ctx.save(); ctx.globalAlpha = A;
   const k = clamp(g.dayT / DAY_SEC, 0, 1), w = 170, x0 = W / 2 - w / 2, y = 15;
   const bar = sprite('h_bar'), bh = w * bar.h / bar.w, fl = sprite('h_bar_fill');
   ctx.imageSmoothingEnabled = true;
@@ -700,7 +706,7 @@ function drawDayClock(ctx, g) {
     const a0 = i === 0 ? gx : segX(at) + 0.6, a1 = i === DAY_PLAN.length - 1 ? gx + gw : segX(DAY_PLAN[i + 1][0]) - 0.6;   // 구간 사이는 홈이 비쳐 보이는 틈
     const part = (xa, xb, alpha) => {
       if (xb - xa < 0.2) return;
-      ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'source-over';
+      ctx.globalAlpha = alpha * A; ctx.globalCompositeOperation = 'source-over';
       ctx.drawImage(fl.img, (xa - gx) / gw * fl.img.width, 0, (xb - xa) / gw * fl.img.width, fl.img.height, xa, gy, xb - xa, gh);
       ctx.globalCompositeOperation = 'color'; ctx.fillStyle = DAY_SEG[id][1]; ctx.fillRect(xa, gy, xb - xa, gh);          // 채움 그림에 구간의 빛깔을 입힌다
     };
@@ -711,13 +717,14 @@ function drawDayClock(ctx, g) {
   // 구간 이름: 지금 구간은 밝게, 나머지는 흐리게
   DAY_PLAN.forEach(([at, id], i) => {
     const end = i === DAY_PLAN.length - 1 ? 1 : DAY_PLAN[i + 1][0], now = g.phase === id;
-    ctx.globalAlpha = now ? 1 : 0.55;
-    text(ctx, DAY_SEG[id][0], segX((at + end) / 2), y + bh / 2 + 5, 7, now ? DAY_SEG[id][1] : '#fff4dc', 'center', 600);
+    ctx.globalAlpha = A * (now ? 1 : 0.5);
+    text(ctx, DAY_SEG[id][0], segX((at + end) / 2), y + bh / 2 + 5, now ? 7.5 : 7, '#fff4dc', 'center', now ? 700 : 600);
   });
-  ctx.globalAlpha = 1;
+  ctx.globalAlpha = A;
   const ic = sprite(DAY_ICON[g.phase]), late = k > 0.9 ? 1 + 0.1 * Math.sin(performance.now() / 160) : 1;   // 끝이 가까우면 두근거린다
   const iw = s * late * Math.min(1, ic.w / ic.h), ih = iw * ic.h / ic.w;     // 세로로 긴 그림도 홈 높이를 넘지 않게
   ctx.drawImage(ic.img, ix - iw / 2, y - ih / 2, iw, ih);
+  ctx.restore();
 }
 
 // 게이지: 틀 그림 위에 채움 그림을 채워진 만큼만 잘라 얹는다. x0·x1 = 틀에서 홈이 시작하고 끝나는 자리(폭 대비)

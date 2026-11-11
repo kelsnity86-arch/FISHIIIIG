@@ -1,10 +1,10 @@
-// 성장(인크리멘탈) 수치. tools/sim_economy.py 로 계산해 맞춘 값: 처음부터 끝까지 같은 속도(해역마다 20~30분),
+// 성장(인크리멘탈) 수치. tools/sim_game.mjs (실제 게임 수치와 직접 잰 낚는 시간으로 끝까지 돌려 보는 계산기)로 맞춘 값: 처음부터 끝까지 같은 속도(해역마다 20~30분),
 // 약 16초마다 한 번 살 것이 생기고, 해역을 넘을 때마다 수입이 수십 배가 된다. 전체 약 3시간.
 export const POWER_X = 4;        // 해역마다 생물의 힘
 export const PRICE_X = 6;        // 해역마다 생물의 값
 export const GEAR_X = 22.5;      // 장비 한 단계마다 값
-const FIRST_SET = 131520;        // 2단계 장비 한 벌의 기준 값
-const START_CUT = 0.3;           // 첫 해역에서는 이만큼만 받는다 (시작이 느리지 않게)
+const FIRST_SET = 28000;         // 2단계 장비 한 벌의 기준 값
+const START_CUT = 0.4;           // 첫 해역에서는 이만큼만 받는다 (시작이 느리지 않게)
 const SKILL_BASE = FIRST_SET * 0.003 * START_CUT;
 
 // 장비 5종. 단계마다 10번 산다: 9번의 강화 + 10번째는 다음 단계 장비.
@@ -39,7 +39,7 @@ export const SHOPS = [
 ];
 export const TOWN_NAMES = ['', '작은 어촌', '어촌', '포구 마을', '항구 마을', '번화한 항구', '큰 항구', '무역항', '환상의 항구'];
 export const TOWN_LOOK = [0, 1, 1, 2, 2, 3, 3, 4, 5];            // 마을 등급 → 겉모습 5단계
-const DEX_NEED = [0, 0, 0, 0, 40, 80, 130, 180, 230];            // 그 등급이 되려면 도감에 있어야 하는 수 (3등급까지는 골드만)
+const DEX_NEED = [0, 0, 0, 0, 40, 70, 100, 130, 160];            // 그 등급이 되려면 도감에 있어야 하는 수 (3등급까지는 골드만)
 const TOWN_SHARE = 0.10, SHOP_SHARE = 0.04, GEAR_SHARE = 0.70;
 const tierTotal = (tier) => FIRST_SET * GEAR_X ** tier * (tier === 0 ? START_CUT : 1);   // tier 0 = 1단계에서 2단계로 가는 값
 

@@ -336,7 +336,17 @@ export function update(g, dt) {
   B.dx = approach(B.dx, dxTarget, 1.6, dt);
   B.spray = approach(B.spray, clamp(Math.abs(B.dx - prevDx) / Math.max(dt, 1e-4) / 14, 0, 1), 4, dt);
   g.rough = approach(g.rough, roughTarget, roughTarget > g.rough ? 3 : 0.7, dt);
-  g.cam.zoom = approach(g.cam.zoom, zoomTarget, zoomRate, g.realDt);
+  // 원래 크기로 돌아올 때는 정해진 시간 안에 끝낸다: 천천히 출발해 천천히 멎고, 끝나면 정확히 1배.
+  // (끝없이 조금씩 다가가면 2초 가까이 화면 전체가 0.9몇 배로 확대된 채 일렁인다)
+  if (zoomTarget === 1 && g.cam.zoom < 0.998) {
+    const b = g.camBack || (g.camBack = { from: g.cam.zoom, t: 0 });
+    b.t += g.realDt;
+    const k = clamp(b.t / 1.0, 0, 1), e = k * k * (3 - 2 * k);
+    g.cam.zoom = k >= 1 ? 1 : Math.pow(b.from, 1 - e);
+  } else {
+    g.camBack = null;
+    g.cam.zoom = Math.abs(zoomTarget - g.cam.zoom) < 0.002 ? zoomTarget : approach(g.cam.zoom, zoomTarget, zoomRate, g.realDt);
+  }
   g.cam.ox = BOAT_X * (1 - g.cam.zoom); g.cam.oy = WL * (1 - g.cam.zoom);          // 평소: 배를 기준으로 물러난다
   const cc = g.catch;
   if (cc && cc.reveal && (cc.phase === 'leap' || cc.phase === 'hang')) {
