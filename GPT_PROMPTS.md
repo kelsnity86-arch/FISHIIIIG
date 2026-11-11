@@ -10577,37 +10577,30 @@ on the main branch, in the folder assets/raw/, with the file name ui_map_pins.pn
 이 세계는 오래전 한 번 멸망한 문명 위에 있다. 게임은 그것을 말하지 않는다.
 아래 그림들은 "자세히 보면 뭔가 이상한" 정도여야 한다. 한눈에 폐허로 보이면 실패.
 
-### 346. `c_ruins` — 수평선의 아주 먼 윤곽 8개
+### 346. `c_sky_8b` — 8번 해역 하늘: 먼 산 한 곳만 고치기 (그림체 유지 시험)
 
 ```
-Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
-GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
-assets/raw/c_sky_8.png. Every image you make must look like it belongs to the same game: the
-same painterly storybook rendering, warm light, soft shading, the same level of detail.
-Matching the existing art style exactly is the most important requirement.
+This is an EDIT of an existing image, not a new painting.
 
-No text. Fully transparent background.
+Open assets/raw/c_sky_8.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same moon, same floating
+islands, same stars, same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
 
-A sprite sheet of 8 very distant silhouettes in a grid of 4 columns x 2 rows, never touching.
-Each one is a far-away shape sitting on the sea horizon, painted exactly like the distant
-hazy islands and mountains in c_sky.png: a single soft pale blue-grey tone, almost no
-detail, soft edges, flat bottom edge (the waterline), wider than tall (about 3:1).
-At first glance each must read as an ordinary distant island or rock. Only on a second look
-the outline is slightly too regular. Very subtle, never obvious, no windows, no details:
-1) a low island whose top edge has three or four rectangular steps (like worn-down blocks),
-2) an island with one thin leaning mast-like spike and a faint sagging line to a second spike,
-3) a misty island whose silhouette is a large partial circle (like the top of a huge wheel)
-   rising behind a rounded hill,
-4) a long, perfectly level low shape with evenly spaced short legs (like a far-off broken
-   bridge), mostly hidden in haze,
-5) an iceberg-like shape with one unnaturally straight vertical side,
-6) a volcanic rock island with a single tall, thin, straight chimney-like column,
-7) a lone thin tower-like rock standing in open water, slightly tilted,
-8) THIS ONE may be a little clearer than the others: a cluster of tall, narrow, tilted
-   block-like towers of different heights rising from the water, softened by glowing mist,
-   still a pale silhouette without windows or details.
+Change ONLY ONE small thing: at the bottom, just right of the centre, there is a range of
+very distant pale purple mountains on the horizon (between the small green island in the
+middle and the green island at the far right). Reshape the silhouette of that distant range
+in one place so that, among the soft mountain shapes, there stands a small cluster of five
+or six tall, narrow, slightly leaning block-like towers of different heights, some with
+broken, stepped tops. Paint them in exactly the same flat, hazy pale purple as the distant
+mountains around them: a soft silhouette only, no windows, no lines, no details, no lights,
+softened by the same warm horizon glow. They must be about as tall as the highest distant
+mountain peak, not taller. At first glance they should read as part of the mountain range.
+
+No text. No other changes anywhere in the image.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name c_ruins.png
+on the main branch, in the folder assets/raw/, with the file name c_sky_8b.png
 ```
 
 ---
