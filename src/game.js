@@ -1,11 +1,12 @@
 // 낚시 진행(상태·수치). 그리기는 render.js 가 담당.
 // 구도는 순수 옆모습: 수면선(WL) 위는 하늘, 아래는 물의 단면. (목표 화면: assets/concept)
 import {
+  DAY_SEC, phaseAt,
   W, H, WL, BOAT_X, CAST_NEAR, CAST_FAR, ROD_LEN, DEEP, LEAP_X, LEAP_SCALE, SHADOW_LEN,
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
-import { updateTravel, updateHarbor } from './harbor.js';
+import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
 import { newEconomy, priceMult, speedMult, pullOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
@@ -25,7 +26,7 @@ export function createGame() {
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
-    forceGrade: null, phase: 0, phaseT: 0,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
+    forceGrade: null, phase: 3, dayT: 0, dayWarned: false,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
     power: 0, powerDir: 1, castX: CAST_NEAR,
     rodAngle: 0.32, rodBend: 0, pose: 1,
     rock: 0, rockV: 0, shake: 0,
@@ -197,8 +198,15 @@ export function update(g, dt) {
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
   updateTravel(g, dt); updateHarbor(g, dt);
-  g.phaseT += dt;                                    // 시간이 흐른다: 시간대마다 2분 30초
-  if (g.phaseT > PHASE_SEC) { g.phaseT = 0; g.phase = (g.phase + 1) % 4; }
+  // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
+  if (g.scene === 'sea' && !g.travel) {
+    g.dayT += dt;
+    g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
+    if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
+    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
+      if (enterHarbor(g)) g.msg = { text: '하루가 저물어 항구로 돌아간다', color: '#cfd8ff', age: 0 };
+    }
+  }
   if (g.msg && (g.scene !== 'sea' || g.panel)) { g.msg.age += dt; if (g.msg.age > 1.6) g.msg = null; }
   if (g.scene !== 'sea') { g.time += dt; return; }                    // 항구에 있는 동안 바다는 멈춰 있다
   if (g.freeze > 0) { g.freeze -= dt; return; }
@@ -572,7 +580,6 @@ function followLine(g, dt) {
 // 등급별 연출 강도 (0 일반 ~ 5 환상)
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
-const PHASE_SEC = 150;
 const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)

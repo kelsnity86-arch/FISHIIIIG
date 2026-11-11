@@ -6,7 +6,7 @@
 //   물속 빛살 / 그림자 / 생물의 물속 부분 / 공기방울 / 물속 낚싯줄
 //   뒤쪽 파도 / 빛줄기 / 생물의 물 위 부분 / 배·낚시꾼·낚싯대 / 낚싯줄·찌
 //   앞쪽 파도 / 물 폭발·몸부림 파도 / 물보라 조각
-import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES } from './config.js';
+import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
@@ -658,6 +658,24 @@ function fade(key, on, rate = 9) {
 }
 let lastTension = 0, lastPower = 0, lastDist = 0;
 
+// 하루 시계 (위쪽 가운데): 해가 길을 따라 가다가 노을을 지나 달이 되고, 끝에 닿으면 하루가 저문다.
+const DAY_ICON = ['icon_day', 'icon_dusk', 'icon_night', 'icon_dawn'];
+function drawDayClock(ctx, g) {
+  const k = clamp(g.dayT / DAY_SEC, 0, 1), w = 170, x0 = W / 2 - w / 2, y = 15;
+  const bar = sprite('h_bar'), bh = w * bar.h / bar.w, fl = sprite('h_bar_fill');
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(bar.img, x0, y - bh / 2, w, bh);
+  const tx = x0 + w * 0.045, tw = w * 0.91, th = tw * fl.h / fl.w;          // 틀 안쪽 홈
+  ctx.globalAlpha = 0.55;
+  if (k > 0.004) ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, tx, y - th / 2, tw * k, th);
+  ctx.globalAlpha = 1;
+  // 시간대가 바뀌는 자리에 그 시간대의 작은 표시
+  for (const [at, id] of DAY_PLAN) { if (at === 0) continue; const ic = sprite(DAY_ICON[id]); ctx.globalAlpha = 0.5; ctx.drawImage(ic.img, tx + tw * at - 4, y - 4, 8, 8 * ic.h / ic.w); }
+  ctx.globalAlpha = 1;
+  const ic = sprite(DAY_ICON[g.phase]), s = 20, late = k > 0.9 ? 1 + 0.12 * Math.sin(performance.now() / 160) : 1;   // 끝이 가까우면 두근거린다
+  ctx.drawImage(ic.img, tx + tw * k - s * late / 2, y - s * late * ic.h / ic.w / 2, s * late, s * late * ic.h / ic.w);
+}
+
 // 게이지: 틀 그림 위에 채움 그림을 채워진 만큼만 잘라 얹는다. x0·x1 = 틀에서 홈이 시작하고 끝나는 자리(폭 대비)
 function gauge(ctx, name, cx, cy, w, v, x0, x1) {
   const fr = sprite(name), fl = sprite(name + '_fill'), h = w * fr.h / fr.w, x = cx - w / 2, y = cy - h / 2;
@@ -685,15 +703,16 @@ function drawHud(ctx, g) {
   if (g.state === 'fight') { lastTension = clamp(g.fight.tension / g.fight.maxTension, 0, 1); lastDist = g.fight.dist; }
   if (ta > 0.01) {
     ctx.globalAlpha = ta;
-    gauge(ctx, 'ui_tension', W / 2, 16, 230, lastTension, 0.118, 0.972);                              // 줄 장력: 빨강까지 차면 끊어진다
-    text(ctx, `${Math.max(0, lastDist).toFixed(0)} m`, W / 2 + 132, 16, 10, 'rgba(255,244,220,0.9)', 'left', 600);
+    gauge(ctx, 'ui_tension', W / 2, H - 42, 250, lastTension, 0.118, 0.972);                          // 줄 장력: 빨강까지 차면 끊어진다 (눈이 가는 아래쪽에)
+    text(ctx, `${Math.max(0, lastDist).toFixed(0)} m`, W / 2 + 140, H - 42, 10, 'rgba(255,244,220,0.9)', 'left', 600);
     ctx.globalAlpha = 1;
   }
   if (g.state === 'fight') {
     const f = g.fight;
-    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, 42, 12, '#ffd0c0');
-    else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, 42, 12, '#ff8a7a');
+    if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, H - 64, 12, '#ffd0c0');
+    else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, H - 64, 12, '#ff8a7a');
   }
+  drawDayClock(ctx, g);
   drawSeaButtons(ctx, g);
 
   const hint = {

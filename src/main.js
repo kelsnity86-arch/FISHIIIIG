@@ -1,4 +1,4 @@
-import { W, H, GRADES, PHASES } from './config.js';
+import { W, H, GRADES, PHASES, DAY_SEC, DAY_PLAN } from './config.js';
 import { loadAssets } from './assets.js';
 import { createGame, update, press, release } from './game.js';
 import { pointer } from './harbor.js';
@@ -69,9 +69,9 @@ btnGrade.addEventListener('click', () => {
   btnGrade.textContent = '등급: ' + (i ? GRADES[i - 1].name : '무작위');
 });
 const btnTime = document.getElementById('btnTime');
-btnTime.addEventListener('click', () => {
-  game.phase = (game.phase + 1) % PHASES.length;
-  btnTime.textContent = '시간: ' + PHASES[game.phase].name;
+btnTime.addEventListener('click', () => {      // 시험용: 다음 시간대로 건너뛴다 (밤 다음에는 하루가 끝난다)
+  const k = game.dayT / DAY_SEC, next = DAY_PLAN.map((x) => x[0]).find((at) => at > k + 0.001);
+  game.dayT = (next ?? 0.995) * DAY_SEC + 0.1;
 });
 
 const btnSound = document.getElementById('btnSound');
@@ -83,7 +83,7 @@ if (btnSound) btnSound.addEventListener('click', () => {
 // ── 저장 (이 기기의 브라우저에만 남는다) ──
 const SAVE = 'horizon-angler-save-1';
 function save() {
-  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, cargo: game.cargo, records: game.records })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
+  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
 }
 try {
   const d = JSON.parse(localStorage.getItem(SAVE) || 'null');
@@ -92,7 +92,7 @@ try {
     Object.assign(game.eco.gear, d.eco && d.eco.gear); Object.assign(game.eco.skill, d.eco && d.eco.skill);
     Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
-    game.cargoMax = cargoMax(game.eco);
+    game.cargoMax = cargoMax(game.eco); game.dayT = d.dayT || 0;
   }
 } catch { /* 저장된 것이 없거나 읽을 수 없으면 새로 시작 */ }
 

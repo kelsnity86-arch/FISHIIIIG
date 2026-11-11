@@ -18,6 +18,22 @@ const SONGS = {
   dawn:   { bpm: 60, beats: 4, key: 55, prog: [[0, 'sus2'], [9, 'm7'], [5, 'maj7'], [7, 'sus4']], scale: [0, 2, 4, 7, 9], lead: 'box', dens: 0.36, mel: 0.42, pad: 900 },
   harbor: { bpm: 112, beats: 3, key: 55, prog: [[0, 'maj'], [9, 'min'], [5, 'add9'], [7, 'maj']], scale: [0, 2, 4, 5, 7, 9, 11], lead: 'ep', dens: 0.8, mel: 0.62, pad: 1000, waltz: true },
 };
+// 주제 가락: 곡마다 직접 쓴 8마디. 마디마다 [시작 박, 으뜸음에서의 반음, 길이(박)].
+// 8마디는 주제 가락, 다음 8마디는 그 화음 위에서 자유롭게 흘러가는 가락 — 을 번갈아 연주한다.
+const T = (...bars) => bars.map((b) => { let x = 0; return b.map(([n, len]) => { const r = [x, n, len]; x += len; return r; }); });
+SONGS.day.theme = T([[4, 1], [7, 1], [9, 1], [7, 1]], [[4, 2], [0, 1], [2, 1]], [[0, 1], [-3, 1], [0, 1], [5, 1]], [[2, 3]],
+  [[4, 1], [7, 1], [12, 1.5], [11, 0.5]], [[9, 2], [7, 1], [4, 1]], [[5, 1], [4, 1], [2, 1], [0, 1]], [[-1, 1], [2, 3]]);
+SONGS.day.oct = 12;
+SONGS.dusk.theme = T([[4, 2], [7, 2]], [[4, 1], [0, 1], [-3, 2]], [[0, 1], [2, 1], [4, 1], [5, 1]], [[2, 4]],
+  [[4, 1], [7, 1], [12, 2]], [[11, 1], [9, 1], [7, 2]], [[5, 2], [4, 1], [2, 1]], [[2, 2], [0, 2]]);
+SONGS.dusk.oct = 12;
+SONGS.night.theme = T([[7, 2], [12, 2]], [[15, 3]], [[12, 1], [8, 1], [5, 2]], [[7, 2], [14, 2]],
+  [[15, 2], [19, 2]], [[12, 3]], [[8, 1], [12, 1], [17, 2]], [[14, 2], [10, 2]]);
+SONGS.dawn.theme = T([[7, 2], [12, 2]], [[16, 2], [12, 1], [9, 1]], [[9, 1], [12, 1], [17, 2]], [[14, 4]],
+  [[7, 1], [12, 1], [14, 1], [16, 1]], [[19, 2], [16, 2]], [[17, 1], [16, 1], [12, 2]], [[14, 2], [7, 2]]);
+SONGS.harbor.theme = T([[16, 1], [19, 1], [24, 1]], [[21, 2], [16, 1]], [[17, 1], [21, 1], [24, 1]], [[14, 2], [18, 1]],
+  [[16, 1], [19, 1], [16, 1]], [[21, 1], [24, 1], [21, 1]], [[17, 1], [19, 1], [21, 1]], [[19, 3]]);
+
 // 해역마다 조를 옮겨 같은 곡도 다르게 들린다 (열대는 높고 밝게, 심연은 낮게)
 const REGION_SHIFT = [0, 0, 2, -3, -1, 4, -4, -6, 3];
 
@@ -39,6 +55,17 @@ export function createEngine(ctx) {
   const send = (v, into) => { const g = ctx.createGain(); g.gain.value = v; g.connect(rev); into.connect(g); };
   send(0.7, duck); send(0.25, sfx);
   const noiseBuf = (() => { const len = ctx.sampleRate * 2, b = ctx.createBuffer(1, len, ctx.sampleRate), d = b.getChannelData(0), r = rng(3); for (let i = 0; i < len; i++) d[i] = r() * 2 - 1; return b; })();
+
+  // 파도용 잡음: 9초짜리, 낮은 소리가 센 부드러운 잡음 (짧은 흰 잡음을 되풀이하면 라디오 잡음처럼 지직거린다)
+  const softBuf = (() => { const len = Math.floor(ctx.sampleRate * 9), b = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = b.getChannelData(c), r = rng(11 + c); let v = 0; for (let i = 0; i < len; i++) { v = (v + 0.02 * (r() * 2 - 1)) / 1.02; d[i] = v * 3.5; }
+      for (let i = 0; i < 4000; i++) { const k = i / 4000; d[i] = d[i] * k + d[len - 4000 + i] * (1 - k); } }     // 이음매가 튀지 않게
+    return b; })();
+
+  // 물결용 잡음: 9초짜리 흰 잡음 (부서지는 '쏴아' 소리. 폰 스피커는 낮은 소리를 못 내므로 이 층이 있어야 파도가 들린다)
+  const washBuf = (() => { const len = Math.floor(ctx.sampleRate * 9), b = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let c = 0; c < 2; c++) { const d = b.getChannelData(c), r = rng(31 + c); for (let i = 0; i < len; i++) d[i] = r() * 2 - 1; }
+    return b; })();
 
   // ── 소리 조각 ──
   function env(t, dur, vol, attack = 0.005, to = out) {
@@ -95,16 +122,33 @@ export function createEngine(ctx) {
   const chip = (t, m, dur, vel, type = 'square') => { osc(t, dur, mtof(m), type, env(t, dur, vel, 0.004, sfx)); };
 
   // ── 환경음: 늘 깔리는 파도, 항구의 웅성거림, 줄이 우는 소리 ──
-  function loopNoise(freq, type, q) {
-    const s = ctx.createBufferSource(); s.buffer = noiseBuf; s.loop = true;
+  function loopNoise(freq, type, q, buf = softBuf) {
+    const sN = ctx.createBufferSource(); sN.buffer = buf; sN.loop = true;
     const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q;
     const g = ctx.createGain(); g.gain.value = 0;
-    s.connect(f); f.connect(g); g.connect(amb); s.start(0);
+    sN.connect(f); f.connect(g); g.connect(amb); sN.start(0);
     return { g, f };
   }
   const lfo = (rate, depth, param) => { const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = rate; g.gain.value = depth; o.connect(g); g.connect(param); o.start(0); };
-  const wave = loopNoise(520, 'lowpass', 0.5), hiss = loopNoise(2400, 'bandpass', 0.7), crowd = loopNoise(420, 'bandpass', 1.4);
-  lfo(0.11, 0.17, wave.g.gain); lfo(0.07, 0.035, hiss.g.gain); lfo(0.19, 120, wave.f.frequency); lfo(0.31, 0.08, crowd.g.gain);   // 파도가 밀려왔다 빠진다
+  // 바다: 늘 깔리는 낮은 웅웅거림(sea) + 밀려왔다 부서지는 물결(wash). 물결은 하나씩 따로 밀려온다.
+  const sea = loopNoise(260, 'lowpass', 0.4), wash = loopNoise(900, 'lowpass', 0.3, washBuf), crowd = loopNoise(380, 'bandpass', 1.2);
+  const washLevel = ctx.createGain(); washLevel.gain.value = 0.5;        // 물결 하나하나의 오르내림에 곱해지는 전체 크기
+  wash.g.disconnect(); wash.g.connect(washLevel); washLevel.connect(amb);
+  lfo(0.05, 0.05, sea.g.gain); lfo(0.31, 0.05, crowd.g.gain);
+  let waveT = 0;
+  const wr = rng(99);
+  function scheduleWaves(until) {
+    while (waveT < until) {
+      const rise = 2.2 + wr() * 1.6, fall = 3 + wr() * 2.4, peak = 0.55 + wr() * 0.45, t = Math.max(waveT, 0.01);
+      wash.g.gain.setValueAtTime(0.012, t);                                   // 스으으… 밀려와서
+      wash.g.gain.linearRampToValueAtTime(peak * 0.16, t + rise);
+      wash.g.gain.linearRampToValueAtTime(0.012, t + rise + fall);            // 쏴아아 빠진다
+      wash.f.frequency.setValueAtTime(600, t);
+      wash.f.frequency.linearRampToValueAtTime(1400 + peak * 1400, t + rise);
+      wash.f.frequency.linearRampToValueAtTime(600, t + rise + fall);
+      waveT = t + rise + fall + wr() * 1.2;
+    }
+  }
   const whine = (() => { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'sine'; o.frequency.value = 2100; g.gain.value = 0; o.connect(g); g.connect(sfx); o.start(0); lfo(7, 40, o.frequency); return { o, g }; })();
 
   // ── 효과음 (t = 시작 시각) ──
@@ -201,9 +245,16 @@ export function createEngine(ctx) {
         ep(t + h * beatDur / 2 + (rand() - 0.5) * 0.012, root + tones[idx] + low, beatDur, 0.2 + rand() * 0.1);
       }
     }
-    // 가락: 음계 안에서 한두 칸씩 움직인다. 넷째 마디는 쉬어 간다.
+    // 가락: 8마디는 주제 가락, 다음 8마디는 음계 안에서 한두 칸씩 움직이는 자유로운 가락. (줄다리기 중에는 주제를 쉰다)
+    const themed = song.theme && Math.floor(barN / 8) % 2 === 0 && fi < 0.2;
+    if (themed && b === 0) {
+      for (const [x, n, len] of song.theme[barN % 8]) {
+        const m = song.key + shift + n + (song.oct || 0) + low, at = t + x * beatDur;
+        if (song.lead === 'box') box(at, m + 12, 0.62); else ep(at, m, len * beatDur, 0.46);
+      }
+    }
     const restBar = barN % 4 === 3 && b > 0;
-    if (!restBar && rand() < song.mel * (b === 0 ? 1.4 : 1)) {
+    if (!themed && !restBar && rand() < song.mel * (b === 0 ? 1.4 : 1)) {
       melDeg = clamp(melDeg + Math.round((rand() - 0.5) * 3.4), 0, song.scale.length * 2 - 1);
       const oct = Math.floor(melDeg / song.scale.length), m = song.key + shift + 12 + oct * 12 + song.scale[melDeg % song.scale.length] + low;
       const at = t + (rand() < 0.3 ? beatDur / 2 : 0);
@@ -233,9 +284,9 @@ export function createEngine(ctx) {
       st.scene = scene; st.phase = phase; st.region = region; st.town = town;
       st.fight += (fight - st.fight) * 0.08;
       const harbor = scene === 'harbor';
-      ramp(wave.g.gain, harbor ? 0.2 : 0.42 + rough * 0.3 + (phase === 'night' ? -0.08 : 0), 0.8);
-      ramp(hiss.g.gain, harbor ? 0.03 : 0.07 + rough * 0.08, 0.8);
-      ramp(crowd.g.gain, harbor && phase !== 'night' ? 0.22 : 0, 0.8);
+      ramp(sea.g.gain, (harbor ? 0.25 : 0.45) + rough * 0.3, 0.8);
+      ramp(washLevel.gain, (harbor ? 0.22 : 0.5) * (phase === 'night' ? 0.75 : 1) + rough * 0.35, 0.8);
+      ramp(crowd.g.gain, harbor && phase !== 'night' ? 0.3 : 0, 0.8);
       ramp(duck.gain, catching === 2 ? 0.0001 : catching === 1 ? 0.22 : 1, catching ? 0.12 : 0.6);   // 솟아오를 때 줄고, 뿅 직전에 정적
       const danger = clamp((tension - 0.72) / 0.28, 0, 1);
       ramp(whine.g.gain, danger * 0.05, 0.1); ramp(whine.o.frequency, 1900 + danger * 900, 0.1);
@@ -247,7 +298,8 @@ export function createEngine(ctx) {
       }
     },
     // 지금부터 until 초까지의 음악을 적어 둔다 (실시간: 조금씩 앞서서, 파일로 만들 때: 처음부터 끝까지)
-    schedule(until) { if (nextT < ctx.currentTime) nextT = ctx.currentTime + 0.05; while (nextT < until) nextT += scheduleBeat(nextT); },
+    schedule(until) { scheduleWaves(until + 2); if (st.mute) return; if (nextT < ctx.currentTime) nextT = ctx.currentTime + 0.05; while (nextT < until) nextT += scheduleBeat(nextT); },
+    muteMusic(on) { st.mute = on; },
     play(name, arg, at = ctx.currentTime + 0.01) { if (S[name]) S[name](at, arg); },
     volume(v) { ramp(master.gain, v, 0.05); },
     setFight(v) { st.fight = v; },

@@ -59,6 +59,11 @@ export const GRADES = [
 ];
 
 // 시간대: 화면 전체에 곱해지는 색
+// 바다에서의 하루: 새벽에 나가 낮·노을을 지나 밤이 끝나면 항구로 돌아온다 (10분)
+export const DAY_SEC = 600;
+export const DAY_PLAN = [[0, 3], [0.1, 0], [0.55, 1], [0.75, 2]];      // [하루 중 시작 지점(0~1), PHASES 번호]
+export const phaseAt = (k) => { let p = 3; for (const [at, id] of DAY_PLAN) if (k >= at) p = id; return p; };
+
 export const PHASES = [
   { id: 'day',   name: '낮',   tint: null,      glow: false },
   { id: 'dusk',  name: '노을', tint: '#ffb98a', glow: true },
