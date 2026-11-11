@@ -9646,3 +9646,446 @@ on the main branch, in the folder assets/raw/, with the file name c_rays2.png
 ```
 
 ---
+
+## ㉔ 해역 2~8번 배경 — 하늘과 물속
+
+### 308. `c_sky_2` — 2번 해역 산호초 열대: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the tropical coral reef sea. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a bright turquoise-blue tropical sky with tall white cumulus clouds, low green islands with palm trees and white beaches, pink coral rocks showing at the waterline.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_2.png
+```
+
+---
+
+### 309. `c_sea_2` — 2번 해역 산호초 열대: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the tropical coral reef sea. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+clear emerald-turquoise water, very bright near the surface, with faint pink and orange coral shapes far below at the bottom edge.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_2.png
+```
+
+---
+
+### 310. `c_sky_3` — 3번 해역 안개 군도: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the foggy archipelago. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a pale grey-blue overcast sky, layers of soft mist, dim silhouettes of rocky pine-covered islands fading into the fog, a faint cold sun disc.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_3.png
+```
+
+---
+
+### 311. `c_sea_3` — 3번 해역 안개 군도: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the foggy archipelago. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+grey-blue-green murky water, misty and soft, darker and greyer toward the bottom.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_3.png
+```
+
+---
+
+### 312. `c_sky_4` — 4번 해역 원양 대해: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the open ocean. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a vast deep blue sky with long thin clouds and a completely open horizon, no land at all, one tiny distant whale spout.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_4.png
+```
+
+---
+
+### 313. `c_sea_4` — 4번 해역 원양 대해: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the open ocean. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+deep rich ultramarine blue water, clean and endless, getting very dark navy toward the bottom.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_4.png
+```
+
+---
+
+### 314. `c_sky_5` — 5번 해역 극지 빙해: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the polar ice sea. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a cold pale sky with green and violet aurora ribbons, white icebergs and blue glacier cliffs on the horizon, snow haze.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_5.png
+```
+
+---
+
+### 315. `c_sea_5` — 5번 해역 극지 빙해: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the polar ice sea. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+icy pale cyan water near the surface with soft light, turning to deep cold blue, a few pale ice chunks under the surface at the top edge.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_5.png
+```
+
+---
+
+### 316. `c_sky_6` — 6번 해역 화산 해역: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the volcanic sea. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a dark red and charcoal sky filled with ash clouds, black volcanic islands with glowing orange lava flows and one erupting volcano, embers in the air.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_6.png
+```
+
+---
+
+### 317. `c_sea_6` — 6번 해역 화산 해역: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the volcanic sea. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+dark teal-black water with an orange-red glow near the surface, and faint glowing lava cracks at the very bottom.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_6.png
+```
+
+---
+
+### 318. `c_sky_7` — 7번 해역 심연 해구: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the abyss trench. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a deep indigo night sky with a thin moon and a few stars, low black rock spires on the horizon, glowing cyan bioluminescent streaks on the distant water.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_7.png
+```
+
+---
+
+### 319. `c_sea_7` — 7번 해역 심연 해구: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the abyss trench. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+very dark indigo-violet water with scattered tiny cyan and magenta glowing specks, almost black at the bottom.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_7.png
+```
+
+---
+
+### 320. `c_sky_8` — 8번 해역 환상의 바다: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the fantasy sea. Same composition and same size as
+assets/raw/c_sky.png (everything above the horizon; the bottom edge is the flat horizon line),
+but a different place:
+a dreamy purple and gold twilight sky full of stars and a huge pale moon, small floating islands with waterfalls hanging in the air, golden clouds.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a giant creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_8.png
+```
+
+---
+
+### 321. `c_sea_8` — 8번 해역 환상의 바다: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the fantasy sea. Same composition and same
+size as assets/raw/c_sea.png (everything below the waterline, seen from the side; the top
+edge is the water surface), but different water:
+luminous violet-blue water with golden star-like sparkles drifting in it, deep purple at the bottom.
+Keep it calm and mostly empty: no fish, no creatures, no plants in the middle - a large dark
+shadow must stay clearly visible against it, so the upper two thirds must be light enough.
+Very wide image, same aspect ratio as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_8.png
+```
+
+---
+
+## ㉕ 화면 UI — 게이지·카드·글자·버튼
+
+### 322. `ui2_gauge` — 게이지: 장력·힘
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Game UI pieces for that game:
+warm storybook style, hand-painted, cream parchment, polished wood, brass and rope, soft
+shading, dark navy outline. Elegant and calm - a premium fishing game, not a cartoon.
+
+Fully transparent background. Pieces never touch each other.
+
+No text, no numbers.
+
+4 pieces stacked in 4 rows, each a long horizontal bar about 8 times wider than tall:
+1) an EMPTY line-tension gauge frame: brass and wood, a hollow dark track inside, a tiny
+   fish-hook ornament at the left end,
+2) the FILL for it: a plain glowing bar with rounded ends that fits inside the track,
+   colored in three zones from left to right - calm green, warm yellow, danger red,
+3) an EMPTY casting-power gauge frame: rope-wrapped wood, a hollow dark track inside,
+   a tiny float ornament at the left end,
+4) the FILL for it: a plain glowing golden bar with rounded ends.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_gauge.png
+```
+
+---
+
+### 323. `ui2_card` — 결과 카드 틀 6종 (등급별)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Game UI pieces for that game:
+warm storybook style, hand-painted, cream parchment, polished wood, brass and rope, soft
+shading, dark navy outline. Elegant and calm - a premium fishing game, not a cartoon.
+
+Fully transparent background. Pieces never touch each other.
+
+No text, no numbers.
+
+6 empty result-card frames in a grid of 3 columns x 2 rows. Each is a horizontal parchment
+card (about 3:2) with a decorative border, a large empty picture window on the upper part
+and two empty lines of space below for text. Same shape for all six, the border material
+shows the rank:
+1) plain grey driftwood, 2) green-painted wood with a leaf, 3) blue enamel with a wave,
+4) purple velvet with silver corners, 5) orange-gold with small gems,
+6) radiant gold with a rainbow shimmer and star corners.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_card.png
+```
+
+---
+
+### 324. `ui2_caught` — "낚았다!" 글자 6종 (등급별)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Game UI pieces for that game:
+warm storybook style, hand-painted, cream parchment, polished wood, brass and rope, soft
+shading, dark navy outline. Elegant and calm - a premium fishing game, not a cartoon.
+
+Fully transparent background. Pieces never touch each other.
+
+6 pieces in a grid of 2 columns x 3 rows. Each piece is the same Korean word, written
+EXACTLY as these four characters: 낚았다!   (낚, 았, 다, and an exclamation mark).
+Thick rounded hand-lettered display type with a dark navy outline. Check the spelling of
+every piece carefully - no other text anywhere.
+The six differ only in color and decoration, growing more spectacular:
+1) cream white, plain, 2) fresh green with a small leaf sparkle, 3) ocean blue with a
+splash, 4) royal purple with stars, 5) blazing orange-gold with flames and sparks,
+6) shining gold with a rainbow edge and bursting stars.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_caught.png
+```
+
+---
+
+### 325. `ui2_stamp` — 도장 2종과 리본
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Game UI pieces for that game:
+warm storybook style, hand-painted, cream parchment, polished wood, brass and rope, soft
+shading, dark navy outline. Elegant and calm - a premium fishing game, not a cartoon.
+
+Fully transparent background. Pieces never touch each other.
+
+4 pieces in one row:
+1) a round red ink stamp, slightly worn, with the Korean text written EXACTLY as: 첫 포획
+2) a round gold ink stamp with a small crown, with the Korean text written EXACTLY as: 신기록
+3) an empty curled ribbon banner (no text) in cream,
+4) an empty small round badge (no text) with a laurel border.
+Check the Korean spelling carefully. No other text.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_stamp.png
+```
+
+---
+
+### 326. `ui2_hud` — 화면 버튼·판
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Game UI pieces for that game:
+warm storybook style, hand-painted, cream parchment, polished wood, brass and rope, soft
+shading, dark navy outline. Elegant and calm - a premium fishing game, not a cartoon.
+
+Fully transparent background. Pieces never touch each other.
+
+No text, no numbers.
+
+8 pieces in a grid of 4 columns x 2 rows:
+1) a small empty wooden plaque with a gold coin on its left end (for the money counter),
+2) a small empty wooden plaque with a fish-crate icon on its left end (for the catch hold),
+3) an empty wide rounded button, cream parchment on wood, normal state,
+4) the same button pressed down (darker, shifted 1 step down),
+5) a round icon button with a harbor lighthouse,
+6) a round icon button with a rolled sea map,
+7) a round icon button with an open book (fish encyclopedia),
+8) a round icon button with a gear.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_hud.png
+```
+
+---
