@@ -257,11 +257,41 @@ def build():
                 crop.save(OUT / file)
             manifest[item['name']] = dict(file=file, w=round(w, 2), h=round(h, 2), smooth=smooth)
         print(f'{src.name}: {len(items)}개 변환')
+    temp_dots(manifest)
     (OUT / 'manifest.json').write_text(json.dumps(dict(sprites=manifest), indent=1, ensure_ascii=False) + '\n')
     print(f'manifest.json: 그림 {len(manifest)}개 등록')
     for p in problems:
         print('문제:', p)
     return 1 if problems else 0
+
+
+# 임시 도트 생물: GPT 의 도트 생물 그림(d_*)이 오기 전까지, 기존 생물 그림을 거칠게 줄여서 쓴다.
+# 진짜 그림이 들어오면 creatures.js 의 목록에서 빠진다.
+TEMP_DOTS = ['shark', 'puffer', 'octopus', 'turtle', 'whale', 'crab']
+
+def temp_dots(manifest, wpx=44, ncol=8):
+    for name in TEMP_DOTS:
+        for i, suf in enumerate(['', '_s']):
+            src = OUT / f'fish_{name}{suf}.webp'
+            if not src.exists():
+                continue
+            im = Image.open(src).convert('RGBA')
+            im = im.crop(im.getbbox())
+            im = im.transpose(Image.FLIP_LEFT_RIGHT)             # 배(오른쪽)를 보게
+            sm = im.resize((wpx, max(1, round(im.height * wpx / im.width))), Image.BOX)
+            a = np.array(sm)
+            solid = a[..., 3] > 110
+            rgb = np.array(Image.fromarray(a[..., :3]).quantize(ncol, method=Image.MEDIANCUT, dither=Image.NONE).convert('RGB'))
+            out = np.zeros((a.shape[0] + 2, a.shape[1] + 2, 4), np.uint8)
+            out[1:-1, 1:-1, :3] = rgb
+            out[1:-1, 1:-1, 3] = np.where(solid, 255, 0)
+            m = out[..., 3] > 0
+            pad = np.pad(m, 1)
+            edge = (pad[:-2, 1:-1] | pad[2:, 1:-1] | pad[1:-1, :-2] | pad[1:-1, 2:]) & ~m
+            out[edge] = (18, 28, 60, 255)
+            key = f'd_tmp_{name}_{i + 1}'
+            Image.fromarray(out).save(OUT / (key + '.png'))
+            manifest[key] = dict(file=key + '.png', w=out.shape[1], h=out.shape[0], smooth=False)
 
 
 if __name__ == '__main__':

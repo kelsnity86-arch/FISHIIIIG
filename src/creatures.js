@@ -57,9 +57,10 @@ export function rollCreature(forcedGrade) {
     let r = Math.random() * total;
     grade = GRADES.find((g) => (r -= g.weight) < 0) || GRADES[0];
   }
-  // 목표 화면 재현 단계: 솟구치는 자세 그림이 고래 한 종뿐이라 지금은 고래만 낚인다.
-  // (다른 생물은 자세 그림을 받은 뒤 아래 줄을 원래 목록으로 되돌린다)
-  const base = { name: '고래', grade: grade.id, sprite: 'c_whale_leap', bite: 'pull' };
+  // 도트 생물 그림(d_*)이 오기 전까지는 임시 도트가 낚인다. 그림은 <sprite>_1(평소), <sprite>_2(놀람).
+  const TEMP = [['상어', 'shark'], ['복어', 'puffer'], ['문어', 'octopus'], ['거북', 'turtle'], ['고래', 'whale'], ['게', 'crab']];
+  const pick = TEMP[Math.floor(Math.random() * TEMP.length)];
+  const base = { name: '(임시) ' + pick[0], grade: grade.id, sprite: 'd_tmp_' + pick[1] + '_1', sprite2: 'd_tmp_' + pick[1] + '_2', bite: 'pull' };
   const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
   return {

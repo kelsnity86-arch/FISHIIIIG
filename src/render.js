@@ -162,7 +162,7 @@ function drawResultCard(ctx, g) {
   ctx.font = `700 15px ${FONT}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
   ctx.fillStyle = COLORS.navy; ctx.fillText(f.name, cx + 74, cy + 22);
 
-  const spr = creatureSprite(f.sprite);
+  const spr = sprite(f.sprite);
   const fit = Math.min(170 / spr.w, 62 / spr.h);
   ctx.save();
   ctx.translate(cx + cw / 2, cy + 68);
@@ -368,39 +368,32 @@ function drawRays(ctx, g) {
   ctx.restore();
 }
 
-// 낚아 올린 생물. under=true 는 수면 아래에 잠긴 부분(어두운 덩어리), false 는 물 위 부분.
-// 솟구치는 동안에는 입의 위치를 기준으로 자세 그림을 넘긴다: 머리만 → 몸 절반 → 온몸.
-//                    그림              폭 ÷ 온몸 폭   그림 안에서 입의 위치(가로, 세로)
-const RISE = [
-  ['c_whale_rise_1', 0.52, 0.93, 0.20],
-  ['c_whale_rise_2', 0.72, 0.95, 0.14],
-  ['c_whale_leap',   1.00, 0.96, 0.22],
-];
-const UNDER_TINT = ['#14507c', 0.72];
-
+// 낚아 올린 생물. under=true 는 수면 아래에 잠긴 부분, false 는 물 위 부분.
+// 솟아오르는 동안은 정체 모를 그림자(공통 그림)이고, 꼭대기에서 뿅 하고 도트 생물로 바뀐다.
+// 도트 생물은 옛 휴대용 게임기처럼 2동작을 뚝뚝 끊어 넘기며 펄떡인다 (이것만은 일부러 부드럽지 않게).
+const FLOP = [[0, 0, 0], [-0.22, -0.05, 1], [0, 0, 0], [0.2, -0.03, 1]];   // 기울기, 튀는 높이(몸길이 대비), 표정
 function drawLeap(ctx, g, under) {
   const c = g.catch;
   if (!c || c.phase === 'pull') return;
   ctx.save();
   if (!under) { ctx.beginPath(); ctx.rect(-4000, -4000, 8000, 4000 + WL + 1.5); ctx.clip(); }
-  ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
-  const a = c.alpha * (under ? 0.6 : 1);
-  if (c.phase === 'leap') {
-    const [name, wk, fx, fy] = RISE[c.stage];
-    if (!under || c.stage === 2) {               // 머리·절반 자세는 물에 잠긴 부분이 그림에 없다
-      const spr = under ? tinted(name, ...UNDER_TINT) : sprite(name);
-      const w = c.lw * wk, h = w * spr.h / spr.w;
-      ctx.globalAlpha = a;
-      ctx.translate(c.mx, c.my); ctx.rotate(c.rot);
-      ctx.drawImage(spr.img, -fx * w, -fy * h, w, h);
-    }
-  } else {
-    const base = under ? tinted('c_whale_leap', ...UNDER_TINT) : sprite('c_whale_leap');
-    const fall = under ? tinted('c_whale_fall', ...UNDER_TINT) : sprite('c_whale_fall');
-    const w = c.lw * c.scale;
-    ctx.translate(c.x, c.y); ctx.rotate(c.rot);
-    if (c.mix < 1) { ctx.globalAlpha = a * (1 - c.mix); ctx.drawImage(base.img, -w / 2, -w * base.h / base.w / 2, w, w * base.h / base.w); }
-    if (c.mix > 0) { ctx.globalAlpha = a * c.mix; ctx.drawImage(fall.img, -w / 2, -w * fall.h / fall.w / 2, w, w * fall.h / fall.w); }
+  if (!c.reveal) {
+    const spr = sprite('c_shadow_surge'), w = c.lw * 0.9, h = w * spr.h / spr.w;
+    ctx.imageSmoothingEnabled = true;
+    ctx.globalAlpha = c.alpha * (under ? 0.7 : 0.96);
+    ctx.translate(c.x, c.y); ctx.scale(-1, 1); ctx.rotate(-c.rot * 0.4);
+    ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+  } else if (!under) {
+    const step = FLOP[Math.floor(c.popT * 5) % 4];
+    const flop = c.phase === 'leap' || c.phase === 'hang';
+    const f = g.fish, spr = sprite(flop && step[2] ? f.sprite2 : f.sprite);
+    const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
+    const w = c.lw * c.scale * pop * over, h = w * spr.h / spr.w;
+    ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
+    ctx.globalAlpha = c.alpha;
+    ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
+    ctx.rotate(c.rot + (flop ? step[0] : 0));
+    ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
   }
   ctx.restore();
 }

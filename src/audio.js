@@ -68,6 +68,7 @@ const SFX = {
   snap() { noise(0.08, { vol: 0.5, from: 8000, to: 2000 }); tone(700, 0.4, { type: 'sawtooth', vol: 0.25, slide: 0.15 }); },
   lost() { tone(N(4), 0.18, { type: 'triangle', vol: 0.22 }); tone(N(0), 0.3, { type: 'triangle', vol: 0.22, at: 0.16 }); },
   // 수면을 뚫는 순간: 크기에 비례하는 쿵 + 물소리
+  pop() { tone(420, 0.16, { type: 'square', vol: 0.3, slide: 3.2 }); tone(1680, 0.1, { type: 'triangle', vol: 0.22, at: 0.1 }); },
   breachOut(size = 1) {
     tone(70, 0.6 + size * 0.2, { vol: 0.6, slide: 0.4 });
     noise(0.9 + size * 0.4, { vol: 0.5, from: 5000, to: 200 });

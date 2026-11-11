@@ -328,7 +328,7 @@ export function update(g, dt) {
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
   g.fish = rollCreature(g.forceGrade);
-  preloadCreature(g.fish.sprite);
+
   const L = g.fish.len, fx = g.castX;
   const plan = [
     { x: fx + 60 + L * 0.1, y: DEEP * 0.75, speed: 0.55 },
@@ -545,7 +545,7 @@ function startCatch(g) {
     rise: 1.15 + clamp(L / 1500, 0, 0.6),
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
-    bulgeK: 0, hitX: ex, stage: 0, mx: ex, my: WL,
+    bulgeK: 0, hitX: ex, reveal: false, popT: 0, mx: ex, my: WL,
   };
   g.fight = null;
   snd(g, 'surge');
@@ -553,7 +553,7 @@ function startCatch(g) {
 }
 
 // 솟구치는 자세 그림 안에서 입의 위치 (그림 폭·높이 대비, 가운데 기준)
-export const LEAP_MOUTH = [0.46, -0.28];
+export const LEAP_MOUTH = [0.42, 0];
 export function leapMouth(c, lh) {
   if (c.phase === 'leap') return { x: c.mx, y: c.my };
   const mx = LEAP_MOUTH[0] * c.lw * c.scale, my = LEAP_MOUTH[1] * lh * c.scale;
@@ -613,19 +613,23 @@ function updateCatch(g, dt) {
     // 줄에 끌려 물 밖으로 뽑혀 나온다: 빠르게 솟았다가 꼭대기에서 느려진다
     if (c.skip) c.pt = Math.max(c.pt, c.rise);
     const u = clamp(c.pt / c.rise, 0, 1), e = easeOut(u);
-    // 입이 지나가는 길(수면 → 꼭대기)을 따라, 머리만(0) → 몸 절반(1) → 온몸(2) 순서로 자세 그림을 넘긴다
-    const m0 = { x: c.ex + lw * 0.12, y: WL + lh * 0.04 }, m1 = { x: apex.x + lw * LEAP_MOUTH[0], y: apex.y + lh * LEAP_MOUTH[1] };
-    c.mx = lerp(m0.x, m1.x, Math.pow(e, 1.25)); c.my = lerp(m0.y, m1.y, e);
-    const stage = e < 0.22 ? 0 : e < 0.48 ? 1 : 2;
-    if (stage !== c.stage) { c.stage = stage; spray(g, c.mx - lw * 0.25, WL, 4, 150 + lw * 0.25, lw * 0.22); }
-    c.rot = stage === 2 ? lerp(-0.3, 0, easeOut((e - 0.48) / 0.52)) : 0;
-    c.x = c.mx - lw * LEAP_MOUTH[0]; c.y = c.my - lh * LEAP_MOUTH[1];
+    // 구구구구…: 정체 모를 거대한 그림자가 물보라에 싸인 채 솟아오른다. 꼭대기에 닿는 순간 뿅 — 정체가 드러난다.
+    c.x = lerp(start.x, apex.x, e); c.y = lerp(start.y, apex.y, e);
+    c.rot = lerp(-0.75, -0.1, e);
+    if (!c.reveal && u >= 0.86) {
+      c.reveal = true; c.popT = 0;
+      g.flash = 0.5; g.freeze = 0.06; g.shake = 3;
+      spray(g, c.x, c.y, 10, 120 + lw * 0.2, lw * 0.3);
+      snd(g, 'pop');
+    }
+    if (c.reveal) { c.popT += dt; c.rot = 0; }
+    c.mx = c.x + lw * 0.42 * Math.cos(c.rot); c.my = c.y + lw * 0.42 * Math.sin(c.rot);
     c.out = e;
     if (u > 0.12 && u < 1 && !c.skip) g.slowTarget = SLOW[gi];
     out.roughTarget = 1; out.shaftsTarget = 0.8; out.raysTarget = u > 0.35 ? 0.65 + gi * 0.07 : 0; out.dimTarget = DIM[gi];
     c.shed -= dt;                                   // 몸에서 물이 흩어진다
-    if (c.shed <= 0 && u < 0.95) { c.shed = 0.07; spray(g, c.x + rand(-0.35, 0.35) * lw, c.y + rand(-0.3, 0.1) * lh, 1, 60 + lw * 0.1, lw * 0.14); }
-    if (!g.catchFx && u >= 0.62) { g.catchFx = { age: 0, gi }; snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
+    if (c.shed <= 0 && !c.reveal) { c.shed = 0.035; spray(g, c.x + rand(-0.4, 0.4) * lw, c.y + rand(-0.25, 0.2) * lh, 1, 70 + lw * 0.12, lw * 0.2); }   // 물보라가 그림자를 감싼다
+    if (!g.catchFx && c.reveal) { g.catchFx = { age: 0, gi }; snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
     if (u >= 1) {
       const f = g.fish, prev = g.records[f.name];
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
@@ -635,7 +639,7 @@ function updateCatch(g, dt) {
     }
   } else if (c.phase === 'hang') {
     // 꼭대기에 걸린 채 천천히 떠 있다 (결과 카드가 뜨는 동안)
-    c.x = apex.x; c.y = apex.y + Math.sin(c.pt * 1.6) * 3; c.rot = Math.sin(c.pt * 1.1) * 0.025;
+    c.x = apex.x; c.y = apex.y; c.rot = 0; c.popT += dt;   // 펄떡임은 그리는 쪽에서 (옛 휴대용 게임기처럼 뚝뚝 끊기게)
     out.roughTarget = 0.6; out.shaftsTarget = 0.6; out.raysTarget = 0.65 + gi * 0.07; out.dimTarget = DIM[gi];
     c.shed -= dt;
     if (c.shed <= 0) { c.shed = 0.35; spray(g, c.x + rand(-0.3, 0.3) * lw, c.y + rand(0, 0.3) * lh, 1, 30, lw * 0.1); }
