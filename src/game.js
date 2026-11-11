@@ -494,7 +494,13 @@ function updateFight(g, dt) {
 
   if (f.tension >= f.maxTension) { fail(g, '줄이 끊어졌다!'); return null; }
   if (f.slack > FIGHT.slackTime) { fail(g, '바늘이 빠졌다…'); return null; }
-  if (f.dist <= 0) { startCatch(g); return null; }
+  if (f.dist <= 0) {
+    // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,
+    // 제자리(배 왼쪽)로 돌아올 때까지 지친 상태로 끌려오게 한 뒤 낚아 올린다.
+    f.dist = 0;
+    if (s.x < BOAT_X - 110 - L * 0.2 && s.face > 0.6) { startCatch(g); return null; }
+    f.mode = 'tired'; f.modeT = 1; f.tele = 0;
+  }
 
   // 배의 반응: 줄이 당기는 쪽(왼쪽)으로 기울고, 날뛸 때 버티면 끌려간다
   const pull = clamp(f.tension, 0, 1.2) * Math.min(2, 0.6 + p * 0.6);
@@ -527,7 +533,8 @@ function startCatch(g) {
   // 화면보다 큰 생물은 카메라가 배를 기준으로 뒤로 빠진다 (배는 제자리에서 점처럼 작아진다).
   // 솟구치는 자리는 입이 배 왼쪽 가까이에 오도록 잡는다.
   const zoom = clamp(300 / lw, 0.3, 1);
-  const ex = BOAT_X + (W * 0.72 - lw * zoom * 0.5 - BOAT_X) / zoom;
+  let ex = BOAT_X + (W * 0.72 - lw * zoom * 0.5 - BOAT_X) / zoom;
+  if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40) * zoom;      // 그림자가 있는 자리에 가깝게
   g.catch = {
     phase: 'pull', pt: 0, lw, gi: GRADES.indexOf(g.fish.gradeInfo), zoom, ex,
     rise: 1.15 + clamp(L / 1500, 0, 0.6),
