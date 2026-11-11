@@ -5,7 +5,7 @@ import {
   TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
-import { sprite } from './assets.js';
+import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -343,6 +343,7 @@ export function update(g, dt) {
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
   g.fish = rollCreature(g.forceGrade);
+  preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
   // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)

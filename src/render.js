@@ -440,14 +440,17 @@ function drawLeap(ctx, g, under) {
   } else if (!under) {
     const step = FLOP[Math.floor(c.popT * 5) % 4];
     const flop = c.phase === 'leap' || c.phase === 'hang';
-    const f = g.fish, spr = sprite(flop && step[2] ? f.sprite2 : f.sprite);
+    const f = g.fish, base = sprite(f.sprite), shocked = flop && step[2] && hasSprite(f.sprite2);
+    const spr = shocked ? sprite(f.sprite2) : base;
     const pop = Math.min(1, c.popT / 0.12), over = 1 + 0.35 * Math.sin(Math.min(1, c.popT / 0.3) * Math.PI);   // 뿅: 톡 튀어나오며 잠깐 부푼다
-    const w = c.lw * c.fit * c.scale * pop * over, h = w * spr.h / spr.w;
+    const w = c.lw * c.fit * c.scale * pop * over, h = w * base.h / base.w;
+    // 놀람 그림은 평소 그림과 몸 크기가 같게, 왼쪽 아래를 맞춰 겹친다 (땀방울만큼 위·오른쪽으로 더 나온다)
+    const k = w / base.sw, w2 = spr.sw * k, h2 = spr.sh * k;
     ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
-    ctx.rotate(c.rot + (flop ? step[0] : 0));   // 큰 몸은 덜 기울여 얼굴이 화면 밖으로 나가지 않게
-    ctx.drawImage(spr.img, -w / 2, -h / 2, w, h);
+    ctx.rotate(c.rot + (flop ? step[0] : 0));
+    ctx.drawImage(spr.img, -w / 2, h / 2 - h2, w2, h2);
   }
   ctx.restore();
 }

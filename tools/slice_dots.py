@@ -68,6 +68,14 @@ def dot_sheets(manifest):
         src = RAW / (sheet + '.png')
         if not src.exists():
             continue
+        # 이미 변환한 장은 건너뛴다 (원본이 바뀌지 않았으면)
+        outs = [OUT / f'd_{n}.png' for n in names]
+        if all(o.exists() and o.stat().st_mtime >= src.stat().st_mtime for o in outs):
+            for n, o in zip(names, outs):
+                w, h = Image.open(o).size
+                old = manifest.get('d_' + n, {})
+                manifest['d_' + n] = dict(file=o.name, w=w, h=h, smooth=False, **{k: old[k] for k in ('sw', 'sh') if k in old})
+            continue
         a = np.array(Image.open(src).convert('RGB'))
         fg = ~bg_mask(a)
         s = S.pixel_size(a, fg)
@@ -85,8 +93,23 @@ def dot_sheets(manifest):
             Image.fromarray(arr, 'RGBA').save(OUT / (key + '.png'))
             manifest[key] = dict(file=key + '.png', w=arr.shape[1], h=arr.shape[0], smooth=False)
         print(f'{sheet}: 도트 1칸 {s:.2f}px, {len(names)}마리')
+    source_sizes(manifest)
     write_game_list(manifest)
     return problems
+
+
+def source_sizes(manifest):
+    """그림마다 원본에서 차지하던 크기(sw, sh)를 적어 둔다. 평소 그림과 놀람 그림은 장마다 도트 굵기가 조금 달라서,
+    게임에서 두 그림을 같은 몸 크기로 겹쳐 넘기려면 이 값이 필요하다."""
+    for sheet, names in SHEETS.items():
+        src = RAW / (sheet + '.png')
+        if not src.exists() or all('sw' in manifest.get('d_' + n, {'sw': 1}) for n in names):
+            continue
+        a = np.array(Image.open(src).convert('RGB'))
+        s = S.pixel_size(a, ~bg_mask(a))
+        for n in names:
+            e = manifest.get('d_' + n)
+            if e: e['sw'] = round(e['w'] * s, 1); e['sh'] = round(e['h'] * s, 1)
 
 
 if __name__ == '__main__':

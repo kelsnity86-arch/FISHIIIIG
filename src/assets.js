@@ -138,7 +138,7 @@ function buildPlaceholders() {
 // 생물 그림(fish_*, fantasy_*)은 수가 많아서 처음에 다 받지 않고, 낚일 생물이 정해질 때 받는다.
 let manifest = {};
 const pending = new Map();
-const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_');
+const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_') || name.startsWith('d_');   // 생물 그림은 필요할 때 받는다
 
 function loadOne(name) {
   if (sprites[name] && !sprites[name].placeholder) return Promise.resolve();
@@ -147,7 +147,7 @@ function loadOne(name) {
   if (!info) return Promise.resolve();
   const p = new Promise((done) => {
     const img = new Image();
-    img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth }; done(); };
+    img.onload = () => { sprites[name] = { img, w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h }; done(); };
     img.onerror = () => done(); // 파일이 없으면 임시 그림 유지
     img.src = 'assets/game/' + info.file;
   });
@@ -167,8 +167,8 @@ export async function loadAssets() {
 }
 
 // 생물 그림 미리 받기 (평소·놀람 둘 다). 그림자가 다가오는 동안 받아 둔다.
-export function preloadCreature(name) {
-  return Promise.all([loadOne(name), loadOne(name + '_s')]);
+export function preloadCreature(...names) {
+  return Promise.all(names.map(loadOne));
 }
 
 const EMPTY = (() => { const c = document.createElement('canvas'); c.width = c.height = 1; return { img: c, w: 16, h: 16, smooth: true }; })();
