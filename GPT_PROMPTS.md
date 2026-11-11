@@ -8180,21 +8180,22 @@ THE CREATURE - "Toast Shark". Build it literally, like a child would:
   snout with one dot eye and a zig-zag row of teeth.
 - A small pat of butter sits on the toast face. Facing RIGHT. Stiff, no pose.
 
-It must look cheap, crude and funny - NOT cute, NOT polished, NOT a modern mobile game
-sprite. Wobbly, awkward, a bit ugly is correct.
+It must be simple and funny, with a dumb deadpan face.
 
 THE 6 STYLES (top row left to right, then bottom row):
-1) 1990s Tamagotchi LCD: about 20 pixels wide, ONLY black pixels on transparent, no grey,
-   no outline color - just black blocks forming the shape, eye and teeth.
-2) Original Game Boy: about 24 pixels wide, exactly 4 shades of olive green, chunky.
-3) NES 8-bit: about 24 pixels wide, exactly 3 flat colors plus black outline.
-4) Ultra tiny icon: only about 14 pixels wide, 4 flat colors, barely readable but funny.
-5) Bad MS Paint doodle: NOT pixel grid - drawn with a shaky mouse, wobbly black line,
+1) Modern color Tamagotchi screen (like Tamagotchi Uni / Paradise): about 32 pixels wide,
+   bright flat colors with one darker tone, clean dark outline, simple friendly face.
+2) The same modern color Tamagotchi look but about 48 pixels wide with a little more
+   detail (crust texture dots, butter shine pixel).
+3) The same modern color Tamagotchi look, about 32 pixels wide, but with a deliberately
+   derpy, ugly-funny face: eyes pointing different ways, crooked teeth.
+4) Game Boy Color era: about 24 pixels wide, 4 flat colors plus black outline, chunky.
+5) Classic 1990s Tamagotchi LCD: about 20 pixels wide, ONLY black pixels on transparent.
+6) Bad MS Paint doodle: NOT pixel grid - drawn with a shaky mouse, wobbly black line,
    flat bucket-fill colors that slightly miss the lines.
-6) Cheap 16-bit shareware game: about 40 pixels wide, 7 flat colors, thick dark outline.
 
-For the pixel styles (1, 2, 3, 4, 6): every pixel is a big, perfectly square block of one
-flat color on one grid; hard edges, no blur, no anti-aliasing, no gradients.
+For the pixel styles (1 to 5): every pixel is a big, perfectly square block of one flat
+color on one grid; hard edges, no blur, no anti-aliasing, no gradients.
 Draw all 6 at the same displayed size so they can be compared.
 
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
