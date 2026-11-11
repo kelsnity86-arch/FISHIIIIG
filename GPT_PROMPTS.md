@@ -10570,3 +10570,97 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name ui_map_pins.png
 ```
 
+---
+
+## ㉙ 숨은 흔적 (세계의 비밀 — 티 나지 않게)
+
+이 세계는 오래전 한 번 멸망한 문명 위에 있다. 게임은 그것을 말하지 않는다.
+아래 그림들은 "자세히 보면 뭔가 이상한" 정도여야 한다. 한눈에 폐허로 보이면 실패.
+
+### 346. `c_ruins` — 수평선의 아주 먼 윤곽 8개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sky_8.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, warm light, soft shading, the same level of detail.
+Matching the existing art style exactly is the most important requirement.
+
+No text. Fully transparent background.
+
+A sprite sheet of 8 very distant silhouettes in a grid of 4 columns x 2 rows, never touching.
+Each one is a far-away shape sitting on the sea horizon, painted exactly like the distant
+hazy islands and mountains in c_sky.png: a single soft pale blue-grey tone, almost no
+detail, soft edges, flat bottom edge (the waterline), wider than tall (about 3:1).
+At first glance each must read as an ordinary distant island or rock. Only on a second look
+the outline is slightly too regular. Very subtle, never obvious, no windows, no details:
+1) a low island whose top edge has three or four rectangular steps (like worn-down blocks),
+2) an island with one thin leaning mast-like spike and a faint sagging line to a second spike,
+3) a misty island whose silhouette is a large partial circle (like the top of a huge wheel)
+   rising behind a rounded hill,
+4) a long, perfectly level low shape with evenly spaced short legs (like a far-off broken
+   bridge), mostly hidden in haze,
+5) an iceberg-like shape with one unnaturally straight vertical side,
+6) a volcanic rock island with a single tall, thin, straight chimney-like column,
+7) a lone thin tower-like rock standing in open water, slightly tilted,
+8) THIS ONE may be a little clearer than the others: a cluster of tall, narrow, tilted
+   block-like towers of different heights rising from the water, softened by glowing mist,
+   still a pale silhouette without windows or details.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_ruins.png
+```
+
+---
+
+### 347. `c_deep` — 물속 깊은 곳의 가라앉은 윤곽 8개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sky_8.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, warm light, soft shading, the same level of detail.
+Matching the existing art style exactly is the most important requirement.
+
+No text. Fully transparent background.
+
+A sprite sheet of 8 underwater silhouettes in a grid of 4 columns x 2 rows, never touching.
+Each is a very large shape lying deep under the sea, seen from the side through deep water:
+a single dark navy tone with very soft, blurred edges, no details, no outlines, slightly
+lighter toward the top as if faintly lit from above, overgrown and rounded so that it almost
+looks like a reef or a rock. Wider than tall (about 3:1). The viewer should only half
+recognise them:
+1) a long low arch (a sunken bridge span), 2) a tilted long tube shape with a fin at one end
+(a wing or fuselage), 3) part of a huge spoked wheel half buried, 4) a row of three leaning
+poles joined by sagging lines, 5) a box-like shape with rounded corners resting on its side
+(a carriage), 6) a broken dome, 7) a tall figure-like column, toppled over (a statue),
+8) a cluster of leaning rectangular blocks of different heights.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_deep.png
+```
+
+---
+
+### 348. `ui_relics` — 환상종 증표로 열리는 오래된 물건 12개
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sky_8.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, warm light, soft shading, the same level of detail.
+Matching the existing art style exactly is the most important requirement.
+
+No text, no letters, no numbers, no logos. Fully transparent background.
+
+A sprite sheet of 12 small objects in a grid of 4 columns x 3 rows, never touching, each
+drawn as a carefully painted museum-like find: old, worn, barnacled, faded, gently lit,
+lying on nothing (no shadow plate). They are everyday things from a long-lost age, drawn so
+that they feel mysterious and precious rather than modern:
+1) a faded photograph with curled corners showing only blurry silhouettes of people,
+2) a rusty key, 3) a cracked round wristwatch without hands, 4) a small tin toy robot,
+5) a bent spoon, 6) a pair of glasses with one lens missing, 7) a coin worn completely smooth,
+8) a small glass bottle with a cork, empty, 9) a single child's shoe,
+10) a brass door handle, 11) a cracked ceramic cup, 12) a small music box with a broken lid.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_relics.png
+```
+
