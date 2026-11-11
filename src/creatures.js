@@ -61,7 +61,7 @@ export function rollCreature(forcedGrade) {
   // 도트 생물: 그 등급의 목록에서 하나. (놀람 표정 그림은 아직 없어 평소 그림을 같이 쓴다)
   const pool = DOTS.filter((d) => d[2] === grade.id);
   const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
-  const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1], bite: 'pull' };
+  const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1] + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
   const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
   return {

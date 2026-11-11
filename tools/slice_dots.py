@@ -15,6 +15,7 @@ RAW, OUT = ROOT / 'assets' / 'raw', ROOT / 'assets' / 'game'
 import json
 DATA = json.loads((ROOT / 'tools' / 'dot_sheets.json').read_text(encoding='utf-8'))
 SHEETS = {f'd_sheet_{int(n):02d}': [c['id'] for c in v['creatures']] for n, v in DATA.items()}
+SHEETS.update({k + '_s': [i + '_s' for i in v] for k, v in list(SHEETS.items())})   # 놀람 표정 장: 같은 순서, 이름 뒤에 _s
 
 
 def write_game_list(manifest):
@@ -23,8 +24,8 @@ def write_game_list(manifest):
     for n, v in sorted(DATA.items(), key=lambda kv: int(kv[0])):
         for c in v['creatures']:
             if 'd_' + c['id'] in manifest:
-                rows.append(f"  ['{c['ko']}', '{c['id']}', '{c['grade']}', {v['region']}],")
-    (ROOT / 'src' / 'dots.js').write_text('// 자동으로 만들어지는 파일 (tools/slice_dots.py). 직접 고치지 않는다.\n// 도트 생물: [이름, 그림(d_<이름>), 등급, 해역]\nexport const DOTS = [\n' + '\n'.join(rows) + '\n];\n', encoding='utf-8')
+                rows.append(f"  ['{c['ko']}', '{c['id']}', '{c['grade']}', {v['region']}, {'true' if 'd_' + c['id'] + '_s' in manifest else 'false'}],")
+    (ROOT / 'src' / 'dots.js').write_text('// 자동으로 만들어지는 파일 (tools/slice_dots.py). 직접 고치지 않는다.\n// 도트 생물: [이름, 그림(d_<이름>), 등급, 해역(0 = 모든 해역 공용), 놀람 표정 그림(d_<이름>_s)이 있는가]\nexport const DOTS = [\n' + '\n'.join(rows) + '\n];\n', encoding='utf-8')
     print(f'src/dots.js: 생물 {len(rows)}마리')
 
 

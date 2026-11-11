@@ -4121,6 +4121,1806 @@
    "w": 41,
    "h": 38,
    "smooth": false
+  },
+  "d_sock_mackerel": {
+   "file": "d_sock_mackerel.png",
+   "w": 42,
+   "h": 24,
+   "smooth": false
+  },
+  "d_spoon_flounder": {
+   "file": "d_spoon_flounder.png",
+   "w": 42,
+   "h": 27,
+   "smooth": false
+  },
+  "d_fork_squid": {
+   "file": "d_fork_squid.png",
+   "w": 38,
+   "h": 34,
+   "smooth": false
+  },
+  "d_button_crab": {
+   "file": "d_button_crab.png",
+   "w": 38,
+   "h": 27,
+   "smooth": false
+  },
+  "d_toothbrush_shrimp": {
+   "file": "d_toothbrush_shrimp.png",
+   "w": 40,
+   "h": 29,
+   "smooth": false
+  },
+  "d_key_goby": {
+   "file": "d_key_goby.png",
+   "w": 43,
+   "h": 21,
+   "smooth": false
+  },
+  "d_clip_seahorse": {
+   "file": "d_clip_seahorse.png",
+   "w": 28,
+   "h": 39,
+   "smooth": false
+  },
+  "d_cup_snail": {
+   "file": "d_cup_snail.png",
+   "w": 38,
+   "h": 28,
+   "smooth": false
+  },
+  "d_pencil_gar": {
+   "file": "d_pencil_gar.png",
+   "w": 43,
+   "h": 17,
+   "smooth": false
+  },
+  "d_broom_ray": {
+   "file": "d_broom_ray.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_lamp_angler": {
+   "file": "d_lamp_angler.png",
+   "w": 44,
+   "h": 37,
+   "smooth": false
+  },
+  "d_iron_turtle": {
+   "file": "d_iron_turtle.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_bell_puffer": {
+   "file": "d_bell_puffer.png",
+   "w": 38,
+   "h": 32,
+   "smooth": false
+  },
+  "d_ladle_seal": {
+   "file": "d_ladle_seal.png",
+   "w": 41,
+   "h": 37,
+   "smooth": false
+  },
+  "d_whisk_jelly": {
+   "file": "d_whisk_jelly.png",
+   "w": 33,
+   "h": 38,
+   "smooth": false
+  },
+  "d_clock_starfish": {
+   "file": "d_clock_starfish.png",
+   "w": 43,
+   "h": 36,
+   "smooth": false
+  },
+  "d_vacuum_eel": {
+   "file": "d_vacuum_eel.png",
+   "w": 46,
+   "h": 18,
+   "smooth": false
+  },
+  "d_ladder_lobster": {
+   "file": "d_ladder_lobster.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_mailbox_whale": {
+   "file": "d_mailbox_whale.png",
+   "w": 43,
+   "h": 32,
+   "smooth": false
+  },
+  "d_faucet_dolphin": {
+   "file": "d_faucet_dolphin.png",
+   "w": 42,
+   "h": 36,
+   "smooth": false
+  },
+  "d_sofa_manatee": {
+   "file": "d_sofa_manatee.png",
+   "w": 41,
+   "h": 35,
+   "smooth": false
+  },
+  "d_fridge_orca": {
+   "file": "d_fridge_orca.png",
+   "w": 43,
+   "h": 33,
+   "smooth": false
+  },
+  "d_bathtub_whale": {
+   "file": "d_bathtub_whale.png",
+   "w": 40,
+   "h": 37,
+   "smooth": false
+  },
+  "d_house_turtle": {
+   "file": "d_house_turtle.png",
+   "w": 42,
+   "h": 35,
+   "smooth": false
+  },
+  "d_sun_ray": {
+   "file": "d_sun_ray.png",
+   "w": 43,
+   "h": 34,
+   "smooth": false
+  },
+  "d_banana_eel": {
+   "file": "d_banana_eel.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_lemon_puffer": {
+   "file": "d_lemon_puffer.png",
+   "w": 36,
+   "h": 31,
+   "smooth": false
+  },
+  "d_cherry_crab": {
+   "file": "d_cherry_crab.png",
+   "w": 37,
+   "h": 33,
+   "smooth": false
+  },
+  "d_carrot_squid": {
+   "file": "d_carrot_squid.png",
+   "w": 37,
+   "h": 38,
+   "smooth": false
+  },
+  "d_corn_gar": {
+   "file": "d_corn_gar.png",
+   "w": 44,
+   "h": 22,
+   "smooth": false
+  },
+  "d_melon_turtle": {
+   "file": "d_melon_turtle.png",
+   "w": 40,
+   "h": 30,
+   "smooth": false
+  },
+  "d_donut_seal": {
+   "file": "d_donut_seal.png",
+   "w": 40,
+   "h": 32,
+   "smooth": false
+  },
+  "d_egg_jelly": {
+   "file": "d_egg_jelly.png",
+   "w": 35,
+   "h": 34,
+   "smooth": false
+  },
+  "d_pepper_shrimp": {
+   "file": "d_pepper_shrimp.png",
+   "w": 37,
+   "h": 37,
+   "smooth": false
+  },
+  "d_candy_seahorse": {
+   "file": "d_candy_seahorse.png",
+   "w": 28,
+   "h": 40,
+   "smooth": false
+  },
+  "d_cake_turtle": {
+   "file": "d_cake_turtle.png",
+   "w": 40,
+   "h": 39,
+   "smooth": false
+  },
+  "d_icecream_narwhal": {
+   "file": "d_icecream_narwhal.png",
+   "w": 42,
+   "h": 32,
+   "smooth": false
+  },
+  "d_burger_clam": {
+   "file": "d_burger_clam.png",
+   "w": 37,
+   "h": 30,
+   "smooth": false
+  },
+  "d_sushi_ray": {
+   "file": "d_sushi_ray.png",
+   "w": 43,
+   "h": 26,
+   "smooth": false
+  },
+  "d_pineapple_puffer": {
+   "file": "d_pineapple_puffer.png",
+   "w": 37,
+   "h": 37,
+   "smooth": false
+  },
+  "d_noodle_octopus": {
+   "file": "d_noodle_octopus.png",
+   "w": 40,
+   "h": 37,
+   "smooth": false
+  },
+  "d_kettle_dolphin": {
+   "file": "d_kettle_dolphin.png",
+   "w": 42,
+   "h": 34,
+   "smooth": false
+  },
+  "d_grill_shark": {
+   "file": "d_grill_shark.png",
+   "w": 43,
+   "h": 34,
+   "smooth": false
+  },
+  "d_coconut_crab": {
+   "file": "d_coconut_crab.png",
+   "w": 45,
+   "h": 44,
+   "smooth": false
+  },
+  "d_wok_ray": {
+   "file": "d_wok_ray.png",
+   "w": 44,
+   "h": 29,
+   "smooth": false
+  },
+  "d_pot_whale": {
+   "file": "d_pot_whale.png",
+   "w": 41,
+   "h": 42,
+   "smooth": false
+  },
+  "d_feast_whale": {
+   "file": "d_feast_whale.png",
+   "w": 46,
+   "h": 41,
+   "smooth": false
+  },
+  "d_palm_turtle": {
+   "file": "d_palm_turtle.png",
+   "w": 44,
+   "h": 41,
+   "smooth": false
+  },
+  "d_cake_kraken": {
+   "file": "d_cake_kraken.png",
+   "w": 40,
+   "h": 44,
+   "smooth": false
+  },
+  "d_rainbow_parrotfish": {
+   "file": "d_rainbow_parrotfish.png",
+   "w": 44,
+   "h": 28,
+   "smooth": false
+  },
+  "d_balloon_puffer": {
+   "file": "d_balloon_puffer.png",
+   "w": 37,
+   "h": 30,
+   "smooth": false
+  },
+  "d_ring_seal": {
+   "file": "d_ring_seal.png",
+   "w": 37,
+   "h": 28,
+   "smooth": false
+  },
+  "d_flipper_frogfish": {
+   "file": "d_flipper_frogfish.png",
+   "w": 37,
+   "h": 31,
+   "smooth": false
+  },
+  "d_sunglass_ray": {
+   "file": "d_sunglass_ray.png",
+   "w": 41,
+   "h": 28,
+   "smooth": false
+  },
+  "d_bucket_crab": {
+   "file": "d_bucket_crab.png",
+   "w": 33,
+   "h": 34,
+   "smooth": false
+  },
+  "d_kite_flyingfish": {
+   "file": "d_kite_flyingfish.png",
+   "w": 40,
+   "h": 32,
+   "smooth": false
+  },
+  "d_ball_dolphin": {
+   "file": "d_ball_dolphin.png",
+   "w": 38,
+   "h": 36,
+   "smooth": false
+  },
+  "d_snorkel_goby": {
+   "file": "d_snorkel_goby.png",
+   "w": 38,
+   "h": 27,
+   "smooth": false
+  },
+  "d_dice_boxfish": {
+   "file": "d_dice_boxfish.png",
+   "w": 36,
+   "h": 27,
+   "smooth": false
+  },
+  "d_yoyo_snail": {
+   "file": "d_yoyo_snail.png",
+   "w": 37,
+   "h": 28,
+   "smooth": false
+  },
+  "d_drum_puffer": {
+   "file": "d_drum_puffer.png",
+   "w": 40,
+   "h": 30,
+   "smooth": false
+  },
+  "d_guitar_ray": {
+   "file": "d_guitar_ray.png",
+   "w": 42,
+   "h": 28,
+   "smooth": false
+  },
+  "d_camera_crab": {
+   "file": "d_camera_crab.png",
+   "w": 37,
+   "h": 30,
+   "smooth": false
+  },
+  "d_parasol_jelly": {
+   "file": "d_parasol_jelly.png",
+   "w": 34,
+   "h": 35,
+   "smooth": false
+  },
+  "d_surf_shark": {
+   "file": "d_surf_shark.png",
+   "w": 41,
+   "h": 31,
+   "smooth": false
+  },
+  "d_robot_lobster": {
+   "file": "d_robot_lobster.png",
+   "w": 40,
+   "h": 33,
+   "smooth": false
+  },
+  "d_magic_octopus": {
+   "file": "d_magic_octopus.png",
+   "w": 39,
+   "h": 39,
+   "smooth": false
+  },
+  "d_disco_sunfish": {
+   "file": "d_disco_sunfish.png",
+   "w": 42,
+   "h": 39,
+   "smooth": false
+  },
+  "d_clown_shark": {
+   "file": "d_clown_shark.png",
+   "w": 42,
+   "h": 29,
+   "smooth": false
+  },
+  "d_kart_turtle": {
+   "file": "d_kart_turtle.png",
+   "w": 42,
+   "h": 31,
+   "smooth": false
+  },
+  "d_carousel_seahorse": {
+   "file": "d_carousel_seahorse.png",
+   "w": 36,
+   "h": 39,
+   "smooth": false
+  },
+  "d_ferris_jelly": {
+   "file": "d_ferris_jelly.png",
+   "w": 39,
+   "h": 38,
+   "smooth": false
+  },
+  "d_circus_whale": {
+   "file": "d_circus_whale.png",
+   "w": 42,
+   "h": 37,
+   "smooth": false
+  },
+  "d_coaster_eel": {
+   "file": "d_coaster_eel.png",
+   "w": 39,
+   "h": 36,
+   "smooth": false
+  },
+  "d_firework_squid": {
+   "file": "d_firework_squid.png",
+   "w": 42,
+   "h": 35,
+   "smooth": false
+  },
+  "d_lantern_angler": {
+   "file": "d_lantern_angler.png",
+   "w": 48,
+   "h": 37,
+   "smooth": false
+  },
+  "d_candle_squid": {
+   "file": "d_candle_squid.png",
+   "w": 39,
+   "h": 45,
+   "smooth": false
+  },
+  "d_ghost_jelly": {
+   "file": "d_ghost_jelly.png",
+   "w": 40,
+   "h": 38,
+   "smooth": false
+  },
+  "d_broomstick_eel": {
+   "file": "d_broomstick_eel.png",
+   "w": 47,
+   "h": 38,
+   "smooth": false
+  },
+  "d_cobweb_crab": {
+   "file": "d_cobweb_crab.png",
+   "w": 43,
+   "h": 35,
+   "smooth": false
+  },
+  "d_quill_shrimp": {
+   "file": "d_quill_shrimp.png",
+   "w": 47,
+   "h": 35,
+   "smooth": false
+  },
+  "d_bottle_goby": {
+   "file": "d_bottle_goby.png",
+   "w": 44,
+   "h": 30,
+   "smooth": false
+  },
+  "d_skull_puffer": {
+   "file": "d_skull_puffer.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_teacup_snail": {
+   "file": "d_teacup_snail.png",
+   "w": 43,
+   "h": 31,
+   "smooth": false
+  },
+  "d_pocketwatch_turtle": {
+   "file": "d_pocketwatch_turtle.png",
+   "w": 47,
+   "h": 40,
+   "smooth": false
+  },
+  "d_violin_ray": {
+   "file": "d_violin_ray.png",
+   "w": 48,
+   "h": 40,
+   "smooth": false
+  },
+  "d_gramophone_snail": {
+   "file": "d_gramophone_snail.png",
+   "w": 44,
+   "h": 38,
+   "smooth": false
+  },
+  "d_umbrella_seal": {
+   "file": "d_umbrella_seal.png",
+   "w": 50,
+   "h": 42,
+   "smooth": false
+  },
+  "d_top_hat_walrus": {
+   "file": "d_top_hat_walrus.png",
+   "w": 47,
+   "h": 41,
+   "smooth": false
+  },
+  "d_book_flounder": {
+   "file": "d_book_flounder.png",
+   "w": 46,
+   "h": 35,
+   "smooth": false
+  },
+  "d_chest_crab": {
+   "file": "d_chest_crab.png",
+   "w": 43,
+   "h": 39,
+   "smooth": false
+  },
+  "d_piano_shark": {
+   "file": "d_piano_shark.png",
+   "w": 47,
+   "h": 31,
+   "smooth": false
+  },
+  "d_knight_lobster": {
+   "file": "d_knight_lobster.png",
+   "w": 47,
+   "h": 40,
+   "smooth": false
+  },
+  "d_mummy_eel": {
+   "file": "d_mummy_eel.png",
+   "w": 50,
+   "h": 33,
+   "smooth": false
+  },
+  "d_coffin_whale": {
+   "file": "d_coffin_whale.png",
+   "w": 48,
+   "h": 38,
+   "smooth": false
+  },
+  "d_bell_tower_turtle": {
+   "file": "d_bell_tower_turtle.png",
+   "w": 46,
+   "h": 47,
+   "smooth": false
+  },
+  "d_ghost_ship_whale": {
+   "file": "d_ghost_ship_whale.png",
+   "w": 46,
+   "h": 46,
+   "smooth": false
+  },
+  "d_organ_octopus": {
+   "file": "d_organ_octopus.png",
+   "w": 45,
+   "h": 46,
+   "smooth": false
+  },
+  "d_lighthouse_squid": {
+   "file": "d_lighthouse_squid.png",
+   "w": 41,
+   "h": 48,
+   "smooth": false
+  },
+  "d_mist_dragon_eel": {
+   "file": "d_mist_dragon_eel.png",
+   "w": 48,
+   "h": 43,
+   "smooth": false
+  },
+  "d_nail_gar": {
+   "file": "d_nail_gar.png",
+   "w": 39,
+   "h": 17,
+   "smooth": false
+  },
+  "d_wrench_crab": {
+   "file": "d_wrench_crab.png",
+   "w": 34,
+   "h": 28,
+   "smooth": false
+  },
+  "d_screw_shrimp": {
+   "file": "d_screw_shrimp.png",
+   "w": 34,
+   "h": 28,
+   "smooth": false
+  },
+  "d_pliers_lobster": {
+   "file": "d_pliers_lobster.png",
+   "w": 37,
+   "h": 28,
+   "smooth": false
+  },
+  "d_tape_snail": {
+   "file": "d_tape_snail.png",
+   "w": 39,
+   "h": 22,
+   "smooth": false
+  },
+  "d_brush_squid": {
+   "file": "d_brush_squid.png",
+   "w": 36,
+   "h": 32,
+   "smooth": false
+  },
+  "d_magnet_ray": {
+   "file": "d_magnet_ray.png",
+   "w": 38,
+   "h": 26,
+   "smooth": false
+  },
+  "d_bucket_jelly": {
+   "file": "d_bucket_jelly.png",
+   "w": 26,
+   "h": 36,
+   "smooth": false
+  },
+  "d_ruler_eel": {
+   "file": "d_ruler_eel.png",
+   "w": 38,
+   "h": 16,
+   "smooth": false
+  },
+  "d_helmet_turtle": {
+   "file": "d_helmet_turtle.png",
+   "w": 38,
+   "h": 29,
+   "smooth": false
+  },
+  "d_axe_shark": {
+   "file": "d_axe_shark.png",
+   "w": 38,
+   "h": 30,
+   "smooth": false
+  },
+  "d_shovel_ray": {
+   "file": "d_shovel_ray.png",
+   "w": 39,
+   "h": 28,
+   "smooth": false
+  },
+  "d_anvil_puffer": {
+   "file": "d_anvil_puffer.png",
+   "w": 33,
+   "h": 32,
+   "smooth": false
+  },
+  "d_chainsaw_swordfish": {
+   "file": "d_chainsaw_swordfish.png",
+   "w": 40,
+   "h": 25,
+   "smooth": false
+  },
+  "d_ladder_seahorse": {
+   "file": "d_ladder_seahorse.png",
+   "w": 27,
+   "h": 35,
+   "smooth": false
+  },
+  "d_crane_crab": {
+   "file": "d_crane_crab.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_forklift_lobster": {
+   "file": "d_forklift_lobster.png",
+   "w": 39,
+   "h": 25,
+   "smooth": false
+  },
+  "d_bulldozer_shark": {
+   "file": "d_bulldozer_shark.png",
+   "w": 38,
+   "h": 32,
+   "smooth": false
+  },
+  "d_mixer_whale": {
+   "file": "d_mixer_whale.png",
+   "w": 39,
+   "h": 30,
+   "smooth": false
+  },
+  "d_tractor_walrus": {
+   "file": "d_tractor_walrus.png",
+   "w": 39,
+   "h": 30,
+   "smooth": false
+  },
+  "d_excavator_crab": {
+   "file": "d_excavator_crab.png",
+   "w": 39,
+   "h": 32,
+   "smooth": false
+  },
+  "d_tank_turtle": {
+   "file": "d_tank_turtle.png",
+   "w": 37,
+   "h": 29,
+   "smooth": false
+  },
+  "d_factory_whale": {
+   "file": "d_factory_whale.png",
+   "w": 39,
+   "h": 35,
+   "smooth": false
+  },
+  "d_robot_kraken": {
+   "file": "d_robot_kraken.png",
+   "w": 38,
+   "h": 35,
+   "smooth": false
+  },
+  "d_clockwork_whale": {
+   "file": "d_clockwork_whale.png",
+   "w": 40,
+   "h": 34,
+   "smooth": false
+  },
+  "d_skate_ray": {
+   "file": "d_skate_ray.png",
+   "w": 41,
+   "h": 27,
+   "smooth": false
+  },
+  "d_scooter_seahorse": {
+   "file": "d_scooter_seahorse.png",
+   "w": 27,
+   "h": 34,
+   "smooth": false
+  },
+  "d_bike_crab": {
+   "file": "d_bike_crab.png",
+   "w": 38,
+   "h": 30,
+   "smooth": false
+  },
+  "d_paper_plane_flyingfish": {
+   "file": "d_paper_plane_flyingfish.png",
+   "w": 38,
+   "h": 24,
+   "smooth": false
+  },
+  "d_sail_tuna": {
+   "file": "d_sail_tuna.png",
+   "w": 40,
+   "h": 31,
+   "smooth": false
+  },
+  "d_anchor_eel": {
+   "file": "d_anchor_eel.png",
+   "w": 41,
+   "h": 29,
+   "smooth": false
+  },
+  "d_buoy_puffer": {
+   "file": "d_buoy_puffer.png",
+   "w": 32,
+   "h": 34,
+   "smooth": false
+  },
+  "d_oar_squid": {
+   "file": "d_oar_squid.png",
+   "w": 41,
+   "h": 38,
+   "smooth": false
+  },
+  "d_compass_starfish": {
+   "file": "d_compass_starfish.png",
+   "w": 37,
+   "h": 35,
+   "smooth": false
+  },
+  "d_taxi_turtle": {
+   "file": "d_taxi_turtle.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_bus_whale": {
+   "file": "d_bus_whale.png",
+   "w": 41,
+   "h": 32,
+   "smooth": false
+  },
+  "d_jet_swordfish": {
+   "file": "d_jet_swordfish.png",
+   "w": 41,
+   "h": 27,
+   "smooth": false
+  },
+  "d_heli_ray": {
+   "file": "d_heli_ray.png",
+   "w": 38,
+   "h": 30,
+   "smooth": false
+  },
+  "d_balloon_jelly": {
+   "file": "d_balloon_jelly.png",
+   "w": 27,
+   "h": 37,
+   "smooth": false
+  },
+  "d_police_shark": {
+   "file": "d_police_shark.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_truck_walrus": {
+   "file": "d_truck_walrus.png",
+   "w": 40,
+   "h": 29,
+   "smooth": false
+  },
+  "d_ambulance_seal": {
+   "file": "d_ambulance_seal.png",
+   "w": 36,
+   "h": 31,
+   "smooth": false
+  },
+  "d_race_marlin": {
+   "file": "d_race_marlin.png",
+   "w": 42,
+   "h": 24,
+   "smooth": false
+  },
+  "d_airship_whale": {
+   "file": "d_airship_whale.png",
+   "w": 45,
+   "h": 26,
+   "smooth": false
+  },
+  "d_ferry_whale": {
+   "file": "d_ferry_whale.png",
+   "w": 42,
+   "h": 33,
+   "smooth": false
+  },
+  "d_carrier_turtle": {
+   "file": "d_carrier_turtle.png",
+   "w": 42,
+   "h": 35,
+   "smooth": false
+  },
+  "d_freight_eel": {
+   "file": "d_freight_eel.png",
+   "w": 39,
+   "h": 14,
+   "smooth": false
+  },
+  "d_airport_ray": {
+   "file": "d_airport_ray.png",
+   "w": 40,
+   "h": 36,
+   "smooth": false
+  },
+  "d_space_shark": {
+   "file": "d_space_shark.png",
+   "w": 45,
+   "h": 29,
+   "smooth": false
+  },
+  "d_ufo_ray": {
+   "file": "d_ufo_ray.png",
+   "w": 42,
+   "h": 31,
+   "smooth": false
+  },
+  "d_soccer_seal": {
+   "file": "d_soccer_seal.png",
+   "w": 41,
+   "h": 30,
+   "smooth": false
+  },
+  "d_glove_crab": {
+   "file": "d_glove_crab.png",
+   "w": 36,
+   "h": 28,
+   "smooth": false
+  },
+  "d_bat_swordfish": {
+   "file": "d_bat_swordfish.png",
+   "w": 42,
+   "h": 25,
+   "smooth": false
+  },
+  "d_racket_ray": {
+   "file": "d_racket_ray.png",
+   "w": 38,
+   "h": 27,
+   "smooth": false
+  },
+  "d_whistle_puffer": {
+   "file": "d_whistle_puffer.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_medal_starfish": {
+   "file": "d_medal_starfish.png",
+   "w": 27,
+   "h": 35,
+   "smooth": false
+  },
+  "d_cap_goby": {
+   "file": "d_cap_goby.png",
+   "w": 40,
+   "h": 24,
+   "smooth": false
+  },
+  "d_dumbbell_shrimp": {
+   "file": "d_dumbbell_shrimp.png",
+   "w": 38,
+   "h": 33,
+   "smooth": false
+  },
+  "d_skate_penguin_fish": {
+   "file": "d_skate_penguin_fish.png",
+   "w": 38,
+   "h": 32,
+   "smooth": false
+  },
+  "d_golf_snail": {
+   "file": "d_golf_snail.png",
+   "w": 36,
+   "h": 32,
+   "smooth": false
+  },
+  "d_chef_octopus": {
+   "file": "d_chef_octopus.png",
+   "w": 41,
+   "h": 37,
+   "smooth": false
+  },
+  "d_doctor_dolphin": {
+   "file": "d_doctor_dolphin.png",
+   "w": 41,
+   "h": 34,
+   "smooth": false
+  },
+  "d_painter_squid": {
+   "file": "d_painter_squid.png",
+   "w": 43,
+   "h": 36,
+   "smooth": false
+  },
+  "d_farmer_walrus": {
+   "file": "d_farmer_walrus.png",
+   "w": 47,
+   "h": 35,
+   "smooth": false
+  },
+  "d_judge_seal": {
+   "file": "d_judge_seal.png",
+   "w": 45,
+   "h": 32,
+   "smooth": false
+  },
+  "d_sumo_puffer": {
+   "file": "d_sumo_puffer.png",
+   "w": 38,
+   "h": 37,
+   "smooth": false
+  },
+  "d_ninja_eel": {
+   "file": "d_ninja_eel.png",
+   "w": 38,
+   "h": 31,
+   "smooth": false
+  },
+  "d_pirate_shark": {
+   "file": "d_pirate_shark.png",
+   "w": 45,
+   "h": 36,
+   "smooth": false
+  },
+  "d_astronaut_turtle": {
+   "file": "d_astronaut_turtle.png",
+   "w": 42,
+   "h": 32,
+   "smooth": false
+  },
+  "d_wizard_octopus": {
+   "file": "d_wizard_octopus.png",
+   "w": 42,
+   "h": 36,
+   "smooth": false
+  },
+  "d_samurai_crab": {
+   "file": "d_samurai_crab.png",
+   "w": 44,
+   "h": 32,
+   "smooth": false
+  },
+  "d_king_walrus": {
+   "file": "d_king_walrus.png",
+   "w": 43,
+   "h": 36,
+   "smooth": false
+  },
+  "d_stadium_turtle": {
+   "file": "d_stadium_turtle.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_champion_whale": {
+   "file": "d_champion_whale.png",
+   "w": 43,
+   "h": 34,
+   "smooth": false
+  },
+  "d_trophy_narwhal": {
+   "file": "d_trophy_narwhal.png",
+   "w": 41,
+   "h": 38,
+   "smooth": false
+  },
+  "d_scarf_seal": {
+   "file": "d_scarf_seal.png",
+   "w": 34,
+   "h": 25,
+   "smooth": false
+  },
+  "d_mitten_crab": {
+   "file": "d_mitten_crab.png",
+   "w": 33,
+   "h": 26,
+   "smooth": false
+  },
+  "d_icecube_boxfish": {
+   "file": "d_icecube_boxfish.png",
+   "w": 32,
+   "h": 24,
+   "smooth": false
+  },
+  "d_beanie_puffer": {
+   "file": "d_beanie_puffer.png",
+   "w": 31,
+   "h": 33,
+   "smooth": false
+  },
+  "d_snowman_jelly": {
+   "file": "d_snowman_jelly.png",
+   "w": 28,
+   "h": 30,
+   "smooth": false
+  },
+  "d_sled_ray": {
+   "file": "d_sled_ray.png",
+   "w": 35,
+   "h": 22,
+   "smooth": false
+  },
+  "d_icicle_gar": {
+   "file": "d_icicle_gar.png",
+   "w": 37,
+   "h": 12,
+   "smooth": false
+  },
+  "d_earmuff_goby": {
+   "file": "d_earmuff_goby.png",
+   "w": 33,
+   "h": 19,
+   "smooth": false
+  },
+  "d_popsicle_squid": {
+   "file": "d_popsicle_squid.png",
+   "w": 23,
+   "h": 33,
+   "smooth": false
+  },
+  "d_ski_seal": {
+   "file": "d_ski_seal.png",
+   "w": 36,
+   "h": 25,
+   "smooth": false
+  },
+  "d_igloo_turtle": {
+   "file": "d_igloo_turtle.png",
+   "w": 36,
+   "h": 24,
+   "smooth": false
+  },
+  "d_snowglobe_puffer": {
+   "file": "d_snowglobe_puffer.png",
+   "w": 29,
+   "h": 32,
+   "smooth": false
+  },
+  "d_heater_walrus": {
+   "file": "d_heater_walrus.png",
+   "w": 37,
+   "h": 30,
+   "smooth": false
+  },
+  "d_penguin_shark": {
+   "file": "d_penguin_shark.png",
+   "w": 36,
+   "h": 24,
+   "smooth": false
+  },
+  "d_skate_narwhal": {
+   "file": "d_skate_narwhal.png",
+   "w": 37,
+   "h": 29,
+   "smooth": false
+  },
+  "d_snowplow_whale": {
+   "file": "d_snowplow_whale.png",
+   "w": 37,
+   "h": 24,
+   "smooth": false
+  },
+  "d_yeti_seal": {
+   "file": "d_yeti_seal.png",
+   "w": 34,
+   "h": 26,
+   "smooth": false
+  },
+  "d_icebreaker_orca": {
+   "file": "d_icebreaker_orca.png",
+   "w": 38,
+   "h": 26,
+   "smooth": false
+  },
+  "d_frost_dragon_eel": {
+   "file": "d_frost_dragon_eel.png",
+   "w": 37,
+   "h": 24,
+   "smooth": false
+  },
+  "d_mammoth_walrus": {
+   "file": "d_mammoth_walrus.png",
+   "w": 37,
+   "h": 28,
+   "smooth": false
+  },
+  "d_iceberg_whale": {
+   "file": "d_iceberg_whale.png",
+   "w": 37,
+   "h": 31,
+   "smooth": false
+  },
+  "d_castle_narwhal": {
+   "file": "d_castle_narwhal.png",
+   "w": 36,
+   "h": 32,
+   "smooth": false
+  },
+  "d_glacier_turtle": {
+   "file": "d_glacier_turtle.png",
+   "w": 36,
+   "h": 32,
+   "smooth": false
+  },
+  "d_polar_king_bear_seal": {
+   "file": "d_polar_king_bear_seal.png",
+   "w": 35,
+   "h": 31,
+   "smooth": false
+  },
+  "d_aurora_whale": {
+   "file": "d_aurora_whale.png",
+   "w": 38,
+   "h": 31,
+   "smooth": false
+  },
+  "d_match_gar": {
+   "file": "d_match_gar.png",
+   "w": 39,
+   "h": 17,
+   "smooth": false
+  },
+  "d_coal_puffer": {
+   "file": "d_coal_puffer.png",
+   "w": 34,
+   "h": 28,
+   "smooth": false
+  },
+  "d_pepper_eel": {
+   "file": "d_pepper_eel.png",
+   "w": 39,
+   "h": 27,
+   "smooth": false
+  },
+  "d_kettle_crab": {
+   "file": "d_kettle_crab.png",
+   "w": 37,
+   "h": 29,
+   "smooth": false
+  },
+  "d_candle_seahorse": {
+   "file": "d_candle_seahorse.png",
+   "w": 23,
+   "h": 38,
+   "smooth": false
+  },
+  "d_toaster_boxfish": {
+   "file": "d_toaster_boxfish.png",
+   "w": 36,
+   "h": 29,
+   "smooth": false
+  },
+  "d_lava_snail": {
+   "file": "d_lava_snail.png",
+   "w": 36,
+   "h": 26,
+   "smooth": false
+  },
+  "d_sauna_seal": {
+   "file": "d_sauna_seal.png",
+   "w": 38,
+   "h": 26,
+   "smooth": false
+  },
+  "d_grill_ray": {
+   "file": "d_grill_ray.png",
+   "w": 39,
+   "h": 28,
+   "smooth": false
+  },
+  "d_torch_squid": {
+   "file": "d_torch_squid.png",
+   "w": 36,
+   "h": 34,
+   "smooth": false
+  },
+  "d_furnace_turtle": {
+   "file": "d_furnace_turtle.png",
+   "w": 37,
+   "h": 33,
+   "smooth": false
+  },
+  "d_dragon_seahorse": {
+   "file": "d_dragon_seahorse.png",
+   "w": 37,
+   "h": 35,
+   "smooth": false
+  },
+  "d_bomb_puffer": {
+   "file": "d_bomb_puffer.png",
+   "w": 33,
+   "h": 35,
+   "smooth": false
+  },
+  "d_rocket_squid": {
+   "file": "d_rocket_squid.png",
+   "w": 40,
+   "h": 35,
+   "smooth": false
+  },
+  "d_forge_crab": {
+   "file": "d_forge_crab.png",
+   "w": 41,
+   "h": 27,
+   "smooth": false
+  },
+  "d_stego_turtle": {
+   "file": "d_stego_turtle.png",
+   "w": 40,
+   "h": 29,
+   "smooth": false
+  },
+  "d_ptero_ray": {
+   "file": "d_ptero_ray.png",
+   "w": 38,
+   "h": 28,
+   "smooth": false
+  },
+  "d_tricera_shark": {
+   "file": "d_tricera_shark.png",
+   "w": 40,
+   "h": 27,
+   "smooth": false
+  },
+  "d_lava_whale": {
+   "file": "d_lava_whale.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_magma_crab": {
+   "file": "d_magma_crab.png",
+   "w": 41,
+   "h": 27,
+   "smooth": false
+  },
+  "d_bronto_eel": {
+   "file": "d_bronto_eel.png",
+   "w": 39,
+   "h": 32,
+   "smooth": false
+  },
+  "d_volcano_whale": {
+   "file": "d_volcano_whale.png",
+   "w": 38,
+   "h": 38,
+   "smooth": false
+  },
+  "d_steel_kraken": {
+   "file": "d_steel_kraken.png",
+   "w": 42,
+   "h": 35,
+   "smooth": false
+  },
+  "d_trex_whale": {
+   "file": "d_trex_whale.png",
+   "w": 41,
+   "h": 28,
+   "smooth": false
+  },
+  "d_phoenix_ray": {
+   "file": "d_phoenix_ray.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_led_goby": {
+   "file": "d_led_goby.png",
+   "w": 38,
+   "h": 21,
+   "smooth": false
+  },
+  "d_battery_shrimp": {
+   "file": "d_battery_shrimp.png",
+   "w": 35,
+   "h": 25,
+   "smooth": false
+  },
+  "d_remote_flounder": {
+   "file": "d_remote_flounder.png",
+   "w": 38,
+   "h": 25,
+   "smooth": false
+  },
+  "d_mouse_ray": {
+   "file": "d_mouse_ray.png",
+   "w": 37,
+   "h": 24,
+   "smooth": false
+  },
+  "d_bulb_jelly": {
+   "file": "d_bulb_jelly.png",
+   "w": 26,
+   "h": 34,
+   "smooth": false
+  },
+  "d_plug_eel": {
+   "file": "d_plug_eel.png",
+   "w": 39,
+   "h": 29,
+   "smooth": false
+  },
+  "d_flashlight_squid": {
+   "file": "d_flashlight_squid.png",
+   "w": 38,
+   "h": 26,
+   "smooth": false
+  },
+  "d_headphone_puffer": {
+   "file": "d_headphone_puffer.png",
+   "w": 36,
+   "h": 32,
+   "smooth": false
+  },
+  "d_usb_gar": {
+   "file": "d_usb_gar.png",
+   "w": 39,
+   "h": 19,
+   "smooth": false
+  },
+  "d_tv_boxfish": {
+   "file": "d_tv_boxfish.png",
+   "w": 35,
+   "h": 32,
+   "smooth": false
+  },
+  "d_radio_crab": {
+   "file": "d_radio_crab.png",
+   "w": 37,
+   "h": 31,
+   "smooth": false
+  },
+  "d_neon_seahorse": {
+   "file": "d_neon_seahorse.png",
+   "w": 22,
+   "h": 31,
+   "smooth": false
+  },
+  "d_gamepad_ray": {
+   "file": "d_gamepad_ray.png",
+   "w": 39,
+   "h": 29,
+   "smooth": false
+  },
+  "d_camera_angler": {
+   "file": "d_camera_angler.png",
+   "w": 39,
+   "h": 30,
+   "smooth": false
+  },
+  "d_phone_flounder": {
+   "file": "d_phone_flounder.png",
+   "w": 38,
+   "h": 26,
+   "smooth": false
+  },
+  "d_laser_swordfish": {
+   "file": "d_laser_swordfish.png",
+   "w": 41,
+   "h": 23,
+   "smooth": false
+  },
+  "d_robot_shark": {
+   "file": "d_robot_shark.png",
+   "w": 38,
+   "h": 24,
+   "smooth": false
+  },
+  "d_satellite_ray": {
+   "file": "d_satellite_ray.png",
+   "w": 39,
+   "h": 32,
+   "smooth": false
+  },
+  "d_server_whale": {
+   "file": "d_server_whale.png",
+   "w": 39,
+   "h": 27,
+   "smooth": false
+  },
+  "d_tesla_eel": {
+   "file": "d_tesla_eel.png",
+   "w": 40,
+   "h": 31,
+   "smooth": false
+  },
+  "d_arcade_whale": {
+   "file": "d_arcade_whale.png",
+   "w": 40,
+   "h": 27,
+   "smooth": false
+  },
+  "d_neon_city_turtle": {
+   "file": "d_neon_city_turtle.png",
+   "w": 38,
+   "h": 33,
+   "smooth": false
+  },
+  "d_reactor_kraken": {
+   "file": "d_reactor_kraken.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_hologram_whale": {
+   "file": "d_hologram_whale.png",
+   "w": 39,
+   "h": 25,
+   "smooth": false
+  },
+  "d_blackhole_angler": {
+   "file": "d_blackhole_angler.png",
+   "w": 40,
+   "h": 32,
+   "smooth": false
+  },
+  "d_star_starfish": {
+   "file": "d_star_starfish.png",
+   "w": 33,
+   "h": 31,
+   "smooth": false
+  },
+  "d_cloud_puffer": {
+   "file": "d_cloud_puffer.png",
+   "w": 35,
+   "h": 33,
+   "smooth": false
+  },
+  "d_feather_flyingfish": {
+   "file": "d_feather_flyingfish.png",
+   "w": 36,
+   "h": 28,
+   "smooth": false
+  },
+  "d_rainbow_eel": {
+   "file": "d_rainbow_eel.png",
+   "w": 36,
+   "h": 25,
+   "smooth": false
+  },
+  "d_comet_gar": {
+   "file": "d_comet_gar.png",
+   "w": 39,
+   "h": 24,
+   "smooth": false
+  },
+  "d_crown_seahorse": {
+   "file": "d_crown_seahorse.png",
+   "w": 32,
+   "h": 38,
+   "smooth": false
+  },
+  "d_harp_ray": {
+   "file": "d_harp_ray.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_unicorn_dolphin": {
+   "file": "d_unicorn_dolphin.png",
+   "w": 38,
+   "h": 34,
+   "smooth": false
+  },
+  "d_planet_puffer": {
+   "file": "d_planet_puffer.png",
+   "w": 38,
+   "h": 29,
+   "smooth": false
+  },
+  "d_moon_jelly": {
+   "file": "d_moon_jelly.png",
+   "w": 32,
+   "h": 36,
+   "smooth": false
+  },
+  "d_pegasus_seahorse": {
+   "file": "d_pegasus_seahorse.png",
+   "w": 35,
+   "h": 36,
+   "smooth": false
+  },
+  "d_crystal_turtle": {
+   "file": "d_crystal_turtle.png",
+   "w": 37,
+   "h": 32,
+   "smooth": false
+  },
+  "d_throne_walrus": {
+   "file": "d_throne_walrus.png",
+   "w": 36,
+   "h": 37,
+   "smooth": false
+  },
+  "d_galaxy_ray": {
+   "file": "d_galaxy_ray.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_sun_whale": {
+   "file": "d_sun_whale.png",
+   "w": 41,
+   "h": 36,
+   "smooth": false
+  },
+  "d_dragon_king_eel": {
+   "file": "d_dragon_king_eel.png",
+   "w": 38,
+   "h": 42,
+   "smooth": false
+  },
+  "d_floating_island_whale": {
+   "file": "d_floating_island_whale.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_temple_turtle": {
+   "file": "d_temple_turtle.png",
+   "w": 37,
+   "h": 33,
+   "smooth": false
+  },
+  "d_world_whale": {
+   "file": "d_world_whale.png",
+   "w": 39,
+   "h": 33,
+   "smooth": false
+  },
+  "d_constellation_shark": {
+   "file": "d_constellation_shark.png",
+   "w": 41,
+   "h": 28,
+   "smooth": false
+  },
+  "d_star_whale": {
+   "file": "d_star_whale.png",
+   "w": 39,
+   "h": 37,
+   "smooth": false
+  },
+  "d_rainbow_serpent": {
+   "file": "d_rainbow_serpent.png",
+   "w": 39,
+   "h": 33,
+   "smooth": false
+  },
+  "d_cosmos_kraken": {
+   "file": "d_cosmos_kraken.png",
+   "w": 40,
+   "h": 36,
+   "smooth": false
+  },
+  "d_angel_whale": {
+   "file": "d_angel_whale.png",
+   "w": 40,
+   "h": 36,
+   "smooth": false
+  },
+  "d_sea_god_leviathan": {
+   "file": "d_sea_god_leviathan.png",
+   "w": 40,
+   "h": 36,
+   "smooth": false
+  },
+  "d_hammer_shark_s": {
+   "file": "d_hammer_shark_s.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_saw_shark_s": {
+   "file": "d_saw_shark_s.png",
+   "w": 46,
+   "h": 26,
+   "smooth": false
+  },
+  "d_bulb_angler_s": {
+   "file": "d_bulb_angler_s.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_straw_seahorse_s": {
+   "file": "d_straw_seahorse_s.png",
+   "w": 32,
+   "h": 38,
+   "smooth": false
+  },
+  "d_scissor_crab_s": {
+   "file": "d_scissor_crab_s.png",
+   "w": 41,
+   "h": 34,
+   "smooth": false
+  },
+  "d_umbrella_jelly_s": {
+   "file": "d_umbrella_jelly_s.png",
+   "w": 38,
+   "h": 39,
+   "smooth": false
+  },
+  "d_drill_narwhal_s": {
+   "file": "d_drill_narwhal_s.png",
+   "w": 43,
+   "h": 29,
+   "smooth": false
+  },
+  "d_pizza_ray_s": {
+   "file": "d_pizza_ray_s.png",
+   "w": 42,
+   "h": 32,
+   "smooth": false
+  },
+  "d_ball_turtle_s": {
+   "file": "d_ball_turtle_s.png",
+   "w": 39,
+   "h": 31,
+   "smooth": false
+  },
+  "d_cactus_puffer_s": {
+   "file": "d_cactus_puffer_s.png",
+   "w": 37,
+   "h": 34,
+   "smooth": false
+  },
+  "d_fan_puffer_s": {
+   "file": "d_fan_puffer_s.png",
+   "w": 40,
+   "h": 34,
+   "smooth": false
+  },
+  "d_candle_eel_s": {
+   "file": "d_candle_eel_s.png",
+   "w": 44,
+   "h": 28,
+   "smooth": false
+  },
+  "d_trumpet_fish_s": {
+   "file": "d_trumpet_fish_s.png",
+   "w": 44,
+   "h": 24,
+   "smooth": false
+  },
+  "d_knight_swordfish_s": {
+   "file": "d_knight_swordfish_s.png",
+   "w": 41,
+   "h": 31,
+   "smooth": false
+  },
+  "d_crown_tuna_s": {
+   "file": "d_crown_tuna_s.png",
+   "w": 42,
+   "h": 33,
+   "smooth": false
+  },
+  "d_plug_octopus_s": {
+   "file": "d_plug_octopus_s.png",
+   "w": 41,
+   "h": 38,
+   "smooth": false
+  },
+  "d_train_eel_s": {
+   "file": "d_train_eel_s.png",
+   "w": 45,
+   "h": 19,
+   "smooth": false
+  },
+  "d_teapot_whale_s": {
+   "file": "d_teapot_whale_s.png",
+   "w": 42,
+   "h": 31,
+   "smooth": false
+  },
+  "d_sub_whale_s": {
+   "file": "d_sub_whale_s.png",
+   "w": 41,
+   "h": 33,
+   "smooth": false
+  },
+  "d_dino_shark_s": {
+   "file": "d_dino_shark_s.png",
+   "w": 42,
+   "h": 32,
+   "smooth": false
+  },
+  "d_volcano_turtle_s": {
+   "file": "d_volcano_turtle_s.png",
+   "w": 39,
+   "h": 39,
+   "smooth": false
+  },
+  "d_rocket_marlin_s": {
+   "file": "d_rocket_marlin_s.png",
+   "w": 45,
+   "h": 28,
+   "smooth": false
+  },
+  "d_castle_kraken_s": {
+   "file": "d_castle_kraken_s.png",
+   "w": 39,
+   "h": 41,
+   "smooth": false
+  },
+  "d_ship_whale_s": {
+   "file": "d_ship_whale_s.png",
+   "w": 43,
+   "h": 38,
+   "smooth": false
+  },
+  "d_moon_whale_s": {
+   "file": "d_moon_whale_s.png",
+   "w": 42,
+   "h": 42,
+   "smooth": false
   }
  }
 }
