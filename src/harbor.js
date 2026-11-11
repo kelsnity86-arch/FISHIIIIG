@@ -4,8 +4,8 @@ import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
-  townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed,
-} from './economy.js';
+  townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
+ } from './economy.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -60,11 +60,12 @@ export function enterHarbor(g) {
     g.scene = 'harbor'; g.panel = null;
     // 들어오자마자 어창의 생물이 수산시장에서 팔린다
     if (g.cargo.length) {
-      const sum = g.cargo.reduce((a, c) => a + c.price, 0), n = Math.min(16, 5 + g.cargo.length);
+      const full = g.cargo.length >= g.cargoMax && fullBonus(g.eco) > 1;            // 만선: 수산시장이 값을 더 쳐 준다
+      const sum = Math.round(g.cargo.reduce((a, c) => a + c.price, 0) * (full ? fullBonus(g.eco) : 1)), n = Math.min(16, 5 + g.cargo.length);
       g.gold += sum;
       for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.04 - 0.35, life: 0.6, sx: HX(0) + rand(-24, 24), sy: HY - 30 + rand(-14, 14) });
       g.sfx.push(['coin', n]);
-      g.msg = { text: `${g.cargo.length}마리 판매  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
+      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 판매  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
       g.cargo.length = 0;
     }
   });
@@ -78,7 +79,6 @@ function nextRegion(g) {
 
 // ── 가게 판에 놓이는 줄 ──
 const SKILL_ICON = { profit: 'h_skill_1', speed: 'h_skill_2', big: 'h_skill_3' };
-const GEAR_DESC = { outfit: '낚은 생물의 값 +', reel: '입질과 감기가 빨라진다', line: '더 센 생물을 버틴다', rod: '더 센 생물을 버틴다', boat: '어창 +2 · 다음 해역' };
 function rowsOf(g, id) {
   const gear = (x) => ['gear', x], skill = (x) => ['skill', x];
   switch (id) {
@@ -96,7 +96,7 @@ function rowInfo(g, kind, id) {
   const e = g.eco, look = TOWN_LOOK[e.town], dex = Object.keys(g.records).length;
   if (kind === 'gear') {
     const x = GEAR.find((v) => v.id === id), lv = e.gear[id];
-    return { name: x.name, level: gearLabel(lv), desc: GEAR_DESC[id], cost: gearCost(e, id), block: gearBlock(e, id), icon: `h_${id}_${Math.min(8, Math.floor(lv / 10) + 1)}` };
+    return { name: x.name, level: gearLabel(lv), desc: x.desc, cost: gearCost(e, id), block: gearBlock(e, id), icon: `h_${id}_${Math.min(8, Math.floor(lv / 10) + 1)}` };
   }
   if (kind === 'skill') {
     const x = SKILLS.find((v) => v.id === id), lv = e.skill[id];
@@ -107,7 +107,7 @@ function rowInfo(g, kind, id) {
     return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: `h_shop_${look}_${id}` };
   }
   const need = townNeedDex(e);
-  return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${TOWN_NAMES[e.town + 1]}(으)로 · 판매가 +5%`, cost: townCost(e),
+  return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${TOWN_NAMES[e.town + 1]}(으)로 · 가게를 더 키울 수 있다`, cost: townCost(e),
     block: e.town >= 8 ? '끝' : dex < need ? `도감 ${dex}/${need}` : null, icon: `h_shop_${look}_hall` };
 }
 

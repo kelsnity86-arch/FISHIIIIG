@@ -7,7 +7,7 @@ import {
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
-import { newEconomy, priceMult, speedMult, pullOf, cargoMax, maxRegion, fmt } from './economy.js';
+import { newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, luckOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 
@@ -365,15 +365,17 @@ export function update(g, dt) {
 
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
-  g.fish = rollCreature(g.forceGrade, g.region);
-  g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·복장·스킬에 따른 값
-  g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 내 장비에 비해 얼마나 센가
+  g.fish = rollCreature(g.forceGrade, g.region, luckOf(g.eco, GRADES));                // 복장(행운): 높은 등급이 잘 나온다
+  g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값
+  g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
+  g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
+  g.fish.strain = clamp(strainOf(g.eco, g.region), 0.75, 6);                           // 줄에 비해 장력이 얼마나 빨리 차는가
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
   // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)
   // 매번 길이 다르다: 떠오르는 자리·깊이·빠르기, 찌 밑에서 뜸 들이기, 물러나는 거리가 그때그때 정해진다.
-  const q0 = speedMult(g.eco), linger = () => ({ x: fx - L * rand(0.5, 0.74), y: rand(62, 112), speed: rand(0.28, 0.4), hover: rand(0.4, 1.1) / q0 });
+  const q0 = biteMult(g.eco), linger = () => ({ x: fx - L * rand(0.5, 0.74), y: rand(62, 112), speed: rand(0.28, 0.4), hover: rand(0.4, 1.1) / q0 });
   const plan = [
     { x: fx - L * rand(0.1, 0.34), y: DEEP * rand(0.52, 0.86), speed: rand(0.42, 0.62) },
   ];
@@ -386,10 +388,10 @@ function startWait(g) {
   plan.push({ touch: true, fake: false, speed: rand(0.36, 0.5) });
   // 화면 아래 깊은 곳에서 떠오른다 (멀리 옆에서 미끄러져 오면 한참 동안 아무것도 안 보인다)
   const sw = createSwimmer(L, fx - 60 - L * rand(0.2, 0.55), DEEP + rand(95, 130), 1);
-  { const q = speedMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 릴·손놀림: 입질이 빨리 온다
+  { const q = biteMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 손놀림: 입질이 빨리 온다
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
   g.sw = sw;
-  g.wait = { plan, step: 0, fakeT: 0, hover: 0, delay: rand(0.4, 1.2) / speedMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / speedMult(g.eco) };
+  g.wait = { plan, step: 0, fakeT: 0, hover: 0, delay: rand(0.4, 1.2) / biteMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / biteMult(g.eco) };
   setState(g, 'wait');
 }
 
@@ -472,13 +474,13 @@ function startMode(g) {
   f.ox = rand(-28, 28); f.oy = rand(-8, 12); f.back = rand(40, 95); f.turnAt = rand(1.1, 2); f.deep = rand(88, 108);
   if (f.mode === 'run') {
     const dir = Math.random() < 0.7 ? -1 : 1;     // 대부분 배에서 멀어지는 쪽으로
-    f.runTo = { x: clamp(s.x + dir * (200 + s.len * 0.3), -80, BOAT_X - 90), y: rand(30, 75) };
+    f.runTo = { dx: dir < 0 ? -rand(70, 120) : rand(20, 50), y: rand(30, 75) };     // 기준 자리(남은 거리)에서 얼마나 벗어나 달리는가
   }
   if (SURGE_MODES.includes(f.mode)) { kick(g, 0.12 + g.fish.power * 0.08); g.emote = { icon: 'sweat', age: 0 }; snd(g, 'surge'); buzz(20); }
 }
 
 function updateFight(g, dt) {
-  const f = g.fight, s = g.sw, p = g.fish.power, L = s.len;
+  const f = g.fight, s = g.sw, p = g.fish.power, K = g.fish.strain, L = s.len;
 
   // 동작 전환. 날뛰는 동작 앞에는 조짐(움찔·꼬리 젖히기)이 먼저 온다.
   f.modeT -= dt;
@@ -497,12 +499,13 @@ function updateFight(g, dt) {
   // 감기·풀기
   const tired = f.mode === 'tired';
   if (g.hold) {
-    f.tension += (0.4 + 0.12 * p + (f.surging ? 0.9 * p : 0) - (tired ? 0.15 : 0)) * dt;
-    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * speedMult(g.eco) * dt;
+    f.tension += ((0.4 - (tired ? 0.15 : 0)) * K + 0.12 * p + (f.surging ? 0.9 * p : 0)) * dt;   // 줄이 약하면(K) 감기만 해도 금방 찬다
+    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * reelMult(g.eco) * dt;
   } else {
-    f.tension -= (f.surging ? 0.4 : 0.75) * dt;
+    f.tension -= (f.surging ? 0.4 : 0.75) / Math.max(1, K) * dt;                       // 약한 줄은 풀어 줘도 더디게 풀린다
     // 장비로 감당 못 하는 힘(1.75배 넘게): 날뛸 때는 줄을 풀어 줘도 장력이 오른다 → 장비가 한 단계 모자라면 버티지 못한다
     if (f.surging && p > OVERPOWER) f.tension += (p - OVERPOWER) * 2.6 * dt;
+    if (K > OVERPOWER) f.tension += (K - OVERPOWER) * 0.5 * dt;                        // 줄이 한 단계 모자라면 풀어 줘도 끝내 끊어진다
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);
   }
   f.tension = Math.max(0, f.tension);
@@ -510,13 +513,14 @@ function updateFight(g, dt) {
 
   // 동작별 헤엄 목표. 기준점 = 감은 만큼 배 쪽으로 다가온 위치
   const far = clamp(f.dist / f.dist0, 0, 1.2);
-  const ax = lerp(BOAT_X - 150 - L * 0.25, Math.max(g.castX - L * 0.3, 210), far);   // 그림자가 화면 밖으로 밀려나지 않는 범위
+  // 남은 거리(m)가 줄수록 배 쪽으로 온다: 0m면 머리가 배 바로 앞, 처음 거리면 찌가 있던 자리 밑.
+  const ax = lerp(s.maxX - 6, Math.max(g.castX - L * 0.47, 120), Math.min(1, far));
   switch (f.mode) {
     case 'hold':
       s.target = { x: ax + f.ox, y: 26 + f.oy, speed: 0.4, face: 1 };
       s.shake = Math.max(s.shake, 0.45 + 0.3 * Math.sin(g.time * 3));
       break;
-    case 'run': s.target = { ...f.runTo, speed: 1.5 }; break;
+    case 'run': s.target = { x: ax + f.runTo.dx, y: f.runTo.y, speed: 1.5 }; break;
     case 'dive': s.target = { x: ax - 40 + f.ox, y: f.deep, speed: 0.9 }; break;      // 너무 깊이 가면 어두운 물에 묻혀 머리가 안 보인다
     case 'thrash':     // 수면 바로 밑에서 몸부림: 수면이 부풀고 큰 파도가 터진다
       s.target = { x: ax, y: 10, speed: 0.7, face: 1 };
@@ -531,17 +535,19 @@ function updateFight(g, dt) {
         g.shake = Math.max(g.shake, 1.5 + p); snd(g, 'splash'); buzz(30);
       }
       break;
-    case 'circle':     // 배 바로 앞까지 들이닥쳤다가 물러난다 (배 밑을 넘어가지는 않는다)
-      s.target = { x: f.modeT > f.turnAt ? s.maxX : ax - f.back, y: 78 + f.oy, speed: 0.95 };
+    case 'circle':     // 배 쪽으로 들이닥쳤다가 물러난다 (배 밑을 넘어가지는 않는다)
+      s.target = { x: f.modeT > f.turnAt ? ax + 55 : ax - f.back, y: 78 + f.oy, speed: 0.95 };
       break;
     case 'tired': s.target = { x: ax + 20 + f.ox * 0.5, y: 14 + Math.max(0, f.oy), speed: 0.25, face: 1 }; break;
   }
-  if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 200);
+  if (f.mode !== 'circle') s.target.x = Math.max(s.target.x, 110);
   s.target.x = Math.min(s.target.x, s.maxX);
   // 걸린 내내 몸부림친다: 날뛸 때 가장 세고, 지치면 잦아든다
   s.shake = Math.max(s.shake, f.surging ? 1 : f.mode === 'tired' ? 0.35 : 0.8);
   s.roam = f.mode === 'thrash' ? 0.15 : f.mode === 'run' ? 0.4 : 0.8;
   steer(s, dt, { arrive: f.mode !== 'run' });
+  // 줄에 끌려온다: 몸부림으로 뒤로 버텨도 남은 거리만큼의 자리로 서서히 당겨진다 (m가 줄면 반드시 배 쪽으로 온다)
+  s.x = Math.min(s.maxX, approach(s.x, s.target.x, 1.6, dt));
   s.y = Math.min(s.y, 110);                        // 걸린 동안은 그림자가 또렷이 보이는 깊이까지만
   s.vis = 1;
   s.act = f.mode === 'thrash' && s.y < s.floor + 22 ? 'thrash' : f.mode === 'dive' && s.pitch > 0.18 ? 'dive' : null;
@@ -558,7 +564,7 @@ function updateFight(g, dt) {
     g.shake = Math.max(g.shake, 0.4 + p * 0.3);
   }
 
-  if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '줄이 버티지 못했다! 더 좋은 줄과 낚싯대가 필요하다' : '줄이 끊어졌다!'); return null; }
+  if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '낚싯대가 버티지 못했다! 더 좋은 낚싯대가 필요하다' : g.fish.strain > OVERPOWER ? '줄이 끊어졌다! 더 좋은 줄이 필요하다' : '줄이 끊어졌다!'); return null; }
   if (f.slack > FIGHT.slackTime) { fail(g, '바늘이 빠졌다…'); return null; }
   if (f.dist <= 0) {
     // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,

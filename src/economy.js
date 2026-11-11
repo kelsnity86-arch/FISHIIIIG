@@ -10,19 +10,20 @@ const SKILL_BASE = FIRST_SET * 0.003 * START_CUT;
 // 장비 5종. 단계마다 10번 산다: 9번의 강화 + 10번째는 다음 단계 장비.
 //                 이름      값의 비중  설명
 export const GEAR = [
-  { id: 'outfit', name: '복장',   share: 0.10, desc: '값 +' },
-  { id: 'reel',   name: '릴',     share: 0.15, desc: '낚는 속도 +' },
-  { id: 'line',   name: '줄',     share: 0.20, desc: '힘 +' },
-  { id: 'rod',    name: '낚싯대', share: 0.25, desc: '힘 +' },
-  { id: 'boat',   name: '배',     share: 0.30, desc: '어창 +, 다음 해역' },
+  // 강화마다 하는 일이 하나씩, 서로 겹치지 않는다.
+  { id: 'outfit', name: '복장',   share: 0.10, desc: '행운: 높은 등급이 잘 나온다' },
+  { id: 'reel',   name: '릴',     share: 0.15, desc: '줄을 빨리 감는다' },
+  { id: 'line',   name: '줄',     share: 0.20, desc: '줄 강도: 장력이 천천히 찬다' },
+  { id: 'rod',    name: '낚싯대', share: 0.25, desc: '제압력: 날뛰는 힘을 누른다' },
+  { id: 'boat',   name: '배',     share: 0.30, desc: '어창 +2 · 다음 해역' },
 ];
 const STEP_W = (() => { const w = []; for (let j = 0; j < 9; j++) w.push(1.15 ** j); w.push(1.15 ** 9 * 3); const s = w.reduce((a, b) => a + b); return w.map((x) => x / s); })();
 
 // 스킬 노드 (레벨 무제한, 값은 레벨마다 1.15배). 10·25·50·100레벨에 보너스.
 export const SKILLS = [
-  { id: 'profit', name: '흥정',     desc: '값 ×1.02',       mult: 1.02 },
-  { id: 'speed',  name: '손놀림',   desc: '낚는 속도 +2%',  add: 0.02, max: 2 },
-  { id: 'big',    name: '큰 개체',  desc: '값 ×1.015',      mult: 1.015 },
+  { id: 'profit', name: '흥정',     desc: '판매가 ×1.02',            mult: 1.02 },
+  { id: 'speed',  name: '손놀림',   desc: '입질이 빨리 온다 +2%',    add: 0.02, max: 2 },
+  { id: 'big',    name: '큰 개체',  desc: '크기 ×1.015 (클수록 비싸다)', mult: 1.015 },
 ];
 const MILE = [[10, 1.1], [25, 1.1], [50, 1.15], [100, 1.2]];
 
@@ -30,7 +31,7 @@ const MILE = [[10, 1.1], [25, 1.1], [50, 1.15], [100, 1.2]];
 // 사슬: 시청(마을 등급) → 가게 레벨 → 그 단계 장비 → 다음 해역.
 // 값은 새로 얹지 않고 한 단계 총액에서 떼어 낸다: 시청 10% + 가게 5곳 20% + 장비 70% (속도는 그대로).
 export const SHOPS = [
-  { id: 'market', name: '수산시장',   desc: '판매가 +3%' },
+  { id: 'market', name: '수산시장',   desc: '만선 보너스 +3% (어창이 가득일 때)' },
   { id: 'tackle', name: '낚시도구점', desc: '다음 단계 낚싯대·줄·릴', gear: ['rod', 'line', 'reel'] },
   { id: 'yard',   name: '조선소',     desc: '다음 단계 배', gear: ['boat'] },
   { id: 'tailor', name: '옷가게',     desc: '다음 단계 복장', gear: ['outfit'] },
@@ -66,12 +67,25 @@ const SK = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 export const maxRegion = (e) => Math.min(8, Math.floor(e.gear.boat / 10) + 1);     // 갈 수 있는 가장 먼 해역
 export const cargoMax = (e) => 8 + 2 * Math.floor(e.gear.boat / 10);
-export const priceMult = (e, region) => PRICE_X ** (region - 1) * 1.25 ** (e.gear.outfit / 10) * node(e, SK.profit) * node(e, SK.big)
-  * 1.03 ** (e.shop.market - 1) * 1.05 ** (e.town - 1);                                          // 수산시장 +3%, 마을 등급 +5%
-const SPEED_CAP = 3.3;
-export const speedMult = (e) => Math.min(SPEED_CAP, 1.25 ** (e.gear.reel / 10) * node(e, SK.speed));   // 클수록 빨리 낚는다
-// 줄다리기에서 생물이 당기는 세기: 생물의 힘 ÷ 내 장비의 힘. 그 해역 단계의 장비면 1배, 한 단계 모자라면 4배.
-export const pullOf = (e, region) => POWER_X ** (region - 1) / POWER_X ** (0.05 * (e.gear.line + e.gear.rod));
+// 판매가: 해역 × 흥정 × 크기(큰 개체). 복장(행운)·수산시장(만선)·릴·손놀림은 각자 다른 일을 한다.
+export const priceMult = (e, region) => PRICE_X ** (region - 1) * node(e, SK.profit) * node(e, SK.big);
+export const sizeMult = (e) => node(e, SK.big);                                    // 큰 개체: 몸길이가 이만큼 커진다
+export const fullBonus = (e) => 1.03 ** (e.shop.market - 1);                       // 수산시장: 어창을 꽉 채워 팔 때
+export const reelMult = (e) => 1.25 ** (e.gear.reel / 10);                         // 릴: 줄다리기에서 감는 속도
+export const biteMult = (e) => node(e, SK.speed);                                  // 손놀림: 입질이 오기까지
+// 낚싯대: 생물이 날뛰는 세기 = 생물의 힘 ÷ 낚싯대의 힘. 그 해역 단계면 1배, 한 단계 모자라면 4배.
+export const pullOf = (e, region) => POWER_X ** (region - 1) / POWER_X ** (0.1 * e.gear.rod);
+// 줄: 장력이 차는 빠르기 = 생물의 힘 ÷ 줄의 힘. 그 해역 단계면 1배, 한 단계 모자라면 4배.
+export const strainOf = (e, region) => POWER_X ** (region - 1) / POWER_X ** (0.1 * e.gear.line);
+// 복장(행운): 등급이 하나 높아질 때마다 나올 가능성에 곱해지는 값. 한 단계마다 평균 수입이 1.25배가 되도록 맞춘다.
+const LUCK = new Map();
+export function luckOf(e, grades) {
+  const lv = e.gear.outfit; if (LUCK.has(lv)) return LUCK.get(lv);
+  const paid = grades.filter((g) => g.price > 0), mean = (L) => { let a = 0, b = 0; paid.forEach((g, i) => { a += g.weight * L ** i * g.price; b += g.weight * L ** i; }); return a / b; };
+  const want = mean(1) * 1.25 ** (lv / 10); let lo = 1, hi = 60;
+  for (let i = 0; i < 50; i++) { const m = (lo + hi) / 2; if (mean(m) < want) lo = m; else hi = m; }
+  LUCK.set(lv, lo); return lo;
+}
 
 export function gearCost(e, id) {
   const g = GEAR.find((x) => x.id === id), lv = e.gear[id], tier = Math.floor(lv / 10), step = lv % 10;
@@ -81,7 +95,6 @@ export function gearCost(e, id) {
 export function gearBlock(e, id) {
   const lv = e.gear[id];
   if (lv >= 70) return '끝';
-  if (id === 'reel' && speedMult(e) >= SPEED_CAP - 1e-6) return '끝';        // 더 사도 빨라지지 않으면 팔지 않는다
   if (id !== 'boat' && lv >= maxRegion(e) * 10) return '배를 먼저';
   if (lv % 10 === 9 && shopOf(id).id && e.shop[shopOf(id).id] < Math.floor(lv / 10) + 2) return shopOf(id).name + ' 레벨';
   return null;

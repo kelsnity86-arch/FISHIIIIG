@@ -51,14 +51,15 @@ const rand = (a, b) => a + Math.random() * (b - a);
 
 export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다'];
 
-export function rollCreature(forcedGrade, region = 1) {
+export function rollCreature(forcedGrade, region = 1, luck = 1) {
   let grade;
   if (forcedGrade) {
     grade = GRADES.find((g) => g.id === forcedGrade);
   } else {
-    const total = GRADES.reduce((s, g) => s + g.weight, 0);
+    // 행운(복장): 등급이 하나 높을수록 나올 가능성이 luck배씩 커진다 (환상종은 전설만큼만)
+    const wt = GRADES.map((g, i) => g.weight * luck ** Math.min(i, 4)), total = wt.reduce((s, v) => s + v, 0);
     let r = Math.random() * total;
-    grade = GRADES.find((g) => (r -= g.weight) < 0) || GRADES[0];
+    grade = GRADES.find((g, i) => (r -= wt[i]) < 0) || GRADES[0];
   }
   // 그 해역의 생물과 모든 해역 공용(평범한 물고기) 가운데, 그 등급에서 하나.
   // 그 등급이 이 해역에 없으면 한 등급씩 낮춰 찾는다.

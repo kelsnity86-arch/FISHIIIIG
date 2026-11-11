@@ -685,15 +685,20 @@ function drawDayClock(ctx, g) {
   const bar = sprite('h_bar'), bh = w * bar.h / bar.w, fl = sprite('h_bar_fill');
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(bar.img, x0, y - bh / 2, w, bh);
-  const tx = x0 + w * 0.045, tw = w * 0.91, th = tw * fl.h / fl.w;          // 틀 안쪽 홈
+  // 틀 안쪽 홈(둥근 끝)의 자리. 채움도 아이콘도 이 안에서만 움직인다 → 틀 밖으로 삐져나오지 않는다.
+  const gx = x0 + w * 0.03, gw = w * 0.94, gh = bh * 0.6, gy = y - gh / 2 + bh * 0.005, r = gh / 2;
+  const s = gh * 0.92, ix = gx + r + (gw - 2 * r) * k;                       // 해·달: 홈 높이에 맞춘 크기, 홈의 둥근 끝 안쪽까지만
+  ctx.save();
+  ctx.beginPath(); ctx.roundRect(gx, gy, gw, gh, r); ctx.clip();            // 홈 모양대로 잘라 낸다
   ctx.globalAlpha = 0.55;
-  if (k > 0.004) ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, tx, y - th / 2, tw * k, th);
-  ctx.globalAlpha = 1;
+  ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, gx, gy, ix - gx, gh);
+  ctx.restore();
   // 시간대가 바뀌는 자리에 그 시간대의 작은 표시
-  for (const [at, id] of DAY_PLAN) { if (at === 0) continue; const ic = sprite(DAY_ICON[id]); ctx.globalAlpha = 0.5; ctx.drawImage(ic.img, tx + tw * at - 4, y - 4, 8, 8 * ic.h / ic.w); }
+  for (const [at, id] of DAY_PLAN) { if (at === 0) continue; const ic = sprite(DAY_ICON[id]), m = 7; ctx.globalAlpha = 0.45; ctx.drawImage(ic.img, gx + r + (gw - 2 * r) * at - m / 2, y - m * ic.h / ic.w / 2, m, m * ic.h / ic.w); }
   ctx.globalAlpha = 1;
-  const ic = sprite(DAY_ICON[g.phase]), s = 20, late = k > 0.9 ? 1 + 0.12 * Math.sin(performance.now() / 160) : 1;   // 끝이 가까우면 두근거린다
-  ctx.drawImage(ic.img, tx + tw * k - s * late / 2, y - s * late * ic.h / ic.w / 2, s * late, s * late * ic.h / ic.w);
+  const ic = sprite(DAY_ICON[g.phase]), late = k > 0.9 ? 1 + 0.1 * Math.sin(performance.now() / 160) : 1;   // 끝이 가까우면 두근거린다
+  const iw = s * late * Math.min(1, ic.w / ic.h), ih = iw * ic.h / ic.w;     // 세로로 긴 그림도 홈 높이를 넘지 않게
+  ctx.drawImage(ic.img, ix - iw / 2, y - ih / 2, iw, ih);
 }
 
 // 게이지: 틀 그림 위에 채움 그림을 채워진 만큼만 잘라 얹는다. x0·x1 = 틀에서 홈이 시작하고 끝나는 자리(폭 대비)
