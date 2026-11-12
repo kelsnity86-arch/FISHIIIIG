@@ -7,7 +7,7 @@ import {
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
-import { newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, luckOf, cargoMax, maxRegion, fmt } from './economy.js';
+import { ADVANCE, newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, luckOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
@@ -158,7 +158,7 @@ export function press(g) {
         if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.dirty = true; }
           else g.catch.thanks = Math.round(THANKS_GOLD * priceMult(g.eco, g.region)); }   // 물건을 다 찾은 뒤에는 바다가 답례를 한다 (놓아준 생물이 물에 닿는 순간)
         else {
-          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
+          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax}) · 선금 +${fmt(f.advance || 0)} G`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'stow');
           g.catch.phase = 'stow';
         }
@@ -758,7 +758,8 @@ function updateCatch(g, dt) {
       if (prev !== undefined && f.meters > prev && has(g, 'coin')) f.price = Math.round(f.price * 1.5);   // 동전: 신기록
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
       g.records[f.name] = Math.max(prev || 0, f.meters);
-      if (!f.isFantasy) g.cargo.push({ name: f.name, price: f.price, grade: f.grade });   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)
+      // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지 잔금은 항구에서 팔 때 받는다
+      if (!f.isFantasy) { f.advance = Math.floor(f.price * ADVANCE); g.gold += f.advance; g.cargo.push({ name: f.name, price: f.price - f.advance, grade: f.grade }); }   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)
       g.dirty = true;
       c.phase = 'hang'; c.pt = 0; g.sw = null; snd(g, 'card');
       setState(g, 'result');

@@ -15,7 +15,7 @@ export const GEAR = [
   { id: 'reel',   name: '릴',     share: 0.15, desc: '줄을 빨리 감는다' },
   { id: 'line',   name: '줄',     share: 0.20, desc: '줄 강도: 장력이 천천히 찬다' },
   { id: 'rod',    name: '낚싯대', share: 0.25, desc: '제압력: 날뛰는 힘을 누른다' },
-  { id: 'boat',   name: '배',     share: 0.30, desc: '어창 +3 · 다음 해역' },
+  { id: 'boat',   name: '배',     share: 0.30, desc: '어창 +2 · 다음 해역' },
 ];
 const STEP_W = (() => { const w = []; for (let j = 0; j < 9; j++) w.push(1.15 ** j); w.push(1.15 ** 9 * 3); const s = w.reduce((a, b) => a + b); return w.map((x) => x / s); })();
 
@@ -66,7 +66,8 @@ const node = (e, s) => {
 const SK = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 export const maxRegion = (e) => Math.min(8, Math.floor(e.gear.boat / 10) + 1);     // 갈 수 있는 가장 먼 해역
-export const cargoMax = (e) => 5 + 3 * Math.floor(e.gear.boat / 10);      // 작게 시작해 배 단계마다 +3 (5 → 26). 초반에 항구를 자주 들러 조금씩 산다
+export const cargoMax = (e) => 5 + 2 * Math.floor(e.gear.boat / 10);      // 작게 시작해 배 단계마다 +2 (5 → 19). 항구를 자주 들른다
+export const ADVANCE = 0.5;      // 낚는 순간 받는 선금의 몫. 나머지(잔금)는 항구에서 팔 때 받는다
 // 판매가: 해역 × 흥정 × 크기(큰 개체). 복장(행운)·수산시장(만선)·릴·손놀림은 각자 다른 일을 한다.
 export const priceMult = (e, region) => PRICE_X ** (region - 1) * node(e, SK.profit) * node(e, SK.big);
 export const sizeMult = (e) => node(e, SK.big);                                    // 큰 개체: 몸길이가 이만큼 커진다
