@@ -70,7 +70,7 @@ export function enterHarbor(g) {
       g.gold += sum;
       for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.04 - 0.35, life: 0.6, sx: HX(0) + rand(-24, 24), sy: HY - 30 + rand(-14, 14) });
       g.sfx.push(['coin', n]);
-      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 판매 · 잔금  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
+      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 판매 · 포상금  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
       g.cargo.length = 0;
     }
   });

@@ -274,7 +274,7 @@ function hintFor(g) {
   if (!s.cast) { if (g.state !== 'idle' && g.state !== 'charge') { s.cast = 1; g.dirty = true; } else return g.state === 'charge' ? '손을 떼면 던진다' : '화면을 꾹 눌렀다 떼면 찌를 던진다'; }
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러라'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뛴다! 손을 떼고 버텨라' : '누르고 있으면 감는다 · 아래 게이지가 차면 잠깐 떼라'; }
-  if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '값의 절반은 바로 받고, 나머지는 항구에서 팔 때 받는다'; }
+  if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '선금은 바로 받고, 나머지는 항구에서 포상금으로 받는다'; }
   if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 단추 · 스킬은 바다에서도 올릴 수 있다';
   if (g.panel && g.panel.id === 'skills' && !s.skill) { s.skill = 1; g.dirty = true; }
   if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 단추 · 생물을 팔고 장비를 산다';

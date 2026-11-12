@@ -758,7 +758,7 @@ function updateCatch(g, dt) {
       if (prev !== undefined && f.meters > prev && has(g, 'coin')) f.price = Math.round(f.price * 1.5);   // 동전: 신기록
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
       g.records[f.name] = Math.max(prev || 0, f.meters);
-      // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지 잔금은 항구에서 팔 때 받는다
+      // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지는 항구에서 팔 때 포상금으로 받는다
       if (!f.isFantasy) { f.advance = Math.floor(f.price * ADVANCE); g.gold += f.advance; g.cargo.push({ name: f.name, price: f.price - f.advance, grade: f.grade }); }   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)
       g.dirty = true;
       c.phase = 'hang'; c.pt = 0; g.sw = null; snd(g, 'card');
