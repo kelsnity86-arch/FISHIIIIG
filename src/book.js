@@ -44,13 +44,13 @@ const PIN_X = [0, 80, 158, 231, 304, 375, 439, 505, 590], PIN_TIP = 174, PIN_W =
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
 export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; g.sfx.push(['paper']); }
 // 누른 결과: 갈 해역 번호(이동은 부른 쪽에서), 없으면 null
-export function tapMap(g, x, y) {
+export function tapMap(g, x, y, fromHarbor = false) {
   const m = g.map; if (!m || m.closing != null) return null;
   if (Math.hypot(x - MCLOSE.x, y - MCLOSE.y) < 19) { m.closing = 0; g.sfx.push(['paper']); return null; }
   for (let r = 1; r <= 8; r++) {
     if (Math.abs(x - PIN_X[r]) < 26 && y > PIN_TIP - 46 && y < PIN_TIP + 34) {
       if (r > maxRegion(g.eco)) { m.note = `${REGIONS[r]} · 조선소에서 배를 ${r}단계로 키워야 갈 수 있다`; m.noteT = m.t; g.sfx.push(['deny']); return null; }
-      if (r === g.region) { m.note = `${REGIONS[r]} · 지금 있는 바다`; m.noteT = m.t; g.sfx.push(['tap']); return null; }
+      if (r === g.region && !fromHarbor) { m.note = `${REGIONS[r]} · 지금 있는 바다`; m.noteT = m.t; g.sfx.push(['tap']); return null; }
       m.closing = 0; return r;
     }
   }
@@ -74,7 +74,7 @@ export function drawMap(ctx, g) {
   label(ctx, '해역 지도', W / 2, 256, 15, '#5a3a1e', 'center', 700, null);
   const noteA = m.note ? clamp(1 - (m.t - m.noteT - 2.2) / 0.5, 0, 1) * clamp((m.t - m.noteT) / 0.15, 0, 1) : 0;
   if (noteA > 0.01) { ctx.globalAlpha = a * noteA; label(ctx, m.note, W / 2, 280, 10, '#8a3b22', 'center', 600, null); ctx.globalAlpha = a; }
-  else label(ctx, '표식을 누르면 그 바다로 간다', W / 2, 280, 9.5, '#7a6248', 'center', 600, null);
+  else label(ctx, g.scene === 'harbor' ? '표식을 누르면 그 바다로 출항한다' : '표식을 누르면 그 바다로 간다', W / 2, 280, 9.5, '#7a6248', 'center', 600, null);
   img(ctx, 'h_close', MCLOSE.x - 14, MCLOSE.y - 14, 28, 28);
   ctx.restore();
 }

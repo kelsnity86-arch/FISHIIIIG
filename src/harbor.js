@@ -20,6 +20,7 @@ const HOUSE_NAME = { market: '수산시장', tackle: '낚시도구점', yard: '�
 const HX = (i) => 68 + i * 100.8, HY = 228, HW = 88;      // 건물 가운데 x, 바닥 y, 폭
 const LEAVE = { x: W - 62, y: H - 24, w: 104, h: 30 };    // 출항 단추
 const HDEX = { x: 26, y: H - 26, r: 17 };                 // 항구에서도 도감을 펼쳐 볼 수 있다
+const HMAP = { x: 64, y: H - 26, r: 17 };                 // 항구에서 지도를 펴고 갈 바다를 골라 바로 출항한다
 // 바다 화면의 둥근 단추 (낚시 중이 아닐 때만)
 export const SEA_BTNS = [
   { id: 'harbor', icon: 'ui_ic_harbor', x: W - 26, y: H - 26, r: 17, label: '항구' },
@@ -77,7 +78,10 @@ export function enterHarbor(g) {
 export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
-  travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
+  travel(g, () => {
+    if (g.scene === 'harbor') { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }   // 항구에서 골랐으면 그 바다로 출항 (새 하루)
+    g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g);
+  });
 }
 function nextRegion(g) {
   const n = g.region % maxRegion(g.eco) + 1;
@@ -134,7 +138,7 @@ export function pointer(g, x, y) {
   if (g.title) { tapTitle(g, x, y); return true; }
   if (g.memory) { tapMemory(g); return true; }
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
-  if (g.map) { const r = tapMap(g, x, y); if (r) goRegion(g, r); return true; }
+  if (g.map) { const r = tapMap(g, x, y, g.scene === 'harbor'); if (r) goRegion(g, r); return true; }
   if (g.dex) { tapDex(g, x, y); return true; }
   if (tapSkip(g, x, y) || g.skip) return true;
   if (g.panel) {
@@ -155,6 +159,7 @@ export function pointer(g, x, y) {
   if (g.scene === 'harbor') {
     if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 && Math.abs(y - LEAVE.y) < LEAVE.h / 2) { leaveHarbor(g); return true; }
     if (Math.hypot(x - HDEX.x, y - HDEX.y) <= HDEX.r + 3) { openDex(g); return true; }
+    if (Math.hypot(x - HMAP.x, y - HMAP.y) <= HMAP.r + 3) { openMap(g); return true; }
     for (let i = 0; i < HOUSES.length; i++) {
       if (Math.abs(x - HX(i)) < HW / 2 + 4 && y > HY - 92 && y < HY + 22) { openPanel(g, HOUSES[i]); g.sfx.push(['door']); return true; }
     }
@@ -225,6 +230,7 @@ export function drawHarbor(ctx, g) {
   label(ctx, `${e.town}등급 · ${TOWN_NAMES[e.town]}`, W / 2, 6 + rh * 0.42, 10.5, COLORS.navy, 'center', 600, null);
   ctx.globalAlpha = g.panel ? 0.4 : 1;
   img(ctx, 'ui_ic_book', HDEX.x - HDEX.r, HDEX.y - HDEX.r, HDEX.r * 2, HDEX.r * 2);
+  img(ctx, 'ui_ic_map', HMAP.x - HMAP.r, HMAP.y - HMAP.r, HMAP.r * 2, HMAP.r * 2);
   ctx.globalAlpha = 1;
   // 출항
   const bt = sprite('ui_btn');

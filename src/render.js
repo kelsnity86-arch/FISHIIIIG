@@ -180,7 +180,7 @@ export function render(ctx, g) {
     drawPanel(ctx, g);
     drawMsg(ctx, g);
     drawCoins(ctx, g);
-    drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
+    drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
     drawVeil(ctx, g);
     return;
   }
