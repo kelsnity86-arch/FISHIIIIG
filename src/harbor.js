@@ -272,11 +272,12 @@ export function drawHarbor(ctx, g) {
   if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (bt8 - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05, bw, bh); }
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
   // 마을 이름
-  const title = `${e.town}등급 · ${TOWN_NAMES[e.town]}` + (g.gen ? ` · ${g.gen + 1}대째` : '');
+  const title = `${e.town}등급 · ${TOWN_NAMES[e.town]}`;
   ctx.font = `600 10.5px ${FONT}`;
   const rb = sprite('h_ribbon'), rh = 150 * rb.h / rb.w, rw = Math.max(150, ctx.measureText(title).width / 0.6);      // 글이 길면 리본을 옆으로 늘린다 (글이 놓이는 반듯한 부분은 폭의 0.6쯤)
   ctx.drawImage(rb.img, W / 2 - rw / 2, 6, rw, rh);
   label(ctx, title, W / 2, 6 + rh * 0.42, 10.5, COLORS.navy, 'center', 600, null);
+  if (g.gen) label(ctx, `${g.gen + 1}대째`, W / 2, 6 + rh + 3, 9, '#fff4dc', 'center', 600);      // 대를 이은 뒤: 리본 아래에 작게
   ctx.globalAlpha = g.panel || !g.story.seen.sail ? 0.4 : 1;
   img(ctx, 'ui_ic_book', HDEX.x - HDEX.r, HDEX.y - HDEX.r, HDEX.r * 2, HDEX.r * 2);
   img(ctx, 'ui_ic_map', HMAP.x - HMAP.r, HMAP.y - HMAP.r, HMAP.r * 2, HMAP.r * 2);
