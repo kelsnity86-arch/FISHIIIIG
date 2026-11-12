@@ -11762,9 +11762,9 @@ on the main branch, in the folder assets/raw/, with the file name h_boat_9.png
 
 ## ㊲ 생선 장수: 손에 든 것 바꾸기
 
-이 세계에서 보통 크기의 평범한 물고기는 태초의 바다에 가서야 처음 발견된다. 그래서 생선 장수가 팔뚝만 한 물고기를 안고 있으면 안 된다. 대신 손저울을 들고 있다.
+이 세계에서 보통 크기의 평범한 물고기는 태초의 바다에 가서야 처음 발견된다. 그래서 생선 장수가 팔뚝만 한 물고기를 안고 있으면 안 된다. 대신 손저울과 얇은 장부를 들고 있다.
 
-### 390. `h_npc_market` — 생선 장수 한 사람 (물고기 대신 손저울)
+### 390. `h_npc_market` — 생선 장수 한 사람 (물고기 대신 손저울과 장부)
 
 ```
 This is an EDIT of an existing image, not a new painting.
@@ -11778,8 +11778,12 @@ same pose, same size, same painterly storybook rendering and outlines.
 Change ONLY ONE thing: she must no longer hold a fish. Remove the fish completely. Instead
 she holds up a small brass hand-held balance scale in one hand (a short beam hanging from
 a ring she holds, with two small shallow brass pans on thin chains, both pans empty), at
-about chest height, as if ready to weigh something. Her other hand rests on her hip or on
-her apron. Keep her body, shoulders and smile as close to the original as possible.
+about chest height, as if ready to weigh something. Under her other arm she holds a
+thin, well-worn account ledger pressed against her side: a slim floppy notebook with a
+plain brown paper cover, a few loose page corners sticking out and a short pencil tucked
+into it. It must look clearly different from the thick, ornate leather book that the old
+guild master holds in h_npc.png: thin, cheap and practical. Keep her body, shoulders and
+smile as close to the original as possible.
 There must be no fish and no part of a fish anywhere in the picture.
 
 No text. Fully transparent background. Only this one person, centred, shown from the same
