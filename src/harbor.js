@@ -304,9 +304,7 @@ export function drawPanel(ctx, g) {
   // 가게 주인이 판 왼쪽에 서 있다
   const npc = sprite('h_npc_' + shopId), nw = npc.dw || 104, nh = nw * npc.h / npc.w;      // dw: 그림의 폭이 달라져도 키가 같아 보이도록 따로 적은 폭
   ctx.imageSmoothingEnabled = true;
-  { const nx = PANEL.x - nw + 22, ny = PANEL.y + ph - nh - 4 + Math.sin(g.time * 1.6) * 0.8;
-    if (npc.dw) { ctx.save(); ctx.translate(nx + nw, ny); ctx.scale(-1, 1); ctx.drawImage(npc.img, 0, 0, nw, nh); ctx.restore(); }      // 생선 장수: 손저울을 든 손이 판에 가리지 않게 좌우를 뒤집어 세운다
-    else ctx.drawImage(npc.img, nx, ny, nw, nh); }
+  ctx.drawImage(npc.img, PANEL.x - nw + (npc.dw ? 1 : 22), PANEL.y + ph - nh - 4 + Math.sin(g.time * 1.6) * 0.8, nw, nh);      // 생선 장수(dw)는 손저울을 든 손이 판에 가리지 않게 판 바깥에 선다. 방향은 다른 주인들과 같다
   img(ctx, 'h_panel', PANEL.x, PANEL.y, PANEL.w, ph);
   const rb = sprite('h_ribbon'), rw = 170 * PS, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
