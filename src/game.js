@@ -486,7 +486,7 @@ function startBite(g) {
 function startFight(g) {
   const dist0 = 30 + g.power * 50;
   g.fight = {
-    dist0, dist: dist0, tension: 0.4, slack: 0, fx: 0,
+    dist0, dist: dist0, tension: 0.5, slack: 0, zero: 0, fx: 0,      // 게이지는 한가운데에서 시작한다
     maxTension: g.bite.perfect ? 1.12 : 1.0,
     mode: 'hold', modeT: rand(1, 1.8), tele: 0, next: null,
     surging: false, runTo: null, did: false, stamina: 1,
@@ -625,6 +625,9 @@ function updateFight(g, dt) {
   }
   if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '낚싯대가 버티지 못했다! 더 좋은 낚싯대가 필요하다' : g.fish.strain > OVERPOWER ? '줄이 끊어졌다! 더 좋은 줄이 필요하다' : '줄이 끊어졌다!'); return null; }
   if (f.slack > FIGHT.slackTime * (has(g, 'bottle') ? 1.6 : 1)) { fail(g, '바늘이 빠졌다…'); return null; }
+  // 게이지가 바닥나면(줄이 완전히 풀리면) 바늘이 빠진다. 유리병이 있으면 잠깐은 버틴다
+  f.zero = f.tension <= 0.001 ? f.zero + dt : 0;
+  if (f.zero > (has(g, 'bottle') ? 0.6 : 0.05)) { fail(g, '줄이 풀려 바늘이 빠졌다…'); return null; }
   if (f.dist <= 0) {
     // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,
     // 제자리(배 왼쪽)로 돌아올 때까지 지친 상태로 끌려오게 한 뒤 낚아 올린다.
