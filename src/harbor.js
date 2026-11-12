@@ -3,6 +3,7 @@ import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { tapTalk, tapSkip, storyTown, storyRegion } from './story.js';
+import { openMap, tapMap, openDex, tapDex } from './book.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
@@ -22,7 +23,8 @@ const LEAVE = { x: W - 62, y: H - 24, w: 104, h: 30 };    // 출항 단추
 export const SEA_BTNS = [
   { id: 'harbor', icon: 'ui_ic_harbor', x: W - 26, y: H - 26, r: 17, label: '항구' },
   { id: 'map',    icon: 'ui_ic_map',    x: W - 64, y: H - 26, r: 17, label: '해역' },
-  { id: 'book',   icon: 'ui_ic_book',   x: W - 102, y: H - 26, r: 17, label: '스킬' },
+  { id: 'skill',  icon: 'ui_ic_gear',   x: W - 102, y: H - 26, r: 17, label: '스킬' },
+  { id: 'dex',    icon: 'ui_ic_book',   x: W - 140, y: H - 26, r: 17, label: '도감' },
 ];
 
 function label(ctx, str, x, y, size, color, align = 'center', weight = 600, stroke = 'rgba(16,28,56,0.55)') {
@@ -72,6 +74,10 @@ export function enterHarbor(g) {
   });
 }
 export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; }); }   // 새 하루가 새벽에 시작된다
+// 지도에서 고른 해역으로 간다
+function goRegion(g, n) {
+  travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
+}
 function nextRegion(g) {
   const n = g.region % maxRegion(g.eco) + 1;
   if (n === g.region) { g.msg = { text: '더 큰 배가 있어야 먼바다로 나갈 수 있다', color: '#ffd0c0', age: 0 }; return; }
@@ -125,6 +131,8 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 export function pointer(g, x, y) {
   if (g.travel) return true;
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
+  if (g.map) { const r = tapMap(g, x, y); if (r) goRegion(g, r); return true; }
+  if (g.dex) { tapDex(g, x, y); return true; }
   if (tapSkip(g, x, y) || g.skip) return true;
   if (g.panel) {
     if (g.panel.closing != null) return true;
@@ -151,7 +159,7 @@ export function pointer(g, x, y) {
   if (g.state === 'idle') {
     for (const b of SEA_BTNS) {
       if (Math.hypot(x - b.x, y - b.y) <= b.r + 3) {
-        if (b.id === 'harbor') enterHarbor(g); else if (b.id === 'map') nextRegion(g); else { openPanel(g, 'skills'); g.sfx.push(['paper']); }
+        if (b.id === 'harbor') enterHarbor(g); else if (b.id === 'map') openMap(g); else if (b.id === 'dex') openDex(g); else { openPanel(g, 'skills'); g.sfx.push(['paper']); }
         return true;
       }
     }
@@ -181,7 +189,7 @@ export function drawSeaButtons(ctx, g) {
   ctx.save(); ctx.globalAlpha = btnA;
   for (const b of SEA_BTNS) {
     img(ctx, b.icon, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
-    if (b.id === 'book' && canBuyAt(g, 'skills')) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
+    if (b.id === 'skill' && canBuyAt(g, 'skills')) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
     if (b.id === 'harbor' && g.cargo.length >= g.cargoMax) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
   }
   ctx.restore();

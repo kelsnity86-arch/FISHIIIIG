@@ -11,6 +11,7 @@ import { newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, 
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk } from './story.js';
+import { updateBook } from './book.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -122,7 +123,7 @@ function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern)
 // ── 입력 ──
 export function press(g) {
   if (g.talk) { tapTalk(g); return; }                 // 대화 중에는 누르면 다음 줄
-  if (g.skip) return;
+  if (g.skip || g.map || g.dex) return;
   if (g.scene !== 'sea' || g.panel || g.travel) return;
   g.hold = true;
   switch (g.state) {
@@ -200,13 +201,13 @@ export function update(g, dt) {
   g.goldShown = Math.abs(g.gold - g.goldShown) < 0.6 ? g.gold : approach(g.goldShown, g.gold, 6, dt);
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
-  updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt);
+  updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt); updateBook(g, dt);
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
-    if (!g.talk && !g.skip) g.dayT += dt;                // 대화하는 동안은 시간이 흐르지 않는다
+    if (!g.talk && !g.skip && !g.map && !g.dex) g.dayT += dt;                // 대화하는 동안은 시간이 흐르지 않는다
     g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
     if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
-    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
+    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk && !g.map && !g.dex) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
       if (enterHarbor(g)) g.msg = { text: '하루가 저물어 항구로 돌아간다', color: '#cfd8ff', age: 0 };
     }
   }

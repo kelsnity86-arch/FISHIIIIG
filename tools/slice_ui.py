@@ -103,6 +103,7 @@ def run(manifest):
     for n in range(2, 9):
         for kind, top in (('sky', 0.0), ('sea', 0.2)):
             p = RAW / f'c_{kind}_{n}.png'
+            if (RAW / f'c_{kind}_{n}b.png').exists(): p = RAW / f'c_{kind}_{n}b.png'      # 숨은 흔적을 넣어 고친 그림이 있으면 그것을 쓴다
             if not p.exists(): continue
             im = Image.open(p).convert('RGB'); im = im.crop((0, round(im.height * top), im.width, im.height))
             if im.width > 1920: im = im.resize((1920, round(im.height * 1920 / im.width)), Image.LANCZOS)
@@ -148,6 +149,48 @@ def run(manifest):
     pack(shops, 'h_shops.webp', manifest)
     big = cut('ui2_card', [f'ui_card_{i}' for i in range(1, 7)], 2, 520) + cut('ui2_caught', [f'ui_caught_{i}' for i in range(1, 7)], 3, 640)
     pack(big, 'ui_big.webp', manifest)
+
+    # 이야기·도감·지도·숨은 흔적
+    def blobs(src, names, rows_of, maxw):
+        """빈 줄로 위→아래 띠를 나누고, 띠 안에서 빈 칸으로 왼→오 조각을 나눈다. rows_of = 띠마다 조각 수 (검사용)"""
+        a = np.array(Image.open(RAW / (src + '.png')).convert('RGBA')); m = a[..., 3] > 40
+        def runs(prof, gap):
+            on = prof > 0; out = []; st = None; last = -99
+            for k, v in enumerate(on):
+                if v:
+                    if st is None: st = k
+                    last = k
+                elif st is not None and k - last > gap: out.append((st, last + 1)); st = None
+            if st is not None: out.append((st, last + 1))
+            return [r for r in out if r[1] - r[0] > 12]
+        out = []
+        rows = runs(m.sum(axis=1), 5)
+        assert len(rows) == len(rows_of), (src, '띠 수', len(rows), rows)
+        for (y0, y1), n in zip(rows, rows_of):
+            cols = runs(m[y0:y1].sum(axis=0), 10)
+            assert len(cols) == n, (src, '조각 수', len(cols), n)
+            for x0, x1 in cols:
+                yy = np.nonzero(m[y0:y1, x0:x1].any(axis=1))[0]
+                im = Image.fromarray(a[y0 + yy.min():y0 + yy.max() + 1, x0:x1]); mw = maxw.get(names[len(out)], maxw['*'])
+                if im.width > mw: im = im.resize((mw, round(im.height * mw / im.width)), Image.LANCZOS)
+                out.append((names[len(out)], im))
+        return out
+    extra = []
+    if (RAW / 'ui_story.png').exists():
+        extra += blobs('ui_story', ['ui_talk', 'ui_ff', 'ui_ff_down', 'ui_hand', 'ui_arrow'], [1, 1, 1, 1, 1], {'ui_talk': 1100, '*': 140})
+    if (RAW / 'ui_dex.png').exists():
+        extra += blobs('ui_dex', ['dex_book', 'dex_slot', 'dex_slot_off', 'dex_slot_on'] + [f'dex_fr_{i}' for i in range(1, 7)] + ['dex_tab', 'dex_tab_on', 'dex_prev', 'dex_next'],
+                       [1, 3, 6, 2, 2], {'dex_book': 1180, '*': 150})
+    if (RAW / 'ui_map_pins.png').exists():
+        extra += cut('ui_map_pins', [f'map_pin_{i}' for i in range(1, 9)] + ['map_lock', 'map_boat', 'map_ring', 'map_token'], 3, 170)
+    if (RAW / 'c_deep.png').exists():
+        extra += cut('c_deep', [f'c_deep_{i}' for i in range(1, 9)], 2, 420)
+    if (RAW / 'ui_relics.png').exists():
+        extra += cut('ui_relics', [f'relic_{i}' for i in range(1, 13)], 3, 200)
+    if extra: pack(extra, 'ui_extra.webp', manifest)
+    if (RAW / 'ui_map.png').exists():
+        im = Image.open(RAW / 'ui_map.png').convert('RGB').resize((1280, 720), Image.LANCZOS); im.save(OUT / 'ui_map.webp', 'WEBP', quality=88, method=4)
+        manifest['ui_map'] = dict(file='ui_map.webp', w=640, h=360, smooth=True)
 
 
 if __name__ == '__main__':

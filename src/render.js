@@ -11,6 +11,7 @@ import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { drawTalk, drawHint, drawSkip } from './story.js';
+import { drawMap, drawDex } from './book.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -186,7 +187,7 @@ export function render(ctx, g) {
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
-  drawSkip(ctx, g); drawHint(ctx, g); drawTalk(ctx, g);
+  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
@@ -240,6 +241,7 @@ function renderSea(ctx, g) {
 
   ctx.save();                                   // 수면 아래에만 그리는 것들
   ctx.beginPath(); ctx.rect(view.l, WL - 2, view.r - view.l, Math.max(4, (H - oy) / z - WL + 42)); ctx.clip();
+  drawDeep(ctx, g);
   drawShafts(ctx, g);
   drawShadow(ctx, g);
   drawLeap(ctx, g, true);
@@ -263,6 +265,23 @@ function renderSea(ctx, g) {
   ctx.restore();
 
   drawHud(ctx, g);
+}
+
+// 숨은 흔적: 물고기 그림자보다 훨씬 깊은 바닥에, 가끔 움직이지 않는 큰 윤곽이 흐릿하게 비쳤다가 사라진다.
+// 아무 설명도 없다. 눈여겨본 사람만 "방금 저게 뭐였지" 한다. (8번 해역에서만 조금 더 자주, 조금 더 또렷하게)
+function drawDeep(ctx, g) {
+  if (!hasSprite('c_deep_1')) return;
+  const far = g.region >= 8, T = far ? 45 : 80, SHOW = 18;
+  const n = Math.floor(g.time / T), ph = g.time - n * T;
+  if (ph > SHOW) return;
+  const h1 = Math.abs(Math.sin(n * 12.9898 + g.region * 78.233) * 43758.5453) % 1, h2 = Math.abs(Math.sin(n * 39.346 + g.region * 11.135) * 24634.6345) % 1;
+  if (!far && h2 < 0.35) return;                                        // 매번 나오지는 않는다
+  const k = Math.min(1, ph / 5, (SHOW - ph) / 5), e = k * k * (3 - 2 * k);
+  const s = sprite('c_deep_' + (1 + Math.floor(h1 * 8))), w = 170 + h2 * 60, h = w * s.h / s.w;
+  const x = 30 + h1 * 300 - ph * 1.2;                                   // 배가 아주 천천히 떠가는 만큼 뒤로 흐른다
+  ctx.save(); ctx.globalAlpha = e * (far ? 0.3 : 0.17); ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(s.img, x, H - h * 0.78, w, h);
+  ctx.restore();
 }
 
 const wrapX = (v, span) => ((v % span) + span) % span;
@@ -773,7 +792,7 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint && !(g.msg && g.msg.y) && !g.talk) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
+  if (hint && !(g.msg && g.msg.y) && !g.talk && !g.map && !g.dex) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;

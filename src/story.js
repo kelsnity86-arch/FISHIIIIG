@@ -105,8 +105,8 @@ export function storyRegion(g) { startTalk(g, 'region_' + g.region); maybeEnding
 function maybeEnding(g) { if (g.eco.town >= 8 && g.story.seen.region_8) startTalk(g, 'ending'); }
 
 const CPS = 34;       // 글자가 나오는 빠르기(초당)
-const BOX = { x: 150, y: H - 92, w: 420, h: 74 };
-const SKIP = { x: BOX.x + BOX.w - 30, y: BOX.y - 9 };
+const BOX = { x: 150, y: H - 84, w: 420, h: 420 * 166 / 1100 };      // 대화창 그림(ui_talk)의 비율
+const SKIP = { x: BOX.x + BOX.w - 30, y: BOX.y - 8 };
 
 // 누르면: 글자가 나오는 중이면 한꺼번에 보여 주고, 다 나왔으면 다음 줄로
 export function tapTalk(g, x, y) {
@@ -146,7 +146,7 @@ function hintFor(g) {
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뛴다! 손을 떼고 버텨라' : '누르고 있으면 감는다 · 아래 게이지가 차면 잠깐 떼라'; }
   if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '낚은 생물은 어창에 실린다'; }
   if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 단추 · 생물을 팔고 장비를 산다';
-  if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아간다 · 위쪽 ≫ 단추로 시간을 넘길 수 있다'; }
+  if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아간다 · 위쪽 단추로 시간을 넘길 수 있다'; }
   return null;
 }
 function updateHint(g, dt) {
@@ -157,7 +157,7 @@ function updateHint(g, dt) {
 }
 
 // ── 시간 넘기기: 다음 시간대로 빠르게 흘려보낸다 (앞으로만, 되돌릴 수 없다) ──
-export const SKIP_BTN = { x: W / 2 + 85 + 16, y: 15, r: 11 };
+export const SKIP_BTN = { x: W / 2 + 85 + 16, y: 15, r: 12 };
 export function nextPhaseAt(g) { const k = g.dayT / DAY_SEC; const at = DAY_PLAN.map((p) => p[0]).find((v) => v > k + 0.002); return at == null ? null : at; }
 export const canSkip = (g) => g.scene === 'sea' && g.state === 'idle' && !g.panel && !g.travel && !g.talk && !g.skip && nextPhaseAt(g) != null;
 export function tapSkip(g, x, y) {
@@ -196,6 +196,9 @@ export function drawHint(ctx, g) {
   const h = g.hint; if (!h || h.a < 0.01) return;
   ctx.save(); ctx.globalAlpha = h.a;
   label(ctx, h.text, W / 2, 52 - (1 - h.a) * 4, 11, '#fff4dc', 'center', 600);
+  // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
+  const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('밤이 끝나면') ? null : null;
+  if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
   ctx.restore();
 }
 
@@ -205,8 +208,8 @@ export function drawSkip(ctx, g) {
   if (g.skipA < 0.01) return;
   ctx.save(); ctx.globalAlpha = g.skipA;
   const spin = g.skip ? 1 + 0.12 * Math.sin(g.skip.t * 14) : 1 + 0.04 * Math.sin(g.time * 2.4);
-  label(ctx, '≫', b.x, b.y - 2, 15 * spin, '#fff4dc', 'center', 700);
-  label(ctx, '시간', b.x, b.y + 11, 6.5, '#fff4dc', 'center', 600);
+  if (hasSprite('ui_ff')) { const s = sprite(g.skip ? 'ui_ff_down' : 'ui_ff'), w = 22 * spin; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, b.x - w / 2, b.y - w * s.h / s.w / 2, w, w * s.h / s.w); }
+  else { label(ctx, '≫', b.x, b.y - 2, 15 * spin, '#fff4dc', 'center', 700); label(ctx, '시간', b.x, b.y + 11, 6.5, '#fff4dc', 'center', 600); }
   ctx.restore();
 }
 
@@ -226,17 +229,19 @@ export function drawTalk(ctx, g) {
     ctx.drawImage(im, sw * 0.22, 0, sw * 0.44, sh, b.x + cap * k - 0.5, y, b.w - 2 * cap * k + 1, b.h);
     ctx.drawImage(im, sw - cap, 0, cap, sh, b.x + b.w - cap * k, y, cap * k, b.h);
   }
-  label(ctx, WHO[who], b.x + 22, y + 15, 10, '#8a4a22', 'left', 700, null);
+  const art = hasSprite('ui_talk');
+  if (art) label(ctx, WHO[who], b.x + b.w * 0.146, y + b.h * 0.2, 8.5, '#4a3214', 'center', 700, null);     // 놋쇠 이름판 위에
+  else label(ctx, WHO[who], b.x + 22, y + 15, 10, '#8a4a22', 'left', 700, null);
   ctx.font = `600 10.5px ${FONT}`;
   const lines = wrap(ctx, str, b.w - 44), shown = Math.floor(t.t * CPS);
   let used = 0;
   ctx.globalAlpha = a * (0.35 + 0.65 * t.swap);
   lines.forEach((ln, i) => {
     const part = ln.slice(0, clamp(shown - used, 0, ln.length)); used += ln.length + 1;
-    if (part) label(ctx, part, b.x + 22, y + 31 + i * 14, 10.5, '#3b2c1e', 'left', 600, null);
+    if (part) label(ctx, part, b.x + 24, y + (art ? 29 + i * 12.5 : 31 + i * 14), 10.5, '#3b2c1e', 'left', 600, null);
   });
   ctx.globalAlpha = a;
-  if (shown >= str.length) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(g.time * 5)); label(ctx, '▾', b.x + b.w - 20, y + b.h - 15, 11, '#8a4a22', 'center', 700, null); ctx.globalAlpha = a; }
+  if (shown >= str.length) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(g.time * 5)); label(ctx, '▾', b.x + b.w - 22, y + b.h - 14, 11, '#8a4a22', 'center', 700, null); ctx.globalAlpha = a; }
   label(ctx, '건너뛰기', SKIP.x, SKIP.y + (1 - a) * 14, 8.5, 'rgba(255,244,220,0.9)', 'center', 600);
   ctx.restore();
 }
