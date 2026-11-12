@@ -131,18 +131,19 @@ def run(manifest):
     def sc(i, p, bs):
         w = 26 * p.shape[1] / (bs[7][2] - bs[7][0]); return dict(w=round(w, 2), h=round(w * p.shape[0] / p.shape[1], 2)), 420
     strips('c_scarf_set', 'c_scarf', items, extra, True, sc)
-    # 항구에 매어 둔 배: 4칸 x 2줄. 가장 큰 것(8단계)이 화면에서 폭 96
-    if (RAW / 'h_boats.png').exists():
-        a = rgba('h_boats'); m = a[..., 3] > 40; boxes = []
+    # 항구에 매어 둔 내 배 8단계. 1단계가 원래 배경에 그려져 있던 나룻배만 한 크기(화면에서 폭 62)보다 조금 크게, 건물과 어울리게 폭 80으로 맞춘다.
+    src = 'h_boats2' if (RAW / 'h_boats2.png').exists() else 'h_boats'
+    if (RAW / (src + '.png')).exists():
+        a = rgba(src); m = a[..., 3] > 40; boxes = []
         for r0, r1 in runs(m.sum(axis=1), 6):
             for c0, c1 in runs(m[r0:r1].sum(axis=0), 10):
                 x0, y0, x1, y1 = bbox(m[r0:r1, c0:c1]); boxes.append((c0 + x0, r0 + y0, c0 + x1, r0 + y1))
         assert len(boxes) == 8, len(boxes)
-        w8 = boxes[7][2] - boxes[7][0]
+        k = 80 / (boxes[0][2] - boxes[0][0])
         for i, (x0, y0, x1, y1) in enumerate(boxes):
-            name = f'h_boat_big_{i + 1}'; im = Image.fromarray(a[y0:y1, x0:x1]); w = 96 * (x1 - x0) / w8
-            items.append((name, im)); extra[name] = dict(w=round(w, 2), h=round(w * (y1 - y0) / (x1 - x0), 2), smooth=True)
-        print('h_boats: 8개')
+            name = f'h_boat_big_{i + 1}'; im = Image.fromarray(a[y0:y1, x0:x1])
+            items.append((name, im)); extra[name] = dict(w=round((x1 - x0) * k, 2), h=round((y1 - y0) * k, 2), smooth=True)
+        print(src + ': 8개', [extra[f'h_boat_big_{i + 1}']['w'] for i in range(8)], [extra[f'h_boat_big_{i + 1}']['h'] for i in range(8)])
     pack(items, extra, 'gear.webp', manifest)
 
 

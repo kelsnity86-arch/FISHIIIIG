@@ -100,17 +100,31 @@ def pack(items, file, manifest, width=2048, pad=2):
 
 def run(manifest):
     # 해역 배경: 하늘은 그대로, 물속은 위쪽의 수면 일렁임(올려다본 구도)을 잘라 낸다
-    for n in range(2, 9):
+    def match_tone(new, old):
+        """고친 그림의 색을 원래 그림에 맞춘다: 가로 줄마다 밝기·색의 평균과 퍼짐을 원래 그림과 같게 (GPT가 다시 그리며 생긴 색 차이를 없앤다)"""
+        A = np.array(old.resize(new.size, Image.LANCZOS)).astype(float); B = np.array(new).astype(float)
+        def smooth(v, k=41):
+            pad = np.pad(v, ((k // 2, k // 2), (0, 0)), mode='edge'); ker = np.ones(k) / k
+            return np.stack([np.convolve(pad[:, c], ker, mode='valid') for c in range(v.shape[1])], axis=1)
+        ma, mb = smooth(A.mean(axis=1)), smooth(B.mean(axis=1)); sa, sb = smooth(A.std(axis=1)), smooth(B.std(axis=1))
+        out = (B - mb[:, None, :]) * (sa / np.maximum(sb, 1e-3))[:, None, :] + ma[:, None, :]
+        return Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
+    for n in range(1, 9):
         for kind, top in (('sky', 0.0), ('sea', 0.2)):
-            p = RAW / f'c_{kind}_{n}.png'
-            if (RAW / f'c_{kind}_{n}b.png').exists(): p = RAW / f'c_{kind}_{n}b.png'      # 숨은 흔적을 넣어 고친 그림이 있으면 그것을 쓴다
+            base = RAW / ('c_sky.png' if (n, kind) == (1, 'sky') else f'c_{kind}_{n}.png'); p = base
+            edited = RAW / f'c_{kind}_{n}b.png'
+            if n == 1 and not edited.exists(): continue                  # 1번 해역의 원래 그림은 build_assets.py 가 만든다
             if not p.exists(): continue
-            im = Image.open(p).convert('RGB'); im = im.crop((0, round(im.height * top), im.width, im.height))
+            im = Image.open(p).convert('RGB')
+            if edited.exists(): im = match_tone(Image.open(edited).convert('RGB'), im)      # 숨은 흔적을 넣어 고친 그림이 있으면 그것을 쓴다 (색은 원래 그림에 맞춰서)
+            im = im.crop((0, round(im.height * top), im.width, im.height))
             if im.width > 1920: im = im.resize((1920, round(im.height * 1920 / im.width)), Image.LANCZOS)
-            im.save(OUT / f'c_{kind}_{n}.webp', 'WEBP', quality=88, method=4)
-            manifest[f'c_{kind}_{n}'] = dict(file=f'c_{kind}_{n}.webp', w=640, h=round(640 * im.height / im.width, 2), smooth=True)
+            key = 'c_sky' if (n, kind) == (1, 'sky') else f'c_{kind}_{n}'
+            im.save(OUT / f'{key}.webp', 'WEBP', quality=88, method=4)
+            manifest[key] = dict(file=f'{key}.webp', w=640, h=round(640 * im.height / im.width, 2), smooth=manifest.get(key, {}).get('smooth', True))
     for n in range(1, 6):
         p = RAW / f'h_town_{n}.png'
+        if (RAW / f'h_town_{n}b.png').exists(): p = RAW / f'h_town_{n}b.png'      # 부두의 나룻배를 지운 그림 (그 자리에 내 배를 놓는다)
         if not p.exists(): continue
         im = Image.open(p).convert('RGB'); im.save(OUT / f'h_town_{n}.webp', 'WEBP', quality=88, method=4)
         manifest[f'h_town_{n}'] = dict(file=f'h_town_{n}.webp', w=640, h=360, smooth=True)
