@@ -10661,3 +10661,259 @@ futuristic and nothing high-tech), drawn simply enough to be recognised at a gla
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui_relics.png
 ```
+
+---
+
+## ㉚ 장비 외형 (장비를 바꾸면 바다 화면의 모습이 달라진다)
+
+배 = 배 모양 · 낚싯대 = 낚싯대 · 줄 = 찌 · 릴 = 줄다리기 게이지 틀 · 복장 = 바람에 날리는 목도리.
+그림체 유지가 가장 중요하다. 기존 그림을 열어 보고 "같은 그림에서 그 부분만 바꾼다"는 식으로 그릴 것.
+
+### 349. `c_boat_t2` — 2단계 배: 작은 어선
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: a small wooden fishing boat with a tiny cabin at the back and a little lantern on a pole.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t2.png
+```
+
+### 350. `c_boat_t3` — 3단계 배: 돛단배
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: a wooden sailing dinghy with one small patched canvas sail on a short mast behind the fisherman.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t3.png
+```
+
+### 351. `c_boat_t4` — 4단계 배: 먼바다 어선
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: a sturdy deep-sea fishing boat with a wheelhouse, a net winch and rubber tire fenders.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t4.png
+```
+
+### 352. `c_boat_t5` — 5단계 배: 얼음 바다 배
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: an ice-going boat with a reinforced metal-plated bow, a small stove chimney with a wisp of smoke and frost on the rails.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t5.png
+```
+
+### 353. `c_boat_t6` — 6단계 배: 쇠를 덧댄 증기선
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: an iron-plated steam launch with rivets, a short funnel and a brass boiler, dark heat-scorched hull.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t6.png
+```
+
+### 354. `c_boat_t7` — 7단계 배: 심해 탐사선
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: a deep-sea vessel with brass fittings, round portholes and two glowing lamps on arms.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t7.png
+```
+
+### 355. `c_boat_t8` — 8단계 배: 환상의 배
+
+```
+This is a VARIATION of an existing image. Open assets/raw/c_boat.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) and use it as the base.
+It shows the same fisherman in a small rowboat in three poses, left to right:
+1) sitting and holding the rod, 2) leaning back while pulling, 3) standing and heaving.
+Make a new image with exactly the same layout, the same size and the same fully transparent
+background: the same fisherman (same dark blue coat and wide hat, same size, same three
+poses, same hand positions, in the same places in the image), drawn in exactly the same
+painterly storybook style, seen from the side, facing left.
+Change ONLY the boat. In all three poses replace the rowboat with: a dreamlike boat made of pale shining wood and crystal, with a softly glowing translucent sail and tiny stars around it.
+The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
+edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
+but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+the space in front of him (the fishing rod is added later by the game, do not draw a rod).
+No text, no water, no shadow.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t8.png
+```
+
+### 356. `c_rod_set` — 장비 외형: 낚싯대 8단계
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Every image you make must look
+like it belongs to the same game: the same painterly storybook rendering, warm light, soft
+shading, clean shapes. Matching the existing art style is the most important requirement.
+Also open assets/raw/c_rod.png (the current fishing rod: a perfectly straight rod seen from
+the side, handle on the right, thin tip on the left).
+
+No text. Fully transparent background.
+
+A sprite sheet of 8 fishing rods stacked top to bottom, never touching, each one perfectly
+straight and perfectly horizontal, handle on the right and thin tip on the left, all exactly
+the same length (almost the full image width) and drawn like the rod in c_rod.png.
+They get finer from top to bottom:
+1) a plain bamboo pole, 2) a varnished wooden rod with a cork grip, 3) a split-cane rod with
+red thread wraps, 4) a dark sturdy sea rod with brass rings, 5) a pale blue-white rod with
+frosty silver rings, 6) a black iron rod with glowing ember-red wraps, 7) a deep-sea rod of
+dark metal with small teal lights along it, 8) a shining golden-white rod that glows softly.
+Do not bend them, do not add line, reel or hooks.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_rod_set.png
+```
+
+### 357. `c_float_set` — 장비 외형: 찌 8단계 (줄 장비)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Every image you make must look
+like it belongs to the same game: the same painterly storybook rendering, warm light, soft
+shading, clean shapes. Matching the existing art style is the most important requirement.
+Also open assets/raw/c_float.png (the current fishing float, seen from the side, standing
+upright; the lower half sits under water in the game).
+
+No text. Fully transparent background.
+
+A sprite sheet of 8 fishing floats in one row, never touching, all the same height, each
+standing upright and seen from the side like the one in c_float.png, with a clear top half
+(above water) and a slimmer lower half (below water). Left to right they get finer:
+1) a simple red-and-white cork float, 2) a painted wooden float with a green band,
+3) a quill float with a small feather on top, 4) a tall striped sea float with a brass cap,
+5) an ice-blue glass float with a snowflake pattern, 6) a dark iron float with a small glowing
+ember window, 7) a deep-sea float with a tiny teal lamp on top, 8) a shining star-shaped
+golden float that glows softly.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_float_set.png
+```
+
+### 358. `ui_tension_set` — 장비 외형: 줄다리기 게이지 틀 8단계 (릴 장비)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Every image you make must look
+like it belongs to the same game: the same painterly storybook rendering, warm light, soft
+shading, clean shapes. Matching the existing art style is the most important requirement.
+Also open assets/raw/ui2_gauge.png. Its top piece is the current tension gauge frame: a very
+wide horizontal bar frame with a small fishing-reel emblem at the left end and an empty dark
+slot (groove) running along it.
+
+No text, no numbers. Fully transparent background.
+
+A sprite sheet of 8 tension gauge frames stacked top to bottom, never touching. Every frame
+must have exactly the same outer length and height as each other and the same empty dark
+slot in exactly the same place and size (the game fills the slot itself, so leave it empty
+and identical). Only the frame material and the reel emblem at the left end change, getting
+finer from top to bottom:
+1) plain worn wood with a simple wooden spool, 2) polished wood with a small brass reel,
+3) brass-trimmed wood with a red-handled reel, 4) dark sea-worn metal with a sturdy winch
+reel, 5) frosted silver with an ice-blue reel, 6) black iron with rivets and a glowing
+ember-red reel, 7) dark deep-sea metal with teal lights and a precise mechanical reel,
+8) shining gold and pearl with a softly glowing star reel.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_tension_set.png
+```
+
+### 359. `c_scarf_set` — 장비 외형: 바람에 날리는 목도리 8단계 (복장 장비)
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch). Every image you make must look
+like it belongs to the same game: the same painterly storybook rendering, warm light, soft
+shading, clean shapes. Matching the existing art style is the most important requirement.
+Also open assets/raw/c_boat.png to see the fisherman who will wear these.
+
+No text. Fully transparent background.
+
+A sprite sheet of 8 scarves stacked top to bottom, never touching. Each scarf is drawn as a
+single long cloth streamer blowing straight out in the wind: perfectly horizontal, the end
+that is tied round the neck on the LEFT (a small knot), the free end on the RIGHT, slightly
+tapering, with soft folds painted in. Keep each one straight (the game makes it flutter).
+From top to bottom they get longer and finer (the first about half the image width, the
+last almost the full width):
+1) a short plain undyed cotton scarf, 2) a blue-and-white striped scarf, 3) a red knitted
+scarf with tassels, 4) a long navy sailor's scarf with a gold edge, 5) a thick white woollen
+scarf with pale blue snowflakes, 6) a crimson silk scarf with a flame pattern, 7) a dark teal
+scarf with fine silver thread, 8) a long shimmering scarf that looks like a strip of starry
+night sky, softly glowing.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_scarf_set.png
+```
