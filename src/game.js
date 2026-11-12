@@ -384,7 +384,7 @@ export function update(g, dt) {
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
   // 환상종은 드물지만, 너무 오래 안 나오면 반드시 한 번 나온다 (오래된 물건이 운에만 달리지 않게)
-  const pity = !g.forceGrade && (g.sinceFantasy || 0) >= PITY ? 'fantasy' : null;
+  const pity = !g.forceGrade && g.relics < RELICS.length && (g.sinceFantasy || 0) >= PITY ? 'fantasy' : null;      // 물건을 다 찾은 뒤에는 보장하지 않는다 (그때부터는 운)
   g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1);
   g.sinceFantasy = g.fish.isFantasy ? 0 : (g.sinceFantasy || 0) + 1;                // 복장(행운): 높은 등급이 잘 나온다
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값

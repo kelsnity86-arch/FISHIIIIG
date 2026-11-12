@@ -24,7 +24,7 @@ while (t < 40 * 3600) {
   let r = E.maxRegion(g.eco); while (r > 1 && !canFish(r)) r--;
   if (r !== g.region) { g.region = r; if (!mark['r' + r]) { mark['r' + r] = t; log.push(`${(t / 60).toFixed(0).padStart(5)}분  ${r}번 해역  (도감 ${Object.keys(g.records).length}, 마을 ${g.eco.town}등급, 낚은 수 ${catches})`); } }
   for (let i = 0; i < g.cargoMax; i++) {
-    const f = rollCreature(since >= 48 ? 'fantasy' : null, g.region, E.luckOf(g.eco, GRADES));       // 게임과 같은 보장 (src/game.js 의 PITY)
+    const f = rollCreature(since >= 48 && fantasy < 12 ? 'fantasy' : null, g.region, E.luckOf(g.eco, GRADES));       // 게임과 같은 보장 (src/game.js 의 PITY)
     since = f.isFantasy ? 0 : since + 1;
     t += cycle(); catches++;
     g.records[f.sprite] = 1;
