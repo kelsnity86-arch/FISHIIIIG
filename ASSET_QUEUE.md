@@ -397,4 +397,4 @@
 | 375 | `ui_emblem` | 제목 엠블럼: H 두 개와 낚싯대가 어우러진 문장 (글자 없음, 앱 아이콘 겸용) | DONE | 통과 |
 | 376 | `ui_logo` | 제목 로고: 엠블럼 + "Hori's Horizon" + "호라이의 수평선" | DONE | 통과. 영문·한글 철자 모두 맞다 |
 | 377 | `h_shop_marks` | 가게 판 둥근 창: 가게 상징 6개 (저울과 생선·엇갈린 낚싯대·닻과 망치·실패와 목도리·길드 문장·종) | DONE | 통과 |
-| 378 | `h_port_rims` | 가게 판 둥근 창: 마을 등급별 테두리 5단계 (가운데는 뚫린 고리) | **REDO** | Redo for frame 3 only (the other four are already accepted; draw them again the same way). Frame 3: NOTHING may hang below the ring. Do not draw a dangling anchor charm. Instead put a small anchor emblem flat ON the bottom of the ring itself, inside the ring's width. For all five frames: no decoration may extend below the bottom edge of the ring. |
+| 378 | `h_port_rims` | 가게 판 둥근 창: 마을 등급별 테두리 5단계 (가운데는 뚫린 고리) | DONE | 통과. 다시 그린 것은 장식이 고리 아래로 내려오지 않는다. 다섯 개 모두 새 그림을 쓴다 |

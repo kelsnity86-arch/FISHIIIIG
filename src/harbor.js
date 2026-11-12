@@ -289,10 +289,10 @@ export function drawPanel(ctx, g) {
   label(ctx, p.id === 'skills' ? '어부의 기술' : HOUSE_NAME[p.id], PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy, 'center', 600, null);
   const c = closeRect(); img(ctx, 'h_close', c.x, c.y, c.w, c.h);
   // 판 왼쪽 위 둥근 창: 그 가게의 상징 (그림이 없으면 건물). 마을이 커지면 창 테두리 장식만 달라진다
-  const look = TOWN_LOOK[g.eco.town], rx = PANEL.x + PANEL.w * 0.1518, ry = PANEL.y + ph * 0.1573, rr = PANEL.w * 0.0823;      // 판 그림의 둥근 창 자리 (그림에서 잰 값)
+  const look = TOWN_LOOK[g.eco.town], rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909;      // 판 그림의 둥근 창: 구멍의 가운데와 반지름 (그림의 구멍 가장자리에 원을 맞춰 잰 값)
   const mark = hasSprite('h_mark_' + shopId), hs = sprite(mark ? 'h_mark_' + shopId : `h_shop_${look}_${shopId}`);
   ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip();
-  { const fit = rr * (mark ? 1.5 : 1.7), k = Math.min(fit / hs.w, fit / hs.h); ctx.drawImage(hs.img, rx - hs.w * k / 2, ry - hs.h * k / 2 + (mark ? 0 : rr * 0.04), hs.w * k, hs.h * k); }      // 창 한가운데에 통째로 들어온다
+  { const fit = rr * (mark ? 1.38 : 1.55), k = Math.min(fit / hs.w, fit / hs.h); ctx.drawImage(hs.img, rx - hs.w * k / 2, ry - hs.h * k / 2 + (mark ? 0 : rr * 0.04), hs.w * k, hs.h * k); }      // 창 한가운데에 통째로 들어온다
   ctx.restore();
   rowsOf(g, p.id).forEach(([kind, id], i) => {
     const r = rowRect(i), info = rowInfo(g, kind, id), can = !info.block && g.gold >= info.cost;
@@ -313,8 +313,8 @@ export function drawPanel(ctx, g) {
     ctx.restore();
   });
   if (hasSprite('h_rim_' + look)) {                          // 테두리: 그림의 구멍을 판의 창에 맞춰 얹는다. 아래로 늘어진 장식이 가려지지 않게 줄보다 나중에 그린다
-    const rim = sprite('h_rim_' + look), [hx, hy, hr] = rim.hole, dw = rr * 1.03 / hr;
-    ctx.drawImage(rim.img, rx - hx * dw, ry - hy * dw, dw, dw * rim.h / rim.w);
+    const rim = sprite('h_rim_' + look), [hx, hy, hr] = rim.hole, dw = rr * 1.017 / hr;      // 판에 그려진 원래 테두리가 밖으로 비어져 나오지 않도록 조금 크게, 조금 위로 (원래 테두리는 위쪽이 더 두껍다)
+    ctx.drawImage(rim.img, rx + PANEL.w * 0.0005 - hx * dw, ry - PANEL.w * 0.0015 - hy * dw, dw, dw * rim.h / rim.w);
   }
   // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 판 아래 바깥에 누르고 있기 안내)
   { const hold = p.id === 'skills' || p.id === 'guild';
