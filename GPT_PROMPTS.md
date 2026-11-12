@@ -11762,9 +11762,9 @@ on the main branch, in the folder assets/raw/, with the file name h_boat_9.png
 
 ## ㊲ 생선 장수: 손에 든 것 바꾸기
 
-이 세계에서 보통 크기의 평범한 물고기는 태초의 바다에 가서야 처음 발견된다. 그래서 생선 장수가 팔뚝만 한 물고기를 안고 있으면 안 된다. 낚이는 것은 모두 배보다 큰 생물이므로, 가게에서 파는 것은 그 살을 잘라 낸 토막이다.
+이 세계에서 보통 크기의 평범한 물고기는 태초의 바다에 가서야 처음 발견된다. 그래서 생선 장수가 팔뚝만 한 물고기를 안고 있으면 안 된다. 대신 손저울을 들고 있다.
 
-### 390. `h_npc_market` — 생선 장수 한 사람 (안고 있는 것만 바꾸기)
+### 390. `h_npc_market` — 생선 장수 한 사람 (물고기 대신 손저울)
 
 ```
 This is an EDIT of an existing image, not a new painting.
@@ -11775,11 +11775,12 @@ fishmonger woman with the white headscarf and blue apron) and make an image of h
 Keep her exactly as she is: same face, same smile, same hair and headscarf, same clothes,
 same pose, same size, same painterly storybook rendering and outlines.
 
-Change ONLY ONE thing: she must no longer hold a whole fish. Replace the fish in her arms
-with one big, thick slab of fish meat cut from a giant catch: a large rounded cut, pale
-pink flesh with a strip of silvery-blue skin along one edge, wrapped around the middle
-with a broad green leaf and tied with string. Her arms hold it the same way as before.
-No head, no tail, no eye, no fins on it.
+Change ONLY ONE thing: she must no longer hold a fish. Remove the fish completely. Instead
+she holds up a small brass hand-held balance scale in one hand (a short beam hanging from
+a ring she holds, with two small shallow brass pans on thin chains, both pans empty), at
+about chest height, as if ready to weigh something. Her other hand rests on her hip or on
+her apron. Keep her body, shoulders and smile as close to the original as possible.
+There must be no fish and no part of a fish anywhere in the picture.
 
 No text. Fully transparent background. Only this one person, centred, shown from the same
 height as in the original (cut off at the same place at the bottom).
