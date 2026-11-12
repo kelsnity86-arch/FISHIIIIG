@@ -2,17 +2,22 @@
 import { DOTS } from './dots.js';
 import { REGIONS } from './creatures.js';
 import { GRADES } from './config.js';
-import { priceMult, sizeMult, cargoMax, fmt } from './economy.js';
+import { priceMult, sizeMult, cargoMax, maxRegion, fmt } from './economy.js';
+import { PRIMAL } from './primal.js';
 
 // ── 도감 완성 보상 ──
 // 해역마다(0 = 어느 바다에나 사는 물고기) 따로 센다. 절반을 채우면 그 해역 생물의 파는 값 +5%, 다 채우면 +10%.
 // 환상종은 세지 않는다 (운에 달려 있어 끝이 나지 않는다).
-const LIST = Array.from({ length: 9 }, (_, r) => DOTS.filter((d) => d[3] === r && d[2] !== 'fantasy'));
+const LIST = Array.from({ length: 9 }, (_, r) => DOTS.filter((d) => d[3] === r && d[2] !== 'fantasy')).concat([PRIMAL]);      // 9 = 태초의 바다
 export function dexCount(g, r) { const l = LIST[r] || []; return [l.filter((d) => g.records[d[0]] != null).length, l.length]; }
 export function dexStage(g, r) { const [n, t] = dexCount(g, r); return !t ? 0 : n >= t ? 2 : n >= Math.ceil(t / 2) ? 1 : 0; }
 export const DEX_PCT = [0, 5, 10];
 export const dexBonus = (g, r) => 1 + DEX_PCT[dexStage(g, r)] / 100;
 export const dexName = (r) => (r ? REGIONS[r] : '온 바다의 물고기');
+
+// ── 태초의 바다 ── 도감(환상종 제외, 1~8번 해역과 온 바다의 물고기)을 다 채우면 열린다. 한 번 열리면 대를 이어도 열려 있다. 다만 배가 8단계는 되어야 갈 수 있다.
+export const dexAll = (g) => DOTS.every((d) => d[2] === 'fantasy' || g.records[d[0]] != null);
+export const topRegion = (g) => { const m = maxRegion(g.eco); return m >= 8 && g.primal ? 9 : m; };
 
 // ── 대 잇기 ── 대를 한 번 이을 때마다 파는 값 +25%
 export const GEN_X = 1.25;
@@ -22,7 +27,7 @@ export const genMult = (g) => GEN_X ** (g.gen || 0);
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 export function newQuest(g) {
   const e = g.eco, r = g.region, kinds = ['grade', 'size', 'species', 'perfect'];
-  if (DOTS.filter((d) => (d[3] === r || d[3] === 0) && d[2] !== 'fantasy' && g.records[d[0]] == null).length >= 8) kinds.push('new');
+  if ((r === 9 ? PRIMAL : DOTS.filter((d) => (d[3] === r || d[3] === 0) && d[2] !== 'fantasy')).filter((d) => g.records[d[0]] == null).length >= 8) kinds.push('new');
   let kind; do kind = pick(kinds); while (g.quest && kind === g.quest.kind);      // 같은 종류가 잇달아 나오지 않게
   // 보상: 그 해역에서 어창을 한 번 채운 값의 절반쯤
   const q = { kind, n: 0, need: 1, region: r, reward: Math.max(10, Math.round(80 * cargoMax(e) * priceMult(e, r) * genMult(g) / 10) * 10), done: false };

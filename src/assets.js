@@ -138,7 +138,7 @@ function buildPlaceholders() {
 // 생물 그림(fish_*, fantasy_*)은 수가 많아서 처음에 다 받지 않고, 낚일 생물이 정해질 때 받는다.
 let manifest = {};
 const pending = new Map();
-const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_') || name.startsWith('d_');   // 생물 그림은 필요할 때 받는다
+const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_') || name.startsWith('d_') || name.startsWith('p_');   // 생물 그림은 필요할 때 받는다
 
 const images = new Map();
 function loadImage(file) {

@@ -4,7 +4,9 @@ import { sprite, hasSprite, preloadCreature } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { DOTS } from './dots.js';
 import { maxRegion } from './economy.js';
-import { dexStage, dexCount } from './goals.js';
+import { dexStage, dexCount, topRegion } from './goals.js';
+import { PRIMAL, PRIMAL_TEXT, spriteOf } from './primal.js';
+import { startTalk } from './story.js';
 import { DEX_TEXT } from './dexText.js';
 import { RELICS } from './relics.js';
 
@@ -36,13 +38,13 @@ const CLOSE = { x: W - 34, y: 30, r: 13 };
 const hitClose = (x, y) => Math.hypot(x - CLOSE.x, y - CLOSE.y) < CLOSE.r + 5;
 
 export function updateBook(g, dt) {
-  if (g.map && fade(g.map, dt)) g.map = null;
+  if (g.map && fade(g.map, dt)) { const first = g.map.reveal != null; g.map = null; if (first) startTalk(g, 'primal'); }      // 태초의 바다가 처음 떠오른 해도를 덮으면 길드장이 한마디 한다
   if (g.dex && fade(g.dex, dt)) g.dex = null;
 }
 
 // ── 해역 지도: 표식을 눌러 그 바다로 간다 ──
 // 해도 그림의 항로 위에 찍힌 점 8개의 자리 (그림에서 잰 값). 표식의 뾰족한 끝이 그 점을 정확히 가리킨다.
-const DOTS_XY = [null, [62, 184.4], [130.4, 172.4], [200.4, 180.2], [273.6, 174.5], [343.2, 179.3], [410, 174.2], [486.4, 179.5], [561.5, 177.7]];
+const DOTS_XY = [null, [62, 184.4], [130.4, 172.4], [200.4, 180.2], [273.6, 174.5], [343.2, 179.3], [410, 174.2], [486.4, 179.5], [561.5, 177.7], [500, 268]];      // 9 = 태초의 바다: 해도의 빈 양피지 위 (어느 해도에도 없던 곳)
 const PIN_W = 30;
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
 export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; g.sfx.push(['paper']); }
@@ -50,10 +52,10 @@ export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; 
 export function tapMap(g, x, y, fromHarbor = false) {
   const m = g.map; if (!m || m.closing != null) return null;
   if (Math.hypot(x - MCLOSE.x, y - MCLOSE.y) < 19) { m.closing = 0; g.sfx.push(['paper']); return null; }
-  for (let r = 1; r <= 8; r++) {
+  for (let r = 1; r <= (g.primal ? 9 : 8); r++) {
     const [dx, dy] = DOTS_XY[r];
     if (Math.abs(x - dx) < 30 && y > dy - 50 && y < dy + 34) {      // 표식·점·이름 어디를 눌러도
-      if (r > maxRegion(g.eco)) { m.note = `${REGIONS[r]} · 조선소에서 배를 ${r}단계로 키워야 갈 수 있다`; m.noteT = m.t; g.sfx.push(['deny']); return null; }
+      if (r > topRegion(g)) { m.note = `${REGIONS[r]} · 조선소에서 배를 ${Math.min(8, r)}단계로 키워야 갈 수 있다`; m.noteT = m.t; g.sfx.push(['deny']); return null; }
       if (r === g.region && !fromHarbor) { m.note = `${REGIONS[r]} · 지금 있는 바다`; m.noteT = m.t; g.sfx.push(['tap']); return null; }
       m.closing = 0; return r;
     }
@@ -62,18 +64,22 @@ export function tapMap(g, x, y, fromHarbor = false) {
 }
 export function drawMap(ctx, g) {
   const m = g.map; if (!m) return;
-  const a = ease(m.a), top = maxRegion(g.eco);
+  const a = ease(m.a), top = topRegion(g);
   ctx.save(); ctx.globalAlpha = a;
   img(ctx, 'ui_map', 0, (1 - a) * 8, W, H);
-  for (let r = 1; r <= 8; r++) {
-    const open = r <= top, here = r === g.region, s = sprite(open ? 'map_pin_' + r : 'map_lock'), [dx, dy] = DOTS_XY[r];
+  for (let r = 1; r <= (g.primal ? 9 : 8); r++) {
+    const open = r <= top, here = r === g.region, s = sprite(!open ? 'map_lock' : hasSprite('map_pin_' + r) ? 'map_pin_' + r : 'map_pin_1'), [dx, dy] = DOTS_XY[r];
+    const rv = r === 9 && m.reveal != null ? ease(clamp((m.t - 0.9) / 1.8, 0, 1)) : 1;      // 처음 열릴 때: 빈 양피지 위에 표식이 서서히 떠오른다
+    if (rv <= 0) continue;
+    ctx.save(); ctx.globalAlpha = a * rv; ctx.translate(0, (1 - rv) * 6);
     const w = PIN_W * (here ? 1.12 : 1), h = w * s.h / s.w, bob = here ? Math.sin(m.t * 2.6) * 1.5 : 0, tip = dy - 3;      // 뾰족한 끝이 점 바로 위에
     if (here) { const rg = sprite('map_ring'), rw = w * 1.02; ctx.drawImage(rg.img, dx - rw / 2, tip - h + bob - (rw * rg.h / rg.w - w * 0.96) / 2 - 1, rw, rw * rg.h / rg.w); }
-    ctx.globalAlpha = a * (open ? 1 : 0.9);
+    ctx.globalAlpha = a * rv * (open ? 1 : 0.9);
     ctx.drawImage(s.img, dx - w / 2, tip - h + bob, w, h);
-    ctx.globalAlpha = a;
+    ctx.globalAlpha = a * rv;
     if (here) { const b = sprite('map_boat'), bw = 24; ctx.drawImage(b.img, dx - bw / 2, dy + 5 + Math.sin(m.t * 2) * 1, bw, bw * b.h / b.w); }      // 지금 있는 바다: 점 아래에 내 배
     label(ctx, REGIONS[r], dx, dy + (here ? 27 : 13), 7.5, open ? '#fff4dc' : 'rgba(255,244,220,0.7)', 'center', here ? 700 : 600);
+    ctx.restore();
   }
   label(ctx, '해역 지도', W / 2, 256, 15, '#5a3a1e', 'center', 700, null);
   const noteA = m.note ? clamp(1 - (m.t - m.noteT - 2.2) / 0.5, 0, 1) * clamp((m.t - m.noteT) / 0.15, 0, 1) : 0;
@@ -86,23 +92,24 @@ export function drawMap(ctx, g) {
 // ── 도감: 왼쪽 쪽에 그 해역의 생물 칸, 오른쪽 쪽에 고른 생물 ──
 const BW = 600, BX = (W - BW) / 2;
 const bookH = () => BW * sprite('dex_book').h / sprite('dex_book').w, BY = () => (H - bookH()) / 2 + 4;
-const TABS = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'];            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
+const TABS0 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'], TABS1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'R']; let TABS = TABS0;      // 태초의 바다가 열리면 쪽지가 하나 는다            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
 const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 33, GAP = 4;
 const GX = 84, GW = COLS * SLOT + (COLS - 1) * GAP;        // 칸들의 왼쪽 끝과 폭: 오른쪽의 가름끈(책갈피)에 닿지 않는 자리까지만
 const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.34;      // 왼쪽·오른쪽 쪽의 안쪽 자리와 폭
 const gridY = () => BY() + 50;
-const listOf = (tab) => tab === 'R' ? RELICS : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
+const listOf = (tab) => tab === 'R' ? RELICS : tab === 9 ? PRIMAL : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-const tabRect = (i) => ({ x: GX - 2 + i * 17.6, y: BY() - 5, w: 17, h: 17 });      // 칸들의 폭을 꽉 채워 최대한 넓게
+const tabPitch = () => 176 / TABS.length;
+const tabRect = (i) => ({ x: GX - 2 + i * tabPitch(), y: BY() - 5, w: tabPitch() - 0.6, h: 17 });      // 칸들의 폭을 꽉 채워 최대한 넓게
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
-function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => 'd_' + c[1])); }
-export function openDex(g) { g.dex = { a: 0, t: 0, closing: null, tab: g.region, page: 0, sel: null, selT: 0 }; loadPage(g); g.sfx.push(['paper']); }
+function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => spriteOf(c))); }
+export function openDex(g) { TABS = g.primal ? TABS1 : TABS0; g.dex = { a: 0, t: 0, closing: null, tab: g.region, page: 0, sel: null, selT: 0 }; loadPage(g); g.sfx.push(['paper']); }
 const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y >= r.y - pad && y <= r.y + r.h + pad;
 export function tapDex(g, x, y) {
   const d = g.dex; if (!d || d.closing != null) return;
   if (hitClose(x, y)) { d.closing = 0; g.sfx.push(['paper']); return; }
-  for (let i = 0; i < TABS.length; i++) if (x >= tabRect(i).x - 0.3 && x < tabRect(i).x + 17.6 && y >= BY() - 16 && y <= BY() + 22) {      /* 누르는 자리는 그림보다 위아래로 넉넉하게 */ if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
+  for (let i = 0; i < TABS.length; i++) if (x >= tabRect(i).x - 0.3 && x < tabRect(i).x + tabPitch() && y >= BY() - 16 && y <= BY() + 22) {      /* 누르는 자리는 그림보다 위아래로 넉넉하게 */ if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const list = listOf(d.tab), pages = Math.ceil(list.length / PER);
   for (const dir of [-1, 1]) if (inRect(x, y, arrowRect(dir), 5)) { const p = clamp(d.page + dir, 0, pages - 1); if (p !== d.page) { d.page = p; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const shown = list.slice(d.page * PER, d.page * PER + PER);
@@ -123,10 +130,10 @@ export function drawDex(ctx, g) {
   // 해역 탭 (책 위쪽에 꽂힌 쪽지)
   TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; if (t !== 'R' && dexStage(g, t) === 2) ctx.filter = 'sepia(1) saturate(2.6) brightness(1.06)';      /* 다 채운 해역의 쪽지는 금빛으로 물든다 */ img(ctx, on ? 'dex_tab_on' : 'dex_tab', r.x - (on ? 1 : 0), r.y - (on ? 3 : 0), r.w + (on ? 2 : 0)); ctx.filter = 'none'; });
   img(ctx, 'dex_book', BX, BY(), BW, bh);
-  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t ? String(t) : '공', r.x + r.w / 2, r.y + 6.5 - (on ? 2 : 0), 8.5, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
+  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w / 2, r.y + 6.5 - (on ? 2 : 0), 8.5, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
-  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
+  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
   if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
   else {                                                 // 도감 보상: 절반을 채우면 그 해역 생물의 파는 값 +5%, 다 채우면 +10%. 환상종은 세지 않는다 (운에 달려 있어서)
     const st = dexStage(g, d.tab), [n, t] = dexCount(g, d.tab);
@@ -138,7 +145,7 @@ export function drawDex(ctx, g) {
     const r = slotRect(i), ok = known(g, c), sel = d.sel === c;
     img(ctx, sel ? 'dex_slot_on' : ok ? 'dex_slot' : 'dex_slot_off', r.x, r.y, r.w, r.h);
     if (ok && c.mem) { const rs = sprite('relic_' + c.art), k = Math.min((r.w - 10) / rs.w, (r.h - 10) / rs.h); ctx.drawImage(rs.img, r.x + r.w / 2 - rs.w * k / 2, r.y + r.h / 2 - rs.h * k / 2, rs.w * k, rs.h * k); }
-    else if (ok) { creature(ctx, 'd_' + c[1], r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, 'dex_fr_' + (GI[c[2]] + 1), r.x + 1, r.y + 1, r.w - 2, r.h - 2); }
+    else if (ok) { creature(ctx, spriteOf(c), r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, 'dex_fr_' + (GI[c[2]] + 1), r.x + 1, r.y + 1, r.w - 2, r.h - 2); }
     else label(ctx, '?', r.x + r.w / 2, r.y + r.h / 2 + 1, 13, 'rgba(90,70,50,0.55)', 'center', 700, null);
   });
   ctx.globalAlpha = a;
@@ -176,11 +183,11 @@ export function drawDex(ctx, g) {
     const ok = known(g, c), gr = GRADES[GI[c[2]]], k = clamp((d.t - d.selT) / 0.22, 0, 1), e = 1 - Math.pow(1 - k, 3);
     ctx.globalAlpha = a * e;
     if (ok) {
-      creature(ctx, 'd_' + c[1], cx, BY() + 88 + (1 - e) * 5, rw * 0.62, 78);
+      creature(ctx, spriteOf(c), cx, BY() + 88 + (1 - e) * 5, rw * 0.62, 78);
       label(ctx, c[0], cx, BY() + 142, 15, '#3b2c1e', 'center', 400, null, FONT2);
       label(ctx, `${gr.name} · 가장 큰 기록 ${g.records[c[0]].toFixed(1)} m`, cx, BY() + 160, 8.5, '#8a6a48', 'center', 600, null);
       ctx.font = `600 9px ${FONT}`;
-      wrap(ctx, DEX_TEXT[c[1]] || '아직 아무도 이 생물에 대해 적지 않았다.', rw - 14).slice(0, 5).forEach((ln, i) => label(ctx, ln, cx, BY() + 180 + i * 12.5, 9, '#5a4630', 'center', 600, null));
+      wrap(ctx, (c[3] === 9 ? PRIMAL_TEXT[c[1]] : DEX_TEXT[c[1]]) || '아직 아무도 이 생물에 대해 적지 않았다.', rw - 14).slice(0, 5).forEach((ln, i) => label(ctx, ln, cx, BY() + 180 + i * 12.5, 9, '#5a4630', 'center', 600, null));
     } else {
       label(ctx, '?', cx, BY() + 92, 44, 'rgba(90,70,50,0.4)', 'center', 700, null);
       label(ctx, '아직 낚지 못했다', cx, BY() + 142, 12, '#5a4630', 'center', 700, null);

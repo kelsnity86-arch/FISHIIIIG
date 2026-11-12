@@ -11410,3 +11410,200 @@ They grow clearly richer from the first to the last:
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_port_rims.png
 ```
+
+
+---
+
+## ㉟ 태초의 바다 (9번 해역): 도감을 다 채우면 열리는 마지막 바다
+
+사람이 아무것도 가라앉히기 전의 바다. 다른 해역과 반대로 반듯한 것·만든 것이 하나도 없다. 여기 생물은 아무것도 섞이지 않은 진짜 물고기이고, 항구·사람 그림과 같은 붓 그림으로 진짜처럼 그린다 (도트 그림이 아니다).
+
+### 379. `c_sky_9` — 태초의 바다: 하늘·구름·먼 풍경
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The sky of a different sea region: the primordial sea, the sea as it was before any people.
+Same composition and same size as assets/raw/c_sky.png (everything above the horizon; the
+bottom edge is the flat horizon line), but a different place:
+a vast, clean, quiet dawn sky, pale gold near the horizon fading up into clear soft blue,
+a few thin natural clouds, a low gentle sun just above the horizon far to the left. Far away
+on the horizon only two or three low natural rocky islets with rounded, irregular shapes.
+Absolutely nothing man-made and nothing geometric anywhere: no buildings, no towers, no
+poles, no boats, no straight lines, no lights, no stars, no magic. It must feel untouched,
+peaceful and real.
+No boat, no people, no fishing line, no sea surface. Very wide 3:1 image. Keep the upper
+middle of the sky fairly calm and open - a creature will be shown there.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_9.png
+```
+
+### 380. `c_sea_9` — 태초의 바다: 물속 단면
+
+```
+Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
+GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
+assets/raw/c_sea.png. Every image you make must look like it belongs to the same game: the
+same painterly storybook rendering, the same level of detail, the same soft lighting.
+
+No text. Opaque image.
+
+The underwater cross-section of a different sea region: the primordial sea. Same composition
+and same size as assets/raw/c_sea.png (the top edge is the water surface, getting deeper
+toward the bottom), but a different place:
+very clear, clean water, bright turquoise-blue near the surface with soft natural sun rays,
+deepening smoothly to a calm rich blue at the bottom. Completely empty: no sea floor, no
+rocks, no plants, no fish, no bubbles, no ruins, no objects of any kind. Only clean water.
+Same very wide proportions as c_sea.png.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sea_9.png
+```
+
+### 381. `map_pin_9` — 해도 표식: 태초의 바다
+
+```
+Style references: open assets/raw/ui_map_pins.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Look at the eight round brass map markers in its
+first two rows. Make ONE more marker painted EXACTLY like them: the same round brass frame
+with the same pointed tip at the bottom, the same size, the same painterly rendering.
+
+No text, no numbers. Fully transparent background. One marker only, centred.
+
+Inside the round frame, a tiny painted scene: a calm, clean dawn sea with a pale golden sky
+and a low sun on the horizon. Nothing else: no islands, no boats, no stars.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name map_pin_9.png
+```
+
+### 382. `p_fish_a` — 태초의 바다의 생물 6종 (anchovy, mackerel, goby, shrimp, filefish, flounder)
+
+```
+Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
+from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
+painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
+the same painterly storybook rendering, the same warm soft light, the same soft dark
+outlines, the same richness of detail. Matching that style is the most important requirement.
+This is NOT pixel art: no visible pixels, smooth brushwork.
+
+These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
+correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
+believable wet shine. They must look like the real living animal. Nothing is attached to
+them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
+no clothing, no cartoon faces, no expressions.
+
+No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
+
+A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
+its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+animal inside its cell with a little empty margin. Draw each one as large as its cell allows
+(do not show their real relative sizes). In this order, left to right, top to bottom:
+1) anchovy: a Japanese anchovy, slender silver body,
+2) mackerel: a chub mackerel, blue-green back with dark wavy bars, silver belly,
+3) goby: a small brown mottled goby with a big head,
+4) shrimp: a translucent pinkish shrimp with long feelers,
+5) filefish: a threadsail filefish, diamond-shaped greyish body, small mouth,
+6) flounder: an olive flounder seen from above its flat brown speckled side, both eyes on one side,
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name p_fish_a.png
+```
+
+### 383. `p_fish_b` — 태초의 바다의 생물 6종 (crab, bream, puffer, flying, squid, butterfly)
+
+```
+Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
+from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
+painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
+the same painterly storybook rendering, the same warm soft light, the same soft dark
+outlines, the same richness of detail. Matching that style is the most important requirement.
+This is NOT pixel art: no visible pixels, smooth brushwork.
+
+These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
+correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
+believable wet shine. They must look like the real living animal. Nothing is attached to
+them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
+no clothing, no cartoon faces, no expressions.
+
+No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
+
+A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
+its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+animal inside its cell with a little empty margin. Draw each one as large as its cell allows
+(do not show their real relative sizes). In this order, left to right, top to bottom:
+1) crab: a blue swimming crab seen from above, claws spread,
+2) bream: a red sea bream, pink-red with small blue spots,
+3) puffer: a tiger puffer, not inflated, dark back with a round black spot and white belly,
+4) flying: a flying fish with its long wing-like fins spread,
+5) squid: a Japanese flying squid, reddish brown, arms trailing,
+6) butterfly: a butterflyfish, yellow and white with a dark eye band,
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name p_fish_b.png
+```
+
+### 384. `p_fish_c` — 태초의 바다의 생물 6종 (seahorse, octopus, eel, manta, sturgeon, turtle)
+
+```
+Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
+from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
+painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
+the same painterly storybook rendering, the same warm soft light, the same soft dark
+outlines, the same richness of detail. Matching that style is the most important requirement.
+This is NOT pixel art: no visible pixels, smooth brushwork.
+
+These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
+correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
+believable wet shine. They must look like the real living animal. Nothing is attached to
+them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
+no clothing, no cartoon faces, no expressions.
+
+No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
+
+A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
+its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+animal inside its cell with a little empty margin. Draw each one as large as its cell allows
+(do not show their real relative sizes). In this order, left to right, top to bottom:
+1) seahorse: a yellowish-brown seahorse, upright,
+2) octopus: a common octopus, reddish brown, arms curling,
+3) eel: a conger eel, long grey-brown body in a gentle S curve,
+4) manta: a stingray-like ray seen slightly from above, wide wings, long tail,
+5) sturgeon: a sturgeon with rows of bony plates and a long snout,
+6) turtle: a green sea turtle swimming,
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name p_fish_c.png
+```
+
+### 385. `p_fish_d` — 태초의 바다의 생물 6종 (dolphin, tuna, marlin, sunfish, shark, whale)
+
+```
+Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
+from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
+painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
+the same painterly storybook rendering, the same warm soft light, the same soft dark
+outlines, the same richness of detail. Matching that style is the most important requirement.
+This is NOT pixel art: no visible pixels, smooth brushwork.
+
+These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
+correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
+believable wet shine. They must look like the real living animal. Nothing is attached to
+them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
+no clothing, no cartoon faces, no expressions.
+
+No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
+
+A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
+its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+animal inside its cell with a little empty margin. Draw each one as large as its cell allows
+(do not show their real relative sizes). In this order, left to right, top to bottom:
+1) dolphin: a common dolphin, dark back, pale yellowish side patch,
+2) tuna: a bluefin tuna, deep blue back, silver belly, small yellow finlets,
+3) marlin: a striped marlin with a long bill and tall dorsal fin,
+4) sunfish: an ocean sunfish, tall round grey body,
+5) shark: a great white shark, grey above, white below,
+6) whale: a fin whale, long sleek dark grey body, pale grooved throat,
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name p_fish_d.png
+```

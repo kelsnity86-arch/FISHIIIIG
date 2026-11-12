@@ -280,6 +280,7 @@ function renderSea(ctx, g) {
 // 숨은 흔적: 물고기 그림자보다 훨씬 깊은 바닥에, 가끔 움직이지 않는 큰 윤곽이 흐릿하게 비쳤다가 사라진다.
 // 아무 설명도 없다. 눈여겨본 사람만 "방금 저게 뭐였지" 한다. (8번 해역에서만 조금 더 자주, 조금 더 또렷하게)
 function drawDeep(ctx, g) {
+  if (g.region === 9) return;                             // 태초의 바다에는 가라앉은 것이 없다
   if (!hasSprite('c_deep_1')) return;
   const far = g.region >= 8, T = far ? 45 : 80, SHOW = 18;
   const n = Math.floor(g.time / T), ph = g.time - n * T;
@@ -402,9 +403,9 @@ const POSE = {
 function drawShadowPose(ctx, s, name, pose, alpha) {
   if (alpha < 0.01) return;
   const spr = sprite(name), d = POSE[pose];
-  const w = s.len * d.span, h = w * spr.h / spr.w;
+  const k = s.show || 1, w = s.len * k * d.span, h = w * spr.h / spr.w;      // show: 본래 크기로 작게 보일 때의 비율. 입이 있던 자리(찌 밑)는 그대로 지킨다
   ctx.save();
-  ctx.translate(s.x, WL + s.y);
+  ctx.translate(s.x + s.len * (1 - k) * 0.46 * clamp(s.face, -1, 1), WL + s.y);
   ctx.scale(s.face > 0 ? -1 : 1, 1);            // 그림은 왼쪽을 본다
   ctx.rotate(-s.pitch * d.tilt - (s.wob || 0));     // 몸부림칠 때 몸을 비튼다
   ctx.imageSmoothingEnabled = true;

@@ -13,7 +13,8 @@ import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
 import { updateBook } from './book.js';
 import { RELICS, has } from './relics.js';
-import { dexBonus, dexStage, dexName, DEX_PCT, genMult, questCatch, questPerfect } from './goals.js';
+import { openMap } from './book.js';
+import { dexBonus, dexStage, dexName, DEX_PCT, genMult, questCatch, questPerfect, dexAll } from './goals.js';
 import { buzz } from './haptic.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -31,7 +32,7 @@ export function createGame() {
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 5,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
-    gen: 0, quest: null, dexNews: null,             // 몇 대째인가(0 = 첫 대), 길드 의뢰, 시장에게 전할 도감 소식
+    gen: 0, quest: null, dexNews: null, primal: false, primalShow: false,             // 몇 대째인가(0 = 첫 대), 길드 의뢰, 시장에게 전할 도감 소식
     relics: 0, memory: null, memoryNext: null, savedToday: false,   // 찾은 오래된 물건 수, 떠오르는 기억 장면, 오늘 줄을 한 번 살렸는가
     story: newStory(), talk: null, skip: null,   // 이야기 진행, 지금 떠 있는 대화, 시간 넘기는 중
     forceGrade: null, phase: 3, dayT: 0, dayWarned: false,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
@@ -66,8 +67,8 @@ export function surfaceY(g, x) {
   const sw = g.sw;                       // 거대한 몸이 수면 바로 밑에 있으면 물이 부풀어 오른다
   if (sw && !sw.fleeing) {
     // 얕을수록 서서히 커진다 (어느 깊이에서 갑자기 켜지지 않는다)
-    const k = clamp((sw.floor + 40 - sw.y) / 40, 0, 1), d = (x - sw.x) / (sw.len * 0.38);
-    y -= k * k * Math.min(4, 1.2 + sw.len * 0.005) * Math.exp(-d * d) * sw.vis;
+    const k = clamp((sw.floor + 40 - sw.y) / 40, 0, 1), d = (x - sw.x) / (sw.len * (sw.show || 1) * 0.38);
+    y -= k * k * Math.min(4, 1.2 + sw.len * 0.005) * (sw.show ? Math.min(1, sw.show * 2) : 1) * Math.exp(-d * d) * sw.vis;
   }
   return y;
 }
@@ -203,8 +204,12 @@ function flee(g) {
 }
 
 // ── 매 프레임 갱신 ──
+// 물속 그림자의 길이: 평소에는 모두 같다. 태초의 바다에서는 그 생물의 본래 크기 (너무 작으면 찌만 한 크기)
+const shadowLen = (g) => (g.fish && g.fish.fixedSize ? Math.max(26, g.fish.len) : SHADOW_LEN);
 export function update(g, dt) {
   if (g.questT != null) g.questT += dt;
+  // 도감을 다 채운 뒤 처음 한가해졌을 때: 화면이 환해지고 옛 노래가 흐르며 해도가 펼쳐진다. 빈 양피지 위에 태초의 바다가 떠오른다
+  if (g.primalShow && g.state === 'idle' && g.scene === 'sea' && !g.talk && !g.memory && !g.map && !g.dex && !g.travel && !g.panel && g.t > 0.8) { g.primalShow = false; g.flash = 0.9; snd(g, 'oldsong'); openMap(g); g.map.reveal = 0; g.dirty = true; }
   // 연출용 시간 조절: 히트스톱(완전 정지)과 슬로모션. 화면 효과(번쩍임·글자·동전)는 실제 시간으로 흐른다.
   g.realDt = dt;
   g.flash = approach(g.flash, 0, 7, dt);
@@ -398,12 +403,12 @@ function startWait(g) {
   g.sinceFantasy = (g.sinceFantasy || 0) + 1;      // 세는 수는 오래된 물건을 얻었을 때 처음으로 돌아간다 (나타나기만 하고 놓치면 곧 다시 온다)
   if (pity && g.lostFantasy) say(g, '아까 그 그림자다…', '#ffe9b8');                // 복장(행운): 높은 등급이 잘 나온다
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region) * dexBonus(g, g.fish.region) * genMult(g));                // 해역·흥정·크기에 따른 값
-  g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
-  g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
-  g.fish.strain = clamp(strainOf(g.eco, g.region), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
+  if (!g.fish.fixedSize) g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
+  g.fish.power = clamp(g.fish.power * pullOf(g.eco, Math.min(8, g.region)), 0.2, 6);      // 태초의 바다(9)는 8번 해역만큼만 세다 (그보다 좋은 장비가 없다)                // 낚싯대에 비해 얼마나 세게 날뛰는가
+  g.fish.strain = clamp(strainOf(g.eco, Math.min(8, g.region)), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
-  const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
+  const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기 (태초의 바다에서는 본래 크기로 작게 '보이기만' 한다: sw.show)
   // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)
   // 매번 길이 다르다: 떠오르는 자리·깊이·빠르기, 찌 밑에서 뜸 들이기, 물러나는 거리가 그때그때 정해진다.
   const q0 = biteMult(g.eco), linger = () => ({ x: fx - L * rand(0.5, 0.74), y: rand(62, 112), speed: rand(0.28, 0.4), hover: rand(0.4, 1.1) / q0 });
@@ -421,6 +426,7 @@ function startWait(g) {
   const sw = createSwimmer(L, fx - 60 - L * rand(0.2, 0.55), DEEP + rand(95, 130), 1);
   { const q = biteMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 손놀림: 입질이 빨리 온다
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
+  if (g.fish.fixedSize) sw.show = shadowLen(g) / L;      // 태초의 바다: 그림자가 본래 크기로 보인다 (움직임 계산은 그대로)
   g.sw = sw;
   g.wait = { plan, step: 0, fakeT: 0, hover: 0, delay: rand(0.4, 1.2) / biteMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / biteMult(g.eco) };
   setState(g, 'wait');
@@ -578,11 +584,11 @@ function updateFight(g, dt) {
       s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.09);
       if (!f.did && f.modeT < 0.85 && s.y < s.floor + 14) {
         f.did = true;
-        const size = clamp(L * 0.5, 120, 330);
+        const LV = L * (s.show || 1), size = clamp(LV * 0.5, s.show ? 36 : 120, 330);      // 작은 생물은 물보라도 작다
         burst(g, 'c_thrash', s.x, size, 1.3);
-        spray(g, s.x, WL, 5, 150 + L * 0.1, size * 0.28);
-        bubbles(g, s.x, WL + 30, 5, L * 0.25);
-        swell(g, s.x, 5 + L * 0.006, 1, 130, 70); swell(g, s.x, 5 + L * 0.006, -1, 130, 70);
+        spray(g, s.x, WL, 5, 150 + LV * 0.1, size * 0.28);
+        bubbles(g, s.x, WL + 30, 5, LV * 0.25);
+        swell(g, s.x, 5 + LV * 0.006, 1, 130, 70); swell(g, s.x, 5 + LV * 0.006, -1, 130, 70);
         g.shake = Math.max(g.shake, 1.5 + p); snd(g, 'splash'); buzz(30);
       }
       break;
@@ -671,12 +677,12 @@ function startCatch(g) {
   // 다 물러났을 때 화면에서의 폭. 전신이 화면 안에 들어와야 한다: 놀란 표정 그림은 더 높고(땀방울),
   // 펄떡일 때는 커지고(1.1배) 기울고(0.22) 위로 튄다 → 그만큼을 미리 빼고 맞춘다.
   const s2 = g.fish.sprite2 && g.fish.sprite2 !== g.fish.sprite ? sprite(g.fish.sprite2) : spr, taller = Math.max(0, (s2.sh || s2.h) / (spr.sh || spr.h) - 1);
-  const dwS = Math.min(W * 0.58, (WL - 34) / (asp * (1.05 + 1.1 * taller) + 0.11 + 0.07 * SHADOW_LEN / dw));
-  const zoom = clamp(Math.min(0.85, dwS / dw), 0.1, 1);
+  const dwS = Math.min(W * 0.58, (WL - 34) / (asp * (1.05 + 1.1 * taller) + 0.11 + 0.07 * shadowLen(g) / dw));
+  const zoom = clamp(Math.min(0.85, dwS / dw), 0.1, 1) * (g.fish.fixedSize ? clamp(70 / dw, 1, 2.6) : 1);      // 태초의 바다의 작은 물고기: 카메라가 배 가까이 다가가 본다
   const ax = BOAT_X + (W * 0.74 - dwS / 2 - BOAT_X) / zoom, ay = WL - dh / 2 - 26 / zoom;   // 생물이 걸려 있는 자리
   // 막 건진 순간의 구도: 얼굴 쪽에 바짝 붙어, 몸이 화면보다 커서 일부만 보인다.
   const zs = Math.max(zoom * 1.9, Math.min(3, W * 1.35 / dw)), fx = ax + dw * 0.26;
-  const lw = SHADOW_LEN;
+  const lw = shadowLen(g);
   let ex = W * 0.42;
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
@@ -796,6 +802,7 @@ function updateCatch(g, dt) {
         const stage = dexStage(g, f.region);
         if (stage > stage0) { g.dexNote = `${dexName(f.region)} 도감 ${stage === 2 ? '완성' : '절반'}! 파는 값 +${DEX_PCT[stage]}%`; g.dexNews = { r: f.region, stage }; }
         questCatch(g, f, prev === undefined);
+        if (!g.primal && prev === undefined && dexAll(g)) { g.primal = true; g.primalShow = true; g.dexNote = '도감을 모두 채웠다. 해도에 새 항로가 떠오른다…'; }      // 태초의 바다가 열린다
       }
       // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지는 항구에서 팔 때 포상금으로 받는다
       if (!f.isFantasy) { f.advance = Math.floor(f.price * ADVANCE); g.gold += f.advance; g.cargo.push({ name: f.name, price: f.price - f.advance, grade: f.grade }); }   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)

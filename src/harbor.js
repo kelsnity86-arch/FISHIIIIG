@@ -1,6 +1,6 @@
 // 항구 마을 화면과 가게 판. 화면에 보이는 것은 전부 GPT 그림이고, 코드는 놓고·넘기고·글자를 얹을 뿐이다.
 import { pickQuip } from './quips.js';
-import { settleQuest, newQuest, questLine, dexName, GEN_X } from './goals.js';
+import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion } from './goals.js';
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
@@ -85,13 +85,13 @@ export function leaveHarbor(g) { return travel(g, () => { if (!g.quest) g.quest 
 function goRegion(g, n) {
   travel(g, () => {
     if (g.scene === 'harbor') { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }   // 항구에서 골랐으면 그 바다로 출항 (새 하루)
-    g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g);
+    g.region = n; g.msg = { text: n === 9 ? REGIONS[9] : `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g);
   });
 }
 function nextRegion(g) {
-  const n = g.region % maxRegion(g.eco) + 1;
+  const n = g.region % topRegion(g) + 1;
   if (n === g.region) { g.msg = { text: '더 큰 배가 있어야 먼바다로 나갈 수 있다', color: '#ffd0c0', age: 0 }; return; }
-  travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
+  travel(g, () => { g.region = n; g.msg = { text: n === 9 ? REGIONS[9] : `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
 }
 
 // 장비 설명: 이번에 사면 무엇이 달라지는지와, 다음 단계까지 몇 번 남았는지를 따로 알려 준다

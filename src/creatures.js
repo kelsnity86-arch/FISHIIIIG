@@ -49,7 +49,8 @@ FANTASY.forEach((name, i) => {
 
 const rand = (a, b) => a + Math.random() * (b - a);
 
-export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다'];
+import { PRIMAL, spriteOf, primalLen } from './primal.js';
+export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다', '태초의 바다'];
 
 export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1, far = 0) {
   let grade;
@@ -63,14 +64,20 @@ export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1
   }
   // 그 해역의 생물과 모든 해역 공용(평범한 물고기) 가운데, 그 등급에서 하나.
   // 그 등급이 이 해역에 없으면 한 등급씩 낮춰 찾는다.
-  const here = DOTS.filter((d) => d[3] === region || d[3] === 0);
+  const primal = region === 9;                    // 태초의 바다: 섞이지 않은 본래 생물만, 본래 크기로. 환상종은 없다
+  if (primal && grade.id === 'fantasy') grade = GRADES[GRADES.length - 2];
+  const here = primal ? PRIMAL : DOTS.filter((d) => d[3] === region || d[3] === 0);
   let pool = [];
   for (let i = GRADES.indexOf(grade); i >= 0 && !pool.length; i--) { grade = GRADES[i]; pool = here.filter((d) => d[2] === grade.id); }
   const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
-  const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1] + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
+  const base = { name: pick[0], grade: grade.id, sprite: spriteOf(pick), sprite2: spriteOf(pick) + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
   // 큰 개체일수록 드물다. 멀리 던질수록(far 0~1) 큰 개체가 잘 나온다: 가장 멀리 던지면 평균 크기 지수가 약 1.4배, 값은 약 18% 높다
   const sizeT = Math.random() ** (1.6 - 0.8 * Math.max(0, Math.min(1, far)));
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
+  if (primal) {
+    const meters = pick[5] + (pick[6] - pick[5]) * sizeT;
+    return { ...base, gradeInfo: grade, len: primalLen(meters), meters, fixedSize: true, power: grade.power * rand(0.9, 1.1), price: Math.round(grade.price * (0.7 + sizeT * 1.3)), isFantasy: false };
+  }
   return {
     ...base,
     gradeInfo: grade,
