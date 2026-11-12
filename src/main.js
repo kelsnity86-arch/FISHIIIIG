@@ -5,14 +5,13 @@ import { pointer } from './harbor.js';
 import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { topRegion } from './goals.js';
-import { IS_PC } from './haptic.js';
+import { maxScale, applyRes, closeSettings } from './settings.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 let scale = 1;
-const MAX_SCALE = IS_PC ? 6 : 2.25;      // PC판은 큰 모니터에서도 또렷하게 (발열 걱정이 없다)
 
 // 창 크기에 맞춤. 가능하면 정수배(도트가 고르게 보임), 너무 작아지면 꽉 채운다.
 function resize() {
@@ -23,7 +22,7 @@ function resize() {
   const whole = Math.floor(fit);
   scale = whole >= 2 && whole / fit >= 0.97 ? whole : fit;      // 거의 딱 맞을 때만 정수배. 아니면 화면을 꽉 채운다 (폰에서 글자와 단추가 조금이라도 크게)
   // 발열·배터리: 그리는 해상도에 상한을 둔다 (640×360 게임이라 2.25배 = 1440×810 이면 충분하다. 화소가 촘촘한 폰은 그 뒤를 화면이 늘려 보여 준다)
-  const capped = scale > MAX_SCALE; if (capped) scale = MAX_SCALE;
+  const capped = scale > maxScale(); if (capped) scale = maxScale();      // 설정의 화질(폰) · PC판은 넉넉하게
   canvas.width = Math.round(W * scale);
   canvas.height = Math.round(H * scale);
   const css = capped ? fit / dpr : scale / dpr;
@@ -49,7 +48,7 @@ function lockLandscape() {
 await loadAssets();
 const game = createGame();
 window.game = game; // 시험·디버깅용 (주의: canvas id 'game' 과 이름이 같아 로딩 전엔 canvas 를 가리킴)
-resize();
+resize(); applyRes();      // PC판: 지난번에 고른 창 크기로
 
 // 입력: 클릭 / 터치 / 스페이스바 (원터치)
 canvas.addEventListener('pointerdown', (e) => {
@@ -70,7 +69,8 @@ window.addEventListener('keyup', (e) => { if (e.code === 'Space') release(game);
 // Esc: 열려 있는 판·도감·해도를 닫는다 (PC)
 window.addEventListener('keydown', (e) => {
   if (e.code !== 'Escape' || e.repeat) return; const g = game;
-  if (g.dex && g.dex.closing == null) { g.dex.closing = 0; g.sfx.push(['paper']); }
+  if (g.settings) closeSettings(g);
+  else if (g.dex && g.dex.closing == null) { g.dex.closing = 0; g.sfx.push(['paper']); }
   else if (g.map && g.map.closing == null && g.map.reveal == null) { g.map.closing = 0; g.sfx.push(['paper']); }
   else if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); }
 });

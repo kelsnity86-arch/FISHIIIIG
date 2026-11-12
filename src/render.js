@@ -6,13 +6,15 @@
 //   물속 빛살 / 그림자 / 생물의 물속 부분 / 공기방울 / 물속 낚싯줄
 //   뒤쪽 파도 / 빛줄기 / 생물의 물 위 부분 / 배·낚시꾼·낚싯대 / 낚싯줄·찌
 //   앞쪽 파도 / 물 폭발·몸부림 파도 / 물보라 조각
-import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } from './config.js';
+import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN, TOUGH } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { questLine, skinOn } from './goals.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle, drawSound } from './story.js';
 import { drawMap, drawDex } from './book.js';
+import { drawSettings } from './settings.js';
+import { OVERPOWER } from './game.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -184,7 +186,7 @@ export function render(ctx, g) {
     drawMsg(ctx, g);
     drawCoins(ctx, g);
     drawSound(ctx, g);
-    drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
+    drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g); drawSettings(ctx, g);
     drawVeil(ctx, g);
     return;
   }
@@ -192,7 +194,7 @@ export function render(ctx, g) {
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
   if (uiA > 0.5) { drawSkip(ctx, g); drawSound(ctx, g); }
-  drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g);
+  drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g); drawSettings(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
@@ -880,8 +882,16 @@ function drawHud(ctx, g) {
   if (g.state === 'fight') {
     const f = g.fight;
     if (f.tension < 0.16 && !f.surging && !(f.tele > 0)) text(ctx, '줄이 풀린다! 눌러서 감으세요', W / 2, H - 64, 12, '#ffe27a');      // 게이지가 바닥나면 바늘이 빠진다
-    else if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, H - 64, 12, '#ffd0c0');
+    else if (f.surging) {
+      // 손을 떼도 게이지가 오르는 까닭을 알려 준다: 낚싯대가 약해 못 버티는 것인지, 센 놈이 줄을 당기는 것인지
+      const drag = (TOUGH[GRADES.indexOf(g.fish.gradeInfo)] || TOUGH[0]).drag;
+      if (g.fish.power > OVERPOWER) text(ctx, '낚싯대가 약하다! 버티기 어렵다', W / 2, H - 64, 12, '#ff8a7a');
+      else if (!g.hold && drag > 0 && f.tension > (f.seenT ?? f.tension) + 1e-5) text(ctx, '버텨라! 줄이 당겨진다', W / 2, H - 64, 12, '#ffd0c0');      // 손을 뗐는데 정말로 오르고 있을 때만
+      else text(ctx, '날뛴다! 손을 떼세요', W / 2, H - 64, 12, '#ffd0c0');
+    }
     else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, H - 64, 12, '#ff8a7a');
+    else if (g.fish.strain > OVERPOWER) text(ctx, '줄이 약하다… 오래 못 버틴다', W / 2, H - 64, 11, '#ffb39a');      // 줄이 모자라면 풀어 줘도 게이지가 오른다
+    if (!g.freeze || g.freeze <= 0) f.seenT = f.tension;
   }
   drawDayClock(ctx, g);
   drawSeaButtons(ctx, g);

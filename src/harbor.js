@@ -1,5 +1,6 @@
 // 항구 마을 화면과 가게 판. 화면에 보이는 것은 전부 GPT 그림이고, 코드는 놓고·넘기고·글자를 얹을 뿐이다.
 import { pickQuip } from './quips.js';
+import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
@@ -169,6 +170,7 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
+  if (g.settings) { tapSettings(g, x, y); return true; }      // 설정 판이 떠 있으면 다른 것은 눌리지 않는다
   if (g.title) { tapTitle(g, x, y); return true; }
   if (g.memory) { tapMemory(g); return true; }
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다

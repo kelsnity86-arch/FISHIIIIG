@@ -6,8 +6,7 @@ import { sprite, hasSprite } from './assets.js';
 import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
-import { setSound, soundOn, initAudio, nextVolume, soundName } from './audio.js';
-import { vibeName, nextVibe, IS_PC } from './haptic.js';
+import { openSettings, updateSettings } from './settings.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -153,7 +152,7 @@ export function updateStory(g, dt) {
       if (t.closing > 0.22) { const next = t.queue.shift(); g.talk = null; if (next) { g.story.seen[next] = 0; startTalk(g, next); } }
     } else t.a = Math.min(1, t.a + dt / 0.25);
   }
-  updateTitle(g, dt);
+  updateTitle(g, dt); updateSettings(g, dt);
   if (g.pendingIntro && !g.travel) { g.pendingIntro = false; startTalk(g, 'intro'); }
   if (g.pendingGen && !g.travel) { g.pendingGen = false; startTalk(g, 'gen'); }
   updateMemory(g, dt);
@@ -164,11 +163,10 @@ export function updateStory(g, dt) {
 // ── 제목 화면: 켜면 바다 위에 로고가 떠 있다. 누르면 로고가 걷히고 게임이 시작된다 ──
 export function startTitle(g) { g.title = { t: 0, a: 0, closing: null }; }
 // 제목 화면 아래 구석의 설정 두 가지: 소리 켜고 끄기(왼쪽), 처음부터 다시(오른쪽, 저장이 있을 때만. 두 번 눌러야 지워진다)
-const T_SOUND = { x: 44, y: H - 20 }, T_VIBE = { x: 112, y: H - 20 }, T_RESET = { x: W - 62, y: H - 20 };
+const T_SOUND = { x: 34, y: H - 20 }, T_RESET = { x: W - 62, y: H - 20 };
 export function tapTitle(g, x, y) {
   const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
-  if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { initAudio(); if (IS_PC) nextVolume(); else setSound(!soundOn()); return; }
-  if (!IS_PC && x != null && Math.abs(x - T_VIBE.x) < 34 && Math.abs(y - T_VIBE.y) < 16) { nextVibe(); return; }      // PC에는 진동이 없다
+  if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { openSettings(g); return; }      // 설정 판 (소리·해상도·진동)
   if (x != null && g.hasSave && Math.abs(x - T_RESET.x) < 62 && Math.abs(y - T_RESET.y) < 16) {
     if (t.askT != null && t.t - t.askT < 4) g.wipe = true; else t.askT = t.t;
     return;
@@ -196,27 +194,23 @@ export function drawTitle(ctx, g) {
   else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
   if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
   ctx.globalAlpha = a * 0.8;
-  label(ctx, soundName(IS_PC), T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
-  if (!IS_PC) label(ctx, vibeName(), T_VIBE.x, T_VIBE.y, 9.5, '#fff4dc', 'center', 600);
+  label(ctx, '설정', T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
   if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
 
 // ── 소리 켬/끔: 게임 중에도 화면 오른쪽 위 구석에서 바꿀 수 있다 (낚는 중에는 잘못 누르지 않게 쉴 때만) ──
-const SND = { x: W - 31, y: 13 };      // '진동 2단계'처럼 긴 글자도 화면 끝에 닿지 않게
-const sndOk = (g) => !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
+const SND = { x: W - 22, y: 13 };
+const sndOk = (g) => !g.settings && !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
 export function tapSound(g, x, y) {
-  if (!sndOk(g) || Math.abs(x - SND.x) > 31) return false;
-  if (Math.abs(y - SND.y) <= 8) { initAudio(); if (IS_PC) nextVolume(); else setSound(!soundOn()); return true; }
-  if (!IS_PC && Math.abs(y - SND.y - 14) <= 7) { nextVibe(); return true; }      // 소리 바로 아래: 진동
-  return false;
+  if (!sndOk(g) || Math.abs(x - SND.x) > 22 || Math.abs(y - SND.y) > 11) return false;
+  openSettings(g); return true;
 }
 export function drawSound(ctx, g) {
   g.sndA = (g.sndA || 0) + ((sndOk(g) ? 1 : 0) - (g.sndA || 0)) * 0.12;
   if (g.sndA < 0.02) return;
   ctx.save(); ctx.globalAlpha = g.sndA * 0.75;
-  label(ctx, soundName(IS_PC), SND.x, SND.y, 8.5, '#fff4dc', 'center', 600);
-  if (!IS_PC) label(ctx, vibeName(), SND.x, SND.y + 14, 8.5, '#fff4dc', 'center', 600);
+  label(ctx, '설정', SND.x, SND.y, 9, '#fff4dc', 'center', 600);
   ctx.restore();
 }
 
@@ -236,7 +230,7 @@ const FINALE = [
 ];
 function updateMemory(g, dt) {
   // 볼 기억은 저장된 기록에서 찾는다: 가진 물건 가운데 아직 끝까지 못 본 첫 기억. (물건을 받은 직후에 꺼도 다음에 이어서 본다)
-  if (!g.memory && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result && !g.title && !g.panel && !g.map && !g.dex) {      // 판·해도·도감을 보는 중에는 끼어들지 않는다
+  if (!g.memory && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result && !g.title && !g.panel && !g.map && !g.dex && !g.settings) {      // 판·해도·도감을 보는 중에는 끼어들지 않는다
     const seen = g.story.seen; let i = 0; while (i < g.relics && i < RELICS.length && seen['mem_' + i]) i++;
     if (i < Math.min(g.relics, RELICS.length)) {
       g.memory = { i, t: 0, a: 0, closing: null };
@@ -334,7 +328,7 @@ function hintFor(g) {
   return null;
 }
 function updateHint(g, dt) {
-  const want = g.dex || g.map || g.memory ? null : hintFor(g), h = g.hint || (g.hint = { text: '', a: 0 });      // 도감·해도·회상 위에는 안내를 띄우지 않는다
+  const want = g.dex || g.map || g.memory || g.settings ? null : hintFor(g), h = g.hint || (g.hint = { text: '', a: 0 });      // 도감·해도·회상 위에는 안내를 띄우지 않는다
   if (want && want.startsWith('밤이')) g.hintT = (g.hintT || 0) + dt;
   if (want && (h.text === want || h.a < 0.02)) { h.text = want; h.a = Math.min(1, h.a + dt / 0.3); }
   else h.a = Math.max(0, h.a - dt / 0.25);                  // 글이 바뀔 때는 사라졌다가 새 글이 나타난다

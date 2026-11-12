@@ -127,9 +127,10 @@ function snd(g, name, arg) { g.sfx.push([name, arg]); }
 
 // ── 입력 ──
 export function press(g) {
+  if (g.settings) return;
   if (g.title) { tapTitle(g); return; }               // 제목 화면: 누르면 시작
   if (g.talk) { tapTalk(g); return; }                 // 대화 중에는 누르면 다음 줄
-  if (g.skip || g.map || g.dex || g.memory) return;
+  if (g.skip || g.map || g.dex || g.memory || g.settings) return;
   if (g.scene !== 'sea' || g.panel || g.travel) return;
   g.hold = true;
   switch (g.state) {
@@ -221,7 +222,7 @@ export function update(g, dt) {
   updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt); updateBook(g, dt);
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
-    if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory && !g.title) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
+    if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory && !g.title && !g.settings) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
     g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
     if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
     if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk && !g.map && !g.dex && !g.memory) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
@@ -663,7 +664,7 @@ function followLine(g, dt) {
 // 등급별 연출 강도 (0 일반 ~ 5 환상)
 const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
-const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
+export const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
 const THANKS_GOLD = 9000;      // 바다의 답례: 그 해역 전설 등급 값의 1.5배
 const RETRY = 4;             // 놓친 환상종이 다시 오기까지의 낚시 횟수

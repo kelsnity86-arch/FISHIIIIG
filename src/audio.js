@@ -451,14 +451,14 @@ export function initAudio() {
   timer = setInterval(() => { if (eng.ctx.state === 'running') eng.schedule(eng.ctx.currentTime + 0.4); }, 80);
   document.addEventListener('visibilitychange', () => { if (!eng) return; if (document.hidden) eng.ctx.suspend(); else if (enabled) eng.ctx.resume(); });
 }
-// PC판: 소리를 켜고 끄는 대신 음량을 단계로 고른다 (100% → 70% → 40% → 끔). 폰은 기기의 음량 버튼이 있으므로 켬/끔만.
+// 소리 크기를 단계로 고른다 (100% → 70% → 40% → 끔). 설정 판에서 바꾼다.
 const VOL_KEY = 'hori-volume', VOLS = [1, 0.7, 0.4];
 let vol = (() => { try { const v = +localStorage.getItem(VOL_KEY); return VOLS.includes(v) ? v : 1; } catch { return 1; } })();
 export function nextVolume() {
   if (!enabled) { vol = VOLS[0]; setSound(true); } else { const i = VOLS.indexOf(vol); if (i === VOLS.length - 1) setSound(false); else { vol = VOLS[i + 1]; setSound(true); } }
   try { localStorage.setItem(VOL_KEY, String(vol)); } catch { /* 저장이 막힌 환경 */ }
 }
-export const soundName = (pc) => (!enabled ? '소리 끔' : pc ? `소리 ${Math.round(vol * 100)}%` : '소리 켬');
+export const soundName = () => (!enabled ? '소리 끔' : `소리 ${Math.round(vol * 100)}%`);
 export function setSound(on) { enabled = on; if (eng) eng.volume(on ? 0.9 * vol : 0); try { localStorage.setItem(SOUND_KEY, on ? 'on' : 'off'); } catch { /* 저장이 막힌 환경 */ } }
 export const soundOn = () => enabled;
 export function playSfx(name, arg) { if (eng && enabled) eng.play(name, arg); }
