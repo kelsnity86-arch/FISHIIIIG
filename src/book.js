@@ -157,9 +157,9 @@ export function drawDex(ctx, g) {
   // 오른쪽 쪽: 고른 생물
   const rx = RX(), rw = PW(), cx = rx + rw / 2, c = d.sel;
   if (!c) {
-    const all = DOTS.filter((x) => known(g, x)).length;
+    const pool = g.primal ? DOTS.concat(PRIMAL) : DOTS, all = pool.filter((x) => known(g, x)).length;      // 태초의 바다가 열린 뒤에는 그 생물까지 센다
     label(ctx, '도감', cx, BY() + 60, 16, '#5a3a1e', 'center', 700, null);
-    label(ctx, `${all} / ${DOTS.length}`, cx, BY() + 86, 13, '#8a4a22', 'center', 700, null);
+    label(ctx, `${all} / ${pool.length}`, cx, BY() + 86, 13, '#8a4a22', 'center', 700, null);
     label(ctx, '칸을 누르면 낚은 생물을 볼 수 있다', cx, BY() + 120, 9, '#8a7458', 'center', 600, null);
   } else if (c.mem) {
     // 오래된 물건: 마을 사람이 적은 한 줄, 떠오른 기억, 붙은 능력

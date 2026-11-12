@@ -92,7 +92,7 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
 function drawCatchText(ctx, g) {
   const fx = g.catchFx;
   if (!fx) return;
-  const gi = fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;
+  const gi = g.fish && g.fish.fixedSize ? 2 : fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;      // 태초의 생물은 등급이 하나라 '낚았다!' 글자도 하나(물결)로 같다
   const w = [150, 162, 176, 190, 208, 232][gi], h = w * spr.h / spr.w;
   const gone = fx.out != null ? clamp(fx.out / 0.25, 0, 1) : 0;
   const pop = easeOutBack(Math.min(1, fx.age / 0.32)) * (1 - 0.25 * gone);
@@ -671,18 +671,27 @@ function drawLineAndFloat(ctx, g, phase) {
   const hooked = g.state === 'fight' || g.state === 'hook' || (c && c.phase === 'pull');
   if (hooked && g.sw) {
     // 걸린 뒤: 줄이 수면을 가르고 물속 주둥이까지 이어진다. 찌는 그 자리에 끌려 잠긴다.
-    const sy = surfaceY(g, bob.x), entry = { x: bob.x, y: sy };
-    stroke([entry, mouthPos(g)], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
-    stroke([tip, entry], 0.1 * Math.pow(1 - clamp(tension, 0, 1), 2), 1, 0.95, true);
-    drawFloat(bob.x, sy + bob.dip, Math.sin(g.time * 9) * 0.25, true);
+    // 찌는 줄이 당기는 쪽으로 끌려간다: 물속 줄이 향하는 방향(주둥이 쪽)으로 조금 딸려 가고, 그쪽으로 눕는다. 팽팽할수록 더.
+    const mp = mouthPos(g), tn = clamp(tension, 0, 1), F = floatDrag, now = performance.now() / 1000, fdt = Math.min(0.05, now - F.t); F.t = now;
+    const wantX = clamp((mp.x - bob.x) * 0.3, -34, 34) * (0.35 + 0.65 * tn);
+    const dy = Math.max(6, mp.y - surfaceY(g, bob.x)), wantRot = clamp(Math.atan2(-(mp.x - (bob.x + wantX)), dy), -1.15, 1.15) * (0.3 + 0.7 * tn);
+    if (!F.on) { F.x = 0; F.rot = 0; F.on = true; }
+    F.x += (wantX - F.x) * Math.min(1, fdt * 5); F.rot += (wantRot - F.rot) * Math.min(1, fdt * 7);      // 뚝 꺾이지 않고 부드럽게 따라간다
+    const ex = bob.x + F.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
+    stroke([entry, mp], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
+    stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
+    drawFloat(ex, sy + bob.dip, F.rot + Math.sin(g.time * 9) * 0.1, true);
     return;
   }
+  floatDrag.on = false;
   const wet = bob.inWater;
   const fy = wet ? bob.y : bob.y;
   const top = { x: bob.x, y: wet ? fy - fl.h * WATER + bob.dip : fy - fl.h * 0.2 };
   stroke([tip, top], g.state === 'wait' || g.state === 'bite' ? 0.06 : g.state === 'cast' ? -0.05 : 0, 1, 0.95, true);
   drawFloat(bob.x, wet ? fy + bob.dip + Math.sin(g.time * 2.3) * 0.5 : fy, wet ? Math.sin(g.time * 1.7) * 0.07 : 0, wet);
 }
+
+const floatDrag = { on: false, x: 0, rot: 0, t: 0 };      // 걸린 뒤 찌가 줄에 끌려간 정도 (부드럽게 따라가도록 기억해 둔다)
 
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다
 const easeIn = (t) => t * t;
