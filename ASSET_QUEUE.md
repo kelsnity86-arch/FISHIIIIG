@@ -401,10 +401,10 @@
 | 379 | `c_sky_9` | 태초의 바다: 하늘 (사람이 만든 것이 하나도 없는 맑은 새벽) | **TODO** | |
 | 380 | `c_sea_9` | 태초의 바다: 물속 단면 (아무것도 없는 맑은 물) | **TODO** | |
 | 381 | `map_pin_9` | 해도 표식: 태초의 바다 | **TODO** | |
-| 382 | `p_fish_a` | 태초의 바다 생물 6종 (멸치·고등어·망둥어·새우·쥐치·넙치) · 항구 그림체의 진짜 같은 붓 그림 | **TODO** | |
-| 383 | `p_fish_b` | 태초의 바다 생물 6종 (게·돔·복어·날치·오징어·나비고기) | **TODO** | |
-| 384 | `p_fish_c` | 태초의 바다 생물 6종 (해마·문어·장어·가오리·철갑상어·바다거북) | **TODO** | |
-| 385 | `p_fish_d` | 태초의 바다 생물 6종 (돌고래·다랑어·청새치·개복치·상어·고래) | **TODO** | |
+| 382 | `p_fish_a` | 태초의 바다 생물 6종 (멸치·고등어·망둥어·새우·쥐치·넙치) · 항구·사람 그림과 같은 동화풍 붓 그림 | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png. |
+| 383 | `p_fish_b` | 태초의 바다 생물 6종 (게·돔·복어·날치·오징어·나비고기) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png. |
+| 384 | `p_fish_c` | 태초의 바다 생물 6종 (해마·문어·장어·가오리·철갑상어·바다거북) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png. |
+| 385 | `p_fish_d` | 태초의 바다 생물 6종 (돌고래·다랑어·청새치·개복치·상어·고래) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png. |
 | 386 | `ui_card_7` | 태초 등급: 낚았을 때 카드 틀 (물에 씻긴 나무·갈대·조개) | **TODO** | |
 | 387 | `p_skins` | 태초의 차림: 찌·목도리·낚싯대·줄다리기 게이지 틀 (4줄) | **TODO** | |
 | 388 | `c_boat_t9` | 태초의 차림: 배 (바다에서, 낚시꾼 자세 3장. 8단계 그림에서 배만 바꾸기) | **TODO** | |

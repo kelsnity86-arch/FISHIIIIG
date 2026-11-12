@@ -11483,18 +11483,25 @@ on the main branch, in the folder assets/raw/, with the file name map_pin_9.png
 ### 382. `p_fish_a` — 태초의 바다의 생물 6종 (anchovy, mackerel, goby, shrimp, filefish, flounder)
 
 ```
-Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
-from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
-painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
-the same painterly storybook rendering, the same warm soft light, the same soft dark
-outlines, the same richness of detail. Matching that style is the most important requirement.
-This is NOT pixel art: no visible pixels, smooth brushwork.
+Style references: open assets/raw/h_npc.png, assets/raw/h_gear_a.png and
+assets/raw/h_town_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch).
+In h_npc.png, look closely at the fish that the first person (the fishmonger woman) is
+holding in her arms. Every animal you paint must look like it was painted by the same hand
+as THAT fish and those people: the same soft, warm storybook illustration, simplified
+rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
+scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
+highlight. Matching that style is the most important requirement.
 
-These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
-correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
-believable wet shine. They must look like the real living animal. Nothing is attached to
-them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
-no clothing, no cartoon faces, no expressions.
+Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
+detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
+It should feel like a picture from a children's storybook, as charming as the people in
+h_npc.png.
+
+They are ordinary sea animals: each one must be clearly recognisable as its real species
+(right overall shape, right colours, its typical markings), but drawn simply and warmly.
+Nothing is attached to them and nothing is mixed into them: no objects, no metal, no
+machinery, no decorations, no clothing. Calm natural look, no exaggerated cartoon
+expressions.
 
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
@@ -11515,18 +11522,25 @@ on the main branch, in the folder assets/raw/, with the file name p_fish_a.png
 ### 383. `p_fish_b` — 태초의 바다의 생물 6종 (crab, bream, puffer, flying, squid, butterfly)
 
 ```
-Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
-from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
-painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
-the same painterly storybook rendering, the same warm soft light, the same soft dark
-outlines, the same richness of detail. Matching that style is the most important requirement.
-This is NOT pixel art: no visible pixels, smooth brushwork.
+Style references: open assets/raw/h_npc.png, assets/raw/h_gear_a.png and
+assets/raw/h_town_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch).
+In h_npc.png, look closely at the fish that the first person (the fishmonger woman) is
+holding in her arms. Every animal you paint must look like it was painted by the same hand
+as THAT fish and those people: the same soft, warm storybook illustration, simplified
+rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
+scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
+highlight. Matching that style is the most important requirement.
 
-These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
-correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
-believable wet shine. They must look like the real living animal. Nothing is attached to
-them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
-no clothing, no cartoon faces, no expressions.
+Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
+detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
+It should feel like a picture from a children's storybook, as charming as the people in
+h_npc.png.
+
+They are ordinary sea animals: each one must be clearly recognisable as its real species
+(right overall shape, right colours, its typical markings), but drawn simply and warmly.
+Nothing is attached to them and nothing is mixed into them: no objects, no metal, no
+machinery, no decorations, no clothing. Calm natural look, no exaggerated cartoon
+expressions.
 
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
@@ -11547,18 +11561,25 @@ on the main branch, in the folder assets/raw/, with the file name p_fish_b.png
 ### 384. `p_fish_c` — 태초의 바다의 생물 6종 (seahorse, octopus, eel, manta, sturgeon, turtle)
 
 ```
-Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
-from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
-painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
-the same painterly storybook rendering, the same warm soft light, the same soft dark
-outlines, the same richness of detail. Matching that style is the most important requirement.
-This is NOT pixel art: no visible pixels, smooth brushwork.
+Style references: open assets/raw/h_npc.png, assets/raw/h_gear_a.png and
+assets/raw/h_town_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch).
+In h_npc.png, look closely at the fish that the first person (the fishmonger woman) is
+holding in her arms. Every animal you paint must look like it was painted by the same hand
+as THAT fish and those people: the same soft, warm storybook illustration, simplified
+rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
+scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
+highlight. Matching that style is the most important requirement.
 
-These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
-correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
-believable wet shine. They must look like the real living animal. Nothing is attached to
-them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
-no clothing, no cartoon faces, no expressions.
+Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
+detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
+It should feel like a picture from a children's storybook, as charming as the people in
+h_npc.png.
+
+They are ordinary sea animals: each one must be clearly recognisable as its real species
+(right overall shape, right colours, its typical markings), but drawn simply and warmly.
+Nothing is attached to them and nothing is mixed into them: no objects, no metal, no
+machinery, no decorations, no clothing. Calm natural look, no exaggerated cartoon
+expressions.
 
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
@@ -11579,18 +11600,25 @@ on the main branch, in the folder assets/raw/, with the file name p_fish_c.png
 ### 385. `p_fish_d` — 태초의 바다의 생물 6종 (dolphin, tuna, marlin, sunfish, shark, whale)
 
 ```
-Style references: open assets/raw/h_npc.png, assets/raw/h_town_3.png and assets/raw/h_gear_a.png
-from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch). The new pictures must be
-painted in EXACTLY the same hand as the people in h_npc.png and the harbor in h_town_3.png:
-the same painterly storybook rendering, the same warm soft light, the same soft dark
-outlines, the same richness of detail. Matching that style is the most important requirement.
-This is NOT pixel art: no visible pixels, smooth brushwork.
+Style references: open assets/raw/h_npc.png, assets/raw/h_gear_a.png and
+assets/raw/h_town_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch).
+In h_npc.png, look closely at the fish that the first person (the fishmonger woman) is
+holding in her arms. Every animal you paint must look like it was painted by the same hand
+as THAT fish and those people: the same soft, warm storybook illustration, simplified
+rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
+scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
+highlight. Matching that style is the most important requirement.
 
-These are real, ordinary sea animals, painted as faithfully as a naturalist's illustration:
-correct anatomy, correct proportions, correct real colours and markings, real fin shapes,
-believable wet shine. They must look like the real living animal. Nothing is attached to
-them and nothing is mixed into them: no objects, no metal, no machinery, no decorations,
-no clothing, no cartoon faces, no expressions.
+Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
+detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
+It should feel like a picture from a children's storybook, as charming as the people in
+h_npc.png.
+
+They are ordinary sea animals: each one must be clearly recognisable as its real species
+(right overall shape, right colours, its typical markings), but drawn simply and warmly.
+Nothing is attached to them and nothing is mixed into them: no objects, no metal, no
+machinery, no decorations, no clothing. Calm natural look, no exaggerated cartoon
+expressions.
 
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
