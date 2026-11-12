@@ -3,8 +3,8 @@
 export const POWER_X = 4;        // 해역마다 생물의 힘
 export const PRICE_X = 6;        // 해역마다 생물의 값
 export const GEAR_X = 22.5;      // 장비 한 단계마다 값
-const FIRST_SET = 34000;         // 2단계 장비 한 벌의 기준 값
-const START_CUT = 0.4;           // 첫 해역에서는 이만큼만 받는다 (시작이 느리지 않게)
+const FIRST_SET = 24000;         // 2단계 장비 한 벌의 기준 값
+const START_CUT = 0.3;           // 첫 해역에서는 이만큼만 받는다 (시작이 느리지 않게)
 const SKILL_BASE = FIRST_SET * 0.003 * START_CUT;
 
 // 장비 5종. 단계마다 10번 산다: 9번의 강화 + 10번째는 다음 단계 장비.
@@ -21,11 +21,11 @@ const STEP_W = (() => { const w = []; for (let j = 0; j < 9; j++) w.push(1.15 **
 
 // 스킬 노드 (레벨 무제한, 값은 레벨마다 1.15배). 10·25·50·100레벨에 보너스.
 export const SKILLS = [
-  { id: 'profit', name: '흥정',     desc: '판매가 ×1.02',            mult: 1.02 },
-  { id: 'speed',  name: '손놀림',   desc: '입질이 빨리 온다 +2%',    add: 0.02, max: 2 },
-  { id: 'big',    name: '큰 개체',  desc: '크기 ×1.015 (클수록 비싸다)', mult: 1.015 },
+  { id: 'profit', name: '흥정',     label: '판매가',    mult: 1.0066 },
+  { id: 'speed',  name: '손놀림',   label: '입질 속도', add: 0.0066, max: 2 },
+  { id: 'big',    name: '큰 개체',  label: '크기와 값', mult: 1.005 },
 ];
-const MILE = [[10, 1.1], [25, 1.1], [50, 1.15], [100, 1.2]];
+const MILE = 1.017;      // 10레벨마다 마디 보너스 (×1.017). 잘게 찍다가 열 번째에 눈에 띄게 오른다
 
 // ── 항구 마을 발전 ──
 // 사슬: 시청(마을 등급) → 가게 레벨 → 그 단계 장비 → 다음 해역.
@@ -35,7 +35,7 @@ export const SHOPS = [
   { id: 'tackle', name: '낚시도구점', desc: '다음 단계 낚싯대·줄·릴', gear: ['rod', 'line', 'reel'] },
   { id: 'yard',   name: '조선소',     desc: '다음 단계 배', gear: ['boat'] },
   { id: 'tailor', name: '옷가게',     desc: '다음 단계 복장', gear: ['outfit'] },
-  { id: 'guild',  name: '어부 길드',  desc: '스킬 상한 +25' },
+  { id: 'guild',  name: '어부 길드',  desc: '스킬 상한 +75' },
 ];
 export const TOWN_NAMES = ['', '작은 어촌', '어촌', '포구 마을', '항구 마을', '번화한 항구', '큰 항구', '무역항', '환상의 항구'];
 export const TOWN_LOOK = [0, 1, 1, 2, 2, 3, 3, 4, 5];            // 마을 등급 → 겉모습 5단계
@@ -54,15 +54,19 @@ export const townNeedDex = (e) => DEX_NEED[Math.min(8, e.town + 1)];
 export const shopCost = (e, id) => Math.ceil(tierTotal(e.shop[id] - 1) * SHOP_SHARE);
 export const shopLocked = (e, id) => e.shop[id] >= e.town || e.shop[id] >= 8;                // 가게는 마을 등급까지만
 const shopOf = (id) => SHOPS.find((x) => x.gear && x.gear.includes(id));
-export const skillCap = (e) => 25 * e.shop.guild;
+export const skillCap = (e) => 75 * e.shop.guild;
 // 손놀림은 2배가 한계: 거기 닿으면 더 팔지 않는다
 export const skillMaxed = (e, id) => { const sk = SKILLS.find((x) => x.id === id); return !!sk.max && node(e, sk) >= sk.max - 1e-6; };
 
 const node = (e, s) => {
-  let v = s.mult ? s.mult ** e.skill[s.id] : 1 + s.add * e.skill[s.id];
-  for (const [lv, b] of MILE) if (e.skill[s.id] >= lv) v *= b;
+  return nodeAt(s, e.skill[s.id]);
+};
+const nodeAt = (s, lv) => {
+  const v = (s.mult ? s.mult ** lv : 1 + s.add * lv) * MILE ** Math.floor(lv / 10);
   return s.max ? Math.min(s.max, v) : v;
 };
+// 스킬 효과를 %로: 지금 값과 한 번 더 올렸을 때의 값 (가게 판에 '+12.4% → +13.1%' 로 보여 준다)
+export const skillPct = (e, id, more = 0) => (nodeAt(SKILLS.find((x) => x.id === id), e.skill[id] + more) - 1) * 100;
 const SK = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 export const maxRegion = (e) => Math.min(8, Math.floor(e.gear.boat / 10) + 1);     // 갈 수 있는 가장 먼 해역
@@ -101,7 +105,8 @@ export function gearBlock(e, id) {
   return null;
 }
 export const gearLocked = (e, id) => gearBlock(e, id) !== null;
-export const skillCost = (e, id) => Math.ceil(SKILL_BASE * 1.15 ** e.skill[id]);
+// 스킬은 잘게 쪼개 자주 찍는다: 예전 한 레벨의 값과 효과를 세 번에 나눈다 (레벨마다 값 ×1.15^(1/3))
+export const skillCost = (e, id) => Math.ceil(SKILL_BASE / 3 * 1.15 ** (e.skill[id] / 3));
 export const gearLabel = (lv) => `${Math.floor(lv / 10) + 1}단계 +${lv % 10}`;
 
 export function buy(g, kind, id) {

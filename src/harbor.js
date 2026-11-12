@@ -5,7 +5,7 @@ import { REGIONS } from './creatures.js';
 import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
 import {
-  GEAR, SKILLS, SHOPS, cargoMax, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
+  GEAR, SKILLS, SHOPS, cargoMax, skillPct, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
  } from './economy.js';
 
@@ -118,7 +118,9 @@ function rowInfo(g, kind, id) {
   }
   if (kind === 'skill') {
     const x = SKILLS.find((v) => v.id === id), lv = e.skill[id];
-    return { name: x.name, level: `Lv.${lv}`, desc: x.desc, cost: skillCost(e, id), block: skillMaxed(e, id) ? '끝' : lv >= skillCap(e) ? (e.shop.guild >= 8 ? '끝' : `길드 Lv.${e.shop.guild + 1}`) : null, icon: SKILL_ICON[id] };
+    const pct = (v) => '+' + (v >= 100 ? v.toFixed(0) : v.toFixed(1)) + '%';
+    const desc = `${x.label} ${pct(skillPct(e, id))} → ${pct(skillPct(e, id, 1))}` + (lv % 10 === 9 ? ' ★' : '');      // 지금 효과 → 올린 뒤 효과. 열 번째마다 크게 오른다
+    return { name: x.name, level: `Lv.${lv}`, desc, cost: skillCost(e, id), block: skillMaxed(e, id) ? '끝' : lv >= skillCap(e) ? (e.shop.guild >= 8 ? '끝' : `길드 Lv.${e.shop.guild + 1}`) : null, icon: SKILL_ICON[id] };
   }
   if (kind === 'shop') {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];
@@ -155,7 +157,8 @@ export function pointer(g, x, y) {
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
-        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g); }
+        if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g);
+          if (rows[i][0] === 'skill') g.panel.rep = { i, t: 0, next: 0.38, n: 0 }; }      // 스킬: 누르고 있으면 계속 올라간다
         else { g.panel.hit = -2 - i; g.panel.hitT = 0; g.sfx.push(['deny']); }
         return true;
       }
@@ -187,6 +190,16 @@ export function pointer(g, x, y) {
 export function updateHarbor(g, dt) {
   if (g.panel) {
     g.panel.t += dt; g.panel.hitT += dt;
+    // 스킬 단추를 누르고 있는 동안: 처음엔 천천히, 갈수록 빠르게 연달아 올린다 (초당 4번 → 16번). 돈이 모자라거나 손을 떼면 멈춘다
+    const rp = g.panel.rep;
+    if (rp && g.panel.closing == null) {
+      rp.t += dt;
+      while (rp && rp.t >= rp.next) {
+        const row = rowsOf(g, g.panel.id)[rp.i];
+        if (row && buy(g, row[0], row[1])) { rp.n++; rp.next += Math.max(0.062, 0.25 * 0.86 ** rp.n); g.panel.hit = rp.i; g.panel.hitT = 0; g.sfx.push(['tick']); g.dirty = true; }
+        else { g.panel.rep = null; break; }
+      }
+    }
     if (g.panel.closing != null && (g.panel.closing += dt) > 0.18) g.panel = null;
   }
   g.harborT = (g.harborT || 0) + dt;
@@ -290,5 +303,6 @@ export function drawPanel(ctx, g) {
     else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
+  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 + 4, PANEL.y + panelH() - 40, 8.5, '#8a6a48', 'center', 600, null);
   ctx.restore();
 }

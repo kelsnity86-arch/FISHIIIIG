@@ -173,6 +173,7 @@ export function press(g) {
 
 export function release(g) {
   g.hold = false;
+  if (g.panel) g.panel.rep = null;                    // 스킬 단추에서 손을 뗐다: 연달아 올리기를 멈춘다
   if (g.state === 'charge') {
     g.castX = lerp(CAST_NEAR, CAST_FAR, g.power);
     const tip = rodPose(g).tip;

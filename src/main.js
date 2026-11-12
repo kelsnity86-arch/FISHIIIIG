@@ -91,12 +91,14 @@ const SAVE = 'horizon-angler-save-1';
 let wiped = false;
 function save() {
   if (wiped) return;                     // 저장을 지운 뒤에는 다시 쓰지 않는다
-  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen, memV: 1, relics: game.relics, sinceFantasy: game.sinceFantasy || 0 })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
+  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen, memV: 1, skV: 2, relics: game.relics, sinceFantasy: game.sinceFantasy || 0 })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
 }
 try {
   const d = JSON.parse(localStorage.getItem(SAVE) || 'null');
   if (d) {
     game.gold = game.goldShown = d.gold || 0;
+    // 스킬을 세 배로 잘게 쪼개기 전의 저장: 레벨을 세 배로 옮긴다 (효과는 그대로)
+    if (d.skV !== 2 && d.eco && d.eco.skill) for (const k of Object.keys(d.eco.skill)) d.eco.skill[k] *= 3;
     Object.assign(game.eco.gear, d.eco && d.eco.gear); Object.assign(game.eco.skill, d.eco && d.eco.skill);
     Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
