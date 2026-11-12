@@ -213,7 +213,8 @@ export function drawHarbor(ctx, g) {
   // 정박한 내 배
   // 장비 외형(배): 항구에서는 단계마다 확실하게 커지고 화려해진다
   const bt8 = Math.min(8, Math.floor(e.gear.boat / 10) + 1);
-  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8); ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, 160, 314 - b.h + Math.sin(t * 1.3) * 1 + b.h * 0.05, b.w, b.h); }      // 부두 옆 물 위에 매여 있다 (배경의 나룻배가 있던 쪽). 가게와 이름표를 가리지 않는 높이
+  // 출항 단추 바로 왼쪽 물 위에 매여 있다. 아래쪽 넓은 물에 두어 크게 그려도 가게와 이름표를 가리지 않는다
+  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3, bw = b.w * k, bh = b.h * k; ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05, bw, bh); }
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
   // 마을 이름
   const rb = sprite('h_ribbon'), rw = 150, rh = rw * rb.h / rb.w;
