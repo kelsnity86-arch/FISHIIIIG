@@ -32,12 +32,12 @@ export const SURGE_MODES = ['run', 'dive', 'thrash'];   // 날뛰는 동작: 계
 export const TOUGH = [
   { surge: 1,    drag: 0,    tele: 1,    chain: 0,    calm: 1 },
   { surge: 1,    drag: 0,    tele: 1,    chain: 0,    calm: 1 },
-  { surge: 1.3,  drag: 0.76, tele: 0.9,  chain: 0.15, calm: 0.95 },
-  { surge: 1.7,  drag: 0.72, tele: 0.8,  chain: 0.3,  calm: 0.85 },
-  { surge: 2.1,  drag: 0.73, tele: 0.7,  chain: 0.45, calm: 0.75 },
-  { surge: 1.7,  drag: 0.62, tele: 0.8,  chain: 0.3,  calm: 0.85 },      // 환상종은 오래된 물건이 걸려 있어 영웅보다 조금 순하게
+  { surge: 1.3,  drag: 0.9,  tele: 0.95, chain: 0.15, calm: 0.95 },
+  { surge: 1.7,  drag: 0.95, tele: 0.9,  chain: 0.3,  calm: 0.85 },
+  { surge: 2.1,  drag: 1.0,  tele: 0.85, chain: 0.45, calm: 0.75 },
+  { surge: 1.7,  drag: 0.78, tele: 0.9,  chain: 0.3,  calm: 0.85 },      // 환상종은 오래된 물건이 걸려 있어 영웅보다 조금 순하게
 ];
-export const TELEGRAPH = 0.35;                        // 날뛰기 직전 조짐 시간(초)
+export const TELEGRAPH = 0.5;                         // 날뛰기 직전 조짐 시간(초). 이 동안 손을 떼면 '정확한 대응'                        // 날뛰기 직전 조짐 시간(초)
 
 export const TIMING = {
   chargeSpeed: 1.1,      // 파워 게이지 왕복 속도 (초당)

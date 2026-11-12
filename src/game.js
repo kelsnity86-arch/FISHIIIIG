@@ -155,7 +155,7 @@ export function press(g) {
     case 'result':
       if (g.t > (g.catch.quick ? 0.55 : 1.1)) {
         const f = g.fish;
-        if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.dirty = true; }
+        if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.sinceFantasy = 0; g.lostFantasy = false; g.dirty = true; }
           else g.catch.thanks = Math.round(THANKS_GOLD * priceMult(g.eco, g.region)); }   // 물건을 다 찾은 뒤에는 바다가 답례를 한다 (놓아준 생물이 물에 닿는 순간)
         else {
           say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax}) · 선금 +${fmt(f.advance || 0)} G`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
@@ -190,6 +190,8 @@ function reelIn(g) {
 
 // 그림자가 깊은 곳으로 달아난다 (상태와 무관하게 사라질 때까지 헤엄)
 function flee(g) {
+  // 환상종을 놓쳤다: 몇 번 안에 같은 그림자가 다시 찾아온다 (오래된 물건을 다 찾기 전까지)
+  if (g.fish && g.fish.isFantasy && g.relics < RELICS.length && g.state !== 'leave') { g.sinceFantasy = PITY - RETRY; g.lostFantasy = true; g.dirty = true; }
   if (!g.sw) return;
   const s = g.sw;
   s.fleeing = true; s.act = 'dive';
@@ -388,7 +390,8 @@ function startWait(g) {
   // 환상종은 드물지만, 너무 오래 안 나오면 반드시 한 번 나온다 (오래된 물건이 운에만 달리지 않게)
   const pity = !g.forceGrade && g.relics < RELICS.length && (g.sinceFantasy || 0) >= PITY ? 'fantasy' : null;      // 물건을 다 찾은 뒤에는 보장하지 않는다 (그때부터는 운)
   g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1, g.power);      // g.power = 던진 세기: 멀리 던질수록 큰 개체
-  g.sinceFantasy = g.fish.isFantasy ? 0 : (g.sinceFantasy || 0) + 1;                // 복장(행운): 높은 등급이 잘 나온다
+  g.sinceFantasy = (g.sinceFantasy || 0) + 1;      // 세는 수는 오래된 물건을 얻었을 때 처음으로 돌아간다 (나타나기만 하고 놓치면 곧 다시 온다)
+  if (pity && g.lostFantasy) say(g, '아까 그 그림자다…', '#ffe9b8');                // 복장(행운): 높은 등급이 잘 나온다
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값
   g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
   g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
@@ -487,7 +490,9 @@ function chooseMode(g) {
   const f = g.fight, modes = FIGHT_MODES[g.fish.grade] || FIGHT_MODES.common;
   if (f.stamina < 0.35 && Math.random() < 0.6) return 'tired';
   const surges = modes.filter((m) => SURGE_MODES.includes(m) && m !== f.mode);
-  if (SURGE_MODES.includes(f.mode) && surges.length && Math.random() < toughOf(g).chain) return pick(surges);      // 사나운 등급은 숨 돌릴 틈 없이 또 날뛴다
+  if (f.chainNext) { const m = f.chainNext; f.chainNext = null; return m; }
+  // 사나운 등급은 한 번 날뛴 뒤 곧 또 날뛴다. 그래도 사이에 짧게 숨 돌릴 틈(0.8초)은 준다
+  if (SURGE_MODES.includes(f.mode) && surges.length && Math.random() < toughOf(g).chain) { f.chainNext = pick(surges); f.breather = true; return 'hold'; }
   if (SURGE_MODES.includes(f.mode)) return Math.random() < 0.7 ? 'hold' : pick(modes.filter((m) => !SURGE_MODES.includes(m)));
   return pick(modes.filter((m) => m !== f.mode));
 }
@@ -496,6 +501,7 @@ function startMode(g) {
   const f = g.fight, s = g.sw;
   f.modeT = { hold: rand(1.2, 2.4), run: rand(1, 1.7), dive: rand(1.1, 1.7), thrash: 1.3, circle: rand(2.2, 3.4), tired: rand(1.4, 2.2) }[f.mode];
   if (f.mode === 'hold' || f.mode === 'circle') f.modeT *= toughOf(g).calm;
+  if (f.mode === 'hold' && f.breather) { f.modeT = 0.8; f.breather = false; }
   f.did = false;
   // 같은 동작이라도 할 때마다 자리·깊이·물러나는 거리가 조금씩 다르다
   f.ox = rand(-28, 28); f.oy = rand(-8, 12); f.back = rand(40, 95); f.turnAt = rand(1.1, 2); f.deep = rand(88, 108);
@@ -512,6 +518,8 @@ function updateFight(g, dt) {
   // 동작 전환. 날뛰는 동작 앞에는 조짐(움찔·꼬리 젖히기)이 먼저 온다.
   f.modeT -= dt;
   if (f.tele > 0) {
+    // 정확한 대응: 조짐이 보이는 동안 손을 떼면 장력이 15% 내려간다 (조짐 한 번에 한 번)
+    if (f.wasHold && !g.hold && !f.dodged) { f.dodged = true; f.relief = 0.15; g.emote = { icon: 'bang', age: 0 }; snd(g, 'tick'); }
     f.tele -= dt;
     s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.1);
     if (f.tele <= 0) { f.mode = f.next; startMode(g); }
@@ -520,6 +528,9 @@ function updateFight(g, dt) {
     if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH * toughOf(g).tele + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; }
     else { f.mode = next; startMode(g); }
   }
+  if (f.tele <= 0) f.dodged = false;
+  f.wasHold = g.hold;
+  if (f.relief > 0) { const d = Math.min(f.relief, 0.6 * dt); f.relief -= d; f.tension -= d; }      // 뚝 내려가지 않고 0.25초에 걸쳐 스르르
   f.surging = SURGE_MODES.includes(f.mode) && f.tele <= 0;
   f.stamina = clamp(f.stamina + (f.surging ? -0.06 * (has(g, 'kettle') ? 1.5 : 1) : 0.02) * dt, 0, 1);
 
@@ -632,6 +643,7 @@ const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
 const THANKS_GOLD = 9000;      // 바다의 답례: 그 해역 전설 등급 값의 1.5배
+const RETRY = 4;             // 놓친 환상종이 다시 오기까지의 낚시 횟수
 export const PITY = 48;      // 환상종이 이만큼 연달아 안 나오면 다음은 환상종
 const QUICK = 2;            // 이미 본 일반 등급의 연출 빠르기
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)

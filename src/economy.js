@@ -70,7 +70,8 @@ export const skillPct = (e, id, more = 0) => (nodeAt(SKILLS.find((x) => x.id ===
 const SK = Object.fromEntries(SKILLS.map((s) => [s.id, s]));
 
 export const maxRegion = (e) => Math.min(8, Math.floor(e.gear.boat / 10) + 1);     // 갈 수 있는 가장 먼 해역
-export const cargoMax = (e) => 5 + 2 * Math.floor(e.gear.boat / 10);      // 작게 시작해 배 단계마다 +2 (5 → 19). 항구를 자주 들른다
+// 어창: 5칸에서 시작. 배를 다섯 번 올리면 +1, 다음 단계가 되면 또 +1 (단계마다 +2, 5 → 19). 강화 중간에도 달라지는 것이 있게
+export const cargoMax = (e) => 5 + 2 * Math.floor(e.gear.boat / 10) + (e.gear.boat % 10 >= 5 ? 1 : 0);
 export const ADVANCE = 0.5;      // 낚는 순간 받는 선금의 몫. 나머지(포상금)는 항구에서 팔 때 받는다
 // 판매가: 해역 × 흥정 × 크기(큰 개체). 복장(행운)·수산시장(만선)·릴·손놀림은 각자 다른 일을 한다.
 export const priceMult = (e, region) => PRICE_X ** (region - 1) * node(e, SK.profit) * node(e, SK.big);

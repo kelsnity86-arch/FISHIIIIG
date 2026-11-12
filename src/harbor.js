@@ -92,7 +92,7 @@ function nextRegion(g) {
 // 장비 설명: 이번에 사면 무엇이 달라지는지와, 다음 단계까지 몇 번 남았는지를 따로 알려 준다
 function gearDesc(e, id, x) {
   const lv = e.gear[id], left = 10 - lv % 10, tier = Math.floor(lv / 10) + 1, next = left === 1 ? `이번에 ${tier + 1}단계` : `${tier + 1}단계까지 ${left}번`;
-  if (id === 'boat') return `${next} · 어창 ${cargoMax(e)}→${cargoMax(e) + 2} · 다음 바다`;      // 배는 단계가 올라야 달라진다
+  if (id === 'boat') return lv % 10 < 5 ? `${5 - lv % 10}번 더 올리면 어창 +1 · ${tier + 1}단계까지 ${left}번` : `${next} · 되면 어창 +1 · 다음 바다`;      // 배는 단계가 올라야 달라진다
   return `${x.desc} · ${next}`;
 }
 // ── 가게 판에 놓이는 줄 ──
