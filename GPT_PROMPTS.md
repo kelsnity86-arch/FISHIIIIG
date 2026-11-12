@@ -10986,3 +10986,156 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name c_chest.png
 ```
 
+---
+
+## ㉛ 항구의 내 배 (배경의 나룻배를 지우고, 항구 그림체에 맞는 배를 새로)
+
+### 362. `h_town_1b` — 항구 배경 1단계: 부두의 나룻배만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_town_1.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (exactly 16:9), same composition, same sky, same town, same pier, same water,
+same colours, same brushwork. Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE thing: remove the small empty wooden rowboat that is moored in the water
+near the wooden pier in the lower left part of the image, together with its mooring rope
+and its reflection. Fill that spot with the same calm harbor water and reflections as the
+water around it, so that nobody could tell a boat was ever there. If there are any other
+small boats floating in the water of the foreground, remove them the same way.
+Keep the whole lower half of the image as open water (the game places the player's own boat
+there).
+
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_1b.png
+```
+
+### 363. `h_town_2b` — 항구 배경 2단계: 부두의 나룻배만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_town_2.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (exactly 16:9), same composition, same sky, same town, same pier, same water,
+same colours, same brushwork. Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE thing: remove the small empty wooden rowboat that is moored in the water
+near the wooden pier in the lower left part of the image, together with its mooring rope
+and its reflection. Fill that spot with the same calm harbor water and reflections as the
+water around it, so that nobody could tell a boat was ever there. If there are any other
+small boats floating in the water of the foreground, remove them the same way.
+Keep the whole lower half of the image as open water (the game places the player's own boat
+there).
+
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_2b.png
+```
+
+### 364. `h_town_3b` — 항구 배경 3단계: 부두의 나룻배만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_town_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (exactly 16:9), same composition, same sky, same town, same pier, same water,
+same colours, same brushwork. Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE thing: remove the small empty wooden rowboat that is moored in the water
+near the wooden pier in the lower left part of the image, together with its mooring rope
+and its reflection. Fill that spot with the same calm harbor water and reflections as the
+water around it, so that nobody could tell a boat was ever there. If there are any other
+small boats floating in the water of the foreground, remove them the same way.
+Keep the whole lower half of the image as open water (the game places the player's own boat
+there).
+
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_3b.png
+```
+
+### 365. `h_town_4b` — 항구 배경 4단계: 부두의 나룻배만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_town_4.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (exactly 16:9), same composition, same sky, same town, same pier, same water,
+same colours, same brushwork. Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE thing: remove the small empty wooden rowboat that is moored in the water
+near the wooden pier in the lower left part of the image, together with its mooring rope
+and its reflection. Fill that spot with the same calm harbor water and reflections as the
+water around it, so that nobody could tell a boat was ever there. If there are any other
+small boats floating in the water of the foreground, remove them the same way.
+Keep the whole lower half of the image as open water (the game places the player's own boat
+there).
+
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_4b.png
+```
+
+### 366. `h_town_5b` — 항구 배경 5단계: 부두의 나룻배만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_town_5.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (exactly 16:9), same composition, same sky, same town, same pier, same water,
+same colours, same brushwork. Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE thing: remove the small empty wooden rowboat that is moored in the water
+near the wooden pier in the lower left part of the image, together with its mooring rope
+and its reflection. Fill that spot with the same calm harbor water and reflections as the
+water around it, so that nobody could tell a boat was ever there. If there are any other
+small boats floating in the water of the foreground, remove them the same way.
+Keep the whole lower half of the image as open water (the game places the player's own boat
+there).
+
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_town_5b.png
+```
+
+### 367. `h_boats2` — 항구에 매어 둔 내 배 8단계 (항구 그림체, 크기 키움)
+
+```
+Style references: open assets/raw/h_town_1.png, assets/raw/h_town_3.png,
+assets/raw/h_town_5.png and assets/raw/h_shops_3.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Look closely at the small wooden rowboat moored at
+the pier in h_town_1.png: the new boats must be painted EXACTLY like that boat and like the
+buildings in these images, with the same painterly storybook rendering, the same viewing
+angle (seen from the side and very slightly from above, so a little of the deck is visible),
+the same warm evening light coming from the same side, the same level of detail, the same
+soft dark outlines. They must look as if they were part of those harbor paintings.
+Matching that style is the most important requirement. Do not draw them as icons or toys.
+
+No text. No people. No water, no dock, no reflection. Fully transparent background.
+
+A sprite sheet of 8 boats in a grid of 2 columns x 4 rows, never touching. Each boat is
+empty and moored, facing left, with a flat bottom edge at its waterline. Every boat must be
+wide and low: clearly wider than tall, with masts, sails, funnels and cabins kept short, so
+that even the biggest one is no taller than about two thirds of its length.
+They grow clearly in size and grandeur from the first to the last. Draw them at these
+relative lengths (the last one fills the width of its cell):
+1) 35 percent: a small plain wooden rowboat (the same boat as in h_town_1.png),
+2) 45 percent: a small wooden fishing boat with a tiny cabin at the back and a lantern,
+3) 53 percent: a wooden sailing boat with one short patched canvas sail,
+4) 62 percent: a sturdy deep-sea fishing boat with a wheelhouse, a net winch and fenders,
+5) 70 percent: an ice-going ship with a metal-plated bow, a stove chimney and frosted rails,
+6) 78 percent: an iron-plated steam ship with rivets, one funnel and a brass boiler,
+7) 88 percent: a deep-sea research vessel with brass fittings, portholes and glowing lamps,
+8) 100 percent: a magnificent dreamlike ship of pale shining wood and crystal with softly
+   glowing translucent sails (kept low) and tiny stars around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boats2.png
+```
+
