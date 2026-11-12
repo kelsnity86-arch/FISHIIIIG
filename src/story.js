@@ -132,9 +132,35 @@ export function updateStory(g, dt) {
       if (t.closing > 0.22) { const next = t.queue.shift(); g.talk = null; if (next) { g.story.seen[next] = 0; startTalk(g, next); } }
     } else t.a = Math.min(1, t.a + dt / 0.25);
   }
+  updateTitle(g, dt);
   updateMemory(g, dt);
   updateHint(g, dt);
   updateSkip(g, dt);
+}
+
+// ── 제목 화면: 켜면 바다 위에 로고가 떠 있다. 누르면 로고가 걷히고 게임이 시작된다 ──
+export function startTitle(g) { g.title = { t: 0, a: 0, closing: null }; }
+export function tapTitle(g) {
+  const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
+  t.closing = 0; g.sfx.push(['paper']);
+}
+function updateTitle(g, dt) {
+  const t = g.title; if (!t) return;
+  t.t += dt;
+  if (t.closing != null) { t.closing += dt; t.a = Math.max(0, t.a - dt / 0.7); if (t.closing > 0.7) { g.title = null; startTalk(g, 'intro'); } }   // 처음이면 시장의 이야기로 이어진다
+  else t.a = Math.min(1, t.a + dt / 1.0);
+}
+export function drawTitle(ctx, g) {
+  const t = g.title; if (!t) return;
+  const a = ease(t.a);
+  ctx.save();
+  ctx.globalAlpha = a * 0.38; ctx.fillStyle = '#0c1630'; ctx.fillRect(0, 0, W, H);       // 바다는 그대로 보이고, 로고가 잘 읽히게 살짝만 가라앉힌다
+  const s = sprite('ui_logo'), w = 330, h = w * s.h / s.w, bob = Math.sin(t.t * 1.1) * 2;
+  ctx.globalAlpha = a; ctx.imageSmoothingEnabled = true;
+  if (hasSprite('ui_logo')) ctx.drawImage(s.img, W / 2 - w / 2, 96 - h / 2 + bob + (1 - a) * 10, w, h);
+  else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
+  if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
+  ctx.restore();
 }
 
 // ── 기억: 환상종이 남기고 간 오래된 물건을 주우면, 말없이 기억 한 조각이 떠오른다 ──
@@ -227,7 +253,7 @@ function drawFinale(ctx, g, m) {
 // ── 튜토리얼: 설명 화면 없이, 처음 해 보는 그때그때 한 줄 ──
 function hintFor(g) {
   const s = g.story.seen, f = g.fight;
-  if (g.talk || g.travel) return null;
+  if (g.talk || g.travel || g.title) return null;
   if (g.scene === 'harbor') {
     if (!s.harbor) s.harbor = 1;
     if (!s.shop) { if (g.panel) { s.shop = 1; g.dirty = true; return null; } return '건물을 누르면 가게가 열린다 · 시청에서는 마을을 키운다'; }

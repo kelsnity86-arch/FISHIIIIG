@@ -10,7 +10,7 @@ import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
 import { newEconomy, priceMult, sizeMult, reelMult, biteMult, pullOf, strainOf, luckOf, cargoMax, maxRegion, fmt } from './economy.js';
 import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
-import { newStory, updateStory, tapTalk } from './story.js';
+import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
 import { updateBook } from './book.js';
 import { RELICS, has } from './relics.js';
 
@@ -124,6 +124,7 @@ function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern)
 
 // ── 입력 ──
 export function press(g) {
+  if (g.title) { tapTitle(g); return; }               // 제목 화면: 누르면 시작
   if (g.talk) { tapTalk(g); return; }                 // 대화 중에는 누르면 다음 줄
   if (g.skip || g.map || g.dex || g.memory) return;
   if (g.scene !== 'sea' || g.panel || g.travel) return;
@@ -207,7 +208,7 @@ export function update(g, dt) {
   updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt); updateBook(g, dt);
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
-    if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
+    if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory && !g.title) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
     g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
     if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
     if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk && !g.map && !g.dex && !g.memory) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다

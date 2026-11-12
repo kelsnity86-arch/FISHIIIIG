@@ -2,7 +2,7 @@ import { W, H, GRADES, PHASES, DAY_SEC, DAY_PLAN } from './config.js';
 import { loadAssets } from './assets.js';
 import { createGame, update, press, release } from './game.js';
 import { pointer } from './harbor.js';
-import { startTalk, skipBasics } from './story.js';
+import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
@@ -99,7 +99,7 @@ try {
   }
 } catch { /* 저장된 것이 없거나 읽을 수 없으면 새로 시작 */ }
 
-startTalk(game, 'intro');                // 처음 시작이면 시장의 이야기부터 (이미 본 저장이면 아무 일도 없다)
+startTitle(game);                        // 제목 화면부터. 누르면 시작하고, 처음이면 시장의 이야기로 이어진다
 setInterval(save, 2000);
 addEventListener('pagehide', save); document.addEventListener('visibilitychange', () => { if (document.hidden) save(); });   // 끄거나 다른 앱으로 넘어갈 때 저장
 // 글꼴을 받은 뒤 시작한다 (못 받아도 2초 뒤에는 기기 글꼴로 시작)

@@ -201,6 +201,11 @@ def run(manifest):
         extra += cut('c_deep', [f'c_deep_{i}' for i in range(1, 9)], 2, 420)
     if (RAW / 'ui_relics.png').exists():
         extra += cut('ui_relics', [f'relic_{i}' for i in range(1, 13)], 3, 200)
+    for src, mw in (('ui_logo', 1200), ('ui_emblem', 420)):                       # 제목 로고와 엠블럼: 그림 전체를 하나로
+        if not (RAW / (src + '.png')).exists(): continue
+        im = Image.open(RAW / (src + '.png')).convert('RGBA'); im = im.crop(im.getbbox())
+        if im.width > mw: im = im.resize((mw, round(im.height * mw / im.width)), Image.LANCZOS)
+        extra.append((src, im))
     if extra: pack(extra, 'ui_extra.webp', manifest)
     if (RAW / 'ui_map.png').exists():
         im = Image.open(RAW / 'ui_map.png').convert('RGB').resize((1280, 720), Image.LANCZOS); im.save(OUT / 'ui_map.webp', 'WEBP', quality=88, method=4)

@@ -2,7 +2,7 @@
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
-import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory } from './story.js';
+import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
@@ -130,6 +130,7 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
+  if (g.title) { tapTitle(g); return true; }
   if (g.memory) { tapMemory(g); return true; }
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
   if (g.map) { const r = tapMap(g, x, y); if (r) goRegion(g, r); return true; }

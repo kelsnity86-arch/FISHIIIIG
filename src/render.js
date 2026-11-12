@@ -10,7 +10,7 @@ import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } fr
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
-import { drawTalk, drawHint, drawSkip, drawMemory } from './story.js';
+import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle } from './story.js';
 import { drawMap, drawDex } from './book.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
@@ -180,14 +180,14 @@ export function render(ctx, g) {
     drawPanel(ctx, g);
     drawMsg(ctx, g);
     drawCoins(ctx, g);
-    drawHint(ctx, g); drawTalk(ctx, g);
+    drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
     drawVeil(ctx, g);
     return;
   }
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
-  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g);
+  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
@@ -854,7 +854,7 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint && !(g.msg && g.msg.y) && !g.talk && !g.map && !g.dex) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
+  if (hint && !(g.msg && g.msg.y) && !g.talk && !g.map && !g.dex && !g.title) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
