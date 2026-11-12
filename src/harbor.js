@@ -1,4 +1,5 @@
 // 항구 마을 화면과 가게 판. 화면에 보이는 것은 전부 GPT 그림이고, 코드는 놓고·넘기고·글자를 얹을 뿐이다.
+import { pickQuip } from './quips.js';
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
@@ -139,7 +140,11 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
-export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null }; }
+const lastQuip = {};
+export function openPanel(g, id) {
+  const who = id === 'skills' ? 'guild' : id, quip = lastQuip[who] = pickQuip(who, TOWN_LOOK[g.eco.town], lastQuip[who]);      // 주인의 한마디: 열 때마다 하나
+  g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null, quip };
+}
 function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }      // 뚝 사라지지 않고 스르르 닫힌다
 
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
@@ -297,14 +302,17 @@ export function drawPanel(ctx, g) {
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
     img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
     const ic = sprite(info.icon), is = 33, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
-    ctx.drawImage(ic.img, r.x + 29 - iw / 2, r.y + r.h / 2 - ih / 2, iw, ih);
+    ctx.drawImage(ic.img, r.x + r.w * 0.109 - iw / 2, r.y + r.h * 0.48 - ih / 2, iw, ih);
     label(ctx, info.name, r.x + 56, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
     label(ctx, info.level, r.x + 56 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
     label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 56, r.y + r.h / 2 + 8.5, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
-    if (done) label(ctx, '완성', r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, '#4a2a08', 'center', 600, null);
-    else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
+    if (done) label(ctx, '완성', r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, '#4a2a08', 'center', 600, null);
+    else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
-  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w * 0.6, PANEL.y + 80, 8.5, '#8a5a2b', 'center', 600, null);      // 둥근 창 오른쪽 빈자리에
+  // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 그 아래에 누르고 있기 안내)
+  { const hold = p.id === 'skills' || p.id === 'guild', qx = PANEL.x + PANEL.w * 0.6;
+    if (p.quip) label(ctx, `“${p.quip}”`, qx, PANEL.y + (hold ? 74 : 79), 9, '#6b4a2b', 'center', 600, null);
+    if (hold) label(ctx, '단추를 누르고 있으면 계속 올라갑니다', qx, PANEL.y + 86, 8, '#a07a50', 'center', 600, null); }
   ctx.restore();
 }
