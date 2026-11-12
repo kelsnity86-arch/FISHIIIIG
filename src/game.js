@@ -678,7 +678,7 @@ function startCatch(g) {
   const s2 = g.fish.sprite2 && g.fish.sprite2 !== g.fish.sprite ? sprite(g.fish.sprite2) : spr, taller = Math.max(0, (s2.sh || s2.h) / (spr.sh || spr.h) - 1);
   const dwS = Math.min(W * 0.58, (WL - 34) / (asp * (1.05 + 1.1 * taller) + 0.11 + 0.07 * shadowLen(g) / dw));
   const zoom = clamp(Math.min(0.85, dwS / dw), 0.1, 1) * (g.fish.fixedSize ? clamp(70 / dw, 1, 2.6) : 1);      // 태초의 바다의 작은 물고기: 카메라가 배 가까이 다가가 본다
-  const ax = BOAT_X + (W * 0.74 - dwS / 2 - BOAT_X) / zoom, ay = WL - dh / 2 - 26 / zoom;   // 생물이 걸려 있는 자리
+  const ax = BOAT_X + (W * 0.74 - dwS / 2 - BOAT_X) / zoom, ay = WL - dh / 2 - (26 + (g.fish.fixedSize ? clamp(120 - dh * zoom, 0, 95) : 0)) / zoom;   // 생물이 걸려 있는 자리. 태초의 바다의 작은 것들도 하늘 높이 들어 올려 잘 보이게 한다
   // 막 건진 순간의 구도: 얼굴 쪽에 바짝 붙어, 몸이 화면보다 커서 일부만 보인다.
   const zs = Math.max(zoom * 1.9, Math.min(3, W * 1.35 / dw)), fx = ax + dw * 0.26;
   const lw = shadowLen(g);
