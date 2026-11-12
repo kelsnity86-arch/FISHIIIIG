@@ -203,10 +203,10 @@ export function drawTitle(ctx, g) {
 }
 
 // ── 소리 켬/끔: 게임 중에도 화면 오른쪽 위 구석에서 바꿀 수 있다 (낚는 중에는 잘못 누르지 않게 쉴 때만) ──
-const SND = { x: W - 24, y: 13 };
+const SND = { x: W - 31, y: 13 };      // '진동 2단계'처럼 긴 글자도 화면 끝에 닿지 않게
 const sndOk = (g) => !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
 export function tapSound(g, x, y) {
-  if (!sndOk(g) || Math.abs(x - SND.x) > 24) return false;
+  if (!sndOk(g) || Math.abs(x - SND.x) > 31) return false;
   if (Math.abs(y - SND.y) <= 8) { initAudio(); setSound(!soundOn()); return true; }
   if (Math.abs(y - SND.y - 14) <= 7) { nextVibe(); return true; }      // 소리 바로 아래: 진동
   return false;
@@ -236,7 +236,7 @@ const FINALE = [
 ];
 function updateMemory(g, dt) {
   // 볼 기억은 저장된 기록에서 찾는다: 가진 물건 가운데 아직 끝까지 못 본 첫 기억. (물건을 받은 직후에 꺼도 다음에 이어서 본다)
-  if (!g.memory && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result && !g.title) {
+  if (!g.memory && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result && !g.title && !g.panel && !g.map && !g.dex) {      // 판·해도·도감을 보는 중에는 끼어들지 않는다
     const seen = g.story.seen; let i = 0; while (i < g.relics && i < RELICS.length && seen['mem_' + i]) i++;
     if (i < Math.min(g.relics, RELICS.length)) {
       g.memory = { i, t: 0, a: 0, closing: null };
@@ -334,7 +334,7 @@ function hintFor(g) {
   return null;
 }
 function updateHint(g, dt) {
-  const want = hintFor(g), h = g.hint || (g.hint = { text: '', a: 0 });
+  const want = g.dex || g.map || g.memory ? null : hintFor(g), h = g.hint || (g.hint = { text: '', a: 0 });      // 도감·해도·회상 위에는 안내를 띄우지 않는다
   if (want && want.startsWith('밤이')) g.hintT = (g.hintT || 0) + dt;
   if (want && (h.text === want || h.a < 0.02)) { h.text = want; h.a = Math.min(1, h.a + dt / 0.3); }
   else h.a = Math.max(0, h.a - dt / 0.25);                  // 글이 바뀔 때는 사라졌다가 새 글이 나타난다

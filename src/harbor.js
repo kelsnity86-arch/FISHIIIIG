@@ -80,7 +80,7 @@ export function enterHarbor(g) {
     }
   });
 }
-export function leaveHarbor(g) { return travel(g, () => { if (!g.quest) g.quest = newQuest(g); g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
+export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
   travel(g, () => {
@@ -97,7 +97,7 @@ function nextRegion(g) {
 // 장비 설명: 이번에 사면 무엇이 달라지는지와, 다음 단계까지 몇 번 남았는지를 따로 알려 준다
 function gearDesc(e, id, x) {
   const lv = e.gear[id], left = 10 - lv % 10, tier = Math.floor(lv / 10) + 1, next = left === 1 ? `이번에 ${tier + 1}단계` : `${tier + 1}단계까지 ${left}번`;
-  if (id === 'boat') return lv % 10 < 5 ? `${5 - lv % 10}번 더 올리면 어창 +1 · ${tier + 1}단계까지 ${left}번` : (left === 1 ? `이번에 ${tier + 1}단계 · 어창 +1 · 다음 바다` : `${next} · 단계가 오르면 어창 +1, 다음 바다`);      // 배는 단계가 올라야 달라진다
+  if (id === 'boat') return lv % 10 < 5 ? `${5 - lv % 10}번 더 올리면 어창 +1 · ${tier + 1}단계까지 ${left}번` : (left === 1 ? `이번에 ${tier + 1}단계 · 어창 +1 · 다음 바다` : `${next} · 오르면 어창 +1, 다음 바다`);      // 배는 단계가 올라야 달라진다
   return `${x.desc} · ${next}`;
 }
 // ── 가게 판에 놓이는 줄 ──
@@ -235,14 +235,14 @@ export function updateHarbor(g, dt) {
 
 // 그 가게에서 지금 살 수 있는 것이 있는가 (건물 위에 동전이 뜬다)
 function canBuyAt(g, id) {
-  return rowsOf(g, id).some(([k, i]) => { const r = rowInfo(g, k, i); return !r.block && g.gold >= r.cost; });
+  return rowsOf(g, id).some(([k, i]) => { if (k === 'skin' || k === 'gen') return false; const r = rowInfo(g, k, i); return !r.block && g.gold >= r.cost; });      // 겉모습 켜고 끄기·대 잇기는 '살 것'이 아니다
 }
 
 // ── 그리기 ──
 let btnA = 0, btnT = 0;
 export function drawSeaButtons(ctx, g) {
   const now = performance.now() / 1000, dt = Math.min(0.1, now - btnT); btnT = now;
-  btnA += ((g.state === 'idle' && g.scene === 'sea' ? 1 : 0) - btnA) * (1 - Math.exp(-9 * dt));
+  btnA += ((g.state === 'idle' && g.scene === 'sea' && !g.talk ? 1 : 0) - btnA) * (1 - Math.exp(-9 * dt));      // 대화 중에는 대화창에 가리므로 숨긴다
   if (btnA < 0.01) return;
   ctx.save(); ctx.globalAlpha = btnA;
   for (const b of SEA_BTNS) {
@@ -286,7 +286,8 @@ export function drawHarbor(ctx, g) {
   ctx.globalAlpha = 1;
   // 출항
   const bt = sprite('ui_btn');
-  ctx.globalAlpha = g.panel ? 0.4 : 1;
+  g.leaveA = (g.leaveA ?? 1) + ((g.talk ? 0 : g.panel ? 0.4 : 1) - (g.leaveA ?? 1)) * 0.18;      // 대화 중에는 대화창에 반쯤 가리므로 스르르 숨긴다
+  ctx.globalAlpha = g.leaveA;
   ctx.drawImage(bt.img, LEAVE.x - LEAVE.w / 2, LEAVE.y - LEAVE.h / 2, LEAVE.w, LEAVE.h);
   label(ctx, '출항', LEAVE.x, LEAVE.y, 12, COLORS.navy, 'center', 600, null);
   ctx.globalAlpha = 1;
