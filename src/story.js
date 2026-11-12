@@ -274,7 +274,7 @@ function hintFor(g) {
   if (!s.cast) { if (g.state !== 'idle' && g.state !== 'charge') { s.cast = 1; g.dirty = true; } else return g.state === 'charge' ? '손을 떼면 던진다' : '화면을 꾹 눌렀다 떼면 찌를 던진다'; }
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러라'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뛴다! 손을 떼고 버텨라' : '누르고 있으면 감는다 · 아래 게이지가 차면 잠깐 떼라'; }
-  if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '선금은 바로 받고, 나머지는 항구에서 포상금으로 받는다'; }
+  if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받는다'; }
   if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 단추 · 스킬은 바다에서도 올릴 수 있다';
   if (g.panel && g.panel.id === 'skills' && !s.skill) { s.skill = 1; g.dirty = true; }
   if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 단추 · 생물을 팔고 장비를 산다';
@@ -327,7 +327,11 @@ function wrap(ctx, str, max) {
 export function drawHint(ctx, g) {
   const h = g.hint; if (!h || h.a < 0.01) return;
   ctx.save(); ctx.globalAlpha = h.a;
-  label(ctx, h.text, W / 2, 52 - (1 - h.a) * 4, 11, '#fff4dc', 'center', 600);
+  // 글자 뒤에 짙은 띠를 깔아, 밝은 하늘이나 큰 생물 위에서도 읽힌다
+  ctx.font = `600 11px ${FONT}`; const tw = ctx.measureText(h.text).width + 22, ty = 52 - (1 - h.a) * 4;
+  ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(W / 2 - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
+  ctx.globalAlpha = h.a;
+  label(ctx, h.text, W / 2, ty, 11, '#fff4dc', 'center', 600, null);
   // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
   const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('밤이 끝나면') ? null : null;
   if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
