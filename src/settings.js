@@ -55,7 +55,7 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i, mode) => ({ x: PANEL.x + 30, y: PANEL.y + (mode === 'set' ? 164 : 93) + i * 47.5, w: 304, h: 45.5 });      // 설정에서는 소리 막대 세 줄 아래에
 // 소리 크기 막대 (설정 판 위쪽에 세 줄): 누르거나 끌어서 0~100 사이에서 정한다
 const SLIDERS = [['mus', '배경음'], ['sfx', '효과음'], ['amb', '환경음']];
-const BAR = { x: PANEL.x + 124, w: 146, x0: 0.05, x1: 0.968 };      // 막대의 폭과, 그 안에서 홈이 차지하는 자리
+const BAR = { x: PANEL.x + 140, w: 142, x0: 0.05, x1: 0.968 };      // 막대의 폭과, 그 안에서 홈이 차지하는 자리
 const sliderY = (i) => PANEL.y + 96.5 + i * 24;      // 막대끼리 닿지 않게 띄운다
 const sliderAt = (x, y) => { for (let i = 0; i < SLIDERS.length; i++) if (Math.abs(y - sliderY(i)) <= 12 && x >= BAR.x - 14 && x <= BAR.x + BAR.w + 40) return i; return -1; };
 const sliderValue = (x) => clamp((x - BAR.x - BAR.w * BAR.x0) / (BAR.w * (BAR.x1 - BAR.x0)), 0, 1);
@@ -115,7 +115,7 @@ export function drawSettings(ctx, g) {
     const fr = sprite('h_bar'), fl = sprite('h_bar_fill'), bh = BAR.w * fr.h / fr.w;
     SLIDERS.forEach(([key, name], i) => {
       const y = sliderY(i), v = getVol(key);
-      label(ctx, name, PANEL.x + 62, y, 10.5, COLORS.navy, 'left');
+      label(ctx, name, PANEL.x + 84, y, 10.5, COLORS.navy, 'left');      // 왼쪽 위 둥근 창과 밧줄에 닿지 않게 오른쪽으로
       ctx.drawImage(fr.img, BAR.x, y - bh / 2, BAR.w, bh);
       const tw = BAR.w * (BAR.x1 - BAR.x0), th = bh * 0.6, fx = BAR.x + BAR.w * BAR.x0;      // 채움은 홈 안에만: 홈 모양(둥근 끝)대로 잘라서 넣는다
       if (v > 0.004) { ctx.save(); ctx.beginPath(); ctx.roundRect(fx, y - th / 2, tw, th, th / 2); ctx.clip(); ctx.drawImage(fl.img, 0, 0, fl.img.width * v, fl.img.height, fx, y - th / 2, tw * v, th); ctx.restore(); }
