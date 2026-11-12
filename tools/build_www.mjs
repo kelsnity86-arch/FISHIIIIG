@@ -11,7 +11,7 @@ cpSync('assets/fonts', join(out, 'assets/fonts'), { recursive: true });
 
 const old = (name) => name.startsWith('fish_') || name.startsWith('fantasy_');
 const manifest = JSON.parse(readFileSync('assets/game/manifest.json', 'utf8'));
-const keep = Object.fromEntries(Object.entries(manifest.sprites).filter(([k]) => !old(k)));
+const keep = Object.fromEntries(Object.entries(manifest.sprites).filter(([k, v]) => !old(k) && !v.skip));      // skip = 게임이 쓰지 않는 옛 그림
 writeFileSync(join(out, 'assets/game/manifest.json'), JSON.stringify({ sprites: keep }));
 const files = new Set(Object.values(keep).map((v) => v.atlas || v.file));
 let bytes = 0;
