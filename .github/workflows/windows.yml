@@ -8,6 +8,10 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+# 잇달아 올리면 앞선 빌드는 그만두고 가장 새 것만 만든다 (옛 것이 새 것을 덮어쓰지 않게)
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   windows:
     runs-on: windows-latest
