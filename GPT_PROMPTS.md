@@ -11851,7 +11851,7 @@ on the main branch, in the folder assets/raw/, with the file name ui2_stamp_en.p
 
 ## ㊴ 해도: 항로의 점 옮기기
 
-지금 해도는 항로의 점이 해역과 해역 사이 경계에 찍혀 있다. 표식은 해역 그림 한가운데에 서야 하므로, 점을 한가운데로 옮긴다. 태초의 바다 자리에도 점을 하나 찍는다 (항로 선은 그리지 않는다. 열릴 때 게임이 긋는다).
+지금 해도는 항로의 점이 해역과 해역 사이 경계에 찍혀 있다. 표식은 해역 그림 한가운데에 서야 하므로, 점을 한가운데로 옮긴다. 태초의 바다의 점과 항로는 그림에 넣지 않는다 (열린 뒤에만 보여야 하므로 게임이 그린다).
 
 ### 393. `ui_map_b` — 해도에서 점만 옮기기
 
@@ -11878,9 +11878,7 @@ Make the same image again with ONLY the dots changed:
    Each dot sits where the dashed line is at that position (about 53% to 54% of the way
    down the image). Do not move or reshape the dashed line.
 
-3. Paint one more dot of the same look and size, alone, with NO line leading to it, in
-   the pink cloud bank in the lower left of the parchment: 12.5% from the left edge,
-   82.5% from the top edge. Just the dot resting on the clouds, nothing else.
+Paint no other dots anywhere: exactly eight dots in the whole image, all on the route line.
 
 Keep everything else exactly as it is, pixel for pixel as far as you can: the parchment,
 the rope and brass corners, the compass, the clouds, all eight region paintings, the
