@@ -11489,8 +11489,13 @@ In h_npc.png, look closely at the fish that the first person (the fishmonger wom
 holding in her arms. Every animal you paint must look like it was painted by the same hand
 as THAT fish and those people: the same soft, warm storybook illustration, simplified
 rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
-scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
-highlight. Matching that style is the most important requirement.
+scales and markings, soft warm dark-brown outlines. Matching that style is the most
+important requirement.
+
+Eyes: this matters. Give every animal a gentle storybook eye: a simple round dark eye,
+a little larger than in real life, with one or two soft white highlights, calm and kind.
+NEVER a realistic fish eye: no glassy staring eye, no metallic gold or yellow ring, no
+tiny hard pupil, nothing creepy or dead-looking.
 
 Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
 detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
@@ -11528,8 +11533,13 @@ In h_npc.png, look closely at the fish that the first person (the fishmonger wom
 holding in her arms. Every animal you paint must look like it was painted by the same hand
 as THAT fish and those people: the same soft, warm storybook illustration, simplified
 rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
-scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
-highlight. Matching that style is the most important requirement.
+scales and markings, soft warm dark-brown outlines. Matching that style is the most
+important requirement.
+
+Eyes: this matters. Give every animal a gentle storybook eye: a simple round dark eye,
+a little larger than in real life, with one or two soft white highlights, calm and kind.
+NEVER a realistic fish eye: no glassy staring eye, no metallic gold or yellow ring, no
+tiny hard pupil, nothing creepy or dead-looking.
 
 Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
 detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
@@ -11567,8 +11577,13 @@ In h_npc.png, look closely at the fish that the first person (the fishmonger wom
 holding in her arms. Every animal you paint must look like it was painted by the same hand
 as THAT fish and those people: the same soft, warm storybook illustration, simplified
 rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
-scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
-highlight. Matching that style is the most important requirement.
+scales and markings, soft warm dark-brown outlines. Matching that style is the most
+important requirement.
+
+Eyes: this matters. Give every animal a gentle storybook eye: a simple round dark eye,
+a little larger than in real life, with one or two soft white highlights, calm and kind.
+NEVER a realistic fish eye: no glassy staring eye, no metallic gold or yellow ring, no
+tiny hard pupil, nothing creepy or dead-looking.
 
 Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
 detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
@@ -11606,8 +11621,13 @@ In h_npc.png, look closely at the fish that the first person (the fishmonger wom
 holding in her arms. Every animal you paint must look like it was painted by the same hand
 as THAT fish and those people: the same soft, warm storybook illustration, simplified
 rounded shapes, big clear colour areas with gentle soft shading, only a few suggested
-scales and markings, soft warm dark-brown outlines, a small friendly round eye with one
-highlight. Matching that style is the most important requirement.
+scales and markings, soft warm dark-brown outlines. Matching that style is the most
+important requirement.
+
+Eyes: this matters. Give every animal a gentle storybook eye: a simple round dark eye,
+a little larger than in real life, with one or two soft white highlights, calm and kind.
+NEVER a realistic fish eye: no glassy staring eye, no metallic gold or yellow ring, no
+tiny hard pupil, nothing creepy or dead-looking.
 
 Do NOT paint a realistic or scientific illustration. No photo-realism, no fine scale-by-scale
 detail, no naturalist field-guide plate, no hard sharp rendering. Also NOT pixel art.
@@ -11735,4 +11755,34 @@ No sail, no engine, no metal, no lantern, no glow.
 No text. No people. No water, no dock, no reflection. Fully transparent background.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_boat_9.png
+```
+
+
+---
+
+## ㊲ 생선 장수: 손에 든 것 바꾸기
+
+이 세계에서 보통 크기의 평범한 물고기는 태초의 바다에 가서야 처음 발견된다. 그래서 생선 장수가 팔뚝만 한 물고기를 안고 있으면 안 된다. 낚이는 것은 모두 배보다 큰 생물이므로, 가게에서 파는 것은 그 살을 잘라 낸 토막이다.
+
+### 390. `h_npc_market` — 생선 장수 한 사람 (안고 있는 것만 바꾸기)
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_npc.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows six people. Take ONLY the first person on the left (the cheerful
+fishmonger woman with the white headscarf and blue apron) and make an image of her alone.
+Keep her exactly as she is: same face, same smile, same hair and headscarf, same clothes,
+same pose, same size, same painterly storybook rendering and outlines.
+
+Change ONLY ONE thing: she must no longer hold a whole fish. Replace the fish in her arms
+with one big, thick slab of fish meat cut from a giant catch: a large rounded cut, pale
+pink flesh with a strip of silvery-blue skin along one edge, wrapped around the middle
+with a broad green leaf and tied with string. Her arms hold it the same way as before.
+No head, no tail, no eye, no fins on it.
+
+No text. Fully transparent background. Only this one person, centred, shown from the same
+height as in the original (cut off at the same place at the bottom).
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_npc_market.png
 ```
