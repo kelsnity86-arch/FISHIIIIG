@@ -299,7 +299,7 @@ function hintFor(g) {
   const s = g.story.seen, f = g.fight;
   if (g.talk || g.travel || g.title) return null;
   if (g.scene === 'harbor') {
-    if (!s.sail) return '출항 버튼를 누르면 바다로 나갑니다';          // 처음: 다른 안내보다 먼저, 바다로 내보낸다
+    if (!s.sail) return '출항 버튼을 누르면 바다로 나갑니다';          // 처음: 다른 안내보다 먼저, 바다로 내보낸다
     if (!s.harbor) s.harbor = 1;
     if (!s.shop) { if (g.panel) { s.shop = 1; g.dirty = true; return null; } return '건물을 누르면 가게가 열립니다 · 시청에서는 마을을 키웁니다'; }
     return null;

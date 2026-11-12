@@ -23,7 +23,7 @@ const STEP_W = (() => { const w = []; for (let j = 0; j < 9; j++) w.push(1.15 **
 export const SKILLS = [
   { id: 'profit', name: '흥정',     label: '판매가',    mult: 1.0066 },
   { id: 'speed',  name: '손놀림',   label: '입질 속도', add: 0.0066, max: 2 },
-  { id: 'big',    name: '큰 개체',  label: '크기와 값', mult: 1.005 },
+  { id: 'big',    name: '대물',  label: '크기와 값', mult: 1.005 },
 ];
 const MILE = 1.017;      // 10레벨마다 마디 보너스 (×1.017). 잘게 찍다가 열 번째에 눈에 띄게 오른다
 
@@ -101,7 +101,7 @@ export function gearCost(e, id) {
 export function gearBlock(e, id) {
   const lv = e.gear[id];
   if (lv >= 70) return '끝';
-  if (id !== 'boat' && lv >= maxRegion(e) * 10) return '배를 먼저';
+  if (id !== 'boat' && lv >= maxRegion(e) * 10) return '더 큰 배';
   if (lv % 10 === 9 && shopOf(id).id && e.shop[shopOf(id).id] < Math.floor(lv / 10) + 2) return shopOf(id).name + ' 레벨';
   return null;
 }

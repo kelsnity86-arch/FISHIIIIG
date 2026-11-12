@@ -135,7 +135,7 @@ export function press(g) {
       g.power = 0; g.powerDir = 1; setState(g, 'charge'); break;
     case 'wait':
       if (g.wait.fakeT > 0) { say(g, '앗, 도망갔다!', '#ffd0c0'); g.emote = { icon: 'tear', age: 0 }; }
-      else say(g, '거둬들였다');
+      else say(g, '줄을 거뒀다');
       flee(g); reelIn(g);
       break;
     case 'bite': {

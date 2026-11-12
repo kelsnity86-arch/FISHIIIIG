@@ -94,7 +94,7 @@ function nextRegion(g) {
 // 장비 설명: 이번에 사면 무엇이 달라지는지와, 다음 단계까지 몇 번 남았는지를 따로 알려 준다
 function gearDesc(e, id, x) {
   const lv = e.gear[id], left = 10 - lv % 10, tier = Math.floor(lv / 10) + 1, next = left === 1 ? `이번에 ${tier + 1}단계` : `${tier + 1}단계까지 ${left}번`;
-  if (id === 'boat') return lv % 10 < 5 ? `${5 - lv % 10}번 더 올리면 어창 +1 · ${tier + 1}단계까지 ${left}번` : `${next} · 되면 어창 +1 · 다음 바다`;      // 배는 단계가 올라야 달라진다
+  if (id === 'boat') return lv % 10 < 5 ? `${5 - lv % 10}번 더 올리면 어창 +1 · ${tier + 1}단계까지 ${left}번` : (left === 1 ? `이번에 ${tier + 1}단계 · 어창 +1 · 다음 바다` : `${next} · 단계가 오르면 어창 +1, 다음 바다`);      // 배는 단계가 올라야 달라진다
   return `${x.desc} · ${next}`;
 }
 // ── 가게 판에 놓이는 줄 ──
@@ -129,7 +129,7 @@ function rowInfo(g, kind, id) {
     return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: `h_shop_${look}_${id}` };
   }
   const need = townNeedDex(e);
-  return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${TOWN_NAMES[e.town + 1]}(으)로 · 가게를 더 키울 수 있다`, cost: townCost(e),
+  return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${ro(TOWN_NAMES[e.town + 1])} 커진다 · 가게를 더 키울 수 있다`, cost: townCost(e),
     block: e.town >= 8 ? '끝' : dex < need ? `도감 ${dex}/${need}` : null, icon: `h_shop_${look}_hall` };
 }
 
@@ -140,6 +140,8 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
+// '어촌으로', '항구 마을로': 받침에 맞는 조사 (받침이 없거나 ㄹ이면 '로')
+const ro = (w) => { const c = (w.charCodeAt(w.length - 1) - 0xac00) % 28; return w + (c === 0 || c === 8 ? '로' : '으로'); };
 const lastQuip = {};
 export function openPanel(g, id) {
   const who = id === 'skills' ? 'guild' : id, quip = lastQuip[who] = pickQuip(who, TOWN_LOOK[g.eco.town], lastQuip[who]);      // 주인의 한마디: 열 때마다 하나

@@ -202,7 +202,7 @@ export const DOTS = [
   ['챔피언고래', 'champion_whale', 'legendary', 4, true],
   ['트로피일각고래', 'trophy_narwhal', 'fantasy', 4, true],
   ['목도리물범', 'scarf_seal', 'common', 5, true],
-  ['벙어리장갑게', 'mitten_crab', 'common', 5, true],
+  ['손모아장갑게', 'mitten_crab', 'common', 5, true],
   ['얼음거북복', 'icecube_boxfish', 'common', 5, true],
   ['털모자복어', 'beanie_puffer', 'common', 5, true],
   ['눈사람해파리', 'snowman_jelly', 'common', 5, true],
