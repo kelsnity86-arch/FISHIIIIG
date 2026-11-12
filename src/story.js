@@ -8,7 +8,8 @@ const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const ease = (k) => k * k * (3 - 2 * k);
 
-const WHO = { hall: '시장', yard: '조선소 주인', guild: '길드장', market: '수산시장 주인', tackle: '낚시도구점 주인', tailor: '옷가게 주인' };
+// 이름판에 들어가는 짧은 이름
+const WHO = { hall: '시장', yard: '목수', guild: '길드장', market: '생선 장수', tackle: '도구 장수', tailor: '재단사' };
 
 // ── 이야기 ──
 // 겉 줄기: 쇠락한 어촌을 다시 일으키며, 바다에 나타난 말도 안 되게 큰 그림자들을 따라 먼바다로 나아간다.
@@ -230,7 +231,13 @@ export function drawTalk(ctx, g) {
     ctx.drawImage(im, sw - cap, 0, cap, sh, b.x + b.w - cap * k, y, cap * k, b.h);
   }
   const art = hasSprite('ui_talk');
-  if (art) label(ctx, WHO[who], b.x + b.w * 0.146, y + b.h * 0.2, 8.5, '#4a3214', 'center', 700, null);     // 놋쇠 이름판 위에
+  if (art) {                                                      // 놋쇠 이름판의 한가운데에 (그림에서 잰 자리: 가로 12.2%, 세로 16%)
+    ctx.font = `700 8.5px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    const nw = ctx.measureText(WHO[who]).width, room = b.w * 0.098;      // 양쪽 못 사이의 폭. 넘치면 글자를 줄인다
+    if (nw > room) ctx.font = `700 ${8.5 * room / nw}px ${FONT}`;
+    const mt = ctx.measureText('가힣'), up = mt.actualBoundingBoxAscent, dn = mt.actualBoundingBoxDescent;
+    ctx.fillStyle = '#4a3214'; ctx.fillText(WHO[who], b.x + b.w * 0.122, y + b.h * 0.16 + (up - dn) / 2);
+  }
   else label(ctx, WHO[who], b.x + 22, y + 15, 10, '#8a4a22', 'left', 700, null);
   ctx.font = `600 10.5px ${FONT}`;
   const lines = wrap(ctx, str, b.w - 44), shown = Math.floor(t.t * CPS);
