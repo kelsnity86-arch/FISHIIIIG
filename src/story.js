@@ -5,6 +5,7 @@ import { W, H, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
+import { travel } from './harbor.js';
 import { setSound, soundOn, initAudio } from './audio.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
@@ -95,7 +96,7 @@ export const SCRIPT = {
 
 export function newStory() { return { seen: {} }; }
 // 이미 한참 한 저장(이야기가 생기기 전)이면 처음 안내는 건너뛴다
-export function skipBasics(g) { for (const k of ['intro', 'cast', 'bite', 'fight', 'card', 'harbor', 'shop']) g.story.seen[k] = 1; }
+export function skipBasics(g) { for (const k of ['intro', 'sail', 'cast', 'bite', 'fight', 'card', 'harbor', 'shop']) g.story.seen[k] = 1; }
 
 export function startTalk(g, key) {
   if (!SCRIPT[key] || g.story.seen[key]) return false;
@@ -135,6 +136,7 @@ export function updateStory(g, dt) {
     } else t.a = Math.min(1, t.a + dt / 0.25);
   }
   updateTitle(g, dt);
+  if (g.pendingIntro && !g.travel) { g.pendingIntro = false; startTalk(g, 'intro'); }
   updateMemory(g, dt);
   updateHint(g, dt);
   updateSkip(g, dt);
@@ -156,7 +158,11 @@ export function tapTitle(g, x, y) {
 function updateTitle(g, dt) {
   const t = g.title; if (!t) return;
   t.t += dt;
-  if (t.closing != null) { t.closing += dt; t.a = Math.max(0, t.a - dt / 0.7); if (t.closing > 0.7) { g.title = null; startTalk(g, 'intro'); } }   // 처음이면 시장의 이야기로 이어진다
+  if (t.closing != null) { t.closing += dt; t.a = Math.max(0, t.a - dt / 0.7); if (t.closing > 0.7) {
+    g.title = null;
+    // 처음 시작: 항구에서 시작한다. 화면이 넘어간 뒤 시장이 이야기하고, 출항 단추를 누르게 이끈다
+    if (!g.story.seen.intro) travel(g, () => { g.scene = 'harbor'; g.panel = null; g.pendingIntro = true; });
+  } }
   else t.a = Math.min(1, t.a + dt / 1.0);
 }
 export function drawTitle(ctx, g) {
@@ -267,10 +273,12 @@ function hintFor(g) {
   const s = g.story.seen, f = g.fight;
   if (g.talk || g.travel || g.title) return null;
   if (g.scene === 'harbor') {
+    if (!s.sail) return '출항 단추를 누르면 바다로 나갑니다';          // 처음: 다른 안내보다 먼저, 바다로 내보낸다
     if (!s.harbor) s.harbor = 1;
     if (!s.shop) { if (g.panel) { s.shop = 1; g.dirty = true; return null; } return '건물을 누르면 가게가 열립니다 · 시청에서는 마을을 키웁니다'; }
     return null;
   }
+  if (!s.sail) { s.sail = 1; g.dirty = true; }
   if (!s.cast) { if (g.state !== 'idle' && g.state !== 'charge') { s.cast = 1; g.dirty = true; } else return g.state === 'charge' ? '손을 떼면 던집니다' : '화면을 꾹 눌렀다 떼면 찌를 던집니다'; }
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러 주세요'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뜁니다! 손을 떼고 버텨 주세요' : '누르고 있으면 감습니다 · 아래 게이지가 차면 잠깐 떼 주세요'; }
@@ -333,7 +341,7 @@ export function drawHint(ctx, g) {
   ctx.globalAlpha = h.a;
   label(ctx, h.text, W / 2, ty, 11, '#fff4dc', 'center', 600, null);
   // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
-  const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('밤이 끝나면') ? null : null;
+  const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('출항 단추') ? [W - 62, H - 42] : null;
   if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
   ctx.restore();
 }

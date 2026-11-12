@@ -157,6 +157,7 @@ export function pointer(g, x, y) {
     return true;
   }
   if (g.scene === 'harbor') {
+    if (!g.story.seen.sail) { if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 + 6 && Math.abs(y - LEAVE.y) < LEAVE.h / 2 + 6) leaveHarbor(g); return true; }   // 처음에는 출항 단추만 눌린다 (가게는 첫 낚시 뒤에)
     if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 && Math.abs(y - LEAVE.y) < LEAVE.h / 2) { leaveHarbor(g); return true; }
     if (Math.hypot(x - HDEX.x, y - HDEX.y) <= HDEX.r + 3) { openDex(g); return true; }
     if (Math.hypot(x - HMAP.x, y - HMAP.y) <= HMAP.r + 3) { openMap(g); return true; }
@@ -228,7 +229,7 @@ export function drawHarbor(ctx, g) {
   const rb = sprite('h_ribbon'), rw = 150, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, W / 2 - rw / 2, 6, rw, rh);
   label(ctx, `${e.town}등급 · ${TOWN_NAMES[e.town]}`, W / 2, 6 + rh * 0.42, 10.5, COLORS.navy, 'center', 600, null);
-  ctx.globalAlpha = g.panel ? 0.4 : 1;
+  ctx.globalAlpha = g.panel || !g.story.seen.sail ? 0.4 : 1;
   img(ctx, 'ui_ic_book', HDEX.x - HDEX.r, HDEX.y - HDEX.r, HDEX.r * 2, HDEX.r * 2);
   img(ctx, 'ui_ic_map', HMAP.x - HMAP.r, HMAP.y - HMAP.r, HMAP.r * 2, HMAP.r * 2);
   ctx.globalAlpha = 1;
