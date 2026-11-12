@@ -10228,6 +10228,70 @@
    "w": 640,
    "h": 223.68,
    "smooth": true
+  },
+  "ui_caught_6_en": {
+   "atlas": "ui_en.webp",
+   "ax": 0,
+   "ay": 0,
+   "w": 640,
+   "h": 375,
+   "smooth": true
+  },
+  "ui_stamp_new_en": {
+   "atlas": "ui_en.webp",
+   "ax": 642,
+   "ay": 0,
+   "w": 320,
+   "h": 321,
+   "smooth": true
+  },
+  "ui_caught_5_en": {
+   "atlas": "ui_en.webp",
+   "ax": 964,
+   "ay": 0,
+   "w": 638,
+   "h": 313,
+   "smooth": true
+  },
+  "ui_caught_1_en": {
+   "atlas": "ui_en.webp",
+   "ax": 0,
+   "ay": 377,
+   "w": 601,
+   "h": 311,
+   "smooth": true
+  },
+  "ui_caught_2_en": {
+   "atlas": "ui_en.webp",
+   "ax": 603,
+   "ay": 377,
+   "w": 632,
+   "h": 310,
+   "smooth": true
+  },
+  "ui_stamp_record_en": {
+   "atlas": "ui_en.webp",
+   "ax": 1237,
+   "ay": 377,
+   "w": 320,
+   "h": 310,
+   "smooth": true
+  },
+  "ui_caught_3_en": {
+   "atlas": "ui_en.webp",
+   "ax": 0,
+   "ay": 690,
+   "w": 640,
+   "h": 299,
+   "smooth": true
+  },
+  "ui_caught_4_en": {
+   "atlas": "ui_en.webp",
+   "ax": 642,
+   "ay": 690,
+   "w": 640,
+   "h": 297,
+   "smooth": true
   }
  }
 }
