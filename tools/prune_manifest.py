@@ -9,7 +9,7 @@ import json, re, os
 ROOT = Path(__file__).resolve().parents[1]
 src = '\n'.join(p.read_text() for p in (ROOT / 'src').glob('*.js'))
 lits = set(re.findall(r"'([A-Za-z0-9_]{2,})'", src)) | set(re.findall(r'"([A-Za-z0-9_]{2,})"', src))
-prefixes = {m for m in re.findall(r"`([A-Za-z0-9_]{3,})\$\{", src)} | {l for l in lits if l.endswith('_') and len(l) >= 3}
+prefixes = {m for m in re.findall(r"`([A-Za-z0-9_]{2,})\$\{", src)} | {l for l in lits if l.endswith('_') and len(l) >= 2}      # `h_${id}_${n}` 처럼 두 글자 앞머리도 (가게의 장비 아이콘)
 for t in re.findall(r"`([A-Za-z0-9_]{2,})`", src): lits.add(t)
 mf = ROOT / 'assets' / 'game' / 'manifest.json'
 m = json.loads(mf.read_text())['sprites']

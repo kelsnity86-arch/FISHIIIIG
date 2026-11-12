@@ -18,7 +18,7 @@ function resize() {
   const availW = stage.clientWidth, availH = stage.clientHeight - (bar ? bar.offsetHeight : 0);
   const fit = Math.min(availW / W, availH / H) * dpr;
   const whole = Math.floor(fit);
-  scale = whole >= 2 && whole / fit >= 0.8 ? whole : fit;
+  scale = whole >= 2 && whole / fit >= 0.97 ? whole : fit;      // 거의 딱 맞을 때만 정수배. 아니면 화면을 꽉 채운다 (폰에서 글자와 단추가 조금이라도 크게)
   canvas.width = Math.round(W * scale);
   canvas.height = Math.round(H * scale);
   canvas.style.width = canvas.width / dpr + 'px';
@@ -86,7 +86,7 @@ const SAVE = 'horizon-angler-save-1';
 let wiped = false;
 function save() {
   if (wiped) return;                     // 저장을 지운 뒤에는 다시 쓰지 않는다
-  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen, relics: game.relics, sinceFantasy: game.sinceFantasy || 0 })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
+  try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen, memV: 1, relics: game.relics, sinceFantasy: game.sinceFantasy || 0 })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
 }
 try {
   const d = JSON.parse(localStorage.getItem(SAVE) || 'null');
@@ -97,6 +97,8 @@ try {
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
     game.cargoMax = cargoMax(game.eco); game.dayT = d.dayT || 0;
     game.hasSave = true;
+    // 기억을 봤는지 따로 적기 전의 저장: 이미 가진 물건의 기억은 본 것으로 친다 (마지막 회상을 못 본 저장은 다시 볼 수 있다)
+    if (d.story && d.memV !== 1) for (let i = 0; i < (d.relics || 0); i++) d.story['mem_' + i] = 1;
     game.relics = d.relics || 0; game.sinceFantasy = d.sinceFantasy || 0;
     if (d.story) game.story.seen = d.story; else skipBasics(game);     // 이야기가 생기기 전의 저장: 처음 안내는 건너뛴다
   }

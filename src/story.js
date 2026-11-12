@@ -181,6 +181,21 @@ export function drawTitle(ctx, g) {
   ctx.restore();
 }
 
+// ── 소리 켬/끔: 게임 중에도 화면 오른쪽 위 구석에서 바꿀 수 있다 (낚는 중에는 잘못 누르지 않게 쉴 때만) ──
+const SND = { x: W - 24, y: 13 };
+const sndOk = (g) => !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
+export function tapSound(g, x, y) {
+  if (!sndOk(g) || Math.abs(x - SND.x) > 24 || Math.abs(y - SND.y) > 12) return false;
+  initAudio(); setSound(!soundOn()); return true;
+}
+export function drawSound(ctx, g) {
+  g.sndA = (g.sndA || 0) + ((sndOk(g) ? 1 : 0) - (g.sndA || 0)) * 0.12;
+  if (g.sndA < 0.02) return;
+  ctx.save(); ctx.globalAlpha = g.sndA * 0.75;
+  label(ctx, soundOn() ? '소리 켬' : '소리 끔', SND.x, SND.y, 8.5, '#fff4dc', 'center', 600);
+  ctx.restore();
+}
+
 // ── 기억: 환상종이 남기고 간 오래된 물건을 주우면, 말없이 기억 한 조각이 떠오른다 ──
 const MEM_CPS = 16;
 // 12점을 다 모으면: 물건들이 한 줄로 떠오르고, 흩어져 있던 기억이 하나로 이어진다. 옛 노래가 끝까지 흐른다.
@@ -196,9 +211,15 @@ const FINALE = [
   '숟가락은 이제 내 식탁에 놓여 있다. 내일도 바다에 나갈 것이다.',
 ];
 function updateMemory(g, dt) {
-  if (!g.memory && g.memoryNext != null && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result) {
-    g.memory = { i: g.memoryNext, t: 0, a: 0, closing: null }; g.memoryNext = null;
-    g.sfx.push([RELICS[g.memory.i].id === 'musicbox' ? 'oldsong' : 'memory']);
+  // 볼 기억은 저장된 기록에서 찾는다: 가진 물건 가운데 아직 끝까지 못 본 첫 기억. (물건을 받은 직후에 꺼도 다음에 이어서 본다)
+  if (!g.memory && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result && !g.title) {
+    const seen = g.story.seen; let i = 0; while (i < g.relics && i < RELICS.length && seen['mem_' + i]) i++;
+    if (i < Math.min(g.relics, RELICS.length)) {
+      g.memory = { i, t: 0, a: 0, closing: null };
+      g.sfx.push([RELICS[i].id === 'musicbox' ? 'oldsong' : 'memory']);
+    } else if (g.relics >= RELICS.length && !seen.finale) {      // 열두 기억을 다 본 뒤: 모든 기억이 하나로 이어지는 장면
+      g.memory = { fin: true, i: 0, t: 0, a: 0, swap: 0, closing: null }; g.sfx.push(['oldsong']);
+    }
   }
   const m = g.memory; if (!m) return;
   m.t += dt;
@@ -207,8 +228,7 @@ function updateMemory(g, dt) {
     m.closing += dt; m.a = Math.max(0, m.a - dt / (m.fin ? 1.2 : 0.5));
     if (m.closing > (m.fin ? 1.2 : 0.5)) {
       g.memory = null;
-      // 마지막 물건(가족 사진)의 기억이 끝나면, 이어서 모든 기억이 하나로 이어지는 장면
-      if (!m.fin && m.i === RELICS.length - 1 && !g.story.seen.finale) { g.story.seen.finale = 1; g.dirty = true; g.memory = { fin: true, i: 0, t: 0, a: 0, swap: 0, closing: null }; g.sfx.push(['oldsong']); }
+      g.story.seen[m.fin ? 'finale' : 'mem_' + m.i] = 1; g.dirty = true;      // 끝까지 본 뒤에야 '봤다'고 적는다
     }
   } else m.a = Math.min(1, m.a + dt / 0.8);
 }

@@ -391,7 +391,7 @@ function startWait(g) {
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값
   g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
   g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
-  g.fish.strain = clamp(strainOf(g.eco, g.region), 0.75, 6);                           // 줄에 비해 장력이 얼마나 빨리 차는가
+  g.fish.strain = clamp(strainOf(g.eco, g.region), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
@@ -638,7 +638,10 @@ function startCatch(g) {
   const spr = sprite(g.fish.sprite), asp = spr.h / spr.w;
   const fit = Math.min(1, 0.56 / asp);                               // 키 큰 생물은 높이에 맞춰 줄인다
   const dw = big * fit, dh = dw * asp;                               // 생물의 실제 크기 (세계 좌표, 변하지 않는다)
-  const dwS = Math.min(W * 0.58, (WL - 46) / asp);                   // 다 물러났을 때 화면에서의 폭
+  // 다 물러났을 때 화면에서의 폭. 전신이 화면 안에 들어와야 한다: 놀란 표정 그림은 더 높고(땀방울),
+  // 펄떡일 때는 커지고(1.1배) 기울고(0.22) 위로 튄다 → 그만큼을 미리 빼고 맞춘다.
+  const s2 = g.fish.sprite2 && g.fish.sprite2 !== g.fish.sprite ? sprite(g.fish.sprite2) : spr, taller = Math.max(0, (s2.sh || s2.h) / (spr.sh || spr.h) - 1);
+  const dwS = Math.min(W * 0.58, (WL - 34) / (asp * (1.05 + 1.1 * taller) + 0.11 + 0.07 * SHADOW_LEN / dw));
   const zoom = clamp(Math.min(0.85, dwS / dw), 0.1, 1);
   const ax = BOAT_X + (W * 0.74 - dwS / 2 - BOAT_X) / zoom, ay = WL - dh / 2 - 26 / zoom;   // 생물이 걸려 있는 자리
   // 막 건진 순간의 구도: 얼굴 쪽에 바짝 붙어, 몸이 화면보다 커서 일부만 보인다.

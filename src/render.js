@@ -10,7 +10,7 @@ import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } fr
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
-import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle } from './story.js';
+import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle, drawSound } from './story.js';
 import { drawMap, drawDex } from './book.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
@@ -180,6 +180,7 @@ export function render(ctx, g) {
     drawPanel(ctx, g);
     drawMsg(ctx, g);
     drawCoins(ctx, g);
+    drawSound(ctx, g);
     drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
     drawVeil(ctx, g);
     return;
@@ -187,7 +188,7 @@ export function render(ctx, g) {
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
-  if (uiA > 0.5) drawSkip(ctx, g);
+  if (uiA > 0.5) { drawSkip(ctx, g); drawSound(ctx, g); }
   drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g);
   drawVeil(ctx, g);
 }

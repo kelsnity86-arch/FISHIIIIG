@@ -89,7 +89,7 @@ const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.3
 const gridY = () => BY() + 50;
 const listOf = (tab) => tab === 'R' ? RELICS : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-const tabRect = (i) => ({ x: GX + i * 16.4, y: BY() - 3, w: 15.8, h: 15 });
+const tabRect = (i) => ({ x: GX - 1 + i * 18.3, y: BY() - 5, w: 17.6, h: 17 });      // 칸들의 폭을 꽉 채워 최대한 넓게
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => 'd_' + c[1])); }
@@ -98,7 +98,7 @@ const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y
 export function tapDex(g, x, y) {
   const d = g.dex; if (!d || d.closing != null) return;
   if (hitClose(x, y)) { d.closing = 0; g.sfx.push(['paper']); return; }
-  for (let i = 0; i < TABS.length; i++) if (inRect(x, y, tabRect(i), 1)) { if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
+  for (let i = 0; i < TABS.length; i++) if (x >= tabRect(i).x - 0.4 && x < tabRect(i).x + 18.3 && y >= BY() - 16 && y <= BY() + 22) {      /* 누르는 자리는 그림보다 위아래로 넉넉하게 */ if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const list = listOf(d.tab), pages = Math.ceil(list.length / PER);
   for (const dir of [-1, 1]) if (inRect(x, y, arrowRect(dir), 5)) { const p = clamp(d.page + dir, 0, pages - 1); if (p !== d.page) { d.page = p; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const shown = list.slice(d.page * PER, d.page * PER + PER);
@@ -119,7 +119,7 @@ export function drawDex(ctx, g) {
   // 해역 탭 (책 위쪽에 꽂힌 쪽지)
   TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; img(ctx, on ? 'dex_tab_on' : 'dex_tab', r.x - (on ? 1 : 0), r.y - (on ? 3 : 0), r.w + (on ? 2 : 0)); });
   img(ctx, 'dex_book', BX, BY(), BW, bh);
-  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t ? String(t) : '공', r.x + r.w / 2, r.y + 5.5 - (on ? 2 : 0), 7, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
+  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t ? String(t) : '공', r.x + r.w / 2, r.y + 6.5 - (on ? 2 : 0), 8.5, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
   label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '어느 바다에나 사는 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);

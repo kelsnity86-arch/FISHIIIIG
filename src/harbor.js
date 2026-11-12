@@ -2,10 +2,10 @@
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
-import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle } from './story.js';
+import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
 import {
-  GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
+  GEAR, SKILLS, SHOPS, cargoMax, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
  } from './economy.js';
 
@@ -89,6 +89,12 @@ function nextRegion(g) {
   travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
 }
 
+// 장비 설명: 이번에 사면 무엇이 달라지는지와, 다음 단계까지 몇 번 남았는지를 따로 알려 준다
+function gearDesc(e, id, x) {
+  const lv = e.gear[id], left = 10 - lv % 10, tier = Math.floor(lv / 10) + 1, next = left === 1 ? `이번에 ${tier + 1}단계` : `${tier + 1}단계까지 ${left}번`;
+  if (id === 'boat') return `${next} · 어창 ${cargoMax(e)}→${cargoMax(e) + 2} · 다음 바다`;      // 배는 단계가 올라야 달라진다
+  return `${x.desc} · ${next}`;
+}
 // ── 가게 판에 놓이는 줄 ──
 const SKILL_ICON = { profit: 'h_skill_1', speed: 'h_skill_2', big: 'h_skill_3' };
 function rowsOf(g, id) {
@@ -108,7 +114,7 @@ function rowInfo(g, kind, id) {
   const e = g.eco, look = TOWN_LOOK[e.town], dex = Object.keys(g.records).length;
   if (kind === 'gear') {
     const x = GEAR.find((v) => v.id === id), lv = e.gear[id];
-    return { name: x.name, level: gearLabel(lv), desc: x.desc, cost: gearCost(e, id), block: gearBlock(e, id), icon: `h_${id}_${Math.min(8, Math.floor(lv / 10) + 1)}` };
+    return { name: x.name, level: gearLabel(lv), desc: gearDesc(e, id, x), cost: gearCost(e, id), block: gearBlock(e, id), icon: `h_${id}_${Math.min(8, Math.floor(lv / 10) + 1)}` };
   }
   if (kind === 'skill') {
     const x = SKILLS.find((v) => v.id === id), lv = e.skill[id];
@@ -141,6 +147,7 @@ export function pointer(g, x, y) {
   if (g.map) { const r = tapMap(g, x, y, g.scene === 'harbor'); if (r) goRegion(g, r); return true; }
   if (g.dex) { tapDex(g, x, y); return true; }
   if (tapSkip(g, x, y) || g.skip) return true;
+  if (tapSound(g, x, y)) return true;
   if (g.panel) {
     if (g.panel.closing != null) return true;
     const rows = rowsOf(g, g.panel.id), c = closeRect();

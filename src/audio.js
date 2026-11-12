@@ -397,7 +397,8 @@ export function createEngine(ctx) {
 }
 
 // ── 게임에서 쓰는 쪽 ──
-let eng = null, enabled = true, timer = null, reelAt = 0;
+const SOUND_KEY = 'hori-sound';
+let eng = null, enabled = (() => { try { return localStorage.getItem(SOUND_KEY) !== 'off'; } catch { return true; } })(), timer = null, reelAt = 0;      // 소리 켬/끔은 기기에 저장된다
 export function initAudio() {
   if (eng) { if (eng.ctx.state === 'suspended') eng.ctx.resume(); return; }
   const AC = window.AudioContext || window.webkitAudioContext;
@@ -407,7 +408,7 @@ export function initAudio() {
   timer = setInterval(() => { if (eng.ctx.state === 'running') eng.schedule(eng.ctx.currentTime + 0.4); }, 80);
   document.addEventListener('visibilitychange', () => { if (!eng) return; if (document.hidden) eng.ctx.suspend(); else if (enabled) eng.ctx.resume(); });
 }
-export function setSound(on) { enabled = on; if (eng) eng.volume(on ? 0.9 : 0); }
+export function setSound(on) { enabled = on; if (eng) eng.volume(on ? 0.9 : 0); try { localStorage.setItem(SOUND_KEY, on ? 'on' : 'off'); } catch { /* 저장이 막힌 환경 */ } }
 export const soundOn = () => enabled;
 export function playSfx(name, arg) { if (eng && enabled) eng.play(name, arg); }
 export function setScene(state) { if (eng) eng.set(state); }
