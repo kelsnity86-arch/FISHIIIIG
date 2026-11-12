@@ -865,9 +865,9 @@ function drawHud(ctx, g) {
   drawSeaButtons(ctx, g);
 
   const hint = {
-    idle: '꾹 눌러 힘 조절 → 떼면 던지기 · 멀리 던질수록 대물',
+    idle: '꾹 눌러 힘을 모으고 → 떼면 던지기 · 멀리 던질수록 대물',
     charge: '원하는 힘에서 손을 떼세요',
-    wait: '찌를 지켜보세요 (성급하게 누르면 도망갑니다)',
+    wait: '찌를 지켜보세요 (서둘러 누르면 도망갑니다)',
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];

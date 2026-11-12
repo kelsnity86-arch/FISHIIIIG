@@ -69,14 +69,14 @@ export const SCRIPT = {
   ],
   region_4: [
     ['yard', '여기부터는 뭍이 안 보이는 큰 바다야. 이 배로 여기까지 올 줄은 나도 몰랐어.'],
-    ['yard', '멀리 갈수록 큰 게 올라오고, 몸에 붙은 것도 커져. 이유는 아직 아무도 몰라.'],
+    ['yard', '멀리 갈수록 큰 게 올라오고, 몸에 붙은 것도 커져. 까닭은 아직 아무도 몰라.'],
   ],
   region_5: [
     ['guild', '얼음 바다다. 여기서 낚인 것들이 달고 있는 건 유난히 멀쩡해. 얼음이 지켜 준 모양이야.'],
     ['guild', '빙산 속에 뭔가 갇혀 있는 걸 봤다는 사람이 있어. 배라고 하기엔 너무 컸다더군.'],
   ],
   region_6: [
-    ['yard', '물이 끓는 바다야. 선체에 쇠를 덧댔으니 버틸 거야. 아마도.'],
+    ['yard', '물이 끓는 바다야. 배 몸통에 쇠를 덧댔으니 버틸 거야. 아마도.'],
     ['yard', '여기 그림자들은 뭔가를 지키는 것처럼 날뛴대. 바다 밑에 지킬 게 뭐가 있다고.'],
   ],
   region_7: [
@@ -309,7 +309,7 @@ function hintFor(g) {
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러 주세요'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뜁니다! 손을 떼고 버텨 주세요' : '누르고 있으면 감습니다 · 아래 게이지가 차면 잠깐 떼 주세요'; }
   if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다'; }
-  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 버튼 · 스킬은 바다에서도 올릴 수 있습니다';
+  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 버튼 · 기술은 바다에서도 올릴 수 있습니다';
   if (g.panel && g.panel.id === 'skills' && !s.skill) { s.skill = 1; g.dirty = true; }
   if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 버튼 · 생물을 팔고 장비를 삽니다';
   if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아갑니다 · 위쪽 버튼으로 시간을 넘길 수 있습니다'; }

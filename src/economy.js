@@ -21,8 +21,8 @@ const STEP_W = (() => { const w = []; for (let j = 0; j < 9; j++) w.push(1.15 **
 
 // 스킬 노드 (레벨 무제한, 값은 레벨마다 1.15배). 10·25·50·100레벨에 보너스.
 export const SKILLS = [
-  { id: 'profit', name: '흥정',     label: '판매가',    mult: 1.0066 },
-  { id: 'speed',  name: '손놀림',   label: '입질 속도', add: 0.0066, max: 2 },
+  { id: 'profit', name: '흥정',     label: '파는 값',   mult: 1.0066 },
+  { id: 'speed',  name: '손놀림',   label: '입질 빠르기', add: 0.0066, max: 2 },
   { id: 'big',    name: '대물',  label: '크기와 값', mult: 1.005 },
 ];
 const MILE = 1.017;      // 10레벨마다 마디 보너스 (×1.017). 잘게 찍다가 열 번째에 눈에 띄게 오른다
@@ -31,11 +31,11 @@ const MILE = 1.017;      // 10레벨마다 마디 보너스 (×1.017). 잘게 �
 // 사슬: 시청(마을 등급) → 가게 레벨 → 그 단계 장비 → 다음 해역.
 // 값은 새로 얹지 않고 한 단계 총액에서 떼어 낸다: 시청 10% + 가게 5곳 20% + 장비 70% (속도는 그대로).
 export const SHOPS = [
-  { id: 'market', name: '수산시장',   desc: '만선 보너스 +3% (어창이 가득일 때)' },
+  { id: 'market', name: '수산시장',   desc: '만선 덤 +3% (어창이 가득일 때)' },
   { id: 'tackle', name: '낚시도구점', desc: '다음 단계 낚싯대·줄·릴', gear: ['rod', 'line', 'reel'] },
   { id: 'yard',   name: '조선소',     desc: '다음 단계 배', gear: ['boat'] },
   { id: 'tailor', name: '옷가게',     desc: '다음 단계 옷', gear: ['outfit'] },
-  { id: 'guild',  name: '어부 길드',  desc: '스킬 상한 +75' },
+  { id: 'guild',  name: '어부 길드',  desc: '기술을 75번 더 올릴 수 있다' },
 ];
 export const TOWN_NAMES = ['', '작은 어촌', '어촌', '포구 마을', '항구 마을', '번화한 항구', '큰 항구', '무역항', '환상의 항구'];
 export const TOWN_LOOK = [0, 1, 1, 2, 2, 3, 3, 4, 5];            // 마을 등급 → 겉모습 5단계

@@ -27,7 +27,7 @@ const HMAP = { x: 64, y: H - 26, r: 17 };                 // 항구에서 지도
 export const SEA_BTNS = [
   { id: 'harbor', icon: 'ui_ic_harbor', x: W - 26, y: H - 26, r: 17, label: '항구' },
   { id: 'map',    icon: 'ui_ic_map',    x: W - 64, y: H - 26, r: 17, label: '해역' },
-  { id: 'skill',  icon: 'ui_ic_gear',   x: W - 102, y: H - 26, r: 17, label: '스킬' },
+  { id: 'skill',  icon: 'ui_ic_gear',   x: W - 102, y: H - 26, r: 17, label: '기술' },
   { id: 'dex',    icon: 'ui_ic_book',   x: W - 140, y: H - 26, r: 17, label: '도감' },
 ];
 
@@ -72,7 +72,7 @@ export function enterHarbor(g) {
       g.gold += sum;
       for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.04 - 0.35, life: 0.6, sx: HX(0) + rand(-24, 24), sy: HY - 30 + rand(-14, 14) });
       g.sfx.push(['coin', n]);
-      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 판매 · 포상금  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
+      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 팔았다 · 포상금  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
       g.cargo.length = 0;
     }
   });
