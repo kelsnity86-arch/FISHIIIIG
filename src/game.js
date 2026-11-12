@@ -155,7 +155,7 @@ export function press(g) {
       if (g.t > (g.catch.quick ? 0.55 : 1.1)) {
         const f = g.fish;
         if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.dirty = true; }
-          else g.chest = { t: -0.5, gold: Math.round(CHEST_GOLD * priceMult(g.eco, g.region)), opened: false }; }   // 물건을 다 찾은 뒤에는 바다가 답례로 보물상자를 띄워 보낸다   // 놓아주면 오래된 물건 하나를 떨어뜨리고 간다
+          else g.catch.thanks = Math.round(THANKS_GOLD * priceMult(g.eco, g.region)); }   // 물건을 다 찾은 뒤에는 바다가 답례를 한다 (놓아준 생물이 물에 닿는 순간)
         else {
           say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'stow');
@@ -205,15 +205,6 @@ export function update(g, dt) {
   for (const c of g.coins) c.age += dt;
   g.coins = g.coins.filter((c) => c.age < c.life);
   updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt); updateBook(g, dt);
-  if (g.chest) {                                            // 보물상자: 떠오르고(0~1초) → 열리며 금화가 쏟아지고(1.1초) → 가라앉는다(~3.4초)
-    const c = g.chest; if (g.state === 'idle' && g.cam.zoom > 0.985) c.t += dt;      // 카메라가 돌아와 바다가 제 크기로 보인 뒤에 떠오른다
-    if (!c.opened && c.t >= 1.1) {
-      c.opened = true; g.gold += c.gold; g.dirty = true; snd(g, 'coin', 12); g.flash = Math.max(g.flash, 0.12);
-      for (let i = 0; i < 14; i++) g.coins.push({ age: -i * 0.05, life: 0.7, sx: CHEST_X + rand(-8, 8), sy: WL - 16 + rand(-6, 4) });
-      g.msg = { text: `바다의 답례  +${fmt(c.gold)} G`, color: '#ffe27a', age: -0.1 };
-    }
-    if (c.t > 3.4) g.chest = null;
-  }
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
     if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
@@ -633,9 +624,8 @@ const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
-const CHEST_GOLD = 9000;      // 바다의 답례: 그 해역 전설 등급 값의 1.5배
+const THANKS_GOLD = 9000;      // 바다의 답례: 그 해역 전설 등급 값의 1.5배
 export const PITY = 48;      // 환상종이 이만큼 연달아 안 나오면 다음은 환상종
-export const CHEST_X = BOAT_X - 96;      // 보물상자가 떠오르는 자리 (배 앞쪽 물 위)
 const QUICK = 2;            // 이미 본 일반 등급의 연출 빠르기
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
 const PULL_BACK = 1.7;     // 카메라가 물러나는 데 걸리는 시간(초)
@@ -798,6 +788,7 @@ function updateCatch(g, dt) {
       bubbles(g, c.x, WL + 20, 9, lw * 0.5);
       swell(g, c.x, 12 + lw * 0.025, 1, 150, 90); swell(g, c.x, 12 + lw * 0.025, -1, 150, 90);
       g.shake = Math.min(8, 3 + lw / 120); g.flash = 0.3; snd(g, 'breachIn', lw / 400); buzz(70);
+      if (c.thanks) { g.gold += c.thanks; g.dirty = true; g.msg = { text: `바다의 답례  +${fmt(c.thanks)} G`, color: '#ffe27a', age: -0.2 }; snd(g, 'coin', 8); }
     }
     if (c.fell) c.alpha = approach(c.alpha, 0, 3, dt);
     if (u >= 1 && c.pt > 1.5) endCatch(g);
