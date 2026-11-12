@@ -1,0 +1,566 @@
+{
+  "groups": [
+    {
+      "power": 0,
+      "n": 30,
+      "mean": 21.3033333333334,
+      "median": 22.150000000000023,
+      "min": 15.016666666666993,
+      "max": 27.116666666666408,
+      "meanBite": 8.893888888888945,
+      "meanFight": 7.142777777777975
+    },
+    {
+      "power": 1,
+      "n": 21,
+      "mean": 32.28888888888834,
+      "median": 31.533333333332823,
+      "min": 27.233333333333068,
+      "max": 38.73333333333242,
+      "meanBite": 9.460317460317551,
+      "meanFight": 17.561904761904422
+    }
+  ],
+  "samples": [
+    {
+      "power": 0,
+      "biteAt": 10.516666666666769,
+      "catchAt": 17.433333333333625,
+      "resultAt": 22.699999999999992,
+      "state": "result",
+      "fish": "넙치",
+      "price": 28
+    },
+    {
+      "power": 1,
+      "biteAt": 5.966666666666651,
+      "catchAt": 23.849999999999927,
+      "resultAt": 29.116666666666294,
+      "state": "result",
+      "fish": "피자가오리",
+      "price": 42
+    },
+    {
+      "power": 0,
+      "biteAt": 11.583333333333488,
+      "catchAt": 17.016666666666982,
+      "resultAt": 22.28333333333335,
+      "state": "result",
+      "fish": "복어",
+      "price": 75
+    },
+    {
+      "power": 1,
+      "biteAt": 8.500000000000002,
+      "catchAt": 26.266666666666456,
+      "resultAt": 31.533333333332823,
+      "state": "result",
+      "fish": "숟가락넙치",
+      "price": 40
+    },
+    {
+      "power": 0,
+      "biteAt": 4.4499999999999895,
+      "catchAt": 9.900000000000071,
+      "resultAt": 15.166666666667,
+      "state": "result",
+      "fish": "정어리",
+      "price": 61
+    },
+    {
+      "power": 1,
+      "biteAt": 5.999999999999984,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "선풍기복어",
+      "price": 36
+    },
+    {
+      "power": 0,
+      "biteAt": 8.933333333333357,
+      "catchAt": 17.116666666666976,
+      "resultAt": 22.383333333333344,
+      "state": "result",
+      "fish": "소라",
+      "price": 49
+    },
+    {
+      "power": 1,
+      "biteAt": 15.133333333333665,
+      "catchAt": 33.46666666666605,
+      "resultAt": 38.73333333333242,
+      "state": "result",
+      "fish": "고등어",
+      "price": 58
+    },
+    {
+      "power": 0,
+      "biteAt": 9.066666666666697,
+      "catchAt": 16.883333333333656,
+      "resultAt": 22.150000000000023,
+      "state": "result",
+      "fish": "우산해파리",
+      "price": 30
+    },
+    {
+      "power": 1,
+      "biteAt": 7.449999999999979,
+      "catchAt": 24.46666666666656,
+      "resultAt": 29.733333333332926,
+      "state": "result",
+      "fish": "오징어",
+      "price": 42
+    },
+    {
+      "power": 0,
+      "biteAt": 10.500000000000101,
+      "catchAt": 17.783333333333605,
+      "resultAt": 23.049999999999972,
+      "state": "result",
+      "fish": "빨대해마",
+      "price": 48
+    },
+    {
+      "power": 1,
+      "biteAt": 12.216666666666853,
+      "catchAt": 30.14999999999957,
+      "resultAt": 35.41666666666594,
+      "state": "result",
+      "fish": "복어",
+      "price": 75
+    },
+    {
+      "power": 0,
+      "biteAt": 10.183333333333419,
+      "catchAt": 15.8333333333337,
+      "resultAt": 21.100000000000083,
+      "state": "result",
+      "fish": "고등어",
+      "price": 30
+    },
+    {
+      "power": 1,
+      "biteAt": 10.200000000000086,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "조기",
+      "price": 63
+    },
+    {
+      "power": 0,
+      "biteAt": 6.933333333333314,
+      "catchAt": 14.916666666666988,
+      "resultAt": 20.18333333333347,
+      "state": "result",
+      "fish": "소라",
+      "price": 29
+    },
+    {
+      "power": 1,
+      "biteAt": 13.600000000000255,
+      "catchAt": 31.066666666666183,
+      "resultAt": 36.333333333332554,
+      "state": "result",
+      "fish": "불가사리",
+      "price": 28
+    },
+    {
+      "power": 0,
+      "biteAt": 10.550000000000104,
+      "catchAt": 18.183333333333582,
+      "resultAt": 23.44999999999995,
+      "state": "result",
+      "fish": "소라",
+      "price": 30
+    },
+    {
+      "power": 1,
+      "biteAt": 7.98333333333331,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "우산해파리",
+      "price": 54
+    },
+    {
+      "power": 0,
+      "biteAt": 6.11666666666665,
+      "catchAt": 14.10000000000028,
+      "resultAt": 19.36666666666685,
+      "state": "result",
+      "fish": "꽁치",
+      "price": 48
+    },
+    {
+      "power": 1,
+      "biteAt": 12.5000000000002,
+      "catchAt": 31.733333333332812,
+      "resultAt": 36.99999999999918,
+      "state": "result",
+      "fish": "우산해파리",
+      "price": 71
+    },
+    {
+      "power": 0,
+      "biteAt": 13.43333333333358,
+      "catchAt": 20.350000000000126,
+      "resultAt": 25.616666666666493,
+      "state": "result",
+      "fish": "머그컵소라",
+      "price": 58
+    },
+    {
+      "power": 1,
+      "biteAt": 11.950000000000173,
+      "catchAt": 30.09999999999957,
+      "resultAt": 35.36666666666594,
+      "state": "result",
+      "fish": "블루탱",
+      "price": 61
+    },
+    {
+      "power": 0,
+      "biteAt": 6.483333333333316,
+      "catchAt": 13.983333333333608,
+      "resultAt": 19.25000000000019,
+      "state": "result",
+      "fish": "멸치",
+      "price": 59
+    },
+    {
+      "power": 1,
+      "biteAt": 11.216666666666804,
+      "catchAt": 27.483333333333054,
+      "resultAt": 32.749999999999424,
+      "state": "result",
+      "fish": "망둥어",
+      "price": 61
+    },
+    {
+      "power": 0,
+      "biteAt": 10.366666666666761,
+      "catchAt": 17.966666666666928,
+      "resultAt": 23.233333333333295,
+      "state": "result",
+      "fish": "망둥어",
+      "price": 73
+    },
+    {
+      "power": 1,
+      "biteAt": 5.416666666666653,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "넙치",
+      "price": 51
+    },
+    {
+      "power": 0,
+      "biteAt": 4.983333333333321,
+      "catchAt": 9.750000000000064,
+      "resultAt": 15.016666666666993,
+      "state": "result",
+      "fish": "도미",
+      "price": 68
+    },
+    {
+      "power": 1,
+      "biteAt": 7.816666666666644,
+      "catchAt": 24.716666666666544,
+      "resultAt": 29.98333333333291,
+      "state": "result",
+      "fish": "우산해파리",
+      "price": 28
+    },
+    {
+      "power": 0,
+      "biteAt": 7.666666666666645,
+      "catchAt": 14.583333333333638,
+      "resultAt": 19.850000000000154,
+      "state": "result",
+      "fish": "나비고기",
+      "price": 46
+    },
+    {
+      "power": 1,
+      "biteAt": 14.350000000000293,
+      "catchAt": 31.616666666666152,
+      "resultAt": 36.88333333333252,
+      "state": "result",
+      "fish": "갈치",
+      "price": 39
+    },
+    {
+      "power": 0,
+      "biteAt": 9.516666666666719,
+      "catchAt": 17.76666666666694,
+      "resultAt": 23.033333333333307,
+      "state": "result",
+      "fish": "단추게",
+      "price": 41
+    },
+    {
+      "power": 1,
+      "biteAt": 12.36666666666686,
+      "catchAt": 29.16666666666629,
+      "resultAt": 34.43333333333266,
+      "state": "result",
+      "fish": "양말고등어",
+      "price": 42
+    },
+    {
+      "power": 0,
+      "biteAt": 6.016666666666651,
+      "catchAt": 13.183333333333568,
+      "resultAt": 18.450000000000234,
+      "state": "result",
+      "fish": "날치",
+      "price": 59
+    },
+    {
+      "power": 1,
+      "biteAt": 6.016666666666651,
+      "catchAt": 22.833333333333318,
+      "resultAt": 28.099999999999685,
+      "state": "result",
+      "fish": "해마",
+      "price": 28
+    },
+    {
+      "power": 0,
+      "biteAt": 14.683333333333643,
+      "catchAt": 21.85000000000004,
+      "resultAt": 27.116666666666408,
+      "state": "result",
+      "fish": "연필꽁치",
+      "price": 51
+    },
+    {
+      "power": 1,
+      "biteAt": 13.083333333333563,
+      "catchAt": 30.79999999999953,
+      "resultAt": 36.0666666666659,
+      "state": "result",
+      "fish": "선풍기복어",
+      "price": 76
+    },
+    {
+      "power": 0,
+      "biteAt": 7.816666666666644,
+      "catchAt": 15.483333333333682,
+      "resultAt": 20.750000000000103,
+      "state": "result",
+      "fish": "날치",
+      "price": 48
+    },
+    {
+      "power": 1,
+      "biteAt": 9.733333333333396,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "해파리",
+      "price": 68
+    },
+    {
+      "power": 0,
+      "biteAt": 7.09999999999998,
+      "catchAt": 14.16666666666695,
+      "resultAt": 19.43333333333351,
+      "state": "result",
+      "fish": "집게해마",
+      "price": 42
+    },
+    {
+      "power": 1,
+      "biteAt": 6.883333333333314,
+      "catchAt": 25.133333333333187,
+      "resultAt": 30.399999999999554,
+      "state": "result",
+      "fish": "블루탱",
+      "price": 34
+    },
+    {
+      "power": 0,
+      "biteAt": 10.016666666666744,
+      "catchAt": 17.76666666666694,
+      "resultAt": 23.033333333333307,
+      "state": "result",
+      "fish": "축구공거북",
+      "price": 31
+    },
+    {
+      "power": 1,
+      "biteAt": 12.03333333333351,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "도미",
+      "price": 43
+    },
+    {
+      "power": 0,
+      "biteAt": 5.999999999999984,
+      "catchAt": 12.666666666666876,
+      "resultAt": 17.933333333333596,
+      "state": "result",
+      "fish": "블루탱",
+      "price": 31
+    },
+    {
+      "power": 1,
+      "biteAt": 6.466666666666649,
+      "catchAt": 24.433333333333227,
+      "resultAt": 29.699999999999594,
+      "state": "result",
+      "fish": "멸치",
+      "price": 35
+    },
+    {
+      "power": 0,
+      "biteAt": 9.733333333333396,
+      "catchAt": 17.200000000000305,
+      "resultAt": 22.466666666666672,
+      "state": "result",
+      "fish": "피자가오리",
+      "price": 39
+    },
+    {
+      "power": 1,
+      "biteAt": 6.099999999999984,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "꽁치",
+      "price": 73
+    },
+    {
+      "power": 0,
+      "biteAt": 10.183333333333419,
+      "catchAt": 17.900000000000265,
+      "resultAt": 23.166666666666632,
+      "state": "result",
+      "fish": "나비고기",
+      "price": 63
+    },
+    {
+      "power": 1,
+      "biteAt": 5.249999999999987,
+      "catchAt": 22.500000000000004,
+      "resultAt": 27.76666666666637,
+      "state": "result",
+      "fish": "새우",
+      "price": 79
+    },
+    {
+      "power": 0,
+      "biteAt": 11.333333333333476,
+      "catchAt": 18.96666666666687,
+      "resultAt": 24.23333333333324,
+      "state": "result",
+      "fish": "피자가오리",
+      "price": 59
+    },
+    {
+      "power": 1,
+      "biteAt": 6.549999999999982,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "넙치",
+      "price": 57
+    },
+    {
+      "power": 0,
+      "biteAt": 6.499999999999982,
+      "catchAt": 13.70000000000026,
+      "resultAt": 18.96666666666687,
+      "state": "result",
+      "fish": "숟가락넙치",
+      "price": 48
+    },
+    {
+      "power": 1,
+      "biteAt": 14.466666666666965,
+      "catchAt": null,
+      "resultAt": null,
+      "state": "fail",
+      "fish": "해파리",
+      "price": 76
+    },
+    {
+      "power": 0,
+      "biteAt": 8.91666666666669,
+      "catchAt": 16.333333333333687,
+      "resultAt": 21.600000000000055,
+      "state": "result",
+      "fish": "갈치",
+      "price": 51
+    },
+    {
+      "power": 1,
+      "biteAt": 8.216666666666654,
+      "catchAt": 26.24999999999979,
+      "resultAt": 31.516666666666158,
+      "state": "result",
+      "fish": "선풍기복어",
+      "price": 57
+    },
+    {
+      "power": 0,
+      "biteAt": 9.500000000000052,
+      "catchAt": 16.28333333333369,
+      "resultAt": 21.550000000000058,
+      "state": "result",
+      "fish": "꽁치",
+      "price": 58
+    },
+    {
+      "power": 1,
+      "biteAt": 8.78333333333335,
+      "catchAt": 26.91666666666642,
+      "resultAt": 32.18333333333279,
+      "state": "result",
+      "fish": "갈치",
+      "price": 51
+    },
+    {
+      "power": 0,
+      "biteAt": 5.616666666666652,
+      "catchAt": 12.650000000000208,
+      "resultAt": 17.91666666666693,
+      "state": "result",
+      "fish": "블루탱",
+      "price": 47
+    },
+    {
+      "power": 1,
+      "biteAt": 6.483333333333316,
+      "catchAt": 22.55,
+      "resultAt": 27.816666666666368,
+      "state": "result",
+      "fish": "날치",
+      "price": 59
+    },
+    {
+      "power": 0,
+      "biteAt": 12.116666666666848,
+      "catchAt": 19.383333333333514,
+      "resultAt": 24.64999999999988,
+      "state": "result",
+      "fish": "가위게",
+      "price": 54
+    },
+    {
+      "power": 1,
+      "biteAt": 4.416666666666656,
+      "catchAt": 21.9666666666667,
+      "resultAt": 27.233333333333068,
+      "state": "result",
+      "fish": "가위게",
+      "price": 42
+    }
+  ]
+}

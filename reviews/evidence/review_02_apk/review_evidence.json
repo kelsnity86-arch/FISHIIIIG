@@ -1,0 +1,33 @@
+{
+  "apk": "hori-horizon.apk",
+  "sha256": "89953e768eb2959690bef0b59e3146057f3fdef7bd43c8c5f992abcf8dc750ce",
+  "public_files_checked": 132,
+  "changed_game_files": [],
+  "review_environment": "Extracted APK web assets in Chromium; no Android runtime",
+  "viewports": [
+    [
+      960,
+      540
+    ],
+    [
+      844,
+      390
+    ]
+  ],
+  "native": {
+    "package": "com.horizonangler.game",
+    "version": "0.1",
+    "minSdk": 24,
+    "targetSdk": 36,
+    "debuggable": true,
+    "certificateCN": "Horizon Angler Test"
+  },
+  "startup_image_budget": {
+    "unique_images": 109,
+    "encoded_MB": 17.0,
+    "uncompressed_RGBA_MB": 268.8,
+    "atlas_slice_canvas_MB": 58.3
+  },
+  "runtime_script_errors": 0,
+  "known_missing_gear_icons": 40
+}

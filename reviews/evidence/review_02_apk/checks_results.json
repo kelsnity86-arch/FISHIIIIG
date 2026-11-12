@@ -1,0 +1,269 @@
+{
+  "lockChecks": {
+    "insufficientFunds": true,
+    "shopBeforeTown": true,
+    "boatTierBeforeShop": true,
+    "town4BeforeDex": true,
+    "regionLocked": true
+  },
+  "boat": [
+    {
+      "lv": 0,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 87
+    },
+    {
+      "lv": 1,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 99
+    },
+    {
+      "lv": 2,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 114
+    },
+    {
+      "lv": 3,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 131
+    },
+    {
+      "lv": 4,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 151
+    },
+    {
+      "lv": 5,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 174
+    },
+    {
+      "lv": 6,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 199
+    },
+    {
+      "lv": 7,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 229
+    },
+    {
+      "lv": 8,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 264
+    },
+    {
+      "lv": 9,
+      "capacity": 5,
+      "region": 1,
+      "nextCost": 908
+    },
+    {
+      "lv": 10,
+      "capacity": 7,
+      "region": 2,
+      "nextCost": 4840
+    }
+  ],
+  "line": [
+    {
+      "region": 1,
+      "levels": [
+        {
+          "lv": 0,
+          "K": 1
+        },
+        {
+          "lv": 1,
+          "K": 0.8705505632961241
+        },
+        {
+          "lv": 2,
+          "K": 0.7578582832551991
+        },
+        {
+          "lv": 3,
+          "K": 0.75
+        },
+        {
+          "lv": 4,
+          "K": 0.75
+        },
+        {
+          "lv": 5,
+          "K": 0.75
+        },
+        {
+          "lv": 6,
+          "K": 0.75
+        },
+        {
+          "lv": 7,
+          "K": 0.75
+        },
+        {
+          "lv": 8,
+          "K": 0.75
+        },
+        {
+          "lv": 9,
+          "K": 0.75
+        },
+        {
+          "lv": 10,
+          "K": 0.75
+        }
+      ]
+    },
+    {
+      "region": 2,
+      "levels": [
+        {
+          "lv": 10,
+          "K": 1
+        },
+        {
+          "lv": 11,
+          "K": 0.8705505632961241
+        },
+        {
+          "lv": 12,
+          "K": 0.7578582832551988
+        },
+        {
+          "lv": 13,
+          "K": 0.75
+        },
+        {
+          "lv": 14,
+          "K": 0.75
+        },
+        {
+          "lv": 15,
+          "K": 0.75
+        },
+        {
+          "lv": 16,
+          "K": 0.75
+        },
+        {
+          "lv": 17,
+          "K": 0.75
+        },
+        {
+          "lv": 18,
+          "K": 0.75
+        },
+        {
+          "lv": 19,
+          "K": 0.75
+        },
+        {
+          "lv": 20,
+          "K": 0.75
+        }
+      ]
+    }
+  ],
+  "speed": {
+    "at25": 1.8150000000000004,
+    "maxed": false
+  },
+  "baseEconomy": {
+    "skillCost": 34,
+    "expectedFishPrice": 500.4,
+    "commonPrice": [
+      28,
+      80
+    ],
+    "legendaryPrice": [
+      4200,
+      12000
+    ]
+  },
+  "manifestMissing": [],
+  "lastRelicBeforeReload": {
+    "relics": 12,
+    "memoryNext": 11,
+    "finale": false,
+    "state": "leave"
+  },
+  "savedBeforeReload": {
+    "gold": 12345,
+    "eco": {
+      "gear": {
+        "outfit": 0,
+        "reel": 0,
+        "line": 0,
+        "rod": 3,
+        "boat": 0
+      },
+      "skill": {
+        "profit": 0,
+        "speed": 0,
+        "big": 0
+      },
+      "town": 1,
+      "shop": {
+        "market": 1,
+        "tackle": 1,
+        "yard": 1,
+        "tailor": 1,
+        "guild": 1
+      }
+    },
+    "region": 1,
+    "dayT": 0,
+    "cargo": [
+      {
+        "name": "검수용 물고기",
+        "price": 76,
+        "grade": "common"
+      }
+    ],
+    "records": {
+      "흰동가리": 41.5
+    },
+    "story": {
+      "intro": 1,
+      "sail": 1,
+      "cast": 1,
+      "bite": 1,
+      "fight": 1,
+      "card": 1,
+      "harbor": 1,
+      "shop": 1
+    },
+    "relics": 12,
+    "sinceFantasy": 0
+  },
+  "afterReload": {
+    "relics": 12,
+    "memoryNext": null,
+    "memory": null,
+    "finale": false,
+    "gold": 12345,
+    "cargo": [
+      {
+        "name": "검수용 물고기",
+        "price": 76,
+        "grade": "common"
+      }
+    ],
+    "rod": 3,
+    "records": {
+      "흰동가리": 41.5
+    },
+    "sound": true
+  },
+  "errors": []
+}
