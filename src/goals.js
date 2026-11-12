@@ -34,7 +34,7 @@ export function newQuest(g) {
   if (kind === 'grade') { const o = pick([[1, 4], [2, 2], [3, 1]]); q.gi = o[0]; q.need = o[1]; q.text = `${GRADES[q.gi].name} 등급 이상 ${q.need}마리`; }
   else if (kind === 'size') { const gr = GRADES[pick([1, 2])]; q.m = Math.round((gr.len[0] + (gr.len[1] - gr.len[0]) * 0.55) / 32 * 3 * sizeMult(e) * 10) / 10; q.text = `${q.m.toFixed(1)} m가 넘는 것 1마리`; }
   else if (kind === 'species') { q.need = 4; q.names = []; q.text = `${REGIONS[r]}의 생물 ${q.need}종`; }
-  else if (kind === 'perfect') { q.need = 4; q.text = `PERFECT 챔질 ${q.need}번`; }
+  else if (kind === 'perfect') { q.need = 4; q.text = `딱 맞는 챔질 ${q.need}번`; }
   else { q.need = 2; q.text = `도감에 없는 생물 ${q.need}종`; }
   return q;
 }
@@ -51,7 +51,7 @@ export function questCatch(g, f, isNew) {
 export function questPerfect(g) { const q = g.quest; if (q && !q.done && q.kind === 'perfect') bump(g, q); }
 // 항구에 들어왔을 때: 채웠으면 보상을 돌려주고, 새 의뢰를 건다
 export function settleQuest(g) { const q = g.quest, pay = q && q.done ? q.reward : 0; g.quest = newQuest(g); g.dirty = true; return pay; }
-export const questLine = (g) => { const q = g.quest; return !q ? '' : q.done ? `의뢰 완료 · 항구에서 +${fmt(q.reward)} G` : `의뢰 · ${q.text} (${q.n}/${q.need})`; };
+export const questLine = (g) => { const q = g.quest; return !q ? '' : q.done ? `의뢰를 다 했다 · 항구에서 +${fmt(q.reward)} G` : `의뢰 · ${q.text} (${q.n}/${q.need})`; };
 
 // ── 태초의 차림 ── 태초의 바다에 올 때쯤이면 더 강화할 것이 없다. 그 바다의 도감을 채울 때마다 장비 겉모습을 하나씩 얻는다.
 // [장비, 이름, 태초의 바다 생물 몇 종에서 얻는가, 그림 이름]. 그림이 아직 없으면 지금 겉모습 그대로 보인다.

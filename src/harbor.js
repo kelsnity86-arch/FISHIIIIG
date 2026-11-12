@@ -69,14 +69,14 @@ export function enterHarbor(g) {
     g.scene = 'harbor'; g.panel = null;
     // 들어오자마자 어창의 생물이 수산시장에서 팔린다
     const quest = settleQuest(g);                                                   // 채운 의뢰의 보상을 받고, 새 의뢰가 걸린다
-    if (quest) { g.gold += quest; g.msg = { text: `의뢰 보상  +${fmt(quest)} G`, color: '#ffe27a', age: -0.3 }; g.sfx.push(['coin', 6]); }
+    if (quest) { g.gold += quest; g.msg = { text: `의뢰 삯  +${fmt(quest)} G`, color: '#ffe27a', age: -0.3 }; g.sfx.push(['coin', 6]); }
     if (g.cargo.length) {
       const full = g.cargo.length >= g.cargoMax && fullBonus(g.eco) > 1;            // 만선: 수산시장이 값을 더 쳐 준다
       const sum = Math.round(g.cargo.reduce((a, c) => a + c.price, 0) * (full ? fullBonus(g.eco) : 1)), n = Math.min(16, 5 + g.cargo.length);
       g.gold += sum;
       for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.04 - 0.35, life: 0.6, sx: HX(0) + rand(-24, 24), sy: HY - 30 + rand(-14, 14) });
       g.sfx.push(['coin', n]);
-      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 팔았다 · 포상금  +${fmt(sum)} G` + (quest ? ` · 의뢰 보상  +${fmt(quest)} G` : ''), color: '#ffe27a', age: -0.3 };
+      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 팔았다 · 포상금  +${fmt(sum)} G` + (quest ? ` · 의뢰 삯  +${fmt(quest)} G` : ''), color: '#ffe27a', age: -0.3 };
       g.cargo.length = 0;
     }
   });

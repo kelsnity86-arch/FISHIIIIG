@@ -12,7 +12,7 @@ const put = (k, v) => { try { localStorage.setItem(k, String(v)); } catch { /* �
 // ── 해상도 (PC판): 창 크기를 고른다. 비율은 16:9 로 고정. 마지막은 전체 화면 ──
 export const RES = [[960, 540], [1280, 720], [1600, 900], [1920, 1080], [2560, 1440], null];
 let res = clamp(+get('hori-res', 1) || 0, 0, RES.length - 1);
-const resName = () => (RES[res] ? `${RES[res][0]}×${RES[res][1]}` : '전체 화면');
+const resName = () => (RES[res] ? `${RES[res][0]}×${RES[res][1]}` : '화면 가득');
 export function applyRes() {
   const pc = window.horiPC; if (!pc) return;
   if (RES[res]) pc.setSize(RES[res][0], RES[res][1]); else pc.setFullscreen(true);
@@ -25,9 +25,9 @@ export const maxScale = () => (IS_PC ? 6 : QUAL[qual][1]);      // PC판은 큰 
 const VIBE_DESC = ['울리지 않는다', '챌 때와 낚았을 때만', '날뛰기·놓침·구매 등까지', '줄다리기 내내 떨림까지'];
 // 일시정지 메뉴 (PC: 아무것도 열려 있지 않을 때 Esc · 폰: 뒤로 가기)
 const PAUSE_ROWS = [
-  { id: 'resume', name: '게임 재개', value: '재개', desc: '하던 곳으로 돌아갑니다' },
-  { id: 'set', name: '설정', value: '열기', desc: IS_PC ? '소리 크기 · 해상도' : '소리 크기 · 화질 · 진동' },
-  { id: 'quit', name: '게임 종료', value: '종료', desc: '진행은 자동으로 저장됩니다' },
+  { id: 'resume', name: '이어 하기', value: '이어서', desc: '하던 데로 돌아갑니다' },
+  { id: 'set', name: '설정', value: '열기', desc: IS_PC ? '소리 크기와 창 크기를 맞춥니다' : '소리 크기 · 화질 · 진동을 맞춥니다' },
+  { id: 'quit', name: '그만하기', value: '끄기', desc: '여태 한 것은 저절로 적어 둡니다' },
 ];
 export function quitGame() {
   const cap = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App;
@@ -36,7 +36,7 @@ export function quitGame() {
 function rows(mode) {
   if (mode === 'pause') return PAUSE_ROWS;
   const out = [];
-  if (IS_PC) out.push({ id: 'res', name: '해상도', value: resName(), desc: '창 크기 · 비율은 16:9 고정 (F11 = 전체 화면)' });
+  if (IS_PC) out.push({ id: 'res', name: '창 크기', value: resName(), desc: '창 크기 · 가로세로 생김새는 그대로 (F11 = 화면 가득)' });
   else {
     out.push({ id: 'qual', name: '화질', value: QUAL[qual][0], desc: '낮을수록 폰이 덜 뜨거워집니다' });
     out.push({ id: 'vibe', name: '진동', value: vibeLv() ? vibeLv() + '단계' : '끔', desc: VIBE_DESC[vibeLv()] });
@@ -105,12 +105,12 @@ export function drawSettings(ctx, g) {
   const pn = sprite('h_panel'); ctx.drawImage(pn.img, PANEL.x, PANEL.y, PANEL.w, ph);
   const rb = sprite('h_ribbon'), rw = 170 * PS, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
-  label(ctx, s.mode === 'pause' ? '일시정지' : '설정', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy);
+  label(ctx, s.mode === 'pause' ? '잠시 멈춤' : '설정', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy);
   const cl = sprite('h_close'), c = closeRect(); ctx.drawImage(cl.img, c.x, c.y, c.w, c.h);
   // 둥근 창: 톱니 (설정)
   { const e = sprite('ui_ic_gear'), rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909, f = Math.min(rr * 1.45 / e.w, rr * 1.45 / e.h);
     ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(e.img, rx - e.w * f / 2, ry - e.h * f / 2, e.w * f, e.h * f); ctx.restore(); }
-  label(ctx, s.mode === 'pause' ? '게임이 멈춰 있습니다' : '막대를 끌어 소리 크기를 정합니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
+  label(ctx, s.mode === 'pause' ? '바다도 잠깐 쉬어 갑니다' : '막대를 밀어 소리 크기를 맞춥니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
   if (s.mode === 'set') {
     const fr = sprite('h_bar'), fl = sprite('h_bar_fill'), bh = BAR.w * fr.h / fr.w;
     SLIDERS.forEach(([key, name], i) => {
