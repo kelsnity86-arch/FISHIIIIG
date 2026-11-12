@@ -138,6 +138,17 @@ export function updateStory(g, dt) {
 
 // ── 기억: 환상종이 남기고 간 오래된 물건을 주우면, 말없이 기억 한 조각이 떠오른다 ──
 const MEM_CPS = 16;
+// 12점을 다 모으면: 물건들이 한 줄로 떠오르고, 흩어져 있던 기억이 하나로 이어진다. 옛 노래가 끝까지 흐른다.
+// 여기서도 무슨 일이 있었는지는 말하지 않는다. 주인공이 무엇을 떠올렸는지만 보여 준다.
+const FINALE = [
+  '그날 아침에도 식탁에는 숟가락이 셋 놓여 있었다.',
+  '주전자는 울지 않았고, 엄마는 자꾸 시계를 봤다.',
+  '아빠가 내 신발 끈을 묶어 주었다. 한 짝은 끝내 찾지 못했다.',
+  '배에 오르는 사람이 아주 많았다. 바다는 아주 높았다.',
+  '엄마가 오르골을 감아 주었다. 노래가 끝나기 전에 나는 잠들었다.',
+  '눈을 떴을 때, 낯선 노인이 나를 내려다보고 있었다.',
+  '이제 안다. 바다는 내가 잃어버린 것들을 하나씩 돌려주고 있었다.',
+];
 function updateMemory(g, dt) {
   if (!g.memory && g.memoryNext != null && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result) {
     g.memory = { i: g.memoryNext, t: 0, a: 0, closing: null }; g.memoryNext = null;
@@ -145,18 +156,31 @@ function updateMemory(g, dt) {
   }
   const m = g.memory; if (!m) return;
   m.t += dt;
-  if (m.closing != null) { m.closing += dt; m.a = Math.max(0, m.a - dt / 0.5); if (m.closing > 0.5) g.memory = null; }
-  else m.a = Math.min(1, m.a + dt / 0.8);
+  if (m.fin) m.swap = Math.min(1, m.swap + dt / 0.6);
+  if (m.closing != null) {
+    m.closing += dt; m.a = Math.max(0, m.a - dt / (m.fin ? 1.2 : 0.5));
+    if (m.closing > (m.fin ? 1.2 : 0.5)) {
+      g.memory = null;
+      // 마지막 물건(가족 사진)의 기억이 끝나면, 이어서 모든 기억이 하나로 이어지는 장면
+      if (!m.fin && m.i === RELICS.length - 1 && !g.story.seen.finale) { g.story.seen.finale = 1; g.dirty = true; g.memory = { fin: true, i: 0, t: 0, a: 0, swap: 0, closing: null }; g.sfx.push(['oldsong']); }
+    }
+  } else m.a = Math.min(1, m.a + dt / 0.8);
 }
 const memLen = (r) => r.mem[0].length + r.mem[1].length;
 export function tapMemory(g) {
   const m = g.memory; if (!m || m.closing != null) return;
+  if (m.fin) {
+    if (m.swap < 1) return;                                   // 한 줄이 다 떠오른 뒤에만 넘어간다 (연달아 눌러 놓치지 않게)
+    if (m.i + 1 < FINALE.length) { m.i++; m.swap = 0; g.sfx.push(['tap']); } else m.closing = 0;
+    return;
+  }
   const r = RELICS[m.i], full = 1.2 + memLen(r) / MEM_CPS + 1.2;
   if (m.t < full) { m.t = full; return; }            // 글이 나오는 중이면 한꺼번에 보여 준다
   m.closing = 0; g.sfx.push(['tap']);
 }
 export function drawMemory(ctx, g) {
   const m = g.memory; if (!m) return;
+  if (m.fin) return drawFinale(ctx, g, m);
   const r = RELICS[m.i], a = ease(m.a);
   ctx.save();
   ctx.globalAlpha = a * 0.82; ctx.fillStyle = '#060b1c'; ctx.fillRect(0, 0, W, H);            // 주위가 어두워지고 물건만 떠오른다
@@ -175,6 +199,26 @@ export function drawMemory(ctx, g) {
     label(ctx, r.perk, W / 2, 263, 10, '#ffe9b8', 'center', 600, 'rgba(6,11,28,0.7)');
     ctx.globalAlpha = a * done * (0.5 + 0.4 * Math.sin(g.time * 4)); label(ctx, '▾', W / 2, 290, 11, '#fff4dc', 'center', 700, null);
   }
+  ctx.restore();
+}
+
+function drawFinale(ctx, g, m) {
+  const a = ease(m.a);
+  ctx.save();
+  ctx.globalAlpha = a * 0.9; ctx.fillStyle = '#060b1c'; ctx.fillRect(0, 0, W, H);
+  ctx.imageSmoothingEnabled = true;
+  // 물건 12점이 한 줄로, 하나씩 천천히 떠오른다
+  RELICS.forEach((r, i) => {
+    const k = clamp((m.t - 0.6 - i * 0.35) / 1.0, 0, 1), e = ease(k); if (e <= 0) return;
+    const s = sprite('relic_' + r.art), w = 30, h = w * s.h / s.w, x = W / 2 + (i - 5.5) * 46, bob = Math.sin(m.t * 1.1 + i * 0.7) * 2;
+    ctx.globalAlpha = a * e; ctx.drawImage(s.img, x - w / 2, 96 - h / 2 + bob + (1 - e) * 10, w, h);
+  });
+  if (m.t > 0.6 + 12 * 0.35) {
+    const e = ease(m.swap);
+    ctx.globalAlpha = a * e;
+    label(ctx, FINALE[m.i], W / 2, 196 + (1 - e) * 5, 13, '#fff4dc', 'center', 600, 'rgba(6,11,28,0.7)');
+    if (m.swap >= 1) { ctx.globalAlpha = a * (0.5 + 0.4 * Math.sin(g.time * 4)); label(ctx, '▾', W / 2, 232, 11, '#fff4dc', 'center', 700, null); }
+  } else m.swap = 0;
   ctx.restore();
 }
 
