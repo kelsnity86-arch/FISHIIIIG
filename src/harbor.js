@@ -133,11 +133,11 @@ function rowInfo(g, kind, id) {
 }
 
 // 판의 자리
-const PANEL = { x: 196, y: 40, w: 336 };
+const PANEL = { x: 182, y: 28, w: 364 }, PS = PANEL.w / 336;      // PS: 판을 키운 비율 (판 그림에서 잰 자리들은 폭 336 기준)
 const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
-// 줄은 왼쪽 위 둥근 창(테두리 아래 끝 = 판 위에서 79)을 전혀 가리지 않도록 그 아래에서 시작한다. 네 줄이 판 안에 들어오도록 줄 높이를 줄였다
-const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 82 + i * 44.5, w: 280, h: 43 });
-const closeRect = () => ({ x: PANEL.x + PANEL.w - 30, y: PANEL.y + 4, w: 28, h: 28 });
+// 줄은 왼쪽 위 둥근 창(테두리 아래 끝 = 판 위에서 86)에서 한 뼘 띄우고 시작한다. 그만큼 판 전체를 키워서 줄은 줄이지 않았다
+const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
+const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
 export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null }; }
 function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }      // 뚝 사라지지 않고 스르르 닫힌다
@@ -277,9 +277,9 @@ export function drawPanel(ctx, g) {
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(npc.img, PANEL.x - nw + 22, PANEL.y + ph - nh - 4 + Math.sin(g.time * 1.6) * 0.8, nw, nh);
   img(ctx, 'h_panel', PANEL.x, PANEL.y, PANEL.w, ph);
-  const rb = sprite('h_ribbon'), rw = 170, rh = rw * rb.h / rb.w;
-  ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10, PANEL.y + 10, rw, rh);
-  label(ctx, p.id === 'skills' ? '어부의 기술' : HOUSE_NAME[p.id], PANEL.x + PANEL.w / 2 + 10, PANEL.y + 10 + rh * 0.42, 12, COLORS.navy, 'center', 600, null);
+  const rb = sprite('h_ribbon'), rw = 170 * PS, rh = rw * rb.h / rb.w;
+  ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
+  label(ctx, p.id === 'skills' ? '어부의 기술' : HOUSE_NAME[p.id], PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy, 'center', 600, null);
   const c = closeRect(); img(ctx, 'h_close', c.x, c.y, c.w, c.h);
   // 판 왼쪽 위 둥근 창: 그 가게 건물
   const hs = sprite(`h_shop_${TOWN_LOOK[g.eco.town]}_${shopId}`), rx = PANEL.x + PANEL.w * 0.1518, ry = PANEL.y + ph * 0.1573, rr = PANEL.w * 0.0823;      // 판 그림의 둥근 창 자리 (그림에서 잰 값)
@@ -296,15 +296,15 @@ export function drawPanel(ctx, g) {
     const done = info.block === '끝';                       // 끝까지 올린 것: 잠긴 것이 아니라 완성된 것으로 보인다
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
     img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
-    const ic = sprite(info.icon), is = 31, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
-    ctx.drawImage(ic.img, r.x + 27 - iw / 2, r.y + r.h / 2 - ih / 2, iw, ih);
-    label(ctx, info.name, r.x + 52, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
-    label(ctx, info.level, r.x + 52 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
-    label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 52, r.y + r.h / 2 + 8.5, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
+    const ic = sprite(info.icon), is = 33, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
+    ctx.drawImage(ic.img, r.x + 29 - iw / 2, r.y + r.h / 2 - ih / 2, iw, ih);
+    label(ctx, info.name, r.x + 56, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
+    label(ctx, info.level, r.x + 56 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
+    label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 56, r.y + r.h / 2 + 8.5, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
     if (done) label(ctx, '완성', r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, '#4a2a08', 'center', 600, null);
     else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
-  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 + 4, PANEL.y + panelH() + 8, 9, '#fff4dc', 'center', 600);      // 판 아래 바깥에 (줄과 겹치지 않게)
+  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w * 0.6, PANEL.y + 80, 8.5, '#8a5a2b', 'center', 600, null);      // 둥근 창 오른쪽 빈자리에
   ctx.restore();
 }

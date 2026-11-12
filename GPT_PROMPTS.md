@@ -11345,3 +11345,68 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name ui_logo.png
 ```
 
+
+---
+
+## ㉞ 가게 판의 둥근 창: 건물 대신 상징 + 마을 등급별 테두리 장식
+
+가게 판 왼쪽 위 둥근 창에 건물 그림 대신 그 가게의 상징을 넣는다. 마을이 커질수록 창 테두리만 화려해진다.
+
+### 377. `h_shop_marks` — 가게 상징 6개 (둥근 창 안에 들어갈 그림)
+
+```
+Style references: open assets/raw/h_panel.png, assets/raw/h_gear_a.png and
+assets/raw/h_skill.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main branch).
+The new pictures must be painted EXACTLY like the item icons in h_gear_a.png: the same
+painterly storybook rendering, the same warm light, the same soft dark outlines, the same
+level of detail. Matching that style is the most important requirement.
+
+No text, no letters, no numbers. No frame, no ring, no circle, no background plate.
+Fully transparent background.
+
+A sprite sheet of 6 emblems in a grid of 3 columns x 2 rows, never touching, each centred in
+its cell. Each emblem is one compact object group that fits nicely inside a circle (it will
+be shown inside the round brass porthole at the top left of h_panel.png, on its cream
+paper). Bold, simple, readable when very small. All six the same visual size.
+1) Fish market: a brass balance scale with a fresh silver fish lying on one pan,
+2) Tackle shop: two fishing rods crossed like an X with a red-and-white float hanging in
+   the middle,
+3) Shipyard: a ship's anchor crossed with a wooden shipwright's mallet,
+4) Clothing shop: a wooden spool of blue thread with a needle through it and a small
+   folded blue scarf,
+5) Fishermen's guild: a round guild crest of a gold coin with a fishing hook hooked through
+   it, a short piece of rope around it,
+6) Town hall: a brass bell hanging from a small wooden beam with a little blue pennant.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_shop_marks.png
+```
+
+### 378. `h_port_rims` — 둥근 창 테두리 5단계 (마을 등급별 장식)
+
+```
+Style references: open assets/raw/h_panel.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Look closely at the round brass porthole frame at
+its top left corner. The new frames must be painted EXACTLY like that porthole frame: the
+same brass colour, the same painterly storybook rendering, the same light, the same soft
+dark outlines. Matching that style is the most important requirement.
+
+No text. Fully transparent background.
+
+A sprite sheet of 5 round porthole frames in one row, never touching, all with the same
+ring size. Each one is ONLY the ring: the round hole in the middle is completely empty and
+transparent (the hole is 70 percent of the ring's outer diameter, perfectly circular and
+centred), and everything outside the ring is transparent. Seen straight from the front.
+Decorations sit on the ring and may stick out a little around it, but never into the hole.
+They grow clearly richer from the first to the last:
+1) small fishing village: the plain brass ring with four rivets, a little worn,
+2) harbour village: the brass ring with a thin rope wound around it and a small knot at
+   the bottom,
+3) busy port: polished brass with eight rivets, a small scallop shell at the top and a
+   tiny anchor charm at the bottom,
+4) trading port: golden ring with engraved wave patterns, a ship's wheel ornament at the
+   top and small blue pennants at both sides,
+5) dream harbour: a pale shining gold ring with small crystals and pearls set into it, a
+   crescent moon at the top and tiny stars around it, softly glowing.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_port_rims.png
+```
