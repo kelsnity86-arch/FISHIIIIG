@@ -209,7 +209,7 @@ export const DOTS = [
   ['썰매가오리', 'sled_ray', 'common', 5, true],
   ['고드름꽁치', 'icicle_gar', 'common', 5, true],
   ['귀마개망둥어', 'earmuff_goby', 'common', 5, true],
-  ['하드오징어', 'popsicle_squid', 'common', 5, true],
+  ['아이스바오징어', 'popsicle_squid', 'common', 5, true],
   ['스키물개', 'ski_seal', 'uncommon', 5, true],
   ['이글루거북', 'igloo_turtle', 'uncommon', 5, true],
   ['스노볼복어', 'snowglobe_puffer', 'uncommon', 5, true],

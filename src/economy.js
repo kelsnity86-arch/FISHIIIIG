@@ -11,7 +11,7 @@ const SKILL_BASE = FIRST_SET * 0.003 * START_CUT;
 //                 이름      값의 비중  설명
 export const GEAR = [
   // 강화마다 하는 일이 하나씩, 서로 겹치지 않는다.
-  { id: 'outfit', name: '복장',   share: 0.10, desc: '높은 등급이 잘 나온다' },
+  { id: 'outfit', name: '옷',     share: 0.10, desc: '높은 등급이 잘 나온다' },
   { id: 'reel',   name: '릴',     share: 0.15, desc: '줄을 빨리 감는다' },
   { id: 'line',   name: '줄',     share: 0.20, desc: '장력이 천천히 찬다' },
   { id: 'rod',    name: '낚싯대', share: 0.25, desc: '날뛰는 힘을 누른다' },
@@ -34,7 +34,7 @@ export const SHOPS = [
   { id: 'market', name: '수산시장',   desc: '만선 보너스 +3% (어창이 가득일 때)' },
   { id: 'tackle', name: '낚시도구점', desc: '다음 단계 낚싯대·줄·릴', gear: ['rod', 'line', 'reel'] },
   { id: 'yard',   name: '조선소',     desc: '다음 단계 배', gear: ['boat'] },
-  { id: 'tailor', name: '옷가게',     desc: '다음 단계 복장', gear: ['outfit'] },
+  { id: 'tailor', name: '옷가게',     desc: '다음 단계 옷', gear: ['outfit'] },
   { id: 'guild',  name: '어부 길드',  desc: '스킬 상한 +75' },
 ];
 export const TOWN_NAMES = ['', '작은 어촌', '어촌', '포구 마을', '항구 마을', '번화한 항구', '큰 항구', '무역항', '환상의 항구'];
