@@ -34,7 +34,7 @@ export function newQuest(g) {
   if (kind === 'grade') { const o = pick([[1, 4], [2, 2], [3, 1]]); q.gi = o[0]; q.need = o[1]; q.text = `${GRADES[q.gi].name} 등급 이상 ${q.need}마리`; }
   else if (kind === 'size') { const gr = GRADES[pick([1, 2])]; q.m = Math.round((gr.len[0] + (gr.len[1] - gr.len[0]) * 0.55) / 32 * 3 * sizeMult(e) * 10) / 10; q.text = `${q.m.toFixed(1)} m가 넘는 것 1마리`; }
   else if (kind === 'species') { q.need = 4; q.names = []; q.text = `${REGIONS[r]}의 생물 ${q.need}종`; }
-  else if (kind === 'perfect') { q.need = 4; q.text = `딱 맞는 챔질 ${q.need}번`; }
+  else if (kind === 'perfect') { q.need = 4; q.text = `PERFECT 챔질 ${q.need}번`; }
   else { q.need = 2; q.text = `도감에 없는 생물 ${q.need}종`; }
   return q;
 }
