@@ -106,7 +106,7 @@ const REGION_MUS = [null,
   { tempo: 0.9,  dens: 0.8,  mel: 0.75, minor: true, pulse: 2, drone: 0.03, old: 6 },                           // 6 화산 해역: 단조, 낮고 묵직한 맥박
   { tempo: 0.78, dens: 0.4,  mel: 0.5,  minor: true, low: true, lead: 'box', drone: 0.045, bell: 0.06, old: 7 },// 7 심연 해구: 느리고 어둡게, 거의 정적
   { tempo: 0.94, dens: 0.9,  mel: 0.9,  lead: 'box', arp: true, old: 8 },                                       // 8 환상의 바다: 꿈결, 옛 노래가 끝까지
-  { tempo: 1,    dens: 1,    mel: 1,    own: PRIMAL, old: 0 },                                                  // 9 태초의 바다: 이 바다만의 네 곡. 희망차고 잔잔하게
+  { tempo: 1,    dens: 1,    mel: 1,    own: PRIMAL, gentle: true, old: 0 },                                                  // 9 태초의 바다: 이 바다만의 네 곡. 희망차고 잔잔하게
 ];
 const MINOR_PROGS = [[[0, 'm9'], [8, 'maj7'], [5, 'm7'], [7, 'm7']], [[0, 'm7'], [5, 'm7'], [8, 'maj7'], [7, 'm7']], [[5, 'm7'], [0, 'm9'], [8, 'maj7'], [3, 'maj7']]];
 const MINOR_SCALE = [0, 3, 5, 7, 10];
@@ -324,9 +324,10 @@ export function createEngine(ctx) {
       song = { ...src, bpm: src.bpm * R.tempo, dens: src.dens * R.dens, mel: src.mel * R.mel, lead: R.lead || src.lead, scale: R.minor ? MINOR_SCALE : R.scale || src.scale,
         low: src.low || R.low, prog: R.minor ? MINOR_PROGS[variant % MINOR_PROGS.length] : src.prog, theme: R.minor || R.scale ? null : src.theme, oct: (src.oct || 0) + (R.high ? 12 : 0) };
     }
-    const fi = song.waltz ? 0 : st.fight;                    // 줄다리기의 긴박함 0~1
+    const soft = R.gentle && !song.waltz ? st.fight : 0;     // 태초의 바다: 줄다리기 중에도 곡이 바뀌지 않는다. 조금 빨라지고 여린 맥박만 얹힌다
+    const fi = song.waltz || R.gentle ? 0 : st.fight;        // 줄다리기의 긴박함 0~1
     const hot = fi > 0.12;                                   // 줄다리기 중
-    const beatDur = hot ? 60 / (118 + 46 * fi) : 60 / song.bpm;   // 줄다리기는 곡의 빠르기와 상관없이 빠르게 몰아친다
+    const beatDur = hot ? 60 / (118 + 46 * fi) : 60 / (song.bpm * (1 + 0.22 * soft));   // 줄다리기는 곡의 빠르기와 상관없이 빠르게 몰아친다
     // 줄다리기 중에는 어두운 화음 진행으로 바뀐다 (라단조풍: vi – IV – V – V)
     const [rootOff, kind] = hot ? [[9, 'min'], [5, 'maj'], [7, 'maj'], [7, 'sus4']][barN % 4] : song.prog[barN % song.prog.length];
     const root = song.key + shift + rootOff, tones = CH[kind];
@@ -376,6 +377,10 @@ export function createEngine(ctx) {
       if (fi > 0.5 && b === song.beats - 1) { taiko(t + beatDur * 0.5, 0.4 * fi); taiko(t + beatDur * 0.75, 0.46 * fi); }           // 마디 끝 북 몰아치기
       // 장력이 높으면 높은 음이 다급하게 오르내린다
       if (fi > 0.7) for (let h = 0; h < 4; h++) chip(t + h * beatDur / 4, root + 12 + tones[(beatN * 4 + h) % 3], beatDur * 0.2, 0.035 * fi, 'triangle');
+    }
+    if (soft > 0.12) {                                       // 여린 맥박: 박마다 낮은 음, 엇박에 화음 한 번 (북·심벌 없이)
+      bass(t, root - 24 + (root - 24 < 31 ? 12 : 0), beatDur * 0.8, 0.1 + 0.08 * soft);
+      if (b % 2 === 1) ep(t + beatDur / 2, root + tones[1], beatDur * 0.5, 0.1 + 0.06 * soft);
     }
     // ── 해역의 빛깔 (줄다리기 중에는 쉰다) ──
     if (!hot && !song.waltz) {

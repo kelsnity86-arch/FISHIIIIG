@@ -145,7 +145,7 @@ export function drawDex(ctx, g) {
     const r = slotRect(i), ok = known(g, c), sel = d.sel === c;
     img(ctx, sel ? 'dex_slot_on' : ok ? 'dex_slot' : 'dex_slot_off', r.x, r.y, r.w, r.h);
     if (ok && c.mem) { const rs = sprite('relic_' + c.art), k = Math.min((r.w - 10) / rs.w, (r.h - 10) / rs.h); ctx.drawImage(rs.img, r.x + r.w / 2 - rs.w * k / 2, r.y + r.h / 2 - rs.h * k / 2, rs.w * k, rs.h * k); }
-    else if (ok) { creature(ctx, spriteOf(c), r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, c[3] === 9 && hasSprite('dex_fr_7') ? 'dex_fr_7' : 'dex_fr_' + (GI[c[2]] + 1), r.x + 1, r.y + 1, r.w - 2, r.h - 2); }
+    else if (ok) { creature(ctx, spriteOf(c), r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, c[3] === 9 ? (hasSprite('dex_fr_7') ? 'dex_fr_7' : 'dex_fr_1') : 'dex_fr_' + (GI[c[2]] + 1), r.x + 1,      /* 태초의 생물은 등급이 하나라 테두리도 모두 같다 */ r.y + 1, r.w - 2, r.h - 2); }
     else label(ctx, '?', r.x + r.w / 2, r.y + r.h / 2 + 1, 13, 'rgba(90,70,50,0.55)', 'center', 700, null);
   });
   ctx.globalAlpha = a;
