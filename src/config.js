@@ -25,6 +25,18 @@ export const FIGHT_MODES = {
   fantasy:   ['hold', 'run', 'dive', 'circle', 'thrash'],
 };
 export const SURGE_MODES = ['run', 'dive', 'thrash'];   // 날뛰는 동작: 계속 감으면 장력이 급격히 오름
+// 등급별 손맛 (일반·고급은 편하게, 희귀부터 점점 사납게). 등급 순서: 일반, 고급, 희귀, 영웅, 전설, 환상
+//   surge 날뛸 때 감고 있으면 장력이 오르는 세기 · drag 날뛸 때는 손을 떼도 장력이 끌려 오르는 세기(힘에 비례)
+//   tele 조짐이 보이는 시간 · chain 날뛴 뒤 곧바로 또 날뛸 가능성 · calm 얌전한 시간의 길이
+// 사나운 등급은 날뛰기 전에 장력을 낮게 관리해 둬야 버틴다. 낚싯대를 올리면(힘이 줄면) 한결 쉬워진다.
+export const TOUGH = [
+  { surge: 1,    drag: 0,    tele: 1,    chain: 0,    calm: 1 },
+  { surge: 1,    drag: 0,    tele: 1,    chain: 0,    calm: 1 },
+  { surge: 1.3,  drag: 0.76, tele: 0.9,  chain: 0.15, calm: 0.95 },
+  { surge: 1.7,  drag: 0.72, tele: 0.8,  chain: 0.3,  calm: 0.85 },
+  { surge: 2.1,  drag: 0.73, tele: 0.7,  chain: 0.45, calm: 0.75 },
+  { surge: 1.7,  drag: 0.62, tele: 0.8,  chain: 0.3,  calm: 0.85 },      // 환상종은 오래된 물건이 걸려 있어 영웅보다 조금 순하게
+];
 export const TELEGRAPH = 0.35;                        // 날뛰기 직전 조짐 시간(초)
 
 export const TIMING = {

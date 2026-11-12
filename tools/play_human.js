@@ -11,7 +11,7 @@ const { chromium } = require('playwright');
     return n + '줄, 3줄 넘는 것: ' + JSON.stringify(bad); }));
   const out = await p.evaluate(async () => {
     window.__manual = true; const g = window.game, dt = 1 / 60; const E = await import('./src/economy.js'); const S = await import('./src/story.js');
-    const log = [], talks = [], hints = new Set(), bad = []; let T = 0, catches = 0, fails = 0, lastKey = '', stuck = 0, days = 0, mem = 0;
+    const log = [], talks = [], hints = new Set(), bad = [], failBy = {}, okBy = {}; let T = 0, catches = 0, fails = 0, lastKey = '', stuck = 0, days = 0, mem = 0;
     const tick = (n = 1) => { for (let i = 0; i < n; i++) { window.__tick(dt); T += dt;
       if (g.hint && g.hint.a > 0.5) hints.add(g.hint.text);
       if (g.talk && g.talk.key !== lastKey) { lastKey = g.talk.key; talks.push(Math.round(T / 60) + '분 ' + g.talk.key); }
@@ -39,16 +39,16 @@ const { chromium } = require('playwright');
       if (g.state === 'idle' && g.cargo.length >= g.cargoMax) { window.__pointer(640 - 26, 360 - 26); tick(60); if (g.scene !== 'harbor') tick(60); continue; }
       if (g.state !== 'idle') { let n = 0; while (g.state !== 'idle' && g.scene === 'sea' && n++ < 3000) { if (g.state === 'result' && g.result && g.result.age > 1.8) { window.__press(); window.__release(); } tick(); clear(); } if (g.state !== 'idle' && g.scene === 'sea') { bad.push('멈춤 ' + g.state + ' ' + Math.round(T)); break; } continue; }
       // 한 마리 낚는다
-      tick(70); window.__press(); tick(30); window.__release(); let started = false, n = 0;
+      tick(70); window.__press(); tick(30); window.__release(); let started = false, n = 0, want = [], gr = '';
       while (n++ < 15000) { tick();
         if (g.scene !== 'sea') break;
         if (g.state === 'bite' && g.t >= g.bite.openAt + 0.25) { window.__press(); window.__release(); }
-        if (g.state === 'fight') { started = true; const f = g.fight; g.hold = !(f.surging || f.tension > 0.7); }
+        if (g.state === 'fight') { if (!started) want = []; started = true; gr = g.fish.grade; const f = g.fight; want.push(!(f.surging || f.tele > 0 || f.tension > 0.68) || f.tension < 0.2); const d = want.length - 15; g.hold = d >= 0 ? want[d] : true; }   // 0.25초 전에 본 것대로 누른다 (사람의 반응 시간)
         if (g.state === 'catch') { g.hold = false; }
-        if (g.state === 'result') { catches++; break; }
-        if (g.state === 'idle' && (started || n > 60)) { if (started) fails++; break; } }
+        if (g.state === 'result') { catches++; okBy[gr] = (okBy[gr] || 0) + 1; break; }
+        if (g.state === 'idle' && (started || n > 60)) { if (started) { fails++; failBy[gr] = (failBy[gr] || 0) + 1; } break; } }
       if (n >= 15000) { bad.push('낚시 멈춤 ' + g.state + ' ' + Math.round(T)); break; }
       if (g.eco.town >= 8 && g.region >= 8 && g.relics >= 12 && g.story.seen.finale && g.story.seen.ending) { clear(); log.push(Math.round(T / 60) + '분 끝'); break; }
     }
-    return { log, talks, hints: [...hints], bad, T: (T / 3600).toFixed(2) + '시간', catches, fails, days, mem, relics: g.relics, town: g.eco.town, region: g.region, dex: Object.keys(g.records).length, gear: g.eco.gear, seen: Object.keys(g.story.seen).length, missing: [...window.__missing].filter((n) => !n.startsWith('d_')) }; });
+    return { failBy, okBy, log, talks, hints: [...hints], bad, T: (T / 3600).toFixed(2) + '시간', catches, fails, days, mem, relics: g.relics, town: g.eco.town, region: g.region, dex: Object.keys(g.records).length, gear: g.eco.gear, seen: Object.keys(g.story.seen).length, missing: [...window.__missing].filter((n) => !n.startsWith('d_')) }; });
   console.log(JSON.stringify(out, null, 1)); console.log('errors', errs.slice(0, 5)); await p.evaluate(() => localStorage.clear()); await b.close(); })();

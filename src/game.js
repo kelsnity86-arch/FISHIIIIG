@@ -3,7 +3,7 @@
 import {
   DAY_SEC, phaseAt,
   W, H, WL, BOAT_X, CAST_NEAR, CAST_FAR, ROD_LEN, DEEP, LEAP_X, LEAP_SCALE, SHADOW_LEN,
-  TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, GRADES,
+  TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, TOUGH, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
@@ -481,9 +481,12 @@ function startFight(g) {
   setState(g, 'fight');
 }
 
+const toughOf = (g) => TOUGH[GRADES.indexOf(g.fish.gradeInfo)] || TOUGH[0];
 function chooseMode(g) {
   const f = g.fight, modes = FIGHT_MODES[g.fish.grade] || FIGHT_MODES.common;
   if (f.stamina < 0.35 && Math.random() < 0.6) return 'tired';
+  const surges = modes.filter((m) => SURGE_MODES.includes(m) && m !== f.mode);
+  if (SURGE_MODES.includes(f.mode) && surges.length && Math.random() < toughOf(g).chain) return pick(surges);      // 사나운 등급은 숨 돌릴 틈 없이 또 날뛴다
   if (SURGE_MODES.includes(f.mode)) return Math.random() < 0.7 ? 'hold' : pick(modes.filter((m) => !SURGE_MODES.includes(m)));
   return pick(modes.filter((m) => m !== f.mode));
 }
@@ -491,6 +494,7 @@ function chooseMode(g) {
 function startMode(g) {
   const f = g.fight, s = g.sw;
   f.modeT = { hold: rand(1.2, 2.4), run: rand(1, 1.7), dive: rand(1.1, 1.7), thrash: 1.3, circle: rand(2.2, 3.4), tired: rand(1.4, 2.2) }[f.mode];
+  if (f.mode === 'hold' || f.mode === 'circle') f.modeT *= toughOf(g).calm;
   f.did = false;
   // 같은 동작이라도 할 때마다 자리·깊이·물러나는 거리가 조금씩 다르다
   f.ox = rand(-28, 28); f.oy = rand(-8, 12); f.back = rand(40, 95); f.turnAt = rand(1.1, 2); f.deep = rand(88, 108);
@@ -512,7 +516,7 @@ function updateFight(g, dt) {
     if (f.tele <= 0) { f.mode = f.next; startMode(g); }
   } else if (f.modeT <= 0) {
     const next = chooseMode(g);
-    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; }
+    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH * toughOf(g).tele + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; }
     else { f.mode = next; startMode(g); }
   }
   f.surging = SURGE_MODES.includes(f.mode) && f.tele <= 0;
@@ -521,11 +525,12 @@ function updateFight(g, dt) {
   // 감기·풀기
   const tired = f.mode === 'tired';
   if (g.hold) {
-    f.tension += ((0.4 - (tired ? 0.15 : 0)) * K + 0.12 * p + (f.surging ? 0.9 * p : 0)) * dt;   // 줄이 약하면(K) 감기만 해도 금방 찬다
+    f.tension += ((0.4 - (tired ? 0.15 : 0)) * K + 0.12 * p + (f.surging ? 0.9 * p * toughOf(g).surge : 0)) * dt;   // 줄이 약하면(K) 감기만 해도 금방 찬다
     f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * reelMult(g.eco) * dt;
   } else {
     f.tension -= (f.surging ? 0.4 : 0.75) / Math.max(1, K) * dt;                       // 약한 줄은 풀어 줘도 더디게 풀린다
     // 장비로 감당 못 하는 힘(1.75배 넘게): 날뛸 때는 줄을 풀어 줘도 장력이 오른다 → 장비가 한 단계 모자라면 버티지 못한다
+    if (f.surging) f.tension += toughOf(g).drag * (g.region === 1 ? 0.85 : 1) * Math.pow(p, 0.15) * dt;      /* 첫 바다는 조금 순하게 */              // 낚싯대가 좋아질수록(힘 p 가 줄수록) 조금 덜 끌려간다 (차이는 완만하게: 장비 단계 안에서 실패율이 널뛰지 않게)                              // 사나운 등급: 날뛸 때는 풀어 줘도 끌려간다
     if (f.surging && p > OVERPOWER) f.tension += (p - OVERPOWER) * 2.6 * dt;
     if (K > OVERPOWER) f.tension += (K - OVERPOWER) * 0.5 * dt;                        // 줄이 한 단계 모자라면 풀어 줘도 끝내 끊어진다
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);
