@@ -56,8 +56,43 @@ SONGS.dawn.alts = [
   { bpm: 56, prog: [[9, 'm7'], [5, 'maj7'], [0, 'sus2'], [7, 'sus4']], dens: 0.28, mel: 0.34 },
 ];
 
+// ── 태초의 바다: 이 바다만의 네 곡 (새벽·낮·노을·밤) ──
+// 희망이 가득하고 잔잔하게. 네 곡 모두 장조이고(밤도 어둡지 않은 자장가), 조는 다·바·사 사이에서만 옮겨 다녀 넘어갈 때 튀지 않는다.
+// 화음은 부드러운 것만(장7·덧9·서스), 가락은 다섯 음 음계 안에서 차례로 오르내린다. 북·종·낮게 깔리는 음은 없다.
+// 밤의 주제 가락은 '옛 노래'다: 다른 바다에서는 한 음씩 끊겨 들리던 자장가가 여기서 처음으로 온전한 곡이 된다.
+const PRIMAL = {
+  dawn:  { bpm: 58, beats: 4, key: 60, prog: [[0, 'add9'], [5, 'maj7'], [0, 'add9'], [7, 'sus4']], scale: [0, 2, 4, 7, 9], lead: 'box', dens: 0.34, mel: 0.36, pad: 1000 },
+  day:   { bpm: 68, beats: 4, key: 55, prog: [[0, 'maj7'], [5, 'add9'], [9, 'm7'], [7, 'sus4']],  scale: [0, 2, 4, 7, 9], lead: 'ep',  dens: 0.5,  mel: 0.42, pad: 1150, oct: 12 },
+  dusk:  { bpm: 60, beats: 4, key: 65, prog: [[0, 'maj7'], [4, 'm7'], [5, 'maj7'], [7, 'sus7']],  scale: [0, 2, 4, 7, 9], lead: 'ep',  dens: 0.4,  mel: 0.34, pad: 850, low: true, oct: 12 },
+  night: { bpm: 52, beats: 4, key: 60, prog: [[0, 'maj7'], [5, 'maj7'], [0, 'add9'], [7, 'sus4']], scale: [0, 2, 4, 7, 9], lead: 'box', dens: 0.26, mel: 0.28, pad: 640 },
+};
+PRIMAL.dawn.theme = T([[0, 2], [4, 2]], [[7, 3], [4, 1]], [[9, 2], [7, 2]], [[2, 4]],
+  [[2, 1], [4, 1], [7, 2]], [[9, 2], [12, 2]], [[12, 1], [9, 1], [7, 2]], [[7, 2], [2, 2]]);
+PRIMAL.day.theme = T([[7, 1], [9, 1], [12, 2]], [[9, 1], [12, 1], [14, 2]], [[12, 2], [9, 1], [7, 1]], [[7, 4]],
+  [[4, 1], [7, 1], [9, 1], [12, 1]], [[14, 2], [12, 2]], [[9, 1], [12, 1], [9, 1], [7, 1]], [[7, 2], [2, 2]]);
+PRIMAL.dusk.theme = T([[4, 2], [7, 2]], [[11, 2], [7, 2]], [[9, 3], [7, 1]], [[7, 2], [2, 2]],
+  [[4, 1], [7, 1], [12, 2]], [[11, 2], [14, 2]], [[12, 1], [9, 1], [5, 2]], [[7, 4]]);
+PRIMAL.night.theme = T([[7, 1], [12, 1], [16, 2]], [[14, 1], [12, 1], [9, 2]], [[7, 2], [12, 2]], [[14, 4]],
+  [[7, 1], [12, 1], [16, 2]], [[17, 2], [16, 1], [14, 1]], [[12, 2], [9, 1], [7, 1]], [[12, 4]]);
+PRIMAL.dawn.alts = [
+  { bpm: 56, prog: [[5, 'maj7'], [0, 'add9'], [5, 'maj7'], [7, 'sus4']], dens: 0.3, mel: 0.34 },
+  { bpm: 60, prog: [[0, 'sus2'], [9, 'm7'], [5, 'maj7'], [0, 'add9']], lead: 'ep', dens: 0.32, mel: 0.34 },
+];
+PRIMAL.day.alts = [
+  { bpm: 66, prog: [[5, 'maj7'], [0, 'maj7'], [5, 'add9'], [7, 'sus4']], lead: 'box', dens: 0.44, mel: 0.38 },
+  { bpm: 70, prog: [[0, 'add9'], [4, 'm7'], [5, 'maj7'], [7, 'six']], dens: 0.48, mel: 0.4 },
+];
+PRIMAL.dusk.alts = [
+  { bpm: 58, prog: [[5, 'maj7'], [0, 'maj7'], [2, 'm7'], [7, 'sus7']], dens: 0.36, mel: 0.3 },
+  { bpm: 62, prog: [[0, 'add9'], [5, 'maj7'], [0, 'maj7'], [7, 'sus4']], lead: 'box', dens: 0.34, mel: 0.3 },
+];
+PRIMAL.night.alts = [
+  { bpm: 50, prog: [[5, 'maj7'], [0, 'maj7'], [5, 'maj7'], [0, 'add9']], dens: 0.22, mel: 0.26 },
+  { bpm: 54, prog: [[0, 'add9'], [9, 'm7'], [5, 'maj7'], [7, 'sus4']], lead: 'ep', dens: 0.24, mel: 0.26 },
+];
+
 // 해역마다 조를 옮겨 같은 곡도 다르게 들린다 (열대는 높고 밝게, 심연은 낮게)
-const REGION_SHIFT = [0, 0, 2, -3, -1, 4, -4, -6, 3];
+const REGION_SHIFT = [0, 0, 2, -3, -1, 4, -4, -6, 3, 0];
 // 해역마다 음악의 성격이 다르다. 시간대의 곡 위에 그 바다의 빛깔을 입힌다 (전부 잔잔하게, 튀는 소리 없이).
 //   tempo 빠르기 배수 · dens 반주의 촘촘함 배수 · mel 가락의 잦기 배수 · lead 가락 악기 · scale 가락 음계
 //   minor 단조 화음 진행 · low 한 옥타브 낮게 · pulse 여린 북(몇 마디마다) · bell 먼 종소리(잦기) · arp 반짝이는 오름 가락 · drone 깔리는 낮은 음
@@ -71,6 +106,7 @@ const REGION_MUS = [null,
   { tempo: 0.9,  dens: 0.8,  mel: 0.75, minor: true, pulse: 2, drone: 0.03, old: 6 },                           // 6 화산 해역: 단조, 낮고 묵직한 맥박
   { tempo: 0.78, dens: 0.4,  mel: 0.5,  minor: true, low: true, lead: 'box', drone: 0.045, bell: 0.06, old: 7 },// 7 심연 해구: 느리고 어둡게, 거의 정적
   { tempo: 0.94, dens: 0.9,  mel: 0.9,  lead: 'box', arp: true, old: 8 },                                       // 8 환상의 바다: 꿈결, 옛 노래가 끝까지
+  { tempo: 1,    dens: 1,    mel: 1,    own: PRIMAL, old: 0 },                                                  // 9 태초의 바다: 이 바다만의 네 곡. 희망차고 잔잔하게
 ];
 const MINOR_PROGS = [[[0, 'm9'], [8, 'maj7'], [5, 'm7'], [7, 'm7']], [[0, 'm7'], [5, 'm7'], [8, 'maj7'], [7, 'm7']], [[5, 'm7'], [0, 'm9'], [8, 'maj7'], [3, 'maj7']]];
 const MINOR_SCALE = [0, 3, 5, 7, 10];
@@ -274,8 +310,9 @@ export function createEngine(ctx) {
     const b = beatN % song.beats;
     if (b === 0) {                                          // 마디가 바뀔 때 곡을 고른다
       const want = st.scene === 'harbor' ? 'harbor' : st.phase;
-      const base = SONGS[want] || SONGS.day;
-      if (want !== songId) { songId = want; song = base; variant = 0; barN = 0; }
+      const own = st.scene === 'harbor' ? null : (REGION_MUS[st.region] || {}).own;      // 그 해역만의 곡이 있으면 그것을 (태초의 바다)
+      const base = (own && own[want]) || SONGS[want] || SONGS.day, id = (own ? 'own_' : '') + want;
+      if (id !== songId) { songId = id; song = base; variant = 0; barN = 0; }
       else if (base.alts && barN > 0 && barN % 16 === 0) {            // 다른 곡으로 (방금 것은 빼고 고른다)
         let v = Math.floor(rand() * (base.alts.length + 1)); if (v === variant) v = (v + 1) % (base.alts.length + 1);
         variant = v; song = v === 0 ? base : { ...base, ...base.alts[v - 1], theme: null };
