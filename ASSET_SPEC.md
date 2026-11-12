@@ -1,6 +1,6 @@
 # 그래픽 에셋 제작 명령서 (GPT용)
 
-> 「Hori's Horizon — 호리의 수평선」의 **모든 그림**을 GPT로 만들기 위한 명령서.
+> 「Hori's Horizon — 호라이의 수평선」의 **모든 그림**을 GPT로 만들기 위한 명령서.
 > 기획 기준: [`GAME_DESIGN.md`](GAME_DESIGN.md)
 > **복사해서 바로 쓰는 프롬프트: [`GPT_PROMPTS.md`](GPT_PROMPTS.md)**
 > 총 **117회 생성** (그중 바다 생물 82회). 움직임·색 변형·크기 조절은 전부 코드가 한다.

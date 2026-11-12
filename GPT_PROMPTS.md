@@ -11287,7 +11287,7 @@ on the main branch, in the folder assets/raw/, with the file name c_sky_7b.png
 
 ---
 
-## ㉝ 제목: Hori's Horizon — 호리의 수평선
+## ㉝ 제목: Hori's Horizon — 호라이의 수평선
 
 ### 375. `ui_emblem` — 제목 엠블럼 (H 두 개와 낚싯대, 글자 없음)
 
@@ -11316,7 +11316,7 @@ on the main branch, in the folder assets/raw/, with the file name ui_emblem.png
 
 ---
 
-### 376. `ui_logo` — 제목 로고 (엠블럼 + Hori's Horizon + 호리의 수평선)
+### 376. `ui_logo` — 제목 로고 (엠블럼 + Hori's Horizon + 호라이의 수평선)
 
 ```
 Style references: open assets/raw/ui2_caught.png, assets/raw/h_panel.png and
@@ -11336,8 +11336,8 @@ The game's title logo, arranged as one composition:
   (capital H, o, r, i, apostrophe, s, space, capital H, o, r, i, z, o, n),
 - under it, on the second line, the Korean title in smaller cream-white rounded lettering
   with a dark-brown outline, spelled EXACTLY, character for character:
-  호리의 수평선
-  (six Korean characters with one space after the third: 호 리 의 [space] 수 평 선).
+  호라이의 수평선
+  (seven Korean characters with one space after the fourth: 호 라 이 의 [space] 수 평 선).
 A thin wavy line of sea runs under the two lines of text. No other text, no extra letters,
 no decoration that could be mistaken for a letter. Check the spelling of both lines before
 finishing; if any letter is wrong, redo the image.
