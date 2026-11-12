@@ -8,6 +8,7 @@ import { dexStage, dexCount, topRegion } from './goals.js';
 import { PRIMAL, PRIMAL_TEXT, spriteOf } from './primal.js';
 import { startTalk } from './story.js';
 import { DEX_TEXT } from './dexText.js';
+import { tr } from './i18n.js';
 import { RELICS } from './relics.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
@@ -23,6 +24,7 @@ function label(ctx, str, x, y, size, color, align = 'center', weight = 600, stro
 }
 function img(ctx, name, x, y, w, h) { const s = sprite(name); ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, x, y, w, h ?? w * s.h / s.w); return s; }
 function wrap(ctx, str, max) {
+  str = tr(str);      // 영어일 때는 옮긴 글을 줄바꿈한다
   const out = []; let line = '';
   for (const word of str.split(' ')) { const t = line ? line + ' ' + word : word; if (ctx.measureText(t).width > max && line) { out.push(line); line = word; } else line = t; }
   if (line) out.push(line);

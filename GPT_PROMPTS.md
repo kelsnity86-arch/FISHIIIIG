@@ -11791,3 +11791,60 @@ height as in the original (cut off at the same place at the bottom).
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_npc_market.png
 ```
+
+## ㊳ 영어판: 글자가 든 그림
+
+영어로 바꿔 볼 때 한글이 그대로 남는 그림은 이 두 장뿐이다. 글자만 영어로 바꾸고 나머지는 한 점도 바꾸지 않는다.
+
+### 391. `ui2_caught_en` — '낚았다!' 글자판 6개의 영어판
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/ui2_caught.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows six decorated wooden name plaques in a grid of 3 columns and 2 rows.
+Each plaque carries the same Korean word in big, chunky, rounded cartoon lettering, and
+each has its own colour and decoration (plain, leaves, water splashes, flames, golden
+laurel and so on).
+
+Make the same image again with ONLY the lettering changed: on every plaque replace the
+Korean word with the English word   Caught!   (capital C, lowercase "aught", one
+exclamation mark). Spell it exactly: C-a-u-g-h-t-!
+
+Keep everything else exactly as it is: the same six plaques in the same positions and
+sizes, the same frames, hooks, ropes, splashes, flames and sparkles, the same colours.
+The new lettering must use the same style as the old lettering on that plaque: the same
+fat rounded playful letters, the same fill colour and gradient, the same thick dark
+outline, the same slight tilt and bounce, and it must fill the plaque about as much as
+the old word did (do not let it touch or cross the frame).
+
+No other text anywhere. Same canvas size, same fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_caught_en.png
+```
+
+### 392. `ui2_stamp_en` — 도장 2개의 영어판 (첫 포획 · 신기록)
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/ui2_stamp.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows four items in one row. The first two are round rubber-stamp marks with
+Korean lettering inside (a red one and a second one). The third and fourth items (a ribbon
+and a badge) have no lettering.
+
+Make the same image again with ONLY the lettering of the first two stamps changed:
+- first stamp: replace the Korean lettering with   FIRST CATCH   (two lines: FIRST / CATCH)
+- second stamp: replace the Korean lettering with   NEW RECORD   (two lines: NEW / RECORD)
+Spell them exactly, all capitals.
+
+Keep everything else exactly as it is: the same four items in the same positions and
+sizes, the same round stamp rings, the same ink colour, the same worn, slightly uneven
+rubber-stamp texture, the same tilt. The new letters must look stamped in the same ink
+as the ring: bold, simple, slightly rough, and they must stay inside the ring. Leave the
+ribbon and the badge untouched.
+
+No other text anywhere. Same canvas size, same fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui2_stamp_en.png
+```

@@ -7,7 +7,10 @@
 //   뒤쪽 파도 / 빛줄기 / 생물의 물 위 부분 / 배·낚시꾼·낚싯대 / 낚싯줄·찌
 //   앞쪽 파도 / 물 폭발·몸부림 파도 / 물보라 조각
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN, TOUGH } from './config.js';
-import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
+import { sprite, hasSprite, creatureSprite, tinted, knownSprite } from './assets.js';
+import { EN } from './lang.js';
+// 글자가 든 그림: 영어판 그림(이름 끝에 _en)이 있으면 그것을, 없으면 한글 그림을 쓴다
+const worded = (name) => sprite(EN() && knownSprite(name + '_en') ? name + '_en' : name);
 import { fmt } from './economy.js';
 import { questLine, skinOn } from './goals.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
@@ -94,7 +97,7 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
 function drawCatchText(ctx, g) {
   const fx = g.catchFx;
   if (!fx) return;
-  const gi = fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;      // 태초의 생물은 등급이 하나라 '낚았다!' 글자도 하나(물결)로 같다
+  const gi = fx.gi, spr = worded('ui_caught_' + (gi + 1)), t = performance.now() / 1000;      // 태초의 생물은 등급이 하나라 '낚았다!' 글자도 하나(물결)로 같다
   const w = [150, 162, 176, 190, 208, 232][gi], h = w * spr.h / spr.w;
   const gone = fx.out != null ? clamp(fx.out / 0.25, 0, 1) : 0;
   const pop = easeOutBack(Math.min(1, fx.age / 0.32)) * (1 - 0.25 * gone);
@@ -167,7 +170,7 @@ function drawResultCard(ctx, g) {
   if (r.stamped) {
     const age = T - 1.0, k2 = Math.min(1, age / 0.16);
     const sc = lerp(2.8, 1, 1 - Math.pow(1 - k2, 3));
-    const st = sprite(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
+    const st = worded(r.isNew ? 'ui_stamp_new' : 'ui_stamp_record');
     ctx.save();
     ctx.globalAlpha = e * Math.min(1, k2 * 2);
     ctx.translate(wn[2] - 5, wn[1] + 4); ctx.rotate(-0.2); ctx.scale(sc, sc);     // 틀 모서리에 걸쳐 찍는다: 생물을 가리지 않게

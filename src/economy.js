@@ -1,3 +1,4 @@
+import { EN } from './lang.js';
 // 성장(인크리멘탈) 수치. tools/sim_game.mjs (실제 게임 수치와 직접 잰 낚는 시간으로 끝까지 돌려 보는 계산기)로 맞춘 값: 처음부터 끝까지 같은 속도(해역마다 20~30분),
 // 약 16초마다 한 번 살 것이 생기고, 해역을 넘을 때마다 수입이 수십 배가 된다. 전체 약 3시간.
 export const POWER_X = 4;        // 해역마다 생물의 힘
@@ -128,6 +129,6 @@ export function buy(g, kind, id) {
 export function fmt(n) {
   n = Math.floor(n);
   if (n < 1e5) return n.toLocaleString('ko-KR');
-  for (const [v, u] of [[1e16, '경'], [1e12, '조'], [1e8, '억'], [1e4, '만']]) if (n >= v) return (n / v).toFixed(n / v < 100 ? 1 : 0) + u;
+  for (const [v, u] of EN() ? [[1e15, 'Q'], [1e12, 'T'], [1e9, 'B'], [1e6, 'M'], [1e3, 'K']] : [[1e16, '경'], [1e12, '조'], [1e8, '억'], [1e4, '만']]) if (n >= v) return (n / v).toFixed(n / v < 100 ? 1 : 0) + u;
   return String(n);
 }

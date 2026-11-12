@@ -7,6 +7,7 @@ import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
 import { openSettings, updateSettings } from './settings.js';
+import { scriptLine, finaleLine } from './i18n.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -136,7 +137,7 @@ const SKIP = { x: BOX.x + BOX.w - 30, y: BOX.y - 8 };
 export function tapTalk(g, x, y) {
   const t = g.talk; if (!t || t.closing != null) return;
   if (x != null && Math.abs(x - SKIP.x) < 36 && Math.abs(y - SKIP.y) < 13) { t.queue.length = 0; t.closing = 0; g.sfx.push(['tap']); return; }
-  const len = t.lines[t.i][1].length;
+  const len = scriptLine(t.key, t.i, t.lines[t.i][1]).length;
   if (t.t * CPS < len) { t.t = len / CPS; return; }
   g.sfx.push(['tap']);
   if (t.i + 1 < t.lines.length) { t.i++; t.t = 0; t.swap = 0; }
@@ -300,7 +301,7 @@ function drawFinale(ctx, g, m) {
   if (m.t > 0.6 + 12 * 0.35) {
     const e = ease(m.swap);
     ctx.globalAlpha = a * e;
-    label(ctx, FINALE[m.i], W / 2, 196 + (1 - e) * 5, 13, '#fff4dc', 'center', 600, 'rgba(6,11,28,0.7)');
+    label(ctx, finaleLine(m.i, FINALE[m.i]), W / 2, 196 + (1 - e) * 5, 13, '#fff4dc', 'center', 600, 'rgba(6,11,28,0.7)');
     if (m.swap >= 1) { ctx.globalAlpha = a * (0.5 + 0.4 * Math.sin(g.time * 4)); label(ctx, '▾', W / 2, 232, 11, '#fff4dc', 'center', 700, null); }
   } else m.swap = 0;
   ctx.restore();
@@ -397,7 +398,7 @@ export function drawSkip(ctx, g) {
 
 export function drawTalk(ctx, g) {
   const t = g.talk; if (!t) return;
-  const a = ease(t.a), [who, str] = t.lines[t.i], b = BOX, y = b.y + (1 - a) * 14;
+  const a = ease(t.a), [who, str0] = t.lines[t.i], str = scriptLine(t.key, t.i, str0), b = BOX, y = b.y + (1 - a) * 14;
   ctx.save(); ctx.globalAlpha = a; ctx.imageSmoothingEnabled = true;
   // 말하는 사람: 대화창 왼쪽에 서 있다
   const np = 'h_npc_' + who;

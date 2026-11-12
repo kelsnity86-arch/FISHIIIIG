@@ -5,12 +5,15 @@ import { pointer } from './harbor.js';
 import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { topRegion } from './goals.js';
+import { tr, EN } from './i18n.js';
 import { maxScale, applyRes, closeSettings, openPause, updateSettings, dragSettings, dropSettings } from './settings.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, setScene } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
+// 영어일 때는 글자를 그리기 직전에 바꿔 그린다 (재는 것도 같은 글로 재야 자리가 맞는다)
+for (const fn of ['fillText', 'strokeText', 'measureText']) { const o = ctx[fn].bind(ctx); ctx[fn] = (s, ...a) => { const v = tr(s); if (EN() && typeof v === 'string' && /[가-힣]/.test(v)) (window.__untr || (window.__untr = new Set())).add(s); return o(v, ...a); }; }      // __untr: 영어로 못 옮긴 글 (검사용)
 let scale = 1;
 
 // 창 크기에 맞춤. 가능하면 정수배(도트가 고르게 보임), 너무 작아지면 꽉 채운다.

@@ -3,6 +3,7 @@ import { W, COLORS } from './config.js';
 import { sprite } from './assets.js';
 import { initAudio, getVol, setVol, playSfx } from './audio.js';
 import { IS_PC, vibeLv, nextVibe } from './haptic.js';
+import { L, langName, nextLang } from './lang.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v)), easeOut = (t) => 1 - Math.pow(1 - t, 3);
@@ -39,20 +40,22 @@ function rows(mode) {
   if (IS_PC) out.push({ id: 'res', name: '창 크기', value: resName(), desc: '창 크기 · 가로세로 생김새는 그대로 (F11 = 화면 가득)' });
   else {
     out.push({ id: 'qual', name: '화질', value: QUAL[qual][0], desc: '낮을수록 폰이 덜 뜨거워집니다' });
-    out.push({ id: 'vibe', name: '진동', value: vibeLv() ? vibeLv() + '단계' : '끔', desc: VIBE_DESC[vibeLv()] });
+    out.push({ id: 'vibe', name: '진동', value: vibeLv() ? L(vibeLv() + '단계', 'Level ' + vibeLv()) : '끔', desc: VIBE_DESC[vibeLv()] });
   }
+  out.push({ id: 'lang', name: L('언어', 'Language'), value: langName(), desc: L('Switch to English', '한국어로 바꿉니다') });
   return out;
 }
 function act(id) {
   if (id === 'res') { res = (res + 1) % RES.length; put('hori-res', res); applyRes(); }
   else if (id === 'qual') { qual = (qual + 1) % QUAL.length; put('hori-quality', qual); window.dispatchEvent(new Event('resize')); }
   else if (id === 'vibe') nextVibe();
+  else if (id === 'lang') nextLang();
 }
 
 // 가게 판과 같은 자리·크기
 const PANEL = { x: 182, y: 28, w: 364 }, PS = PANEL.w / 336;
 const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
-const rowRect = (i, mode) => ({ x: PANEL.x + 30, y: PANEL.y + (mode === 'set' ? 164 : 93) + i * 47.5, w: 304, h: 45.5 });      // 설정에서는 소리 막대 세 줄 아래에
+const rowRect = (i, mode) => ({ x: PANEL.x + 30, y: PANEL.y + (mode === 'set' ? 159 + i * 41 : 93 + i * 47.5), w: 304, h: mode === 'set' ? 40 : 45.5 });      // 설정에서는 소리 막대 세 줄 아래에
 // 소리 크기 막대 (설정 판 위쪽에 세 줄): 누르거나 끌어서 0~100 사이에서 정한다
 const SLIDERS = [['mus', '배경음'], ['sfx', '효과음'], ['amb', '환경음']];
 const BAR = { x: PANEL.x + 140, w: 142, x0: 0.05, x1: 0.968 };      // 막대의 폭과, 그 안에서 홈이 차지하는 자리
