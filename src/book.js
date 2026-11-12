@@ -118,7 +118,7 @@ export function tapDex(g, x, y) {
 function creature(ctx, name, cx, cy, maxW, maxH) {
   if (!hasSprite(name)) return;
   const s = sprite(name), k = Math.min(maxW / s.w, maxH / s.h);
-  ctx.imageSmoothingEnabled = false;
+  ctx.imageSmoothingEnabled = !!s.smooth;      // 도트 생물은 또렷하게, 붓 그림(태초의 생물)은 부드럽게
   ctx.drawImage(s.img, cx - s.w * k / 2, cy - s.h * k / 2, s.w * k, s.h * k);
   ctx.imageSmoothingEnabled = true;
 }

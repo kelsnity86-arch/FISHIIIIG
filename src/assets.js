@@ -156,7 +156,7 @@ function loadOne(name) {
   const info = manifest[name];
   if (!info) return Promise.resolve();
   // ox·oy = 기준점에서 그림 왼쪽 위까지(배), slot = 게이지 홈의 자리, water = 찌에서 수면이 걸리는 높이
-  const meta = { w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h, ox: info.ox, oy: info.oy, slot: info.slot, water: info.water, hole: info.hole };
+  const meta = { w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h, ox: info.ox, oy: info.oy, slot: info.slot, water: info.water, hole: info.hole, dw: info.dw };
   const p = info.atlas
     // 여러 그림을 한 장에 묶은 것: 묶음 그림을 한 번만 받고, 필요한 칸을 잘라 쓴다
     ? loadImage(info.atlas).then((img) => {
@@ -200,6 +200,8 @@ const EMPTY = (() => { const c = document.createElement('canvas'); c.width = c.h
 const missing = new Set(); if (typeof window !== 'undefined') window.__missing = missing;
 export function sprite(name) { return sprites[name] || (missing.add(name), EMPTY); }
 export function hasSprite(name) { return !!sprites[name]; }
+// 그림 목록에 있는가 (아직 받지 않은 생물 그림도 안다)
+export function knownSprite(name) { return !!manifest[name]; }
 
 // 생물 그림. surprised=true 면 놀란 표정(<이름>_s). 그림이 없으면 임시 체형.
 export function creatureSprite(name, surprised = false) {

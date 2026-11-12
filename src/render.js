@@ -126,6 +126,8 @@ const CARD = [
   { win: [0.091, 0.2, 0.909, 0.608], name: [0.12, 0.656, 0.884, 0.745], stat: [0.12, 0.772, 0.884, 0.86] },
   { win: [0.108, 0.23, 0.892, 0.617], name: [0.132, 0.664, 0.872, 0.749], stat: [0.136, 0.774, 0.868, 0.86] },
 ];
+// 태초 등급의 카드 틀 (tools/slice_primal.py 가 잰 값)
+const CARD7 = { win: [0.1, 0.147, 0.9, 0.621], name: [0.143, 0.667, 0.857, 0.749], stat: [0.135, 0.777, 0.831, 0.865] };
 // 글자를 칸 한가운데에 놓는다. 칸보다 길면 글자를 줄인다.
 function fitText(ctx, str, box, size, font, weight, color) {
   ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';     // 재기 전에 기준선부터: 기준선이 다르면 잰 높이가 틀어진다
@@ -137,7 +139,7 @@ function fitText(ctx, str, box, size, font, weight, color) {
   ctx.fillText(str, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 + (asc - desc) / 2);     // 실제 글자 높이의 가운데를 칸의 가운데에
 }
 function drawResultCard(ctx, g) {
-  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite(f.fixedSize && hasSprite('ui_card_7') ? 'ui_card_7' : 'ui_card_' + (gi + 1)), L = CARD[gi];      // 태초 등급의 카드 틀 (그림이 오기 전에는 원래 틀)
+  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), p7 = f.fixedSize && hasSprite('ui_card_7'), fr = sprite(p7 ? 'ui_card_7' : 'ui_card_' + (gi + 1)), L = p7 ? CARD7 : CARD[gi];      // 태초 등급의 카드 틀 (그림이 오기 전에는 원래 틀)
   const r = g.result, T = r.age || 0, gone = r.out != null ? clamp(r.out / 0.25, 0, 1) : 0;
   const k = clamp(T / 0.3, 0, 1), e = (1 - Math.pow(1 - k, 3)) * (1 - gone);
   const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26 + gone * 10;   // 왼쪽 아래: 생물과 배를 가리지 않는다
@@ -148,7 +150,7 @@ function drawResultCard(ctx, g) {
   const wn = box(L.win), ww = wn[2] - wn[0], wh = wn[3] - wn[1];
   ctx.fillStyle = '#f3e3c2'; ctx.fillRect(wn[0] - 3, wn[1] - 3, ww + 6, wh + 6);
   const spr = sprite(f.sprite), fit = Math.min(ww * 0.78 / spr.w, wh * 0.78 / spr.h);
-  ctx.imageSmoothingEnabled = false;
+  ctx.imageSmoothingEnabled = !!spr.smooth;      // 도트 생물은 또렷하게, 붓 그림(태초의 생물)은 부드럽게
   ctx.drawImage(spr.img, (wn[0] + wn[2]) / 2 - spr.w * fit / 2, (wn[1] + wn[3]) / 2 - spr.h * fit / 2, spr.w * fit, spr.h * fit);
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(fr.img, cx, cy, cw, ch);
@@ -517,7 +519,7 @@ function drawLeap(ctx, g, under) {
     const w = c.lw * c.fit * c.scale * pop * over * (flop ? step[3] : 1), h = w * base.h / base.w;
     // 놀람 그림은 평소 그림과 몸 크기가 같게, 왼쪽 아래를 맞춰 겹친다 (땀방울만큼 위·오른쪽으로 더 나온다)
     const k = w / base.sw, w2 = spr.sw * k, h2 = spr.sh * k;
-    ctx.imageSmoothingEnabled = false;             // 도트는 네모 그대로
+    ctx.imageSmoothingEnabled = !!spr.smooth;      // 도트는 네모 그대로, 붓 그림(태초의 생물)은 부드럽게
     ctx.globalAlpha = c.alpha;
     ctx.translate(c.x, c.y + (flop ? step[1] * c.lw : 0));
     ctx.rotate(c.rot + (flop ? step[0] : 0));

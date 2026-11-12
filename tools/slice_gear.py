@@ -30,7 +30,7 @@ def runs(prof, gap, minlen=12):
 
 def boats(items, extra):
     base = rgba('c_boat'); H, W = base.shape[:2]; cw = W // 3
-    for t in range(2, 9):
+    for t in range(2, 10):                                         # 9 = 태초의 차림 (통나무배)
         p = RAW / f'c_boat_t{t}.png'
         if not p.exists(): continue
         new = rgba(f'c_boat_t{t}')
@@ -144,6 +144,20 @@ def run(manifest):
             name = f'h_boat_big_{i + 1}'; im = Image.fromarray(a[y0:y1, x0:x1])
             items.append((name, im)); extra[name] = dict(w=round((x1 - x0) * k, 2), h=round((y1 - y0) * k, 2), smooth=True)
         print(src + ': 8개', [extra[f'h_boat_big_{i + 1}']['w'] for i in range(8)], [extra[f'h_boat_big_{i + 1}']['h'] for i in range(8)])
+        # 태초의 차림: 통나무배. 4단계 배만 한 길이로 놓는다
+        if (RAW / 'h_boat_9.png').exists():
+            b = rgba('h_boat_9'); x0, y0, x1, y1 = bbox(b[..., 3] > 40); w = extra['h_boat_big_4']['w']
+            items.append(('h_boat_big_9', Image.fromarray(b[y0:y1, x0:x1]))); extra['h_boat_big_9'] = dict(w=w, h=round(w * (y1 - y0) / (x1 - x0), 2), smooth=True)
+    # 태초의 차림: 찌·목도리·낚싯대·게이지 틀 (한 장에 네 줄)
+    if (RAW / 'p_skins.png').exists():
+        a = rgba('p_skins'); m = a[..., 3] > 40; rs = runs(m.sum(axis=1), 6); assert len(rs) == 4, rs
+        specs = [('c_float_9', fl, 200), ('c_scarf_9', lambda i, p, bs: (dict(w=26.0, h=round(26 * p.shape[0] / p.shape[1], 2)), 420), 420),
+                 ('c_rod_9', lambda i, p, bs: (dict(w=44, h=round(44 * p.shape[0] / p.shape[1], 2)), 704), 704), ('ui_tension_9', tn, 900)]
+        for (r0, r1), (name, size, _) in zip(rs, specs):
+            x0, y0, x1, y1 = bbox(m[r0:r1]); piece = a[r0 + y0:r0 + y1, x0:x1]; meta, px = size(0, piece, None)
+            im = Image.fromarray(piece)
+            if im.width > px: im = im.resize((px, max(1, round(im.height * px / im.width))), Image.LANCZOS)
+            items.append((name, im)); extra[name] = dict(smooth=True, **meta); print(name, meta)
     pack(items, extra, 'gear.webp', manifest)
 
 

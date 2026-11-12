@@ -398,15 +398,15 @@
 | 376 | `ui_logo` | 제목 로고: 엠블럼 + "Hori's Horizon" + "호라이의 수평선" | DONE | 통과. 영문·한글 철자 모두 맞다 |
 | 377 | `h_shop_marks` | 가게 판 둥근 창: 가게 상징 6개 (저울과 생선·엇갈린 낚싯대·닻과 망치·실패와 목도리·길드 문장·종) | DONE | 통과 |
 | 378 | `h_port_rims` | 가게 판 둥근 창: 마을 등급별 테두리 5단계 (가운데는 뚫린 고리) | DONE | 통과. 다시 그린 것은 장식이 고리 아래로 내려오지 않는다. 다섯 개 모두 새 그림을 쓴다 |
-| 379 | `c_sky_9` | 태초의 바다: 하늘 (사람이 만든 것이 하나도 없는 맑은 새벽) | **TODO** | |
-| 380 | `c_sea_9` | 태초의 바다: 물속 단면 (아무것도 없는 맑은 물) | **TODO** | |
-| 381 | `map_pin_9` | 해도 표식: 태초의 바다 | **TODO** | |
-| 382 | `p_fish_a` | 태초의 바다 생물 6종 (멸치·고등어·망둥어·새우·쥐치·넙치) · 항구·사람 그림과 같은 동화풍 붓 그림 | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png, with gentle storybook eyes (the realistic fish eyes looked scary). |
-| 383 | `p_fish_b` | 태초의 바다 생물 6종 (게·돔·복어·날치·오징어·나비고기) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png, with gentle storybook eyes (the realistic fish eyes looked scary). |
-| 384 | `p_fish_c` | 태초의 바다 생물 6종 (해마·문어·장어·가오리·철갑상어·바다거북) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png, with gentle storybook eyes (the realistic fish eyes looked scary). |
-| 385 | `p_fish_d` | 태초의 바다 생물 6종 (돌고래·다랑어·청새치·개복치·상어·고래) | **REDO** | The prompt was rewritten: read prompt again in GPT_PROMPTS.md. The first version came out as a realistic scientific illustration. It must be a soft storybook painting like the fish held by the fishmonger in h_npc.png, with gentle storybook eyes (the realistic fish eyes looked scary). |
-| 386 | `ui_card_7` | 태초 등급: 낚았을 때 카드 틀 (물에 씻긴 나무·갈대·조개) | **TODO** | |
-| 387 | `p_skins` | 태초의 차림: 찌·목도리·낚싯대·줄다리기 게이지 틀 (4줄) | **TODO** | |
-| 388 | `c_boat_t9` | 태초의 차림: 배 (바다에서, 낚시꾼 자세 3장. 8단계 그림에서 배만 바꾸기) | **TODO** | |
-| 389 | `h_boat_9` | 태초의 차림: 배 (항구에 매어 둔 모습) | **TODO** | |
-| 390 | `h_npc_market` | 생선 장수: 안고 있는 통물고기를 없애고 손저울과 얇은 장부를 들게 (한 사람만) | **TODO** | |
+| 379 | `c_sky_9` | 태초의 바다: 하늘 (사람이 만든 것이 하나도 없는 맑은 새벽) | DONE | 통과 |
+| 380 | `c_sea_9` | 태초의 바다: 물속 단면 (아무것도 없는 맑은 물) | DONE | 통과 |
+| 381 | `map_pin_9` | 해도 표식: 태초의 바다 | DONE | 통과 |
+| 382 | `p_fish_a` | 태초의 바다 생물 6종 (멸치·고등어·망둥어·새우·쥐치·넙치) · 항구·사람 그림과 같은 동화풍 붓 그림 | DONE | 통과. 다시 그린 것은 사람들 그림과 같은 동화풍이고 눈이 순하다 |
+| 383 | `p_fish_b` | 태초의 바다 생물 6종 (게·돔·복어·날치·오징어·나비고기) | DONE | 통과 |
+| 384 | `p_fish_c` | 태초의 바다 생물 6종 (해마·문어·장어·가오리·철갑상어·바다거북) | DONE | 통과 |
+| 385 | `p_fish_d` | 태초의 바다 생물 6종 (돌고래·다랑어·청새치·개복치·상어·고래) | DONE | 통과 |
+| 386 | `ui_card_7` | 태초 등급: 낚았을 때 카드 틀 (물에 씻긴 나무·갈대·조개) | DONE | 통과 |
+| 387 | `p_skins` | 태초의 차림: 찌·목도리·낚싯대·줄다리기 게이지 틀 (4줄) | DONE | 통과 |
+| 388 | `c_boat_t9` | 태초의 차림: 배 (바다에서, 낚시꾼 자세 3장. 8단계 그림에서 배만 바꾸기) | DONE | 통과 |
+| 389 | `h_boat_9` | 태초의 차림: 배 (항구에 매어 둔 모습) | DONE | 통과 |
+| 390 | `h_npc_market` | 생선 장수: 안고 있는 통물고기를 없애고 손저울과 얇은 장부를 들게 (한 사람만) | DONE | 통과. 손저울이 판에 가리지 않게 게임에서는 좌우를 뒤집어 세운다 |

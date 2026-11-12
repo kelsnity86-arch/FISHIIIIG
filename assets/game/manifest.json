@@ -11451,12 +11451,15 @@
    "smooth": true
   },
   "h_npc_market": {
-   "atlas": "h_atlas.webp",
-   "ax": 906,
+   "atlas": "primal.webp",
+   "ax": 1641,
    "ay": 0,
-   "w": 300,
-   "h": 398,
-   "smooth": true
+   "pw": 310,
+   "ph": 400,
+   "w": 310,
+   "h": 400,
+   "smooth": true,
+   "dw": 106.93
   },
   "ui_ic_harbor": {
    "atlas": "h_atlas.webp",
@@ -12951,7 +12954,7 @@
   "h_boat_big_8": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 695,
+   "ay": 1030,
    "pw": 774,
    "ph": 215,
    "w": 194.11,
@@ -12961,7 +12964,7 @@
   "h_boat_big_4": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 1114,
+   "ay": 1449,
    "pw": 579,
    "ph": 176,
    "w": 145.2,
@@ -12971,7 +12974,7 @@
   "h_boat_big_7": {
    "atlas": "gear.webp",
    "ax": 776,
-   "ay": 695,
+   "ay": 1030,
    "pw": 658,
    "ph": 202,
    "w": 165.02,
@@ -12981,7 +12984,7 @@
   "h_boat_big_3": {
    "atlas": "gear.webp",
    "ax": 1230,
-   "ay": 912,
+   "ay": 1247,
    "pw": 425,
    "ph": 186,
    "w": 106.58,
@@ -12991,7 +12994,7 @@
   "h_boat_big_6": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 912,
+   "ay": 1247,
    "pw": 666,
    "ph": 200,
    "w": 167.02,
@@ -13001,7 +13004,7 @@
   "h_boat_big_5": {
    "atlas": "gear.webp",
    "ax": 668,
-   "ay": 912,
+   "ay": 1247,
    "pw": 560,
    "ph": 194,
    "w": 140.44,
@@ -13011,7 +13014,7 @@
   "h_boat_big_2": {
    "atlas": "gear.webp",
    "ax": 581,
-   "ay": 1114,
+   "ay": 1449,
    "pw": 455,
    "ph": 149,
    "w": 114.11,
@@ -13021,7 +13024,7 @@
   "c_boat_t5_3": {
    "atlas": "gear.webp",
    "ax": 1038,
-   "ay": 1114,
+   "ay": 1449,
    "pw": 216,
    "ph": 142,
    "w": 36.0,
@@ -13032,8 +13035,8 @@
   },
   "c_boat_t2_3": {
    "atlas": "gear.webp",
-   "ax": 1256,
-   "ay": 1114,
+   "ax": 1467,
+   "ay": 1449,
    "pw": 213,
    "ph": 140,
    "w": 35.58,
@@ -13044,8 +13047,8 @@
   },
   "c_boat_t3_3": {
    "atlas": "gear.webp",
-   "ax": 1471,
-   "ay": 1114,
+   "ax": 1682,
+   "ay": 1449,
    "pw": 230,
    "ph": 140,
    "w": 38.3,
@@ -13056,8 +13059,8 @@
   },
   "c_boat_t6_3": {
    "atlas": "gear.webp",
-   "ax": 1703,
-   "ay": 1114,
+   "ax": 0,
+   "ay": 1627,
    "pw": 211,
    "ph": 140,
    "w": 35.09,
@@ -13068,8 +13071,8 @@
   },
   "c_boat_t7_3": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1292,
+   "ax": 213,
+   "ay": 1627,
    "pw": 213,
    "ph": 140,
    "w": 35.46,
@@ -13080,8 +13083,8 @@
   },
   "c_boat_t4_3": {
    "atlas": "gear.webp",
-   "ax": 215,
-   "ay": 1292,
+   "ax": 428,
+   "ay": 1627,
    "pw": 216,
    "ph": 139,
    "w": 36.0,
@@ -13092,8 +13095,8 @@
   },
   "c_boat_t8_3": {
    "atlas": "gear.webp",
-   "ax": 433,
-   "ay": 1292,
+   "ax": 646,
+   "ay": 1627,
    "pw": 226,
    "ph": 139,
    "w": 37.69,
@@ -13104,8 +13107,8 @@
   },
   "ui_tension_1": {
    "atlas": "gear.webp",
-   "ax": 661,
-   "ay": 1292,
+   "ax": 0,
+   "ay": 1769,
    "pw": 900,
    "ph": 122,
    "smooth": true,
@@ -13120,8 +13123,8 @@
   },
   "ui_tension_3": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1434,
+   "ax": 902,
+   "ay": 1769,
    "pw": 900,
    "ph": 122,
    "smooth": true,
@@ -13136,8 +13139,8 @@
   },
   "ui_tension_2": {
    "atlas": "gear.webp",
-   "ax": 902,
-   "ay": 1434,
+   "ax": 0,
+   "ay": 1893,
    "pw": 900,
    "ph": 121,
    "smooth": true,
@@ -13152,8 +13155,8 @@
   },
   "ui_tension_4": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1558,
+   "ax": 902,
+   "ay": 1893,
    "pw": 900,
    "ph": 121,
    "smooth": true,
@@ -13168,8 +13171,8 @@
   },
   "ui_tension_6": {
    "atlas": "gear.webp",
-   "ax": 902,
-   "ay": 1558,
+   "ax": 0,
+   "ay": 2016,
    "pw": 900,
    "ph": 120,
    "smooth": true,
@@ -13184,8 +13187,8 @@
   },
   "ui_tension_8": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1681,
+   "ax": 902,
+   "ay": 2016,
    "pw": 900,
    "ph": 120,
    "smooth": true,
@@ -13200,8 +13203,8 @@
   },
   "c_boat_t5_1": {
    "atlas": "gear.webp",
-   "ax": 902,
-   "ay": 1681,
+   "ax": 1804,
+   "ay": 2016,
    "pw": 207,
    "ph": 118,
    "w": 34.48,
@@ -13212,8 +13215,8 @@
   },
   "ui_tension_7": {
    "atlas": "gear.webp",
-   "ax": 1111,
-   "ay": 1681,
+   "ax": 0,
+   "ay": 2138,
    "pw": 900,
    "ph": 118,
    "smooth": true,
@@ -13228,8 +13231,8 @@
   },
   "ui_tension_5": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1803,
+   "ax": 902,
+   "ay": 2138,
    "pw": 900,
    "ph": 117,
    "smooth": true,
@@ -13244,8 +13247,8 @@
   },
   "c_boat_t3_1": {
    "atlas": "gear.webp",
-   "ax": 902,
-   "ay": 1803,
+   "ax": 1804,
+   "ay": 2138,
    "pw": 224,
    "ph": 116,
    "w": 37.34,
@@ -13256,8 +13259,8 @@
   },
   "c_boat_t4_1": {
    "atlas": "gear.webp",
-   "ax": 1128,
-   "ay": 1803,
+   "ax": 0,
+   "ay": 2258,
    "pw": 217,
    "ph": 116,
    "w": 36.12,
@@ -13268,8 +13271,8 @@
   },
   "c_boat_t6_1": {
    "atlas": "gear.webp",
-   "ax": 1347,
-   "ay": 1803,
+   "ax": 219,
+   "ay": 2258,
    "pw": 209,
    "ph": 116,
    "w": 34.85,
@@ -13280,8 +13283,8 @@
   },
   "c_boat_t7_1": {
    "atlas": "gear.webp",
-   "ax": 1558,
-   "ay": 1803,
+   "ax": 430,
+   "ay": 2258,
    "pw": 213,
    "ph": 116,
    "w": 35.45,
@@ -13292,8 +13295,8 @@
   },
   "c_boat_t2_1": {
    "atlas": "gear.webp",
-   "ax": 1773,
-   "ay": 1803,
+   "ax": 645,
+   "ay": 2258,
    "pw": 211,
    "ph": 115,
    "w": 35.21,
@@ -13304,8 +13307,8 @@
   },
   "c_boat_t5_2": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 1922,
+   "ax": 858,
+   "ay": 2258,
    "pw": 220,
    "ph": 115,
    "w": 36.67,
@@ -13316,8 +13319,8 @@
   },
   "c_boat_t8_1": {
    "atlas": "gear.webp",
-   "ax": 222,
-   "ay": 1922,
+   "ax": 1285,
+   "ay": 2258,
    "pw": 214,
    "ph": 114,
    "w": 35.64,
@@ -13328,8 +13331,8 @@
   },
   "c_boat_t3_2": {
    "atlas": "gear.webp",
-   "ax": 438,
-   "ay": 1922,
+   "ax": 1501,
+   "ay": 2258,
    "pw": 242,
    "ph": 113,
    "w": 40.3,
@@ -13340,8 +13343,8 @@
   },
   "c_boat_t6_2": {
    "atlas": "gear.webp",
-   "ax": 682,
-   "ay": 1922,
+   "ax": 1745,
+   "ay": 2258,
    "pw": 217,
    "ph": 113,
    "w": 36.18,
@@ -13352,8 +13355,8 @@
   },
   "c_boat_t2_2": {
    "atlas": "gear.webp",
-   "ax": 901,
-   "ay": 1922,
+   "ax": 0,
+   "ay": 2376,
    "pw": 223,
    "ph": 112,
    "w": 37.21,
@@ -13364,8 +13367,8 @@
   },
   "c_boat_t4_2": {
    "atlas": "gear.webp",
-   "ax": 1126,
-   "ay": 1922,
+   "ax": 225,
+   "ay": 2376,
    "pw": 217,
    "ph": 112,
    "w": 36.12,
@@ -13376,8 +13379,8 @@
   },
   "c_boat_t7_2": {
    "atlas": "gear.webp",
-   "ax": 1345,
-   "ay": 1922,
+   "ax": 444,
+   "ay": 2376,
    "pw": 212,
    "ph": 112,
    "w": 35.39,
@@ -13388,8 +13391,8 @@
   },
   "c_boat_t8_2": {
    "atlas": "gear.webp",
-   "ax": 1559,
-   "ay": 1922,
+   "ax": 873,
+   "ay": 2376,
    "pw": 228,
    "ph": 110,
    "w": 38.0,
@@ -13400,8 +13403,8 @@
   },
   "h_boat_big_1": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 2039,
+   "ax": 1103,
+   "ay": 2376,
    "pw": 319,
    "ph": 92,
    "w": 80.0,
@@ -13410,8 +13413,8 @@
   },
   "c_scarf_1": {
    "atlas": "gear.webp",
-   "ax": 321,
-   "ay": 2039,
+   "ax": 706,
+   "ay": 2490,
    "pw": 420,
    "ph": 43,
    "smooth": true,
@@ -13420,8 +13423,8 @@
   },
   "c_scarf_3": {
    "atlas": "gear.webp",
-   "ax": 743,
-   "ay": 2039,
+   "ax": 1128,
+   "ay": 2490,
    "pw": 420,
    "ph": 42,
    "smooth": true,
@@ -13430,8 +13433,8 @@
   },
   "c_scarf_2": {
    "atlas": "gear.webp",
-   "ax": 1165,
-   "ay": 2039,
+   "ax": 1550,
+   "ay": 2490,
    "pw": 420,
    "ph": 39,
    "smooth": true,
@@ -13440,8 +13443,8 @@
   },
   "c_scarf_5": {
    "atlas": "gear.webp",
-   "ax": 1587,
-   "ay": 2039,
+   "ax": 422,
+   "ay": 2561,
    "pw": 420,
    "ph": 35,
    "smooth": true,
@@ -13450,8 +13453,8 @@
   },
   "c_scarf_4": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 2133,
+   "ax": 844,
+   "ay": 2561,
    "pw": 420,
    "ph": 31,
    "smooth": true,
@@ -13460,8 +13463,8 @@
   },
   "c_rod_8": {
    "atlas": "gear.webp",
-   "ax": 422,
-   "ay": 2133,
+   "ax": 1266,
+   "ay": 2561,
    "pw": 704,
    "ph": 23,
    "smooth": true,
@@ -13470,8 +13473,8 @@
   },
   "c_scarf_6": {
    "atlas": "gear.webp",
-   "ax": 1128,
-   "ay": 2133,
+   "ax": 0,
+   "ay": 2601,
    "pw": 420,
    "ph": 22,
    "smooth": true,
@@ -13480,8 +13483,8 @@
   },
   "c_rod_4": {
    "atlas": "gear.webp",
-   "ax": 0,
-   "ay": 2166,
+   "ax": 422,
+   "ay": 2601,
    "pw": 704,
    "ph": 21,
    "smooth": true,
@@ -13490,8 +13493,8 @@
   },
   "c_rod_6": {
    "atlas": "gear.webp",
-   "ax": 706,
-   "ay": 2166,
+   "ax": 1128,
+   "ay": 2601,
    "pw": 704,
    "ph": 21,
    "smooth": true,
@@ -13501,7 +13504,7 @@
   "c_rod_7": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 2189,
+   "ay": 2625,
    "pw": 704,
    "ph": 21,
    "smooth": true,
@@ -13511,7 +13514,7 @@
   "c_scarf_7": {
    "atlas": "gear.webp",
    "ax": 706,
-   "ay": 2189,
+   "ay": 2625,
    "pw": 420,
    "ph": 21,
    "smooth": true,
@@ -13521,7 +13524,7 @@
   "c_rod_1": {
    "atlas": "gear.webp",
    "ax": 1128,
-   "ay": 2189,
+   "ay": 2625,
    "pw": 704,
    "ph": 20,
    "smooth": true,
@@ -13531,7 +13534,7 @@
   "c_rod_3": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 2212,
+   "ay": 2648,
    "pw": 704,
    "ph": 20,
    "smooth": true,
@@ -13541,7 +13544,7 @@
   "c_rod_5": {
    "atlas": "gear.webp",
    "ax": 706,
-   "ay": 2212,
+   "ay": 2648,
    "pw": 704,
    "ph": 20,
    "smooth": true,
@@ -13551,7 +13554,7 @@
   "c_scarf_8": {
    "atlas": "gear.webp",
    "ax": 1412,
-   "ay": 2212,
+   "ay": 2648,
    "pw": 420,
    "ph": 20,
    "smooth": true,
@@ -13561,7 +13564,7 @@
   "c_rod_2": {
    "atlas": "gear.webp",
    "ax": 0,
-   "ay": 2234,
+   "ay": 2670,
    "pw": 704,
    "ph": 19,
    "smooth": true,
@@ -13719,6 +13722,371 @@
     0.625,
     0.3331
    ]
+  },
+  "h_boat_big_9": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 695,
+   "pw": 1617,
+   "ph": 333,
+   "w": 145.2,
+   "h": 29.9,
+   "smooth": true
+  },
+  "c_float_9": {
+   "atlas": "gear.webp",
+   "ax": 1619,
+   "ay": 695,
+   "pw": 85,
+   "ph": 253,
+   "smooth": true,
+   "w": 8.06,
+   "h": 24,
+   "water": 0.389
+  },
+  "c_boat_t9_3": {
+   "atlas": "gear.webp",
+   "ax": 1256,
+   "ay": 1449,
+   "pw": 209,
+   "ph": 141,
+   "w": 34.79,
+   "h": 23.48,
+   "ox": -17.88,
+   "oy": -23.42,
+   "smooth": true
+  },
+  "ui_tension_9": {
+   "atlas": "gear.webp",
+   "ax": 874,
+   "ay": 1627,
+   "pw": 900,
+   "ph": 134,
+   "smooth": true,
+   "w": 900,
+   "h": 134.47,
+   "slot": [
+    0.144,
+    0.9523,
+    0.3133,
+    0.6928
+   ]
+  },
+  "c_boat_t9_1": {
+   "atlas": "gear.webp",
+   "ax": 1080,
+   "ay": 2258,
+   "pw": 203,
+   "ph": 115,
+   "w": 33.75,
+   "h": 19.24,
+   "ox": -16.85,
+   "oy": -19.12,
+   "smooth": true
+  },
+  "c_boat_t9_2": {
+   "atlas": "gear.webp",
+   "ax": 658,
+   "ay": 2376,
+   "pw": 213,
+   "ph": 112,
+   "w": 35.45,
+   "h": 18.73,
+   "ox": -17.88,
+   "oy": -18.61,
+   "smooth": true
+  },
+  "c_rod_9": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 2490,
+   "pw": 704,
+   "ph": 69,
+   "smooth": true,
+   "w": 44,
+   "h": 4.34
+  },
+  "c_scarf_9": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 2561,
+   "pw": 420,
+   "ph": 38,
+   "smooth": true,
+   "w": 26.0,
+   "h": 2.36
+  },
+  "p_seahorse": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 0,
+   "pw": 275,
+   "ph": 474,
+   "w": 275,
+   "h": 474,
+   "smooth": true
+  },
+  "ui_card_7": {
+   "atlas": "primal.webp",
+   "ax": 277,
+   "ay": 0,
+   "pw": 520,
+   "ph": 472,
+   "w": 480,
+   "h": 436,
+   "smooth": true
+  },
+  "p_sunfish": {
+   "atlas": "primal.webp",
+   "ax": 799,
+   "ay": 0,
+   "pw": 363,
+   "ph": 428,
+   "w": 363,
+   "h": 428,
+   "smooth": true
+  },
+  "p_manta": {
+   "atlas": "primal.webp",
+   "ax": 1164,
+   "ay": 0,
+   "pw": 475,
+   "ph": 414,
+   "w": 475,
+   "h": 414,
+   "smooth": true
+  },
+  "p_crab": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 476,
+   "pw": 462,
+   "ph": 371,
+   "w": 462,
+   "h": 371,
+   "smooth": true
+  },
+  "p_eel": {
+   "atlas": "primal.webp",
+   "ax": 464,
+   "ay": 476,
+   "pw": 428,
+   "ph": 363,
+   "w": 428,
+   "h": 363,
+   "smooth": true
+  },
+  "p_octopus": {
+   "atlas": "primal.webp",
+   "ax": 894,
+   "ay": 476,
+   "pw": 439,
+   "ph": 355,
+   "w": 439,
+   "h": 355,
+   "smooth": true
+  },
+  "p_filefish": {
+   "atlas": "primal.webp",
+   "ax": 1335,
+   "ay": 476,
+   "pw": 456,
+   "ph": 345,
+   "w": 456,
+   "h": 345,
+   "smooth": true
+  },
+  "p_butterfly": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 849,
+   "pw": 455,
+   "ph": 341,
+   "w": 455,
+   "h": 341,
+   "smooth": true
+  },
+  "p_shrimp": {
+   "atlas": "primal.webp",
+   "ax": 457,
+   "ay": 849,
+   "pw": 449,
+   "ph": 339,
+   "w": 449,
+   "h": 339,
+   "smooth": true
+  },
+  "p_turtle": {
+   "atlas": "primal.webp",
+   "ax": 908,
+   "ay": 849,
+   "pw": 480,
+   "ph": 328,
+   "w": 480,
+   "h": 328,
+   "smooth": true
+  },
+  "p_flying": {
+   "atlas": "primal.webp",
+   "ax": 1390,
+   "ay": 849,
+   "pw": 461,
+   "ph": 321,
+   "w": 461,
+   "h": 321,
+   "smooth": true
+  },
+  "p_flounder": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 1192,
+   "pw": 474,
+   "ph": 311,
+   "w": 474,
+   "h": 311,
+   "smooth": true
+  },
+  "p_bream": {
+   "atlas": "primal.webp",
+   "ax": 476,
+   "ay": 1192,
+   "pw": 465,
+   "ph": 289,
+   "w": 465,
+   "h": 289,
+   "smooth": true
+  },
+  "p_squid": {
+   "atlas": "primal.webp",
+   "ax": 943,
+   "ay": 1192,
+   "pw": 480,
+   "ph": 275,
+   "w": 480,
+   "h": 275,
+   "smooth": true
+  },
+  "p_dolphin": {
+   "atlas": "primal.webp",
+   "ax": 1425,
+   "ay": 1192,
+   "pw": 477,
+   "ph": 274,
+   "w": 477,
+   "h": 274,
+   "smooth": true
+  },
+  "p_shark": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 1505,
+   "pw": 480,
+   "ph": 263,
+   "w": 480,
+   "h": 263,
+   "smooth": true
+  },
+  "p_marlin": {
+   "atlas": "primal.webp",
+   "ax": 482,
+   "ay": 1505,
+   "pw": 480,
+   "ph": 243,
+   "w": 480,
+   "h": 243,
+   "smooth": true
+  },
+  "p_tuna": {
+   "atlas": "primal.webp",
+   "ax": 964,
+   "ay": 1505,
+   "pw": 460,
+   "ph": 236,
+   "w": 460,
+   "h": 236,
+   "smooth": true
+  },
+  "map_pin_9": {
+   "atlas": "primal.webp",
+   "ax": 1426,
+   "ay": 1505,
+   "pw": 182,
+   "ph": 220,
+   "w": 170,
+   "h": 205,
+   "smooth": true
+  },
+  "p_mackerel": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 1770,
+   "pw": 472,
+   "ph": 206,
+   "w": 472,
+   "h": 206,
+   "smooth": true
+  },
+  "p_puffer": {
+   "atlas": "primal.webp",
+   "ax": 474,
+   "ay": 1770,
+   "pw": 471,
+   "ph": 200,
+   "w": 471,
+   "h": 200,
+   "smooth": true
+  },
+  "p_goby": {
+   "atlas": "primal.webp",
+   "ax": 947,
+   "ay": 1770,
+   "pw": 460,
+   "ph": 197,
+   "w": 460,
+   "h": 197,
+   "smooth": true
+  },
+  "p_sturgeon": {
+   "atlas": "primal.webp",
+   "ax": 1409,
+   "ay": 1770,
+   "pw": 480,
+   "ph": 190,
+   "w": 480,
+   "h": 190,
+   "smooth": true
+  },
+  "p_whale": {
+   "atlas": "primal.webp",
+   "ax": 0,
+   "ay": 1978,
+   "pw": 480,
+   "ph": 136,
+   "w": 480,
+   "h": 136,
+   "smooth": true
+  },
+  "p_anchovy": {
+   "atlas": "primal.webp",
+   "ax": 482,
+   "ay": 1978,
+   "pw": 458,
+   "ph": 129,
+   "w": 458,
+   "h": 129,
+   "smooth": true
+  },
+  "c_sky_9": {
+   "file": "c_sky_9.webp",
+   "w": 640,
+   "h": 213.33,
+   "smooth": true
+  },
+  "c_sea_9": {
+   "file": "c_sea_9.webp",
+   "w": 640,
+   "h": 223.68,
+   "smooth": true
   }
  }
 }

@@ -1,7 +1,7 @@
 // 태초의 바다(9번): 도감을 다 채우면 열리는 마지막 바다. 아무것도 섞이지 않은, 본래 모습 그대로의 생물이 본래 크기로 산다.
 // [이름, 그림 열쇠, 등급, 9, 놀란 표정 그림이 있는가, 몸길이(m) 가장 작은 것, 가장 큰 것]  ← 앞 다섯 칸은 dots.js 와 같은 모양
 // 그림: 새 그림 p_<열쇠>(항구 그림체의 세밀한 그림)가 있으면 그것을, 없으면 예전 그림 fish_<열쇠>를 임시로 쓴다.
-import { hasSprite } from './assets.js';
+import { knownSprite } from './assets.js';
 export const PRIMAL = [
   ['참멸치',     'anchovy',   'common',    9, true, 0.10, 0.16],
   ['참고등어',   'mackerel',  'common',    9, true, 0.30, 0.50],
@@ -29,7 +29,7 @@ export const PRIMAL = [
   ['참고래',     'whale',     'legendary', 9, true, 14.0, 26.0],
 ];
 // 그림 이름 (놀란 표정은 이 이름 뒤에 _s)
-export const primalSprite = (key) => (hasSprite('p_' + key) ? 'p_' : 'fish_') + key;
+export const primalSprite = (key) => (knownSprite('p_' + key) ? 'p_' : 'fish_') + key;
 // 도감·게임에서 생물 한 줄(d)의 그림 이름
 export const spriteOf = (d) => (d[3] === 9 ? primalSprite(d[1]) : 'd_' + d[1]);
 // 화면에 그릴 몸길이(px). 배(32px)를 3m로 본 본래 크기 그대로. 다만 너무 작아 안 보이는 것은 찌만 한 크기까지는 키워 보여 준다.

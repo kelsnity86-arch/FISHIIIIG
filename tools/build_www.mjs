@@ -11,7 +11,8 @@ cpSync('assets/fonts', join(out, 'assets/fonts'), { recursive: true });
 
 // 태초의 바다의 생물은 새 그림(p_*)이 오기 전까지 예전 그림(fish_<열쇠>, fish_<열쇠>_s)을 임시로 쓴다 → 그 그림만은 넣는다
 const primalKeys = [...readFileSync('src/primal.js', 'utf8').matchAll(/^  \['[^']+',\s*'(\w+)'/gm)].map((m) => m[1]);
-const primalOld = new Set(primalKeys.flatMap((k) => ['fish_' + k, 'fish_' + k + '_s']));
+const have = JSON.parse(readFileSync('assets/game/manifest.json', 'utf8')).sprites;
+const primalOld = new Set(primalKeys.filter((k) => !have['p_' + k]).flatMap((k) => ['fish_' + k, 'fish_' + k + '_s']));      // 새 그림이 온 것은 예전 그림을 넣지 않는다
 const old = (name) => (name.startsWith('fish_') && !primalOld.has(name)) || name.startsWith('fantasy_');
 const manifest = JSON.parse(readFileSync('assets/game/manifest.json', 'utf8'));
 const keep = Object.fromEntries(Object.entries(manifest.sprites).filter(([k, v]) => !old(k) && !v.skip));      // skip = 게임이 쓰지 않는 옛 그림

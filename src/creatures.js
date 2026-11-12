@@ -70,7 +70,7 @@ export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1
   let pool = [];
   for (let i = GRADES.indexOf(grade); i >= 0 && !pool.length; i--) { grade = GRADES[i]; pool = here.filter((d) => d[2] === grade.id); }
   const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
-  const base = { name: pick[0], grade: grade.id, sprite: spriteOf(pick), sprite2: spriteOf(pick) + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
+  const base = { name: pick[0], grade: grade.id, sprite: spriteOf(pick), sprite2: spriteOf(pick) + (pick[4] && !spriteOf(pick).startsWith('p_') ? '_s' : ''), region: pick[3], bite: 'pull' };
   // 큰 개체일수록 드물다. 멀리 던질수록(far 0~1) 큰 개체가 잘 나온다: 가장 멀리 던지면 평균 크기 지수가 약 1.4배, 값은 약 18% 높다
   const sizeT = Math.random() ** (1.6 - 0.8 * Math.max(0, Math.min(1, far)));
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
