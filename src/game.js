@@ -838,8 +838,8 @@ function updateCatch(g, dt) {
     c.x = lerp(apex.x, apex.x + lw * 0.2, u); c.y = lerp(apex.y, WL + lh * 0.55, e); c.rot = e * 0.9; c.mix = clamp(u * 3, 0, 1);
     out.roughTarget = 1; out.shaftsTarget = 0.6;
     if (!c.fell && c.y > WL - lh * 0.1) {
-      c.fell = true;
-      burst(g, 'c_erupt', c.x, lw * 1.3, 2.4, true);
+      c.fell = true; c.fellAt = c.pt;
+      burst(g, 'c_erupt', c.x, lw * 1.3, 2.0, true);
       spray(g, c.x, WL, 10, 210 + lw * 0.35, lw * 0.32);
       bubbles(g, c.x, WL + 20, 9, lw * 0.5);
       swell(g, c.x, 12 + lw * 0.025, 1, 150, 90); swell(g, c.x, 12 + lw * 0.025, -1, 150, 90);
@@ -847,7 +847,8 @@ function updateCatch(g, dt) {
       if (c.thanks) { g.gold += c.thanks; g.dirty = true; g.msg = { text: `바다의 답례  +${fmt(c.thanks)} G`, color: '#ffe27a', age: -0.2 }; snd(g, 'coin', 8); }
     }
     if (c.fell) c.alpha = approach(c.alpha, 0, 3, dt);
-    if (u >= 1 && c.pt > 1.5) endCatch(g);
+    // 물기둥이 다 무너져 잔거품이 될 때까지 카메라는 물러난 채로 둔다 (먼저 다가가면 솟은 물기둥이 화면 가득 부풀어 보인다)
+    if (u >= 1 && c.fell && c.pt > c.fellAt + 2.0) endCatch(g);
   }
   return out;
 }

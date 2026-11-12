@@ -737,7 +737,7 @@ function drawBursts(ctx, g) {
     if (!names) continue;
     const fade = k < 0.8 ? 1 : 1 - (k - 0.8) / 0.2;
     const foam = b.sprite === 'c_thrash';
-    drawSeq(ctx, names, k, b.x, surfaceY(g, b.x) + (b.sprite === 'c_plop' ? 3 : 5), b.size * (foam ? 0.9 : 1), fade, b.flip, foam ? 0.6 : 1);
+    drawSeq(ctx, names, k, b.x, surfaceY(g, b.x) + (b.sprite === 'c_plop' ? 3 : 5) + b.size * 0.03, b.size * (foam ? 0.9 : 1), fade, b.flip, foam ? 0.6 : 1);
   }
 }
 function drawSprays(ctx, g) {
