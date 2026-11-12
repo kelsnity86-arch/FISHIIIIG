@@ -11848,3 +11848,45 @@ No other text anywhere. Same canvas size, same fully transparent background.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui2_stamp_en.png
 ```
+
+## ㊴ 해도: 항로의 점 옮기기
+
+지금 해도는 항로의 점이 해역과 해역 사이 경계에 찍혀 있다. 표식은 해역 그림 한가운데에 서야 하므로, 점을 한가운데로 옮긴다. 태초의 바다 자리에도 점을 하나 찍는다 (항로 선은 그리지 않는다. 열릴 때 게임이 긋는다).
+
+### 393. `ui_map_b` — 해도에서 점만 옮기기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/ui_map.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It is a parchment sea chart: eight painted sea regions in a row from left to
+right (harbour coast, coral tropics, misty islands, open ocean waves, polar ice, volcano
+sea, deep trench, pastel fantasy sea), joined by one wavy white dashed route line. On
+that line there are eight small round white dots with a thin dark rim. At the moment
+each dot sits at the LEFT EDGE of its region, on the border with the region before it.
+
+Make the same image again with ONLY the dots changed:
+
+1. Remove the eight existing white dots. Where a dot was, continue the white dashed
+   route line through it so the line has no gap and no leftover mark.
+
+2. Paint eight new dots of exactly the same look and size (small round white dot, thin
+   dark rim), each one ON the dashed route line, in the horizontal MIDDLE of its region
+   (in the calm open water at the centre of each region's picture). Measured from the
+   left edge of the image as a share of the full image width, the eight dots are at:
+   13%, 25%, 35%, 47%, 58%, 69%, 80%, 92%.
+   Each dot sits where the dashed line is at that position (about 53% to 54% of the way
+   down the image). Do not move or reshape the dashed line.
+
+3. Paint one more dot of the same look and size, alone, with NO line leading to it, in
+   the pink cloud bank in the lower left of the parchment: 12.5% from the left edge,
+   82.5% from the top edge. Just the dot resting on the clouds, nothing else.
+
+Keep everything else exactly as it is, pixel for pixel as far as you can: the parchment,
+the rope and brass corners, the compass, the clouds, all eight region paintings, the
+dashed line and the colours. Do not add any pins, icons, labels or text. Same canvas
+size and proportions as the original.
+
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_map_b.png
+```
