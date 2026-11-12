@@ -326,11 +326,12 @@ function drawBackdrop(ctx, g) {
   if (seaY < H + 10) draw(ctx, sea, -10, seaY, W + 20, Math.max(H - WL + 18, H - seaY + 10));
   // 하늘·섬·먼바다도 같은 카메라를 따라 커지고 작아진다 (가까운 것보다는 덜). 수평선은 늘 수면선에 붙어 있다.
   // 드러나는 가장자리는 같은 하늘 그림을 좌우로 뒤집어 이어 붙이고, 위쪽은 하늘색으로 잇는다.
-  const bz = Math.pow(z, 0.6), still = Math.abs(z - 1) < 0.001 && Math.abs(ox) < 0.01;
+  const still = Math.abs(z - 1) < 0.001 && Math.abs(ox) < 0.01;
   const sky = sprite('c_sky' + rg), far = regional('c_farsea', g);
   const sw = W + 20, sy = HORIZON - sky.h - 2, sh = sky.h + 3;
-  // 세로는 하늘 그림이 화면 맨 위부터 수평선까지 늘 덮도록 필요한 만큼만 더 늘인다 (위쪽에 빈 띠가 생기지 않게)
-  const hy = HORIZON * z + oy, vz = Math.max(bz, (hy + 6) / (sky.h + 2));
+  // 하늘은 아주 멀리 있어서 덜 물러난다: 생물·배·바다가 줄어드는 것의 절반만(z^0.5), 그리고 화면 맨 위부터 수평선까지는 늘 덮을 만큼.
+  // 가로·세로를 같은 비율로 줄여 구름이 길쭉해지지 않고, 덜 줄어드니 좌우로 뒤집어 이어 붙인 자리도 거의 드러나지 않는다.
+  const hy = HORIZON * z + oy, bz = Math.max(Math.pow(z, 0.5), (hy + 6) / (sky.h + 2)), vz = bz;
   const bx = lerp(CAM_X, CAM_X * z + ox, 0.6) - CAM_X * bz, by = hy - HORIZON * vz;
   ctx.save();
   ctx.translate(bx, by); ctx.scale(bz, vz);
