@@ -10,6 +10,7 @@ import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.j
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 let scale = 1;
+const MAX_SCALE = 2.25;
 
 // 창 크기에 맞춤. 가능하면 정수배(도트가 고르게 보임), 너무 작아지면 꽉 채운다.
 function resize() {
@@ -19,10 +20,14 @@ function resize() {
   const fit = Math.min(availW / W, availH / H) * dpr;
   const whole = Math.floor(fit);
   scale = whole >= 2 && whole / fit >= 0.97 ? whole : fit;      // 거의 딱 맞을 때만 정수배. 아니면 화면을 꽉 채운다 (폰에서 글자와 단추가 조금이라도 크게)
+  // 발열·배터리: 그리는 해상도에 상한을 둔다 (640×360 게임이라 2.25배 = 1440×810 이면 충분하다. 화소가 촘촘한 폰은 그 뒤를 화면이 늘려 보여 준다)
+  const capped = scale > MAX_SCALE; if (capped) scale = MAX_SCALE;
   canvas.width = Math.round(W * scale);
   canvas.height = Math.round(H * scale);
-  canvas.style.width = canvas.width / dpr + 'px';
-  canvas.style.height = canvas.height / dpr + 'px';
+  const css = capped ? fit / dpr : scale / dpr;
+  canvas.style.width = W * css + 'px';
+  canvas.style.height = H * css + 'px';
+  canvas.style.imageRendering = capped ? 'auto' : '';
 }
 window.addEventListener('resize', resize);
 // 폰은 가로 화면 고정: 될 때는 기기의 화면 방향을 가로로 잠그고, 안 되는 기기에서는 CSS 가 화면을 돌려 준다
@@ -118,6 +123,8 @@ window.__release = () => release(game);
 
 let last = performance.now();
 function frame(now) {
+  // 발열·배터리: 화면이 120Hz 여도 60fps 로만 계산하고 그린다
+  if (now - last < 15.5) { requestAnimationFrame(frame); return; }
   const dt = Math.min(0.05, (now - last) / 1000); // 탭이 멈췄다 돌아와도 튀지 않게
   last = now;
   if (!window.__manual) {

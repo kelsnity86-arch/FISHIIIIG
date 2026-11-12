@@ -51,7 +51,7 @@ const rand = (a, b) => a + Math.random() * (b - a);
 
 export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다'];
 
-export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1) {
+export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1, far = 0) {
   let grade;
   if (forcedGrade) {
     grade = GRADES.find((g) => g.id === forcedGrade);
@@ -68,7 +68,8 @@ export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1
   for (let i = GRADES.indexOf(grade); i >= 0 && !pool.length; i--) { grade = GRADES[i]; pool = here.filter((d) => d[2] === grade.id); }
   const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
   const base = { name: pick[0], grade: grade.id, sprite: 'd_' + pick[1], sprite2: 'd_' + pick[1] + (pick[4] ? '_s' : ''), region: pick[3], bite: 'pull' };
-  const sizeT = Math.random() ** 1.6;                 // 큰 개체일수록 드물게
+  // 큰 개체일수록 드물다. 멀리 던질수록(far 0~1) 큰 개체가 잘 나온다: 가장 멀리 던지면 평균 크기 지수가 약 1.4배, 값은 약 18% 높다
+  const sizeT = Math.random() ** (1.6 - 0.8 * Math.max(0, Math.min(1, far)));
   const len = grade.len[0] + (grade.len[1] - grade.len[0]) * sizeT;
   return {
     ...base,

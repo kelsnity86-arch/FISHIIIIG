@@ -749,7 +749,7 @@ let lastTension = 0, lastPower = 0, lastDist = 0;
 const DAY_ICON = ['icon_day', 'icon_dusk', 'icon_night', 'icon_dawn'];
 // 하루의 네 구간: 새벽 · 낮 · 오후 · 밤. 구간마다 빛깔이 다르고 사이가 떨어져 있어 한눈에 구분된다.
 const DAY_SEG = { 3: ['새벽', '#c9a8f0'], 0: ['낮', '#ffd24a'], 1: ['오후', '#ff8a45'], 2: ['밤', '#5a6fd8'] };
-let clockA = 1;
+let clockA = 1, clockStrip = null;
 function drawDayClock(ctx, g) {
   // 낚아 올리는 동안에는 큰 생물을 가리지 않게 서서히 사라졌다가, 끝나면 다시 나타난다
   const hide = g.state === 'catch' || g.state === 'result';
@@ -766,17 +766,21 @@ function drawDayClock(ctx, g) {
   const segX = (at) => gx + r + (gw - 2 * r) * at;
   ctx.save();
   ctx.beginPath(); ctx.roundRect(gx, gy, gw, gh, r); ctx.clip();            // 홈 모양대로 잘라 낸다
-  DAY_PLAN.forEach(([at, id], i) => {
-    const a0 = i === 0 ? gx : segX(at) + 0.6, a1 = i === DAY_PLAN.length - 1 ? gx + gw : segX(DAY_PLAN[i + 1][0]) - 0.6;   // 구간 사이는 홈이 비쳐 보이는 틈
-    const part = (xa, xb, alpha) => {
-      if (xb - xa < 0.2) return;
-      ctx.globalAlpha = alpha * A; ctx.globalCompositeOperation = 'source-over';
-      ctx.drawImage(fl.img, (xa - gx) / gw * fl.img.width, 0, (xb - xa) / gw * fl.img.width, fl.img.height, xa, gy, xb - xa, gh);
-      ctx.globalCompositeOperation = 'color'; ctx.fillStyle = DAY_SEG[id][1]; ctx.fillRect(xa, gy, xb - xa, gh);          // 채움 그림에 구간의 빛깔을 입힌다
-    };
-    part(a0, Math.min(a1, Math.max(a0, ix)), 0.95);     // 지나온 만큼은 또렷하게
-    part(Math.max(a0, Math.min(a1, ix)), a1, 0.3);      // 남은 만큼은 흐리게
-  });
+  // 구간마다 빛깔을 입힌 채움 그림은 한 번만 만들어 두고(색 입히기는 비싼 연산이라 매 프레임 하지 않는다), 그릴 때는 잘라 붙이기만 한다
+  if (!clockStrip) {
+    const K = 4, c = document.createElement('canvas'); c.width = Math.round(gw * K); c.height = Math.round(gh * K);
+    const x = c.getContext('2d'); x.scale(K, K);
+    DAY_PLAN.forEach(([at, id], i) => {
+      const a0 = i === 0 ? 0 : segX(at) - gx + 0.6, a1 = i === DAY_PLAN.length - 1 ? gw : segX(DAY_PLAN[i + 1][0]) - gx - 0.6;   // 구간 사이는 홈이 비쳐 보이는 틈
+      x.globalCompositeOperation = 'source-over';
+      x.drawImage(fl.img, a0 / gw * fl.img.width, 0, (a1 - a0) / gw * fl.img.width, fl.img.height, a0, 0, a1 - a0, gh);
+      x.globalCompositeOperation = 'color'; x.fillStyle = DAY_SEG[id][1]; x.fillRect(a0, 0, a1 - a0, gh);
+    });
+    clockStrip = c;
+  }
+  const cut = clamp(ix - gx, 0, gw), sw = clockStrip.width / gw;
+  ctx.globalAlpha = 0.95 * A; if (cut > 0.2) ctx.drawImage(clockStrip, 0, 0, cut * sw, clockStrip.height, gx, gy, cut, gh);                       // 지나온 만큼은 또렷하게
+  ctx.globalAlpha = 0.3 * A; if (gw - cut > 0.2) ctx.drawImage(clockStrip, cut * sw, 0, (gw - cut) * sw, clockStrip.height, gx + cut, gy, gw - cut, gh);   // 남은 만큼은 흐리게
   ctx.restore();
   // 구간 이름: 지금 구간은 밝게, 나머지는 흐리게
   DAY_PLAN.forEach(([at, id], i) => {
@@ -860,7 +864,7 @@ function drawHud(ctx, g) {
   drawSeaButtons(ctx, g);
 
   const hint = {
-    idle: '꾹 눌러 힘 조절 → 떼면 던지기',
+    idle: '꾹 눌러 힘 조절 → 떼면 던지기 · 멀리 던질수록 큰 개체',
     charge: '원하는 힘에서 손을 떼세요',
     wait: '찌를 지켜보세요 (성급하게 누르면 도망갑니다)',
     bite: '지금!',
