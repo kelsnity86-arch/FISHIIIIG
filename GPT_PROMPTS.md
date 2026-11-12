@@ -10633,27 +10633,31 @@ on the main branch, in the folder assets/raw/, with the file name c_deep.png
 
 ---
 
-### 348. `ui_relics` — 환상종 증표로 열리는 오래된 물건 12개
+### 348. `ui_relics` — 환상종 증표로 열리는 오래된 물건 12개 (다시 그리기)
 
 ```
-Style references: open assets/concept/concept_1.png, concept_2.png and concept_3.png from the
-GitHub repository kelsnity86-arch/FISHIIIIG (main branch), and also assets/raw/c_sky.png and
-assets/raw/c_sky_8.png. Every image you make must look like it belongs to the same game: the
-same painterly storybook rendering, warm light, soft shading, the same level of detail.
-Matching the existing art style exactly is the most important requirement.
+Style references: open assets/raw/h_gear_a.png, assets/raw/h_skill.png and
+assets/raw/ui_map_pins.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). The new image must be painted in EXACTLY that style: hand-painted storybook
+illustration, visible soft brushwork, warm light, simple rounded shapes, clean dark-brown
+outlines, flat-ish colours with gentle shading. This is the most important requirement.
+Do NOT make it look like a 3D render or a photograph: no realistic materials, no glossy
+reflections, no photographic textures, no depth-of-field.
 
-No text, no letters, no numbers, no logos. Fully transparent background.
+No text, no letters, no numbers, no logos, no screens with symbols. Fully transparent
+background.
 
-A sprite sheet of 12 small objects in a grid of 4 columns x 3 rows, never touching, each
-drawn as a carefully painted museum-like find: old, worn, barnacled, faded, gently lit,
-lying on nothing (no shadow plate). They are everyday things from a long-lost age, drawn so
-that they feel mysterious and precious rather than modern:
-1) a faded photograph with curled corners showing only blurry silhouettes of people,
-2) a rusty key, 3) a cracked round wristwatch without hands, 4) a small tin toy robot,
-5) a bent spoon, 6) a pair of glasses with one lens missing, 7) a coin worn completely smooth,
-8) a small glass bottle with a cork, empty, 9) a single child's shoe,
-10) a brass door handle, 11) a cracked ceramic cup, 12) a small music box with a broken lid.
+A sprite sheet of 12 small objects in a grid of 4 columns x 3 rows, never touching, all
+about the same size, each drawn like a treasured find in a picture book: old, worn, a
+little faded, with one or two small barnacles or a bit of seaweed. They are ordinary
+household things from a few generations ago (warm, analog, slightly old-fashioned, nothing
+futuristic and nothing high-tech), drawn simply enough to be recognised at a glance:
+1) a faded photograph with curled corners showing only soft blurry silhouettes of a family,
+2) an old-fashioned metal key, 3) a round wristwatch with a cracked glass and no hands,
+4) a small wind-up tin toy robot, 5) a bent spoon, 6) round glasses with one lens missing,
+7) a coin worn completely smooth, 8) a small empty glass bottle with a cork,
+9) a single child's shoe, 10) a kettle with a dented spout, 11) a cracked ceramic cup,
+12) a small music box with a broken lid and a tiny crank.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui_relics.png
 ```
-
