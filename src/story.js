@@ -299,7 +299,7 @@ function hintFor(g) {
   const s = g.story.seen, f = g.fight;
   if (g.talk || g.travel || g.title) return null;
   if (g.scene === 'harbor') {
-    if (!s.sail) return '출항 단추를 누르면 바다로 나갑니다';          // 처음: 다른 안내보다 먼저, 바다로 내보낸다
+    if (!s.sail) return '출항 버튼를 누르면 바다로 나갑니다';          // 처음: 다른 안내보다 먼저, 바다로 내보낸다
     if (!s.harbor) s.harbor = 1;
     if (!s.shop) { if (g.panel) { s.shop = 1; g.dirty = true; return null; } return '건물을 누르면 가게가 열립니다 · 시청에서는 마을을 키웁니다'; }
     return null;
@@ -309,10 +309,10 @@ function hintFor(g) {
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러 주세요'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뜁니다! 손을 떼고 버텨 주세요' : '누르고 있으면 감습니다 · 아래 게이지가 차면 잠깐 떼 주세요'; }
   if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다'; }
-  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 단추 · 스킬은 바다에서도 올릴 수 있습니다';
+  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 버튼 · 스킬은 바다에서도 올릴 수 있습니다';
   if (g.panel && g.panel.id === 'skills' && !s.skill) { s.skill = 1; g.dirty = true; }
-  if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 단추 · 생물을 팔고 장비를 삽니다';
-  if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아갑니다 · 위쪽 단추로 시간을 넘길 수 있습니다'; }
+  if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 버튼 · 생물을 팔고 장비를 삽니다';
+  if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아갑니다 · 위쪽 버튼으로 시간을 넘길 수 있습니다'; }
   return null;
 }
 function updateHint(g, dt) {
@@ -367,7 +367,7 @@ export function drawHint(ctx, g) {
   ctx.globalAlpha = h.a;
   label(ctx, h.text, W / 2, ty, 11, '#fff4dc', 'center', 600, null);
   // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
-  const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('출항 단추') ? [W - 62, H - 42] : null;
+  const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('출항 버튼') ? [W - 62, H - 42] : null;
   if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
   ctx.restore();
 }

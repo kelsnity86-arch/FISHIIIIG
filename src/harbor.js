@@ -310,9 +310,9 @@ export function drawPanel(ctx, g) {
     else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
-  // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 그 아래에 누르고 있기 안내)
+  // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 판 아래 바깥에 누르고 있기 안내)
   { const hold = p.id === 'skills' || p.id === 'guild', qx = PANEL.x + PANEL.w * 0.6;
-    if (p.quip) label(ctx, `“${p.quip}”`, qx, PANEL.y + (hold ? 74 : 79), 9, '#6b4a2b', 'center', 600, null);
-    if (hold) label(ctx, '단추를 누르고 있으면 계속 올라갑니다', qx, PANEL.y + 86, 8, '#a07a50', 'center', 600, null); }
+    if (p.quip) label(ctx, `“${p.quip}”`, qx, PANEL.y + 79, 9, '#6b4a2b', 'center', 600, null);
+    if (hold) label(ctx, '버튼을 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 - 22, PANEL.y + panelH() + 9, 9, '#fff4dc', 'center', 600); }      // 판 아래 바깥에
   ctx.restore();
 }
