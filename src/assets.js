@@ -178,7 +178,7 @@ export async function loadAssets() {
     const res = await fetch('assets/game/manifest.json', { cache: 'no-cache' });
     if (!res.ok) return;
     manifest = (await res.json()).sprites || {};
-    await Promise.all(Object.keys(manifest).filter((n) => !isCreature(n)).map(loadOne));
+    await Promise.all(Object.keys(manifest).filter((n) => !isCreature(n) && !manifest[n].skip).map(loadOne));      // skip = 게임이 쓰지 않는 옛 그림 (tools/prune_manifest.py)
   } catch { /* manifest 가 없으면 전부 임시 그림 */ }
 }
 
@@ -188,7 +188,9 @@ export function preloadCreature(...names) {
 }
 
 const EMPTY = (() => { const c = document.createElement('canvas'); c.width = c.height = 1; return { img: c, w: 16, h: 16, smooth: true }; })();
-export function sprite(name) { return sprites[name] || EMPTY; }
+// 없는 그림을 찾으면 이름을 적어 둔다 (검사용: window.__missing)
+const missing = new Set(); if (typeof window !== 'undefined') window.__missing = missing;
+export function sprite(name) { return sprites[name] || (missing.add(name), EMPTY); }
 export function hasSprite(name) { return !!sprites[name]; }
 
 // 생물 그림. surprised=true 면 놀란 표정(<이름>_s). 그림이 없으면 임시 체형.

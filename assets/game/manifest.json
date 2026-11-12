@@ -1972,115 +1972,134 @@
    "file": "body_1.png",
    "w": 39.54,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_2": {
    "file": "body_2.png",
    "w": 40.23,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_3": {
    "file": "body_3.png",
    "w": 41.13,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_4": {
    "file": "body_4.png",
    "w": 40.8,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_5": {
    "file": "body_5.png",
    "w": 40.0,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_6": {
    "file": "body_6.png",
    "w": 39.09,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_7": {
    "file": "body_7.png",
    "w": 40.34,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "body_8": {
    "file": "body_8.png",
    "w": 42.27,
    "h": 40,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "shadow": {
    "file": "shadow.webp",
    "w": 256,
    "h": 86.9,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "head": {
    "file": "head.png",
    "w": 32.82,
    "h": 28,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_1": {
    "file": "hat_1.png",
    "w": 36,
    "h": 21.58,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_2": {
    "file": "hat_2.png",
    "w": 36,
    "h": 23.75,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_3": {
    "file": "hat_3.png",
    "w": 36,
    "h": 33.39,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_4": {
    "file": "hat_4.png",
    "w": 36,
    "h": 23.14,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_5": {
    "file": "hat_5.png",
    "w": 36,
    "h": 30.65,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_6": {
    "file": "hat_6.png",
    "w": 36,
    "h": 31.63,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_7": {
    "file": "hat_7.png",
    "w": 36,
    "h": 36.12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "hat_8": {
    "file": "hat_8.png",
    "w": 36,
    "h": 20.63,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "char_sea": {
    "file": "char_sea.png",
    "w": 4.98,
    "h": 6,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fantasy_01": {
    "file": "fantasy_01.webp",
@@ -2566,163 +2585,190 @@
    "file": "rod_1.png",
    "w": 36,
    "h": 2.45,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_2": {
    "file": "rod_2.png",
    "w": 36,
    "h": 2.47,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_3": {
    "file": "rod_3.png",
    "w": 36,
    "h": 2.44,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_4": {
    "file": "rod_4.png",
    "w": 36,
    "h": 2.4,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_5": {
    "file": "rod_5.png",
    "w": 36,
    "h": 2.77,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_6": {
    "file": "rod_6.png",
    "w": 36,
    "h": 2.39,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_7": {
    "file": "rod_7.png",
    "w": 36,
    "h": 2.68,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "rod_8": {
    "file": "rod_8.png",
    "w": 36,
    "h": 2.88,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_1": {
    "file": "float_1.png",
    "w": 5.01,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_2": {
    "file": "float_2.png",
    "w": 6.4,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_3": {
    "file": "float_3.png",
    "w": 5.7,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_4": {
    "file": "float_4.png",
    "w": 5.92,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_5": {
    "file": "float_5.png",
    "w": 6.03,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_6": {
    "file": "float_6.png",
    "w": 6.56,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_7": {
    "file": "float_7.png",
    "w": 6.02,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "float_8": {
    "file": "float_8.png",
    "w": 5.89,
    "h": 12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region1": {
    "file": "bg_region1.png",
    "w": 640,
    "h": 43.02,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region2": {
    "file": "bg_region2.png",
    "w": 640,
    "h": 51.86,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region3": {
    "file": "bg_region3.png",
    "w": 640,
    "h": 28.58,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region4": {
    "file": "bg_region4.png",
    "w": 640,
    "h": 13.55,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region5": {
    "file": "bg_region5.png",
    "w": 640,
    "h": 55.99,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region6": {
    "file": "bg_region6.png",
    "w": 640,
    "h": 132.3,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region7": {
    "file": "bg_region7.png",
    "w": 640,
    "h": 101.66,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_region8": {
    "file": "bg_region8.png",
    "w": 640,
    "h": 113.44,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_sky": {
    "file": "bg_sky.png",
    "w": 640,
    "h": 360.19,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "bg_sea": {
    "file": "bg_sea.png",
    "w": 640,
    "h": 213.33,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_bg": {
    "file": "map_bg.png",
    "w": 640,
    "h": 360.19,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "harbor_bg": {
    "file": "harbor_bg.png",
@@ -2770,199 +2816,232 @@
    "file": "wave_1.png",
    "w": 64,
    "h": 1.22,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "wave_2": {
    "file": "wave_2.png",
    "w": 64,
    "h": 2.42,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "wave_3": {
    "file": "wave_3.png",
    "w": 64,
    "h": 2.92,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_1": {
    "file": "pattern_1.png",
    "w": 64,
    "h": 67.41,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_2": {
    "file": "pattern_2.png",
    "w": 64,
    "h": 67.42,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_3": {
    "file": "pattern_3.png",
    "w": 64,
    "h": 67.24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_4": {
    "file": "pattern_4.png",
    "w": 64,
    "h": 66.16,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_5": {
    "file": "pattern_5.png",
    "w": 64,
    "h": 66.32,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "pattern_6": {
    "file": "pattern_6.png",
    "w": 64,
    "h": 66.15,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_1": {
    "file": "part_1.png",
    "w": 32,
    "h": 31.84,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_2": {
    "file": "part_2.png",
    "w": 32,
    "h": 29.03,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_3": {
    "file": "part_3.png",
    "w": 32,
    "h": 22.99,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_4": {
    "file": "part_4.png",
    "w": 32,
    "h": 28.58,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_5": {
    "file": "part_5.png",
    "w": 32,
    "h": 28.24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_6": {
    "file": "part_6.png",
    "w": 32,
    "h": 30.28,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_7": {
    "file": "part_7.png",
    "w": 32,
    "h": 26.64,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_8": {
    "file": "part_8.png",
    "w": 32,
    "h": 32.0,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_9": {
    "file": "part_9.png",
    "w": 32,
    "h": 26.51,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_10": {
    "file": "part_10.png",
    "w": 32,
    "h": 27.77,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_11": {
    "file": "part_11.png",
    "w": 32,
    "h": 22.84,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_12": {
    "file": "part_12.png",
    "w": 32,
    "h": 15.38,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_13": {
    "file": "part_13.png",
    "w": 32,
    "h": 29.71,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_14": {
    "file": "part_14.png",
    "w": 32,
    "h": 29.33,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_15": {
    "file": "part_15.png",
    "w": 32,
    "h": 23.41,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "part_16": {
    "file": "part_16.png",
    "w": 32,
    "h": 32.43,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_drop": {
    "file": "fx_drop.png",
    "w": 16,
    "h": 21.38,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_splash": {
    "file": "fx_splash.png",
    "w": 16,
    "h": 15.1,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_ring": {
    "file": "fx_ring.png",
    "w": 16,
    "h": 8.76,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_foam": {
    "file": "fx_foam.png",
    "w": 16,
    "h": 16.17,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_rain": {
    "file": "fx_rain.png",
    "w": 16,
    "h": 18.68,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_snow": {
    "file": "fx_snow.png",
    "w": 16,
    "h": 17.08,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_fog": {
    "file": "fx_fog.png",
    "w": 16,
    "h": 9.88,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_bolt": {
    "file": "fx_bolt.png",
    "w": 16,
    "h": 22.62,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_sparkle": {
    "file": "fx_sparkle.png",
@@ -2974,7 +3053,8 @@
    "file": "fx_dot.png",
    "w": 16,
    "h": 15.7,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_bang": {
    "file": "fx_bang.png",
@@ -2998,91 +3078,106 @@
    "file": "fx_note.png",
    "w": 16,
    "h": 15.91,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_heart": {
    "file": "fx_heart.png",
    "w": 16,
    "h": 12.69,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_ash": {
    "file": "fx_ash.png",
    "w": 16,
    "h": 14.42,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_column": {
    "file": "fx_column.png",
    "w": 96,
    "h": 152.7,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_crown": {
    "file": "fx_crown.png",
    "w": 96,
    "h": 47.77,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "chest_closed": {
    "file": "chest_closed.png",
    "w": 40,
    "h": 31.6,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "chest_open": {
    "file": "chest_open.png",
    "w": 40,
    "h": 41.67,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_1": {
    "file": "map_node_1.png",
    "w": 32,
    "h": 29.78,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_2": {
    "file": "map_node_2.png",
    "w": 32,
    "h": 32.11,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_3": {
    "file": "map_node_3.png",
    "w": 32,
    "h": 18.53,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_4": {
    "file": "map_node_4.png",
    "w": 32,
    "h": 34.67,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_5": {
    "file": "map_node_5.png",
    "w": 32,
    "h": 21.2,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_6": {
    "file": "map_node_6.png",
    "w": 32,
    "h": 27.52,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_7": {
    "file": "map_node_7.png",
    "w": 32,
    "h": 19.44,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "map_node_8": {
    "file": "map_node_8.png",
    "w": 32,
    "h": 30.55,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "shop_shipyard": {
    "file": "shop_shipyard.png",
@@ -3124,85 +3219,99 @@
    "file": "npc_1.png",
    "w": 18.15,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "npc_2": {
    "file": "npc_2.png",
    "w": 20.38,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "npc_3": {
    "file": "npc_3.png",
    "w": 15.68,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "npc_4": {
    "file": "npc_4.png",
    "w": 13.61,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "npc_5": {
    "file": "npc_5.png",
    "w": 18.36,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "npc_6": {
    "file": "npc_6.png",
    "w": 16.26,
    "h": 24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_panel": {
    "file": "ui_panel.png",
    "w": 48,
    "h": 47.71,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_button": {
    "file": "ui_button.png",
    "w": 48,
    "h": 19.03,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_gauge": {
    "file": "ui_gauge.png",
    "w": 48,
    "h": 22.14,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_ribbon": {
    "file": "ui_ribbon.png",
    "w": 48,
    "h": 17.86,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_badge_star": {
    "file": "ui_badge_star.png",
    "w": 48,
    "h": 46.17,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_badge_diamond": {
    "file": "ui_badge_diamond.png",
    "w": 48,
    "h": 48.14,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_medal": {
    "file": "ui_medal.png",
    "w": 48,
    "h": 50.29,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_frame": {
    "file": "ui_frame.png",
    "w": 48,
    "h": 48.27,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_gold": {
    "file": "icon_gold.png",
@@ -3214,91 +3323,106 @@
    "file": "icon_crate.png",
    "w": 16,
    "h": 15.8,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_bait": {
    "file": "icon_bait.png",
    "w": 16,
    "h": 11.8,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_book": {
    "file": "icon_book.png",
    "w": 16,
    "h": 19.41,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_bag": {
    "file": "icon_bag.png",
    "w": 16,
    "h": 16.19,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_gear": {
    "file": "icon_gear.png",
    "w": 16,
    "h": 15.52,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_anchor": {
    "file": "icon_anchor.png",
    "w": 16,
    "h": 18.13,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_map": {
    "file": "icon_map.png",
    "w": 16,
    "h": 14.34,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_upgrade": {
    "file": "icon_upgrade.png",
    "w": 16,
    "h": 13.24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_close": {
    "file": "icon_close.png",
    "w": 16,
    "h": 15.33,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_arrow": {
    "file": "icon_arrow.png",
    "w": 16,
    "h": 11.84,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_lock": {
    "file": "icon_lock.png",
    "w": 16,
    "h": 18.24,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_sound_on": {
    "file": "icon_sound_on.png",
    "w": 16,
    "h": 12.05,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_sound_off": {
    "file": "icon_sound_off.png",
    "w": 16,
    "h": 13.33,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_gem": {
    "file": "icon_gem.png",
    "w": 16,
    "h": 12.68,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_star": {
    "file": "icon_star.png",
    "w": 16,
    "h": 15.18,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_dawn": {
    "file": "icon_dawn.png",
@@ -3328,331 +3452,386 @@
    "file": "icon_clear.png",
    "w": 16,
    "h": 11.58,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_rain": {
    "file": "icon_rain.png",
    "w": 16,
    "h": 14.81,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_storm": {
    "file": "icon_storm.png",
    "w": 16,
    "h": 14.57,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_fog": {
    "file": "icon_fog.png",
    "w": 16,
    "h": 9.87,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_snow": {
    "file": "icon_snow.png",
    "w": 16,
    "h": 14.34,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_auto_cast": {
    "file": "icon_auto_cast.png",
    "w": 16,
    "h": 15.54,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_auto_sell": {
    "file": "icon_auto_sell.png",
    "w": 16,
    "h": 15.59,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_auto_hook": {
    "file": "icon_auto_hook.png",
    "w": 16,
    "h": 17.17,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_auto_fight": {
    "file": "icon_auto_fight.png",
    "w": 16,
    "h": 12.6,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_check": {
    "file": "icon_check.png",
    "w": 16,
    "h": 12.37,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_question": {
    "file": "icon_question.png",
    "w": 16,
    "h": 22.21,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "icon_crown": {
    "file": "icon_crown.png",
    "w": 16,
    "h": 11.79,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_1": {
    "file": "item_1.png",
    "w": 24,
    "h": 25.87,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_2": {
    "file": "item_2.png",
    "w": 24,
    "h": 25.43,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_3": {
    "file": "item_3.png",
    "w": 24,
    "h": 25.31,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_4": {
    "file": "item_4.png",
    "w": 24,
    "h": 26.5,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_5": {
    "file": "item_5.png",
    "w": 24,
    "h": 26.05,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_6": {
    "file": "item_6.png",
    "w": 24,
    "h": 26.35,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_7": {
    "file": "item_7.png",
    "w": 24,
    "h": 26.69,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_8": {
    "file": "item_8.png",
    "w": 24,
    "h": 29.27,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_9": {
    "file": "item_9.png",
    "w": 24,
    "h": 26.29,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_10": {
    "file": "item_10.png",
    "w": 24,
    "h": 23.68,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_11": {
    "file": "item_11.png",
    "w": 24,
    "h": 23.65,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_12": {
    "file": "item_12.png",
    "w": 24,
    "h": 23.04,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_13": {
    "file": "item_13.png",
    "w": 24,
    "h": 17.71,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_14": {
    "file": "item_14.png",
    "w": 24,
    "h": 20.45,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_15": {
    "file": "item_15.png",
    "w": 24,
    "h": 14.67,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_16": {
    "file": "item_16.png",
    "w": 24,
    "h": 23.85,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_17": {
    "file": "item_17.png",
    "w": 24,
    "h": 12.91,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_18": {
    "file": "item_18.png",
    "w": 24,
    "h": 19.06,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_19": {
    "file": "item_19.png",
    "w": 24,
    "h": 20.8,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_20": {
    "file": "item_20.png",
    "w": 24,
    "h": 22.62,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_21": {
    "file": "item_21.png",
    "w": 24,
    "h": 24.12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_22": {
    "file": "item_22.png",
    "w": 24,
    "h": 24.75,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_23": {
    "file": "item_23.png",
    "w": 24,
    "h": 21.08,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "item_24": {
    "file": "item_24.png",
    "w": 24,
    "h": 21.64,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_1": {
    "file": "web_icon_1.png",
    "w": 24,
    "h": 26.62,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_2": {
    "file": "web_icon_2.png",
    "w": 24,
    "h": 23.5,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_3": {
    "file": "web_icon_3.png",
    "w": 24,
    "h": 36.57,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_4": {
    "file": "web_icon_4.png",
    "w": 24,
    "h": 21.56,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_5": {
    "file": "web_icon_5.png",
    "w": 24,
    "h": 23.13,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_6": {
    "file": "web_icon_6.png",
    "w": 24,
    "h": 30.57,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_7": {
    "file": "web_icon_7.png",
    "w": 24,
    "h": 23.88,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_8": {
    "file": "web_icon_8.png",
    "w": 24,
    "h": 22.54,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_9": {
    "file": "web_icon_9.png",
    "w": 24,
    "h": 18.95,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_10": {
    "file": "web_icon_10.png",
    "w": 24,
    "h": 19.0,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_11": {
    "file": "web_icon_11.png",
    "w": 24,
    "h": 20.89,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_12": {
    "file": "web_icon_12.png",
    "w": 24,
    "h": 19.84,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_13": {
    "file": "web_icon_13.png",
    "w": 24,
    "h": 23.04,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_14": {
    "file": "web_icon_14.png",
    "w": 24,
    "h": 22.74,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_15": {
    "file": "web_icon_15.png",
    "w": 24,
    "h": 27.7,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_16": {
    "file": "web_icon_16.png",
    "w": 24,
    "h": 25.32,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_17": {
    "file": "web_icon_17.png",
    "w": 24,
    "h": 23.12,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_icon_18": {
    "file": "web_icon_18.png",
    "w": 24,
    "h": 20.46,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "fx_stamp": {
    "file": "fx_stamp.png",
    "w": 48,
    "h": 48.27,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "c_sky": {
    "file": "c_sky.webp",
@@ -3718,7 +3897,8 @@
    "file": "c_shadow.webp",
    "w": 256,
    "h": 65.48,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_bubbles_1": {
    "file": "c_bubbles_1.webp",
@@ -3754,7 +3934,8 @@
    "file": "c_bowspray_1.webp",
    "w": 40,
    "h": 12.59,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_bowspray_2": {
    "file": "c_bowspray_2.webp",
@@ -3772,31 +3953,36 @@
    "file": "c_spray_1.webp",
    "w": 96,
    "h": 71.1,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_spray_2": {
    "file": "c_spray_2.webp",
    "w": 96,
    "h": 55.38,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_spray_3": {
    "file": "c_spray_3.webp",
    "w": 96,
    "h": 42.46,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_spray_4": {
    "file": "c_spray_4.webp",
    "w": 96,
    "h": 45.95,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_rays": {
    "file": "c_rays.webp",
    "w": 256,
    "h": 261.83,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_shafts": {
    "file": "c_shafts.webp",
@@ -3808,13 +3994,15 @@
    "file": "c_whale_leap.webp",
    "w": 300,
    "h": 211.49,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_whale_fall": {
    "file": "c_whale_fall.webp",
    "w": 300,
    "h": 148.88,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_shadow_swim_1": {
    "file": "c_shadow_swim_1.webp",
@@ -3892,85 +4080,99 @@
    "file": "c_whale_rise_1.webp",
    "w": 300,
    "h": 203.45,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "c_whale_rise_2": {
    "file": "c_whale_rise_2.webp",
    "w": 300,
    "h": 210.62,
-   "smooth": false
+   "smooth": false,
+   "skip": true
   },
   "web_node_1": {
    "file": "web_node_1.png",
    "w": 48,
    "h": 49.92,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_2": {
    "file": "web_node_2.png",
    "w": 48,
    "h": 49.66,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_3": {
    "file": "web_node_3.png",
    "w": 48,
    "h": 49.35,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_4": {
    "file": "web_node_4.png",
    "w": 48,
    "h": 48.2,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_5": {
    "file": "web_node_5.png",
    "w": 48,
    "h": 48.56,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_6": {
    "file": "web_node_6.png",
    "w": 48,
    "h": 49.14,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_7": {
    "file": "web_node_7.png",
    "w": 48,
    "h": 47.35,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_8": {
    "file": "web_node_8.png",
    "w": 48,
    "h": 47.01,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_9": {
    "file": "web_node_9.png",
    "w": 48,
    "h": 8.69,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_10": {
    "file": "web_node_10.png",
    "w": 48,
    "h": 8.52,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_11": {
    "file": "web_node_11.png",
    "w": 48,
    "h": 36.29,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "web_node_12": {
    "file": "web_node_12.png",
    "w": 48,
    "h": 47.65,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "d_hammer_shark": {
    "atlas": "d_atlas.png",
@@ -11318,7 +11520,8 @@
    "ay": 487,
    "w": 320,
    "h": 315,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_stamp_record": {
    "atlas": "h_atlas.webp",
@@ -11334,7 +11537,8 @@
    "ay": 876,
    "w": 128,
    "h": 229,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_2": {
    "atlas": "h_atlas.webp",
@@ -11342,7 +11546,8 @@
    "ay": 876,
    "w": 128,
    "h": 220,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_3": {
    "atlas": "h_atlas.webp",
@@ -11350,7 +11555,8 @@
    "ay": 876,
    "w": 128,
    "h": 198,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_5": {
    "atlas": "h_atlas.webp",
@@ -11358,7 +11564,8 @@
    "ay": 876,
    "w": 128,
    "h": 195,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_4": {
    "atlas": "h_atlas.webp",
@@ -11366,7 +11573,8 @@
    "ay": 876,
    "w": 128,
    "h": 187,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_6": {
    "atlas": "h_atlas.webp",
@@ -11374,7 +11582,8 @@
    "ay": 876,
    "w": 128,
    "h": 179,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_outfit_7": {
    "atlas": "h_atlas.webp",
@@ -11382,7 +11591,8 @@
    "ay": 876,
    "w": 128,
    "h": 175,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_btn": {
    "atlas": "h_atlas.webp",
@@ -11398,7 +11608,8 @@
    "ay": 876,
    "w": 128,
    "h": 167,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_plaque_hold": {
    "atlas": "h_atlas.webp",
@@ -11430,7 +11641,8 @@
    "ay": 1189,
    "w": 128,
    "h": 140,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_3": {
    "atlas": "h_atlas.webp",
@@ -11438,7 +11650,8 @@
    "ay": 1189,
    "w": 128,
    "h": 139,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_2": {
    "atlas": "h_atlas.webp",
@@ -11446,7 +11659,8 @@
    "ay": 1189,
    "w": 128,
    "h": 138,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_3": {
    "atlas": "h_atlas.webp",
@@ -11454,7 +11668,8 @@
    "ay": 1189,
    "w": 128,
    "h": 138,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_5": {
    "atlas": "h_atlas.webp",
@@ -11462,7 +11677,8 @@
    "ay": 1189,
    "w": 128,
    "h": 138,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_6": {
    "atlas": "h_atlas.webp",
@@ -11470,7 +11686,8 @@
    "ay": 1189,
    "w": 128,
    "h": 137,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_7": {
    "atlas": "h_atlas.webp",
@@ -11478,7 +11695,8 @@
    "ay": 1350,
    "w": 128,
    "h": 137,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_1": {
    "atlas": "h_atlas.webp",
@@ -11486,7 +11704,8 @@
    "ay": 1350,
    "w": 128,
    "h": 136,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_2": {
    "atlas": "h_atlas.webp",
@@ -11494,7 +11713,8 @@
    "ay": 1350,
    "w": 128,
    "h": 136,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_1": {
    "atlas": "h_atlas.webp",
@@ -11502,7 +11722,8 @@
    "ay": 1350,
    "w": 128,
    "h": 133,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_3": {
    "atlas": "h_atlas.webp",
@@ -11510,7 +11731,8 @@
    "ay": 1350,
    "w": 128,
    "h": 132,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_5": {
    "atlas": "h_atlas.webp",
@@ -11518,7 +11740,8 @@
    "ay": 1350,
    "w": 128,
    "h": 132,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_4": {
    "atlas": "h_atlas.webp",
@@ -11526,7 +11749,8 @@
    "ay": 1350,
    "w": 128,
    "h": 131,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_6": {
    "atlas": "h_atlas.webp",
@@ -11534,7 +11758,8 @@
    "ay": 1350,
    "w": 128,
    "h": 131,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_line_8": {
    "atlas": "h_atlas.webp",
@@ -11542,7 +11767,8 @@
    "ay": 1350,
    "w": 128,
    "h": 130,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_2": {
    "atlas": "h_atlas.webp",
@@ -11550,7 +11776,8 @@
    "ay": 1350,
    "w": 128,
    "h": 130,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_7": {
    "atlas": "h_atlas.webp",
@@ -11558,7 +11785,8 @@
    "ay": 1350,
    "w": 128,
    "h": 130,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_reel_8": {
    "atlas": "h_atlas.webp",
@@ -11566,7 +11794,8 @@
    "ay": 1350,
    "w": 128,
    "h": 130,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_7": {
    "atlas": "h_atlas.webp",
@@ -11574,7 +11803,8 @@
    "ay": 1350,
    "w": 128,
    "h": 130,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_8": {
    "atlas": "h_atlas.webp",
@@ -11582,7 +11812,8 @@
    "ay": 1350,
    "w": 128,
    "h": 128,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_1": {
    "atlas": "h_atlas.webp",
@@ -11614,7 +11845,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_5": {
    "atlas": "h_atlas.webp",
@@ -11622,7 +11854,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_6": {
    "atlas": "h_atlas.webp",
@@ -11630,7 +11863,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_8": {
    "atlas": "h_atlas.webp",
@@ -11638,7 +11872,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_9": {
    "atlas": "h_atlas.webp",
@@ -11646,7 +11881,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_10": {
    "atlas": "h_atlas.webp",
@@ -11654,7 +11890,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_11": {
    "atlas": "h_atlas.webp",
@@ -11662,7 +11899,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_12": {
    "atlas": "h_atlas.webp",
@@ -11670,7 +11908,8 @@
    "ay": 1489,
    "w": 128,
    "h": 127,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_8": {
    "atlas": "h_atlas.webp",
@@ -11678,7 +11917,8 @@
    "ay": 1489,
    "w": 128,
    "h": 126,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_skill_7": {
    "atlas": "h_atlas.webp",
@@ -11686,7 +11926,8 @@
    "ay": 1489,
    "w": 128,
    "h": 126,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_2": {
    "atlas": "h_atlas.webp",
@@ -11694,7 +11935,8 @@
    "ay": 1489,
    "w": 128,
    "h": 122,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_5": {
    "atlas": "h_atlas.webp",
@@ -11702,7 +11944,8 @@
    "ay": 1489,
    "w": 128,
    "h": 122,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_6": {
    "atlas": "h_atlas.webp",
@@ -11710,7 +11953,8 @@
    "ay": 1489,
    "w": 128,
    "h": 122,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_1": {
    "atlas": "h_atlas.webp",
@@ -11718,7 +11962,8 @@
    "ay": 1618,
    "w": 128,
    "h": 121,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_3": {
    "atlas": "h_atlas.webp",
@@ -11726,7 +11971,8 @@
    "ay": 1618,
    "w": 128,
    "h": 121,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_4": {
    "atlas": "h_atlas.webp",
@@ -11734,7 +11980,8 @@
    "ay": 1618,
    "w": 128,
    "h": 121,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_rod_7": {
    "atlas": "h_atlas.webp",
@@ -11742,7 +11989,8 @@
    "ay": 1618,
    "w": 128,
    "h": 121,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_ribbon2": {
    "atlas": "h_atlas.webp",
@@ -11750,7 +11998,8 @@
    "ay": 1618,
    "w": 320,
    "h": 120,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_6": {
    "atlas": "h_atlas.webp",
@@ -11758,7 +12007,8 @@
    "ay": 1618,
    "w": 128,
    "h": 118,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_5": {
    "atlas": "h_atlas.webp",
@@ -11766,7 +12016,8 @@
    "ay": 1618,
    "w": 128,
    "h": 114,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_boat_4": {
    "atlas": "h_atlas.webp",
@@ -11774,7 +12025,8 @@
    "ay": 1618,
    "w": 128,
    "h": 108,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_power": {
    "atlas": "h_atlas.webp",
@@ -11798,7 +12050,8 @@
    "ay": 1741,
    "w": 128,
    "h": 54,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "ui_tension_fill": {
    "atlas": "h_atlas.webp",
@@ -11830,7 +12083,8 @@
    "ay": 0,
    "w": 191,
    "h": 170,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_close": {
    "atlas": "h_panel.webp",
@@ -11870,7 +12124,8 @@
    "ay": 657,
    "w": 541,
    "h": 110,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_buy": {
    "atlas": "h_panel.webp",
@@ -11878,7 +12133,8 @@
    "ay": 781,
    "w": 541,
    "h": 108,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_buy_off": {
    "atlas": "h_panel.webp",
@@ -11886,7 +12142,8 @@
    "ay": 781,
    "w": 542,
    "h": 107,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "h_bar": {
    "atlas": "h_panel.webp",
@@ -12430,7 +12687,8 @@
    "ay": 1603,
    "w": 170,
    "h": 162,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "c_deep_8": {
    "atlas": "ui_extra.webp",
@@ -12652,7 +12910,8 @@
    "ay": 2073,
    "w": 80,
    "h": 77,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   },
   "c_float_4": {
    "atlas": "gear.webp",
@@ -13376,7 +13635,8 @@
    "ay": 589,
    "w": 420,
    "h": 420,
-   "smooth": true
+   "smooth": true,
+   "skip": true
   }
  }
 }

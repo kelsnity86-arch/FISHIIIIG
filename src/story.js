@@ -4,6 +4,7 @@
 import { W, H, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { RELICS } from './relics.js';
+import { setSound, soundOn, initAudio } from './audio.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -18,7 +19,7 @@ const WHO = { hall: '시장', yard: '목수', guild: '길드장', market: '생�
 // 마을 사람들은 이를 모른다. 물건의 이름도 쓰임새도 모르고, 옛이야기로만 어렴풋이 전해 들었을 뿐이다.
 // 그래서 대사는 늘 조금 어긋난다: 플레이어는 "저건 주전자잖아" 하고 알아보는데, 사람들은 "등에 솥 같은 것"이라고 한다.
 // 8번 해역에서만 조금 더 드러나지만, 그때도 아무도 답을 말하지 않는다.
-const SCRIPT = {
+export const SCRIPT = {
   intro: [
     ['hall', '다시 바다로 나가려는구나. 영감님의 배는 그대로 두었다. 낡았지만 아직 뜬단다.'],
     ['hall', '영감님이 바닷가에서 너를 건져 온 게 엊그제 같은데. 말도 없고 기억도 없던 아이가 이만큼 컸구나.'],
@@ -140,8 +141,15 @@ export function updateStory(g, dt) {
 
 // ── 제목 화면: 켜면 바다 위에 로고가 떠 있다. 누르면 로고가 걷히고 게임이 시작된다 ──
 export function startTitle(g) { g.title = { t: 0, a: 0, closing: null }; }
-export function tapTitle(g) {
+// 제목 화면 아래 구석의 설정 두 가지: 소리 켜고 끄기(왼쪽), 처음부터 다시(오른쪽, 저장이 있을 때만. 두 번 눌러야 지워진다)
+const T_SOUND = { x: 44, y: H - 20 }, T_RESET = { x: W - 62, y: H - 20 };
+export function tapTitle(g, x, y) {
   const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
+  if (x != null && Math.abs(x - T_SOUND.x) < 44 && Math.abs(y - T_SOUND.y) < 16) { initAudio(); setSound(!soundOn()); return; }
+  if (x != null && g.hasSave && Math.abs(x - T_RESET.x) < 62 && Math.abs(y - T_RESET.y) < 16) {
+    if (t.askT != null && t.t - t.askT < 4) g.wipe = true; else t.askT = t.t;
+    return;
+  }
   t.closing = 0; g.sfx.push(['paper']);
 }
 function updateTitle(g, dt) {
@@ -160,6 +168,9 @@ export function drawTitle(ctx, g) {
   if (hasSprite('ui_logo')) ctx.drawImage(s.img, W / 2 - w / 2, 96 - h / 2 + bob + (1 - a) * 10, w, h);
   else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
   if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
+  ctx.globalAlpha = a * 0.8;
+  label(ctx, soundOn() ? '소리 켬' : '소리 끔', T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
+  if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
 

@@ -83,14 +83,15 @@ export function drawMap(ctx, g) {
 const BW = 600, BX = (W - BW) / 2;
 const bookH = () => BW * sprite('dex_book').h / sprite('dex_book').w, BY = () => (H - bookH()) / 2 + 4;
 const TABS = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'];            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
-const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 35, GAP = 5;
+const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 33, GAP = 4;
+const GX = 84, GW = COLS * SLOT + (COLS - 1) * GAP;        // 칸들의 왼쪽 끝과 폭: 오른쪽의 가름끈(책갈피)에 닿지 않는 자리까지만
 const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.34;      // 왼쪽·오른쪽 쪽의 안쪽 자리와 폭
 const gridY = () => BY() + 50;
 const listOf = (tab) => tab === 'R' ? RELICS : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-const tabRect = (i) => ({ x: LX() - 12 + i * 16.4, y: BY() - 3, w: 15.8, h: 15 });
-const slotRect = (i) => ({ x: LX() + (PW() - (COLS * SLOT + (COLS - 1) * GAP)) / 2 + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
-const arrowRect = (dir) => ({ x: LX() + PW() / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
+const tabRect = (i) => ({ x: GX + i * 16.4, y: BY() - 3, w: 15.8, h: 15 });
+const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
+const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => 'd_' + c[1])); }
 export function openDex(g) { g.dex = { a: 0, t: 0, closing: null, tab: g.region, page: 0, sel: null, selT: 0 }; loadPage(g); g.sfx.push(['paper']); }
 const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y >= r.y - pad && y <= r.y + r.h + pad;
@@ -121,8 +122,8 @@ export function drawDex(ctx, g) {
   TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t ? String(t) : '공', r.x + r.w / 2, r.y + 5.5 - (on ? 2 : 0), 7, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
-  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '어느 바다에나 사는 물고기', LX(), BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
-  label(ctx, `${got} / ${list.length}`, LX() + PW() - 36, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 책갈피 끈에 가리지 않는 자리
+  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '어느 바다에나 사는 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
+  label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
   const shown = list.slice(d.page * PER, d.page * PER + PER), pageA = clamp(d.t / 0.2, 0, 1);
   ctx.globalAlpha = a * (0.3 + 0.7 * pageA);
   shown.forEach((c, i) => {
@@ -135,7 +136,7 @@ export function drawDex(ctx, g) {
   ctx.globalAlpha = a;
   if (pages > 1) {
     for (const dir of [-1, 1]) { const r = arrowRect(dir), off = (dir < 0 && d.page === 0) || (dir > 0 && d.page === pages - 1); ctx.globalAlpha = a * (off ? 0.3 : 1); img(ctx, dir < 0 ? 'dex_prev' : 'dex_next', r.x, r.y, r.w, r.h); }
-    ctx.globalAlpha = a; label(ctx, `${d.page + 1} / ${pages}`, LX() + PW() / 2, arrowRect(1).y + 9, 9, '#8a6a48', 'center', 600, null);
+    ctx.globalAlpha = a; label(ctx, `${d.page + 1} / ${pages}`, GX + GW / 2, arrowRect(1).y + 9, 9, '#8a6a48', 'center', 600, null);
   }
 
   // 오른쪽 쪽: 고른 생물

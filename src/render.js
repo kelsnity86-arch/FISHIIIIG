@@ -652,7 +652,10 @@ function drawLineAndFloat(ctx, g, phase) {
   if (c && c.phase !== 'pull') {
     // 낚아 올리는 중: 줄이 낚싯대 끝에서 입까지 팽팽하고, 찌는 줄에 매달려 공중에 있다
     if (c.phase === 'release' || c.alpha < 0.5) return;
-    const m = c.phase === 'stow' ? { x: c.x, y: c.y } : leapMouth(c, leapHeight(c));
+    // 펄떡이는 동안에는 줄 끝도 생물의 입을 따라 같이 움직인다 (생물이 튀고 비틀리는 만큼)
+    const fs = c.phase === 'hang' && c.reveal ? flopStep(c.popT) : null;
+    const cc = fs ? { ...c, y: c.y + fs[1] * c.lw, rot: c.rot + fs[0], scale: c.scale * fs[3] } : c;
+    const m = c.phase === 'stow' ? { x: c.x, y: c.y } : leapMouth(cc, leapHeight(c));
     const at = stroke([tip, m], -0.03, 1, 1.1);
     const p = at(0.24), q = at(0.28);
     drawFloat(p.x, p.y, Math.atan2(q.y - p.y, q.x - p.x) + Math.PI / 2, false);

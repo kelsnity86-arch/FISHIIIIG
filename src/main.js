@@ -37,7 +37,7 @@ function lockLandscape() {
 }
 
 // 앱(안드로이드)으로 돌 때는 시험용 버튼 줄을 숨긴다
-if (window.Capacitor) { const bar = document.getElementById('debug'); if (bar) bar.style.display = 'none'; }
+{ const bar = document.getElementById('debug'); if (bar) bar.style.display = !window.Capacitor && /[?&]debug/.test(location.search) ? 'flex' : 'none'; }
 
 await loadAssets();
 const game = createGame();
@@ -83,7 +83,9 @@ if (btnSound) btnSound.addEventListener('click', () => {
 
 // ── 저장 (이 기기의 브라우저에만 남는다) ──
 const SAVE = 'horizon-angler-save-1';
+let wiped = false;
 function save() {
+  if (wiped) return;                     // 저장을 지운 뒤에는 다시 쓰지 않는다
   try { localStorage.setItem(SAVE, JSON.stringify({ gold: game.gold, eco: game.eco, region: game.region, dayT: game.dayT, cargo: game.cargo, records: game.records, story: game.story.seen, relics: game.relics, sinceFantasy: game.sinceFantasy || 0 })); } catch { /* 저장이 막힌 환경에서는 그냥 넘어간다 */ }
 }
 try {
@@ -94,6 +96,7 @@ try {
     Object.assign(game.eco.shop, d.eco && d.eco.shop); game.eco.town = (d.eco && d.eco.town) || 1;
     game.region = Math.min(d.region || 1, maxRegion(game.eco)); game.cargo = d.cargo || []; game.records = d.records || {};
     game.cargoMax = cargoMax(game.eco); game.dayT = d.dayT || 0;
+    game.hasSave = true;
     game.relics = d.relics || 0; game.sinceFantasy = d.sinceFantasy || 0;
     if (d.story) game.story.seen = d.story; else skipBasics(game);     // 이야기가 생기기 전의 저장: 처음 안내는 건너뛴다
   }
@@ -119,6 +122,7 @@ function frame(now) {
     update(game, dt);
     for (const [name, arg] of game.sfx) playSfx(name, arg);
     if (game.dirty) { game.dirty = false; save(); }
+    if (game.wipe) { wiped = true; try { localStorage.removeItem(SAVE); } catch { /* 무시 */ } location.reload(); }     // 제목 화면의 '처음부터 다시'
   }
   game.sfx.length = 0;
   reel(game.state === 'fight' && game.hold && game.freeze <= 0, game.fight ? game.fight.tension : 0);

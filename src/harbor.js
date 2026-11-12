@@ -131,7 +131,7 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
-  if (g.title) { tapTitle(g); return true; }
+  if (g.title) { tapTitle(g, x, y); return true; }
   if (g.memory) { tapMemory(g); return true; }
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
   if (g.map) { const r = tapMap(g, x, y); if (r) goRegion(g, r); return true; }
