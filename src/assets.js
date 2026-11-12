@@ -156,7 +156,7 @@ function loadOne(name) {
   const info = manifest[name];
   if (!info) return Promise.resolve();
   // ox·oy = 기준점에서 그림 왼쪽 위까지(배), slot = 게이지 홈의 자리, water = 찌에서 수면이 걸리는 높이
-  const meta = { w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h, ox: info.ox, oy: info.oy, slot: info.slot, water: info.water };
+  const meta = { w: info.w, h: info.h, smooth: !!info.smooth, sw: info.sw || info.w, sh: info.sh || info.h, ox: info.ox, oy: info.oy, slot: info.slot, water: info.water, hole: info.hole };
   const p = info.atlas
     // 여러 그림을 한 장에 묶은 것: 묶음 그림을 한 번만 받고, 필요한 칸을 잘라 쓴다
     ? loadImage(info.atlas).then((img) => {
