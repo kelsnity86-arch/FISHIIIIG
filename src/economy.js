@@ -3,7 +3,7 @@
 export const POWER_X = 4;        // 해역마다 생물의 힘
 export const PRICE_X = 6;        // 해역마다 생물의 값
 export const GEAR_X = 22.5;      // 장비 한 단계마다 값
-const FIRST_SET = 28000;         // 2단계 장비 한 벌의 기준 값
+const FIRST_SET = 42000;         // 2단계 장비 한 벌의 기준 값
 const START_CUT = 0.4;           // 첫 해역에서는 이만큼만 받는다 (시작이 느리지 않게)
 const SKILL_BASE = FIRST_SET * 0.003 * START_CUT;
 
