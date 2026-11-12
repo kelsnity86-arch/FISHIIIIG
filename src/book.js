@@ -45,8 +45,10 @@ export function updateBook(g, dt) {
 }
 
 // ── 해역 지도: 표식을 눌러 그 바다로 간다 ──
-// 해도 그림의 항로 위에 찍힌 점 8개의 자리 (그림에서 잰 값). 표식의 뾰족한 끝이 그 점을 정확히 가리킨다.
-const DOTS_XY = [null, [62, 184.4], [130.4, 172.4], [200.4, 180.2], [273.6, 174.5], [343.2, 179.3], [410, 174.2], [486.4, 179.5], [561.5, 177.7], [80, 297]];      // 9 = 태초의 바다: 왼쪽 아래 구름 속, 처음 떠난 항구 바로 곁 (가장 먼 곳이 아니라 출발점 옆에 있었다)
+// 표식의 자리: 해역마다 그림 한가운데(잔잔한 물 자리), 해도에 그려진 점선 항로 위. 표식의 뾰족한 끝이 그 자리를 가리킨다.
+// (해도 그림에 찍혀 있는 점들은 해역과 해역의 경계에 있어서, 거기에 표식을 세우면 옆 해역에 걸쳐 보였다.)
+const DOTS_XY = [null, [84, 193], [158, 193], [226, 193.5], [300, 192], [370, 195.5], [440, 192], [514, 192.2], [590, 191.2], [80, 297]];      // 9 = 태초의 바다: 왼쪽 아래 구름 속, 처음 떠난 항구 바로 곁 (가장 먼 곳이 아니라 출발점 옆에 있었다)
+const HARBOR_XY = [62, 184.4];      // 해도 그림의 부두 끝 점: 태초의 바다로 가는 항로가 여기서 갈라진다
 const PIN_W = 30;
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
 export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; g.sfx.push(['paper']); }
@@ -74,14 +76,16 @@ export function drawMap(ctx, g) {
     const rv = r === 9 && m.reveal != null ? ease(clamp((m.t - 1.7) / 1.4, 0, 1)) : 1;      // 처음 열릴 때: 항로가 그어진 뒤 구름 속에서 표식이 서서히 떠오른다
     if (rv <= 0) continue;
     if (r === 9) {                                          // 1번 해역에서 이어지는 점선 항로와 끝점 (해도에 그려진 항로와 같은 모양으로). 처음 열릴 때는 항구 쪽에서부터 그어진다
-      const [x0, y0] = DOTS_XY[1], qx = 142, qy = 206, n = 40,      /* 1번 해역 이름표를 지나지 않게 오른쪽으로 돌아 내려온다 */ k = m.reveal != null ? ease(clamp((m.t - 0.4) / 1.6, 0, 1)) : 1;
+      const [x0, y0] = HARBOR_XY, qx = 12, qy = 250, n = 40,      /* 1번 해역 이름표를 지나지 않게 왼쪽 바닷가로 돌아 내려온다 */ k = m.reveal != null ? ease(clamp((m.t - 0.4) / 1.6, 0, 1)) : 1;
       const at = (u) => [(1 - u) * (1 - u) * x0 + 2 * (1 - u) * u * qx + u * u * dx, (1 - u) * (1 - u) * (y0 + 3) + 2 * (1 - u) * u * qy + u * u * dy];
       ctx.save(); ctx.globalAlpha = a; ctx.lineCap = 'round'; ctx.setLineDash([2.6, 3.4]);
       for (const [col, lw] of [['rgba(60,40,24,0.35)', 2.4], ['#fff8e6', 1.3]]) { ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); for (let i = 0; i <= Math.round(n * k); i++) { const [px, py] = at(i / n); if (i) ctx.lineTo(px, py); else ctx.moveTo(px, py); } ctx.stroke(); }
-      ctx.setLineDash([]); ctx.globalAlpha = a * rv;
-      ctx.fillStyle = 'rgba(60,40,24,0.5)'; ctx.beginPath(); ctx.arc(dx, dy, 3.1, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff8e6'; ctx.beginPath(); ctx.arc(dx, dy, 2.2, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
     }
+    // 표식이 가리키는 자리의 점 (해도에 찍힌 점과 같은 모양)
+    ctx.save(); ctx.globalAlpha = a * rv;
+    ctx.fillStyle = 'rgba(60,40,24,0.5)'; ctx.beginPath(); ctx.arc(dx, dy, 3.1, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff8e6'; ctx.beginPath(); ctx.arc(dx, dy, 2.2, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
     ctx.save(); ctx.globalAlpha = a * rv; ctx.translate(0, (1 - rv) * 6);
     const w = PIN_W * (here ? 1.12 : 1), h = w * s.h / s.w, bob = here ? Math.sin(m.t * 2.6) * 1.5 : 0, tip = dy - 3;      // 뾰족한 끝이 점 바로 위에
     if (here) { const rg = sprite('map_ring'), rw = w * 1.02; ctx.drawImage(rg.img, dx - rw / 2, tip - h + bob - (rw * rg.h / rg.w - w * 0.96) / 2 - 1, rw, rw * rg.h / rg.w); }
