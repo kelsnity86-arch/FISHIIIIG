@@ -187,6 +187,16 @@ function loadOne(name) {
         const x = c.getContext('2d'); x.translate(c.width, 0); x.scale(-1, 1); x.drawImage(img, 0, 0);
         img = c;
       }
+      if (name.startsWith('c_shadow')) {                 // 물속 그림자: 그림을 자를 때 번진 가장자리가 반듯하게 잘려 있다 (머리 쪽에 세로로 끊긴 선이 보였다) → 가장자리를 서서히 풀어 준다
+        const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+        const x = c.getContext('2d'); x.drawImage(img, 0, 0); x.globalCompositeOperation = 'destination-in';
+        for (const [x1, y1] of [[c.width, 0], [0, c.height]]) {
+          const gr = x.createLinearGradient(0, 0, x1, y1);
+          for (const [t, al] of [[0, 0], [0.03, 0.25], [0.09, 1], [0.91, 1], [0.97, 0.25], [1, 0]]) gr.addColorStop(t, `rgba(0,0,0,${al})`);
+          x.fillStyle = gr; x.fillRect(0, 0, c.width, c.height);
+        }
+        img = c;
+      }
       sprites[name] = { img, ...meta };
     });
   pending.set(name, p);

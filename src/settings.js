@@ -1,7 +1,7 @@
 // 설정 판: 소리 크기, 해상도(PC) / 화질(폰), 진동(폰). 가게 판과 같은 그림을 쓴다. 제목 화면과 게임 중 오른쪽 위의 '설정'으로 연다.
 import { W, COLORS } from './config.js';
 import { sprite } from './assets.js';
-import { initAudio, nextVolume, soundName } from './audio.js';
+import { initAudio, getVol, setVol, playSfx } from './audio.js';
 import { IS_PC, vibeLv, nextVibe } from './haptic.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
@@ -26,7 +26,7 @@ const VIBE_DESC = ['울리지 않는다', '챌 때와 낚았을 때만', '날뛰
 // 일시정지 메뉴 (PC: 아무것도 열려 있지 않을 때 Esc · 폰: 뒤로 가기)
 const PAUSE_ROWS = [
   { id: 'resume', name: '게임 재개', value: '재개', desc: '하던 곳으로 돌아갑니다' },
-  { id: 'set', name: '설정', value: '열기', desc: IS_PC ? '소리 · 해상도' : '소리 · 화질 · 진동' },
+  { id: 'set', name: '설정', value: '열기', desc: IS_PC ? '소리 크기 · 해상도' : '소리 크기 · 화질 · 진동' },
   { id: 'quit', name: '게임 종료', value: '종료', desc: '진행은 자동으로 저장됩니다' },
 ];
 export function quitGame() {
@@ -35,7 +35,7 @@ export function quitGame() {
 }
 function rows(mode) {
   if (mode === 'pause') return PAUSE_ROWS;
-  const out = [{ id: 'sound', name: '소리', value: soundName().replace('소리 ', ''), desc: '배경 음악과 효과음의 크기' }];
+  const out = [];
   if (IS_PC) out.push({ id: 'res', name: '해상도', value: resName(), desc: '창 크기 · 비율은 16:9 고정 (F11 = 전체 화면)' });
   else {
     out.push({ id: 'qual', name: '화질', value: QUAL[qual][0], desc: '낮을수록 폰이 덜 뜨거워집니다' });
@@ -44,8 +44,7 @@ function rows(mode) {
   return out;
 }
 function act(id) {
-  if (id === 'sound') { initAudio(); nextVolume(); }
-  else if (id === 'res') { res = (res + 1) % RES.length; put('hori-res', res); applyRes(); }
+  if (id === 'res') { res = (res + 1) % RES.length; put('hori-res', res); applyRes(); }
   else if (id === 'qual') { qual = (qual + 1) % QUAL.length; put('hori-quality', qual); window.dispatchEvent(new Event('resize')); }
   else if (id === 'vibe') nextVibe();
 }
@@ -53,7 +52,15 @@ function act(id) {
 // 가게 판과 같은 자리·크기
 const PANEL = { x: 182, y: 28, w: 364 }, PS = PANEL.w / 336;
 const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
-const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
+const rowRect = (i, mode) => ({ x: PANEL.x + 30, y: PANEL.y + (mode === 'set' ? 164 : 93) + i * 47.5, w: 304, h: 45.5 });      // 설정에서는 소리 막대 세 줄 아래에
+// 소리 크기 막대 (설정 판 위쪽에 세 줄): 누르거나 끌어서 0~100 사이에서 정한다
+const SLIDERS = [['mus', '배경음'], ['sfx', '효과음'], ['amb', '환경음']];
+const BAR = { x: PANEL.x + 118, w: 168, x0: 0.044, x1: 0.956 };
+const sliderY = (i) => PANEL.y + 97 + i * 22;
+const sliderAt = (x, y) => { for (let i = 0; i < SLIDERS.length; i++) if (Math.abs(y - sliderY(i)) <= 11 && x >= BAR.x - 14 && x <= BAR.x + BAR.w + 40) return i; return -1; };
+const sliderValue = (x) => clamp((x - BAR.x - BAR.w * BAR.x0) / (BAR.w * (BAR.x1 - BAR.x0)), 0, 1);
+export function dragSettings(g, x) { const s = g.settings; if (s && s.drag != null && s.closing == null) setVol(SLIDERS[s.drag][0], sliderValue(x)); }
+export function dropSettings(g) { const s = g.settings; if (s && s.drag != null) { if (SLIDERS[s.drag][0] === 'sfx') playSfx('tick'); s.drag = null; } }      // 효과음은 놓을 때 한 번 들려준다
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
 export function openSettings(g) { if (!g.settings) { g.settings = { mode: 'set', t: 0, closing: null, hit: -1, hitT: 9 }; g.sfx.push(['paper']); } }
@@ -75,8 +82,9 @@ export function tapSettings(g, x, y) {
   const s = g.settings; if (!s || s.closing != null) return;
   const c = closeRect();
   if (x >= c.x - 4 && x <= c.x + c.w + 4 && y >= c.y - 4 && y <= c.y + c.h + 4) { closeSettings(g); return; }
+  if (s.mode === 'set') { const k = sliderAt(x, y); if (k >= 0) { initAudio(); s.drag = k; setVol(SLIDERS[k][0], sliderValue(x)); return; } }
   const list = rows(s.mode);
-  for (let i = 0; i < list.length; i++) { const r = rowRect(i); if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
+  for (let i = 0; i < list.length; i++) { const r = rowRect(i, s.mode); if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
     const id = list[i].id; g.sfx.push(['tap']);
     if (id === 'resume') closeSettings(g);
     else if (id === 'set') { s.mode = 'set'; s.t = 0.1; s.hit = -1; }
@@ -102,10 +110,21 @@ export function drawSettings(ctx, g) {
   // 둥근 창: 톱니 (설정)
   { const e = sprite('ui_ic_gear'), rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909, f = Math.min(rr * 1.45 / e.w, rr * 1.45 / e.h);
     ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(e.img, rx - e.w * f / 2, ry - e.h * f / 2, e.w * f, e.h * f); ctx.restore(); }
-  label(ctx, s.mode === 'pause' ? '게임이 멈춰 있습니다' : '줄을 누르면 바뀝니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
+  label(ctx, s.mode === 'pause' ? '게임이 멈춰 있습니다' : '막대를 끌어 소리 크기를 정합니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
+  if (s.mode === 'set') {
+    const fr = sprite('h_bar'), fl = sprite('h_bar_fill'), bh = BAR.w * fr.h / fr.w;
+    SLIDERS.forEach(([key, name], i) => {
+      const y = sliderY(i), v = getVol(key);
+      label(ctx, name, PANEL.x + 62, y, 10.5, COLORS.navy, 'left');
+      ctx.drawImage(fr.img, BAR.x, y - bh / 2, BAR.w, bh);
+      const tw = BAR.w * (BAR.x1 - BAR.x0), th = tw * fl.h / fl.w;
+      if (v > 0.004) ctx.drawImage(fl.img, 0, 0, fl.img.width * v, fl.img.height, BAR.x + BAR.w * BAR.x0, y - th / 2, tw * v, th);
+      label(ctx, String(Math.round(v * 100)), BAR.x + BAR.w + 22, y, 10.5, '#4a2a08');
+    });
+  }
   const row = sprite('h_row');
   rows(s.mode).forEach((it, i) => {
-    const r = rowRect(i), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0;
+    const r = rowRect(i, s.mode), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0;
     ctx.save(); ctx.translate(0, -bump);
     ctx.drawImage(row.img, r.x, r.y, r.w, r.h);
     { const ic = sprite('ui_ic_gear'), is = 27; ctx.drawImage(ic.img, r.x + r.w * 0.109 - is / 2, r.y + r.h * 0.48 - is / 2, is, is * ic.h / ic.w); }      // 줄 왼쪽 칸: 톱니 그림

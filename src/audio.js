@@ -434,32 +434,35 @@ export function createEngine(ctx) {
     muteMusic(on) { st.mute = on; },
     play(name, arg, at = ctx.currentTime + 0.01) { if (S[name]) S[name](at, arg); },
     volume(v) { ramp(master.gain, v, 0.05); },
+    // 설정 판의 소리 크기 셋 (0~1): 배경음 · 효과음 · 환경음
+    mix(m, s, a) { ramp(music.gain, 0.55 * m, 0.05); ramp(sfx.gain, 0.8 * s, 0.05); ramp(amb.gain, 0.5 * a, 0.05); },
     setFight(v) { st.fight = v; },
   };
 }
 
 // ── 게임에서 쓰는 쪽 ──
 const SOUND_KEY = 'hori-sound';
-let eng = null, enabled = (() => { try { return localStorage.getItem(SOUND_KEY) !== 'off'; } catch { return true; } })(), timer = null, reelAt = 0;      // 소리 켬/끔은 기기에 저장된다
+let eng = null, enabled = true, timer = null, reelAt = 0;      // 소리 켬/끔은 기기에 저장된다
 export function initAudio() {
   if (eng) { if (eng.ctx.state === 'suspended') eng.ctx.resume(); return; }
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC) return;
   eng = createEngine(new AC());
-  eng.volume(enabled ? 0.9 * vol : 0);
+  applyMix();
   eng.schedule(eng.ctx.currentTime + 0.4);
   timer = setInterval(() => { if (eng.ctx.state === 'running') eng.schedule(eng.ctx.currentTime + 0.4); }, 80);
   document.addEventListener('visibilitychange', () => { if (!eng) return; if (document.hidden) eng.ctx.suspend(); else if (enabled) eng.ctx.resume(); });
 }
-// 소리 크기를 단계로 고른다 (100% → 70% → 40% → 끔). 설정 판에서 바꾼다.
-const VOL_KEY = 'hori-volume', VOLS = [1, 0.7, 0.4];
-let vol = (() => { try { const v = +localStorage.getItem(VOL_KEY); return VOLS.includes(v) ? v : 1; } catch { return 1; } })();
-export function nextVolume() {
-  if (!enabled) { vol = VOLS[0]; setSound(true); } else { const i = VOLS.indexOf(vol); if (i === VOLS.length - 1) setSound(false); else { vol = VOLS[i + 1]; setSound(true); } }
-  try { localStorage.setItem(VOL_KEY, String(vol)); } catch { /* 저장이 막힌 환경 */ }
-}
-export const soundName = () => (!enabled ? '소리 끔' : `소리 ${Math.round(vol * 100)}%`);
-export function setSound(on) { enabled = on; if (eng) eng.volume(on ? 0.9 * vol : 0); try { localStorage.setItem(SOUND_KEY, on ? 'on' : 'off'); } catch { /* 저장이 막힌 환경 */ } }
+// ── 소리 크기: 배경음 · 효과음 · 환경음을 따로, 0~100 사이에서 자유롭게 (설정 판) ──
+const VKEY = { mus: 'hori-vol-mus', sfx: 'hori-vol-sfx', amb: 'hori-vol-amb' };
+const vols = (() => { const o = {}; let off = false; try { off = localStorage.getItem(SOUND_KEY) === 'off'; } catch { /* 저장이 막힌 환경 */ }      // 예전에 소리를 꺼 둔 사람은 0에서 시작한다
+  for (const k of Object.keys(VKEY)) { let v = null; try { v = localStorage.getItem(VKEY[k]); } catch { /* 무시 */ } o[k] = v == null ? (off ? 0 : 1) : clamp(+v || 0, 0, 1); }
+  return o; })();
+const applyMix = () => { if (eng) eng.mix(vols.mus, vols.sfx, vols.amb); };
+export const getVol = (k) => vols[k];
+export function setVol(k, v) { vols[k] = clamp(Math.round(v * 100) / 100, 0, 1); try { localStorage.setItem(VKEY[k], String(vols[k])); localStorage.setItem(SOUND_KEY, 'on'); } catch { /* 무시 */ } applyMix(); }
+// 예전 방식(전체 켬/끔): 시험용 버튼이 쓴다
+export function setSound(on) { enabled = on; if (eng) eng.volume(on ? 0.9 : 0); }
 export const soundOn = () => enabled;
 export function playSfx(name, arg) { if (eng && enabled) eng.play(name, arg); }
 export function setScene(state) { if (eng) eng.set(state); }

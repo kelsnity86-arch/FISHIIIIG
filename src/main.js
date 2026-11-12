@@ -5,9 +5,9 @@ import { pointer } from './harbor.js';
 import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { topRegion } from './goals.js';
-import { maxScale, applyRes, closeSettings, openPause, updateSettings } from './settings.js';
+import { maxScale, applyRes, closeSettings, openPause, updateSettings, dragSettings, dropSettings } from './settings.js';
 import { render } from './render.js';
-import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
+import { initAudio, playSfx, reel, setSound, setScene } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
@@ -54,15 +54,18 @@ resize(); applyRes();      // PC판: 지난번에 고른 창 크기로
 canvas.addEventListener('pointerdown', (e) => {
   e.preventDefault(); canvas.setPointerCapture(e.pointerId); initAudio();
   if (e.pointerType === 'touch' && turned()) lockLandscape();
-  const r = canvas.getBoundingClientRect();
-  // 화면을 돌려 놓은 상태면 좌표도 돌려서 읽는다 (게임의 가로 = 기기의 세로 아래→위)
-  const gx = turned() ? (r.bottom - e.clientY) / r.height * W : (e.clientX - r.left) / r.width * W;
-  const gy = turned() ? (e.clientX - r.left) / r.width * H : (e.clientY - r.top) / r.height * H;
+  const [gx, gy] = gamePos(e);
   if (pointer(game, gx, gy)) { save(); return; }   // 단추·가게 판
   press(game);
 });
-canvas.addEventListener('pointerup', () => release(game));
-canvas.addEventListener('pointercancel', () => release(game));
+// 화면을 돌려 놓은 상태면 좌표도 돌려서 읽는다 (게임의 가로 = 기기의 세로 아래→위)
+function gamePos(e) {
+  const r = canvas.getBoundingClientRect();
+  return [turned() ? (r.bottom - e.clientY) / r.height * W : (e.clientX - r.left) / r.width * W, turned() ? (e.clientX - r.left) / r.width * H : (e.clientY - r.top) / r.height * H];
+}
+canvas.addEventListener('pointermove', (e) => { if (game.settings && game.settings.drag != null) dragSettings(game, gamePos(e)[0]); });      // 설정 판의 소리 막대 끌기
+canvas.addEventListener('pointerup', () => { dropSettings(game); release(game); });
+canvas.addEventListener('pointercancel', () => { dropSettings(game); release(game); });
 canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 window.addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); initAudio(); press(game); } });
 window.addEventListener('keyup', (e) => { if (e.code === 'Space') release(game); });
@@ -95,8 +98,8 @@ btnTime.addEventListener('click', () => {      // 시험용: 다음 시간대로
 
 const btnSound = document.getElementById('btnSound');
 if (btnSound) btnSound.addEventListener('click', () => {
-  initAudio(); setSound(!soundOn());
-  btnSound.textContent = '소리: ' + (soundOn() ? '켬' : '끔');
+  initAudio(); btnSound.dataset.off = btnSound.dataset.off ? '' : '1'; setSound(!btnSound.dataset.off);
+  btnSound.textContent = '소리: ' + (btnSound.dataset.off ? '끔' : '켬');
 });
 
 // ── 저장 (이 기기의 브라우저에만 남는다) ──
