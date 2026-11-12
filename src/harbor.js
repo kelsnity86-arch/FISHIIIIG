@@ -1,13 +1,14 @@
 // 항구 마을 화면과 가게 판. 화면에 보이는 것은 전부 GPT 그림이고, 코드는 놓고·넘기고·글자를 얹을 뿐이다.
 import { pickQuip } from './quips.js';
+import { settleQuest, newQuest, questLine, dexName, GEN_X } from './goals.js';
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
-import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
+import { startTalk, tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
 import { buzz } from './haptic.js';
 import {
-  GEAR, SKILLS, SHOPS, cargoMax, skillPct, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
+  GEAR, SKILLS, SHOPS, newEconomy, cargoMax, skillPct, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
  } from './economy.js';
 
@@ -66,18 +67,20 @@ export function enterHarbor(g) {
   return travel(g, () => {
     g.scene = 'harbor'; g.panel = null;
     // 들어오자마자 어창의 생물이 수산시장에서 팔린다
+    const quest = settleQuest(g);                                                   // 채운 의뢰의 보상을 받고, 새 의뢰가 걸린다
+    if (quest) { g.gold += quest; g.msg = { text: `의뢰 보상  +${fmt(quest)} G`, color: '#ffe27a', age: -0.3 }; g.sfx.push(['coin', 6]); }
     if (g.cargo.length) {
       const full = g.cargo.length >= g.cargoMax && fullBonus(g.eco) > 1;            // 만선: 수산시장이 값을 더 쳐 준다
       const sum = Math.round(g.cargo.reduce((a, c) => a + c.price, 0) * (full ? fullBonus(g.eco) : 1)), n = Math.min(16, 5 + g.cargo.length);
       g.gold += sum;
       for (let i = 0; i < n; i++) g.coins.push({ age: -i * 0.04 - 0.35, life: 0.6, sx: HX(0) + rand(-24, 24), sy: HY - 30 + rand(-14, 14) });
       g.sfx.push(['coin', n]);
-      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 팔았다 · 포상금  +${fmt(sum)} G`, color: '#ffe27a', age: -0.3 };
+      g.msg = { text: `${full ? '만선! ' : ''}${g.cargo.length}마리 팔았다 · 포상금  +${fmt(sum)} G` + (quest ? ` · 의뢰 보상  +${fmt(quest)} G` : ''), color: '#ffe27a', age: -0.3 };
       g.cargo.length = 0;
     }
   });
 }
-export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
+export function leaveHarbor(g) { return travel(g, () => { if (!g.quest) g.quest = newQuest(g); g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
   travel(g, () => {
@@ -107,7 +110,7 @@ function rowsOf(g, id) {
     case 'yard': return [gear('boat'), ['shop', 'yard']];
     case 'tailor': return [gear('outfit'), ['shop', 'tailor']];
     case 'guild': return [skill('profit'), skill('speed'), skill('big'), ['shop', 'guild']];
-    case 'hall': return [['town', 'town']];
+    case 'hall': return g.story.seen.finale ? [['town', 'town'], ['gen', 'gen']] : [['town', 'town']];      // 모든 기억을 되찾은 뒤에는 대를 이을 수 있다
     case 'skills': return [skill('profit'), skill('speed'), skill('big')];
   }
   return [];
@@ -128,6 +131,7 @@ function rowInfo(g, kind, id) {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];
     return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: `h_shop_${look}_${id}` };
   }
+  if (kind === 'gen') return { name: '대를 잇는다', level: `지금 ${(g.gen || 0) + 1}대째`, desc: g.panel && g.panel.confirm ? '한 번 더 누르면 처음으로 돌아갑니다' : `도감·옛 물건은 남고 파는 값 +${Math.round((GEN_X - 1) * 100)}%`, cost: 0, btn: '잇기', block: null, icon: `h_shop_${look}_hall` };
   const need = townNeedDex(e);
   return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${ro(TOWN_NAMES[e.town + 1])} 커진다 · 가게를 더 키울 수 있다`, cost: townCost(e),
     block: e.town >= 8 ? '끝' : dex < need ? `도감 ${dex}/${need}` : null, icon: `h_shop_${look}_hall` };
@@ -140,11 +144,23 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
+// ── 대 잇기: 모든 기억을 되찾은 뒤, 시청에서. 장비·마을·돈은 처음으로 돌아가고 도감·옛 물건(능력)은 남는다. 대를 이을 때마다 파는 값이 오른다 ──
+function nextGen(g) {
+  travel(g, () => {
+    const f = newEconomy();
+    Object.assign(g.eco.gear, f.gear); Object.assign(g.eco.skill, f.skill); Object.assign(g.eco.shop, f.shop); g.eco.town = 1;
+    g.gen = (g.gen || 0) + 1; g.gold = 0; g.goldShown = 0; g.region = 1; g.cargo.length = 0; g.cargoMax = cargoMax(g.eco); g.dayT = 0;
+    g.quest = null; g.panel = null; g.scene = 'harbor'; g.msg = null; g.dirty = true;
+    g.story.seen.gen = 0; g.pendingGen = true;
+  });
+}
 // '어촌으로', '항구 마을로': 받침에 맞는 조사 (받침이 없거나 ㄹ이면 '로')
 const ro = (w) => { const c = (w.charCodeAt(w.length - 1) - 0xac00) % 28; return w + (c === 0 || c === 8 ? '로' : '으로'); };
 const lastQuip = {};
 export function openPanel(g, id) {
-  const who = id === 'skills' ? 'guild' : id, quip = lastQuip[who] = pickQuip(who, TOWN_LOOK[g.eco.town], lastQuip[who]);      // 주인의 한마디: 열 때마다 하나
+  const who = id === 'skills' ? 'guild' : id; let quip = lastQuip[who] = pickQuip(who, TOWN_LOOK[g.eco.town], lastQuip[who]);      // 주인의 한마디: 열 때마다 하나
+  if (id === 'hall' && g.dexNews) { quip = g.dexNews.stage === 2 ? `${dexName(g.dexNews.r)} 도감을 다 채웠다고? 장하구나!` : `${dexName(g.dexNews.r)} 도감이 절반을 넘었구나. 에헴!`; g.dexNews = null; g.dirty = true; }      // 도감 소식을 들은 시장
+  if (who === 'guild' && !g.quest) g.quest = newQuest(g);
   g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null, quip };
 }
 function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }      // 뚝 사라지지 않고 스르르 닫힌다
@@ -166,6 +182,7 @@ export function pointer(g, x, y) {
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
+        if (rows[i][0] === 'gen') { if (!g.panel.confirm) { g.panel.confirm = true; g.panel.hit = i; g.panel.hitT = 0; g.sfx.push(['tap']); } else nextGen(g); return true; }
         if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g);
           if (rows[i][0] === 'skill') { g.panel.rep = { i, t: 0, next: 0.38, n: 0 }; if (g.eco.skill[rows[i][1]] % 10 === 0) buzz(30); } else buzz(20); }      // 마디 보너스와 큰 구매는 손끝으로도      // 스킬: 누르고 있으면 계속 올라간다
         else { g.panel.hit = -2 - i; g.panel.hitT = 0; g.sfx.push(['deny']); }
@@ -257,7 +274,7 @@ export function drawHarbor(ctx, g) {
   // 마을 이름
   const rb = sprite('h_ribbon'), rw = 150, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, W / 2 - rw / 2, 6, rw, rh);
-  label(ctx, `${e.town}등급 · ${TOWN_NAMES[e.town]}`, W / 2, 6 + rh * 0.42, 10.5, COLORS.navy, 'center', 600, null);
+  label(ctx, `${e.town}등급 · ${TOWN_NAMES[e.town]}` + (g.gen ? ` · ${g.gen + 1}대째` : ''), W / 2, 6 + rh * 0.42, 10.5, COLORS.navy, 'center', 600, null);
   ctx.globalAlpha = g.panel || !g.story.seen.sail ? 0.4 : 1;
   img(ctx, 'ui_ic_book', HDEX.x - HDEX.r, HDEX.y - HDEX.r, HDEX.r * 2, HDEX.r * 2);
   img(ctx, 'ui_ic_map', HMAP.x - HMAP.r, HMAP.y - HMAP.r, HMAP.r * 2, HMAP.r * 2);
@@ -309,7 +326,7 @@ export function drawPanel(ctx, g) {
     label(ctx, info.level, r.x + 56 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
     label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 56, r.y + r.h / 2 + 8.5, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
     if (done) label(ctx, '완성', r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, '#4a2a08', 'center', 600, null);
-    else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
+    else if (!info.block) label(ctx, info.btn || fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
   if (hasSprite('h_rim_' + look)) {                          // 테두리: 그림의 구멍을 판의 창에 맞춰 얹는다. 아래로 늘어진 장식이 가려지지 않게 줄보다 나중에 그린다
@@ -321,7 +338,9 @@ export function drawPanel(ctx, g) {
     if (p.quip) {                                             // 제목 리본과 같은 가운데 줄에 맞춘다. 긴 말이 둥근 창에 닿을 때만 그만큼 오른쪽으로 비킨다
       const str = `“${p.quip}”`; ctx.font = `600 9px ${FONT}`;
       const half = ctx.measureText(str).width / 2, qx = Math.max(PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.x + 108 * PS + half);
-      label(ctx, str, qx, PANEL.y + 79, 9, '#6b4a2b', 'center', 600, null);
+      const ql = p.id === 'guild' || p.id === 'skills' ? questLine(g) : '';      // 길드: 한마디 아래에 오늘의 의뢰
+      label(ctx, str, qx, PANEL.y + (ql ? 73 : 79), 9, '#6b4a2b', 'center', 600, null);
+      if (ql) { ctx.font = `600 8.5px ${FONT}`; const h2 = ctx.measureText(ql).width / 2; label(ctx, ql, Math.max(PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.x + 108 * PS + h2), PANEL.y + 85.5, 8.5, g.quest.done ? '#b0641c' : '#8a4a22', 'center', 600, null); }
     }
     if (hold) label(ctx, '버튼을 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 - 22, PANEL.y + panelH() + 9, 9, '#fff4dc', 'center', 600); }      // 판 아래 바깥에
   ctx.restore();

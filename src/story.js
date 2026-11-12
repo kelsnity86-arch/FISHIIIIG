@@ -88,6 +88,13 @@ export const SCRIPT = {
     ['hall', '물 밑을 보렴. 저 뾰족한 것들이 다 바위일까? 창문처럼 생긴 구멍이 줄지어 나 있는데.'],
     ['hall', '옛 노래의 "큰 사람들"이 정말 있었다면… 아니다, 늙은이의 헛소리지. 낚싯대나 드리우자꾸나.'],
   ],
+  // 대를 이었을 때: 호라이가 바닷가에서 건진 아이가 낚싯대를 잡는다 (영감님이 호라이를 건졌던 것처럼)
+  gen: [
+    ['hall', '큰 물이 들어 부두도 가게도 다 쓸려 갔구나. 그래도 사람은 하나도 다치지 않았다.'],
+    ['hall', '호라이는 이제 뭍에서 그물을 깁는단다. 낡은 모자와 목도리는 네게 물려주었지.'],
+    ['hall', '호라이가 바닷가에서 너를 건져 온 게 엊그제 같은데. 영감님이 호라이를 건져 왔던 것처럼 말이야.'],
+    ['hall', '도감과 옛 물건들은 그대로 남았다. 네가 낚은 것은 전보다 값을 더 쳐주마. 자, 다시 일으켜 보자.'],
+  ],
   ending: [
     ['hall', '마을도 다시 일어섰고, 지도 끝까지도 가 봤구나.'],
     ['hall', '그 그림자들이 어디서 오는지는 끝내 모르겠다. 어쩌면 모르는 채로 두는 게 맞는지도 모르지.'],
@@ -138,6 +145,7 @@ export function updateStory(g, dt) {
   }
   updateTitle(g, dt);
   if (g.pendingIntro && !g.travel) { g.pendingIntro = false; startTalk(g, 'intro'); }
+  if (g.pendingGen && !g.travel) { g.pendingGen = false; startTalk(g, 'gen'); }
   updateMemory(g, dt);
   updateHint(g, dt);
   updateSkip(g, dt);

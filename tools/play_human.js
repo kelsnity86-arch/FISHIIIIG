@@ -9,6 +9,8 @@ const { chromium } = require('playwright');
   console.log('대사 점검', await p.evaluate(async () => { const { SCRIPT } = await import('./src/story.js'); const c = document.createElement('canvas').getContext('2d'); c.font = '600 10.5px "Hahmlet"'; const bad = []; let n = 0;
     for (const [k, lines] of Object.entries(SCRIPT)) for (const [who, str] of lines) { n++; let ln = 1, cur = ''; for (const w of str.split(' ')) { const t = cur ? cur + ' ' + w : w; if (c.measureText(t).width > 376 && cur) { ln++; cur = w; } else cur = t; } if (ln > 3) bad.push(k + ':' + ln); }
     return n + '줄, 3줄 넘는 것: ' + JSON.stringify(bad); }));
+  // GEN=1 node tools/play_human.js → 대를 한 번 이은 뒤(도감·옛 물건을 다 가진 채 처음부터)의 빠르기를 잰다
+  if (process.env.GEN) await p.evaluate(async (n) => { const g = window.game, { DOTS } = await import('./src/dots.js'); g.gen = n; g.relics = 12; for (const d of DOTS) if (d[2] !== 'fantasy') g.records[d[0]] = 1; for (let i = 0; i < 12; i++) g.story.seen['mem_' + i] = 1; g.story.seen.finale = 1; }, +process.env.GEN);
   const out = await p.evaluate(async () => {
     window.__manual = true; const g = window.game, dt = 1 / 60; const E = await import('./src/economy.js'); const S = await import('./src/story.js');
     const log = [], talks = [], hints = new Set(), bad = [], failBy = {}, okBy = {}; let T = 0, catches = 0, fails = 0, lastKey = '', stuck = 0, days = 0, mem = 0;

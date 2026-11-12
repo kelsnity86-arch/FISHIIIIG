@@ -4,6 +4,7 @@ import { sprite, hasSprite, preloadCreature } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { DOTS } from './dots.js';
 import { maxRegion } from './economy.js';
+import { dexStage, dexCount } from './goals.js';
 import { DEX_TEXT } from './dexText.js';
 import { RELICS } from './relics.js';
 
@@ -120,13 +121,17 @@ export function drawDex(ctx, g) {
   ctx.save(); ctx.globalAlpha = a * 0.55; ctx.fillStyle = '#0c1630'; ctx.fillRect(0, 0, W, H);     // 뒤 화면을 살짝 가라앉힌다
   ctx.globalAlpha = a; ctx.translate(0, by - BY());
   // 해역 탭 (책 위쪽에 꽂힌 쪽지)
-  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; img(ctx, on ? 'dex_tab_on' : 'dex_tab', r.x - (on ? 1 : 0), r.y - (on ? 3 : 0), r.w + (on ? 2 : 0)); });
+  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; if (t !== 'R' && dexStage(g, t) === 2) ctx.filter = 'sepia(1) saturate(2.6) brightness(1.06)';      /* 다 채운 해역의 쪽지는 금빛으로 물든다 */ img(ctx, on ? 'dex_tab_on' : 'dex_tab', r.x - (on ? 1 : 0), r.y - (on ? 3 : 0), r.w + (on ? 2 : 0)); ctx.filter = 'none'; });
   img(ctx, 'dex_book', BX, BY(), BW, bh);
   TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t ? String(t) : '공', r.x + r.w / 2, r.y + 6.5 - (on ? 2 : 0), 8.5, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
-  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '어느 바다에나 사는 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
-  label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
+  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
+  if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
+  else {                                                 // 도감 보상: 절반을 채우면 그 해역 생물의 파는 값 +5%, 다 채우면 +10%. 환상종은 세지 않는다 (운에 달려 있어서)
+    const st = dexStage(g, d.tab), [n, t] = dexCount(g, d.tab);
+    label(ctx, `${n} / ${t}` + (st ? ` · 값 +${st === 2 ? 10 : 5}%` : ''), GX + GW - 1, BY() + 34, 9.5, st ? '#b0641c' : '#8a6a48', 'right', 600, null);
+  }
   const shown = list.slice(d.page * PER, d.page * PER + PER), pageA = clamp(d.t / 0.2, 0, 1);
   ctx.globalAlpha = a * (0.3 + 0.7 * pageA);
   shown.forEach((c, i) => {

@@ -9,6 +9,7 @@
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
+import { questLine } from './goals.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle, drawSound } from './story.js';
 import { drawMap, drawDex } from './book.js';
@@ -841,6 +842,13 @@ function drawHud(ctx, g) {
   ctx.fillStyle = g.cargo.length >= g.cargoMax ? '#ffb39a' : '#ffe9b8';
   ctx.font = `600 ${g.cargoMax >= 10 ? 9.5 : 10.5}px ${FONT}`;
   ctx.fillText(`${g.cargo.length}/${g.cargoMax}`, 100 + hw * 0.7, 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w / 2 + 0.5);
+  // 길드 의뢰: 판 아래에 작게. 한 칸 채울 때마다 잠깐 밝아진다
+  if (g.quest) {
+    const ql = questLine(g), qy = 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w + 8, pop = clamp(1 - (g.questT ?? 9) / 0.8, 0, 1);
+    ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
+    ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(10,18,40,0.85)'; ctx.strokeText(ql, 10, qy);
+    ctx.fillStyle = g.quest.done || pop > 0 ? '#ffe27a' : '#fff4dc'; ctx.fillText(ql, 10, qy);
+  }
 
   // 던질 힘
   if (g.state === 'charge') lastPower = g.power;

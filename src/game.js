@@ -13,6 +13,7 @@ import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
 import { updateBook } from './book.js';
 import { RELICS, has } from './relics.js';
+import { dexBonus, dexStage, dexName, DEX_PCT, genMult, questCatch, questPerfect } from './goals.js';
 import { buzz } from './haptic.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -30,6 +31,7 @@ export function createGame() {
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 5,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
+    gen: 0, quest: null, dexNews: null,             // 몇 대째인가(0 = 첫 대), 길드 의뢰, 시장에게 전할 도감 소식
     relics: 0, memory: null, memoryNext: null, savedToday: false,   // 찾은 오래된 물건 수, 떠오르는 기억 장면, 오늘 줄을 한 번 살렸는가
     story: newStory(), talk: null, skip: null,   // 이야기 진행, 지금 떠 있는 대화, 시간 넘기는 중
     forceGrade: null, phase: 3, dayT: 0, dayWarned: false,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
@@ -142,6 +144,7 @@ export function press(g) {
       const b = g.bite, tau = g.t - b.openAt;
       if (tau < 0) { say(g, '너무 빨랐다!', '#ffd0c0'); flee(g); reelIn(g); break; }
       b.perfect = tau < b.perfectWin;
+      if (b.perfect) questPerfect(g);
       if (g.fish.power > OVERPOWER) say(g, '엄청난 힘이다…!', '#ffb39a');
       else say(g, b.perfect ? 'PERFECT!' : 'GOOD', b.perfect ? '#ffe27a' : '#fff4dc');
       kick(g, 0.25); snd(g, 'hook', b.perfect); buzz(25, 1);
@@ -158,7 +161,8 @@ export function press(g) {
         if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.sinceFantasy = 0; g.lostFantasy = false; g.dirty = true; }
           else g.catch.thanks = Math.round(THANKS_GOLD * priceMult(g.eco, g.region)); }   // 물건을 다 찾은 뒤에는 바다가 답례를 한다 (놓아준 생물이 물에 닿는 순간)
         else {
-          say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax}) · 선금 +${fmt(f.advance || 0)} G`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
+          if (g.dexNote) { say(g, g.dexNote, '#ffe27a'); g.dexNote = null; } else say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax}) · 선금 +${fmt(f.advance || 0)} G`);
+          g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'stow');
           g.catch.phase = 'stow';
         }
@@ -200,6 +204,7 @@ function flee(g) {
 
 // ── 매 프레임 갱신 ──
 export function update(g, dt) {
+  if (g.questT != null) g.questT += dt;
   // 연출용 시간 조절: 히트스톱(완전 정지)과 슬로모션. 화면 효과(번쩍임·글자·동전)는 실제 시간으로 흐른다.
   g.realDt = dt;
   g.flash = approach(g.flash, 0, 7, dt);
@@ -392,7 +397,7 @@ function startWait(g) {
   g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1, g.power);      // g.power = 던진 세기: 멀리 던질수록 큰 개체
   g.sinceFantasy = (g.sinceFantasy || 0) + 1;      // 세는 수는 오래된 물건을 얻었을 때 처음으로 돌아간다 (나타나기만 하고 놓치면 곧 다시 온다)
   if (pity && g.lostFantasy) say(g, '아까 그 그림자다…', '#ffe9b8');                // 복장(행운): 높은 등급이 잘 나온다
-  g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값
+  g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region) * dexBonus(g, g.fish.region) * genMult(g));                // 해역·흥정·크기에 따른 값
   g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
   g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
   g.fish.strain = clamp(strainOf(g.eco, g.region), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
@@ -785,7 +790,13 @@ function updateCatch(g, dt) {
       if (prev === undefined && has(g, 'spoon')) f.price *= 2;                         // 숟가락: 처음 낚은 생물
       if (prev !== undefined && f.meters > prev && has(g, 'coin')) f.price = Math.round(f.price * 1.5);   // 동전: 신기록
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
+      const stage0 = f.isFantasy ? 0 : dexStage(g, f.region);
       g.records[f.name] = Math.max(prev || 0, f.meters);
+      if (!f.isFantasy) {                             // 도감 절반·완성: 그 해역 생물의 파는 값이 오른다. 의뢰도 센다
+        const stage = dexStage(g, f.region);
+        if (stage > stage0) { g.dexNote = `${dexName(f.region)} 도감 ${stage === 2 ? '완성' : '절반'}! 파는 값 +${DEX_PCT[stage]}%`; g.dexNews = { r: f.region, stage }; }
+        questCatch(g, f, prev === undefined);
+      }
       // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지는 항구에서 팔 때 포상금으로 받는다
       if (!f.isFantasy) { f.advance = Math.floor(f.price * ADVANCE); g.gold += f.advance; g.cargo.push({ name: f.name, price: f.price - f.advance, grade: f.grade }); }   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)
       g.dirty = true;
