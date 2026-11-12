@@ -11499,7 +11499,7 @@ no clothing, no cartoon faces, no expressions.
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
 A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
-its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+its cell. Each animal is seen exactly from the side, facing RIGHT (head on the right, tail on the left), body level, the whole
 animal inside its cell with a little empty margin. Draw each one as large as its cell allows
 (do not show their real relative sizes). In this order, left to right, top to bottom:
 1) anchovy: a Japanese anchovy, slender silver body,
@@ -11531,7 +11531,7 @@ no clothing, no cartoon faces, no expressions.
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
 A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
-its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+its cell. Each animal is seen exactly from the side, facing RIGHT (head on the right, tail on the left), body level, the whole
 animal inside its cell with a little empty margin. Draw each one as large as its cell allows
 (do not show their real relative sizes). In this order, left to right, top to bottom:
 1) crab: a blue swimming crab seen from above, claws spread,
@@ -11563,7 +11563,7 @@ no clothing, no cartoon faces, no expressions.
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
 A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
-its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+its cell. Each animal is seen exactly from the side, facing RIGHT (head on the right, tail on the left), body level, the whole
 animal inside its cell with a little empty margin. Draw each one as large as its cell allows
 (do not show their real relative sizes). In this order, left to right, top to bottom:
 1) seahorse: a yellowish-brown seahorse, upright,
@@ -11595,7 +11595,7 @@ no clothing, no cartoon faces, no expressions.
 No text, no labels, no numbers. No water, no bubbles, no shadow. Fully transparent background.
 
 A sprite sheet of 6 animals in a grid of 2 columns x 3 rows, never touching, each centred in
-its cell. Each animal is seen exactly from the side, facing LEFT, body level, the whole
+its cell. Each animal is seen exactly from the side, facing RIGHT (head on the right, tail on the left), body level, the whole
 animal inside its cell with a little empty margin. Draw each one as large as its cell allows
 (do not show their real relative sizes). In this order, left to right, top to bottom:
 1) dolphin: a common dolphin, dark back, pale yellowish side patch,

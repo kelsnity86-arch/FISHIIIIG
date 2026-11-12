@@ -166,7 +166,15 @@ function loadOne(name) {
       c.getContext('2d').drawImage(img, info.ax, info.ay, pw, ph, 0, 0, pw, ph);
       sprites[name] = { img: c, ...meta };
     })
-    : loadImage(info.file).then((img) => { if (img) sprites[name] = { img, ...meta }; });   // 파일이 없으면 임시 그림 유지
+    : loadImage(info.file).then((img) => {                                                   // 파일이 없으면 임시 그림 유지
+      if (!img) return;
+      if (name.startsWith('fish_')) {                    // 예전 물고기 그림은 왼쪽을 본다. 지금 생물 그림은 모두 오른쪽(배 쪽)을 보므로 뒤집어 쓴다
+        const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+        const x = c.getContext('2d'); x.translate(c.width, 0); x.scale(-1, 1); x.drawImage(img, 0, 0);
+        img = c;
+      }
+      sprites[name] = { img, ...meta };
+    });
   pending.set(name, p);
   return p;
 }
