@@ -3,6 +3,7 @@
 // 화면에 보이는 것은 GPT 그림(인물, 양피지 판)과 글자뿐이다.
 import { W, H, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite } from './assets.js';
+import { RELICS } from './relics.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -19,7 +20,8 @@ const WHO = { hall: '시장', yard: '목수', guild: '길드장', market: '생�
 // 8번 해역에서만 조금 더 드러나지만, 그때도 아무도 답을 말하지 않는다.
 const SCRIPT = {
   intro: [
-    ['hall', '돌아왔구나. 네 할아버지의 배는 그대로 두었다. 낡았지만 아직 뜬단다.'],
+    ['hall', '다시 바다로 나가려는구나. 영감님의 배는 그대로 두었다. 낡았지만 아직 뜬단다.'],
+    ['hall', '영감님이 바닷가에서 너를 건져 온 게 엊그제 같은데. 말도 없고 기억도 없던 아이가 이만큼 컸구나.'],
     ['hall', '보다시피 마을은 조용해졌지. 젊은이들은 떠나고, 가게들은 간신히 문만 열고 있어.'],
     ['hall', '그런데 요즘 바다에 이상한 그림자가 보인다더구나. 배보다 큰 것이, 그것도 한둘이 아니래.'],
     ['hall', '뭐가 올라오든 낚아서 가져오너라. 그 값으로 이 마을을 다시 일으켜 보자.'],
@@ -49,7 +51,7 @@ const SCRIPT = {
     ['hall', '부두를 넓히다가 땅 밑에서 반듯한 돌길이 나왔단다. 우리 조상이 깐 건 아닌 것 같은데, 그럼 누가?'],
   ],
   town_8: [
-    ['hall', '보아라. 네 할아버지가 꿈꾸던 항구가 바로 이것이다.'],
+    ['hall', '보아라. 영감님이 꿈꾸던 항구가 바로 이것이다.'],
     ['hall', '사람들은 이제 여기를 환상의 항구라 부른단다. 다 네 낚싯대 끝에서 시작된 일이야.'],
   ],
   region_2: [
@@ -112,7 +114,7 @@ const SKIP = { x: BOX.x + BOX.w - 30, y: BOX.y - 8 };
 // 누르면: 글자가 나오는 중이면 한꺼번에 보여 주고, 다 나왔으면 다음 줄로
 export function tapTalk(g, x, y) {
   const t = g.talk; if (!t || t.closing != null) return;
-  if (x != null && Math.abs(x - SKIP.x) < 34 && Math.abs(y - SKIP.y) < 9) { t.queue.length = 0; t.closing = 0; g.sfx.push(['tap']); return; }
+  if (x != null && Math.abs(x - SKIP.x) < 36 && Math.abs(y - SKIP.y) < 13) { t.queue.length = 0; t.closing = 0; g.sfx.push(['tap']); return; }
   const len = t.lines[t.i][1].length;
   if (t.t * CPS < len) { t.t = len / CPS; return; }
   g.sfx.push(['tap']);
@@ -129,8 +131,51 @@ export function updateStory(g, dt) {
       if (t.closing > 0.22) { const next = t.queue.shift(); g.talk = null; if (next) { g.story.seen[next] = 0; startTalk(g, next); } }
     } else t.a = Math.min(1, t.a + dt / 0.25);
   }
+  updateMemory(g, dt);
   updateHint(g, dt);
   updateSkip(g, dt);
+}
+
+// ── 기억: 환상종이 남기고 간 오래된 물건을 주우면, 말없이 기억 한 조각이 떠오른다 ──
+const MEM_CPS = 16;
+function updateMemory(g, dt) {
+  if (!g.memory && g.memoryNext != null && g.state === 'idle' && g.scene === 'sea' && !g.travel && !g.talk && !g.result) {
+    g.memory = { i: g.memoryNext, t: 0, a: 0, closing: null }; g.memoryNext = null;
+    g.sfx.push([RELICS[g.memory.i].id === 'musicbox' ? 'oldsong' : 'memory']);
+  }
+  const m = g.memory; if (!m) return;
+  m.t += dt;
+  if (m.closing != null) { m.closing += dt; m.a = Math.max(0, m.a - dt / 0.5); if (m.closing > 0.5) g.memory = null; }
+  else m.a = Math.min(1, m.a + dt / 0.8);
+}
+const memLen = (r) => r.mem[0].length + r.mem[1].length;
+export function tapMemory(g) {
+  const m = g.memory; if (!m || m.closing != null) return;
+  const r = RELICS[m.i], full = 1.2 + memLen(r) / MEM_CPS + 1.2;
+  if (m.t < full) { m.t = full; return; }            // 글이 나오는 중이면 한꺼번에 보여 준다
+  m.closing = 0; g.sfx.push(['tap']);
+}
+export function drawMemory(ctx, g) {
+  const m = g.memory; if (!m) return;
+  const r = RELICS[m.i], a = ease(m.a);
+  ctx.save();
+  ctx.globalAlpha = a * 0.82; ctx.fillStyle = '#060b1c'; ctx.fillRect(0, 0, W, H);            // 주위가 어두워지고 물건만 떠오른다
+  const s = sprite('relic_' + r.art), w = 84, h = w * s.h / s.w, bob = Math.sin(m.t * 1.3) * 2.5;
+  ctx.globalAlpha = a; ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(s.img, W / 2 - w / 2, 96 - h / 2 + bob + (1 - a) * 8, w, h);
+  let shown = Math.max(0, Math.floor((m.t - 1.2) * MEM_CPS));
+  r.mem.forEach((ln, i) => {
+    const part = ln.slice(0, clamp(shown, 0, ln.length)); shown -= ln.length;
+    if (part) label(ctx, part, W / 2, 178 + i * 20, 13, '#fff4dc', 'center', 600, 'rgba(6,11,28,0.7)');
+  });
+  const done = clamp((m.t - 1.2 - memLen(r) / MEM_CPS - 0.5) / 0.7, 0, 1);
+  if (done > 0) {
+    ctx.globalAlpha = a * done;
+    label(ctx, r.name, W / 2, 246, 11, '#ffd98a', 'center', 700, 'rgba(6,11,28,0.7)');
+    label(ctx, r.perk, W / 2, 263, 10, '#ffe9b8', 'center', 600, 'rgba(6,11,28,0.7)');
+    ctx.globalAlpha = a * done * (0.5 + 0.4 * Math.sin(g.time * 4)); label(ctx, '▾', W / 2, 290, 11, '#fff4dc', 'center', 700, null);
+  }
+  ctx.restore();
 }
 
 // ── 튜토리얼: 설명 화면 없이, 처음 해 보는 그때그때 한 줄 ──

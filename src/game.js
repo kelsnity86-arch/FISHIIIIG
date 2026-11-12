@@ -12,6 +12,7 @@ import { sprite, preloadCreature } from './assets.js';
 import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk } from './story.js';
 import { updateBook } from './book.js';
+import { RELICS, has } from './relics.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -28,6 +29,7 @@ export function createGame() {
     eco: newEconomy(),                       // 장비·스킬 레벨
     cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
+    relics: 0, memory: null, memoryNext: null, savedToday: false,   // 찾은 오래된 물건 수, 떠오르는 기억 장면, 오늘 줄을 한 번 살렸는가
     story: newStory(), talk: null, skip: null,   // 이야기 진행, 지금 떠 있는 대화, 시간 넘기는 중
     forceGrade: null, phase: 3, dayT: 0, dayWarned: false,   // 시간대(낮→노을→밤→새벽)와 그 시간대가 흐른 시간
     power: 0, powerDir: 1, castX: CAST_NEAR,
@@ -123,7 +125,7 @@ function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern)
 // ── 입력 ──
 export function press(g) {
   if (g.talk) { tapTalk(g); return; }                 // 대화 중에는 누르면 다음 줄
-  if (g.skip || g.map || g.dex) return;
+  if (g.skip || g.map || g.dex || g.memory) return;
   if (g.scene !== 'sea' || g.panel || g.travel) return;
   g.hold = true;
   switch (g.state) {
@@ -152,7 +154,7 @@ export function press(g) {
     case 'result':
       if (g.t > (g.catch.quick ? 0.55 : 1.1)) {
         const f = g.fish;
-        if (f.isFantasy) { g.catch.phase = 'release'; }
+        if (f.isFantasy) { g.catch.phase = 'release'; if (g.relics < RELICS.length) { g.memoryNext = g.relics; g.relics++; g.dirty = true; } }   // 놓아주면 오래된 물건 하나를 떨어뜨리고 간다
         else {
           say(g, `어창에 실었다 (${g.cargo.length}/${g.cargoMax})`); g.msg.y = H - 14;      // 낚은 생물과 현판을 가리지 않게 맨 아래에
           snd(g, 'stow');
@@ -204,10 +206,10 @@ export function update(g, dt) {
   updateTravel(g, dt); updateHarbor(g, dt); updateStory(g, dt); updateBook(g, dt);
   // 바다에서의 하루: 새벽에 나가서 밤이 끝나면 항구로 돌아온다 (항구에 있는 동안은 시간이 멈춘다)
   if (g.scene === 'sea' && !g.travel) {
-    if (!g.talk && !g.skip && !g.map && !g.dex) g.dayT += dt;                // 대화하는 동안은 시간이 흐르지 않는다
+    if (!g.talk && !g.skip && !g.map && !g.dex && !g.memory) g.dayT += dt / (has(g, 'cup') ? 1.1 : 1);   // 컵: 하루가 길어진다                // 대화하는 동안은 시간이 흐르지 않는다
     g.phase = phaseAt(Math.min(0.999, g.dayT / DAY_SEC));
     if (!g.dayWarned && g.dayT > DAY_SEC * 0.9) { g.dayWarned = true; if (g.state === 'idle' || g.state === 'wait') say(g, '밤이 깊었다. 곧 돌아가야 한다', '#cfd8ff'); }
-    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk && !g.map && !g.dex) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
+    if (g.dayT >= DAY_SEC && g.state === 'idle' && !g.panel && !g.talk && !g.map && !g.dex && !g.memory) {             // 낚시 중이면 그 한 마리는 끝까지 낚게 둔다
       if (enterHarbor(g)) g.msg = { text: '하루가 저물어 항구로 돌아간다', color: '#cfd8ff', age: 0 };
     }
   }
@@ -241,7 +243,7 @@ export function update(g, dt) {
       break;
     }
     case 'charge': {
-      g.power += g.powerDir * TIMING.chargeSpeed * dt;
+      g.power += g.powerDir * TIMING.chargeSpeed * (has(g, 'shoe') ? 1.4 : 1) * dt;
       if (g.power >= 1) { g.power = 1; g.powerDir = -1; }
       if (g.power <= 0) { g.power = 0; g.powerDir = 1; }
       rodTarget = 1.5 + g.power * 0.7; rodRate = 12; pose = 2;
@@ -380,7 +382,10 @@ export function update(g, dt) {
 
 // ── 입질 대기: 그림자가 깊은 곳에서 올라와 찌 밑을 맴돌다가 문다 ──
 function startWait(g) {
-  g.fish = rollCreature(g.forceGrade, g.region, luckOf(g.eco, GRADES));                // 복장(행운): 높은 등급이 잘 나온다
+  // 환상종은 드물지만, 너무 오래 안 나오면 반드시 한 번 나온다 (오래된 물건이 운에만 달리지 않게)
+  const pity = !g.forceGrade && (g.sinceFantasy || 0) >= PITY ? 'fantasy' : null;
+  g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1);
+  g.sinceFantasy = g.fish.isFantasy ? 0 : (g.sinceFantasy || 0) + 1;                // 복장(행운): 높은 등급이 잘 나온다
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region));                // 해역·흥정·크기에 따른 값
   g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
   g.fish.power = clamp(g.fish.power * pullOf(g.eco, g.region), 0.2, 6);                // 낚싯대에 비해 얼마나 세게 날뛰는가
@@ -395,7 +400,7 @@ function startWait(g) {
     { x: fx - L * rand(0.1, 0.34), y: DEEP * rand(0.52, 0.86), speed: rand(0.42, 0.62) },
   ];
   if (Math.random() < 0.35) plan.push(linger());                                // 가끔은 찌를 올려다보며 한참 뜸을 들인다
-  const fakes = Math.floor(rand(0, 2.6));
+  const fakes = Math.floor(rand(0, has(g, 'key') ? 1.5 : 2.6));
   for (let i = 0; i < fakes; i++) {
     plan.push({ touch: true, fake: true, speed: rand(0.4, 0.6) });
     plan.push({ x: fx - L * rand(0.52, 0.8), y: rand(82, 126), speed: rand(0.36, 0.56), face: 1, hover: Math.random() < 0.4 ? rand(0.3, 1) / q0 : 0 });   // 건드려 보고는 뒷걸음질로 물러났다가 다시 온다
@@ -456,8 +461,8 @@ function holdAtFloat(g, dt) {
 function startBite(g) {
   const pattern = g.fish.bite;
   g.bite = pattern === 'tok'
-    ? { pattern, next: 0, openAt: TIMING.tokInterval * 2, window: TIMING.tokWindow, perfectWin: TIMING.tokPerfect }
-    : { pattern, started: false, openAt: 0, window: TIMING.pullWindow, perfectWin: TIMING.pullPerfect };
+    ? { pattern, next: 0, openAt: TIMING.tokInterval * 2, window: TIMING.tokWindow, perfectWin: TIMING.tokPerfect * (has(g, 'watch') ? 1.5 : 1) }
+    : { pattern, started: false, openAt: 0, window: TIMING.pullWindow, perfectWin: TIMING.pullPerfect * (has(g, 'watch') ? 1.5 : 1) };
   setState(g, 'bite');
 }
 
@@ -505,11 +510,11 @@ function updateFight(g, dt) {
     if (f.tele <= 0) { f.mode = f.next; startMode(g); }
   } else if (f.modeT <= 0) {
     const next = chooseMode(g);
-    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH; f.next = next; f.modeT = 99; }
+    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; }
     else { f.mode = next; startMode(g); }
   }
   f.surging = SURGE_MODES.includes(f.mode) && f.tele <= 0;
-  f.stamina = clamp(f.stamina + (f.surging ? -0.06 : 0.02) * dt, 0, 1);
+  f.stamina = clamp(f.stamina + (f.surging ? -0.06 * (has(g, 'kettle') ? 1.5 : 1) : 0.02) * dt, 0, 1);
 
   // 감기·풀기
   const tired = f.mode === 'tired';
@@ -579,8 +584,11 @@ function updateFight(g, dt) {
     g.shake = Math.max(g.shake, 0.4 + p * 0.3);
   }
 
+  if (f.tension >= f.maxTension && has(g, 'photo') && !g.savedToday) {      // 가족 사진: 하루에 한 번, 끊어지려는 줄이 버텨 준다
+    g.savedToday = true; f.tension = f.maxTension * 0.45; g.flash = Math.max(g.flash, 0.2); say(g, '줄이 버텨 주었다', '#ffe9b8'); snd(g, 'card');
+  }
   if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '낚싯대가 버티지 못했다! 더 좋은 낚싯대가 필요하다' : g.fish.strain > OVERPOWER ? '줄이 끊어졌다! 더 좋은 줄이 필요하다' : '줄이 끊어졌다!'); return null; }
-  if (f.slack > FIGHT.slackTime) { fail(g, '바늘이 빠졌다…'); return null; }
+  if (f.slack > FIGHT.slackTime * (has(g, 'bottle') ? 1.6 : 1)) { fail(g, '바늘이 빠졌다…'); return null; }
   if (f.dist <= 0) {
     // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,
     // 제자리(배 왼쪽)로 돌아올 때까지 지친 상태로 끌려오게 한 뒤 낚아 올린다.
@@ -615,6 +623,7 @@ const SLOW = [0.55, 0.45, 0.38, 0.3, 0.25, 0.2];
 const DIM = [0, 0.04, 0.08, 0.14, 0.2, 0.26];
 const OVERPOWER = 1.75;    // 생물의 힘 ÷ 내 장비의 힘이 이보다 크면 감당할 수 없다
 const T_PULL = 0.95;
+export const PITY = 48;      // 환상종이 이만큼 연달아 안 나오면 다음은 환상종
 const QUICK = 2;            // 이미 본 일반 등급의 연출 빠르기
 const FACE_HOLD = 0.55;    // 뿅 한 뒤 카메라가 물러나기 시작할 때까지(초)
 const PULL_BACK = 1.7;     // 카메라가 물러나는 데 걸리는 시간(초)
@@ -636,7 +645,7 @@ function startCatch(g) {
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
     phase: 'pull', pt: 0, lw, gi, zoom, zs, ex, big, fit, ax, ay, fx,
-    quick: g.fish.grade === 'common' && g.records[g.fish.name] != null,
+    quick: (g.fish.grade === 'common' || (has(g, 'robot') && !g.fish.isFantasy)) && g.records[g.fish.name] != null,
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
@@ -742,6 +751,8 @@ function updateCatch(g, dt) {
     if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
     if (g.catchFx && c.reveal && (c.popT >= c.tadaT + 0.3 || c.skip)) {
       const f = g.fish, prev = g.records[f.name];
+      if (prev === undefined && has(g, 'spoon')) f.price *= 2;                         // 숟가락: 처음 낚은 생물
+      if (prev !== undefined && f.meters > prev && has(g, 'coin')) f.price = Math.round(f.price * 1.5);   // 동전: 신기록
       g.result = { creature: f, isNew: prev === undefined, isRecord: prev !== undefined && f.meters > prev, prev, stamped: false, tickT: 0 };
       g.records[f.name] = Math.max(prev || 0, f.meters);
       if (!f.isFantasy) g.cargo.push({ name: f.name, price: f.price, grade: f.grade });   // 낚은 순간에 어창에 실린다 (카드를 보다가 꺼도 잃지 않는다. 판매는 항구에서)

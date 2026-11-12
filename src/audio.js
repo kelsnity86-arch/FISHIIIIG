@@ -260,6 +260,8 @@ export function createEngine(ctx) {
     tap(t) { osc(t, 0.03, 720, 'sine', env(t, 0.03, 0.14, 0.002, sfx)); },
     travel(t) { noise(t, 0.7, { vol: 0.14, from: 500, to: 2600, type: 'bandpass', q: 0.8, attack: 0.3 }); ep(t + 0.3, 55, 0.9, 0.3, sfx); },
     gull(t, r) { const f = 1900 + r * 500; for (let i = 0; i < 2 + Math.floor(r * 2); i++) { const x = t + i * 0.24; osc(x, 0.24, f, 'sine', env(x, 0.24, 0.022, 0.06, amb), f * 0.74); } },
+    memory(t) { [67, 72, 76].forEach((m, i) => box(t + 0.5 + i * 0.5, m + 12, 0.34, amb)); },                    // 기억이 떠오른다: 오르골 세 음
+    oldsong(t) { let x = 0; for (const [n, len] of OLD_SONG) { box(t + 0.6 + x * 0.55, 60 + n + 12, 0.4, amb); x += len; } },   // 오르골: 옛 노래가 처음으로 끝까지
     bell(t) { [72, 79].forEach((m) => { osc(t, 2.6, mtof(m), 'sine', env(t, 2.6, 0.09, 0.004, amb)); osc(t, 1.2, mtof(m) * 2.4, 'sine', env(t, 1.2, 0.03, 0.004, amb)); }); },
   };
 

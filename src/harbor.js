@@ -2,7 +2,7 @@
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
-import { tapTalk, tapSkip, storyTown, storyRegion } from './story.js';
+import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
 import {
   GEAR, SKILLS, SHOPS, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
@@ -73,7 +73,7 @@ export function enterHarbor(g) {
     }
   });
 }
-export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; }); }   // 새 하루가 새벽에 시작된다
+export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
   travel(g, () => { g.region = n; g.msg = { text: `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g); });
@@ -130,6 +130,7 @@ function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closi
 // ── 누르기. 처리했으면 true (낚시 조작으로 넘기지 않는다) ──
 export function pointer(g, x, y) {
   if (g.travel) return true;
+  if (g.memory) { tapMemory(g); return true; }
   if (g.talk) { tapTalk(g, x, y); return true; }       // 대화가 떠 있으면 다른 것은 눌리지 않는다
   if (g.map) { const r = tapMap(g, x, y); if (r) goRegion(g, r); return true; }
   if (g.dex) { tapDex(g, x, y); return true; }

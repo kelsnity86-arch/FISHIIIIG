@@ -10,7 +10,7 @@ import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } fr
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
-import { drawTalk, drawHint, drawSkip } from './story.js';
+import { drawTalk, drawHint, drawSkip, drawMemory } from './story.js';
 import { drawMap, drawDex } from './book.js';
 import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
 
@@ -155,7 +155,7 @@ function drawResultCard(ctx, g) {
   fitText(ctx, f.name, box(L.name), 12.5, FONT2, 400, COLORS.navy);
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
-  fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 증표` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
+  fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 놓아준다` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
   if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
@@ -187,7 +187,7 @@ export function render(ctx, g) {
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
-  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g);
+  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
