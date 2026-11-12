@@ -10966,3 +10966,23 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name h_boats.png
 ```
 
+### 361. `c_chest` — 바다의 답례: 물에 뜬 보물상자 (닫힘·열림)
+
+```
+Style references: open assets/raw/c_boat.png and assets/raw/c_float.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch). The new image must be painted in exactly
+that style (painterly storybook, warm light, soft shading, seen from the side) and at a
+similar level of detail. Matching the existing art style is the most important requirement.
+
+No text. No water. Fully transparent background.
+
+Two versions of the same old sea chest, side by side, never touching, same size, seen from
+the front-side, with a flat bottom edge (the game puts the lower part under water):
+1) closed: a barnacled wooden treasure chest with brass bands and a round brass lock,
+   a strand of seaweed over the lid, wet and glistening,
+2) open: the same chest with the lid thrown back, full of shining gold coins, a soft warm
+   golden glow rising from inside.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_chest.png
+```
+

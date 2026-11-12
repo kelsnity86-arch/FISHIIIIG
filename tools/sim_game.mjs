@@ -28,7 +28,7 @@ while (t < 40 * 3600) {
     since = f.isFantasy ? 0 : since + 1;
     t += cycle(); catches++;
     g.records[f.sprite] = 1;
-    if (f.isFantasy) fantasy++;
+    if (f.isFantasy) { fantasy++; if (fantasy > 12) g.cargo.push(Math.round(9000 * E.priceMult(g.eco, g.region))); }   // 물건 12점을 다 찾은 뒤에는 보물상자 (src/game.js 의 CHEST_GOLD)
     if (!f.isFantasy) g.cargo.push(Math.round(f.price * E.priceMult(g.eco, g.region)));
   }
   t += HARBOR;

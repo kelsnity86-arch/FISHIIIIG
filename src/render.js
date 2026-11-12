@@ -12,7 +12,7 @@ import { fmt } from './economy.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { drawTalk, drawHint, drawSkip, drawMemory } from './story.js';
 import { drawMap, drawDex } from './book.js';
-import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight } from './game.js';
+import { boatPose, rodPose, surfaceY, mouthPos, leapMouth, leapHeight, CHEST_X } from './game.js';
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -255,6 +255,7 @@ function renderSea(ctx, g) {
   if (revealed) { drawBulge(ctx, g); drawBursts(ctx, g); drawLeap(ctx, g, false); }
   else { drawLeap(ctx, g, false); drawBulge(ctx, g); drawBursts(ctx, g); }
   drawBoat(ctx, g);
+  drawChest(ctx, g);
   drawWave(ctx, g, view, 0, 1, g.time * 9, true);             // 앞쪽 파도 (배 밑동을 가린다)
   drawLineAndFloat(ctx, g, phase);
   drawSprays(ctx, g);
@@ -265,6 +266,25 @@ function renderSea(ctx, g) {
   ctx.restore();
 
   drawHud(ctx, g);
+}
+
+// 바다의 답례: 보물상자가 물 위로 떠올라 열리고, 금화가 쏟아진 뒤 다시 가라앉는다. (앞쪽 파도가 아랫부분을 가린다)
+function drawChest(ctx, g) {
+  const c = g.chest; if (!c || c.t < 0) return;
+  const name = (n) => hasSprite('c_chest_' + n) ? 'c_chest_' + n : n === 1 ? 'chest_closed' : 'chest_open';
+  const up = clamp(c.t / 1.0, 0, 1), down = clamp((c.t - 2.6) / 0.8, 0, 1);
+  const rise = (1 - Math.pow(1 - up, 3)) * (1 - down * down);                       // 솟아올랐다가 천천히 잠긴다
+  const open = clamp((c.t - 1.0) / 0.25, 0, 1);                                     // 닫힌 그림에서 열린 그림으로 겹쳐 넘어간다
+  const w = 26, x = CHEST_X, sy = surfaceY(g, x), bob = Math.sin(g.time * 2.4) * 1.2;
+  const yy = sy + 22 - rise * 15 + bob, pop = 1 + 0.12 * Math.sin(Math.min(1, open) * Math.PI);       // 다 떠올라도 아랫부분은 물에 잠겨 있다
+  ctx.save(); ctx.imageSmoothingEnabled = true; ctx.globalAlpha = clamp(c.t / 0.3, 0, 1) * (1 - down);
+  for (const [n, a] of [[1, 1 - open], [2, open]]) {
+    if (a <= 0.01) continue;
+    const s = sprite(name(n)), h = w * s.h / s.w;
+    ctx.globalAlpha = clamp(c.t / 0.3, 0, 1) * (1 - down) * a;
+    ctx.drawImage(s.img, x - w * pop / 2, yy - h * pop, w * pop, h * pop);
+  }
+  ctx.restore();
 }
 
 // 숨은 흔적: 물고기 그림자보다 훨씬 깊은 바닥에, 가끔 움직이지 않는 큰 윤곽이 흐릿하게 비쳤다가 사라진다.
