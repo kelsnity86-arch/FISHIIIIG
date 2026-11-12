@@ -533,22 +533,54 @@ function drawBulge(ctx, g) {
 }
 
 const boatFade = { cur: null, prev: null, t0: 0 };
+const gearTier = (g, id) => Math.min(8, Math.floor(g.eco.gear[id] / 10) + 1);
+// 장비 외형(복장): 낚시꾼 목에서 뒤로 날리는 목도리. 곧은 그림을 조각내어 바람에 펄럭이게 그린다 (배 안의 자리 기준).
+// 높은 등급(영웅 이상)이 입질하는 순간에는 목도리 끝이 잠깐 반짝인다 — 복장은 행운의 장비다.
+const NECK = { 1: [5.4, -12.8], 2: [11.6, -11.4], 3: [8.6, -16.2] };
+const scarf = { x: 5.4, y: -12.8, glow: 0, t: 0 };
+function drawScarf(ctx, g, pose) {
+  const T = gearTier(g, 'outfit'); if (!hasSprite('c_scarf_' + T)) return;
+  const s = sprite('c_scarf_' + T), now = performance.now() / 1000, dt = Math.min(0.05, now - scarf.t); scarf.t = now;
+  const [nx, ny] = NECK[pose] || NECK[1], q = 1 - Math.exp(-10 * dt);
+  scarf.x += (nx - scarf.x) * q; scarf.y += (ny - scarf.y) * q;                       // 자세가 바뀌어도 목을 따라 스르르 옮겨 간다
+  const lucky = (g.state === 'bite' || g.state === 'hook') && g.fish && GRADES.indexOf(g.fish.gradeInfo) >= 3;
+  scarf.glow += ((lucky ? 1 : 0) - scarf.glow) * (1 - Math.exp(-(lucky ? 12 : 3) * dt));
+  const n = 12, h = Math.max(2, s.h * 1.7), wind = 1 + g.boat.spray * 1.5 + g.rough * 0.6, sw = s.img.width / n;
+  ctx.save(); ctx.imageSmoothingEnabled = true;
+  let tip = [scarf.x, scarf.y];
+  for (let i = 0; i < n; i++) {
+    const u = i / n, x = scarf.x + u * s.w, y = scarf.y + Math.sin(g.time * 6.5 - u * 5.2) * 1.5 * u * wind + u * u * 1.6;   // 끝으로 갈수록 크게 펄럭이고 살짝 처진다
+    ctx.drawImage(s.img, i * sw, 0, sw, s.img.height, x, y - h / 2, s.w / n + 0.35, h);
+    tip = [x + s.w / n, y];
+  }
+  if (scarf.glow > 0.02 && hasSprite('fx_sparkle')) {
+    const sp = sprite('fx_sparkle'), k = 5 + 2 * Math.sin(now * 14);
+    ctx.globalAlpha = scarf.glow; ctx.drawImage(sp.img, tip[0] - k / 2, tip[1] - k / 2, k, k * sp.h / sp.w);
+  }
+  ctx.restore();
+}
 function drawBoat(ctx, g) {
   const pose = rodPose(g), b = pose.boat;
-  const boat = sprite('c_boat_' + b.pose), rod = sprite('c_rod');
+  // 장비 외형: 배 단계에 따라 배 그림이, 낚싯대 단계에 따라 낚싯대 그림이 달라진다 (바다에서는 크기는 그대로)
+  const bT = gearTier(g, 'boat'), rT = gearTier(g, 'rod');
+  const boatName = (pose) => bT > 1 && hasSprite(`c_boat_t${bT}_${pose}`) ? `c_boat_t${bT}_${pose}` : 'c_boat_' + pose;
+  const boat = sprite(boatName(b.pose)), rod = sprite(hasSprite('c_rod_' + rT) ? 'c_rod_' + rT : 'c_rod');
+  const at = (sp) => [sp.ox ?? -sp.w / 2, sp.oy ?? -sp.h];          // 새 배 그림은 낚시꾼이 제자리에 오도록 잰 자리에 놓는다
   // 낚시꾼 자세 그림은 뚝 바뀌지 않고 0.16초 동안 겹쳐 넘어간다
   const now = performance.now() / 1000;
   if (b.pose !== boatFade.cur) { boatFade.prev = boatFade.cur; boatFade.cur = b.pose; boatFade.t0 = now; }
   const mixB = boatFade.prev ? clamp((now - boatFade.t0) / 0.16, 0, 1) : 1;
   ctx.save();
   ctx.translate(b.x, b.y); ctx.rotate(b.rot);
-  if (mixB < 1) { const old = sprite('c_boat_' + boatFade.prev); draw(ctx, old, -old.w / 2, -old.h); ctx.globalAlpha = mixB; }
-  draw(ctx, boat, -boat.w / 2, -boat.h);
+  if (mixB < 1) { const old = sprite(boatName(boatFade.prev)); draw(ctx, old, ...at(old)); ctx.globalAlpha = mixB; }
+  draw(ctx, boat, ...at(boat));
+  ctx.globalAlpha = 1;
+  drawScarf(ctx, g, b.pose);
   ctx.globalAlpha = 1;
   if (g.boat.spray > 0.04) {                 // 끌려갈 때 뱃머리 물살
     const sp = sprite('c_bowspray_2'), k = 0.6 + g.boat.spray * 0.6;
     ctx.globalAlpha = clamp(g.boat.spray * 1.5, 0, 1);
-    draw(ctx, sp, -boat.w / 2 - sp.w * k * 0.75, -sp.h * k - 0.5, sp.w * k, sp.h * k);
+    draw(ctx, sp, -18 - sp.w * k * 0.75, -sp.h * k - 0.5, sp.w * k, sp.h * k);
     ctx.globalAlpha = 1;
   }
   ctx.restore();
@@ -575,7 +607,8 @@ const lineSpring = { o: 0, v: 0, t: 0, on: false };
 function drawLineAndFloat(ctx, g, phase) {
   const tip = rodPose(g).tip, bob = g.bob, c = g.catch;
   const tension = g.fight ? g.fight.tension : (c && c.phase !== 'stow' ? 0.5 : 0);
-  const fl = sprite('c_float'), WATER = 0.27;          // 찌 그림에서 수면이 걸리는 높이
+  const lT = gearTier(g, 'line');                      // 장비 외형(줄): 찌 모양
+  const fl = sprite(hasSprite('c_float_' + lT) ? 'c_float_' + lT : 'c_float'), WATER = fl.water ?? 0.27;          // 찌 그림에서 수면이 걸리는 높이
   const [r, gg, b] = lineColor(tension);
   // 줄은 가운데가 처지는 곡선. 처짐은 뚝 바뀌지 않고 용수철처럼 따라온다:
   // 팽팽해지면 튕기듯 펴지고, 느슨해지면 출렁이며 늘어진다. 물속 부분은 깊어질수록 옅어진다.
@@ -755,6 +788,33 @@ function gauge(ctx, name, cx, cy, w, v, x0, x1) {
   if (k > 0.004) ctx.drawImage(fl.img, 0, 0, fl.img.width * k, fl.img.height, x + w * x0, cy - th / 2, tw * k, th);
 }
 
+// 틀 그림에 홈의 자리(slot)가 적혀 있는 게이지: 홈 모양대로 잘라 그 안에 채움 그림을 채운다
+function gaugeSlot(ctx, name, fill, cx, cy, w, v) {
+  const fr = sprite(name), fl = sprite(fill), h = w * fr.h / fr.w, x = cx - w / 2, y = cy - h / 2, [a, b, c, d] = fr.slot;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(fr.img, x, y, w, h);
+  const sx = x + w * a, sw = w * (b - a), sy = y + h * c, sh = h * (d - c), k = clamp(v, 0, 1);
+  if (k < 0.004) return;
+  ctx.save(); ctx.beginPath(); ctx.roundRect(sx, sy, sw, sh, sh / 2); ctx.clip();
+  const [bx, by, bw, bh] = inkBox(fl);                 // 채움 그림의 빈 가장자리를 빼고, 실제 그림 부분만 홈에 꽉 차게
+  ctx.drawImage(fl.img, bx, by, bw * k, bh, sx, sy, sw * k, sh);
+  ctx.restore();
+}
+// 그림에서 투명한 가장자리를 뺀 실제 그림 범위 (한 번만 잰다)
+const inkBoxes = new Map();
+function inkBox(sp) {
+  if (inkBoxes.has(sp.img)) return inkBoxes.get(sp.img);
+  const w = sp.img.width, h = sp.img.height, c = document.createElement('canvas'); c.width = w; c.height = h;
+  const x = c.getContext('2d'); x.drawImage(sp.img, 0, 0);
+  const d = x.getImageData(0, 0, w, h).data, rows = new Array(h).fill(0), cols = new Array(w).fill(0);
+  for (let yy = 0; yy < h; yy++) for (let xx = 0; xx < w; xx++) if (d[(yy * w + xx) * 4 + 3] > 120) { rows[yy]++; cols[xx]++; }
+  // 가장자리에 흩어진 점은 무시한다: 줄(칸)의 3분의 1 넘게 칠해진 곳만 그림으로 본다
+  const first = (a, n) => a.findIndex((v) => v > n), last = (a, n) => a.length - 1 - [...a].reverse().findIndex((v) => v > n);
+  const x0 = first(cols, h / 3), x1 = last(cols, h / 3), y0 = first(rows, w / 3), y1 = last(rows, w / 3);
+  const box = x0 >= 0 && x1 > x0 && y0 >= 0 && y1 > y0 ? [x0, y0, x1 - x0 + 1, y1 - y0 + 1] : [0, 0, w, h];
+  inkBoxes.set(sp.img, box); return box;
+}
+
 function drawHud(ctx, g) {
   // 골드와 어창 판
   drawGold(ctx, g);
@@ -773,7 +833,9 @@ function drawHud(ctx, g) {
   if (g.state === 'fight') { lastTension = clamp(g.fight.tension / g.fight.maxTension, 0, 1); lastDist = g.fight.dist; }
   if (ta > 0.01) {
     ctx.globalAlpha = ta;
-    gauge(ctx, 'ui_tension', W / 2, H - 42, 250, lastTension, 0.118, 0.972);                          // 줄 장력: 빨강까지 차면 끊어진다 (눈이 가는 아래쪽에)
+    const reelT = gearTier(g, 'reel');                                                                 // 장비 외형(릴): 게이지 틀
+    if (hasSprite('ui_tension_' + reelT)) gaugeSlot(ctx, 'ui_tension_' + reelT, 'ui_tension_fill', W / 2 - 6, H - 42, 262, lastTension);
+    else gauge(ctx, 'ui_tension', W / 2, H - 42, 250, lastTension, 0.118, 0.972);                          // 줄 장력: 빨강까지 차면 끊어진다 (눈이 가는 아래쪽에)
     text(ctx, `${Math.max(0, lastDist).toFixed(0)} m`, W / 2 + 140, H - 42, 10, 'rgba(255,244,220,0.9)', 'left', 600);
     ctx.globalAlpha = 1;
   }

@@ -12653,6 +12653,714 @@
    "w": 80,
    "h": 77,
    "smooth": true
+  },
+  "c_float_4": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 0,
+   "pw": 159,
+   "ph": 693,
+   "smooth": true,
+   "w": 5.51,
+   "h": 24,
+   "water": 0.32
+  },
+  "c_float_3": {
+   "atlas": "gear.webp",
+   "ax": 161,
+   "ay": 0,
+   "pw": 200,
+   "ph": 689,
+   "smooth": true,
+   "w": 6.97,
+   "h": 24,
+   "water": 0.361
+  },
+  "c_float_2": {
+   "atlas": "gear.webp",
+   "ax": 363,
+   "ay": 0,
+   "pw": 200,
+   "ph": 626,
+   "smooth": true,
+   "w": 7.67,
+   "h": 24,
+   "water": 0.342
+  },
+  "c_float_1": {
+   "atlas": "gear.webp",
+   "ax": 565,
+   "ay": 0,
+   "pw": 200,
+   "ph": 611,
+   "smooth": true,
+   "w": 7.86,
+   "h": 24,
+   "water": 0.339
+  },
+  "c_float_7": {
+   "atlas": "gear.webp",
+   "ax": 767,
+   "ay": 0,
+   "pw": 200,
+   "ph": 608,
+   "smooth": true,
+   "w": 7.9,
+   "h": 24,
+   "water": 0.36
+  },
+  "c_float_5": {
+   "atlas": "gear.webp",
+   "ax": 969,
+   "ay": 0,
+   "pw": 200,
+   "ph": 596,
+   "smooth": true,
+   "w": 8.05,
+   "h": 24,
+   "water": 0.335
+  },
+  "c_float_6": {
+   "atlas": "gear.webp",
+   "ax": 1171,
+   "ay": 0,
+   "pw": 200,
+   "ph": 594,
+   "smooth": true,
+   "w": 8.08,
+   "h": 24,
+   "water": 0.344
+  },
+  "c_float_8": {
+   "atlas": "gear.webp",
+   "ax": 1373,
+   "ay": 0,
+   "pw": 200,
+   "ph": 552,
+   "smooth": true,
+   "w": 8.7,
+   "h": 24,
+   "water": 0.279
+  },
+  "h_boat_big_8": {
+   "atlas": "gear.webp",
+   "ax": 1575,
+   "ay": 0,
+   "pw": 428,
+   "ph": 362,
+   "w": 96.0,
+   "h": 81.2,
+   "smooth": true
+  },
+  "h_boat_big_4": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 695,
+   "pw": 382,
+   "ph": 318,
+   "w": 85.68,
+   "h": 71.33,
+   "smooth": true
+  },
+  "h_boat_big_7": {
+   "atlas": "gear.webp",
+   "ax": 384,
+   "ay": 695,
+   "pw": 438,
+   "ph": 317,
+   "w": 98.24,
+   "h": 71.1,
+   "smooth": true
+  },
+  "h_boat_big_3": {
+   "atlas": "gear.webp",
+   "ax": 824,
+   "ay": 695,
+   "pw": 305,
+   "ph": 297,
+   "w": 68.41,
+   "h": 66.62,
+   "smooth": true
+  },
+  "h_boat_big_6": {
+   "atlas": "gear.webp",
+   "ax": 1131,
+   "ay": 695,
+   "pw": 399,
+   "ph": 276,
+   "w": 89.5,
+   "h": 61.91,
+   "smooth": true
+  },
+  "h_boat_big_5": {
+   "atlas": "gear.webp",
+   "ax": 1532,
+   "ay": 695,
+   "pw": 381,
+   "ph": 271,
+   "w": 85.46,
+   "h": 60.79,
+   "smooth": true
+  },
+  "h_boat_big_2": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1015,
+   "pw": 278,
+   "ph": 168,
+   "w": 62.36,
+   "h": 37.68,
+   "smooth": true
+  },
+  "c_boat_t5_3": {
+   "atlas": "gear.webp",
+   "ax": 280,
+   "ay": 1015,
+   "pw": 216,
+   "ph": 142,
+   "w": 36.0,
+   "h": 23.72,
+   "ox": -18.3,
+   "oy": -23.23,
+   "smooth": true
+  },
+  "c_boat_t2_3": {
+   "atlas": "gear.webp",
+   "ax": 498,
+   "ay": 1015,
+   "pw": 213,
+   "ph": 140,
+   "w": 35.58,
+   "h": 23.29,
+   "ox": -17.58,
+   "oy": -23.29,
+   "smooth": true
+  },
+  "c_boat_t3_3": {
+   "atlas": "gear.webp",
+   "ax": 713,
+   "ay": 1015,
+   "pw": 230,
+   "ph": 140,
+   "w": 38.3,
+   "h": 23.35,
+   "ox": -18.67,
+   "oy": -23.29,
+   "smooth": true
+  },
+  "c_boat_t6_3": {
+   "atlas": "gear.webp",
+   "ax": 945,
+   "ay": 1015,
+   "pw": 211,
+   "ph": 140,
+   "w": 35.09,
+   "h": 23.35,
+   "ox": -17.21,
+   "oy": -23.23,
+   "smooth": true
+  },
+  "c_boat_t7_3": {
+   "atlas": "gear.webp",
+   "ax": 1158,
+   "ay": 1015,
+   "pw": 213,
+   "ph": 140,
+   "w": 35.46,
+   "h": 23.35,
+   "ox": -18.18,
+   "oy": -23.23,
+   "smooth": true
+  },
+  "c_boat_t4_3": {
+   "atlas": "gear.webp",
+   "ax": 1373,
+   "ay": 1015,
+   "pw": 216,
+   "ph": 139,
+   "w": 36.0,
+   "h": 23.23,
+   "ox": -18.12,
+   "oy": -23.17,
+   "smooth": true
+  },
+  "c_boat_t8_3": {
+   "atlas": "gear.webp",
+   "ax": 1591,
+   "ay": 1015,
+   "pw": 226,
+   "ph": 139,
+   "w": 37.69,
+   "h": 23.17,
+   "ox": -19.03,
+   "oy": -23.35,
+   "smooth": true
+  },
+  "ui_tension_1": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1185,
+   "pw": 900,
+   "ph": 122,
+   "smooth": true,
+   "w": 900,
+   "h": 122.11,
+   "slot": [
+    0.1392,
+    0.9498,
+    0.3442,
+    0.6818
+   ]
+  },
+  "ui_tension_3": {
+   "atlas": "gear.webp",
+   "ax": 902,
+   "ay": 1185,
+   "pw": 900,
+   "ph": 122,
+   "smooth": true,
+   "w": 900,
+   "h": 122.11,
+   "slot": [
+    0.1392,
+    0.9507,
+    0.3377,
+    0.6818
+   ]
+  },
+  "ui_tension_2": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1309,
+   "pw": 900,
+   "ph": 121,
+   "smooth": true,
+   "w": 900,
+   "h": 120.53,
+   "slot": [
+    0.1392,
+    0.9507,
+    0.3355,
+    0.6908
+   ]
+  },
+  "ui_tension_4": {
+   "atlas": "gear.webp",
+   "ax": 902,
+   "ay": 1309,
+   "pw": 900,
+   "ph": 121,
+   "smooth": true,
+   "w": 900,
+   "h": 121.32,
+   "slot": [
+    0.1366,
+    0.9551,
+    0.3333,
+    0.6993
+   ]
+  },
+  "ui_tension_6": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1432,
+   "pw": 900,
+   "ph": 120,
+   "smooth": true,
+   "w": 900,
+   "h": 119.74,
+   "slot": [
+    0.1357,
+    0.9542,
+    0.3377,
+    0.6954
+   ]
+  },
+  "ui_tension_8": {
+   "atlas": "gear.webp",
+   "ax": 902,
+   "ay": 1432,
+   "pw": 900,
+   "ph": 120,
+   "smooth": true,
+   "w": 900,
+   "h": 120.42,
+   "slot": [
+    0.1408,
+    0.9516,
+    0.3355,
+    0.6842
+   ]
+  },
+  "c_boat_t5_1": {
+   "atlas": "gear.webp",
+   "ax": 1804,
+   "ay": 1432,
+   "pw": 207,
+   "ph": 118,
+   "w": 34.48,
+   "h": 19.67,
+   "ox": -16.48,
+   "oy": -19.12,
+   "smooth": true
+  },
+  "ui_tension_7": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1554,
+   "pw": 900,
+   "ph": 118,
+   "smooth": true,
+   "w": 900,
+   "h": 118.15,
+   "slot": [
+    0.1366,
+    0.9568,
+    0.302,
+    0.7047
+   ]
+  },
+  "ui_tension_5": {
+   "atlas": "gear.webp",
+   "ax": 902,
+   "ay": 1554,
+   "pw": 900,
+   "ph": 117,
+   "smooth": true,
+   "w": 900,
+   "h": 116.56,
+   "slot": [
+    0.1383,
+    0.9524,
+    0.3265,
+    0.7075
+   ]
+  },
+  "c_boat_t3_1": {
+   "atlas": "gear.webp",
+   "ax": 1804,
+   "ay": 1554,
+   "pw": 224,
+   "ph": 116,
+   "w": 37.34,
+   "h": 19.31,
+   "ox": -17.33,
+   "oy": -19.18,
+   "smooth": true
+  },
+  "c_boat_t4_1": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1674,
+   "pw": 217,
+   "ph": 116,
+   "w": 36.12,
+   "h": 19.31,
+   "ox": -18.18,
+   "oy": -19.12,
+   "smooth": true
+  },
+  "c_boat_t6_1": {
+   "atlas": "gear.webp",
+   "ax": 219,
+   "ay": 1674,
+   "pw": 209,
+   "ph": 116,
+   "w": 34.85,
+   "h": 19.37,
+   "ox": -16.18,
+   "oy": -19.18,
+   "smooth": true
+  },
+  "c_boat_t7_1": {
+   "atlas": "gear.webp",
+   "ax": 430,
+   "ay": 1674,
+   "pw": 213,
+   "ph": 116,
+   "w": 35.45,
+   "h": 19.37,
+   "ox": -18.12,
+   "oy": -19.12,
+   "smooth": true
+  },
+  "c_boat_t2_1": {
+   "atlas": "gear.webp",
+   "ax": 645,
+   "ay": 1674,
+   "pw": 211,
+   "ph": 115,
+   "w": 35.21,
+   "h": 19.24,
+   "ox": -17.76,
+   "oy": -19.18,
+   "smooth": true
+  },
+  "c_boat_t5_2": {
+   "atlas": "gear.webp",
+   "ax": 858,
+   "ay": 1674,
+   "pw": 220,
+   "ph": 115,
+   "w": 36.67,
+   "h": 19.21,
+   "ox": -18.18,
+   "oy": -18.61,
+   "smooth": true
+  },
+  "c_boat_t8_1": {
+   "atlas": "gear.webp",
+   "ax": 1080,
+   "ay": 1674,
+   "pw": 214,
+   "ph": 114,
+   "w": 35.64,
+   "h": 19.0,
+   "ox": -18.24,
+   "oy": -19.06,
+   "smooth": true
+  },
+  "c_boat_t3_2": {
+   "atlas": "gear.webp",
+   "ax": 1296,
+   "ay": 1674,
+   "pw": 242,
+   "ph": 113,
+   "w": 40.3,
+   "h": 18.79,
+   "ox": -18.0,
+   "oy": -18.61,
+   "smooth": true
+  },
+  "c_boat_t6_2": {
+   "atlas": "gear.webp",
+   "ax": 1540,
+   "ay": 1674,
+   "pw": 217,
+   "ph": 113,
+   "w": 36.18,
+   "h": 18.85,
+   "ox": -18.36,
+   "oy": -18.67,
+   "smooth": true
+  },
+  "c_boat_t2_2": {
+   "atlas": "gear.webp",
+   "ax": 1759,
+   "ay": 1674,
+   "pw": 223,
+   "ph": 112,
+   "w": 37.21,
+   "h": 18.61,
+   "ox": -17.76,
+   "oy": -18.61,
+   "smooth": true
+  },
+  "c_boat_t4_2": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1792,
+   "pw": 217,
+   "ph": 112,
+   "w": 36.12,
+   "h": 18.67,
+   "ox": -18.42,
+   "oy": -18.55,
+   "smooth": true
+  },
+  "c_boat_t7_2": {
+   "atlas": "gear.webp",
+   "ax": 219,
+   "ay": 1792,
+   "pw": 212,
+   "ph": 112,
+   "w": 35.39,
+   "h": 18.73,
+   "ox": -18.0,
+   "oy": -18.55,
+   "smooth": true
+  },
+  "c_boat_t8_2": {
+   "atlas": "gear.webp",
+   "ax": 433,
+   "ay": 1792,
+   "pw": 228,
+   "ph": 110,
+   "w": 38.0,
+   "h": 18.36,
+   "ox": -17.39,
+   "oy": -18.55,
+   "smooth": true
+  },
+  "h_boat_big_1": {
+   "atlas": "gear.webp",
+   "ax": 663,
+   "ay": 1792,
+   "pw": 198,
+   "ph": 73,
+   "w": 44.41,
+   "h": 16.37,
+   "smooth": true
+  },
+  "c_scarf_1": {
+   "atlas": "gear.webp",
+   "ax": 863,
+   "ay": 1792,
+   "pw": 420,
+   "ph": 43,
+   "smooth": true,
+   "w": 12.61,
+   "h": 1.28
+  },
+  "c_scarf_3": {
+   "atlas": "gear.webp",
+   "ax": 1285,
+   "ay": 1792,
+   "pw": 420,
+   "ph": 42,
+   "smooth": true,
+   "w": 16.05,
+   "h": 1.6
+  },
+  "c_scarf_2": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1906,
+   "pw": 420,
+   "ph": 39,
+   "smooth": true,
+   "w": 14.22,
+   "h": 1.31
+  },
+  "c_scarf_5": {
+   "atlas": "gear.webp",
+   "ax": 422,
+   "ay": 1906,
+   "pw": 420,
+   "ph": 35,
+   "smooth": true,
+   "w": 20.19,
+   "h": 1.66
+  },
+  "c_scarf_4": {
+   "atlas": "gear.webp",
+   "ax": 844,
+   "ay": 1906,
+   "pw": 420,
+   "ph": 31,
+   "smooth": true,
+   "w": 18.13,
+   "h": 1.33
+  },
+  "c_rod_8": {
+   "atlas": "gear.webp",
+   "ax": 1266,
+   "ay": 1906,
+   "pw": 704,
+   "ph": 23,
+   "smooth": true,
+   "w": 44,
+   "h": 1.42
+  },
+  "c_scarf_6": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1947,
+   "pw": 420,
+   "ph": 22,
+   "smooth": true,
+   "w": 22.06,
+   "h": 1.18
+  },
+  "c_rod_4": {
+   "atlas": "gear.webp",
+   "ax": 422,
+   "ay": 1947,
+   "pw": 704,
+   "ph": 21,
+   "smooth": true,
+   "w": 44,
+   "h": 1.29
+  },
+  "c_rod_6": {
+   "atlas": "gear.webp",
+   "ax": 1128,
+   "ay": 1947,
+   "pw": 704,
+   "ph": 21,
+   "smooth": true,
+   "w": 44,
+   "h": 1.32
+  },
+  "c_rod_7": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1971,
+   "pw": 704,
+   "ph": 21,
+   "smooth": true,
+   "w": 44,
+   "h": 1.32
+  },
+  "c_scarf_7": {
+   "atlas": "gear.webp",
+   "ax": 706,
+   "ay": 1971,
+   "pw": 420,
+   "ph": 21,
+   "smooth": true,
+   "w": 23.82,
+   "h": 1.2
+  },
+  "c_rod_1": {
+   "atlas": "gear.webp",
+   "ax": 1128,
+   "ay": 1971,
+   "pw": 704,
+   "ph": 20,
+   "smooth": true,
+   "w": 44,
+   "h": 1.27
+  },
+  "c_rod_3": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 1994,
+   "pw": 704,
+   "ph": 20,
+   "smooth": true,
+   "w": 44,
+   "h": 1.24
+  },
+  "c_rod_5": {
+   "atlas": "gear.webp",
+   "ax": 706,
+   "ay": 1994,
+   "pw": 704,
+   "ph": 20,
+   "smooth": true,
+   "w": 44,
+   "h": 1.27
+  },
+  "c_scarf_8": {
+   "atlas": "gear.webp",
+   "ax": 1412,
+   "ay": 1994,
+   "pw": 420,
+   "ph": 20,
+   "smooth": true,
+   "w": 26.0,
+   "h": 1.25
+  },
+  "c_rod_2": {
+   "atlas": "gear.webp",
+   "ax": 0,
+   "ay": 2016,
+   "pw": 704,
+   "ph": 19,
+   "smooth": true,
+   "w": 44,
+   "h": 1.21
   }
  }
 }
