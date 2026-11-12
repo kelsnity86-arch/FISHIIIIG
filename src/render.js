@@ -180,14 +180,15 @@ export function render(ctx, g) {
     drawPanel(ctx, g);
     drawMsg(ctx, g);
     drawCoins(ctx, g);
-    drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
+    drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawTitle(ctx, g);
     drawVeil(ctx, g);
     return;
   }
   renderSea(ctx, g);
   drawPanel(ctx, g);
   if (g.panel) { drawGold(ctx, g); drawMsg(ctx, g); drawCoins(ctx, g); }
-  drawSkip(ctx, g); drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g);
+  if (uiA > 0.5) drawSkip(ctx, g);
+  drawMap(ctx, g); drawDex(ctx, g); drawHint(ctx, g); drawTalk(ctx, g); drawMemory(ctx, g); drawTitle(ctx, g);
   drawVeil(ctx, g);
 }
 // 시간대의 빛: 화면 전체에 곱해지는 색. 시간대가 바뀌면 몇 초에 걸쳐 서서히 물든다.
@@ -224,6 +225,7 @@ function drawMsg(ctx, g) {
   text(ctx, g.msg.text, W / 2, y - k * 10, size, g.msg.color);
   ctx.globalAlpha = 1;
 }
+let uiA = 0;
 function renderSea(ctx, g) {
   const phase = PHASES[g.phase];
   ctx.save();
@@ -264,7 +266,13 @@ function renderSea(ctx, g) {
   if (g.flash > 0.01) { ctx.fillStyle = `rgba(255,255,255,${g.flash})`; ctx.fillRect(-20, -20, W + 40, H + 40); }
   ctx.restore();
 
-  drawHud(ctx, g);
+  // 제목 화면에서는 바다와 제목만 보인다. 시작하면 화면의 판·단추가 스르르 나타난다.
+  uiA += ((g.title ? 0 : 1) - uiA) * 0.08;
+  if (uiA > 0.02) {
+    if (uiA < 0.98) ctx.filter = `opacity(${uiA.toFixed(3)})`;
+    drawHud(ctx, g);
+    ctx.filter = 'none';
+  }
 }
 
 // 숨은 흔적: 물고기 그림자보다 훨씬 깊은 바닥에, 가끔 움직이지 않는 큰 윤곽이 흐릿하게 비쳤다가 사라진다.
