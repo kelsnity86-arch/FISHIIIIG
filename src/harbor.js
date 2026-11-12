@@ -317,8 +317,12 @@ export function drawPanel(ctx, g) {
     ctx.drawImage(rim.img, rx - hx * dw, ry - hy * dw, dw, dw * rim.h / rim.w);
   }
   // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 판 아래 바깥에 누르고 있기 안내)
-  { const hold = p.id === 'skills' || p.id === 'guild', qx = PANEL.x + PANEL.w * 0.6;
-    if (p.quip) label(ctx, `“${p.quip}”`, qx, PANEL.y + 79, 9, '#6b4a2b', 'center', 600, null);
+  { const hold = p.id === 'skills' || p.id === 'guild';
+    if (p.quip) {                                             // 제목 리본과 같은 가운데 줄에 맞춘다. 긴 말이 둥근 창에 닿을 때만 그만큼 오른쪽으로 비킨다
+      const str = `“${p.quip}”`; ctx.font = `600 9px ${FONT}`;
+      const half = ctx.measureText(str).width / 2, qx = Math.max(PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.x + 108 * PS + half);
+      label(ctx, str, qx, PANEL.y + 79, 9, '#6b4a2b', 'center', 600, null);
+    }
     if (hold) label(ctx, '버튼을 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 - 22, PANEL.y + panelH() + 9, 9, '#fff4dc', 'center', 600); }      // 판 아래 바깥에
   ctx.restore();
 }
