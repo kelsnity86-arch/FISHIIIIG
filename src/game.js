@@ -144,7 +144,7 @@ export function press(g) {
       b.perfect = tau < b.perfectWin;
       if (g.fish.power > OVERPOWER) say(g, '엄청난 힘이다…!', '#ffb39a');
       else say(g, b.perfect ? 'PERFECT!' : 'GOOD', b.perfect ? '#ffe27a' : '#fff4dc');
-      kick(g, 0.25); snd(g, 'hook', b.perfect); buzz(25);
+      kick(g, 0.25); snd(g, 'hook', b.perfect); buzz(25, 1);
       g.sw.shake = 1; g.sw.tailAmp = 0.14;
       setState(g, 'hook');
       break;
@@ -535,8 +535,8 @@ function updateFight(g, dt) {
   // 줄다리기의 손맛: 감는 동안 줄이 떨리듯 짧게 울리고(장력이 높을수록 촘촘하게), 날뛸 때는 굵게 울린다
   f.buzzT = (f.buzzT || 0) - dt;
   if (f.buzzT <= 0) {
-    if (f.surging) { buzz(g.hold ? 34 : 20); f.buzzT = 0.13; }
-    else if (g.hold) { buzz(8 + Math.round(clamp(f.tension, 0, 1) * 10)); f.buzzT = lerp(0.34, 0.14, clamp(f.tension, 0, 1)); }
+    if (f.surging) { buzz(g.hold ? 34 : 20, 3); f.buzzT = 0.13; }
+    else if (g.hold) { buzz(8 + Math.round(clamp(f.tension, 0, 1) * 10), 3); f.buzzT = lerp(0.34, 0.14, clamp(f.tension, 0, 1)); }
     else f.buzzT = 0.1;
   }
   f.stamina = clamp(f.stamina + (f.surging ? -0.06 * (has(g, 'kettle') ? 1.5 : 1) : 0.02) * dt, 0, 1);
@@ -779,7 +779,7 @@ function updateCatch(g, dt) {
     const far = true;
     if (c.reveal && far && !c.swished && c.popT >= FACE_HOLD) { c.swished = true; snd(g, 'swish'); }
     const tadaAt = FACE_HOLD + PULL_BACK - 0.15;
-    if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20]); }
+    if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20], 1); }
     if (g.catchFx && c.reveal && (c.popT >= c.tadaT + 0.3 || c.skip)) {
       const f = g.fish, prev = g.records[f.name];
       if (prev === undefined && has(g, 'spoon')) f.price *= 2;                         // 숟가락: 처음 낚은 생물

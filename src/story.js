@@ -7,7 +7,7 @@ import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
 import { setSound, soundOn, initAudio } from './audio.js';
-import { vibeOn, setVibe } from './haptic.js';
+import { vibeName, nextVibe } from './haptic.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -150,7 +150,7 @@ const T_SOUND = { x: 44, y: H - 20 }, T_VIBE = { x: 112, y: H - 20 }, T_RESET = 
 export function tapTitle(g, x, y) {
   const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
   if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { initAudio(); setSound(!soundOn()); return; }
-  if (x != null && Math.abs(x - T_VIBE.x) < 34 && Math.abs(y - T_VIBE.y) < 16) { setVibe(!vibeOn()); return; }
+  if (x != null && Math.abs(x - T_VIBE.x) < 34 && Math.abs(y - T_VIBE.y) < 16) { nextVibe(); return; }
   if (x != null && g.hasSave && Math.abs(x - T_RESET.x) < 62 && Math.abs(y - T_RESET.y) < 16) {
     if (t.askT != null && t.t - t.askT < 4) g.wipe = true; else t.askT = t.t;
     return;
@@ -179,7 +179,7 @@ export function drawTitle(ctx, g) {
   if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
   ctx.globalAlpha = a * 0.8;
   label(ctx, soundOn() ? '소리 켬' : '소리 끔', T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
-  label(ctx, vibeOn() ? '진동 켬' : '진동 끔', T_VIBE.x, T_VIBE.y, 9.5, '#fff4dc', 'center', 600);
+  label(ctx, vibeName(), T_VIBE.x, T_VIBE.y, 9.5, '#fff4dc', 'center', 600);
   if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
@@ -190,7 +190,7 @@ const sndOk = (g) => !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.
 export function tapSound(g, x, y) {
   if (!sndOk(g) || Math.abs(x - SND.x) > 24) return false;
   if (Math.abs(y - SND.y) <= 8) { initAudio(); setSound(!soundOn()); return true; }
-  if (Math.abs(y - SND.y - 14) <= 7) { setVibe(!vibeOn()); return true; }      // 소리 바로 아래: 진동
+  if (Math.abs(y - SND.y - 14) <= 7) { nextVibe(); return true; }      // 소리 바로 아래: 진동
   return false;
 }
 export function drawSound(ctx, g) {
@@ -198,7 +198,7 @@ export function drawSound(ctx, g) {
   if (g.sndA < 0.02) return;
   ctx.save(); ctx.globalAlpha = g.sndA * 0.75;
   label(ctx, soundOn() ? '소리 켬' : '소리 끔', SND.x, SND.y, 8.5, '#fff4dc', 'center', 600);
-  label(ctx, vibeOn() ? '진동 켬' : '진동 끔', SND.x, SND.y + 14, 8.5, '#fff4dc', 'center', 600);
+  label(ctx, vibeName(), SND.x, SND.y + 14, 8.5, '#fff4dc', 'center', 600);
   ctx.restore();
 }
 
