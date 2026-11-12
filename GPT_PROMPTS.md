@@ -11139,3 +11139,149 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name h_boats2.png
 ```
 
+---
+
+## ㉜ 숨은 흔적: 나머지 해역 (1~7번 하늘에서 한 곳씩만 고치기)
+
+8번 해역(346번)에서 통했던 방식 그대로. 8번보다 더 눈에 안 띄어야 한다: 얼핏 보면 원래 풍경, 다시 보면 뭔가 너무 반듯하다.
+
+### 368. `c_sky_1b` — 1번 해역 햇살 연안: 먼 산 능선에 가는 기둥 하나
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+On the right half, look at the most distant pale purple mountain range on the horizon (behind the green island at the far right). On the top of one of those distant ridges add ONE very thin, perfectly straight, slightly leaning pole, with a faint sagging hair-thin line running from its top down to the ridge (like a far-off abandoned mast). Paint it in exactly the same hazy pale purple as that distant range, no darker. It must be tiny, no taller than the ridge it stands on, and almost invisible at first glance.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_1b.png
+```
+
+### 369. `c_sky_2b` — 2번 해역 산호초 열대: 작은 섬의 야자수 사이에 기운 표지판 윤곽
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_2.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+Look at the small palm island on the horizon in the middle-left of the image (the small one, not the big island at the far left). Among its palm trees add ONE straight leaning pole with a small plain rectangular plate at its top (like an old signpost), partly hidden behind palm leaves. Paint it as a soft silhouette in the same muted green-brown tones as the palm trunks around it, with no markings on the plate. It must be no taller than the palms next to it and should read as just another trunk at first glance.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_2b.png
+```
+
+### 370. `c_sky_3b` — 3번 해역 안개 군도: 안개 속 먼 언덕 뒤로 큰 바퀴의 윗부분
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+Look at the faintest, most distant misty hills in the middle of the image (the palest grey shapes near the horizon, between the darker tree-covered islands). Behind one of those faint hills add the upper part of ONE very large circle: a thin perfectly round arc with three or four thin straight spokes, like the top of a huge wheel rising behind the hill. Paint it in the palest mist grey, even fainter than the hill in front of it, so that it almost disappears in the fog. No details, no cabins.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_3b.png
+```
+
+### 371. `c_sky_4b` — 4번 해역 원양 대해: 수평선에 일정한 간격의 짧은 기둥 셋
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_4.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+On the horizon line in the left third of the image, where the sky meets the sea and nothing else is there, add a row of THREE tiny short vertical stumps standing at perfectly even distances from each other, with a very faint thin level line joining the first two at their tops (like the last piers of a far-off broken bridge). Paint them in the same soft hazy pink-violet as the horizon haze, only slightly darker. Each stump must be tiny, barely rising above the horizon, and the whole group must be easy to miss.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_4b.png
+```
+
+### 372. `c_sky_5b` — 5번 해역 극지 빙해: 얼음 절벽 속에 갇힌 반듯한 그림자
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_5.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+Look at the long ice cliff on the right side of the image. Inside the ice of that cliff, as if frozen deep within it, add ONE faint dark blue-grey shape with perfectly straight edges: a long low rectangular block with one end sloping (like the hull of something far too large to be a boat), seen dimly through the ice. It must stay inside the outline of the cliff, be only slightly darker than the ice around it, with soft blurred edges, and look like a shadow in the ice at first glance.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_5b.png
+```
+
+### 373. `c_sky_6b` — 6번 해역 화산 해역: 작은 화산 능선에 곧은 굴뚝 하나
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_6.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+Look at the low volcanic ridge on the left side of the image, where thin plumes of smoke rise from small vents. On that ridge add ONE tall, thin, perfectly straight chimney-like column with a flat top, slightly leaning, with a thin plume of smoke drifting from it like from the other vents. Paint it as a dark silhouette in exactly the same tones as the ridge. It must be no taller than the small volcano cone next to it and should read as just another rock spire at first glance.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_6b.png
+```
+
+### 374. `c_sky_7b` — 7번 해역 심연 해구: 바위 첨탑 하나에 줄지어 켜진 작은 불빛
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_sky_7.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). Use it as the image to edit. The result must be the same painting: same size and
+proportions (wide, exactly 3:1), same composition, same clouds, same islands and mountains,
+same colours, same brushwork, same horizon position at the very bottom.
+Do not repaint, restyle, sharpen, recolour or move anything.
+
+Change ONLY ONE small thing:
+Look at the group of dark spiky rock silhouettes on the horizon at the left side of the image, which already have a faint cyan glow at their base. On ONE of the taller spires add a single vertical row of four or five tiny, evenly spaced dots of the same faint cyan light, running up its side in a perfectly straight line (like a column of lit windows). The dots must be very small and dim, no brighter than the existing glow at the base, and easy to miss.
+
+It is a hidden detail: someone who is not looking for it should not notice it.
+No text. No other changes anywhere in the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_sky_7b.png
+```
+
