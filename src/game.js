@@ -154,7 +154,7 @@ export function press(g) {
       break;
     }
     case 'catch':
-      if (g.t > 0.4) g.catch.skip = true;      // 연출 넘기기
+      if (g.t > 0.4 && g.catch.seen) g.catch.skip = true;      // 연출 넘기기: 이미 낚아 본 생물만. 처음 낚는 생물은 끝까지 본다
       break;
     case 'result':
       if (g.t > (g.catch.quick ? 0.55 : 1.1)) {
@@ -686,7 +686,8 @@ function startCatch(g) {
   if (g.sw) ex += clamp(g.sw.x + lw * 0.3 - ex, -50, 40);            // 그림자가 있는 자리에 가깝게
   g.catch = {
     phase: 'pull', pt: 0, lw, gi, zoom, zs, ex, big, fit, ax, ay, fx,
-    quick: (g.fish.grade === 'common' || (has(g, 'robot') && !g.fish.isFantasy)) && g.records[g.fish.name] != null,
+    seen: g.records[g.fish.name] != null,                 // 이미 낚아 본 생물인가 (그러면 눌러서 연출을 넘길 수 있다)
+    quick: has(g, 'robot') && !g.fish.isFantasy && g.records[g.fish.name] != null,      // 빨리 감기는 태엽 로봇의 능력으로만 (평소에는 눌러서 넘기면 된다)
     rise: 1.25,
     x: ex, y: WL + 200, rot: -0.5, out: 0, mix: 0, alpha: 1, scale: 1,
     erupted: false, shed: 0, skip: false, from: null, trail: 0,
@@ -789,7 +790,7 @@ function updateCatch(g, dt) {
     const far = true;
     if (c.reveal && far && !c.swished && c.popT >= FACE_HOLD) { c.swished = true; snd(g, 'swish'); }
     const tadaAt = FACE_HOLD + PULL_BACK - 0.15;
-    if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi }; c.tadaT = c.popT; g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20], 1); }
+    if (!g.catchFx && c.reveal && (c.popT >= tadaAt || c.skip)) { g.catchFx = { age: 0, gi: g.fish.fixedSize ? 2 : gi }; c.tadaT = c.popT;      /* 태초의 생물은 '낚았다!' 글자가 하나(물결)로 같다 */ g.flash = Math.max(g.flash, 0.25); snd(g, 'fanfare', gi); buzz([30, 40, 60 + gi * 20], 1); }
     if (g.catchFx && c.reveal && (c.popT >= c.tadaT + 0.3 || c.skip)) {
       const f = g.fish, prev = g.records[f.name];
       if (prev === undefined && has(g, 'spoon')) f.price *= 2;                         // 숟가락: 처음 낚은 생물

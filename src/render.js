@@ -92,7 +92,7 @@ function text(ctx, str, x, y, size, color, align = 'center', weight = 700) {
 function drawCatchText(ctx, g) {
   const fx = g.catchFx;
   if (!fx) return;
-  const gi = g.fish && g.fish.fixedSize ? 2 : fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;      // 태초의 생물은 등급이 하나라 '낚았다!' 글자도 하나(물결)로 같다
+  const gi = fx.gi, spr = sprite('ui_caught_' + (gi + 1)), t = performance.now() / 1000;      // 태초의 생물은 등급이 하나라 '낚았다!' 글자도 하나(물결)로 같다
   const w = [150, 162, 176, 190, 208, 232][gi], h = w * spr.h / spr.w;
   const gone = fx.out != null ? clamp(fx.out / 0.25, 0, 1) : 0;
   const pop = easeOutBack(Math.min(1, fx.age / 0.32)) * (1 - 0.25 * gone);
@@ -139,7 +139,7 @@ function fitText(ctx, str, box, size, font, weight, color) {
   ctx.fillText(str, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 + (asc - desc) / 2);     // 실제 글자 높이의 가운데를 칸의 가운데에
 }
 function drawResultCard(ctx, g) {
-  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), p7 = f.fixedSize && hasSprite('ui_card_7'), fr = sprite(p7 ? 'ui_card_7' : 'ui_card_' + (gi + 1)), L = p7 ? CARD7 : CARD[gi];      // 태초 등급의 카드 틀 (그림이 오기 전에는 원래 틀)
+  const f = g.result.creature, gi = GRADES.indexOf(f.gradeInfo), p7 = f.fixedSize && hasSprite('ui_card_7'), fr = sprite(p7 ? 'ui_card_7' : 'ui_card_' + (gi + 1)), L = p7 ? CARD7 : CARD[gi];      // 태초 등급의 카드 틀 (그림이 오기 전에는 원래 틀)
   const r = g.result, T = r.age || 0, gone = r.out != null ? clamp(r.out / 0.25, 0, 1) : 0;
   const k = clamp(T / 0.3, 0, 1), e = (1 - Math.pow(1 - k, 3)) * (1 - gone);
   const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26 + gone * 10;   // 왼쪽 아래: 생물과 배를 가리지 않는다
