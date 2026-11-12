@@ -9,7 +9,7 @@
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted } from './assets.js';
 import { fmt } from './economy.js';
-import { questLine } from './goals.js';
+import { questLine, skinOn } from './goals.js';
 import { drawHarbor, drawPanel, drawSeaButtons } from './harbor.js';
 import { drawTalk, drawHint, drawSkip, drawMemory, drawTitle, drawSound } from './story.js';
 import { drawMap, drawDex } from './book.js';
@@ -137,7 +137,7 @@ function fitText(ctx, str, box, size, font, weight, color) {
   ctx.fillText(str, (box[0] + box[2]) / 2, (box[1] + box[3]) / 2 + (asc - desc) / 2);     // 실제 글자 높이의 가운데를 칸의 가운데에
 }
 function drawResultCard(ctx, g) {
-  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite('ui_card_' + (gi + 1)), L = CARD[gi];
+  const f = g.fish, gi = GRADES.indexOf(f.gradeInfo), fr = sprite(f.fixedSize && hasSprite('ui_card_7') ? 'ui_card_7' : 'ui_card_' + (gi + 1)), L = CARD[gi];      // 태초 등급의 카드 틀 (그림이 오기 전에는 원래 틀)
   const r = g.result, T = r.age || 0, gone = r.out != null ? clamp(r.out / 0.25, 0, 1) : 0;
   const k = clamp(T / 0.3, 0, 1), e = (1 - Math.pow(1 - k, 3)) * (1 - gone);
   const cw = 196, ch = cw * fr.h / fr.w, cx = 10, cy = H - ch - 10 + (1 - e) * 26 + gone * 10;   // 왼쪽 아래: 생물과 배를 가리지 않는다
@@ -545,7 +545,8 @@ function drawBulge(ctx, g) {
 }
 
 const boatFade = { cur: null, prev: null, t0: 0 };
-const gearTier = (g, id) => Math.min(8, Math.floor(g.eco.gear[id] / 10) + 1);
+const SKIN_ART = { line: 'c_float_9', outfit: 'c_scarf_9', reel: 'ui_tension_9', rod: 'c_rod_9', boat: 'c_boat_t9_1' };
+const gearTier = (g, id) => (skinOn(g, id) && hasSprite(SKIN_ART[id]) ? 9 : Math.min(8, Math.floor(g.eco.gear[id] / 10) + 1));      // 9 = 태초의 차림 (얻었고 켜 두었고 그림이 있을 때)
 // 장비 외형(복장): 낚시꾼 목에서 뒤로 날리는 목도리. 곧은 그림을 조각내어 바람에 펄럭이게 그린다 (배 안의 자리 기준).
 // 높은 등급(영웅 이상)이 입질하는 순간에는 목도리 끝이 잠깐 반짝인다 — 복장은 행운의 장비다.
 const NECK = { 1: [5.4, -12.8], 2: [11.6, -11.4], 3: [8.6, -16.2] };

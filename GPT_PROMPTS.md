@@ -11607,3 +11607,104 @@ animal inside its cell with a little empty margin. Draw each one as large as its
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name p_fish_d.png
 ```
+
+
+---
+
+## ㊱ 태초 등급과 태초의 차림 (태초의 바다 도감 보상)
+
+태초의 바다의 생물은 등급이 하나뿐이다: 태초. 그 바다의 도감을 채우면 장비 겉모습(태초의 차림)을 하나씩 얻는다.
+태초의 차림은 사람이 만든 것 같지 않은, 바다가 내어 준 재료로만 된 물건이다: 물에 씻긴 나무, 조개, 자개, 진주, 산호, 갈대. 쇠·유리·톱니·보석 세공·마법 빛은 없다.
+
+### 386. `ui_card_7` — 낚았을 때 카드 틀: 태초 등급
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/ui2_card.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It contains several card frames, one per rarity. Take the FIRST (plainest) frame
+and make ONE new frame from it. Keep exactly the same outer size and shape, the same inner
+picture window in the same place, the same name plate and the same lower text plate in the
+same places, the same painterly rendering. Change only the material and decoration of the
+frame: make it of pale, sea-washed driftwood bound with woven reed, with a few small natural
+seashells and one small pearl at the top centre. Calm and natural, no gold, no gems, no
+flames, no glow.
+
+No text. Fully transparent background. Only this one frame, centred.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_card_7.png
+```
+
+### 387. `p_skins` — 태초의 차림: 찌·목도리·낚싯대·줄다리기 게이지 틀
+
+```
+Style references: open assets/raw/c_float_set.png, assets/raw/c_scarf_set.png,
+assets/raw/c_rod_set.png and assets/raw/ui_tension_set.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Each new piece must be painted EXACTLY like the
+pieces in those sheets: the same viewing angle, the same proportions, the same painterly
+rendering and soft dark outlines, so that it can replace them in the game.
+
+Theme for all four: things the sea itself gave, not made in a workshop. Materials only:
+sea-washed driftwood, seashells, mother-of-pearl, pearls, a little pale coral, woven reed.
+No metal, no glass, no gears, no cut gems, no glow, no magic.
+
+No text. Fully transparent background.
+
+One image with 4 pieces stacked in 4 rows, never touching, each centred in its row:
+Row 1) a fishing float like the ones in c_float_set.png (same upright pose, a round body
+       with a thin stem above and below): the body is a small smooth spiral seashell, the
+       stem a thin reed.
+Row 2) a scarf like the last one in c_scarf_set.png (a long straight horizontal strip,
+       same length and same proportions): woven of pale sea-green and cream reed fibre
+       with a row of tiny shells along the end.
+Row 3) a fishing rod like the ones in c_rod_set.png (a straight side view, the same length
+       and proportions, handle on the same side): a slender rod of pale driftwood, the
+       handle wrapped in woven reed, a small shell as the reel.
+Row 4) a tension gauge frame like the ones in ui_tension_set.png (a long horizontal frame
+       with the same proportions and the same dark navy empty slot in the middle, the slot
+       in the same position and the same size): the frame is pale driftwood with
+       mother-of-pearl inlay and a small scallop shell at the left end.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name p_skins.png
+```
+
+### 388. `c_boat_t9` — 태초의 차림: 배 (바다에서) · 낚시꾼 자세 3장
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/c_boat_t8.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It is a sheet of 3 poses of the same angler sitting in the same boat. Use it as
+the image to edit. Keep the image size, the 3 poses, the angler (same person, same hat,
+same clothes, same hands, same position in each pose) exactly as they are.
+
+Change ONLY the boat under the angler, the same way in all 3 poses: replace it with a
+simple, beautiful dugout canoe carved from one pale sea-washed log, with a smooth rounded
+hull, a little mother-of-pearl inlay along the rim and a string of small shells at the bow.
+No sail, no engine, no metal, no lantern, no glow. About the same length as the first
+plain rowboat in assets/raw/c_boat.png, with its bottom at the same height as the boat it
+replaces.
+
+No text. Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name c_boat_t9.png
+```
+
+### 389. `h_boat_9` — 태초의 차림: 배 (항구에 매어 둔 모습)
+
+```
+Style references: open assets/raw/h_boats2.png and assets/raw/h_town_3.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch). Paint ONE more moored boat EXACTLY like
+the boats in h_boats2.png: the same viewing angle (from the side and very slightly from
+above), the same light, the same painterly rendering, facing left, empty, with a flat
+bottom edge at its waterline.
+
+The boat: a simple, beautiful dugout canoe carved from one pale sea-washed log, smooth
+rounded hull, a little mother-of-pearl inlay along the rim, a string of small shells at
+the bow, one paddle lying inside. About as long as the 4th boat in h_boats2.png, wide and low.
+No sail, no engine, no metal, no lantern, no glow.
+
+No text. No people. No water, no dock, no reflection. Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boat_9.png
+```

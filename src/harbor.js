@@ -1,6 +1,6 @@
 // 항구 마을 화면과 가게 판. 화면에 보이는 것은 전부 GPT 그림이고, 코드는 놓고·넘기고·글자를 얹을 뿐이다.
 import { pickQuip } from './quips.js';
-import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion } from './goals.js';
+import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
@@ -108,7 +108,7 @@ function rowsOf(g, id) {
     case 'market': return [['shop', 'market']];
     case 'tackle': return [gear('rod'), gear('line'), gear('reel'), ['shop', 'tackle']];
     case 'yard': return [gear('boat'), ['shop', 'yard']];
-    case 'tailor': return [gear('outfit'), ['shop', 'tailor']];
+    case 'tailor': return skinsOwned(g).length ? [gear('outfit'), ['shop', 'tailor'], ['skin', 'skin']] : [gear('outfit'), ['shop', 'tailor']];      // 태초의 차림을 하나라도 얻었으면 켜고 끌 수 있다
     case 'guild': return [skill('profit'), skill('speed'), skill('big'), ['shop', 'guild']];
     case 'hall': return g.story.seen.finale ? [['town', 'town'], ['gen', 'gen']] : [['town', 'town']];      // 모든 기억을 되찾은 뒤에는 대를 이을 수 있다
     case 'skills': return [skill('profit'), skill('speed'), skill('big')];
@@ -131,6 +131,7 @@ function rowInfo(g, kind, id) {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];
     return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: `h_shop_${look}_${id}` };
   }
+  if (kind === 'skin') return { name: '태초의 차림', level: `${skinsOwned(g).length}/${SKINS.length}`, desc: g.skin !== false ? '태초의 바다에서 얻은 겉모습으로 보인다' : '장비 단계에 맞는 겉모습으로 보인다', cost: 0, btn: g.skin !== false ? '켬' : '끔', block: null, icon: `h_outfit_${Math.min(8, Math.floor(e.gear.outfit / 10) + 1)}` };
   if (kind === 'gen') return { name: '대를 잇는다', level: `지금 ${(g.gen || 0) + 1}대째`, desc: g.panel && g.panel.confirm ? '한 번 더 누르면 처음으로 돌아갑니다' : `도감·옛 물건은 남고 파는 값 +${Math.round((GEN_X - 1) * 100)}%`, cost: 0, btn: '잇기', block: null, icon: `h_shop_${look}_hall` };
   const need = townNeedDex(e);
   return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${ro(TOWN_NAMES[e.town + 1])} 커진다 · 가게를 더 키울 수 있다`, cost: townCost(e),
@@ -182,6 +183,7 @@ export function pointer(g, x, y) {
     for (let i = 0; i < rows.length; i++) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
+        if (rows[i][0] === 'skin') { g.skin = g.skin === false; g.panel.hit = i; g.panel.hitT = 0; g.sfx.push(['tap']); g.dirty = true; return true; }
         if (rows[i][0] === 'gen') { if (!g.panel.confirm) { g.panel.confirm = true; g.panel.hit = i; g.panel.hitT = 0; g.sfx.push(['tap']); } else nextGen(g); return true; }
         if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g);
           if (rows[i][0] === 'skill') { g.panel.rep = { i, t: 0, next: 0.38, n: 0 }; if (g.eco.skill[rows[i][1]] % 10 === 0) buzz(30); } else buzz(20); }      // 마디 보너스와 큰 구매는 손끝으로도      // 스킬: 누르고 있으면 계속 올라간다
@@ -267,9 +269,9 @@ export function drawHarbor(ctx, g) {
   });
   // 정박한 내 배
   // 장비 외형(배): 항구에서는 단계마다 확실하게 커지고 화려해진다
-  const bt8 = Math.min(8, Math.floor(e.gear.boat / 10) + 1);
+  const bt8 = skinOn(g, 'boat') && hasSprite('h_boat_big_9') ? 9 : Math.min(8, Math.floor(e.gear.boat / 10) + 1);
   // 출항 단추 바로 왼쪽 물 위에 매여 있다. 아래쪽 넓은 물에 두어 크게 그려도 가게와 이름표를 가리지 않는다
-  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (bt8 - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05, bw, bh); }
+  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (Math.min(8, bt8) - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05, bw, bh); }
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
   // 마을 이름
   const title = `${e.town}등급 · ${TOWN_NAMES[e.town]}`;

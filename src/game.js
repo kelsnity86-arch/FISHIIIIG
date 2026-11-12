@@ -14,7 +14,7 @@ import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
 import { updateBook } from './book.js';
 import { RELICS, has } from './relics.js';
 import { openMap } from './book.js';
-import { dexBonus, dexStage, dexName, DEX_PCT, genMult, questCatch, questPerfect, dexAll } from './goals.js';
+import { dexBonus, dexStage, dexName, DEX_PCT, genMult, questCatch, questPerfect, dexAll, skinGained, josaEul } from './goals.js';
 import { buzz } from './haptic.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -204,8 +204,8 @@ function flee(g) {
 }
 
 // ── 매 프레임 갱신 ──
-// 물속 그림자의 길이: 평소에는 모두 같다. 태초의 바다에서는 그 생물의 본래 크기 (너무 작으면 찌만 한 크기)
-const shadowLen = (g) => (g.fish && g.fish.fixedSize ? Math.max(26, g.fish.len) : SHADOW_LEN);
+// 물속 그림자의 길이: 어느 바다에서나 같다. 태초의 바다에서도 거대한 그림자가 올라오는데, 낚고 보면 평범한 물고기다
+const shadowLen = () => SHADOW_LEN;
 export function update(g, dt) {
   if (g.questT != null) g.questT += dt;
   // 도감을 다 채운 뒤 처음 한가해졌을 때: 화면이 환해지고 옛 노래가 흐르며 해도가 펼쳐진다. 빈 양피지 위에 태초의 바다가 떠오른다
@@ -408,7 +408,7 @@ function startWait(g) {
   g.fish.strain = clamp(strainOf(g.eco, Math.min(8, g.region)), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
-  const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기 (태초의 바다에서는 본래 크기로 작게 '보이기만' 한다: sw.show)
+  const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
   // 다가오는 길: 깊은 곳에서 떠올라 찌 밑을 천천히 지나친다. (좁은 구간을 왔다 갔다 하며 계속 돌아서지 않는다)
   // 매번 길이 다르다: 떠오르는 자리·깊이·빠르기, 찌 밑에서 뜸 들이기, 물러나는 거리가 그때그때 정해진다.
   const q0 = biteMult(g.eco), linger = () => ({ x: fx - L * rand(0.5, 0.74), y: rand(62, 112), speed: rand(0.28, 0.4), hover: rand(0.4, 1.1) / q0 });
@@ -426,7 +426,6 @@ function startWait(g) {
   const sw = createSwimmer(L, fx - 60 - L * rand(0.2, 0.55), DEEP + rand(95, 130), 1);
   { const q = biteMult(g.eco); sw.maxSpeed *= q; sw.accel *= q; }   // 손놀림: 입질이 빨리 온다
   sw.maxX = BOAT_X - L * 0.5 - 14;               // 머리가 배 밑을 넘어가지 않는다
-  if (g.fish.fixedSize) sw.show = shadowLen(g) / L;      // 태초의 바다: 그림자가 본래 크기로 보인다 (움직임 계산은 그대로)
   g.sw = sw;
   g.wait = { plan, step: 0, fakeT: 0, hover: 0, delay: rand(0.4, 1.2) / biteMult(g.eco), minTime: rand(2.5, 4) * (1 + g.power * 0.4) / biteMult(g.eco) };
   setState(g, 'wait');
@@ -802,6 +801,7 @@ function updateCatch(g, dt) {
         const stage = dexStage(g, f.region);
         if (stage > stage0) { g.dexNote = `${dexName(f.region)} 도감 ${stage === 2 ? '완성' : '절반'}! 파는 값 +${DEX_PCT[stage]}%`; g.dexNews = { r: f.region, stage }; }
         questCatch(g, f, prev === undefined);
+        if (f.fixedSize && prev === undefined) { const got = skinGained(g); if (got) g.dexNote = `${got}을(를) 얻었다 · 옷가게에서 겉모습을 바꿀 수 있다`.replace('을(를)', josaEul(got)); }      // 태초의 바다 도감 보상: 장비 겉모습
         if (!g.primal && prev === undefined && dexAll(g)) { g.primal = true; g.primalShow = true; g.dexNote = '도감을 모두 채웠다. 해도에 새 항로가 떠오른다…'; }      // 태초의 바다가 열린다
       }
       // 낚는 순간 값의 절반을 선금으로 받고(바다에서 스킬을 올릴 돈), 나머지는 항구에서 팔 때 포상금으로 받는다

@@ -145,7 +145,7 @@ export function drawDex(ctx, g) {
     const r = slotRect(i), ok = known(g, c), sel = d.sel === c;
     img(ctx, sel ? 'dex_slot_on' : ok ? 'dex_slot' : 'dex_slot_off', r.x, r.y, r.w, r.h);
     if (ok && c.mem) { const rs = sprite('relic_' + c.art), k = Math.min((r.w - 10) / rs.w, (r.h - 10) / rs.h); ctx.drawImage(rs.img, r.x + r.w / 2 - rs.w * k / 2, r.y + r.h / 2 - rs.h * k / 2, rs.w * k, rs.h * k); }
-    else if (ok) { creature(ctx, spriteOf(c), r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, 'dex_fr_' + (GI[c[2]] + 1), r.x + 1, r.y + 1, r.w - 2, r.h - 2); }
+    else if (ok) { creature(ctx, spriteOf(c), r.x + r.w / 2, r.y + r.h / 2, r.w - 11, r.h - 11); img(ctx, c[3] === 9 && hasSprite('dex_fr_7') ? 'dex_fr_7' : 'dex_fr_' + (GI[c[2]] + 1), r.x + 1, r.y + 1, r.w - 2, r.h - 2); }
     else label(ctx, '?', r.x + r.w / 2, r.y + r.h / 2 + 1, 13, 'rgba(90,70,50,0.55)', 'center', 700, null);
   });
   ctx.globalAlpha = a;
@@ -180,7 +180,7 @@ export function drawDex(ctx, g) {
     }
     ctx.globalAlpha = a;
   } else {
-    const ok = known(g, c), gr = GRADES[GI[c[2]]], k = clamp((d.t - d.selT) / 0.22, 0, 1), e = 1 - Math.pow(1 - k, 3);
+    const ok = known(g, c), gr = c[3] === 9 ? { name: '태초' } : GRADES[GI[c[2]]],      /* 태초의 바다의 생물은 등급이 하나뿐이다: 태초 */  k = clamp((d.t - d.selT) / 0.22, 0, 1), e = 1 - Math.pow(1 - k, 3);
     ctx.globalAlpha = a * e;
     if (ok) {
       creature(ctx, spriteOf(c), cx, BY() + 88 + (1 - e) * 5, rw * 0.62, 78);
