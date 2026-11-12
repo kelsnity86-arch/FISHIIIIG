@@ -5,13 +5,14 @@ import { pointer } from './harbor.js';
 import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { topRegion } from './goals.js';
+import { IS_PC } from './haptic.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
 
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 let scale = 1;
-const MAX_SCALE = 2.25;
+const MAX_SCALE = IS_PC ? 6 : 2.25;      // PC판은 큰 모니터에서도 또렷하게 (발열 걱정이 없다)
 
 // 창 크기에 맞춤. 가능하면 정수배(도트가 고르게 보임), 너무 작아지면 꽉 채운다.
 function resize() {
@@ -66,6 +67,13 @@ canvas.addEventListener('pointercancel', () => release(game));
 canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 window.addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); initAudio(); press(game); } });
 window.addEventListener('keyup', (e) => { if (e.code === 'Space') release(game); });
+// Esc: 열려 있는 판·도감·해도를 닫는다 (PC)
+window.addEventListener('keydown', (e) => {
+  if (e.code !== 'Escape' || e.repeat) return; const g = game;
+  if (g.dex && g.dex.closing == null) { g.dex.closing = 0; g.sfx.push(['paper']); }
+  else if (g.map && g.map.closing == null && g.map.reveal == null) { g.map.closing = 0; g.sfx.push(['paper']); }
+  else if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); }
+});
 
 // 시험용 버튼
 const btnGrade = document.getElementById('btnGrade');

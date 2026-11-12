@@ -6,8 +6,8 @@ import { sprite, hasSprite } from './assets.js';
 import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
-import { setSound, soundOn, initAudio } from './audio.js';
-import { vibeName, nextVibe } from './haptic.js';
+import { setSound, soundOn, initAudio, nextVolume, soundName } from './audio.js';
+import { vibeName, nextVibe, IS_PC } from './haptic.js';
 
 const FONT = '"Hahmlet", system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif';
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -167,8 +167,8 @@ export function startTitle(g) { g.title = { t: 0, a: 0, closing: null }; }
 const T_SOUND = { x: 44, y: H - 20 }, T_VIBE = { x: 112, y: H - 20 }, T_RESET = { x: W - 62, y: H - 20 };
 export function tapTitle(g, x, y) {
   const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
-  if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { initAudio(); setSound(!soundOn()); return; }
-  if (x != null && Math.abs(x - T_VIBE.x) < 34 && Math.abs(y - T_VIBE.y) < 16) { nextVibe(); return; }
+  if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { initAudio(); if (IS_PC) nextVolume(); else setSound(!soundOn()); return; }
+  if (!IS_PC && x != null && Math.abs(x - T_VIBE.x) < 34 && Math.abs(y - T_VIBE.y) < 16) { nextVibe(); return; }      // PC에는 진동이 없다
   if (x != null && g.hasSave && Math.abs(x - T_RESET.x) < 62 && Math.abs(y - T_RESET.y) < 16) {
     if (t.askT != null && t.t - t.askT < 4) g.wipe = true; else t.askT = t.t;
     return;
@@ -196,8 +196,8 @@ export function drawTitle(ctx, g) {
   else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
   if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
   ctx.globalAlpha = a * 0.8;
-  label(ctx, soundOn() ? '소리 켬' : '소리 끔', T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
-  label(ctx, vibeName(), T_VIBE.x, T_VIBE.y, 9.5, '#fff4dc', 'center', 600);
+  label(ctx, soundName(IS_PC), T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
+  if (!IS_PC) label(ctx, vibeName(), T_VIBE.x, T_VIBE.y, 9.5, '#fff4dc', 'center', 600);
   if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
@@ -207,16 +207,16 @@ const SND = { x: W - 31, y: 13 };      // '진동 2단계'처럼 긴 글자도 �
 const sndOk = (g) => !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
 export function tapSound(g, x, y) {
   if (!sndOk(g) || Math.abs(x - SND.x) > 31) return false;
-  if (Math.abs(y - SND.y) <= 8) { initAudio(); setSound(!soundOn()); return true; }
-  if (Math.abs(y - SND.y - 14) <= 7) { nextVibe(); return true; }      // 소리 바로 아래: 진동
+  if (Math.abs(y - SND.y) <= 8) { initAudio(); if (IS_PC) nextVolume(); else setSound(!soundOn()); return true; }
+  if (!IS_PC && Math.abs(y - SND.y - 14) <= 7) { nextVibe(); return true; }      // 소리 바로 아래: 진동
   return false;
 }
 export function drawSound(ctx, g) {
   g.sndA = (g.sndA || 0) + ((sndOk(g) ? 1 : 0) - (g.sndA || 0)) * 0.12;
   if (g.sndA < 0.02) return;
   ctx.save(); ctx.globalAlpha = g.sndA * 0.75;
-  label(ctx, soundOn() ? '소리 켬' : '소리 끔', SND.x, SND.y, 8.5, '#fff4dc', 'center', 600);
-  label(ctx, vibeName(), SND.x, SND.y + 14, 8.5, '#fff4dc', 'center', 600);
+  label(ctx, soundName(IS_PC), SND.x, SND.y, 8.5, '#fff4dc', 'center', 600);
+  if (!IS_PC) label(ctx, vibeName(), SND.x, SND.y + 14, 8.5, '#fff4dc', 'center', 600);
   ctx.restore();
 }
 
