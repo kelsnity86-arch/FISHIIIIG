@@ -135,7 +135,8 @@ function rowInfo(g, kind, id) {
 // 판의 자리
 const PANEL = { x: 196, y: 40, w: 336 };
 const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
-const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 54 + i * 51, w: 280, h: 48 });
+// 줄은 왼쪽 위 둥근 창(테두리 아래 끝 = 판 위에서 79)을 전혀 가리지 않도록 그 아래에서 시작한다. 네 줄이 판 안에 들어오도록 줄 높이를 줄였다
+const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 82 + i * 44.5, w: 280, h: 43 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30, y: PANEL.y + 4, w: 28, h: 28 });
 
 export function openPanel(g, id) { g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null }; }
@@ -295,11 +296,11 @@ export function drawPanel(ctx, g) {
     const done = info.block === '끝';                       // 끝까지 올린 것: 잠긴 것이 아니라 완성된 것으로 보인다
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
     img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
-    const ic = sprite(info.icon), is = 34, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
+    const ic = sprite(info.icon), is = 31, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
     ctx.drawImage(ic.img, r.x + 27 - iw / 2, r.y + r.h / 2 - ih / 2, iw, ih);
-    label(ctx, info.name, r.x + 52, r.y + 17, 11, COLORS.navy, 'left', 600, null);
-    label(ctx, info.level, r.x + 52 + ctx.measureText(info.name).width + 6, r.y + 17, 9, '#8a5a2b', 'left', 600, null);
-    label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 52, r.y + 32, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
+    label(ctx, info.name, r.x + 52, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
+    label(ctx, info.level, r.x + 52 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
+    label(ctx, done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, r.x + 52, r.y + r.h / 2 + 8.5, 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null);
     if (done) label(ctx, '완성', r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, '#4a2a08', 'center', 600, null);
     else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
