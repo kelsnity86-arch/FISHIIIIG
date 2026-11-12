@@ -3,4 +3,5 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('horiPC', {
   setSize: (w, h) => ipcRenderer.send('hori-size', w | 0, h | 0),
   setFullscreen: (on) => ipcRenderer.send('hori-fullscreen', !!on),
+  quit: () => ipcRenderer.send('hori-quit'),
 });

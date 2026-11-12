@@ -5,7 +5,7 @@ import { pointer } from './harbor.js';
 import { startTitle, skipBasics } from './story.js';
 import { maxRegion, cargoMax } from './economy.js';
 import { topRegion } from './goals.js';
-import { maxScale, applyRes, closeSettings } from './settings.js';
+import { maxScale, applyRes, closeSettings, openPause, updateSettings } from './settings.js';
 import { render } from './render.js';
 import { initAudio, playSfx, reel, setSound, soundOn, setScene } from './audio.js';
 
@@ -66,14 +66,18 @@ canvas.addEventListener('pointercancel', () => release(game));
 canvas.addEventListener('contextmenu', (e) => e.preventDefault());
 window.addEventListener('keydown', (e) => { if (e.code === 'Space' && !e.repeat) { e.preventDefault(); initAudio(); press(game); } });
 window.addEventListener('keyup', (e) => { if (e.code === 'Space') release(game); });
-// Esc: 열려 있는 판·도감·해도를 닫는다 (PC)
-window.addEventListener('keydown', (e) => {
-  if (e.code !== 'Escape' || e.repeat) return; const g = game;
+// Esc(PC) · 뒤로 가기(폰): 열려 있는 설정·도감·해도·판을 닫는다. 아무것도 열려 있지 않으면 일시정지 메뉴를 띄운다
+function back() {
+  const g = game;
   if (g.settings) closeSettings(g);
-  else if (g.dex && g.dex.closing == null) { g.dex.closing = 0; g.sfx.push(['paper']); }
-  else if (g.map && g.map.closing == null && g.map.reveal == null) { g.map.closing = 0; g.sfx.push(['paper']); }
-  else if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); }
-});
+  else if (g.dex) { if (g.dex.closing == null) { g.dex.closing = 0; g.sfx.push(['paper']); } }
+  else if (g.map) { if (g.map.closing == null && g.map.reveal == null) { g.map.closing = 0; g.sfx.push(['paper']); } }
+  else if (g.panel) { if (g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }
+  else if (!g.travel) openPause(g);
+}
+window.addEventListener('keydown', (e) => { if (e.code === 'Escape' && !e.repeat) { e.preventDefault(); back(); } });
+{ const cap = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App; if (cap && cap.addListener) cap.addListener('backButton', back); }
+window.__back = back;      // 검사용
 
 // 시험용 버튼
 const btnGrade = document.getElementById('btnGrade');
@@ -144,7 +148,7 @@ function frame(now) {
   // 같은 오류가 반 초 넘게 이어지면 하던 동작을 접고 쉬는 상태로 되돌린다.
   try {
   if (!window.__manual) {
-    update(game, dt);
+    if (game.paused) updateSettings(game, dt); else update(game, dt);      // 일시정지 중에는 메뉴만 움직인다
     for (const [name, arg] of game.sfx) playSfx(name, arg);
     if (game.dirty) { game.dirty = false; save(); }
     if (game.wipe) { wiped = true; try { localStorage.removeItem(SAVE); } catch { /* 무시 */ } location.reload(); }     // 제목 화면의 '처음부터 다시'

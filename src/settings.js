@@ -23,7 +23,18 @@ let qual = clamp(+get('hori-quality', 1) || 0, 0, QUAL.length - 1);
 export const maxScale = () => (IS_PC ? 6 : QUAL[qual][1]);      // PC판은 큰 모니터에서도 또렷하게 (발열 걱정이 없다)
 
 const VIBE_DESC = ['울리지 않는다', '챌 때와 낚았을 때만', '날뛰기·놓침·구매 등까지', '줄다리기 내내 떨림까지'];
-function rows() {
+// 일시정지 메뉴 (PC: 아무것도 열려 있지 않을 때 Esc · 폰: 뒤로 가기)
+const PAUSE_ROWS = [
+  { id: 'resume', name: '게임 재개', value: '재개', desc: '하던 곳으로 돌아갑니다' },
+  { id: 'set', name: '설정', value: '열기', desc: IS_PC ? '소리 · 해상도' : '소리 · 화질 · 진동' },
+  { id: 'quit', name: '게임 종료', value: '종료', desc: '진행은 자동으로 저장됩니다' },
+];
+export function quitGame() {
+  const cap = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App;
+  if (window.horiPC && window.horiPC.quit) window.horiPC.quit(); else if (cap && cap.exitApp) cap.exitApp(); else window.close();
+}
+function rows(mode) {
+  if (mode === 'pause') return PAUSE_ROWS;
   const out = [{ id: 'sound', name: '소리', value: soundName().replace('소리 ', ''), desc: '배경 음악과 효과음의 크기' }];
   if (IS_PC) out.push({ id: 'res', name: '해상도', value: resName(), desc: '창 크기 · 비율은 16:9 고정 (F11 = 전체 화면)' });
   else {
@@ -45,19 +56,33 @@ const panelH = () => PANEL.w * sprite('h_panel').h / sprite('h_panel').w;
 const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h: 45.5 });
 const closeRect = () => ({ x: PANEL.x + PANEL.w - 30 * PS, y: PANEL.y + 4 * PS, w: 28 * PS, h: 28 * PS });
 
-export function openSettings(g) { if (!g.settings) { g.settings = { t: 0, closing: null, hit: -1, hitT: 9 }; g.sfx.push(['paper']); } }
-export function closeSettings(g) { if (g.settings && g.settings.closing == null) { g.settings.closing = 0; g.sfx.push(['paper']); } }
+export function openSettings(g) { if (!g.settings) { g.settings = { mode: 'set', t: 0, closing: null, hit: -1, hitT: 9 }; g.sfx.push(['paper']); } }
+// 일시정지: 게임이 멈추고 메뉴가 뜬다
+export function openPause(g) { if (!g.settings) { g.paused = true; g.hold = false; g.settings = { mode: 'pause', t: 0, closing: null, hit: -1, hitT: 9 }; g.sfx.push(['paper']); } }
+// 닫기: 일시정지 메뉴에서 연 설정은 메뉴로 돌아가고, 메뉴를 닫으면 게임이 이어진다
+export function closeSettings(g) {
+  const s = g.settings; if (!s || s.closing != null) return;
+  g.sfx.push(['paper']);
+  if (s.mode === 'set' && g.paused) { s.mode = 'pause'; s.t = 0.1; s.hit = -1; return; }
+  s.closing = 0;
+}
 export function updateSettings(g, dt) {
   const s = g.settings; if (!s) return;
   s.t += dt; s.hitT += dt;
-  if (s.closing != null && (s.closing += dt) > 0.18) g.settings = null;
+  if (s.closing != null && (s.closing += dt) > 0.18) { g.settings = null; g.paused = false; }
 }
 export function tapSettings(g, x, y) {
   const s = g.settings; if (!s || s.closing != null) return;
   const c = closeRect();
   if (x >= c.x - 4 && x <= c.x + c.w + 4 && y >= c.y - 4 && y <= c.y + c.h + 4) { closeSettings(g); return; }
-  const list = rows();
-  for (let i = 0; i < list.length; i++) { const r = rowRect(i); if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) { act(list[i].id); s.hit = i; s.hitT = 0; g.sfx.push(['tap']); return; } }
+  const list = rows(s.mode);
+  for (let i = 0; i < list.length; i++) { const r = rowRect(i); if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
+    const id = list[i].id; g.sfx.push(['tap']);
+    if (id === 'resume') closeSettings(g);
+    else if (id === 'set') { s.mode = 'set'; s.t = 0.1; s.hit = -1; }
+    else if (id === 'quit') { g.dirty = true; setTimeout(quitGame, 150); }      // 저장이 적힌 뒤에 닫는다
+    else { act(id); s.hit = i; s.hitT = 0; }
+    return; } }
   if (x < PANEL.x || x > PANEL.x + PANEL.w || y < PANEL.y || y > PANEL.y + panelH()) closeSettings(g);      // 판 밖을 누르면 닫힌다
 }
 function label(ctx, str, x, y, size, color, align = 'center', weight = 600) {
@@ -72,14 +97,14 @@ export function drawSettings(ctx, g) {
   const pn = sprite('h_panel'); ctx.drawImage(pn.img, PANEL.x, PANEL.y, PANEL.w, ph);
   const rb = sprite('h_ribbon'), rw = 170 * PS, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
-  label(ctx, '설정', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy);
+  label(ctx, s.mode === 'pause' ? '일시정지' : '설정', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy);
   const cl = sprite('h_close'), c = closeRect(); ctx.drawImage(cl.img, c.x, c.y, c.w, c.h);
   // 둥근 창: 톱니 (설정)
   { const e = sprite('ui_ic_gear'), rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909, f = Math.min(rr * 1.45 / e.w, rr * 1.45 / e.h);
     ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(e.img, rx - e.w * f / 2, ry - e.h * f / 2, e.w * f, e.h * f); ctx.restore(); }
-  label(ctx, '줄을 누르면 바뀝니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
+  label(ctx, s.mode === 'pause' ? '게임이 멈춰 있습니다' : '줄을 누르면 바뀝니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
   const row = sprite('h_row');
-  rows().forEach((it, i) => {
+  rows(s.mode).forEach((it, i) => {
     const r = rowRect(i), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0;
     ctx.save(); ctx.translate(0, -bump);
     ctx.drawImage(row.img, r.x, r.y, r.w, r.h);

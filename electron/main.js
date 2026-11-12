@@ -37,6 +37,7 @@ ipcMain.on('hori-size', (e, w, h) => {
   win.setContentSize(Math.round(w * k), Math.round(h * k)); win.center();
 });
 ipcMain.on('hori-fullscreen', (e, on) => { if (win) win.setFullScreen(!!on); });
+ipcMain.on('hori-quit', () => app.quit());      // 일시정지 메뉴의 '게임 종료'
 
 app.on('second-instance', () => { if (win) { if (win.isMinimized()) win.restore(); win.focus(); } });
 app.whenReady().then(() => {

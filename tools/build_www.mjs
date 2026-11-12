@@ -1,15 +1,15 @@
-// 배포용 묶음 www/ 를 만든다 (앱·PC판에 들어가는 것). 게임이 실제로 읽는 것만 넣고, 읽기 어렵게 잠근다:
+// 배포용 묶음 www/ 를 만든다 (앱·PC판에 들어가는 것). 게임이 실제로 읽는 것만 넣는다. --lock 을 붙이면 읽기 어렵게 잠근다:
 //   코드  — src/ 의 파일들을 game.js 하나로 합치고 줄인다 (주석·이름이 사라진다)
 //   그림  — 파일 이름을 알아볼 수 없게 바꾸고 내용을 뒤섞는다 (.dat). 그림 목록(manifest)도 같이.
 // 열쇠는 묶을 때마다 새로 만들어 코드에 심는다. 원본(src/, assets/)은 그대로 둔다.
-// 잠그지 않고 묶으려면: node tools/build_www.mjs --plain
+// 지금은 잠그지 않고 묶는 것이 기본이다. 잠그려면: node tools/build_www.mjs --lock
 import { cpSync, rmSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { randomBytes } from 'node:crypto';
 import { build } from 'esbuild';
 import { lockedName, unlock } from '../src/lock.js';
 
-const PLAIN = process.argv.includes('--plain');
+const PLAIN = !process.argv.includes('--lock');      // 평소에는 잠그지 않는다. 잠글 때만: node tools/build_www.mjs --lock
 const KEY = randomBytes(18).toString('base64url');
 
 const out = 'www';
