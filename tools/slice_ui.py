@@ -208,7 +208,8 @@ def run(manifest):
         extra.append((src, im))
     if extra: pack(extra, 'ui_extra.webp', manifest)
     if (RAW / 'ui_map.png').exists():
-        im = Image.open(RAW / 'ui_map.png').convert('RGB').resize((1280, 720), Image.LANCZOS); im.save(OUT / 'ui_map.webp', 'WEBP', quality=88, method=4)
+        mp = RAW / ('ui_map_b.png' if (RAW / 'ui_map_b.png').exists() else 'ui_map.png')      # 점을 해역 한가운데로 옮긴 그림
+        im = Image.open(mp).convert('RGB').resize((1280, 720), Image.LANCZOS); im.save(OUT / 'ui_map.webp', 'WEBP', quality=88, method=4)
         manifest['ui_map'] = dict(file='ui_map.webp', w=640, h=360, smooth=True)
 
 

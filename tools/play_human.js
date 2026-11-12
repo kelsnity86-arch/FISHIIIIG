@@ -34,7 +34,7 @@ const { chromium } = require('playwright');
         if (g.scene !== 'sea') { bad.push('출항 실패 ' + Math.round(T)); break; }
         // 갈 수 있는 가장 먼, 장비가 받쳐 주는 해역으로 (지도에서 고른다)
         let r = E.maxRegion(g.eco); while (r > 1 && (g.eco.gear.rod < (r - 1) * 10 || g.eco.gear.line < (r - 1) * 10)) r--;
-        if (r !== g.region) { window.__pointer(640 - 64, 360 - 26); tick(40); if (!g.map) bad.push('지도 안 열림'); window.__pointer([0, 84, 158, 226, 300, 370, 440, 514, 590][r], 175);      /* 표식의 자리 (book.js DOTS_XY) */ tick(90); clear();
+        if (r !== g.region) { window.__pointer(640 - 64, 360 - 26); tick(40); if (!g.map) bad.push('지도 안 열림'); window.__pointer([0, 81, 160, 226, 301, 370, 444, 513, 589][r], 175);      /* 표식의 자리 (book.js DOTS_XY) */ tick(90); clear();
           if (g.region !== r) bad.push('해역 이동 실패 ' + r); else log.push(Math.round(T / 60) + '분 ' + r + '번 해역 (도감 ' + Object.keys(g.records).length + ', 물건 ' + g.relics + ')'); }
         continue;
       }

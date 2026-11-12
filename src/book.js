@@ -45,10 +45,9 @@ export function updateBook(g, dt) {
 }
 
 // ── 해역 지도: 표식을 눌러 그 바다로 간다 ──
-// 표식의 자리: 해역마다 그림 한가운데(잔잔한 물 자리), 해도에 그려진 점선 항로 위. 표식의 뾰족한 끝이 그 자리를 가리킨다.
-// (해도 그림에 찍혀 있는 점들은 해역과 해역의 경계에 있어서, 거기에 표식을 세우면 옆 해역에 걸쳐 보였다.)
-const DOTS_XY = [null, [84, 193], [158, 193], [226, 193.5], [300, 192], [370, 195.5], [440, 192], [514, 192.2], [590, 191.2], [80, 297]];      // 9 = 태초의 바다: 왼쪽 아래 구름 속, 처음 떠난 항구 바로 곁 (가장 먼 곳이 아니라 출발점 옆에 있었다)
-const HARBOR_XY = [62, 184.4];      // 해도 그림의 부두 끝 점: 태초의 바다로 가는 항로가 여기서 갈라진다
+// 해도 그림의 항로 위에 찍힌 점 8개의 자리 (그림에서 잰 값. 점은 해역 그림마다 한가운데에 있다). 표식의 뾰족한 끝이 그 점을 가리킨다.
+const DOTS_XY = [null, [81.1, 190.8], [159.8, 189.9], [225.6, 191.9], [301.2, 190.3], [370, 190.3], [444.2, 190.6], [513.3, 190.8], [589.1, 190], [80, 297]];      // 9 = 태초의 바다: 왼쪽 아래 구름 속, 처음 떠난 항구 바로 곁 (가장 먼 곳이 아니라 출발점 옆에 있었다)
+const HARBOR_XY = [63, 187];      // 해도 그림의 부두 끝 (항로가 시작하는 곳): 태초의 바다로 가는 항로가 여기서 갈라진다
 const PIN_W = 30;
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
 export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; g.sfx.push(['paper']); }
@@ -82,8 +81,8 @@ export function drawMap(ctx, g) {
       for (const [col, lw] of [['rgba(60,40,24,0.35)', 2.4], ['#fff8e6', 1.3]]) { ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); for (let i = 0; i <= Math.round(n * k); i++) { const [px, py] = at(i / n); if (i) ctx.lineTo(px, py); else ctx.moveTo(px, py); } ctx.stroke(); }
       ctx.restore();
     }
-    // 표식이 가리키는 자리의 점 (해도에 찍힌 점과 같은 모양)
-    ctx.save(); ctx.globalAlpha = a * rv;
+    // 태초의 바다의 점은 해도 그림에 없다 (열린 뒤에만 보인다): 해도에 찍힌 점과 같은 모양으로 찍는다
+    ctx.save(); ctx.globalAlpha = r === 9 ? a * rv : 0;
     ctx.fillStyle = 'rgba(60,40,24,0.5)'; ctx.beginPath(); ctx.arc(dx, dy, 3.1, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff8e6'; ctx.beginPath(); ctx.arc(dx, dy, 2.2, 0, Math.PI * 2); ctx.fill();
     ctx.restore();
     ctx.save(); ctx.globalAlpha = a * rv; ctx.translate(0, (1 - rv) * 6);
