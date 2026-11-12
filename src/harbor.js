@@ -281,9 +281,9 @@ export function drawPanel(ctx, g) {
   label(ctx, p.id === 'skills' ? '어부의 기술' : HOUSE_NAME[p.id], PANEL.x + PANEL.w / 2 + 10, PANEL.y + 10 + rh * 0.42, 12, COLORS.navy, 'center', 600, null);
   const c = closeRect(); img(ctx, 'h_close', c.x, c.y, c.w, c.h);
   // 판 왼쪽 위 둥근 창: 그 가게 건물
-  const hs = sprite(`h_shop_${TOWN_LOOK[g.eco.town]}_${shopId}`), rx = PANEL.x + PANEL.w * 0.097, ry = PANEL.y + ph * 0.118, rr = PANEL.w * 0.068;
+  const hs = sprite(`h_shop_${TOWN_LOOK[g.eco.town]}_${shopId}`), rx = PANEL.x + PANEL.w * 0.1518, ry = PANEL.y + ph * 0.1573, rr = PANEL.w * 0.0823;      // 판 그림의 둥근 창 자리 (그림에서 잰 값)
   ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip();
-  ctx.drawImage(hs.img, rx - rr * 1.15, ry - rr * 1.15 * hs.h / hs.w + 2, rr * 2.3, rr * 2.3 * hs.h / hs.w);
+  { const k = Math.min(rr * 1.7 / hs.w, rr * 1.7 / hs.h); ctx.drawImage(hs.img, rx - hs.w * k / 2, ry - hs.h * k / 2 + rr * 0.04, hs.w * k, hs.h * k); }      // 건물 전체가 창 한가운데에 들어온다
   ctx.restore();
 
   rowsOf(g, p.id).forEach(([kind, id], i) => {
@@ -304,6 +304,6 @@ export function drawPanel(ctx, g) {
     else if (!info.block) label(ctx, fmt(info.cost), r.x + r.w * 0.862, r.y + r.h / 2 + 0.5, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
-  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 + 4, PANEL.y + panelH() - 40, 8.5, '#8a6a48', 'center', 600, null);
+  if (g.panel.id === 'skills' || g.panel.id === 'guild') label(ctx, '단추를 누르고 있으면 계속 올라갑니다', PANEL.x + PANEL.w / 2 + 4, PANEL.y + panelH() + 8, 9, '#fff4dc', 'center', 600);      // 판 아래 바깥에 (줄과 겹치지 않게)
   ctx.restore();
 }

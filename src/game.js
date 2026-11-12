@@ -532,6 +532,13 @@ function updateFight(g, dt) {
   f.wasHold = g.hold;
   if (f.relief > 0) { const d = Math.min(f.relief, 0.6 * dt); f.relief -= d; f.tension -= d; }      // 뚝 내려가지 않고 0.25초에 걸쳐 스르르
   f.surging = SURGE_MODES.includes(f.mode) && f.tele <= 0;
+  // 줄다리기의 손맛: 감는 동안 줄이 떨리듯 짧게 울리고(장력이 높을수록 촘촘하게), 날뛸 때는 굵게 울린다
+  f.buzzT = (f.buzzT || 0) - dt;
+  if (f.buzzT <= 0) {
+    if (f.surging) { buzz(g.hold ? 34 : 20); f.buzzT = 0.13; }
+    else if (g.hold) { buzz(8 + Math.round(clamp(f.tension, 0, 1) * 10)); f.buzzT = lerp(0.34, 0.14, clamp(f.tension, 0, 1)); }
+    else f.buzzT = 0.1;
+  }
   f.stamina = clamp(f.stamina + (f.surging ? -0.06 * (has(g, 'kettle') ? 1.5 : 1) : 0.02) * dt, 0, 1);
 
   // 감기·풀기

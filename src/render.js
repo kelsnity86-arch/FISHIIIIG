@@ -871,7 +871,7 @@ function drawHud(ctx, g) {
     bite: '지금!',
     fight: '누르면 감기 · 떼면 줄 풀기',
   }[g.state];
-  if (hint && !(g.msg && g.msg.y) && !g.talk && !g.map && !g.dex && !g.title) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
+  if (hint && !(g.msg && g.msg.y) && !g.talk && !g.map && !g.dex && !g.title && !g.panel) {            // 아래쪽에 알림이 떠 있는 동안은 안내를 겹쳐 쓰지 않는다
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;

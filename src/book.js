@@ -40,7 +40,9 @@ export function updateBook(g, dt) {
 }
 
 // ── 해역 지도: 표식을 눌러 그 바다로 간다 ──
-const PIN_X = [0, 80, 158, 231, 304, 375, 439, 505, 590], PIN_TIP = 174, PIN_W = 30;
+// 해도 그림의 항로 위에 찍힌 점 8개의 자리 (그림에서 잰 값). 표식의 뾰족한 끝이 그 점을 정확히 가리킨다.
+const DOTS_XY = [null, [62, 184.4], [130.4, 172.4], [200.4, 180.2], [273.6, 174.5], [343.2, 179.3], [410, 174.2], [486.4, 179.5], [561.5, 177.7]];
+const PIN_W = 30;
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
 export function openMap(g) { g.map = { a: 0, t: 0, closing: null, note: null }; g.sfx.push(['paper']); }
 // 누른 결과: 갈 해역 번호(이동은 부른 쪽에서), 없으면 null
@@ -48,7 +50,8 @@ export function tapMap(g, x, y, fromHarbor = false) {
   const m = g.map; if (!m || m.closing != null) return null;
   if (Math.hypot(x - MCLOSE.x, y - MCLOSE.y) < 19) { m.closing = 0; g.sfx.push(['paper']); return null; }
   for (let r = 1; r <= 8; r++) {
-    if (Math.abs(x - PIN_X[r]) < 26 && y > PIN_TIP - 46 && y < PIN_TIP + 34) {
+    const [dx, dy] = DOTS_XY[r];
+    if (Math.abs(x - dx) < 30 && y > dy - 50 && y < dy + 34) {      // 표식·점·이름 어디를 눌러도
       if (r > maxRegion(g.eco)) { m.note = `${REGIONS[r]} · 조선소에서 배를 ${r}단계로 키워야 갈 수 있다`; m.noteT = m.t; g.sfx.push(['deny']); return null; }
       if (r === g.region && !fromHarbor) { m.note = `${REGIONS[r]} · 지금 있는 바다`; m.noteT = m.t; g.sfx.push(['tap']); return null; }
       m.closing = 0; return r;
@@ -62,14 +65,14 @@ export function drawMap(ctx, g) {
   ctx.save(); ctx.globalAlpha = a;
   img(ctx, 'ui_map', 0, (1 - a) * 8, W, H);
   for (let r = 1; r <= 8; r++) {
-    const open = r <= top, here = r === g.region, s = sprite(open ? 'map_pin_' + r : 'map_lock');
-    const w = PIN_W * (here ? 1.12 : 1), h = w * s.h / s.w, bob = here ? Math.sin(m.t * 2.6) * 1.5 : 0;
-    if (here) { const rg = sprite('map_ring'), rw = w * 1.02; ctx.drawImage(rg.img, PIN_X[r] - rw / 2, PIN_TIP - h + bob - (rw * rg.h / rg.w - w * 0.96) / 2 - 1, rw, rw * rg.h / rg.w); }
+    const open = r <= top, here = r === g.region, s = sprite(open ? 'map_pin_' + r : 'map_lock'), [dx, dy] = DOTS_XY[r];
+    const w = PIN_W * (here ? 1.12 : 1), h = w * s.h / s.w, bob = here ? Math.sin(m.t * 2.6) * 1.5 : 0, tip = dy - 3;      // 뾰족한 끝이 점 바로 위에
+    if (here) { const rg = sprite('map_ring'), rw = w * 1.02; ctx.drawImage(rg.img, dx - rw / 2, tip - h + bob - (rw * rg.h / rg.w - w * 0.96) / 2 - 1, rw, rw * rg.h / rg.w); }
     ctx.globalAlpha = a * (open ? 1 : 0.9);
-    ctx.drawImage(s.img, PIN_X[r] - w / 2, PIN_TIP - h + bob, w, h);
+    ctx.drawImage(s.img, dx - w / 2, tip - h + bob, w, h);
     ctx.globalAlpha = a;
-    if (here) { const b = sprite('map_boat'), bw = 26; ctx.drawImage(b.img, PIN_X[r] - bw / 2, PIN_TIP + 3 + Math.sin(m.t * 2) * 1, bw, bw * b.h / b.w); }
-    label(ctx, REGIONS[r], PIN_X[r], PIN_TIP + (here ? 26 : 12), 7.5, open ? '#fff4dc' : 'rgba(255,244,220,0.6)', 'center', here ? 700 : 600);
+    if (here) { const b = sprite('map_boat'), bw = 24; ctx.drawImage(b.img, dx - bw / 2, dy + 5 + Math.sin(m.t * 2) * 1, bw, bw * b.h / b.w); }      // 지금 있는 바다: 점 아래에 내 배
+    label(ctx, REGIONS[r], dx, dy + (here ? 27 : 13), 7.5, open ? '#fff4dc' : 'rgba(255,244,220,0.7)', 'center', here ? 700 : 600);
   }
   label(ctx, '해역 지도', W / 2, 256, 15, '#5a3a1e', 'center', 700, null);
   const noteA = m.note ? clamp(1 - (m.t - m.noteT - 2.2) / 0.5, 0, 1) * clamp((m.t - m.noteT) / 0.15, 0, 1) : 0;
@@ -89,7 +92,7 @@ const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.3
 const gridY = () => BY() + 50;
 const listOf = (tab) => tab === 'R' ? RELICS : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-const tabRect = (i) => ({ x: GX - 1 + i * 18.3, y: BY() - 5, w: 17.6, h: 17 });      // 칸들의 폭을 꽉 채워 최대한 넓게
+const tabRect = (i) => ({ x: GX - 2 + i * 17.6, y: BY() - 5, w: 17, h: 17 });      // 칸들의 폭을 꽉 채워 최대한 넓게
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => 'd_' + c[1])); }
@@ -98,7 +101,7 @@ const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y
 export function tapDex(g, x, y) {
   const d = g.dex; if (!d || d.closing != null) return;
   if (hitClose(x, y)) { d.closing = 0; g.sfx.push(['paper']); return; }
-  for (let i = 0; i < TABS.length; i++) if (x >= tabRect(i).x - 0.4 && x < tabRect(i).x + 18.3 && y >= BY() - 16 && y <= BY() + 22) {      /* 누르는 자리는 그림보다 위아래로 넉넉하게 */ if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
+  for (let i = 0; i < TABS.length; i++) if (x >= tabRect(i).x - 0.3 && x < tabRect(i).x + 17.6 && y >= BY() - 16 && y <= BY() + 22) {      /* 누르는 자리는 그림보다 위아래로 넉넉하게 */ if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const list = listOf(d.tab), pages = Math.ceil(list.length / PER);
   for (const dir of [-1, 1]) if (inRect(x, y, arrowRect(dir), 5)) { const p = clamp(d.page + dir, 0, pages - 1); if (p !== d.page) { d.page = p; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const shown = list.slice(d.page * PER, d.page * PER + PER);
