@@ -564,8 +564,11 @@ function updateFight(g, dt) {
     if (K > OVERPOWER) f.tension += (K - OVERPOWER) * 0.5 * dt;                        // 줄이 한 단계 모자라면 풀어 줘도 끝내 끊어진다
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);
   }
-  f.tension = Math.max(0, f.tension);
-  f.slack = f.tension < FIGHT.slackLimit ? f.slack + dt : Math.max(0, f.slack - dt * 0.5);
+  // 날뛰는 동안에는 손을 떼고 버티라고 안내하므로, 그동안은 게이지가 바닥 근처에서 멈춘다 (놓치지 않는다)
+  // 조짐이 보일 때(이때 떼면 '정확한 대응')와 날뛰기가 끝난 직후 0.8초도 마찬가지: 다시 누를 틈을 준다
+  f.safeT = f.surging || f.tele > 0 ? 0.8 : Math.max(0, (f.safeT || 0) - dt);
+  f.tension = Math.max(f.safeT > 0 ? 0.07 : 0, f.tension);
+  f.slack = f.safeT > 0 ? f.slack : f.tension < FIGHT.slackLimit ? f.slack + dt : Math.max(0, f.slack - dt * 0.5);
 
   // 동작별 헤엄 목표. 기준점 = 감은 만큼 배 쪽으로 다가온 위치
   const far = clamp(f.dist / f.dist0, 0, 1.2);
@@ -626,7 +629,7 @@ function updateFight(g, dt) {
   if (f.tension >= f.maxTension) { fail(g, p > OVERPOWER ? '낚싯대가 버티지 못했다! 더 좋은 낚싯대가 필요하다' : g.fish.strain > OVERPOWER ? '줄이 끊어졌다! 더 좋은 줄이 필요하다' : '줄이 끊어졌다!'); return null; }
   if (f.slack > FIGHT.slackTime * (has(g, 'bottle') ? 1.6 : 1)) { fail(g, '바늘이 빠졌다…'); return null; }
   // 게이지가 바닥나면(줄이 완전히 풀리면) 바늘이 빠진다. 유리병이 있으면 잠깐은 버틴다
-  f.zero = f.tension <= 0.001 ? f.zero + dt : 0;
+  f.zero = f.tension <= 0.001 && g.t > 1 ? f.zero + dt : 0;      // 걸린 직후 1초는 봐준다 (챔질은 톡 누르는 것이라 다시 누를 틈이 필요하다)
   if (f.zero > (has(g, 'bottle') ? 0.6 : 0.05)) { fail(g, '줄이 풀려 바늘이 빠졌다…'); return null; }
   if (f.dist <= 0) {
     // 다 감았다. 다만 배 밑이나 반대쪽에 가 있으면 솟구칠 자리까지 뒷걸음질치게 되므로,

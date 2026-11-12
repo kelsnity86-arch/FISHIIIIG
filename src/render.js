@@ -879,7 +879,7 @@ function drawHud(ctx, g) {
   }
   if (g.state === 'fight') {
     const f = g.fight;
-    if (f.tension < 0.16) text(ctx, '줄이 풀린다! 눌러서 감으세요', W / 2, H - 64, 12, '#ffe27a');      // 게이지가 바닥나면 바늘이 빠진다
+    if (f.tension < 0.16 && !f.surging && !(f.tele > 0)) text(ctx, '줄이 풀린다! 눌러서 감으세요', W / 2, H - 64, 12, '#ffe27a');      // 게이지가 바닥나면 바늘이 빠진다
     else if (f.surging) text(ctx, '날뛴다! 손을 떼세요', W / 2, H - 64, 12, '#ffd0c0');
     else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, H - 64, 12, '#ff8a7a');
   }
