@@ -27,7 +27,7 @@ export function createGame() {
     gold: 0, hold: false,
     scene: 'sea', panel: null, travel: null, veil: 0,     // 바다 / 항구, 열려 있는 가게 판, 화면 넘기기
     eco: newEconomy(),                       // 장비·스킬 레벨
-    cargo: [], cargoMax: 8,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
+    cargo: [], cargoMax: 5,                  // 어창: 낚은 생물을 싣는다. 항구에서 판다
     region: 1,                               // 지금 있는 해역 (1~8)
     relics: 0, memory: null, memoryNext: null, savedToday: false,   // 찾은 오래된 물건 수, 떠오르는 기억 장면, 오늘 줄을 한 번 살렸는가
     story: newStory(), talk: null, skip: null,   // 이야기 진행, 지금 떠 있는 대화, 시간 넘기는 중

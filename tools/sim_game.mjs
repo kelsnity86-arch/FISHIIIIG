@@ -5,7 +5,7 @@ import * as E from '../src/economy.js';
 import { GRADES } from '../src/config.js';
 import { rollCreature } from '../src/creatures.js';
 
-const g = { eco: E.newEconomy(), gold: 0, records: {}, cargo: [], cargoMax: 8, region: 1 };
+const g = { eco: E.newEconomy(), gold: 0, records: {}, cargo: [], cargoMax: E.cargoMax(E.newEconomy()), region: 1 };
 let t = 0, catches = 0, buys = 0, fantasy = 0, since = 0; const log = []; const mark = {};
 const cycle = () => 1.2 + 3 + 5.4 / E.biteMult(g.eco) + Math.max(2, 10.4 / E.reelMult(g.eco)) + 7;
 const HARBOR = 14;            // 항구에 다녀오는 시간(화면 넘김, 가게 열고 사기)
@@ -18,7 +18,7 @@ const options = () => {
   return o.sort((a, b) => a[2] - b[2]);
 };
 const canFish = (r) => g.eco.gear.rod >= (r - 1) * 10 && g.eco.gear.line >= (r - 1) * 10 && r <= E.maxRegion(g.eco);
-let lastBuyT = 0, gaps = [], stuck = 0;
+let lastBuyT = 0, gaps = [], stuck = 0, trips = 0;
 while (t < 40 * 3600) {
   // 갈 수 있는 가장 먼 해역에서 낚는다
   let r = E.maxRegion(g.eco); while (r > 1 && !canFish(r)) r--;
@@ -31,7 +31,7 @@ while (t < 40 * 3600) {
     if (f.isFantasy) { fantasy++; if (fantasy > 12) g.cargo.push(Math.round(9000 * E.priceMult(g.eco, g.region))); }   // 물건 12점을 다 찾은 뒤에는 바다의 답례 (src/game.js 의 THANKS_GOLD)
     if (!f.isFantasy) g.cargo.push(Math.round(f.price * E.priceMult(g.eco, g.region)));
   }
-  t += HARBOR;
+  t += HARBOR; trips++; g.cargoMax = E.cargoMax(g.eco);
   g.gold += Math.round(g.cargo.reduce((a, b) => a + b, 0) * E.fullBonus(g.eco)); g.cargo = [];
   let bought = 0;
   for (;;) { const o = options(); if (!o.length || o[0][2] > g.gold) break; const before = g.eco.town; E.buy(g, o[0][0], o[0][1]); buys++; bought++; gaps.push(t - lastBuyT); lastBuyT = t;
@@ -42,7 +42,7 @@ while (t < 40 * 3600) {
 }
 console.log(log.join('\n'));
 gaps.sort((a, b) => a - b);
-console.log(`\n환상종(오래된 물건) ${fantasy}마리`);
+console.log(`\n환상종(오래된 물건) ${fantasy}마리, 항구 ${trips}번 (한 번에 평균 ${(buys / trips).toFixed(1)}번 삼)`);
 console.log(`\n낚은 수 ${catches}, 산 횟수 ${buys}, 총 ${(t / 3600).toFixed(1)}시간, 도감 ${Object.keys(g.records).length}/350`);
 console.log(`한 마리 ${cycle().toFixed(1)}초(끝 무렵), 살 것 사이 간격: 가운데값 ${gaps[gaps.length >> 1].toFixed(0)}초, 가장 긴 ${gaps[gaps.length - 1].toFixed(0)}초`);
 console.log('장비', JSON.stringify(g.eco.gear), '스킬', JSON.stringify(g.eco.skill), '가게', JSON.stringify(g.eco.shop));
