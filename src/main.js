@@ -132,6 +132,9 @@ function frame(now) {
   if (now - last < 15.5) { requestAnimationFrame(frame); return; }
   const dt = Math.min(0.05, (now - last) / 1000); // 탭이 멈췄다 돌아와도 튀지 않게
   last = now;
+  // 어디선가 오류가 나도 게임이 그대로 굳지 않게 한다: 다음 프레임은 계속 돌고, 화면 아래에 오류 글을 작게 보여 준다(알려 주면 고칠 수 있게).
+  // 같은 오류가 반 초 넘게 이어지면 하던 동작을 접고 쉬는 상태로 되돌린다.
+  try {
   if (!window.__manual) {
     update(game, dt);
     for (const [name, arg] of game.sfx) playSfx(name, arg);
@@ -151,6 +154,16 @@ function frame(now) {
   }
   ctx.setTransform(scale, 0, 0, scale, 0, 0);
   render(ctx, game);
+  errRun = 0;
+  } catch (e) {
+    errText = String(e && e.message || e).slice(0, 90) + ' · ' + String(e && e.stack || '').split('\n').slice(1, 3).map((l) => l.trim().replace(/^at /, '').replace(/https?:\/\/[^/]+\//, '').slice(0, 44)).join(' < '); errAt = now; window.__lastError = errText;
+    if (++errRun > 30) { errRun = 0; const g = game; g.state = 'idle'; g.t = 0; g.hold = false; g.sw = null; g.fight = null; g.catch = null; g.result = null; g.catchFx = null; g.panel = null; g.map = null; g.dex = null; g.memory = null; g.talk = null; g.travel = null; g.fish = null; }
+  }
+  if (errText && now - errAt < 20000) { try { ctx.setTransform(scale, 0, 0, scale, 0, 0); ctx.globalAlpha = 1; ctx.font = '600 7px system-ui, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillStyle = 'rgba(0,0,0,0.6)'; ctx.fillRect(0, H - 11, W, 11); ctx.fillStyle = '#ffd0c0'; ctx.fillText('오류: ' + errText, 4, H - 2); } catch { /* 무시 */ } }
   requestAnimationFrame(frame);
 }
+let errText = '', errAt = 0, errRun = 0;
 requestAnimationFrame(frame);
+// 누르기 처리 등 다른 곳에서 난 오류도 같은 자리에 보여 준다
+window.addEventListener('error', (e) => { errText = String(e.message || e).slice(0, 90) + ' · ' + String(e.filename || '').split('/').pop() + ':' + e.lineno; errAt = performance.now(); window.__lastError = errText; });
+window.addEventListener('unhandledrejection', (e) => { errText = String(e.reason && e.reason.message || e.reason).slice(0, 110); errAt = performance.now(); window.__lastError = errText; });
