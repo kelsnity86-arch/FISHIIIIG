@@ -140,12 +140,26 @@ let manifest = {};
 const pending = new Map();
 const isCreature = (name) => name.startsWith('fish_') || name.startsWith('fantasy_') || name.startsWith('d_') || name.startsWith('p_');   // 생물 그림은 필요할 때 받는다
 
+// ── 배포용 잠금 ── 배포용으로 묶을 때(tools/build_www.mjs)는 그림과 그림 목록을 잠가서 넣는다: 파일 이름을 알아볼 수 없게 바꾸고 내용을 뒤섞는다.
+// 그때 묶는 도구가 열쇠(__HORI_LOCK__)를 코드에 심어 준다. 개발할 때(열쇠 없음)는 그림을 그대로 읽는다. 셈법은 src/lock.js (묶는 도구와 함께 쓴다).
+import { lockedName, unlock } from './lock.js';
+const LOCK = typeof __HORI_LOCK__ !== 'undefined' ? __HORI_LOCK__ : null;
+async function readLocked(file) {
+  const res = await fetch('assets/game/' + lockedName(file, LOCK)); if (!res.ok) throw new Error('no file');
+  return unlock(new Uint8Array(await res.arrayBuffer()), file, LOCK);
+}
+
 const images = new Map();
 function loadImage(file) {
   if (!images.has(file)) images.set(file, new Promise((done) => {
     const img = new Image();
-    img.onload = () => done(img); img.onerror = () => done(null);
-    img.src = 'assets/game/' + file;
+    img.onerror = () => done(null);
+    if (!LOCK) { img.onload = () => done(img); img.src = 'assets/game/' + file; return; }
+    readLocked(file).then((bytes) => {
+      const url = URL.createObjectURL(new Blob([bytes], { type: file.endsWith('.png') ? 'image/png' : 'image/webp' }));
+      img.onload = () => { URL.revokeObjectURL(url); done(img); }; img.onerror = () => { URL.revokeObjectURL(url); done(null); };
+      img.src = url;
+    }).catch(() => done(null));
   }));
   return images.get(file);
 }
@@ -183,9 +197,12 @@ export async function loadAssets() {
   buildPlaceholders();
   for (const k of Object.keys(sprites)) sprites[k].placeholder = true;
   try {
-    const res = await fetch('assets/game/manifest.json', { cache: 'no-cache' });
-    if (!res.ok) return;
-    manifest = (await res.json()).sprites || {};
+    if (LOCK) manifest = JSON.parse(new TextDecoder().decode(await readLocked('manifest.json'))).sprites || {};      // 배포용: 잠긴 그림 목록
+    else {
+      const res = await fetch('assets/game/manifest.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      manifest = (await res.json()).sprites || {};
+    }
     await Promise.all(Object.keys(manifest).filter((n) => !isCreature(n) && !manifest[n].skip).map(loadOne));      // skip = 게임이 쓰지 않는 옛 그림 (tools/prune_manifest.py)
   } catch { /* manifest 가 없으면 전부 임시 그림 */ }
 }
