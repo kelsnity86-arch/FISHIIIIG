@@ -10681,9 +10681,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: a small wooden fishing boat with a tiny cabin at the back and a little lantern on a pole.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10702,9 +10705,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: a wooden sailing dinghy with one small patched canvas sail on a short mast behind the fisherman.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10723,9 +10729,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: a sturdy deep-sea fishing boat with a wheelhouse, a net winch and rubber tire fenders.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10744,9 +10753,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: an ice-going boat with a reinforced metal-plated bow, a small stove chimney with a wisp of smoke and frost on the rails.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10765,9 +10777,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: an iron-plated steam launch with rivets, a short funnel and a brass boiler, dark heat-scorched hull.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10786,9 +10801,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: a deep-sea vessel with brass fittings, round portholes and two glowing lamps on arms.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10807,9 +10825,12 @@ background: the same fisherman (same dark blue coat and wide hat, same size, sam
 poses, same hand positions, in the same places in the image), drawn in exactly the same
 painterly storybook style, seen from the side, facing left.
 Change ONLY the boat. In all three poses replace the rowboat with: a dreamlike boat made of pale shining wood and crystal, with a softly glowing translucent sail and tiny stars around it.
-The new boat is the same boat in all three poses, sits on the same waterline (flat bottom
-edge at the same height) and may be up to 30 percent longer and taller than the rowboat,
-but the fisherman keeps his size and position. Nothing may cover the fisherman's hands or
+The new boat is the same boat in all three poses and sits on the same waterline (flat bottom
+edge at the same height). IMPORTANT: keep the boat the SAME overall length and about the same
+height as the rowboat in c_boat.png. It must not get bigger. Only its design, materials and
+small details change (at sea the boat stays a tiny dot next to huge creatures). Any mast,
+sail, cabin or funnel must stay small and low, no taller than the standing fisherman.
+The fisherman keeps his size and position. Nothing may cover the fisherman's hands or
 the space in front of him (the fishing rod is added later by the game, do not draw a rod).
 No text, no water, no shadow.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
@@ -10917,3 +10938,31 @@ night sky, softly glowing.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name c_scarf_set.png
 ```
+
+### 360. `h_boats` — 항구에 매어 둔 배 8단계 (항구에서는 크기 차이가 확실하게)
+
+```
+Style references: open assets/raw/h_town_1.png, assets/raw/h_town_5.png and
+assets/raw/h_shops_3.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). The new image must be painted in exactly that style (painterly storybook harbor,
+warm light, soft shading). Matching the existing art style is the most important requirement.
+
+No text. No people. No water, no dock. Fully transparent background.
+
+A sprite sheet of 8 boats in a grid of 4 columns x 2 rows, never touching. Each boat is seen
+from the side, facing left, moored and empty, with a flat bottom edge at its waterline.
+Here the boats must clearly grow in size and grandeur from the first to the last (the
+first is small and fills about a third of its cell, the last is large and fills its cell):
+1) a small plain wooden rowboat,
+2) a small wooden fishing boat with a tiny cabin at the back and a little lantern on a pole,
+3) a wooden sailing boat with one patched canvas sail,
+4) a sturdy deep-sea fishing boat with a wheelhouse, a net winch and tire fenders,
+5) an ice-going ship with a metal-plated bow, a stove chimney and frost on the rails,
+6) an iron-plated steam ship with rivets, a funnel and a brass boiler,
+7) a large deep-sea research vessel with brass fittings, portholes and glowing lamps,
+8) a magnificent dreamlike ship of pale shining wood and crystal with softly glowing
+   translucent sails and tiny stars around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boats.png
+```
+
