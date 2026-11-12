@@ -4,6 +4,7 @@ import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
 import { openMap, tapMap, openDex, tapDex } from './book.js';
+import { buzz } from './haptic.js';
 import {
   GEAR, SKILLS, SHOPS, cargoMax, skillPct, TOWN_NAMES, TOWN_LOOK, buy, gearCost, skillCost, gearBlock, gearLabel, maxRegion, fmt,
   townCost, townNeedDex, shopCost, shopLocked, skillCap, skillMaxed, fullBonus,
@@ -158,7 +159,7 @@ export function pointer(g, x, y) {
       const r = rowRect(i);
       if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
         if (buy(g, rows[i][0], rows[i][1])) { g.panel.hit = i; g.panel.hitT = 0; g.sfx.push([rows[i][0] === 'town' ? 'townup' : 'buy']); if (rows[i][0] === 'town') storyTown(g);
-          if (rows[i][0] === 'skill') g.panel.rep = { i, t: 0, next: 0.38, n: 0 }; }      // 스킬: 누르고 있으면 계속 올라간다
+          if (rows[i][0] === 'skill') { g.panel.rep = { i, t: 0, next: 0.38, n: 0 }; if (g.eco.skill[rows[i][1]] % 10 === 0) buzz(30); } else buzz(20); }      // 마디 보너스와 큰 구매는 손끝으로도      // 스킬: 누르고 있으면 계속 올라간다
         else { g.panel.hit = -2 - i; g.panel.hitT = 0; g.sfx.push(['deny']); }
         return true;
       }
@@ -196,7 +197,7 @@ export function updateHarbor(g, dt) {
       rp.t += dt;
       while (rp && rp.t >= rp.next) {
         const row = rowsOf(g, g.panel.id)[rp.i];
-        if (row && buy(g, row[0], row[1])) { rp.n++; rp.next += Math.max(0.062, 0.25 * 0.86 ** rp.n); g.panel.hit = rp.i; g.panel.hitT = 0; g.sfx.push(['tick']); g.dirty = true; }
+        if (row && buy(g, row[0], row[1])) { if (g.eco.skill[row[1]] % 10 === 0) buzz(30); rp.n++; rp.next += Math.max(0.062, 0.25 * 0.86 ** rp.n); g.panel.hit = rp.i; g.panel.hitT = 0; g.sfx.push(['tick']); g.dirty = true; }
         else { g.panel.rep = null; break; }
       }
     }

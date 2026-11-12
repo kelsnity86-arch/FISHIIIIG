@@ -13,6 +13,7 @@ import { createSwimmer, steer, mouth, updatePose } from './swim.js';
 import { newStory, updateStory, tapTalk, tapTitle } from './story.js';
 import { updateBook } from './book.js';
 import { RELICS, has } from './relics.js';
+import { buzz } from './haptic.js';
 
 const rand = (a, b) => a + Math.random() * (b - a);
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -120,7 +121,6 @@ function say(g, text, color = '#fff4dc') { g.msg = { text, color, age: 0 }; }
 function kick(g, v) { g.rockV += v; }
 function setState(g, s) { g.state = s; g.t = 0; }
 function snd(g, name, arg) { g.sfx.push([name, arg]); }
-function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); } catch { /* 진동 미지원 */ } }
 
 // ── 입력 ──
 export function press(g) {
@@ -519,13 +519,13 @@ function updateFight(g, dt) {
   f.modeT -= dt;
   if (f.tele > 0) {
     // 정확한 대응: 조짐이 보이는 동안 손을 떼면 장력이 15% 내려간다 (조짐 한 번에 한 번)
-    if (f.wasHold && !g.hold && !f.dodged) { f.dodged = true; f.relief = 0.15; g.emote = { icon: 'bang', age: 0 }; snd(g, 'tick'); }
+    if (f.wasHold && !g.hold && !f.dodged) { f.dodged = true; f.relief = 0.15; g.emote = { icon: 'bang', age: 0 }; snd(g, 'tick'); buzz(25); }      // 손끝에 '됐다'
     f.tele -= dt;
     s.shake = 1; s.tailAmp = Math.max(s.tailAmp, 0.1);
     if (f.tele <= 0) { f.mode = f.next; startMode(g); }
   } else if (f.modeT <= 0) {
     const next = chooseMode(g);
-    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH * toughOf(g).tele + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; }
+    if (SURGE_MODES.includes(next)) { f.tele = TELEGRAPH * toughOf(g).tele + (has(g, 'glasses') ? 0.15 : 0); f.next = next; f.modeT = 99; buzz(12); }      // 조짐: 화면을 안 봐도 손으로 안다
     else { f.mode = next; startMode(g); }
   }
   if (f.tele <= 0) f.dodged = false;
