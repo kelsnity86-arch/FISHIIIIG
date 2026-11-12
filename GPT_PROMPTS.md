@@ -11285,3 +11285,63 @@ After creating the image, upload it to the GitHub repository kelsnity86-arch/FIS
 on the main branch, in the folder assets/raw/, with the file name c_sky_7b.png
 ```
 
+---
+
+## ㉝ 제목: Hori's Horizon — 호리의 수평선
+
+### 375. `ui_emblem` — 제목 엠블럼 (H 두 개와 낚싯대, 글자 없음)
+
+```
+Style references: open assets/raw/ui2_caught.png, assets/raw/h_panel.png and
+assets/raw/ui_map_pins.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). The new image must be painted in exactly that style: warm painterly storybook
+rendering, polished brass and gold, weathered wood, rope, soft shading, clean dark-brown
+outlines. Matching the existing art style is the most important requirement.
+
+No words. Fully transparent background. Square image (1:1), the emblem centred with a
+small margin.
+
+An emblem made of two capital letters H and a fishing rod, designed as one single crest:
+the two H's stand side by side and share their middle upright, so that together they read
+as "HH" (for "Hori's Horizon"). They are made of polished brass with a little weathered
+wood, like a ship's badge. A slender fishing rod runs diagonally across the two letters
+from lower left to upper right, bending gently at the tip, and its line drops down in a
+soft curve to a small red-and-white float that hangs just below the crossbar. The crossbar
+of the H's is drawn as a calm horizon line: a thin band of sea with a tiny rising sun on it.
+A ring of rope frames the whole emblem. Clear, bold and readable even when very small
+(it is also used as the app icon). Only the two letters H, no other text.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_emblem.png
+```
+
+---
+
+### 376. `ui_logo` — 제목 로고 (엠블럼 + Hori's Horizon + 호리의 수평선)
+
+```
+Style references: open assets/raw/ui2_caught.png, assets/raw/h_panel.png and
+assets/raw/ui_map_pins.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). The new image must be painted in exactly that style: warm painterly storybook
+rendering, polished brass and gold, weathered wood, rope, soft shading, clean dark-brown
+outlines. Matching the existing art style is the most important requirement.
+Also open assets/raw/ui_emblem.png (made in the previous step) and use that exact emblem.
+
+Fully transparent background. Wide image (about 2:1).
+
+The game's title logo, arranged as one composition:
+- on the left, the emblem from ui_emblem.png (the two H's with the fishing rod),
+- to its right, on the first line, the English title in large warm golden storybook
+  lettering with a dark-brown outline, spelled EXACTLY, letter for letter:
+  Hori's Horizon
+  (capital H, o, r, i, apostrophe, s, space, capital H, o, r, i, z, o, n),
+- under it, on the second line, the Korean title in smaller cream-white rounded lettering
+  with a dark-brown outline, spelled EXACTLY, character for character:
+  호리의 수평선
+  (six Korean characters with one space after the third: 호 리 의 [space] 수 평 선).
+A thin wavy line of sea runs under the two lines of text. No other text, no extra letters,
+no decoration that could be mistaken for a letter. Check the spelling of both lines before
+finishing; if any letter is wrong, redo the image.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_logo.png
+```
+
