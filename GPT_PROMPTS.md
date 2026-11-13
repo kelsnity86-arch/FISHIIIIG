@@ -12375,3 +12375,39 @@ same fully transparent background. Do not add anything.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_boat_9b.png
 ```
+
+### 407. `h_boat_foam2` — 배와 물이 만나는 자리의 잔물결 (선이 또렷하게, 다시)
+
+#402의 띠는 흐릿한 푸른 안개처럼 와서, 배 밑에 깔면 물결이 아니라 뿌연 띠로 보인다. 물결의 선이 또렷이 보이게 다시 그린다.
+
+```
+Style reference: open assets/raw/h_town_1.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Look at the calm harbour water in the lower half
+and at the thin pale ripple lines where the water meets the stone quay and the wooden
+pier posts: short, crisp, light strokes on deep blue water, in a soft painterly
+storybook style.
+
+Paint ONE long, low strip of small ripples: the water lapping against the hull of a boat
+moored in this calm harbour, seen from the side. It is laid over the bottom edge of a
+boat's hull so that the hull seems to sit IN the water. The boat is NOT in the picture.
+
+What it must look like:
+- Very wide and low: about 14 times as wide as tall.
+- Along the top: ONE clearly drawn, slightly wavy line of pale foam (off-white with a
+  hint of light blue), like the thin bright line where water touches a hull. It is crisp
+  and readable, 2 to 3 brush strokes thick, a little broken in places, strongest in the
+  middle third and tapering to nothing at both ends.
+- Just under it: three or four rows of SHORT separate horizontal ripple strokes (little
+  dashes and shallow arcs) in light blue and pale turquoise, getting sparser and fainter
+  toward the bottom, with two or three tiny warm peach glints among them.
+- Between and around the strokes the strip is TRANSPARENT. Do NOT fill the strip with a
+  blue haze, fog, glow or a soft blurred band; the harbour water behind must show
+  through between the strokes.
+- Calm harbour water only: no splash, no spray, no droplets, no big wave.
+- No hard outer edge: the strokes simply thin out and stop.
+
+No text. Fully transparent background. Only this one strip, centred, with empty margin
+around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boat_foam2.png
+```
