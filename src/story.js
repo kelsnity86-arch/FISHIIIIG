@@ -435,7 +435,8 @@ export function drawTalk(ctx, g) {
     if (nw > room) ctx.font = `700 ${8.5 * room / nw}px ${FONT}`;
     const mt = ctx.measureText('가힣'), up = mt.actualBoundingBoxAscent, dn = mt.actualBoundingBoxDescent;
     const ts = sprite('ui_talk'), tk = b.h / ts.h;      // 이름표는 그림의 왼쪽 조각에 있고, 그 조각은 제 비율로 그려진다 (그림에서 잰 자리: 가로 14.6%, 세로 10.5%)
-    ctx.fillStyle = '#4a3214'; ctx.fillText(WHO[who], b.x + ts.w * 0.146 * tk, y + b.h * 0.105 + (up - dn) / 2);
+    ctx.lineJoin = 'round'; ctx.lineWidth = 2.2; ctx.strokeStyle = 'rgba(74,42,16,0.85)'; ctx.strokeText(WHO[who], b.x + ts.w * 0.146 * tk, y + b.h * 0.105 + (up - dn) / 2);      // 나무색 이름표 위라 밝은 글자에 짙은 테두리
+    ctx.fillStyle = '#fff1d2'; ctx.fillText(WHO[who], b.x + ts.w * 0.146 * tk, y + b.h * 0.105 + (up - dn) / 2);
   }
   else label(ctx, WHO[who], b.x + 22, y + 15, 10, '#8a4a22', 'left', 700, null);
   ctx.font = `600 10.5px ${FONT}`;

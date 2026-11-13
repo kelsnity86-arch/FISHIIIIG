@@ -414,7 +414,7 @@ export function drawPanel(ctx, g) {
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
     plainRow(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r);
     // 아이콘은 종이 위에 바로 놓인다 (틀 없는 물건 하나). 가로로 긴 것(낚싯대·배)은 폭에, 나머지는 높이에 맞춘다
-    { const ic = sprite(info.icon), f = Math.min(40 / ic.w, 31 / ic.h), iw = ic.w * f, ih = ic.h * f;
+    { const ic = sprite(info.icon), f = Math.min(46 / ic.w, 31 / ic.h), iw = ic.w * f, ih = ic.h * f;      /* 가로로 긴 것(낚싯대·배)이 너무 낮아지지 않게 폭은 46까지 */
       ctx.drawImage(ic.img, r.x + r.w * 0.112 - iw / 2, r.y + r.h * 0.5 - ih / 2, iw, ih); }
     if (info.block && !done && hasSprite('ic_lock') && hasSprite('h_row_locked_plain')) { const lk = sprite('ic_lock'), lh = 17, lw = lh * lk.w / lk.h; ctx.drawImage(lk.img, r.x + r.w * 0.848 - lw / 2, r.y + r.h * 0.492 - lh / 2, lw, lh); }      // 잠긴 줄: 버튼 위에 자물쇠
     // 글은 버튼 왼쪽 끝(줄 폭의 69%) 앞에서 끝나야 한다. 이름과 단계, 설명이 길면(영어판) 그만큼 글자를 줄인다

@@ -167,7 +167,7 @@ function drawResultCard(ctx, g) {
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
   fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 놓아준다` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
-  if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) { const str = f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속'; if (!plateText(ctx, 'ui_chip', str, cx + cw + 6, H - 18, 9.5, '#4a2f14', { align: 'left', h: 18, pad: 10 })) text(ctx, str, cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600); }
+  if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) { const str = f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속'; if (!plateText(ctx, 'ui_chip', str, cx + cw + 6, H - 23, 9.5, '#4a2f14', { align: 'left', h: 18, pad: 10 })) text(ctx, str, cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600); }
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
   if (r.stamped) {
@@ -999,7 +999,7 @@ function drawHud(ctx, g) {
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
-    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2, g.state === 'fight' ? H - 13 : H - 23, 9.5, '#4a2f14', { h: g.state === 'fight' ? 16 : 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 화면 가운데, 바닥에서 조금 띄워서. 줄다리기 때는 게이지 아래에 낮게 */
+    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2, g.state === 'fight' ? H - 16 : H - 23, 9.5, '#4a2f14', { h: g.state === 'fight' ? 16 : 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 화면 가운데, 바닥에서 조금 띄워서. 줄다리기 때는 게이지 아래에 낮게 */
   }
 
   if (!g.panel) drawMsg(ctx, g);
