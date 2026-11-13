@@ -59,7 +59,7 @@ export const EN_UI = {
   "온 바다의 물고기": "Fish of Every Sea", "모든 바다": "every sea", "오래된 물건": "Keepsakes",
   "일반": "Common", "고급": "Uncommon", "희귀": "Rare", "영웅": "Epic", "전설": "Legendary", "환상": "Phantom", "태초": "Primal",
   // 항구·가게
-  "오늘은 쉬기": "Rest Today", "한 번 더 누르면 쉰다": "Tap again to rest", "아직 해가 높다 · 오후부터 쉴 수 있다": "The sun is still high · you can rest from the afternoon", "푹 쉬었다 · 다음 출항은 새 하루의 새벽": "Well rested · your next sail begins a new dawn",
+  "오늘은 쉬기": "Rest Today", "정말로?": "Really?", "아직 해가 높다 · 오후부터 쉴 수 있다": "The sun is still high · you can rest from the afternoon", "푹 쉬었다 · 다음 출항은 새 하루의 새벽": "Well rested · your next sail begins a new dawn",
   "출항": "Set Sail", "어부의 기술": "Fisher's Skills", "완성": "Done", "끝까지 올렸다": "Raised all the way",
   "버튼을 누르고 있으면 계속 올라갑니다": "Hold the button to keep raising",
   "더 큰 배가 있어야 먼바다로 나갈 수 있다": "You need a bigger boat to sail farther out",

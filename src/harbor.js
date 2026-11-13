@@ -357,7 +357,7 @@ export function drawHarbor(ctx, g) {
   if (restShown(g)) {      // 오늘은 쉬기 (출항 버튼 위에 작게). 아직 이르면 흐리다
     ctx.save(); ctx.globalAlpha *= canRest(g) ? 1 : 0.55; ctx.drawImage(bt.img, REST.x - REST.w / 2, REST.y - REST.h / 2, REST.w, REST.h);
     const ask = g.restAsk != null && t - g.restAsk < 3;
-    label(ctx, ask ? '한 번 더 누르면 쉰다' : '오늘은 쉬기', REST.x, REST.y, ask ? 9.5 : 12, ask ? '#8a2f1a' : COLORS.navy, 'center', 600, null); ctx.restore();
+    label(ctx, ask ? '정말로?' : '오늘은 쉬기', REST.x, REST.y, 12, ask ? '#8a2f1a' : COLORS.navy, 'center', 600, null); ctx.restore();
   }
   ctx.globalAlpha = 1;
 }
