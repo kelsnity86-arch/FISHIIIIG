@@ -631,7 +631,9 @@ function drawLineAndFloat(ctx, g, phase) {
   const tension = g.fight ? g.fight.tension : (c && c.phase !== 'stow' ? 0.5 : 0);
   const lT = gearTier(g, 'line');                      // 장비 외형(줄): 찌 모양
   const fl = sprite(hasSprite('c_float_' + lT) ? 'c_float_' + lT : 'c_float'), WATER = fl.water ?? 0.27;          // 찌 그림에서 수면이 걸리는 높이
-  const [r, gg, b] = lineColor(tension);
+  const [r, gg, b] = lineColor(g.fight ? tension : 0);      // 빛깔은 줄다리기 때만 변한다 (낚아 올린 뒤에는 흰빛)
+  // 카메라가 바짝 다가갔을 때(태초의 바다의 작은 물고기): 줄과 찌가 같이 커져서 물고기 얼굴을 가린다 → 화면에서 늘 같은 굵기·크기로 보이게 줄인다
+  const zk = g.cam.zoom > 1 ? 1 / g.cam.zoom : 1;
   // 줄은 가운데가 처지는 곡선. 처짐은 뚝 바뀌지 않고 용수철처럼 따라온다:
   // 팽팽해지면 튕기듯 펴지고, 느슨해지면 출렁이며 늘어진다. 물속 부분은 깊어질수록 옅어진다.
   const stroke = (pts, sag, alpha, width, spring = false, fadeTo = alpha) => {
@@ -653,12 +655,12 @@ function drawLineAndFloat(ctx, g, phase) {
       const gr = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y); gr.addColorStop(0, col(a0)); gr.addColorStop(1, col(a1)); return gr;
     };
     ctx.lineCap = 'round';
-    { const gl = 0.16 + 0.12 * clamp((tension - 0.55) / 0.45, 0, 1); ctx.strokeStyle = paint(gl * alpha, gl * fadeTo); ctx.lineWidth = width * (2.6 + 0.7 * clamp((tension - 0.55) / 0.45, 0, 1)); path(); ctx.stroke(); }   // 빛 번짐: 팽팽할수록 진하고 굵게
-    ctx.strokeStyle = paint(alpha, fadeTo); ctx.lineWidth = width; path(); ctx.stroke();
+    { const gl = 0.16 + 0.12 * clamp((tension - 0.55) / 0.45, 0, 1); ctx.strokeStyle = paint(gl * alpha, gl * fadeTo); ctx.lineWidth = width * zk * (2.6 + 0.7 * clamp((tension - 0.55) / 0.45, 0, 1)); path(); ctx.stroke(); }   // 빛 번짐: 팽팽할수록 진하고 굵게
+    ctx.strokeStyle = paint(alpha, fadeTo); ctx.lineWidth = width * zk; path(); ctx.stroke();
     return (u) => ({ x: (1 - u) * (1 - u) * p0.x + 2 * (1 - u) * u * cx + u * u * p1.x, y: (1 - u) * (1 - u) * p0.y + 2 * (1 - u) * u * cy + u * u * p1.y });
   };
   const drawFloat = (x, y, rot, wet) => {
-    ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(zk, zk);
     draw(ctx, fl, -fl.w / 2, wet ? -fl.h * WATER : -fl.h * 0.2);
     ctx.restore();
   };
@@ -670,7 +672,7 @@ function drawLineAndFloat(ctx, g, phase) {
     const fs = c.phase === 'hang' && c.reveal ? flopStep(c.popT) : null;
     const cc = fs ? { ...c, y: c.y + fs[1] * c.lw, rot: c.rot + fs[0], scale: c.scale * fs[3] } : c;
     const m = c.phase === 'stow' ? { x: c.x, y: c.y } : leapMouth(cc, leapHeight(c));
-    const at = stroke([tip, m], -0.03, 1, 1.1);
+    const at = stroke([tip, m], -0.03, 1, 1.1, false, 0.5);      // 입에 닿는 끝은 옅게: 얼굴을 가리지 않는다
     const p = at(0.24), q = at(0.28);
     drawFloat(p.x, p.y, Math.atan2(q.y - p.y, q.x - p.x) + Math.PI / 2, false);
     return;
