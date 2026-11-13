@@ -308,8 +308,7 @@ function moored(ctx, b, x, y, w, h, t) {
   ctx.drawImage(c, x, y, w, h);
   // 배와 물이 만나는 자리의 잔물결 (그림: h_boat_foam). 배와는 조금 다른 박자로 오르내리고 좌우로 살짝 밀린다
   if (hasSprite('h_boat_foam')) { const f = sprite('h_boat_foam'), fw = w * 1.06, fh = fw * f.h / f.w;
-    ctx.save(); const fx = x - w * 0.03 + Math.sin(t * 0.9) * 1.2, fy = wl - fh * 0.42 + Math.sin(t * 1.9 + 1) * 0.6;
-    ctx.drawImage(f.img, fx, fy, fw, fh * 1.1); ctx.globalAlpha = 0.35; ctx.drawImage(f.img, fx + 1.5, fy + 0.4, fw, fh * 1.1); ctx.restore(); }      // 옅은 그림이라 한 번 더 옅게 겹친다 (더 진하면 배 밑이 안개에 덮인 것처럼 보인다)
+    ctx.save(); ctx.globalAlpha = 0.95; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.3 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }      // 그림 맨 위의 흰 물마루 선이 배와 물이 닿는 자리에 온다
 }
 
 const EN_SHORT = { market: 'Market', tackle: 'Tackle', yard: 'Shipyard', tailor: 'Tailor', guild: 'Guild', hall: 'Hall' };

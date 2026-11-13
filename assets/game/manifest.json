@@ -10415,15 +10415,15 @@
   },
   "fx_spark_1": {
    "atlas": "ui_set.webp",
-   "ax": 702,
-   "ay": 763,
+   "ax": 1548,
+   "ay": 688,
    "w": 96,
    "h": 68,
    "smooth": true
   },
   "fx_spark_2": {
    "atlas": "ui_set.webp",
-   "ax": 1362,
+   "ax": 562,
    "ay": 763,
    "w": 96,
    "h": 58,
@@ -10431,7 +10431,7 @@
   },
   "fx_wake_1": {
    "atlas": "ui_set.webp",
-   "ax": 1460,
+   "ax": 660,
    "ay": 763,
    "w": 320,
    "h": 57,
@@ -10651,15 +10651,15 @@
   },
   "h_boat_foam": {
    "atlas": "ui_set.webp",
-   "ax": 0,
+   "ax": 982,
    "ay": 763,
    "w": 700,
-   "h": 71,
+   "h": 47,
    "smooth": true
   },
   "ui_tag": {
    "atlas": "ui_set.webp",
-   "ax": 800,
+   "ax": 0,
    "ay": 763,
    "w": 560,
    "h": 66,

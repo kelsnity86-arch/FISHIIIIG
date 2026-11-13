@@ -66,8 +66,8 @@ if (RAW / 'h_signs.png').exists():      # 항구 건물의 이름판: 마을 겉
     for i, im in enumerate(rows_of('h_signs', [1, 1, 1, 1, 1], gap=14, th=120)): items.append((f'h_sign_{i + 1}', fit(im, 560)))
 if (RAW / 'ui_notes.png').exists():     # 글 뒤에 까는 판: 양피지 띠 · 의뢰 쪽지 · 작은 누름 판
     for n, im in zip(['ui_note', 'ui_tag', 'ui_chip'], rows_of('ui_notes', [1, 1, 1], gap=14, th=120)): items.append((n, fit(im, 560)))
-if (RAW / 'h_boat_foam.png').exists():  # 매어 둔 배가 물과 만나는 자리의 잔물결 띠
-    a = np.array(Image.open(RAW / 'h_boat_foam.png').convert('RGBA')); ys, xs = np.nonzero(a[..., 3] > 10)
+if (RAW / 'h_boat_foam.png').exists():  # 매어 둔 배가 물과 만나는 자리의 잔물결 (2 = 선이 또렷하게 다시 그린 것)
+    a = np.array(Image.open(RAW / ('h_boat_foam2.png' if (RAW / 'h_boat_foam2.png').exists() else 'h_boat_foam.png')).convert('RGBA')); ys, xs = np.nonzero(a[..., 3] > 40)
     items.append(('h_boat_foam', fit(Image.fromarray(a[ys.min():ys.max() + 1, xs.min():xs.max() + 1]), 700)))
 pack(items, 'ui_set.webp', manifest)
 
