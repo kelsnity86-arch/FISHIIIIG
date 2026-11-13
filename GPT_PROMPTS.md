@@ -12331,3 +12331,47 @@ Fully transparent background. Three pieces in total, one column.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui_notes.png
 ```
+
+## ㊽ 항구의 내 배: 뱃머리 밧줄 지우기
+
+항구 화면 아래 물 위에 떠 있는 내 배의 뱃머리에서 밧줄이 물로 늘어져 있다. 묶을 곳이 없는 자리라 어색하다. 밧줄만 지운다.
+
+### 405. `h_boats2b` — 배 8척에서 밧줄만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_boats2.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows eight boats seen from the side, from a small rowing boat to a grand
+fantasy ship. Each boat has a mooring rope tied at its bow (the left end) that hangs
+down and trails away to the left in a loose curve.
+
+Make the same image again with ONLY ONE change: remove that loose mooring rope from every
+boat. Where the rope crossed the hull or the bow, repaint the hull and bow cleanly so no
+trace of it is left. A small rope ring or cleat on the bow itself may stay, but nothing
+may hang down or trail away from the boat.
+
+Keep everything else exactly as it is, pixel for pixel as far as you can: the same eight
+boats in the same positions and sizes, the same colours, details, sails, lamps and
+sparkles, the same canvas size, the same fully transparent background. Do not add
+anything.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boats2b.png
+```
+
+### 406. `h_boat_9b` — 태초의 차림 배에서 밧줄만 지우기
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/h_boat_9.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows one boat seen from the side. If it has a mooring rope at its bow (the
+left end) that hangs down or trails away from the boat, remove that rope and repaint the
+hull and bow cleanly where it was. If there is no such rope, change nothing.
+
+Keep everything else exactly as it is, pixel for pixel as far as you can: the same boat
+in the same position and size, the same colours and details, the same canvas size, the
+same fully transparent background. Do not add anything.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boat_9b.png
+```

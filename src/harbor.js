@@ -103,6 +103,8 @@ const canRest = (g) => g.dayT >= DAY_SEC * 0.5;
 const restShown = (g) => !g.dayOver && g.story.seen.day && !g.panel && !g.talk;
 function rest(g) {
   if (!canRest(g)) { g.msg = { text: '아직 해가 높다 · 오후부터 쉴 수 있다', color: '#ffd0c0', age: 0 }; g.sfx.push(['deny']); return; }
+  if (!(g.restAsk != null && g.harborT - g.restAsk < 3)) { g.restAsk = g.harborT; g.sfx.push(['tap']); return; }      // 잘못 누르지 않게 두 번 눌러야 쉰다 (3초 안에 한 번 더)
+  g.restAsk = null;
   travel(g, () => { g.dayOver = true; g.dirty = true; g.msg = { text: '푹 쉬었다 · 다음 출항은 새 하루의 새벽', color: '#cfd8ff', age: -0.2 }; });
 }
 // 지도에서 고른 해역으로 간다
@@ -354,7 +356,8 @@ export function drawHarbor(ctx, g) {
   label(ctx, '출항', LEAVE.x, LEAVE.y, 12, COLORS.navy, 'center', 600, null);
   if (restShown(g)) {      // 오늘은 쉬기 (출항 버튼 위에 작게). 아직 이르면 흐리다
     ctx.save(); ctx.globalAlpha *= canRest(g) ? 1 : 0.55; ctx.drawImage(bt.img, REST.x - REST.w / 2, REST.y - REST.h / 2, REST.w, REST.h);
-    label(ctx, '오늘은 쉬기', REST.x, REST.y, 12, COLORS.navy, 'center', 600, null); ctx.restore();
+    const ask = g.restAsk != null && t - g.restAsk < 3;
+    label(ctx, ask ? '한 번 더 누르면 쉰다' : '오늘은 쉬기', REST.x, REST.y, ask ? 9.5 : 12, ask ? '#8a2f1a' : COLORS.navy, 'center', 600, null); ctx.restore();
   }
   ctx.globalAlpha = 1;
 }
