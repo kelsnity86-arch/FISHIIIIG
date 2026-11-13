@@ -12036,3 +12036,51 @@ size as the motes in the reference.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name fx_motes.png
 ```
+
+## ㊸ 도감의 인덱스 스티커
+
+도감(책)의 오른쪽 종이 가장자리에, 공책에 붙이는 색 인덱스 스티커처럼 옆으로 삐져나온 표시가 세로로 한 줄 붙는다. 누르면 그 해역의 쪽으로 넘어간다. 글자(1~8, 공, 태, 옛)는 게임이 쓴다.
+
+### 398. `dex_index` — 인덱스 스티커 11개 (글자 없음)
+
+```
+Style reference: open assets/raw/ui_dex.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch) for the look of this game's logbook: warm
+parchment, soft painterly storybook rendering, gentle colours, no hard black outlines.
+
+Paint ELEVEN blank index stickers (the small coloured adhesive index tabs that are stuck
+on the edge of a notebook page so that they poke out sideways), in that same soft
+painterly style, on a fully transparent background.
+
+Every sticker has exactly the same shape and size and lies HORIZONTALLY, about twice as
+wide as tall, with softly rounded corners:
+- The LEFT third is the part glued onto the page: plain, slightly translucent, the same
+  pale colour, with no border, fading a little toward the left edge.
+- The RIGHT two thirds is the part that pokes out past the page edge: a pale tinted
+  paper label with a clearly darker border line of the same colour running around it a
+  little inside the edge (a rounded rectangle frame), and an EMPTY pale centre where a
+  letter will be written later. A faint paper texture and a soft highlight; a very light
+  shadow under the right part.
+No letters, numbers or symbols on any sticker.
+
+Arrange them in a grid: 4 in the first row, 4 in the second row, 3 in the third row,
+with plenty of empty space between them. In reading order the colours are:
+ 1. sky blue
+ 2. turquoise / aqua green
+ 3. soft misty grey with a hint of green
+ 4. deep ocean blue
+ 5. icy white-blue (very pale, with a light blue border)
+ 6. warm orange (lava)
+ 7. dark indigo navy
+ 8. pastel violet
+ 9. fresh leaf green
+10. pearl ivory with a soft pink and pale blue sheen
+11. weathered brown, like old leather
+
+Keep each centre pale enough that dark brown handwriting on it stays easy to read (for
+the dark indigo one, keep the border dark but the centre a pale indigo-tinted paper).
+
+Fully transparent background. Eleven pieces in total.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name dex_index.png
+```

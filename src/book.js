@@ -106,20 +106,21 @@ export function drawMap(ctx, g) {
 // ── 도감: 왼쪽 쪽에 그 해역의 생물 칸, 오른쪽 쪽에 고른 생물 ──
 const BW = 600, BX = (W - BW) / 2;
 const bookH = () => BW * sprite('dex_book').h / sprite('dex_book').w, BY = () => (H - bookH()) / 2 + 4;
-const TABS0 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'], TABS1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'R']; let TABS = TABS0;      // 태초의 바다가 열리면 쪽지가 하나 는다            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
+const TABS0 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'], TABS1 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R']; let TABS = TABS0;      // 태초의 바다가 열리면 쪽지가 하나 는다            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
 const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 33, GAP = 4;
 const GX = 84, GW = COLS * SLOT + (COLS - 1) * GAP;        // 칸들의 왼쪽 끝과 폭: 오른쪽의 가름끈(책갈피)에 닿지 않는 자리까지만
 const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.34;      // 왼쪽·오른쪽 쪽의 안쪽 자리와 폭
 const gridY = () => BY() + 50;
 const listOf = (tab) => tab === 'R' ? RELICS : tab === 9 ? PRIMAL : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-// 해역을 고르는 쪽지: 책 위쪽에 꽂혀 있다. 왼쪽 쪽 위에는 해역 1~8 과 '공'(온 바다의 물고기), 오른쪽 쪽 위에는 나머지('태' 태초의 바다, '옛' 오래된 물건).
-// 손가락으로 누를 수 있게 폭을 넓히고(20 → 오른쪽은 26) 책 위로 더 많이 나오게 했다. 누르는 자리는 책 안쪽까지 넉넉하게 잡는다.
-const isLeftTab = (t) => t !== 'R' && t !== 9;
-const TAB_LX = 74, TAB_LP = 20.6, TAB_RX = 346, TAB_RP = 27;      // 왼쪽 묶음·오른쪽 묶음의 시작 x 와 간격 (가운데 가름끈은 비워 둔다)
-const tabRect = (i) => { const t = TABS[i], left = isLeftTab(t), k = TABS.filter((u, j) => j < i && isLeftTab(u) === left).length;
-  return { x: (left ? TAB_LX + k * TAB_LP : TAB_RX + k * TAB_RP), y: BY() - 10, w: (left ? TAB_LP : TAB_RP) - 0.8, h: 22 }; };
-const tabHit = (x, y, r) => x >= r.x - 0.4 && x < r.x + r.w + 0.4 && y <= BY() + 24;      // 위로는 화면 끝까지, 아래로는 책 안쪽까지
+// 해역을 고르는 인덱스 스티커: 오른쪽 쪽의 종이 가장자리에 세로로 한 줄 (공책에 붙이는 색 인덱스처럼 옆으로 삐져나온다).
+// 위에서부터 1~8, 공(온 바다의 물고기), 태(태초의 바다), 옛(오래된 물건). 해역마다 색이 다르다.
+// '태'의 자리는 처음부터 비워 둔다: 태초의 바다가 열리기 전에는 '공'과 '옛' 사이가 한 칸 비어 있어, 뭔가 더 있을 것처럼 보인다.
+const TAB_SLOT = (t) => (t === 'R' ? 10 : t === 9 ? 9 : t === 0 ? 8 : t - 1);      // 스티커가 붙는 자리 (0~10)
+const IDX = { x: 566, w: 40, y0: 30, pitch: 23.1, h: 21.5 };      // 종이 가장자리(x 580쯤)에 걸쳐 붙는다. 세로는 책 종이의 위~아래
+const tabRect = (i) => ({ x: IDX.x, y: BY() + IDX.y0 + TAB_SLOT(TABS[i]) * IDX.pitch, w: IDX.w, h: IDX.h });
+const tabHit = (x, y, r) => x >= r.x - 6 && x <= r.x + r.w + 10 && y >= r.y - (IDX.pitch - IDX.h) / 2 && y < r.y + r.h + (IDX.pitch - IDX.h) / 2;      // 스티커 사이의 틈도 가까운 쪽이 받는다
+const tabKey = (t) => 'dex_idx_' + t;
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => spriteOf(c))); }
@@ -146,12 +147,15 @@ export function drawDex(ctx, g) {
   const a = ease(d.a), by = BY() + (1 - a) * 10, bh = bookH();
   ctx.save(); ctx.globalAlpha = a * 0.55; ctx.fillStyle = '#0c1630'; ctx.fillRect(0, 0, W, H);     // 뒤 화면을 살짝 가라앉힌다
   ctx.globalAlpha = a; ctx.translate(0, by - BY());
-  // 해역 쪽지 (책 위쪽에 꽂힌 쪽지): 책보다 먼저 그려 책 뒤에서 솟아 나오게, 글자는 책 위로 나온 부분에
-  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t, sp = sprite(on ? 'dex_tab_on' : 'dex_tab');
-    if (t !== 'R' && dexStage(g, t) === 2) ctx.filter = 'sepia(1) saturate(2.6) brightness(1.06)';      /* 다 채운 해역의 쪽지는 금빛으로 물든다 */
-    ctx.imageSmoothingEnabled = true; ctx.drawImage(sp.img, r.x, r.y - (on ? 3 : 0), r.w, r.h); ctx.filter = 'none'; });
   img(ctx, 'dex_book', BX, BY(), BW, bh);
-  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w / 2, r.y + 8 - (on ? 3 : 0), 10, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
+  // 인덱스 스티커: 고른 것은 옆으로 조금 더 나오고 또렷하다. 다 채운 해역의 것은 금빛으로 물든다
+  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t, out = on ? 4 : 0;
+    ctx.save(); ctx.imageSmoothingEnabled = true; ctx.globalAlpha = a * (on ? 1 : 0.9);
+    if (t !== 'R' && dexStage(g, t) === 2) ctx.filter = 'sepia(1) saturate(2.6) brightness(1.06)';
+    if (hasSprite(tabKey(t))) { const sp = sprite(tabKey(t)); ctx.drawImage(sp.img, r.x + out, r.y, r.w, r.h); }
+    else { const sp = sprite(on ? 'dex_tab_on' : 'dex_tab'); ctx.translate(r.x + out + r.w / 2, r.y + r.h / 2); ctx.rotate(Math.PI / 2); ctx.drawImage(sp.img, -r.h / 2, -r.w / 2, r.h, r.w); }      // 제 그림이 오기 전: 옛 쪽지 그림을 옆으로 눕혀 쓴다
+    ctx.restore();
+    label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + out + r.w * 0.63, r.y + r.h / 2 + 0.5, 10.5, on ? '#4a2f14' : '#6b5238', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
   label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
