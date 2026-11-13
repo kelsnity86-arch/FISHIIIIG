@@ -950,7 +950,7 @@ function drawHud(ctx, g) {
   if (g.quest) {
     const ql = questLine(g), qy = 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w + 8, pop = clamp(1 - (g.questT ?? 9) / 0.8, 0, 1);
     ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
-    if (!plateText(ctx, 'ui_tag', ql, 6, qy + 1, 8.5, g.quest.done || pop > 0 ? '#8a5a00' : '#4a2f14', { align: 'left', h: 16, pad: 9 })) {      // 쪽지 그림이 오기 전: 맨글자
+    if (!plateText(ctx, 'ui_tag', ql, 13, qy + 4.5, 8.5, g.quest.done || pop > 0 ? '#8a5a00' : '#4a2f14', { align: 'left', h: 16, pad: 9 })) {      // 쪽지 그림이 오기 전: 맨글자
       ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
       ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(10,18,40,0.85)'; ctx.strokeText(ql, 10, qy);
       ctx.fillStyle = g.quest.done || pop > 0 ? '#ffe27a' : '#fff4dc'; ctx.fillText(ql, 10, qy);
@@ -999,7 +999,7 @@ function drawHud(ctx, g) {
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
-    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2 - (g.state === 'idle' ? 58 : 0), H - 15, 10, '#4a2f14', { h: 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 쉴 때는 오른쪽 아래 버튼 줄을 피해 왼쪽으로 */
+    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2, H - 23, 10, '#4a2f14', { h: 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 화면 가운데, 바닥에서 조금 띄워서 */
   }
 
   if (!g.panel) drawMsg(ctx, g);
