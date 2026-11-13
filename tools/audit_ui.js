@@ -37,9 +37,9 @@ const { chromium } = require('playwright');
     check('도감: 쪽지 ' + want[i] + ` (${Math.round(r.x)},${Math.round(r.y)} ${r.w}x${r.h})`, good); }
   await shot('dex_R');
   await ev(() => { window.game.dex.tab = 1; window.game.dex.page = 0; }); await p.waitForTimeout(200);
-  await click(GX + GW / 2 + 46, BY + 50 + 148 + 12); check('도감: 다음 쪽 화살표', (await st()).dex.page === 1);
-  await click(GX + GW / 2 - 46, BY + 50 + 148 + 12); check('도감: 앞 쪽 화살표', (await st()).dex.page === 0);
-  await click(GX + 16, BY + 50 + 16); check('도감: 첫 칸', (await st()).dex.sel != null); await shot('dex_sel');
+  await click(GX + GW / 2 + 46, BY + 53 + 148 + 12); check('도감: 다음 쪽 화살표', (await st()).dex.page === 1);
+  await click(GX + GW / 2 - 46, BY + 53 + 148 + 12); check('도감: 앞 쪽 화살표', (await st()).dex.page === 0);
+  await click(GX + 16, BY + 53 + 16); check('도감: 첫 칸', (await st()).dex.sel != null); await shot('dex_sel');
   await click(606, 30); await p.waitForTimeout(500); check('도감: 닫기', !(await st()).dex);
   await click(64, 360 - 26); check('항구: 해도 버튼', (await st()).map); await p.waitForTimeout(500); await shot('map');
   await click(640 - 46, 360 - 48); await p.waitForTimeout(500); check('해도: 닫기', !(await st()).map);

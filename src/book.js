@@ -114,7 +114,7 @@ const TABS0 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'], TABS1 = [1, 2, 3, 4, 5, 6, 7, 8,
 const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 33, GAP = 4;
 const GX = 84, GW = COLS * SLOT + (COLS - 1) * GAP;        // 칸들의 왼쪽 끝과 폭: 오른쪽의 가름끈(책갈피)에 닿지 않는 자리까지만
 const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.34;      // 왼쪽·오른쪽 쪽의 안쪽 자리와 폭
-const gridY = () => BY() + 50;
+const gridY = () => BY() + 53;
 const listOf = (tab) => tab === 'R' ? RELICS : tab === 9 ? PRIMAL : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
 // 해역을 고르는 인덱스 스티커: 오른쪽 쪽의 종이 가장자리에 세로로 한 줄 (공책에 붙이는 색 인덱스처럼 옆으로 삐져나온다).
@@ -189,11 +189,11 @@ export function drawDex(ctx, g) {
 
   }
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
-  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
-  if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
+  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 38.5, 10.5, '#5a3a1e', 'left', 700, null);
+  if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 38.5, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
   else {                                                 // 도감 보상: 절반을 채우면 그 해역 생물의 파는 값 +5%, 다 채우면 +10%. 환상종은 세지 않는다 (운에 달려 있어서)
     const st = dexStage(g, d.tab), [n, t] = dexCount(g, d.tab);
-    label(ctx, `${n} / ${t}` + (st ? ` · 값 +${st === 2 ? 10 : 5}%` : ''), GX + GW - 1, BY() + 34, 9.5, st ? '#b0641c' : '#8a6a48', 'right', 600, null);
+    label(ctx, `${n} / ${t}` + (st ? ` · 값 +${st === 2 ? 10 : 5}%` : ''), GX + GW - 1, BY() + 38.5, 9.5, st ? '#b0641c' : '#8a6a48', 'right', 600, null);
   }
   const shown = list.slice(d.page * PER, d.page * PER + PER), pageA = clamp(d.t / 0.2, 0, 1);
   ctx.globalAlpha = a * (0.3 + 0.7 * pageA);
