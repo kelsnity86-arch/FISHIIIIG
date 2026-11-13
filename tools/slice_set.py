@@ -3,6 +3,7 @@
   st_icons     설정·잠시 멈춤 판의 줄 아이콘 10개 → st_<이름>
   fx_line      줄다리기 때 줄의 이펙트: 불티 3 · 빛 알갱이 2 · 물살 2
   fx_motes     줄 단계마다 다른 빛 알갱이 7개 → fx_mote_3 ~ fx_mote_9
+  dex_index    도감의 인덱스 스티커 11개 → dex_idx_<해역>
 
 python3 tools/slice_set.py
 """
@@ -59,5 +60,7 @@ if (RAW / 'fx_line.png').exists():
     for n, im, px in zip(names, rows_of('fx_line', [3, 2, 2]), sizes): items.append((n, fit(im, px)))
 if (RAW / 'fx_motes.png').exists():      # 줄 단계마다 다른 빛 알갱이: 3단계 ~ 9(태초)
     for i, im in enumerate(rows_of('fx_motes', [7], gap=40)): items.append((f'fx_mote_{i + 3}', fit(im, 96)))
+if (RAW / 'dex_index.png').exists():      # 도감의 인덱스 스티커: 해역 1~8, 공(0), 태(9), 옛(R)
+    for key, im in zip([1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R'], rows_of('dex_index', [4, 4, 3], gap=14, th=30)): items.append((f'dex_idx_{key}', fit(im, 170)))
 pack(items, 'ui_set.webp', manifest)
 mf.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + '\n')
