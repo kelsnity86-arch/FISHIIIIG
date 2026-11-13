@@ -10580,6 +10580,18 @@
    "w": 170,
    "h": 73,
    "smooth": true
+  },
+  "dex_book2b": {
+   "file": "dex_book2b.webp",
+   "w": 600,
+   "h": 331.5,
+   "smooth": true
+  },
+  "dex_book2": {
+   "file": "dex_book2.webp",
+   "w": 600,
+   "h": 331.5,
+   "smooth": true
   }
  }
 }

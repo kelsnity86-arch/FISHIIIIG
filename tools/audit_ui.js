@@ -28,8 +28,9 @@ const { chromium } = require('playwright');
   const tabs = await ev(() => { const g = window.game; return null; });
   const TABN = 11, COLS = 6, TW = 27.5, TH = 21, TG = 2, GX = 84, GW = 5 * 33 + 4 * 4; const by = await ev(() => { const s = window.game; return null; });
   const TT = [1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R'], slotOf = (t) => (t === 'R' ? 10 : t === 9 ? 9 : t === 0 ? 8 : t - 1);      // 오른쪽 종이 가장자리의 인덱스 스티커 (src/book.js tabRect)
-  const tabRect = (i, BY) => ({ x: 566.5 + slotOf(TT[i]) * 1.9, y: BY + 31 + slotOf(TT[i]) * 23.1, w: 33, h: 19.5 });      // 보이는 부분(종이 밖으로 나온 쪽)만 누른다
-  const BY = await ev(async () => { const A = await import('./src/assets.js'); const s = A.sprite('dex_book'); return (360 - 600 * s.h / s.w) / 2 + 4; });
+  const TA = [[582.5, 55.6, 15.2], [583.6, 73.1, 16], [585.9, 92.1, 16.8], [589, 112.7, 16.4], [592.4, 131.7, 16.8], [596.2, 152.3, 16.4], [596.2, 171.7, 16.8], [597.3, 192.3, 17.1], [596.2, 213.2, 17.5], [596.6, 234.5, 18.7], [597, 255.1, 17.1]];      // 책 그림에 그려진 꼬리표 (src/book.js TAB_ART)
+  const tabRect = (i, BY) => { const [xr, y, h] = TA[slotOf(TT[i])]; return { x: 20 + xr - 26, y: BY + y, w: 26, h }; };
+  const BY = await ev(async () => { const A = await import('./src/assets.js'); const s = A.sprite(A.hasSprite('dex_book2') ? 'dex_book2' : 'dex_book'); return (360 - 600 * s.h / s.w) / 2 + 4; });
   const want = TT;
   for (let i = 0; i < TABN; i++) { const r = tabRect(i, BY); let good = true;
     for (const [fx, fy] of [[0.5, 0.5], [0.12, 0.15], [0.88, 0.15], [0.12, 0.85], [0.88, 0.85]]) { await ev(() => { window.game.dex.tab = 'X'; }); await click(r.x + r.w * fx, r.y + r.h * fy, 60); const s = await st(); if (!s.dex || s.dex.tab !== want[i]) good = false; if (!s.dex) { await ev(() => window.B.openDex(window.game)); await p.waitForTimeout(400); } }

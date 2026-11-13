@@ -105,7 +105,11 @@ export function drawMap(ctx, g) {
 
 // ── 도감: 왼쪽 쪽에 그 해역의 생물 칸, 오른쪽 쪽에 고른 생물 ──
 const BW = 600, BX = (W - BW) / 2;
-const bookH = () => BW * sprite('dex_book').h / sprite('dex_book').w, BY = () => (H - bookH()) / 2 + 4;
+// 책 그림: 꼬리표가 책장 사이에 그려진 새 그림이 있으면 그것을 쓴다 (태초의 바다가 열리면 열째 꼬리표까지 있는 그림으로 바뀐다)
+let BOOK = 'dex_book';
+const pickBook = (g) => { BOOK = hasSprite('dex_book2') ? (g.primal && hasSprite('dex_book2b') ? 'dex_book2b' : 'dex_book2') : 'dex_book'; };
+const PAINTED = () => BOOK !== 'dex_book';
+const bookH = () => BW * sprite(BOOK).h / sprite(BOOK).w, BY = () => (H - bookH()) / 2 + 4;
 const TABS0 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'R'], TABS1 = [1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R']; let TABS = TABS0;      // 태초의 바다가 열리면 쪽지가 하나 는다            // 0 = 모든 해역 공용(평범한 물고기), 'R' = 오래된 물건
 const COLS = 5, ROWS = 4, PER = COLS * ROWS, SLOT = 33, GAP = 4;
 const GX = 84, GW = COLS * SLOT + (COLS - 1) * GAP;        // 칸들의 왼쪽 끝과 폭: 오른쪽의 가름끈(책갈피)에 닿지 않는 자리까지만
@@ -122,15 +126,20 @@ const TAB_SLOT = (t) => (t === 'R' ? 10 : t === 9 ? 9 : t === 0 ? 8 : t - 1);   
 const IDX = { x: 565.5, w: 47, y0: 31, pitch: 23.1, h: 19.5, step: 1.9, glue: 13 };      // glue: 스티커 그림에서 종이에 붙는 쪽의 폭 (그림의 왼쪽 28%).      // step: 책 그림의 종이 단면(일곱 겹, x 566~587)에 열한 장을 고루 나눈 간격 → 스티커마다 다른 장 사이에서 나온다      // 종이 가장자리에 걸쳐 붙는다. 세로는 책 종이의 위~아래
 // 스티커는 책장 사이에서 나온다: k번째 것은 종이 단면의 k번째 장 자리(edge)에서 밖으로 나오고, 그 안쪽(붙은 쪽 12)은 앞 장들에 덮여 안 보인다
 const tabEdge = (k) => IDX.x + 1 + k * IDX.step;
-const tabRect = (i) => { const k = TAB_SLOT(TABS[i]); return { x: tabEdge(k) - IDX.glue, y: BY() + IDX.y0 + k * IDX.pitch, w: IDX.w, h: IDX.h, k }; };
-const tabHit = (x, y, r) => x >= r.x - 6 && x <= r.x + r.w + 10 && y >= r.y - (IDX.pitch - IDX.h) / 2 && y < r.y + r.h + (IDX.pitch - IDX.h) / 2;      // 스티커 사이의 틈도 가까운 쪽이 받는다
+// 책 그림에 그려진 꼬리표 열한 개의 자리 (그림에서 잰 값. 책 그림의 왼쪽 위에서부터): [오른쪽 끝 x, 위 y, 높이]. 보이는 폭은 26쯤
+const TAB_ART = [[582.5, 55.6, 15.2], [583.6, 73.1, 16], [585.9, 92.1, 16.8], [589, 112.7, 16.4], [592.4, 131.7, 16.8], [596.2, 152.3, 16.4], [596.2, 171.7, 16.8], [597.3, 192.3, 17.1], [596.2, 213.2, 17.5], [596.6, 234.5, 18.7], [597, 255.1, 17.1]];
+const tabRect = (i) => { const k = TAB_SLOT(TABS[i]);
+  if (PAINTED()) { const [xr, y, h] = TAB_ART[k]; return { x: BX + xr - 26, y: BY() + y, w: 26, h, k }; }
+  return { x: tabEdge(k) - IDX.glue, y: BY() + IDX.y0 + k * IDX.pitch, w: IDX.w, h: IDX.h, k }; };
+const tabHit = (x, y, r) => (PAINTED() ? x >= r.x - 8 && y >= r.y - 1.6 && y < r.y + r.h + 1.6      /* 그려진 꼬리표는 작아서, 누르는 자리는 화면 오른쪽 끝까지 넓힌다 */
+  : x >= r.x - 6 && x <= r.x + r.w + 10 && y >= r.y - (IDX.pitch - IDX.h) / 2 && y < r.y + r.h + (IDX.pitch - IDX.h) / 2);      // 스티커 사이의 틈도 가까운 쪽이 받는다
 const tabKey = (t) => 'dex_idx_' + t;
 // 손으로 붙인 것처럼 조금씩 삐뚤다: 자리마다 정해진 기울기(도)·위아래 어긋남·나온 길이. (늘 같은 모양이라 볼 때마다 달라지지 않는다)
 const TAB_SKEW = [[-1.6, 0.4, 0.6], [2.2, -0.7, -1.2], [-0.8, 0.9, 1.4], [1.3, -0.3, -0.5], [-2.4, 0.6, 0.9], [0.7, -1.0, -1.5], [2.6, 0.3, 0.4], [-1.2, -0.6, 1.1], [1.8, 0.8, -0.9], [-2.0, -0.4, 0.7], [1.1, 0.5, -0.6]];
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => spriteOf(c))); }
-export function openDex(g) { TABS = g.primal ? TABS1 : TABS0; g.dex = { a: 0, t: 0, closing: null, tab: g.region, page: 0, sel: null, selT: 0 }; loadPage(g); g.sfx.push(['paper']); }
+export function openDex(g) { pickBook(g); TABS = g.primal ? TABS1 : TABS0; g.dex = { a: 0, t: 0, closing: null, tab: g.region, page: 0, sel: null, selT: 0 }; loadPage(g); g.sfx.push(['paper']); }
 const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y >= r.y - pad && y <= r.y + r.h + pad;
 export function tapDex(g, x, y) {
   const d = g.dex; if (!d || d.closing != null) return;
@@ -153,6 +162,16 @@ export function drawDex(ctx, g) {
   const a = ease(d.a), by = BY() + (1 - a) * 10, bh = bookH();
   ctx.save(); ctx.globalAlpha = a * 0.55; ctx.fillStyle = '#0c1630'; ctx.fillRect(0, 0, W, H);     // 뒤 화면을 살짝 가라앉힌다
   ctx.globalAlpha = a; ctx.translate(0, by - BY());
+  if (PAINTED()) {
+    img(ctx, BOOK, BX, BY(), BW, bh);
+    // 꼬리표는 책 그림에 그려져 있다. 고른 것은 그 조각을 밖으로 조금 당겨 밝게 겹쳐 그리고, 다 채운 해역의 것은 금빛으로 물들인다. 글자만 쓴다
+    const sp = sprite(BOOK), kx = sp.img.width / BW;
+    TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t, gold = t !== 'R' && dexStage(g, t) === 2;
+      if (on || gold) { const px = 3, sx = (r.x - BX - 1) * kx, sy = (r.y - BY() - 1.5) * kx, sw = (r.w + 3) * kx, sh = (r.h + 3) * kx;
+        ctx.save(); ctx.imageSmoothingEnabled = true; ctx.filter = (gold ? 'sepia(1) saturate(2.6) ' : '') + `brightness(${on ? 1.13 : 1.04})`;
+        ctx.drawImage(sp.img, sx, sy, sw, sh, r.x - 1 + (on ? px : 0), r.y - 1.5, r.w + 3, r.h + 3); ctx.restore(); }
+      label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w - 9 + (on ? 3 : 0), r.y + r.h / 2 + 0.3, 9, on ? '#2e1c0a' : '#4a3520', 'center', 700, null); });
+  } else {
   img(ctx, 'dex_book', BX, BY(), BW, bh);
   // 인덱스 스티커: 뒤쪽 장의 것부터 그린다 (앞 장의 것이 위에 온다). 고른 것은 옆으로 조금 더 나오고 또렷하다. 다 채운 해역의 것은 금빛으로 물든다
   TABS.map((t, i) => [t, tabRect(i)]).sort((p, q) => q[1].k - p[1].k).forEach(([t, r]) => { const on = d.tab === t, out = on ? 4 : 0;
@@ -168,6 +187,7 @@ export function drawDex(ctx, g) {
     label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', IDX.w * 0.14, 0.5, 10.5, on ? '#4a2f14' : '#6b5238', 'center', 700, null);      // 글자도 스티커와 같이 기운다
     ctx.restore(); });
 
+  }
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
   label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
   if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 34, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리

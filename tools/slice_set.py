@@ -63,4 +63,19 @@ if (RAW / 'fx_motes.png').exists():      # 줄 단계마다 다른 빛 알갱이
 if (RAW / 'dex_index.png').exists():      # 도감의 인덱스 스티커: 해역 1~8, 공(0), 태(9), 옛(R)
     for key, im in zip([1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R'], rows_of('dex_index', [4, 4, 3], gap=14, th=30)): items.append((f'dex_idx_{key}', fit(im, 170)))
 pack(items, 'ui_set.webp', manifest)
+
+# 도감 책 (꼬리표가 책장 사이에 그려진 그림). dex_book2b = 열한 개 다, dex_book2 = 태초의 바다가 열리기 전(열째 자리가 비어 있다).
+# GPT가 두 장을 따로 그려 나머지 꼬리표의 자리가 조금씩 달랐다 → 열한 개짜리 그림을 바탕으로 하고, 열째 자리만 '빈 칸' 그림에서 떼어다 붙여 만든다 (그래야 열릴 때 다른 꼬리표가 움직이지 않는다)
+if (RAW / 'dex_book2.png').exists() and (RAW / 'dex_book2b.png').exists():
+    from PIL import ImageFilter
+    A = Image.open(RAW / 'dex_book2.png').convert('RGBA'); B = Image.open(RAW / 'dex_book2b.png').convert('RGBA')
+    box = (99, 0, 1675, 871)
+    mask = Image.new('L', A.size, 0); mask.paste(255, (1566, 612, 1690, 668)); mask = mask.filter(ImageFilter.GaussianBlur(3))
+    locked = B.copy(); locked.paste(A, (0, 0), mask)
+    for name, im in (('dex_book2b', B), ('dex_book2', locked)):
+        im = im.crop(box); im = im.resize((1200, round(1200 * im.height / im.width)), Image.LANCZOS)
+        im.save(ROOT / 'assets' / 'game' / (name + '.webp'), 'WEBP', quality=92, method=4)
+        manifest[name] = dict(file=name + '.webp', w=600, h=round(600 * im.height / im.width, 2), smooth=True)
+    print('dex_book2 · dex_book2b')
+
 mf.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + '\n')
