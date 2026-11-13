@@ -3,6 +3,7 @@ import { pickQuip } from './quips.js';
 import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS, DAY_SEC } from './config.js';
+import { tr } from './i18n.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { startTalk, tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
@@ -291,22 +292,22 @@ function moored(ctx, b, x, y, w, h, t) {
   if (!c) {      // 밑을 풀어 준 그림은 한 번만 만든다
     c = document.createElement('canvas'); c.width = b.img.width; c.height = b.img.height;
     const q = c.getContext('2d'); q.drawImage(b.img, 0, 0);
-    const g0 = q.createLinearGradient(0, c.height * 0.86, 0, c.height); g0.addColorStop(0, 'rgba(0,0,0,0)'); g0.addColorStop(1, 'rgba(0,0,0,1)');
-    q.globalCompositeOperation = 'destination-out'; q.fillStyle = g0; q.fillRect(0, c.height * 0.86, c.width, c.height * 0.14);
+    const g0 = q.createLinearGradient(0, c.height * 0.94, 0, c.height); g0.addColorStop(0, 'rgba(0,0,0,0)'); g0.addColorStop(1, 'rgba(0,0,0,1)');
+    q.globalCompositeOperation = 'destination-out'; q.fillStyle = g0; q.fillRect(0, c.height * 0.94, c.width, c.height * 0.06);
     moorCache.set(b.img, c);
   }
-  const wl = y + h * 0.93, n = 14, rh = Math.min(h * 0.5, 30), sh = c.height * 0.5 / n;      // 물에 잠기는 선, 비친 모습의 높이
+  const wl = y + h * 0.965, n = 14, rh = Math.min(h * 0.5, 30), sh = c.height * 0.5 / n;      // 물에 잠기는 선, 비친 모습의 높이
   ctx.save();
   for (let i = 0; i < n; i++) {      // 비친 모습: 가로 띠로 나눠 띠마다 조금씩 밀어 일렁이게, 아래로 갈수록 옅게
     const k = i / n, dx = Math.sin(t * 1.6 + i * 0.9) * (0.6 + k * 2.2);
     ctx.globalAlpha = 0.34 * (1 - k) * (1 - k);
-    ctx.drawImage(c, 0, c.height * 0.93 - (i + 1) * sh, c.width, sh, x + dx, wl + k * rh, w, rh / n + 0.6);
+    ctx.drawImage(c, 0, c.height * 0.965 - (i + 1) * sh, c.width, sh, x + dx, wl + k * rh, w, rh / n + 0.6);
   }
   ctx.restore();
   ctx.drawImage(c, x, y, w, h);
   // 배와 물이 만나는 자리의 잔물결 (그림: h_boat_foam). 배와는 조금 다른 박자로 오르내리고 좌우로 살짝 밀린다
   if (hasSprite('h_boat_foam')) { const f = sprite('h_boat_foam'), fw = w * 1.06, fh = fw * f.h / f.w;
-    ctx.save(); ctx.globalAlpha = 0.9; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.55 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }
+    ctx.save(); ctx.globalAlpha = 0.8; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.3 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }
 }
 
 export function drawHarbor(ctx, g) {
@@ -317,19 +318,6 @@ export function drawHarbor(ctx, g) {
     const open = g.panel && g.panel.id === id, lift = open ? 3 : 0;
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(s.img, x - w / 2, HY - h - lift, w, h);
-    const tag = `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
-    ctx.font = `600 9px ${FONT}`; const tw = ctx.measureText(tag).width + 12;
-    const signKey = hasSprite('h_sign_' + look) ? 'h_sign_' + look : 'h_sign';      // 마을 겉모습 5단계마다 다른 이름판
-    if (hasSprite(signKey)) {      // 이름판 (그림): 양 끝은 그대로 두고 가운데만 글 길이에 맞춰 늘린다
-      const sp = sprite(signKey), sh = 19, k = sh / sp.h, cap = sp.w * k * 0.22, sw = Math.max(tw + 14, cap * 2 + 8), sx = x - sw / 2, sy = HY + 2.5, iw = sp.img.width, ih = sp.img.height, ic = iw * 0.22;
-      ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(sp.img, 0, 0, ic, ih, sx, sy, cap, sh); ctx.drawImage(sp.img, iw - ic, 0, ic, ih, sx + sw - cap, sy, cap, sh);
-      ctx.drawImage(sp.img, ic, 0, iw - 2 * ic, ih, sx + cap - 0.3, sy, sw - 2 * cap + 0.6, sh);
-      label(ctx, tag, x, sy + sh * 0.53, 9, '#4a2f14', 'center', 700, null);
-    } else {
-      ctx.fillStyle = 'rgba(16,28,56,0.62)'; ctx.beginPath(); ctx.roundRect(x - tw / 2, HY + 5, tw, 14, 7); ctx.fill();
-      label(ctx, tag, x, HY + 12.5, 9, '#fff4dc', 'center', 600, null);
-    }
     if (!g.panel && canBuyAt(g, id)) img(ctx, 'icon_gold', x - 6, HY - h - 15 + Math.sin(t * 4 + i) * 2, 12, 12);
   });
   // 정박한 내 배
@@ -338,6 +326,25 @@ export function drawHarbor(ctx, g) {
   // 출항 단추 바로 왼쪽 물 위에 매여 있다. 아래쪽 넓은 물에 두어 크게 그려도 가게와 이름표를 가리지 않는다
   if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (Math.min(8, bt8) - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; moored(ctx, b, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05 - 7, bw, bh, t); }
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
+  // 건물 이름판: 배보다 나중에 그린다 (큰 배의 돛대·깃발이 이름을 가리지 않게)
+  HOUSES.forEach((id, i) => { const x = HX(i);
+    const tag = `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
+    ctx.font = `600 9px ${FONT}`; const tw = ctx.measureText(tag).width + 12;
+    const signKey = hasSprite('h_sign_' + look) ? 'h_sign_' + look : 'h_sign';      // 마을 겉모습 5단계마다 다른 이름판
+    if (hasSprite(signKey)) {      // 이름판 (그림): 양 끝은 그대로 두고 가운데만 글 길이에 맞춰 늘린다
+      // 장식이 있는 양 끝(그림의 17%)에는 글이 들어가지 않는다. 옆 건물의 이름판과 닿지 않게 폭은 96까지: 글이 길면 글자를 줄인다
+      const sp = sprite(signKey), sh = 18.5, k = sh / sp.h, cap = sp.w * k * 0.15, maxW = 93, room = maxW - 2 * cap - 2;
+      ctx.font = `700 9px ${FONT}`; const w0 = ctx.measureText(tr(tag)).width, fs = w0 > room ? 9 * room / w0 : 9;
+      const sw = Math.min(maxW, Math.max(w0 + 2 * cap + 2, cap * 2 + 20)), sx = x - sw / 2, sy = HY + 3.5, iw = sp.img.width, ih = sp.img.height, ic = iw * 0.15;
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(sp.img, 0, 0, ic, ih, sx, sy, cap, sh); ctx.drawImage(sp.img, iw - ic, 0, ic, ih, sx + sw - cap, sy, cap, sh);
+      ctx.drawImage(sp.img, ic, 0, iw - 2 * ic, ih, sx + cap - 0.3, sy, sw - 2 * cap + 0.6, sh);
+      label(ctx, tag, x, sy + sh * 0.5, fs, '#3a2410', 'center', 700, null);
+    } else {
+      ctx.fillStyle = 'rgba(16,28,56,0.62)'; ctx.beginPath(); ctx.roundRect(x - tw / 2, HY + 5, tw, 14, 7); ctx.fill();
+      label(ctx, tag, x, HY + 12.5, 9, '#fff4dc', 'center', 600, null);
+    }
+  });
   // 마을 이름
   const title = `${e.town}등급 · ${TOWN_NAMES[e.town]}`;
   ctx.font = `600 10.5px ${FONT}`;

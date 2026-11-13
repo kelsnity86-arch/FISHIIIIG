@@ -36,7 +36,7 @@ def runs(on, gap):
 def rows_of(src, counts, gap=70, th=10):
     """줄마다 조각 수가 다른 그림: 빈 가로띠로 줄을 나누고, 줄 안에서 빈 세로띠로 조각을 나눈다"""
     a = np.array(Image.open(RAW / (src + '.png')).convert('RGBA')); m = a[..., 3] > th
-    bands = runs(m.any(axis=1), 40); assert len(bands) == len(counts), (len(bands), counts)
+    bands = runs(m.any(axis=1), min(40, gap)); assert len(bands) == len(counts), (len(bands), counts)
     out = []
     for (y0, y1), n in zip(bands, counts):
         cols = runs(m[y0:y1].any(axis=0), gap); assert len(cols) == n, (src, y0, len(cols), n)
@@ -62,6 +62,13 @@ if (RAW / 'fx_motes.png').exists():      # 줄 단계마다 다른 빛 알갱이
     for i, im in enumerate(rows_of('fx_motes', [7], gap=40)): items.append((f'fx_mote_{i + 3}', fit(im, 96)))
 if (RAW / 'dex_index.png').exists():      # 도감의 인덱스 스티커: 해역 1~8, 공(0), 태(9), 옛(R)
     for key, im in zip([1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R'], rows_of('dex_index', [4, 4, 3], gap=14, th=30)): items.append((f'dex_idx_{key}', fit(im, 170)))
+if (RAW / 'h_signs.png').exists():      # 항구 건물의 이름판: 마을 겉모습 5단계
+    for i, im in enumerate(rows_of('h_signs', [1, 1, 1, 1, 1], gap=14, th=120)): items.append((f'h_sign_{i + 1}', fit(im, 560)))
+if (RAW / 'ui_notes.png').exists():     # 글 뒤에 까는 판: 양피지 띠 · 의뢰 쪽지 · 작은 누름 판
+    for n, im in zip(['ui_note', 'ui_tag', 'ui_chip'], rows_of('ui_notes', [1, 1, 1], gap=14, th=120)): items.append((n, fit(im, 560)))
+if (RAW / 'h_boat_foam.png').exists():  # 매어 둔 배가 물과 만나는 자리의 잔물결 띠
+    a = np.array(Image.open(RAW / 'h_boat_foam.png').convert('RGBA')); ys, xs = np.nonzero(a[..., 3] > 10)
+    items.append(('h_boat_foam', fit(Image.fromarray(a[ys.min():ys.max() + 1, xs.min():xs.max() + 1]), 700)))
 pack(items, 'ui_set.webp', manifest)
 
 # 도감 책 (꼬리표가 책장 사이에 그려진 그림). dex_book2b = 열한 개 다, dex_book2 = 태초의 바다가 열리기 전(열째 자리가 비어 있다).

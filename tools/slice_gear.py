@@ -132,7 +132,7 @@ def run(manifest):
         w = 26 * p.shape[1] / (bs[7][2] - bs[7][0]); return dict(w=round(w, 2), h=round(w * p.shape[0] / p.shape[1], 2)), 420
     strips('c_scarf_set', 'c_scarf', items, extra, True, sc)
     # 항구에 매어 둔 내 배 8단계. 1단계가 원래 배경에 그려져 있던 나룻배만 한 크기(화면에서 폭 62)보다 조금 크게, 건물과 어울리게 폭 80으로 맞춘다.
-    src = 'h_boats2' if (RAW / 'h_boats2.png').exists() else 'h_boats'
+    src = 'h_boats2b' if (RAW / 'h_boats2b.png').exists() else 'h_boats2' if (RAW / 'h_boats2.png').exists() else 'h_boats'      # 2b = 뱃머리의 밧줄을 지운 그림
     if (RAW / (src + '.png')).exists():
         a = rgba(src); m = a[..., 3] > 40; boxes = []
         for r0, r1 in runs(m.sum(axis=1), 6):
@@ -146,7 +146,7 @@ def run(manifest):
         print(src + ': 8개', [extra[f'h_boat_big_{i + 1}']['w'] for i in range(8)], [extra[f'h_boat_big_{i + 1}']['h'] for i in range(8)])
         # 태초의 차림: 통나무배. 4단계 배만 한 길이로 놓는다
         if (RAW / 'h_boat_9.png').exists():
-            b = rgba('h_boat_9'); x0, y0, x1, y1 = bbox(b[..., 3] > 40); w = extra['h_boat_big_4']['w']
+            b = rgba('h_boat_9b' if (RAW / 'h_boat_9b.png').exists() else 'h_boat_9'); x0, y0, x1, y1 = bbox(b[..., 3] > 40); w = extra['h_boat_big_4']['w']
             items.append(('h_boat_big_9', Image.fromarray(b[y0:y1, x0:x1]))); extra['h_boat_big_9'] = dict(w=w, h=round(w * (y1 - y0) / (x1 - x0), 2), smooth=True)
     # 태초의 차림: 찌·목도리·낚싯대·게이지 틀 (한 장에 네 줄)
     if (RAW / 'p_skins.png').exists():
