@@ -230,7 +230,7 @@ export function pointer(g, x, y) {
     if (Math.hypot(x - HDEX.x, y - HDEX.y) <= HDEX.r + 3) { openDex(g); return true; }
     if (Math.hypot(x - HMAP.x, y - HMAP.y) <= HMAP.r + 3) { openMap(g); return true; }
     for (let i = 0; i < HOUSES.length; i++) {
-      if (Math.abs(x - HX(i)) < HW / 2 + 4 && y > HY - 92 && y < HY + 22) { openPanel(g, HOUSES[i]); g.sfx.push(['door']); return true; }
+      if (Math.abs(x - HX(i)) < HW / 2 + 4 && y > Math.min(HY - 92, signTop(g) - 3) && y < HY + 22)      /* 이름판을 눌러도 열린다 */ { openPanel(g, HOUSES[i]); g.sfx.push(['door']); return true; }
     }
     return true;
   }
@@ -310,6 +310,13 @@ function moored(ctx, b, x, y, w, h, t) {
     ctx.save(); ctx.globalAlpha = 0.8; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.3 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }
 }
 
+// 건물 이름판이 걸리는 높이: 건물들 위에 한 줄로 가지런히 (지붕 높이가 제각각이라 여섯 건물의 평균 높이 조금 위)
+function signTop(g) {
+  const look = TOWN_LOOK[g.eco.town]; let sum = 0;
+  for (const id of HOUSES) { const sp = sprite(`h_shop_${look}_${id}`); sum += HW * sp.h / sp.w; }
+  return HY - sum / HOUSES.length - 17;
+}
+
 export function drawHarbor(ctx, g) {
   const e = g.eco, look = TOWN_LOOK[e.town], t = g.harborT || 0;
   img(ctx, hasSprite('h_town_' + look) ? 'h_town_' + look : 'h_town_1', 0, 0, W, H);
@@ -318,7 +325,7 @@ export function drawHarbor(ctx, g) {
     const open = g.panel && g.panel.id === id, lift = open ? 3 : 0;
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(s.img, x - w / 2, HY - h - lift, w, h);
-    if (!g.panel && canBuyAt(g, id)) img(ctx, 'icon_gold', x - 6, HY - h - 15 + Math.sin(t * 4 + i) * 2, 12, 12);
+    if (!g.panel && canBuyAt(g, id)) img(ctx, 'icon_gold', x - 6, signTop(g) - 13 + Math.sin(t * 4 + i) * 2, 12, 12);      // 살 수 있다는 금화 표시: 이름판 바로 위
   });
   // 정박한 내 배
   // 장비 외형(배): 항구에서는 단계마다 확실하게 커지고 화려해진다
@@ -335,7 +342,7 @@ export function drawHarbor(ctx, g) {
       // 장식이 있는 양 끝(그림의 17%)에는 글이 들어가지 않는다. 옆 건물의 이름판과 닿지 않게 폭은 96까지: 글이 길면 글자를 줄인다
       const sp = sprite(signKey), sh = 18.5, k = sh / sp.h, cap = sp.w * k * 0.15, maxW = 93, room = maxW - 2 * cap - 2;
       ctx.font = `700 9px ${FONT}`; const w0 = ctx.measureText(tr(tag)).width, fs = w0 > room ? 9 * room / w0 : 9;
-      const sw = Math.min(maxW, Math.max(w0 + 2 * cap + 2, cap * 2 + 20)), sx = x - sw / 2, sy = HY + 3.5, iw = sp.img.width, ih = sp.img.height, ic = iw * 0.15;
+      const sw = Math.min(maxW, Math.max(w0 + 2 * cap + 2, cap * 2 + 20)), sx = x - sw / 2, sy = signTop(g), iw = sp.img.width, ih = sp.img.height, ic = iw * 0.15;
       ctx.imageSmoothingEnabled = true;
       ctx.drawImage(sp.img, 0, 0, ic, ih, sx, sy, cap, sh); ctx.drawImage(sp.img, iw - ic, 0, ic, ih, sx + sw - cap, sy, cap, sh);
       ctx.drawImage(sp.img, ic, 0, iw - 2 * ic, ih, sx + cap - 0.3, sy, sw - 2 * cap + 0.6, sh);
