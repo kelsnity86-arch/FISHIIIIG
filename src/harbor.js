@@ -255,6 +255,33 @@ export function drawSeaButtons(ctx, g) {
   ctx.restore();
 }
 
+// 매어 둔 배: 물에 떠 있는 것처럼 보이게 한다 (그림은 그대로, 코드는 뒤집고·풀어 줄 뿐)
+//  · 배 밑은 반듯하게 잘린 선이 보이지 않게 아래로 갈수록 서서히 물빛에 잠긴다
+//  · 그 아래 물에는 배가 뒤집혀 옅게 비치고, 물결 따라 가로로 일렁인다 (뒤의 건물들이 물에 비치는 것과 같이)
+const moorCache = new Map();
+function moored(ctx, b, x, y, w, h, t) {
+  let c = moorCache.get(b.img);
+  if (!c) {      // 밑을 풀어 준 그림은 한 번만 만든다
+    c = document.createElement('canvas'); c.width = b.img.width; c.height = b.img.height;
+    const q = c.getContext('2d'); q.drawImage(b.img, 0, 0);
+    const g0 = q.createLinearGradient(0, c.height * 0.86, 0, c.height); g0.addColorStop(0, 'rgba(0,0,0,0)'); g0.addColorStop(1, 'rgba(0,0,0,1)');
+    q.globalCompositeOperation = 'destination-out'; q.fillStyle = g0; q.fillRect(0, c.height * 0.86, c.width, c.height * 0.14);
+    moorCache.set(b.img, c);
+  }
+  const wl = y + h * 0.93, n = 14, rh = Math.min(h * 0.5, 30), sh = c.height * 0.5 / n;      // 물에 잠기는 선, 비친 모습의 높이
+  ctx.save();
+  for (let i = 0; i < n; i++) {      // 비친 모습: 가로 띠로 나눠 띠마다 조금씩 밀어 일렁이게, 아래로 갈수록 옅게
+    const k = i / n, dx = Math.sin(t * 1.6 + i * 0.9) * (0.6 + k * 2.2);
+    ctx.globalAlpha = 0.34 * (1 - k) * (1 - k);
+    ctx.drawImage(c, 0, c.height * 0.93 - (i + 1) * sh, c.width, sh, x + dx, wl + k * rh, w, rh / n + 0.6);
+  }
+  ctx.restore();
+  ctx.drawImage(c, x, y, w, h);
+  // 배와 물이 만나는 자리의 잔물결 (그림: h_boat_foam). 배와는 조금 다른 박자로 오르내리고 좌우로 살짝 밀린다
+  if (hasSprite('h_boat_foam')) { const f = sprite('h_boat_foam'), fw = w * 1.06, fh = fw * f.h / f.w;
+    ctx.save(); ctx.globalAlpha = 0.9; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.55 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }
+}
+
 export function drawHarbor(ctx, g) {
   const e = g.eco, look = TOWN_LOOK[e.town], t = g.harborT || 0;
   img(ctx, hasSprite('h_town_' + look) ? 'h_town_' + look : 'h_town_1', 0, 0, W, H);
@@ -273,7 +300,7 @@ export function drawHarbor(ctx, g) {
   // 장비 외형(배): 항구에서는 단계마다 확실하게 커지고 화려해진다
   const bt8 = skinOn(g, 'boat') && hasSprite('h_boat_big_9') ? 9 : Math.min(8, Math.floor(e.gear.boat / 10) + 1);
   // 출항 단추 바로 왼쪽 물 위에 매여 있다. 아래쪽 넓은 물에 두어 크게 그려도 가게와 이름표를 가리지 않는다
-  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (Math.min(8, bt8) - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; ctx.drawImage(b.img, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05, bw, bh); }
+  if (hasSprite('h_boat_big_' + bt8)) { const b = sprite('h_boat_big_' + bt8), k = 1.3 + (Math.min(8, bt8) - 1) * 0.057, bw = b.w * k, bh = b.h * k;      /* 뒤 단계일수록 더 크게: 1단계 1.3배 → 8단계 1.7배 */ ctx.imageSmoothingEnabled = true; moored(ctx, b, LEAVE.x - LEAVE.w / 2 - 8 - bw, 351 - bh + Math.sin(t * 1.3) * 1 + bh * 0.05 - 7, bw, bh, t); }
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
   // 마을 이름
   const title = `${e.town}등급 · ${TOWN_NAMES[e.town]}`;

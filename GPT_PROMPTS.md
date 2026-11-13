@@ -12211,3 +12211,37 @@ book on the canvas. Fully transparent background.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name dex_book2b.png
 ```
+
+## ㊺ 항구: 매어 둔 배의 잔물결
+
+항구 화면 아래에 매어 둔 내 배가 물 위에 오려 붙인 것처럼 보였다. 배 밑은 코드로 물빛에 풀고 물에 비친 모습을 넣었고, 배와 물이 만나는 자리에 얹을 잔물결 띠가 필요하다. 배 9종(8단계 + 태초)에 같은 그림을 폭만 늘려 쓴다.
+
+### 402. `h_boat_foam` — 배와 물이 만나는 자리의 잔물결 띠
+
+```
+Style reference: open assets/raw/h_town_1.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Look at the calm harbour water in the lower half:
+deep blue water painted in a soft painterly storybook style with short horizontal
+ripples and warm peach-pink reflections.
+
+Paint ONE long, low strip of gentle ripples: the little disturbance of water that sits
+along the waterline of a boat moored in this calm harbour, seen from the side. It will be
+laid over the bottom edge of a boat's hull so that the hull seems to sit IN the water.
+
+- Shape: very wide and very low, about 12 times as wide as tall. The boat itself is NOT
+  in the picture, only the water.
+- A slightly wavy line of soft pale foam and light blue ripples running the whole width,
+  a little thicker and brighter in the middle and thinning out to nothing at both ends.
+- Just below it a soft band of slightly darker blue water (the shadow under the hull),
+  fading smoothly to fully transparent downward.
+- A few short horizontal ripple strokes and two or three tiny pale highlights, in the
+  same blues and soft peach tints as the reference water.
+- Calm and small: this is still harbour water, not a wave or a splash. No white caps,
+  no spray, no droplets.
+- All edges fade softly to transparent; there must be no hard outer edge anywhere.
+
+No text. Fully transparent background. Only this one strip, centred, with empty margin
+around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_boat_foam.png
+```
