@@ -1,0 +1,243 @@
+{
+  "passed": 59,
+  "failed": [],
+  "errors": [],
+  "checks": [
+    {
+      "name": "건물 열기: market",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: market",
+      "pass": true
+    },
+    {
+      "name": "건물 열기: tackle",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: tackle",
+      "pass": true
+    },
+    {
+      "name": "건물 열기: yard",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: yard",
+      "pass": true
+    },
+    {
+      "name": "건물 열기: tailor",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: tailor",
+      "pass": true
+    },
+    {
+      "name": "건물 열기: guild",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: guild",
+      "pass": true
+    },
+    {
+      "name": "건물 열기: hall",
+      "pass": true
+    },
+    {
+      "name": "판 닫기: hall",
+      "pass": true
+    },
+    {
+      "name": "구매: 가격만큼 차감 + 장비 1회 상승",
+      "pass": true
+    },
+    {
+      "name": "가게 단계가 모자란 구매 거절",
+      "pass": true
+    },
+    {
+      "name": "골드가 모자란 구매 거절",
+      "pass": true
+    },
+    {
+      "name": "설정 열기",
+      "pass": true
+    },
+    {
+      "name": "음량 막대 조작",
+      "pass": true
+    },
+    {
+      "name": "설정 쪽 전환",
+      "pass": true
+    },
+    {
+      "name": "설정 닫기",
+      "pass": true
+    },
+    {
+      "name": "미해금 해역 이동 거절",
+      "pass": true
+    },
+    {
+      "name": "지도 닫기",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 1",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 2",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 3",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 4",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 5",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 6",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 7",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 8",
+      "pass": true
+    },
+    {
+      "name": "지도 이동: 9",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 1",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 2",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 3",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 4",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 5",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 6",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 7",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 8",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: 0",
+      "pass": true
+    },
+    {
+      "name": "도감 잠금 전 탭: R",
+      "pass": true
+    },
+    {
+      "name": "태초 해금 전 빈 탭 비활성",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 1",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 2",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 3",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 4",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 5",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 6",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 7",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 8",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 0",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: 9",
+      "pass": true
+    },
+    {
+      "name": "도감 해금 후 탭: R",
+      "pass": true
+    },
+    {
+      "name": "도감 생물 선택",
+      "pass": true
+    },
+    {
+      "name": "도감 닫기",
+      "pass": true
+    },
+    {
+      "name": "바다에서 기술 열기",
+      "pass": true
+    },
+    {
+      "name": "모바일 비율에서 닫기",
+      "pass": true
+    },
+    {
+      "name": "모바일 비율에서 도감 열기",
+      "pass": true
+    },
+    {
+      "name": "렌더링 오류 없음",
+      "pass": true
+    },
+    {
+      "name": "페이지 오류 / 실패한 그림 요청 없음",
+      "pass": true
+    }
+  ]
+}

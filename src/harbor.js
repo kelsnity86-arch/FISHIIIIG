@@ -389,21 +389,20 @@ export function drawPanel(ctx, g) {
   ctx.fillStyle = `rgba(10,18,40,${0.42 * k})`; ctx.fillRect(0, 0, W, H);
   ctx.globalAlpha = k;
   ctx.translate(0, (1 - k) * 14);
-  // 가게 주인이 판 왼쪽에 서 있다
-  const npc = sprite('h_npc_' + shopId), nw = npc.dw || 104, nh = nw * npc.h / npc.w;      // dw: 그림의 폭이 달라져도 키가 같아 보이도록 따로 적은 폭
-  ctx.imageSmoothingEnabled = true;
-  ctx.drawImage(npc.img, PANEL.x - nw + 22, PANEL.y + ph - nh - 4 + Math.sin(g.time * 1.6) * 0.8, nw, nh);
   img(ctx, 'h_panel', PANEL.x, PANEL.y, PANEL.w, ph);
+  // 주인은 판 앞에 선다. 얼굴 크기를 맞추고 팔이 왼쪽 나무틀에 잘리지 않게 한다.
+  const npc = sprite('h_npc_' + shopId), nh = 190, nw = nh * npc.w / npc.h;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(npc.img, PANEL.x - nw + 20, PANEL.y + ph - nh + 9 + Math.sin(g.time * 1.6) * 0.8, nw, nh);
   const rb = sprite('h_ribbon'), rw = 170 * PS, rh = rw * rb.h / rb.w;
   ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
   label(ctx, p.id === 'skills' ? '어부의 기술' : HOUSE_NAME[p.id], PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy, 'center', 600, null);
   const c = closeRect(); img(ctx, 'h_close', c.x, c.y, c.w, c.h);
-  // 판 왼쪽 위 둥근 창: 그 가게의 상징 (그림이 없으면 건물). 마을이 커지면 창 테두리 장식만 달라진다
-  const look = TOWN_LOOK[g.eco.town], rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909;      // 판 그림의 둥근 창: 구멍의 가운데와 반지름 (그림의 구멍 가장자리에 원을 맞춰 잰 값)
+  // 작은 상징 그림: 넓은 종이 여백에 바로 놓아 가게를 알아보기 쉽게 한다.
+  const look = TOWN_LOOK[g.eco.town];
   const mark = hasSprite('h_mark_' + shopId), hs = sprite(mark ? 'h_mark_' + shopId : `h_shop_${look}_${shopId}`);
-  ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip();
-  { const fit = rr * (mark ? 1.38 : 1.55), k = Math.min(fit / hs.w, fit / hs.h); ctx.drawImage(hs.img, rx - hs.w * k / 2, ry - hs.h * k / 2 + (mark ? 0 : rr * 0.04), hs.w * k, hs.h * k); }      // 창 한가운데에 통째로 들어온다
-  ctx.restore();
+  { const fit = 43, f = Math.min(fit / hs.w, fit / hs.h), cx = PANEL.x + 52, cy = PANEL.y + 48;
+    ctx.drawImage(hs.img, cx - hs.w * f / 2, cy - hs.h * f / 2, hs.w * f, hs.h * f); }
   rowsOf(g, p.id).forEach(([kind, id], i) => {
     const r = rowRect(i), info = rowInfo(g, kind, id), can = !info.block && g.gold >= info.cost;
     const bump = p.hit === i ? Math.sin(clamp(p.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0;        // 샀을 때 톡 튄다
@@ -424,13 +423,9 @@ export function drawPanel(ctx, g) {
     else if (!info.block) label(ctx, info.btn || fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();
   });
-  if (hasSprite('h_rim_' + look)) {                          // 테두리: 그림의 구멍을 판의 창에 맞춰 얹는다. 아래로 늘어진 장식이 가려지지 않게 줄보다 나중에 그린다
-    const rim = sprite('h_rim_' + look), [hx, hy, hr] = rim.hole, dw = rr * 1.017 / hr;      // 판에 그려진 원래 테두리가 밖으로 비어져 나오지 않도록 조금 크게, 조금 위로 (원래 테두리는 위쪽이 더 두껍다)
-    ctx.drawImage(rim.img, rx + PANEL.w * 0.0005 - hx * dw, ry - PANEL.w * 0.0015 - hy * dw, dw, dw * rim.h / rim.w);
-  }
-  // 둥근 창 오른쪽 빈자리: 주인의 한마디 (길드는 판 아래 바깥에 누르고 있기 안내)
+  // 제목 아래 종이 여백: 주인의 한마디 (길드는 판 아래 바깥에 누르고 있기 안내)
   { const hold = p.id === 'skills' || p.id === 'guild';
-    if (p.quip) {                                             // 제목 리본과 같은 가운데 줄에 맞춘다. 긴 말이 둥근 창에 닿을 때만 그만큼 오른쪽으로 비킨다
+    if (p.quip) {                                             // 제목 리본과 같은 가운데 줄에 맞춘다. 긴 말도 판 안에 놓이도록 가운데를 맞춘다
       const str = `“${p.quip}”`; ctx.font = `600 9px ${FONT}`;
       const half = ctx.measureText(str).width / 2, qx = Math.max(PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.x + 108 * PS + half);
       const ql = p.id === 'guild' || p.id === 'skills' ? questLine(g) : '';      // 길드: 한마디 아래에 오늘의 의뢰

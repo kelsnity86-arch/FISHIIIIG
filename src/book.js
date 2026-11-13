@@ -46,7 +46,7 @@ export function updateBook(g, dt) {
 
 // ── 해역 지도: 표식을 눌러 그 바다로 간다 ──
 // 해도 그림의 항로 위에 찍힌 점 8개의 자리 (그림에서 잰 값. 점은 해역 그림마다 한가운데에 있다). 표식의 뾰족한 끝이 그 점을 가리킨다.
-const DOTS_XY = [null, [81.1, 190.8], [159.8, 189.9], [225.6, 191.9], [301.2, 190.3], [370, 190.3], [444.2, 190.6], [513.3, 190.8], [589.1, 190], [80, 297]];      // 9 = 태초의 바다: 왼쪽 아래 구름 속, 처음 떠난 항구 바로 곁 (가장 먼 곳이 아니라 출발점 옆에 있었다)
+const DOTS_XY = [null, [82.7, 185.9], [160, 185.5], [227, 186.3], [300.8, 184.4], [369, 185.5], [443.3, 185.9], [513.3, 185.9], [587.2, 185.5], [80, 297]];      // 동화책 해도의 항로 점. 9 = 태초의 바다: 출발한 항구 옆 구름 속
 const HARBOR_XY = [63, 187];      // 해도 그림의 부두 끝 (항로가 시작하는 곳): 태초의 바다로 가는 항로가 여기서 갈라진다
 const PIN_W = 30;
 const MCLOSE = { x: W - 46, y: H - 48 };      // 해도의 나침반을 가리지 않게 오른쪽 아래에
@@ -127,7 +127,7 @@ const IDX = { x: 565.5, w: 47, y0: 31, pitch: 23.1, h: 19.5, step: 1.9, glue: 13
 // 스티커는 책장 사이에서 나온다: k번째 것은 종이 단면의 k번째 장 자리(edge)에서 밖으로 나오고, 그 안쪽(붙은 쪽 12)은 앞 장들에 덮여 안 보인다
 const tabEdge = (k) => IDX.x + 1 + k * IDX.step;
 // 책 그림에 그려진 꼬리표 열한 개의 자리 (그림에서 잰 값. 책 그림의 왼쪽 위에서부터): [오른쪽 끝 x, 위 y, 높이]. 보이는 폭은 26쯤
-const TAB_ART = [[582.5, 55.6, 15.2], [583.6, 73.1, 16], [585.9, 92.1, 16.8], [589, 112.7, 16.4], [592.4, 131.7, 16.8], [596.2, 152.3, 16.4], [596.2, 171.7, 16.8], [597.3, 192.3, 17.1], [596.2, 213.2, 17.5], [596.6, 234.5, 18.7], [597, 255.1, 17.1]];
+const TAB_ART = [[588, 51.5, 17], [592, 69.3, 17.3], [596, 88.3, 17.3], [597, 106.2, 18.2], [598, 125.6, 17.4], [599, 144, 18.6], [600, 163.1, 18.3], [600, 182.1, 18.6], [600, 201.7, 19.3], [600, 222, 20], [600, 243, 20.8]];
 const tabRect = (i) => { const k = TAB_SLOT(TABS[i]);
   if (PAINTED()) { const [xr, y, h] = TAB_ART[k]; return { x: BX + xr - 26, y: BY() + y, w: 26, h, k }; }
   return { x: tabEdge(k) - IDX.glue, y: BY() + IDX.y0 + k * IDX.pitch, w: IDX.w, h: IDX.h, k }; };
@@ -164,12 +164,13 @@ export function drawDex(ctx, g) {
   ctx.globalAlpha = a; ctx.translate(0, by - BY());
   if (PAINTED()) {
     img(ctx, BOOK, BX, BY(), BW, bh);
-    // 꼬리표는 책 그림에 그려져 있다. 고른 것은 그 조각을 밖으로 조금 당겨 밝게 겹쳐 그리고, 다 채운 해역의 것은 금빛으로 물들인다. 글자만 쓴다
-    const sp = sprite(BOOK), kx = sp.img.width / BW;
+    // 고른 꼬리표는 조금 당겨 밝게 보인다. 다 채운 해역에는 작은 확인 표시를 붙여 원래 해역색을 살린다.
+    const sp = sprite(BOOK), kx = sp.img.width / BW, ky = sp.img.height / bh;
     TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t, gold = t !== 'R' && dexStage(g, t) === 2;
-      if (on || gold) { const px = 3, sx = (r.x - BX - 1) * kx, sy = (r.y - BY() - 1.5) * kx, sw = (r.w + 3) * kx, sh = (r.h + 3) * kx;
-        ctx.save(); ctx.imageSmoothingEnabled = true; ctx.filter = (gold ? 'sepia(1) saturate(2.6) ' : '') + `brightness(${on ? 1.13 : 1.04})`;
-        ctx.drawImage(sp.img, sx, sy, sw, sh, r.x - 1 + (on ? px : 0), r.y - 1.5, r.w + 3, r.h + 3); ctx.restore(); }
+      if (on) { const px = 3, sx = (r.x - BX - 1) * kx, sy = (r.y - BY() - 1.5) * ky, sw = (r.w + 3) * kx, sh = (r.h + 3) * ky;
+        ctx.save(); ctx.imageSmoothingEnabled = true; ctx.filter = 'brightness(1.04)';
+        ctx.drawImage(sp.img, sx, sy, sw, sh, r.x - 1 + px, r.y - 1.5, r.w + 3, r.h + 3); ctx.restore(); }
+      if (gold) label(ctx, '✓', r.x + 5 + (on ? 3 : 0), r.y + r.h / 2 + 0.3, 8, '#87511e', 'center', 700, '#fff4dc');
       label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w - 9 + (on ? 3 : 0), r.y + r.h / 2 + 0.3, 9, on ? '#2e1c0a' : '#4a3520', 'center', 700, null); });
   } else {
   img(ctx, 'dex_book', BX, BY(), BW, bh);
