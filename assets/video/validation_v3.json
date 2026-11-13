@@ -1,0 +1,229 @@
+{
+  "source_commit": "a0c7754f1f3b829096fc1c58ee08ae3c61fb8e25",
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "level": 42,
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "duration": "299.900000",
+        "nb_frames": "17994"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.900000",
+        "nb_frames": "14059"
+      },
+      {
+        "codec_name": "bin_data",
+        "codec_type": "data",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.900000",
+        "nb_frames": "7"
+      }
+    ],
+    "format": {
+      "duration": "299.900000",
+      "size": "182439081"
+    }
+  },
+  "frames_expected": 17994,
+  "frame_timing_errors": 0,
+  "decode_errors": 0,
+  "sha256": "46f87eb926627060e13d32d7b1e951a73122da3a365a3334881feb9813507a5e",
+  "capture_sources_verified": 34,
+  "all_footage_new": true,
+  "music_crossfades_seconds": 6,
+  "music_restarts_at_picture_cuts": false,
+  "game_source_changed": false,
+  "recording": "Actual game rendered once per 1/60-second update, with every frame captured. No optical-flow interpolation.",
+  "music_cut_check": {
+    "cut_windows": [
+      {
+        "at": 7.0,
+        "rms_dbfs": -27.59
+      },
+      {
+        "at": 11.8,
+        "rms_dbfs": -24.41
+      },
+      {
+        "at": 16.6,
+        "rms_dbfs": -25.04
+      },
+      {
+        "at": 21.400000000000002,
+        "rms_dbfs": -22.42
+      },
+      {
+        "at": 26.200000000000003,
+        "rms_dbfs": -25.94
+      },
+      {
+        "at": 54.2,
+        "rms_dbfs": -22.31
+      },
+      {
+        "at": 62.7,
+        "rms_dbfs": -25.58
+      },
+      {
+        "at": 71.2,
+        "rms_dbfs": -16.89
+      },
+      {
+        "at": 79.7,
+        "rms_dbfs": -20.99
+      },
+      {
+        "at": 88.2,
+        "rms_dbfs": -21.04
+      },
+      {
+        "at": 95.2,
+        "rms_dbfs": -17.22
+      },
+      {
+        "at": 106.2,
+        "rms_dbfs": -26.96
+      },
+      {
+        "at": 112.2,
+        "rms_dbfs": -28.41
+      },
+      {
+        "at": 119.2,
+        "rms_dbfs": -29.03
+      },
+      {
+        "at": 127.4,
+        "rms_dbfs": -18.27
+      },
+      {
+        "at": 134.70000000000002,
+        "rms_dbfs": -30.2
+      },
+      {
+        "at": 138.20000000000002,
+        "rms_dbfs": -27.74
+      },
+      {
+        "at": 141.70000000000002,
+        "rms_dbfs": -26.14
+      },
+      {
+        "at": 145.70000000000002,
+        "rms_dbfs": -28.55
+      },
+      {
+        "at": 149.20000000000002,
+        "rms_dbfs": -26.58
+      },
+      {
+        "at": 152.70000000000002,
+        "rms_dbfs": -31.18
+      },
+      {
+        "at": 156.20000000000002,
+        "rms_dbfs": -20.19
+      },
+      {
+        "at": 159.70000000000002,
+        "rms_dbfs": -27.16
+      },
+      {
+        "at": 164.70000000000002,
+        "rms_dbfs": -23.27
+      },
+      {
+        "at": 168.20000000000002,
+        "rms_dbfs": -24.79
+      },
+      {
+        "at": 171.70000000000002,
+        "rms_dbfs": -23.51
+      },
+      {
+        "at": 175.20000000000002,
+        "rms_dbfs": -22.45
+      },
+      {
+        "at": 178.70000000000002,
+        "rms_dbfs": -19.8
+      },
+      {
+        "at": 182.20000000000002,
+        "rms_dbfs": -23.89
+      },
+      {
+        "at": 185.70000000000002,
+        "rms_dbfs": -22.91
+      },
+      {
+        "at": 189.20000000000002,
+        "rms_dbfs": -27.05
+      },
+      {
+        "at": 193.20000000000002,
+        "rms_dbfs": -26.36
+      },
+      {
+        "at": 197.20000000000002,
+        "rms_dbfs": -19.27
+      },
+      {
+        "at": 204.20000000000002,
+        "rms_dbfs": -22.81
+      },
+      {
+        "at": 241.40000000000003,
+        "rms_dbfs": -22.51
+      },
+      {
+        "at": 246.40000000000003,
+        "rms_dbfs": -27.17
+      },
+      {
+        "at": 261.40000000000003,
+        "rms_dbfs": -24.11
+      },
+      {
+        "at": 265.8,
+        "rms_dbfs": -24.07
+      },
+      {
+        "at": 270.2,
+        "rms_dbfs": -24.12
+      },
+      {
+        "at": 274.59999999999997,
+        "rms_dbfs": -21.05
+      },
+      {
+        "at": 278.99999999999994,
+        "rms_dbfs": -26.46
+      },
+      {
+        "at": 283.3999999999999,
+        "rms_dbfs": -24.55
+      },
+      {
+        "at": 292.8999999999999,
+        "rms_dbfs": -25.21
+      }
+    ],
+    "lowest_cut_rms_dbfs": -31.18,
+    "continuous_music_samples": 14395200
+  }
+}
