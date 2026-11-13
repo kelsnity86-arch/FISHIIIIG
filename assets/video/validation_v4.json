@@ -1,5 +1,5 @@
 {
-  "source_commit": "108bed91abfc5c7e59d441b402a02616281e724e",
+  "source_commit": "87a8358c0202c3b511c5e3601502b164085b3946",
   "baseline_commit": "fb85da7b517d80389a6f0888a34ca02297c98808",
   "capture_commits": {
     "01_title": "fb85da7b517d80389a6f0888a34ca02297c98808",
@@ -29,9 +29,9 @@
     "16_region7": "fb85da7b517d80389a6f0888a34ca02297c98808",
     "16_region8": "fb85da7b517d80389a6f0888a34ca02297c98808",
     "17_townending": "fb85da7b517d80389a6f0888a34ca02297c98808",
-    "18_relicbook_latest": "108bed91abfc5c7e59d441b402a02616281e724e",
+    "18_relicbook_latest": "87a8358c0202c3b511c5e3601502b164085b3946",
     "19_finale_fix": "fb85da7b517d80389a6f0888a34ca02297c98808",
-    "20_dex_before_latest": "108bed91abfc5c7e59d441b402a02616281e724e",
+    "20_dex_before_latest": "87a8358c0202c3b511c5e3601502b164085b3946",
     "21_unlock": "fb85da7b517d80389a6f0888a34ca02297c98808",
     "22_primal_intro": "fb85da7b517d80389a6f0888a34ca02297c98808",
     "23_primal_fish": "fb85da7b517d80389a6f0888a34ca02297c98808",
@@ -80,13 +80,13 @@
     ],
     "format": {
       "duration": "299.900000",
-      "size": "188206410"
+      "size": "188210370"
     }
   },
   "frames_expected": 17994,
   "frame_timing_errors": 0,
   "decode_errors": 0,
-  "sha256": "b417a63d57822831a74e2dac29adaa134236b8dff1d4f223b1ce2e24e1eda80c",
+  "sha256": "35f0b0ac8164bf07791d1c90ef037d33fab13631c95ba7a3a22df51954c3f53e",
   "capture_sources_verified": 34,
   "all_footage_new": true,
   "music_crossfades_seconds": 6,
