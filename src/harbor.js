@@ -98,7 +98,7 @@ function setSail(g) {
 }
 export function leaveHarbor(g) { return travel(g, () => setSail(g)); }
 // 오늘은 쉬기: 항구에서 날을 넘긴다 (오후부터). 항구에 그대로 있고, 다음 출항이 새 하루의 새벽이 된다
-const REST = { x: W - 62, y: H - 52, w: 98, h: 21 };
+const REST = { x: LEAVE.x, y: LEAVE.y - LEAVE.h - 4, w: LEAVE.w, h: LEAVE.h };      // 출항 버튼과 같은 크기로, 바로 위에
 const canRest = (g) => g.dayT >= DAY_SEC * 0.5;
 const restShown = (g) => !g.dayOver && g.story.seen.day && !g.panel && !g.talk;
 function rest(g) {
@@ -222,7 +222,7 @@ export function pointer(g, x, y) {
   if (g.scene === 'harbor') {
     if (!g.story.seen.sail) { if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 + 6 && Math.abs(y - LEAVE.y) < LEAVE.h / 2 + 6) leaveHarbor(g); return true; }   // 처음에는 출항 단추만 눌린다 (가게는 첫 낚시 뒤에)
     if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 && Math.abs(y - LEAVE.y) < LEAVE.h / 2) { leaveHarbor(g); return true; }
-    if (restShown(g) && Math.abs(x - REST.x) < REST.w / 2 + 2 && Math.abs(y - REST.y) < REST.h / 2 + 3) { rest(g); return true; }
+    if (restShown(g) && Math.abs(x - REST.x) < REST.w / 2 && Math.abs(y - REST.y) < REST.h / 2) { rest(g); return true; }
     if (Math.hypot(x - HDEX.x, y - HDEX.y) <= HDEX.r + 3) { openDex(g); return true; }
     if (Math.hypot(x - HMAP.x, y - HMAP.y) <= HMAP.r + 3) { openMap(g); return true; }
     for (let i = 0; i < HOUSES.length; i++) {
@@ -354,7 +354,7 @@ export function drawHarbor(ctx, g) {
   label(ctx, '출항', LEAVE.x, LEAVE.y, 12, COLORS.navy, 'center', 600, null);
   if (restShown(g)) {      // 오늘은 쉬기 (출항 버튼 위에 작게). 아직 이르면 흐리다
     ctx.save(); ctx.globalAlpha *= canRest(g) ? 1 : 0.55; ctx.drawImage(bt.img, REST.x - REST.w / 2, REST.y - REST.h / 2, REST.w, REST.h);
-    label(ctx, '오늘은 쉬기', REST.x, REST.y, 8.5, COLORS.navy, 'center', 600, null); ctx.restore();
+    label(ctx, '오늘은 쉬기', REST.x, REST.y, 12, COLORS.navy, 'center', 600, null); ctx.restore();
   }
   ctx.globalAlpha = 1;
 }
