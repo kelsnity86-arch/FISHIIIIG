@@ -12469,3 +12469,198 @@ one dialogue box, centred, with a little empty margin around it.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui_talk2.png
 ```
+
+## ㊿ 판의 아이콘을 한 가지 느낌으로 (칸 없는 줄에 올릴 것 전부)
+
+가게·기술·설정 판의 줄에서 네모 칸을 없앴다 (#408). 이제 아이콘이 종이 위에 바로 놓이는데, 지금은 장비는 맨 물건, 기술·설정은 둥근 메달, 가게 키우기는 작은 건물이라 판마다 느낌이 다르다. 모두 **틀 없는 물건 하나**로 맞춘다. 그림체와 분위기만 한 가지로 통일하면 된다.
+
+필요한 것 전부: 장비 40개(#410·#411), 기술·가게·마을·그 밖의 줄 13개(#412), 설정·잠시 멈춤 10개(#413), 바다 화면의 둥근 버튼 5개(#414). 줄과 대화창은 #408·#409.
+
+### 410. `ic_gear_a` — 장비 아이콘: 낚싯대·줄·릴 (각 8단계, 24개)
+
+```
+STYLE (the same for every piece in this order). Open assets/raw/storybook/components.png,
+assets/raw/storybook/panel.png and assets/raw/storybook/npc.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. They show this game's
+interface and people: a warm storybook look with cream parchment, brown wood, soft
+painterly brushwork, gentle warm light from the upper left, soft brown outlines (never
+black), muted natural colours with a few warm accents. Match that look exactly.
+Every icon in this order follows ONE rule so that they all feel like one family:
+- a single clear object painted directly on a fully transparent background;
+- NO frame, NO medallion, NO circle or square behind it, NO background scene, NO glow;
+- the same soft brown outline weight, the same light from the upper left, a small soft
+  shadow under the object;
+- the object fills its cell well, is centred, and reads clearly when shown very small;
+- crisp and large: every cell at least 400 pixels on its longer side, sharp edges, no blur.
+No text, letters or numbers anywhere.
+
+Paint 24 icons in a grid of 8 columns and 3 rows, with clear empty space between them.
+Each ROW is one kind of fishing gear shown in eight tiers, left (tier 1, humble) to right
+(tier 8, magnificent). Within a row the object keeps the same pose and size so the growth
+is easy to read; only material and decoration improve:
+tier 1 worn and patched · 2 plain and sound · 3 well made · 4 brass fittings ·
+5 polished with coloured trim · 6 fine engraving · 7 gold and gems · 8 pearly, dreamlike,
+softly luminous.
+
+Row 1: fishing rod (tier 1 a bent bamboo pole with string, up to tier 8 an elegant pearly
+       rod), drawn diagonally from lower left to upper right.
+Row 2: fishing line on a spool (tier 1 a frayed twine ball on a stick, up to tier 8 a
+       spool of shimmering silver-rainbow thread).
+Row 3: fishing reel seen from the side (tier 1 a crude wooden reel, up to tier 8 an
+       ornate golden reel with a pearl handle).
+
+Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ic_gear_a.png
+```
+
+### 411. `ic_gear_b` — 장비 아이콘: 배·옷 (각 8단계, 16개)
+
+```
+STYLE (the same for every piece in this order). Open assets/raw/storybook/components.png,
+assets/raw/storybook/panel.png and assets/raw/storybook/npc.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. They show this game's
+interface and people: a warm storybook look with cream parchment, brown wood, soft
+painterly brushwork, gentle warm light from the upper left, soft brown outlines (never
+black), muted natural colours with a few warm accents. Match that look exactly.
+Every icon in this order follows ONE rule so that they all feel like one family:
+- a single clear object painted directly on a fully transparent background;
+- NO frame, NO medallion, NO circle or square behind it, NO background scene, NO glow;
+- the same soft brown outline weight, the same light from the upper left, a small soft
+  shadow under the object;
+- the object fills its cell well, is centred, and reads clearly when shown very small;
+- crisp and large: every cell at least 400 pixels on its longer side, sharp edges, no blur.
+No text, letters or numbers anywhere.
+
+Paint 16 icons in a grid of 8 columns and 2 rows, with clear empty space between them.
+Each ROW is one kind of gear shown in eight tiers, left (tier 1, humble) to right (tier 8,
+magnificent), same pose and size along the row.
+
+Row 1: the fisher's boat seen from the side, small and simple like a toy: 1 a tiny
+       rowing boat · 2 a rowing boat with a patched sail · 3 a small fishing boat with a
+       cabin · 4 a fishing boat with a crane and net · 5 a sturdy iron-hulled boat with
+       frost on it · 6 a steam boat with a funnel · 7 a big brass research ship ·
+       8 a pearly fantasy sailing ship with two glowing sails.
+       These match the boats in assets/raw/storybook/boats.png (same branch).
+Row 2: the fisher's outfit shown as a hat and scarf together (no person): 1 a worn straw
+       hat with a plain scarf · 2 a neat straw hat with a blue scarf · 3 a canvas hat
+       with a striped scarf · 4 an oilskin hat with a red scarf · 5 a fur-lined hat with
+       a thick scarf · 6 a captain's cap with a fine scarf · 7 a gold-trimmed hat with a
+       silk scarf · 8 a pearly white hat with a softly shimmering scarf.
+
+Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ic_gear_b.png
+```
+
+### 412. `ic_rows` — 기술·가게 키우기·마을 키우기·그 밖의 줄 아이콘 (13개)
+
+```
+STYLE (the same for every piece in this order). Open assets/raw/storybook/components.png,
+assets/raw/storybook/panel.png and assets/raw/storybook/npc.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. They show this game's
+interface and people: a warm storybook look with cream parchment, brown wood, soft
+painterly brushwork, gentle warm light from the upper left, soft brown outlines (never
+black), muted natural colours with a few warm accents. Match that look exactly.
+Every icon in this order follows ONE rule so that they all feel like one family:
+- a single clear object painted directly on a fully transparent background;
+- NO frame, NO medallion, NO circle or square behind it, NO background scene, NO glow;
+- the same soft brown outline weight, the same light from the upper left, a small soft
+  shadow under the object;
+- the object fills its cell well, is centred, and reads clearly when shown very small;
+- crisp and large: every cell at least 400 pixels on its longer side, sharp edges, no blur.
+No text, letters or numbers anywhere.
+
+Paint 13 icons in a grid of 5 columns and 3 rows (the last row has 3), with clear empty
+space between them. In reading order:
+
+Row 1 (guild skills and special rows):
+ 1. Haggling: a small leather coin pouch with a few gold coins spilling out.
+ 2. Quick hands: a hand pulling a fishing line taut, with two short motion marks.
+ 3. Big catch: one big fish leaping, with a tiny crown-like splash under it.
+ 4. Heirloom outfit switch: an old folded scarf with a seashell pinned on it.
+ 5. Pass it on (next generation): an old fishing rod handed over, tied with a ribbon.
+
+Row 2 (make a shop bigger; each is that shop's trade object with a small upward arrow
+made of wood beside it):
+ 6. Fish market: a hand balance scale with a fish on one pan.
+ 7. Tackle shop: a fishing float and hook.
+ 8. Shipyard: an anchor crossed with a wooden mallet.
+ 9. Tailor: a spool of thread with a needle and a folded cloth.
+10. Guild: a round guild badge with a fish on it, on a rope.
+
+Row 3:
+11. Town hall: a small brass bell on a wooden bracket.
+12. Grow the town: a little signpost with a tiny house on top and the same wooden arrow.
+13. Padlock: a small brass padlock (shown on locked rows).
+
+Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ic_rows.png
+```
+
+### 413. `ic_settings` — 설정·잠시 멈춤 판의 아이콘 (10개)
+
+```
+STYLE (the same for every piece in this order). Open assets/raw/storybook/components.png,
+assets/raw/storybook/panel.png and assets/raw/storybook/npc.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. They show this game's
+interface and people: a warm storybook look with cream parchment, brown wood, soft
+painterly brushwork, gentle warm light from the upper left, soft brown outlines (never
+black), muted natural colours with a few warm accents. Match that look exactly.
+Every icon in this order follows ONE rule so that they all feel like one family:
+- a single clear object painted directly on a fully transparent background;
+- NO frame, NO medallion, NO circle or square behind it, NO background scene, NO glow;
+- the same soft brown outline weight, the same light from the upper left, a small soft
+  shadow under the object;
+- the object fills its cell well, is centred, and reads clearly when shown very small;
+- crisp and large: every cell at least 400 pixels on its longer side, sharp edges, no blur.
+No text, letters or numbers anywhere.
+
+Paint 10 icons in a grid of 5 columns and 2 rows, with clear empty space between them.
+In reading order:
+
+Row 1:
+ 1. Music: a single musical note carved from warm wood with a brass tip.
+ 2. Sound effects: a small brass ship's bell, tilted as if ringing, with two short marks.
+ 3. Ambient sound: one curling sea wave with a small white seagull above it.
+ 4. Window size: a small wooden window frame with four panes.
+ 5. Picture quality: a brass spyglass, extended.
+
+Row 2:
+ 6. Vibration: a red and white fishing float with small shake marks on both sides.
+ 7. Language: a small speech-bubble-shaped parchment note with three plain ink strokes
+    (not real letters).
+ 8. Carry on: a small boat's white sail filled with wind.
+ 9. Settings: a brass gear.
+10. Quit: a brass anchor with a short loop of rope.
+
+Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ic_settings.png
+```
+
+### 414. `ic_hud` — 화면의 둥근 버튼 5개 (크고 또렷하게)
+
+지금 것은 작게 와서(222픽셀) 큰 화면에서 무르다. 같은 모습으로 크게 다시 받는다. 이 다섯 개만은 누르는 버튼이라 둥근 틀을 그대로 둔다.
+
+```
+Open assets/raw/storybook/hud.png from the GitHub repository kelsnity86-arch/FISHIIIIG,
+branch claude/amazing-mendel-8fufxr. It contains this game's round on-screen buttons: a
+soft cream disc with a thin brown wooden ring, and one object painted inside in a warm
+storybook style (soft brown outlines, gentle light from the upper left).
+
+Paint FIVE round buttons that match those exactly in ring, disc, colours and brushwork,
+in ONE row with clear empty space between them. All five are exactly the same size.
+Inside, left to right:
+1. an open logbook
+2. a fishing hook with a small golden star
+3. a rolled sea chart
+4. a little lighthouse on a rock
+5. a brass gear
+
+Paint them large and crisp: each button at least 600 pixels across, sharp edges, no blur.
+No text. Fully transparent background outside the buttons.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ic_hud.png
+```
