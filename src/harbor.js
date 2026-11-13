@@ -2,7 +2,7 @@
 import { pickQuip } from './quips.js';
 import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
-import { W, H, COLORS } from './config.js';
+import { W, H, COLORS, DAY_SEC } from './config.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { startTalk, tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
@@ -68,7 +68,8 @@ export function enterHarbor(g) {
   return travel(g, () => {
     g.scene = 'harbor'; g.panel = null;
     // 들어오자마자 어창의 생물이 수산시장에서 팔린다
-    const quest = settleQuest(g);                                                   // 채운 의뢰의 보상을 받고, 새 의뢰가 걸린다
+    if (g.dayT >= DAY_SEC) g.dayOver = true;                                        // 밤이 끝나 돌아왔다: 다음 출항은 새 하루
+    const quest = g.quest && g.quest.done ? settleQuest(g) : 0; if (quest) g.quest = null;                     // 다 채운 의뢰만 삯을 받는다. 새 의뢰는 다음 날 걸린다 (채우지 못한 의뢰는 그대로 들고 있는다)
     if (quest) { g.gold += quest; g.msg = { text: `의뢰 삯  +${fmt(quest)} G`, color: '#ffe27a', age: -0.3 }; g.sfx.push(['coin', 6]); }
     if (g.cargo.length) {
       const full = g.cargo.length >= g.cargoMax && fullBonus(g.eco) > 1;            // 만선: 수산시장이 값을 더 쳐 준다
@@ -81,12 +82,34 @@ export function enterHarbor(g) {
     }
   });
 }
-export function leaveHarbor(g) { return travel(g, () => { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }); }   // 새 하루가 새벽에 시작된다
+// ── 하루 ── 하루는 항구에 들렀다고 넘어가지 않는다. 밤이 끝나 돌아왔거나(dayOver) 항구에서 '오늘은 쉬기'를 눌렀을 때만 새 하루가 된다.
+// 새 하루에만 다시 채워지는 것: 시간(새벽부터), 가족 사진(하루 한 번), 의뢰.
+//  · 다 채운 의뢰는 항구에서 삯을 받고, 새 의뢰는 다음 날 걸린다
+//  · 채우지 못한 의뢰는 그대로 들고 간다. 이틀을 넘겨도 못 채우면 그때 새 의뢰로 바뀐다 (들락거려 다시 뽑을 수 없게, 그러나 막히지는 않게)
+export function newDay(g) {
+  g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; g.dayOver = false; g.questToday = false; g.dirty = true;
+  const q = g.quest; if (q && !q.done && (q.days = (q.days || 0) + 1) >= 2) q.stale = true;      // 다음 출항 때 다른 종류의 새 의뢰로 바뀐다
+}
+// 바다로 나갈 때: 날이 넘어갔으면 새 하루를 열고, 오늘 걸 의뢰가 아직 없으면 건다 (의뢰는 첫 낚시를 마친 뒤부터)
+function setSail(g) {
+  g.scene = 'sea'; g.panel = null;
+  if (g.dayOver) newDay(g);
+  if ((!g.quest || g.quest.stale) && !g.questToday && g.story.seen.card) { g.quest = newQuest(g); g.questToday = true; g.dirty = true; }
+}
+export function leaveHarbor(g) { return travel(g, () => setSail(g)); }
+// 오늘은 쉬기: 항구에서 날을 넘긴다 (오후부터). 항구에 그대로 있고, 다음 출항이 새 하루의 새벽이 된다
+const REST = { x: W - 62, y: H - 52, w: 98, h: 21 };
+const canRest = (g) => g.dayT >= DAY_SEC * 0.5;
+const restShown = (g) => !g.dayOver && g.story.seen.day && !g.panel && !g.talk;
+function rest(g) {
+  if (!canRest(g)) { g.msg = { text: '아직 해가 높다 · 오후부터 쉴 수 있다', color: '#ffd0c0', age: 0 }; g.sfx.push(['deny']); return; }
+  travel(g, () => { g.dayOver = true; g.dirty = true; g.msg = { text: '푹 쉬었다 · 다음 출항은 새 하루의 새벽', color: '#cfd8ff', age: -0.2 }; });
+}
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
   travel(g, () => {
-    if (g.scene === 'harbor') { g.scene = 'sea'; g.panel = null; g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; }   // 항구에서 골랐으면 그 바다로 출항 (새 하루)
-    g.region = n; g.msg = { text: n === 9 ? REGIONS[9] : `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g);
+    const sail = g.scene === 'harbor'; g.region = n; if (sail) setSail(g);   // 항구에서 골랐으면 그 바다로 출항 (의뢰는 가는 바다의 것으로 걸린다)
+    g.msg = { text: n === 9 ? REGIONS[9] : `${n}번 해역 · ${REGIONS[n]}`, color: '#fff4dc', age: -0.2 }; storyRegion(g);
   });
 }
 function nextRegion(g) {
@@ -151,7 +174,7 @@ function nextGen(g) {
   travel(g, () => {
     const f = newEconomy();
     Object.assign(g.eco.gear, f.gear); Object.assign(g.eco.skill, f.skill); Object.assign(g.eco.shop, f.shop); g.eco.town = 1;
-    g.gen = (g.gen || 0) + 1; g.gold = 0; g.goldShown = 0; g.region = 1; g.cargo.length = 0; g.cargoMax = cargoMax(g.eco); g.dayT = 0;
+    g.gen = (g.gen || 0) + 1; g.gold = 0; g.goldShown = 0; g.region = 1; g.cargo.length = 0; g.cargoMax = cargoMax(g.eco); g.dayT = 0; g.dayOver = false; g.savedToday = false; g.questToday = false;
     g.quest = null; g.panel = null; g.scene = 'harbor'; g.msg = null; g.dirty = true;
     g.story.seen.gen = 0; g.pendingGen = true;
   });
@@ -162,7 +185,7 @@ const lastQuip = {};
 export function openPanel(g, id) {
   const who = id === 'skills' ? 'guild' : id; let quip = lastQuip[who] = pickQuip(who, TOWN_LOOK[g.eco.town], lastQuip[who]);      // 주인의 한마디: 열 때마다 하나
   if (id === 'hall' && g.dexNews) { quip = g.dexNews.stage === 2 ? `${dexName(g.dexNews.r)} 도감을 다 채웠다고? 장하구나!` : `${dexName(g.dexNews.r)} 도감이 절반을 넘었구나. 에헴!`; g.dexNews = null; g.dirty = true; }      // 도감 소식을 들은 시장
-  if (who === 'guild' && !g.quest) g.quest = newQuest(g);
+  if (who === 'guild' && !g.quest && !g.questToday) { g.quest = newQuest(g); g.questToday = true; }      // 오늘 의뢰를 아직 받지 않았을 때만 (하루에 하나)
   g.panel = { id, t: 0, hit: -1, hitT: 0, closing: null, quip };
 }
 function closePanel(g) { if (g.panel && g.panel.closing == null) { g.panel.closing = 0; g.sfx.push(['paper']); } }      // 뚝 사라지지 않고 스르르 닫힌다
@@ -199,6 +222,7 @@ export function pointer(g, x, y) {
   if (g.scene === 'harbor') {
     if (!g.story.seen.sail) { if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 + 6 && Math.abs(y - LEAVE.y) < LEAVE.h / 2 + 6) leaveHarbor(g); return true; }   // 처음에는 출항 단추만 눌린다 (가게는 첫 낚시 뒤에)
     if (Math.abs(x - LEAVE.x) < LEAVE.w / 2 && Math.abs(y - LEAVE.y) < LEAVE.h / 2) { leaveHarbor(g); return true; }
+    if (restShown(g) && Math.abs(x - REST.x) < REST.w / 2 + 2 && Math.abs(y - REST.y) < REST.h / 2 + 3) { rest(g); return true; }
     if (Math.hypot(x - HDEX.x, y - HDEX.y) <= HDEX.r + 3) { openDex(g); return true; }
     if (Math.hypot(x - HMAP.x, y - HMAP.y) <= HMAP.r + 3) { openMap(g); return true; }
     for (let i = 0; i < HOUSES.length; i++) {
@@ -328,6 +352,10 @@ export function drawHarbor(ctx, g) {
   ctx.globalAlpha = g.leaveA;
   ctx.drawImage(bt.img, LEAVE.x - LEAVE.w / 2, LEAVE.y - LEAVE.h / 2, LEAVE.w, LEAVE.h);
   label(ctx, '출항', LEAVE.x, LEAVE.y, 12, COLORS.navy, 'center', 600, null);
+  if (restShown(g)) {      // 오늘은 쉬기 (출항 버튼 위에 작게). 아직 이르면 흐리다
+    ctx.save(); ctx.globalAlpha *= canRest(g) ? 1 : 0.55; ctx.drawImage(bt.img, REST.x - REST.w / 2, REST.y - REST.h / 2, REST.w, REST.h);
+    label(ctx, '오늘은 쉬기', REST.x, REST.y, 8.5, COLORS.navy, 'center', 600, null); ctx.restore();
+  }
   ctx.globalAlpha = 1;
 }
 
