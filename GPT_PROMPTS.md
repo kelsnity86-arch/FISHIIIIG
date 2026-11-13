@@ -12084,3 +12084,47 @@ Fully transparent background. Eleven pieces in total.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name dex_index.png
 ```
+
+### 399. `dex_index2` — 인덱스 꼬리표 11개 (낡은 책에 어울리게 다시)
+
+#398의 스티커는 반들반들한 비닐 스티커라 가죽과 양피지로 된 낡은 책 위에서 따로 논다. 같은 쓰임(책장 사이에 끼워 옆으로 삐져나온 표시)이되, 이 책의 주인이 손으로 만들어 끼운 꼬리표로 다시 그린다.
+
+```
+Style reference: open assets/raw/ui_dex.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). It shows this game's logbook: an old leather-bound
+book with brass corners and warm, worn parchment pages, in a soft painterly storybook
+style. The new pieces must look like they belong to THIS book.
+
+Paint ELEVEN small bookmark tabs: little hand-cut strips that an old fisherman glued
+between the pages of this logbook so that their ends poke out sideways past the page
+edge. They are NOT modern plastic stickers. Each is a strip of dyed paper or thin dyed
+cloth, matte, a little faded and worn, with slightly uneven hand-cut edges, softly
+rounded or snipped corners at the outer (right) end, a faint fibre or weave texture, a
+slightly darker stained rim, and a soft shadow underneath. No gloss, no highlight shine,
+no white label box, no border frame, no letters, numbers or symbols. The whole strip is
+one colour so that a dark brown hand-written character can be placed directly on it.
+
+Every tab has the same size and lies HORIZONTALLY, a little more than twice as wide as
+tall. The left third (the part hidden between the pages) can simply be the same strip,
+slightly darker. Make each one very slightly different in outline, as if cut by hand.
+
+Arrange them in a grid: 4 in the first row, 4 in the second row, 3 in the third row,
+with plenty of empty space between them. Colours, in reading order. They must be clearly
+different from each other at a glance, medium-strong but dusty and faded like natural
+dyes (not pastel, not neon), and light enough for dark brown writing to read:
+ 1. sky blue
+ 2. sea green / teal
+ 3. grey-green (misty sage)
+ 4. deep blue
+ 5. pale ice white with a cool blue tinge (clearly lighter than number 1)
+ 6. burnt orange
+ 7. dusky indigo (keep it mid-toned, not too dark)
+ 8. violet
+ 9. leaf green
+10. pearl ivory with a faint pink and blue sheen
+11. old leather brown
+
+Fully transparent background. Eleven pieces in total.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name dex_index2.png
+```
