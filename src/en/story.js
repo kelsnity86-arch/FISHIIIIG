@@ -22,7 +22,7 @@ export const EN_SCRIPT = {
   ],
   town_5: [
     "On market days the roads jam up. A Bustling Harbor. I never thought I'd see one again in my lifetime.",
-    "A customer brought me a scrap pulled off a fish. Not cloth, not leather. Light, and it never rots. That's new to me.",
+    "A customer brought me a scrap pulled off a fish. Not cloth, not leather. Light, and it never rots.",
   ],
   town_6: [
     "A ship from a far country dropped anchor here for the first time. They all came to see what you caught.",
