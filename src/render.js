@@ -64,12 +64,14 @@ function draw9(ctx, spr, x, y, w, h, edge = 0.28) {
   }
 }
 
+// 줄의 빛깔은 게이지를 따라간다: 느슨하면 흰빛 → 노랑 → 주황 → (끊어지기 직전) 빨강. 줄만 보고도 위험을 알 수 있게 일찍부터 분명히 변한다
 function lineColor(t) {
   const mix = (a, b, k) => a.map((v, i) => Math.round(lerp(v, b[i], clamp(k, 0, 1))));
-  let c = COLORS.lineSafe;
-  if (t > 0.55) c = mix(COLORS.lineSafe, COLORS.lineWarn, (t - 0.55) / 0.2);
-  if (t > 0.8) c = mix(COLORS.lineWarn, COLORS.lineDanger, (t - 0.8) / 0.15);
-  return c;
+  const ORANGE = [255, 150, 50];
+  if (t <= 0.35) return COLORS.lineSafe;
+  if (t <= 0.6) return mix(COLORS.lineSafe, COLORS.lineWarn, (t - 0.35) / 0.25);
+  if (t <= 0.8) return mix(COLORS.lineWarn, ORANGE, (t - 0.6) / 0.2);
+  return mix(ORANGE, COLORS.lineDanger, (t - 0.8) / 0.14);
 }
 
 function drawEmote(ctx, g) {
@@ -651,7 +653,7 @@ function drawLineAndFloat(ctx, g, phase) {
       const gr = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y); gr.addColorStop(0, col(a0)); gr.addColorStop(1, col(a1)); return gr;
     };
     ctx.lineCap = 'round';
-    ctx.strokeStyle = paint(0.16 * alpha, 0.16 * fadeTo); ctx.lineWidth = width * 2.6; path(); ctx.stroke();   // 빛 번짐
+    { const gl = 0.16 + 0.12 * clamp((tension - 0.55) / 0.45, 0, 1); ctx.strokeStyle = paint(gl * alpha, gl * fadeTo); ctx.lineWidth = width * (2.6 + 0.7 * clamp((tension - 0.55) / 0.45, 0, 1)); path(); ctx.stroke(); }   // 빛 번짐: 팽팽할수록 진하고 굵게
     ctx.strokeStyle = paint(alpha, fadeTo); ctx.lineWidth = width; path(); ctx.stroke();
     return (u) => ({ x: (1 - u) * (1 - u) * p0.x + 2 * (1 - u) * u * cx + u * u * p1.x, y: (1 - u) * (1 - u) * p0.y + 2 * (1 - u) * u * cy + u * u * p1.y });
   };
@@ -684,11 +686,13 @@ function drawLineAndFloat(ctx, g, phase) {
     F.rot += (wantRot - F.rot) * Math.min(1, fdt * 9);      // 뚝 꺾이지 않고 부드럽게 따라간다
     const ex = bob.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
     stroke([entry, mp], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
-    stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
+    const at = stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
+    lineFx(ctx, g, at, entry, mp, tn, fdt, 'wake');
     drawFloat(ex, sy + bob.dip, F.rot + Math.sin(g.time * 9) * 0.05 * (1 - tn), true);      // 느슨할 때만 살짝 까딱인다
+    lineFx(ctx, g, at, entry, mp, tn, fdt, 'top');
     return;
   }
-  floatDrag.on = false;
+  floatDrag.on = false; LFX.on = false; LFX.sparks.length = 0;
   const wet = bob.inWater;
   const fy = wet ? bob.y : bob.y;
   const top = { x: bob.x, y: wet ? fy - fl.h * WATER + bob.dip : fy - fl.h * 0.2 };
@@ -696,6 +700,66 @@ function drawLineAndFloat(ctx, g, phase) {
   drawFloat(bob.x, wet ? fy + bob.dip + Math.sin(g.time * 2.3) * 0.5 : fy, wet ? Math.sin(g.time * 1.7) * 0.07 : 0, wet);
 }
 
+// ── 줄다리기 때 줄의 이펙트 (그림은 GPT: fx_glint·fx_spark_N·fx_wake. 오기 전에는 있는 그림으로 대신한다) ──
+//  · 감는 동안: 빛 알갱이가 찌에서 낚싯대 끝으로 줄을 타고 올라온다
+//  · 끊어지기 직전: 줄에서 불티가 튄다
+//  · 찌가 끌려갈 때: 줄이 물을 가르는 자리에 물살이 인다
+const LFX = { on: false, phase: 0, holdA: 0, lastX: 0, vx: 0, wakeA: 0, dir: -1, sparks: [], acc: 0 };
+const fxSprite = (name, fallback) => sprite(hasSprite(name) ? name : fallback);
+function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
+  const L = LFX, f = g.fight, fighting = g.state === 'fight' && f;
+  if (layer === 'wake') {
+    // 한 프레임에 한 번만 흐르게: 물살 쪽에서 시간을 보낸다
+    if (!L.on) { L.on = true; L.lastX = entry.x; L.vx = 0; L.wakeA = 0; L.holdA = 0; }
+    const v = dt > 0 ? (entry.x - L.lastX) / dt : 0; L.lastX = entry.x;
+    L.vx += (v - L.vx) * Math.min(1, dt * 6);
+    if (Math.abs(L.vx) > 4) L.dir = L.vx < 0 ? -1 : 1; else if (fighting && f.surging) L.dir = mp.x < entry.x ? -1 : 1;
+    const want = fighting ? clamp(Math.abs(L.vx) / 28, 0, 1) * (0.45 + 0.55 * tn) + (f.surging ? 0.55 : 0) : 0;
+    L.wakeA += (clamp(want, 0, 1) - L.wakeA) * Math.min(1, dt * 5);
+    L.holdA += ((fighting && g.hold && !f.surging ? 1 : 0) - L.holdA) * Math.min(1, dt * 7);
+    L.phase = (L.phase + dt * (0.35 + 0.75 * L.holdA)) % 1;
+    if (L.wakeA > 0.03) {
+      const sp = fxSprite('fx_wake', 'c_bowspray_2'), w = 26 + 12 * L.wakeA, h = w * sp.h / sp.w;
+      ctx.save(); ctx.globalAlpha = clamp(L.wakeA * 1.3, 0, 0.95); ctx.imageSmoothingEnabled = true;
+      ctx.translate(entry.x, entry.y + 1.5); ctx.scale(-L.dir, 1);      // 그림은 왼쪽으로 가를 때의 모습 (앞쪽에 물이 솟고 뒤로 꼬리가 남는다)
+      ctx.drawImage(sp.img, -w * 0.3, -h, w, h);
+      ctx.restore();
+    }
+    return;
+  }
+  // 감는 동안: 빛 알갱이 다섯이 줄을 타고 낚싯대 쪽으로 (양 끝에서는 서서히 나타나고 사라진다)
+  if (L.holdA > 0.03) {
+    const sp = fxSprite('fx_glint', 'fx_sparkle'), n = 5;
+    ctx.save(); ctx.imageSmoothingEnabled = true;
+    for (let i = 0; i < n; i++) {
+      const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = 5.5 + 2 * Math.sin(Math.PI * u);
+      ctx.globalAlpha = clamp(a * 0.95, 0, 1);
+      ctx.drawImage(sp.img, p.x - sz / 2, p.y - sz * sp.h / sp.w / 2, sz, sz * sp.h / sp.w);
+    }
+    ctx.restore();
+  }
+  // 끊어지기 직전: 불티. 게이지가 위험 구간에 깊이 들수록 많이 튄다
+  const danger = fighting ? clamp((f.tension / f.maxTension - 0.8) / 0.2, 0, 1) : 0;
+  L.acc += dt * danger * 34;
+  while (L.acc >= 1 && L.sparks.length < 40) {
+    L.acc -= 1;
+    const u = 0.08 + Math.random() * 0.86, p = at(u), an = -Math.PI / 2 + (Math.random() - 0.5) * 2.4, sp = 22 + Math.random() * 38;
+    L.sparks.push({ x: p.x, y: p.y, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp, age: 0, life: 0.28 + Math.random() * 0.3, rot: Math.random() * 6.3, vr: (Math.random() - 0.5) * 9, size: 3.5 + Math.random() * 3.5, k: 1 + Math.floor(Math.random() * 3) });
+  }
+  if (L.acc > 1) L.acc = 1;
+  if (L.sparks.length) {
+    ctx.save(); ctx.imageSmoothingEnabled = true;
+    for (let i = L.sparks.length - 1; i >= 0; i--) {
+      const q = L.sparks[i]; q.age += dt;
+      if (q.age >= q.life) { L.sparks.splice(i, 1); continue; }
+      q.vy += 120 * dt; q.x += q.vx * dt; q.y += q.vy * dt; q.rot += q.vr * dt;
+      const k = q.age / q.life, sp = fxSprite('fx_spark_' + q.k, 'fx_sparkle'), sz = q.size * (1 - k * 0.5);
+      ctx.globalAlpha = k < 0.3 ? 1 : 1 - (k - 0.3) / 0.7;
+      ctx.save(); ctx.translate(q.x, q.y); ctx.rotate(q.rot); ctx.drawImage(sp.img, -sz / 2, -sz * sp.h / sp.w / 2, sz, sz * sp.h / sp.w); ctx.restore();
+    }
+    ctx.restore();
+  }
+}
 const floatDrag = { on: false, rot: 0, t: 0 };      // 걸린 뒤 찌가 누운 정도 (부드럽게 따라가도록 기억해 둔다)
 
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다

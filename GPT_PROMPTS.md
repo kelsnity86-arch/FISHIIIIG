@@ -11954,3 +11954,46 @@ outside the medallions.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name st_icons.png
 ```
+
+## ㊶ 줄다리기 때 줄의 이펙트
+
+줄 자체는 코드가 긋는 선이다. 그 위에 얹는 작은 그림 세 가지: 끊어지기 직전에 튀는 불티, 감는 동안 줄을 타고 흐르는 빛 알갱이, 줄이 물을 가르는 자리의 물살.
+
+### 396. `fx_line` — 불티 3개 · 빛 알갱이 2개 · 물살 2개
+
+```
+Style references: open assets/raw/h_skill.png and assets/raw/ui2_hud.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch) for the look of this game: soft
+painterly storybook rendering, warm and gentle, no hard black outlines.
+
+Paint one sheet of small effect pieces in that same soft painterly style, on a fully
+transparent background, arranged in THREE clearly separated rows with plenty of empty
+space between all pieces. Every piece is small and simple, because it is shown tiny.
+
+Row 1 (top): THREE ember sparks, side by side. Each is a tiny hot spark as from a
+strained rope about to snap: a bright yellow-white core, an orange to red edge, a soft
+warm glow around it, with one or two short tapering streaks. Make the three different:
+  - a small round ember with a short tail,
+  - a thin elongated streak spark,
+  - a little four-armed star-shaped spark.
+No black outline at all.
+
+Row 2 (middle): TWO soft light motes, side by side. Each is a small round drop of pale
+golden-white light with a soft glow that fades out smoothly at the edge, like a bead of
+light sliding along a thread. One is plain and round; the other has a tiny four-point
+twinkle in its centre. No outline, no hard edge.
+
+Row 3 (bottom): TWO small water wakes seen from the side, side by side, each standing on
+a flat water line at the bottom edge of its piece. This is the little wake made where a
+taut fishing line cuts through the surface while it is dragged to the LEFT: on the left
+a small curl of water pushed up with white foam at its tip, and behind it to the right a
+low thin tail of foam and a few droplets lying on the surface. Wide and low (about three
+times as wide as tall). Painted like the sea foam in this game: white foam, pale
+turquoise water, soft edges fading to transparent at the bottom and the right.
+  - first: a small gentle wake,
+  - second: a stronger one with a taller curl and more droplets.
+
+No text anywhere. Fully transparent background. Seven pieces in total.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_line.png
+```
