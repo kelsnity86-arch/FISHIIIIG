@@ -999,7 +999,7 @@ function drawHud(ctx, g) {
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
-    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2, H - 23, 10, '#4a2f14', { h: 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 화면 가운데, 바닥에서 조금 띄워서 */
+    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2, g.state === 'fight' ? H - 14 : H - 23, 10, '#4a2f14', { h: 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 화면 가운데, 바닥에서 조금 띄워서 */
   }
 
   if (!g.panel) drawMsg(ctx, g);

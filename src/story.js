@@ -382,7 +382,7 @@ export function drawHint(ctx, g) {
   // 글자 뒤에 짙은 띠를 깔아, 밝은 하늘이나 큰 생물 위에서도 읽힌다
   // 카드에 대한 안내는 화면 아래 오른쪽에: 위쪽에 두면 들어 올린 생물을 가린다 (아래 왼쪽은 카드, 가운데는 '낚았다!' 글자판)
   const low = h.text.startsWith('카드에 적힌'), cx = low ? 468 : W / 2, room = low ? 310 : W - 40;
-  ctx.font = `600 11px ${FONT}`; const w0 = ctx.measureText(h.text).width, size = w0 > room ? 11 * room / w0 : 11, tw = Math.min(w0, room) + 22, ty = low ? H - 11 + (1 - h.a) * 4 : 52 - (1 - h.a) * 4;
+  ctx.font = `600 11px ${FONT}`; const w0 = ctx.measureText(h.text).width, size = w0 > room ? 11 * room / w0 : 11, tw = Math.min(w0, room) + 22, ty = low ? H - 11 + (1 - h.a) * 4 : (g.scene === 'sea' && g.quest ? 66 : 52) - (1 - h.a) * 4;      /* 바다에서 의뢰 쪽지가 떠 있으면 그 아래로 */
   if (!plateText(ctx, 'ui_note', h.text, cx, ty, size, '#4a2f14', { h: 20, pad: 13 })) {      // 양피지 띠 그림이 오기 전: 짙은 띠
     ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(cx - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
     ctx.globalAlpha = h.a;
@@ -414,7 +414,14 @@ export function drawTalk(ctx, g) {
   // 가게 판이 열려 있으면 그 판 옆의 주인이 말하는 것으로 본다 (같은 사람이 둘 서 있지 않게)
   if (hasSprite(np) && !g.panel) { const n = sprite(np), nh = 132, nw = nh * n.w / n.h; ctx.drawImage(n.img, b.x - nw + 26, H - nh + 6 + (1 - a) * 10, nw, nh); }
   // 대화창: 양피지 판 그림의 양 끝과 가운데를 이어 붙인다 (전용 그림이 오면 'ui_talk' 로 바뀐다)
-  if (hasSprite('ui_talk')) { const s = sprite('ui_talk'); ctx.drawImage(s.img, b.x, y, b.w, b.h); }
+  if (hasSprite('ui_talk')) {      // 그림의 가로세로 비율이 대화창과 다르면 통째로 늘리지 않는다: 이름표가 있는 왼쪽과 오른쪽 끝은 제 비율로, 가운데의 민무늬 종이만 늘린다
+    const s = sprite('ui_talk'), im = s.img, iw = im.width, ih = im.height, k = b.h / ih, nat = iw * k;
+    if (Math.abs(nat - b.w) < 6) ctx.drawImage(im, b.x, y, b.w, b.h);
+    else { const L = 0.42, R = 0.1, lw = iw * L * k, rw = iw * R * k;
+      ctx.drawImage(im, 0, 0, iw * L, ih, b.x, y, lw, b.h);
+      ctx.drawImage(im, iw * (1 - R), 0, iw * R, ih, b.x + b.w - rw, y, rw, b.h);
+      ctx.drawImage(im, iw * L, 0, iw * (1 - L - R), ih, b.x + lw - 0.4, y, b.w - lw - rw + 0.8, b.h); }
+  }
   else {
     const im = sprite('h_row').img, sw = im.width, sh = im.height, k = b.h / sh, cap = sw * 0.03;
     ctx.drawImage(im, 0, 0, cap, sh, b.x, y, cap * k, b.h);

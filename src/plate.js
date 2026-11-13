@@ -22,12 +22,21 @@ export function plateText(ctx, key, str, x, y, size, color, { align = 'center', 
 
 // 가게·설정 판의 줄: 왼쪽에 네모 칸이 없는 줄. 아이콘은 종이 위에 바로 놓인다 (둥근 아이콘을 네모 칸에 넣으면 겹으로 보이고, 가게마다 느낌이 달라졌다).
 // 칸 없는 줄 그림(<이름>_plain)이 있으면 그것을 쓴다. 없으면 칸 있는 줄 그림의 조각을 옮겨 붙여 칸을 덮는다: 왼쪽 끝은 오른쪽 끝을 뒤집어 쓰고, 칸 자리는 가운데의 민무늬 종이를 늘려 덮는다.
+const patches = new Map();
 export function plainRow(ctx, key, r) {
   ctx.imageSmoothingEnabled = true;
   if (hasSprite(key + '_plain')) { ctx.drawImage(sprite(key + '_plain').img, r.x, r.y, r.w, r.h); return; }
-  const im = sprite(key).img, iw = im.width, ih = im.height, cap = 0.03, cover = 0.215;      // 줄 폭에 대한 비율: 둥근 끝의 폭, 네모 칸이 끝나는 자리
+  const im = sprite(key).img, iw = im.width, ih = im.height, cap = 0.03, cover = 0.26;      // 줄 폭에 대한 비율: 둥근 끝의 폭, 덮는 조각이 끝나는 자리 (네모 칸은 0.2쯤에서 끝난다)
   ctx.drawImage(im, r.x, r.y, r.w, r.h);
-  ctx.save(); ctx.translate(r.x + r.w * cap, r.y); ctx.scale(-1, 1); ctx.drawImage(im, iw * (1 - cap), 0, iw * cap, ih, 0, 0, r.w * cap, r.h); ctx.restore();
-  ctx.drawImage(im, iw * 0.3, 0, iw * 0.12, ih, r.x + r.w * cap - 0.3, r.y, r.w * (cover - cap) + 0.6, r.h);
+  let pc = patches.get(im);
+  if (!pc) {      // 덮는 조각은 한 번만 만든다. 오른쪽 끝은 서서히 풀어서 이음매가 보이지 않게 한다
+    pc = document.createElement('canvas'); pc.width = Math.ceil(iw * cover); pc.height = ih;
+    const q = pc.getContext('2d');
+    q.save(); q.translate(iw * cap, 0); q.scale(-1, 1); q.drawImage(im, iw * (1 - cap), 0, iw * cap, ih, 0, 0, iw * cap, ih); q.restore();
+    q.drawImage(im, iw * 0.3, 0, iw * (cover - cap), ih, iw * cap - 0.5, 0, iw * (cover - cap) + 1, ih);      // 늘리지 않고 같은 폭의 종이를 그대로 옮긴다 (결이 뭉개지지 않는다)
+    const g0 = q.createLinearGradient(iw * (cover - 0.05), 0, iw * cover, 0); g0.addColorStop(0, 'rgba(0,0,0,0)'); g0.addColorStop(1, 'rgba(0,0,0,1)');
+    q.globalCompositeOperation = 'destination-out'; q.fillStyle = g0; q.fillRect(iw * (cover - 0.05), 0, iw * 0.05 + 1, ih);
+    patches.set(im, pc);
+  }
+  ctx.drawImage(pc, r.x, r.y, r.w * cover, r.h);
 }
-
