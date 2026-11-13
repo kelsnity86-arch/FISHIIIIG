@@ -1,6 +1,7 @@
 // 설정 판: 두 쪽으로 나뉜다 — '소리'(배경음·효과음·환경음 막대)와 '그 밖'(창 크기(PC) / 화질·진동(폰), 언어). 가게 판과 같은 그림을 쓴다.
 // 오른쪽 위의 톱니 버튼으로 연다 (제목 화면, 항구, 바다에서 쉴 때).
 import { W, COLORS } from './config.js';
+import { TOWN_LOOK } from './economy.js';
 import { sprite, knownSprite } from './assets.js';
 import { initAudio, getVol, setVol, playSfx } from './audio.js';
 import { IS_PC, vibeLv, nextVibe } from './haptic.js';
@@ -121,9 +122,11 @@ export function drawSettings(ctx, g) {
   ctx.drawImage(rb.img, PANEL.x + PANEL.w / 2 - rw / 2 + 10 * PS, PANEL.y + 10 * PS, rw, rh);
   label(ctx, s.mode === 'pause' ? '잠시 멈춤' : '설정', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 10 * PS + rh * 0.42, 12.5, COLORS.navy);
   const cl = sprite('h_close'), c = closeRect(); ctx.drawImage(cl.img, c.x, c.y, c.w, c.h);
-  // 둥근 창: 톱니 (설정)
-  { const e = sprite('ui_ic_gear'), rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909, f = Math.min(rr * 1.45 / e.w, rr * 1.45 / e.h);
-    ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(e.img, rx - e.w * f / 2, ry - e.h * f / 2, e.w * f, e.h * f); ctx.restore(); }
+  // 둥근 창: 톱니 (설정). 가게 판의 상징처럼 창을 가득 채운다 — 줄 아이콘과 같은 그림(밤바다 위의 톱니)을 테두리가 잘려 나가도록 크게 넣는다
+  { const rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909;
+    const full = knownSprite('st_set'), e = sprite(full ? 'st_set' : 'ui_ic_gear'), d = rr * (full ? 2.66 : 1.45), f = Math.min(d / e.w, d / e.h);
+    ctx.save(); ctx.beginPath(); ctx.arc(rx, ry, rr, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(e.img, rx - e.w * f / 2, ry - e.h * f / 2, e.w * f, e.h * f); ctx.restore();
+  }
   if (s.mode === 'pause') label(ctx, '바다도 잠깐 쉬어 갑니다', PANEL.x + PANEL.w / 2 + 10 * PS, PANEL.y + 79, 9, '#6b4a2b');
   else TABS.forEach((name, i) => {      // 쪽 고르기: 고른 쪽은 나무 버튼, 다른 쪽은 흐린 버튼
     const t = tabRect(i), on = s.tab === i, b = sprite(on ? 'h_buy' : 'h_buy_off');
@@ -152,5 +155,10 @@ export function drawSettings(ctx, g) {
     label(ctx, value, r.x + r.w * 0.848, cy, vw > room ? 9.5 * room / vw : 9.5, '#4a2a08');
     ctx.restore();
   });
+  { const rx = PANEL.x + PANEL.w * 0.1503, ry = PANEL.y + ph * 0.1547, rr = PANEL.w * 0.0909, look = TOWN_LOOK[g.eco.town];
+    if (knownSprite('h_rim_' + look)) {      // 가게 판과 같은 테두리 장식 (마을 등급을 따른다). 아래로 늘어진 장식이 가려지지 않게 줄보다 나중에 그린다
+      const rim = sprite('h_rim_' + look), [hx, hy, hr] = rim.hole, dw = rr * 1.017 / hr;
+      ctx.drawImage(rim.img, rx + PANEL.w * 0.0005 - hx * dw, ry - PANEL.w * 0.0015 - hy * dw, dw, dw * rim.h / rim.w);
+    } }
   ctx.restore();
 }

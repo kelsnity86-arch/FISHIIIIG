@@ -685,12 +685,12 @@ function drawLineAndFloat(ctx, g, phase) {
     const mp = mouthPos(g), tn = clamp(tension, 0, 1), F = floatDrag, now = performance.now() / 1000, fdt = Math.min(0.05, now - F.t); F.t = now;
     const wantRot = clamp(Math.atan2(-(mp.x - tip.x), Math.max(6, mp.y - tip.y)), -1.35, 1.35);
     if (!F.on) { F.rot = wantRot * 0.3; F.on = true; }
-    F.rot += (wantRot - F.rot) * Math.min(1, fdt * 9);      // 뚝 꺾이지 않고 부드럽게 따라간다
+    F.rot += (wantRot - F.rot) * Math.min(1, fdt * 30);      // 줄과 같은 기울기 (걸린 순간에만 짧게 따라붙는다)
     const ex = bob.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
     stroke([entry, mp], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
     const at = stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
     lineFx(ctx, g, at, entry, mp, tn, fdt, 'wake');
-    drawFloat(ex, sy + bob.dip, F.rot + Math.sin(g.time * 9) * 0.05 * (1 - tn), true);      // 느슨할 때만 살짝 까딱인다
+    drawFloat(ex, sy, F.rot, true);      // 줄에 꿰인 채 그대로: 느슨하든 팽팽하든 따로 까딱이거나 잠기지 않는다
     lineFx(ctx, g, at, entry, mp, tn, fdt, 'top');
     return;
   }

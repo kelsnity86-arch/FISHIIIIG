@@ -656,7 +656,7 @@ function followLine(g, dt) {
   const tip = rodPose(g).tip, m = mouthPos(g);
   const k = clamp((WL - tip.y) / Math.max(1, m.y - tip.y), 0, 1);
   const ex = tip.x + (m.x - tip.x) * k;
-  g.bob.x = approach(g.bob.x, ex, 12, dt);
+  g.bob.x = approach(g.bob.x, ex, 40, dt);      // 줄에서 떨어지지 않게 바짝 따라간다
   g.bob.y = surfaceY(g, g.bob.x);
 }
 
