@@ -158,8 +158,8 @@ export function drawDex(ctx, g) {
   TABS.map((t, i) => [t, tabRect(i)]).sort((p, q) => q[1].k - p[1].k).forEach(([t, r]) => { const on = d.tab === t, out = on ? 4 : 0;
     const dim = on ? 1 : 1 - r.k * 0.016, gold = t !== 'R' && dexStage(g, t) === 2;
     ctx.save(); ctx.imageSmoothingEnabled = true; ctx.globalAlpha = a * (on ? 1 : 0.94);
-    ctx.beginPath(); ctx.rect(r.k === 0 ? r.x - 2 : tabEdge(r.k), r.y - 4, 80, r.h + 8); ctx.clip();      // 앞 장들에 덮인 쪽(붙은 쪽)은 보이지 않는다: 책장 사이에서 나온 것처럼
-    if (gold || dim < 0.995) ctx.filter = (gold ? 'sepia(1) saturate(2.6) ' : '') + `brightness(${(gold ? 1.06 : 1) * dim})`;
+    ctx.beginPath(); ctx.rect(tabEdge(r.k), r.y - 4, 80, r.h + 8); ctx.clip();      // 앞 장들에 덮인 쪽(붙은 쪽)은 보이지 않는다: 책장 사이에서 나온 것처럼
+    ctx.filter = (gold ? 'sepia(1) saturate(2.6) ' : 'sepia(0.38) saturate(1.15) ') + `brightness(${(gold ? 1.06 : 0.95) * dim})`;      // 새 스티커의 맑은 색을 낡은 양피지 빛에 맞춰 누렇게 바랜 느낌으로
     const [deg, dy, dx] = TAB_SKEW[r.k], cx = r.x + out + dx + r.w / 2, cy = r.y + dy + r.h / 2;
     ctx.translate(cx, cy); ctx.rotate(deg * Math.PI / 180);
     if (hasSprite(tabKey(t))) { const sp = sprite(tabKey(t)); ctx.drawImage(sp.img, -r.w / 2, -r.h / 2, r.w, r.h); }
