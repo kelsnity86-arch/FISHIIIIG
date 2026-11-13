@@ -1,0 +1,367 @@
+{
+  "source_commit": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+  "capture_commits": {
+    "01_title": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "02_intro": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "03_loop": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "04_uncommon": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "05_rare": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "06_epic": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "07_legendary": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "08_fantasy": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "09_sell": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "10_hall_fix": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "10_growth": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "25_outfit": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "26_skills": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "30_rest": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "11_harbor3": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "12_harbor5": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "13_harbor7": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "14_harbor8": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "15_map": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region2": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region3": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region4": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region5": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "29_linefx": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region7": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "16_region8": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "17_townending": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "18_relicbook": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "19_finale_fix": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "20_dex_before": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "21_unlock": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "22_primal_intro": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "23_primal_fish": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "27_endtitle": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584"
+  },
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "level": 42,
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "duration": "299.750000",
+        "nb_frames": "17985"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.750000",
+        "nb_frames": "14052"
+      },
+      {
+        "codec_name": "bin_data",
+        "codec_type": "data",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.750000",
+        "nb_frames": "7"
+      }
+    ],
+    "format": {
+      "duration": "299.750000",
+      "size": "200041956"
+    }
+  },
+  "frames_expected": 17985,
+  "frame_timing_errors": 0,
+  "decode_errors": 0,
+  "sha256": "94a965b97136ecf41e0894de1565efd163365d9b040a74402238cecd5d6998e9",
+  "capture_sources_verified": 34,
+  "all_footage_new": true,
+  "music_crossfades_seconds": 6,
+  "music_restarts_at_picture_cuts": false,
+  "game_source_changed": false,
+  "recording": "Actual game rendered once per 1/60-second update, with every frame captured. No optical-flow interpolation.",
+  "capture_runs": [
+    {
+      "mode": "a",
+      "returncode": 0,
+      "seconds": 507.8
+    },
+    {
+      "mode": "b",
+      "returncode": 0,
+      "seconds": 458.1
+    },
+    {
+      "mode": "c",
+      "returncode": 0,
+      "seconds": 392.5
+    }
+  ],
+  "browser_errors": 0,
+  "source_verification": {
+    "commit": "2c6cf21e75138c9f2b3c86a49aaa47fe715e4584",
+    "files": [
+      {
+        "file": "src/plate.js",
+        "sha256": "5cb94f74ed4dd0a5626e321320624990e4c7db1f677905000c32fc215160b91b",
+        "served_bytes_match": true
+      },
+      {
+        "file": "src/story.js",
+        "sha256": "94c31449e08ba79fe06ef475f37b38d3be37d45ff47106dd73c14cbab4adc74a",
+        "served_bytes_match": true
+      },
+      {
+        "file": "src/harbor.js",
+        "sha256": "b8774c309c171ef927443d901af2f591c6206611f9c86ee47f492e275c6f5128",
+        "served_bytes_match": true
+      },
+      {
+        "file": "src/settings.js",
+        "sha256": "44f13f86484f75207fcb4d4a8fafc1e624cf645bfd13c791eb1cb56968f5775e",
+        "served_bytes_match": true
+      },
+      {
+        "file": "src/audio.js",
+        "sha256": "a8fbec19b5e7f18edfad2e4c625508b71778046eff24a9e47dc2dcfd37cdbf7c",
+        "served_bytes_match": true
+      }
+    ]
+  },
+  "music_engine_sha256": "a8fbec19b5e7f18edfad2e4c625508b71778046eff24a9e47dc2dcfd37cdbf7c",
+  "motion_sample_check": [
+    {
+      "source": "03_loop",
+      "start": 10,
+      "frames": 300,
+      "identical_adjacent_frames": 0,
+      "longest_identical_run_frames": 0,
+      "mean_frame_change": 0.672437716771956
+    },
+    {
+      "source": "04_uncommon",
+      "start": 1,
+      "frames": 240,
+      "identical_adjacent_frames": 0,
+      "longest_identical_run_frames": 0,
+      "mean_frame_change": 8.25245978130327
+    },
+    {
+      "source": "08_fantasy",
+      "start": 4,
+      "frames": 240,
+      "identical_adjacent_frames": 0,
+      "longest_identical_run_frames": 0,
+      "mean_frame_change": 8.542597725863939
+    },
+    {
+      "source": "16_region2",
+      "start": 1,
+      "frames": 180,
+      "identical_adjacent_frames": 0,
+      "longest_identical_run_frames": 0,
+      "mean_frame_change": 0.03529216454583075
+    }
+  ],
+  "music_cut_check": {
+    "cut_windows": [
+      {
+        "at": 7.0,
+        "rms_dbfs": -27.45
+      },
+      {
+        "at": 10.8,
+        "rms_dbfs": -23.4
+      },
+      {
+        "at": 14.6,
+        "rms_dbfs": -25.1
+      },
+      {
+        "at": 18.4,
+        "rms_dbfs": -25.38
+      },
+      {
+        "at": 22.2,
+        "rms_dbfs": -17.96
+      },
+      {
+        "at": 26.0,
+        "rms_dbfs": -27.86
+      },
+      {
+        "at": 29.8,
+        "rms_dbfs": -24.18
+      },
+      {
+        "at": 57.8,
+        "rms_dbfs": -26.67
+      },
+      {
+        "at": 65.8,
+        "rms_dbfs": -25.26
+      },
+      {
+        "at": 73.8,
+        "rms_dbfs": -21.07
+      },
+      {
+        "at": 81.8,
+        "rms_dbfs": -25.91
+      },
+      {
+        "at": 89.8,
+        "rms_dbfs": -23.93
+      },
+      {
+        "at": 96.8,
+        "rms_dbfs": -22.59
+      },
+      {
+        "at": 107.8,
+        "rms_dbfs": -28.45
+      },
+      {
+        "at": 113.8,
+        "rms_dbfs": -28.47
+      },
+      {
+        "at": 120.8,
+        "rms_dbfs": -22.15
+      },
+      {
+        "at": 129.0,
+        "rms_dbfs": -19.14
+      },
+      {
+        "at": 136.3,
+        "rms_dbfs": -30.01
+      },
+      {
+        "at": 139.8,
+        "rms_dbfs": -26.55
+      },
+      {
+        "at": 143.3,
+        "rms_dbfs": -22.05
+      },
+      {
+        "at": 150.3,
+        "rms_dbfs": -26.55
+      },
+      {
+        "at": 153.3,
+        "rms_dbfs": -28.58
+      },
+      {
+        "at": 156.3,
+        "rms_dbfs": -19.5
+      },
+      {
+        "at": 159.3,
+        "rms_dbfs": -33.05
+      },
+      {
+        "at": 162.3,
+        "rms_dbfs": -26.3
+      },
+      {
+        "at": 167.3,
+        "rms_dbfs": -23.33
+      },
+      {
+        "at": 170.55,
+        "rms_dbfs": -25.07
+      },
+      {
+        "at": 173.8,
+        "rms_dbfs": -21.93
+      },
+      {
+        "at": 177.05,
+        "rms_dbfs": -22.15
+      },
+      {
+        "at": 180.3,
+        "rms_dbfs": -26.54
+      },
+      {
+        "at": 183.55,
+        "rms_dbfs": -26.78
+      },
+      {
+        "at": 186.8,
+        "rms_dbfs": -21.62
+      },
+      {
+        "at": 190.05,
+        "rms_dbfs": -24.08
+      },
+      {
+        "at": 194.05,
+        "rms_dbfs": -24.8
+      },
+      {
+        "at": 198.05,
+        "rms_dbfs": -24.61
+      },
+      {
+        "at": 205.05,
+        "rms_dbfs": -23.15
+      },
+      {
+        "at": 242.25,
+        "rms_dbfs": -22.57
+      },
+      {
+        "at": 247.25,
+        "rms_dbfs": -27.11
+      },
+      {
+        "at": 262.25,
+        "rms_dbfs": -23.98
+      },
+      {
+        "at": 266.65,
+        "rms_dbfs": -24.1
+      },
+      {
+        "at": 271.05,
+        "rms_dbfs": -23.86
+      },
+      {
+        "at": 275.45,
+        "rms_dbfs": -21.37
+      },
+      {
+        "at": 279.85,
+        "rms_dbfs": -26.09
+      },
+      {
+        "at": 284.25,
+        "rms_dbfs": -24.34
+      },
+      {
+        "at": 293.75,
+        "rms_dbfs": -25.15
+      }
+    ],
+    "lowest_cut_rms_dbfs": -33.05,
+    "continuous_music_samples": 14388000
+  },
+  "visual_review": {
+    "checked": [
+      "Opening title and Korean dialogue readability",
+      "Fishing instructions separated from the tension gauge",
+      "Shop subtitles separated from the native hold-to-upgrade hint",
+      "Moon-whale catch, final unlock map, and primal mackerel frames in the completed MP4",
+      "Ending sequence contact sheet"
+    ],
+    "shop_caption_y": 995,
+    "grade_reveal_cut_start_seconds": 1
+  }
+}
