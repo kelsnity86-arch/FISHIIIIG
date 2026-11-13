@@ -12245,3 +12245,33 @@ around it.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_boat_foam.png
 ```
+
+## ㊻ 항구: 건물 이름판
+
+항구의 건물 아래에 붙는 이름표(예: "수산시장 Lv.3")가 지금은 반투명한 검은 띠다. 마을 분위기에 맞는 나무 이름판으로 바꾼다. 글자는 게임이 쓰고, 글 길이에 맞춰 가운데를 가로로 늘려 쓴다.
+
+### 403. `h_sign` — 나무 이름판 (글자 없음)
+
+```
+Style references: open assets/raw/h_town_1.png and assets/raw/h_panel.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch): a cosy storybook fishing harbour
+painted in a soft painterly style, and this game's shop panel made of warm wood,
+parchment, rope and brass.
+
+Paint ONE small blank name board of the kind that would hang under a shop in this
+harbour: a long, low plank of weathered warm wood, lying horizontally, about six times
+as wide as tall.
+- Both short ends are softly rounded and each end is bound with a little wrap of rope
+  and one small brass nail head.
+- The long middle part between the two ends is completely plain and even: the same
+  light, sun-bleached wood with only a faint, straight horizontal grain, no knots, no
+  cracks, no decorations, no nails. (The middle will be stretched sideways to fit names
+  of different lengths, so it must look the same all the way across.)
+- A thin darker wood edge runs along the top and bottom. A very soft shadow underneath.
+- The wood in the middle is pale enough that dark brown lettering on it is easy to read.
+
+No text, letters or symbols. Fully transparent background. Only this one board, centred,
+seen straight from the front, with a little empty margin around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name h_sign.png
+```
