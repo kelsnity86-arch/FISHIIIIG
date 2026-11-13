@@ -655,7 +655,7 @@ function drawLineAndFloat(ctx, g, phase) {
       const gr = ctx.createLinearGradient(p0.x, p0.y, p1.x, p1.y); gr.addColorStop(0, col(a0)); gr.addColorStop(1, col(a1)); return gr;
     };
     ctx.lineCap = 'round';
-    { const gl = 0.16 + 0.12 * clamp((tension - 0.55) / 0.45, 0, 1); ctx.strokeStyle = paint(gl * alpha, gl * fadeTo); ctx.lineWidth = width * zk * (2.6 + 0.7 * clamp((tension - 0.55) / 0.45, 0, 1)); path(); ctx.stroke(); }   // 빛 번짐: 팽팽할수록 진하고 굵게
+    { const gl = 0.16 + 0.12 * clamp((tension - 0.55) / 0.45, 0, 1) + (lT >= 6 ? 0.1 : 0); ctx.strokeStyle = paint(gl * alpha, gl * fadeTo); ctx.lineWidth = width * zk * (2.6 + 0.7 * clamp((tension - 0.55) / 0.45, 0, 1)) * (lT >= 6 ? 1.6 : lT >= 4 ? 1.3 : 1);      /* 좋은 줄일수록 빛 번짐이 넓고(4단계~), 은은하게 빛난다(6단계~) */ path(); ctx.stroke(); }   // 빛 번짐: 팽팽할수록 진하고 굵게
     ctx.strokeStyle = paint(alpha, fadeTo); ctx.lineWidth = width * zk; path(); ctx.stroke();
     return (u) => ({ x: (1 - u) * (1 - u) * p0.x + 2 * (1 - u) * u * cx + u * u * p1.x, y: (1 - u) * (1 - u) * p0.y + 2 * (1 - u) * u * cy + u * u * p1.y });
   };
@@ -688,13 +688,23 @@ function drawLineAndFloat(ctx, g, phase) {
     F.rot += (wantRot - F.rot) * Math.min(1, fdt * 30);      // 줄과 같은 기울기 (걸린 순간에만 짧게 따라붙는다)
     const ex = bob.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
     stroke([entry, mp], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
+    if (lT === 8) {      // 8단계 줄: 줄이 지나간 자리에 옅은 잔상이 남는다
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineWidth = 0.95 * zk;
+      LFX.trail.forEach((q, i) => { ctx.strokeStyle = `rgba(${r},${gg},${b},${0.05 + 0.045 * i})`; ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.quadraticCurveTo(q[2], q[3], q[4], q[5]); ctx.stroke(); });
+      ctx.restore();
+    }
     const at = stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
+    if (lT === 8) {      // 잔상용으로 줄의 모양을 조금씩 적어 둔다 (0.045초마다, 넷까지)
+      LFX.trailT += fdt;
+      if (LFX.trailT >= 0.045) { LFX.trailT = 0; const a0 = at(0), am = at(0.5), a1 = at(1); LFX.trail.push([a0.x, a0.y, 2 * am.x - (a0.x + a1.x) / 2, 2 * am.y - (a0.y + a1.y) / 2, a1.x, a1.y]); if (LFX.trail.length > 4) LFX.trail.shift(); }
+    }
+    LFX.tier = lT;
     lineFx(ctx, g, at, entry, mp, tn, fdt, 'wake');
     drawFloat(ex, sy, F.rot, true);      // 줄에 꿰인 채 그대로: 느슨하든 팽팽하든 따로 까딱이거나 잠기지 않는다
     lineFx(ctx, g, at, entry, mp, tn, fdt, 'top');
     return;
   }
-  floatDrag.on = false; LFX.on = false; LFX.sparks.length = 0;
+  floatDrag.on = false; LFX.on = false; LFX.sparks.length = 0; LFX.trail.length = 0;
   const wet = bob.inWater;
   const fy = wet ? bob.y : bob.y;
   const top = { x: bob.x, y: wet ? fy - fl.h * WATER + bob.dip : fy - fl.h * 0.2 };
@@ -703,10 +713,12 @@ function drawLineAndFloat(ctx, g, phase) {
 }
 
 // ── 줄다리기 때 줄의 이펙트 (그림은 GPT: fx_glint·fx_spark_N·fx_wake. 오기 전에는 있는 그림으로 대신한다) ──
-//  · 감는 동안: 빛 알갱이가 찌에서 낚싯대 끝으로 줄을 타고 올라온다
+//  · 감는 동안: 빛 알갱이가 찌에서 낚싯대 끝으로 줄을 타고 올라온다. 줄 단계마다 알갱이가 다르다:
+//      1 없음 · 2 흰 빛 · 3 물방울 · 4 잎사귀 빛 · 5 물결 빛 · 6 보랏빛 별 · 7 금빛 불꽃 · 8 무지갯빛 · 9(태초) 진주빛. 개수도 3 → 5 → 7 로 는다
+//      (줄의 빛깔은 게이지 신호라서 단계와 상관없이 같다. 불티와 물살도 같다)
 //  · 끊어지기 직전: 줄에서 불티가 튄다
 //  · 찌가 끌려갈 때: 줄이 물을 가르는 자리에 물살이 인다
-const LFX = { on: false, phase: 0, holdA: 0, lastX: 0, vx: 0, wakeA: 0, dir: -1, sparks: [], acc: 0 };
+const LFX = { on: false, phase: 0, holdA: 0, lastX: 0, vx: 0, wakeA: 0, dir: -1, sparks: [], acc: 0, tier: 1, trail: [], trailT: 0 };
 const fxSprite = (name, fallback) => sprite(hasSprite(name) ? name : fallback);
 function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
   const L = LFX, f = g.fight, fighting = g.state === 'fight' && f;
@@ -736,11 +748,11 @@ function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
     return;
   }
   // 감는 동안: 빛 알갱이 다섯이 줄을 타고 낚싯대 쪽으로 (양 끝에서는 서서히 나타나고 사라진다)
-  if (L.holdA > 0.03) {
-    const n = 5;
+  if (L.holdA > 0.03 && L.tier >= 2) {
+    const n = L.tier <= 3 ? 3 : L.tier <= 6 ? 5 : 7;
     ctx.save(); ctx.imageSmoothingEnabled = true;
     for (let i = 0; i < n; i++) {
-      const sp = fxSprite('fx_glint_' + (1 + i % 2), 'fx_sparkle');
+      const plain = 'fx_glint_' + (1 + i % 2), sp = L.tier >= 3 && hasSprite('fx_mote_' + L.tier) ? sprite('fx_mote_' + L.tier) : fxSprite(plain, 'fx_sparkle');      // 제 그림이 오기 전에는 흰 빛 알갱이
       const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = 8 + 3 * Math.sin(Math.PI * u);
       ctx.globalAlpha = clamp(a * 0.95, 0, 1);
       ctx.drawImage(sp.img, p.x - sz / 2, p.y - sz * sp.h / sp.w / 2, sz, sz * sp.h / sp.w);

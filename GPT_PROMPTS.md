@@ -11997,3 +11997,42 @@ No text anywhere. Fully transparent background. Seven pieces in total.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name fx_line.png
 ```
+
+## ㊷ 줄 단계마다 다른 빛 알갱이
+
+감는 동안 줄을 타고 흐르는 빛 알갱이가 줄 단계마다 다르다. 2단계는 #396의 흰 빛 알갱이를 쓰고, 3단계부터 태초까지 일곱 가지가 더 필요하다.
+
+### 397. `fx_motes` — 빛 알갱이 7개
+
+```
+Style reference: open assets/raw/fx_line.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Its middle row shows two soft light motes: a
+small round drop of pale golden-white light with a soft glow that fades out smoothly at
+the edge, with no outline and no hard edge.
+
+Paint SEVEN more light motes that belong to exactly this set: the same size, the same
+soft painterly glow fading smoothly to transparent, no outline, no hard edge. Each one is
+a small bead of light that slides along a fishing line, so each must be simple and read
+clearly when shown tiny. Arrange them in ONE row, left to right, with plenty of empty
+space between them, on a fully transparent background. In order:
+
+1. Water drop: a small clear teardrop of pale blue-white water with a tiny highlight and
+   a faint cool glow.
+2. Leaf light: a small glowing fresh-green mote with the soft shape of one tiny leaf in
+   its centre, pale green glow.
+3. Wave light: a glowing sky-blue mote with a tiny white curl of foam in its centre like
+   a miniature wave crest, blue glow.
+4. Violet star: a soft glowing purple mote with a small bright four-point star in its
+   centre, violet glow.
+5. Golden flame: a warm golden mote shaped like a tiny candle flame, bright yellow core,
+   orange-gold glow.
+6. Rainbow: a white-cored mote whose soft glow shifts gently through pastel rainbow
+   colours around it.
+7. Pearl: a small round pearl of warm ivory light with a soft pink and pale blue sheen,
+   gentle white glow.
+
+No text anywhere. Fully transparent background. Seven pieces in total, all about the same
+size as the motes in the reference.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name fx_motes.png
+```
