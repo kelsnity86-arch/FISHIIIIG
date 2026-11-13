@@ -3,7 +3,7 @@
 import {
   DAY_SEC, phaseAt,
   W, H, WL, BOAT_X, CAST_NEAR, CAST_FAR, ROD_LEN, DEEP, LEAP_X, LEAP_SCALE, SHADOW_LEN,
-  TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, TOUGH, GRADES,
+  TIMING, FIGHT, FIGHT_MODES, SURGE_MODES, TELEGRAPH, TOUGH, TOUGH_BOSS, BOSS, GRADES,
 } from './config.js';
 import { rollCreature } from './creatures.js';
 import { updateTravel, updateHarbor, enterHarbor } from './harbor.js';
@@ -407,6 +407,9 @@ function startWait(g) {
   if (!g.fish.fixedSize) g.fish.meters *= sizeMult(g.eco);                                                    // 큰 개체: 몸길이
   g.fish.power = clamp(g.fish.power * pullOf(g.eco, Math.min(8, g.region)), 0.2, 6);      // 태초의 바다(9)는 8번 해역만큼만 세다 (그보다 좋은 장비가 없다)                // 낚싯대에 비해 얼마나 세게 날뛰는가
   g.fish.strain = clamp(strainOf(g.eco, Math.min(8, g.region)), 0.45, 6);      // 하한을 낮춰, 같은 바다에서도 줄 강화가 +5쯤까지 계속 체감된다                           // 줄에 비해 장력이 얼마나 빨리 차는가
+  // 오래된 물건을 다 찾은 뒤의 환상종 = 바다의 주인: 장비가 아무리 좋아도 얕보이지 않는다 (힘의 바닥이 있다)
+  g.fish.boss = g.fish.isFantasy && g.relics >= RELICS.length;
+  if (g.fish.boss) { g.fish.power = Math.max(g.fish.power, BOSS.power); g.fish.strain = Math.max(g.fish.strain, BOSS.strain); }
   preloadCreature(g.fish.sprite, g.fish.sprite2);     // 그림자가 다가오는 동안 그림을 받아 둔다
 
   const L = SHADOW_LEN, fx = g.castX;     // 그림자는 등급과 상관없이 모두 같은 크기
@@ -496,7 +499,7 @@ function startFight(g) {
   setState(g, 'fight');
 }
 
-const toughOf = (g) => TOUGH[GRADES.indexOf(g.fish.gradeInfo)] || TOUGH[0];
+const toughOf = (g) => g.fish.boss ? TOUGH_BOSS : TOUGH[GRADES.indexOf(g.fish.gradeInfo)] || TOUGH[0];
 function chooseMode(g) {
   const f = g.fight, modes = FIGHT_MODES[g.fish.grade] || FIGHT_MODES.common;
   if (f.stamina < 0.35 && Math.random() < 0.6) return 'tired';
@@ -556,11 +559,11 @@ function updateFight(g, dt) {
   const tired = f.mode === 'tired';
   if (g.hold) {
     f.tension += ((0.4 - (tired ? 0.15 : 0)) * K + 0.12 * p + (f.surging ? 0.9 * p * toughOf(g).surge : 0)) * dt;   // 줄이 약하면(K) 감기만 해도 금방 찬다
-    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * FIGHT.reelSpeed * reelMult(g.eco) * dt;
+    f.dist -= (f.surging ? 0.25 : tired ? 1.6 : 1) * Math.min(FIGHT.reelSpeed * reelMult(g.eco), g.fish.boss ? f.dist0 / BOSS.sec : 1e9) * dt;      // 바다의 주인은 릴이 좋아도 쉽게 끌려오지 않는다
   } else {
     f.tension -= (f.surging ? 0.4 : 0.75) / Math.max(1, K) * dt;                       // 약한 줄은 풀어 줘도 더디게 풀린다
     // 장비로 감당 못 하는 힘(1.75배 넘게): 날뛸 때는 줄을 풀어 줘도 장력이 오른다 → 장비가 한 단계 모자라면 버티지 못한다
-    if (f.surging) f.tension += toughOf(g).drag * (g.region === 1 ? 0.85 : 1) * Math.pow(p, 0.15) * dt;      /* 첫 바다는 조금 순하게 */              // 낚싯대가 좋아질수록(힘 p 가 줄수록) 조금 덜 끌려간다 (차이는 완만하게: 장비 단계 안에서 실패율이 널뛰지 않게)                              // 사나운 등급: 날뛸 때는 풀어 줘도 끌려간다
+    if (f.surging) f.tension += toughOf(g).drag * (g.region === 1 && !g.fish.boss ? 0.85 : 1) * Math.pow(p, 0.15) * dt;      /* 첫 바다는 조금 순하게 */              // 낚싯대가 좋아질수록(힘 p 가 줄수록) 조금 덜 끌려간다 (차이는 완만하게: 장비 단계 안에서 실패율이 널뛰지 않게)                              // 사나운 등급: 날뛸 때는 풀어 줘도 끌려간다
     if (f.surging && p > OVERPOWER) f.tension += (p - OVERPOWER) * 2.6 * dt;
     if (K > OVERPOWER) f.tension += (K - OVERPOWER) * 0.5 * dt;                        // 줄이 한 단계 모자라면 풀어 줘도 끝내 끊어진다
     f.dist = Math.min(f.dist0 * 1.2, f.dist + (f.surging ? 5 * p : 1.5) * dt);

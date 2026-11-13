@@ -37,6 +37,10 @@ export const TOUGH = [
   { surge: 2.1,  drag: 1.0,  tele: 0.85, chain: 0.45, calm: 0.75 },
   { surge: 1.7,  drag: 0.78, tele: 0.9,  chain: 0.3,  calm: 0.85 },      // 환상종은 오래된 물건이 걸려 있어 영웅보다 조금 순하게
 ];
+// 오래된 물건 12점을 다 찾은 뒤의 환상종: 걸린 것이 없으니 바다의 주인답게 가장 사납다 (전설보다 한 단계 위)
+export const TOUGH_BOSS = { surge: 2.2, drag: 0.88, tele: 0.8, chain: 0.45, calm: 0.75 };
+//   sec 쉬지 않고 감기만 해도 이만큼은 걸린다 · power/strain 장비가 넘쳐도 이보다 약해지지 않는다
+export const BOSS = { sec: 7, power: 0.8, strain: 0.6 };
 export const TELEGRAPH = 0.5;                         // 날뛰기 직전 조짐 시간(초). 이 동안 손을 떼면 '정확한 대응'                        // 날뛰기 직전 조짐 시간(초)
 
 export const TIMING = {
