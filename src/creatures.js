@@ -52,13 +52,20 @@ const rand = (a, b) => a + Math.random() * (b - a);
 import { PRIMAL, spriteOf, primalLen } from './primal.js';
 export const REGIONS = ['', '햇살 연안', '산호초 열대', '안개 군도', '원양 대해', '극지 빙해', '화산 해역', '심연 해구', '환상의 바다', '태초의 바다'];
 
-export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1, far = 0) {
+// 도감 끌어당김: 그 바다의 도감이 찰수록, 아직 못 낚은 생물이 조금씩 더 잘 걸린다 (마지막 한두 종을 몇 시간씩 기다리지 않게).
+//  · 찬 정도(0~1)의 세제곱에 비례 → 절반쯤 찰 때까지는 거의 느껴지지 않고, 거의 다 찼을 때 뚜렷해진다
+//  · grade = 못 낚은 생물이 남은 등급이 나올 가능성에 더하는 배수, kind = 그 등급 안에서 못 낚은 생물이 뽑힐 가능성에 더하는 배수
+export const DEX_PULL = { grade: 9, kind: 14 };
+export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1, far = 0, records = null) {
   let grade;
+  const primal0 = region === 9, here0 = (primal0 ? PRIMAL : DOTS.filter((d) => d[3] === region || d[3] === 0)).filter((d) => d[2] !== 'fantasy');
+  const unseen = records ? here0.filter((d) => records[d[0]] == null) : [], fill3 = records && here0.length ? (1 - unseen.length / here0.length) ** 3 : 0;
+  const lacks = (id) => unseen.some((d) => d[2] === id);
   if (forcedGrade) {
     grade = GRADES.find((g) => g.id === forcedGrade);
   } else {
     // 행운(복장): 등급이 하나 높을수록 나올 가능성이 luck배씩 커진다 (환상종은 덜 늘어난다: 오래된 물건이 끝 무렵까지 조금씩 모이게)
-    const wt = GRADES.map((g, i) => g.weight * luck ** (g.id === 'fantasy' ? 2 : i) * (g.id === 'fantasy' ? fantasyBoost : 1)), total = wt.reduce((s, v) => s + v, 0);
+    const wt = GRADES.map((g, i) => g.weight * luck ** (g.id === 'fantasy' ? 2 : i) * (g.id === 'fantasy' ? fantasyBoost : 1) * (fill3 && lacks(g.id) ? 1 + DEX_PULL.grade * fill3 : 1)), total = wt.reduce((s, v) => s + v, 0);
     let r = Math.random() * total;
     grade = GRADES.find((g, i) => (r -= wt[i]) < 0) || GRADES[0];
   }
@@ -69,7 +76,11 @@ export function rollCreature(forcedGrade, region = 1, luck = 1, fantasyBoost = 1
   const here = primal ? PRIMAL : DOTS.filter((d) => d[3] === region || d[3] === 0);
   let pool = [];
   for (let i = GRADES.indexOf(grade); i >= 0 && !pool.length; i--) { grade = GRADES[i]; pool = here.filter((d) => d[2] === grade.id); }
-  const pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
+  let pick = pool[Math.floor(Math.random() * pool.length)] || DOTS[0];
+  if (fill3 && pool.length) {      // 그 등급 안에서: 못 낚은 생물에 무게를 더 준다
+    const w = pool.map((d) => (records[d[0]] == null ? 1 + DEX_PULL.kind * fill3 : 1)); let r = Math.random() * w.reduce((a, v) => a + v, 0);
+    pick = pool[w.findIndex((v) => (r -= v) < 0)] || pick;
+  }
   const base = { name: pick[0], grade: grade.id, sprite: spriteOf(pick), sprite2: spriteOf(pick) + (pick[4] && !spriteOf(pick).startsWith('p_') ? '_s' : ''), region: pick[3], bite: 'pull' };
   // 큰 개체일수록 드물다. 멀리 던질수록(far 0~1) 큰 개체가 잘 나온다: 가장 멀리 던지면 평균 크기 지수가 약 1.4배, 값은 약 18% 높다
   const sizeT = Math.random() ** (1.6 - 0.8 * Math.max(0, Math.min(1, far)));

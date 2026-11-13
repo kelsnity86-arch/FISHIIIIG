@@ -400,7 +400,7 @@ export function update(g, dt) {
 function startWait(g) {
   // 환상종은 드물지만, 너무 오래 안 나오면 반드시 한 번 나온다 (오래된 물건이 운에만 달리지 않게)
   const pity = !g.forceGrade && g.relics < RELICS.length && (g.sinceFantasy || 0) >= PITY ? 'fantasy' : null;      // 물건을 다 찾은 뒤에는 보장하지 않는다 (그때부터는 운)
-  g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1, g.power);      // g.power = 던진 세기: 멀리 던질수록 큰 개체
+  g.fish = rollCreature(g.forceGrade || pity, g.region, luckOf(g.eco, GRADES), has(g, 'musicbox') ? 1.5 : 1, g.power, g.records);      // g.power = 던진 세기: 멀리 던질수록 큰 개체
   g.sinceFantasy = (g.sinceFantasy || 0) + 1;      // 세는 수는 오래된 물건을 얻었을 때 처음으로 돌아간다 (나타나기만 하고 놓치면 곧 다시 온다)
   if (pity && g.lostFantasy) say(g, '아까 그 그림자다…', '#ffe9b8');                // 복장(행운): 높은 등급이 잘 나온다
   g.fish.price = Math.round(g.fish.price * priceMult(g.eco, g.region) * dexBonus(g, g.fish.region) * genMult(g));                // 해역·흥정·크기에 따른 값
