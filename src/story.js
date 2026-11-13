@@ -201,7 +201,7 @@ export function drawTitle(ctx, g) {
 }
 
 // ── 설정 버튼 (톱니): 화면 오른쪽 위. 제목 화면·항구·바다에서 쉴 때만 보인다 (낚는 중에는 잘못 누르지 않게 사라진다) ──
-const SND = { x: W - 17, y: 17, r: 12 };
+const SND = { x: W - 22, y: 22, r: 13 };      // 화면 모서리에 바짝 붙이지 않는다 (폰의 둥근 모서리·가장자리에서는 누르기 어렵다)
 const sndOk = (g) => !g.settings && !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
 function gearBtn(ctx, alpha) {
   const e = sprite('ui_ic_gear'), d = SND.r * 2;
@@ -344,7 +344,7 @@ export const SKIP_BTN = { x: W / 2 + 85 + 16, y: 15, r: 12 };
 export function nextPhaseAt(g) { const k = g.dayT / DAY_SEC; const at = DAY_PLAN.map((p) => p[0]).find((v) => v > k + 0.002); return at == null ? null : at; }
 export const canSkip = (g) => g.scene === 'sea' && g.state === 'idle' && !g.panel && !g.travel && !g.talk && !g.skip && nextPhaseAt(g) != null;
 export function tapSkip(g, x, y) {
-  if (Math.hypot(x - SKIP_BTN.x, y - SKIP_BTN.y) > SKIP_BTN.r + 4) return false;
+  if (Math.hypot(x - SKIP_BTN.x, y - SKIP_BTN.y) > SKIP_BTN.r + 7) return false;      // 작은 버튼이라 누르는 자리는 넉넉하게
   if (g.skip) return true;
   if (!canSkip(g)) return false;
   g.skip = { from: g.dayT, to: nextPhaseAt(g) * DAY_SEC + 0.5, t: 0 };
