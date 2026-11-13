@@ -27,7 +27,8 @@ const { chromium } = require('playwright');
   // 도감: 쪽지 전부(가운데와 네 귀퉁이 안쪽), 칸, 화살표, 닫기
   const tabs = await ev(() => { const g = window.game; return null; });
   const TABN = 11, COLS = 6, TW = 27.5, TH = 21, TG = 2, GX = 84, GW = 5 * 33 + 4 * 4; const by = await ev(() => { const s = window.game; return null; });
-  const tabRect = (i, BY) => { const row = Math.floor(i / COLS), n = Math.min(COLS, TABN - row * COLS), rw = n * TW + (n - 1) * TG; return { x: GX + GW / 2 - rw / 2 + (i % COLS) * (TW + TG), y: BY + 50 + 4 * 37 + 29 + row * (TH + 2), w: TW, h: TH }; };
+  const isL = (t) => t !== 'R' && t !== 9, TT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'R'];      // 책 위의 쪽지: 왼쪽 1~8·공, 오른쪽 태·옛 (src/book.js tabRect)
+  const tabRect = (i, BY) => { const left = isL(TT[i]), k = TT.filter((u, j) => j < i && isL(u) === left).length; return { x: left ? 74 + k * 20.6 : 346 + k * 27, y: BY - 10, w: (left ? 20.6 : 27) - 0.8, h: 22 }; };
   const BY = await ev(async () => { const A = await import('./src/assets.js'); const s = A.sprite('dex_book'); return (360 - 600 * s.h / s.w) / 2 + 4; });
   const want = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'R'];
   for (let i = 0; i < TABN; i++) { const r = tabRect(i, BY); let good = true;

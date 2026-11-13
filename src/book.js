@@ -113,10 +113,13 @@ const LX = () => BX + BW * 0.135, RX = () => BX + BW * 0.53, PW = () => BW * 0.3
 const gridY = () => BY() + 50;
 const listOf = (tab) => tab === 'R' ? RELICS : tab === 9 ? PRIMAL : DOTS.filter((d) => d[3] === tab).sort((p, q) => GI[p[2]] - GI[q[2]]);
 const known = (g, d) => d.mem ? RELICS.indexOf(d) < (g.relics || 0) : g.records[d[0]] != null;
-// 해역을 고르는 쪽지: 왼쪽 쪽 아래에 두 줄로 놓는다 (한 줄에 여섯). 전에는 책 뒤에 반쯤 가려진 채 화면 맨 위 가장자리에 좁게(16) 꽂혀 있어 손가락으로 누르기 어려웠다
-const TAB_COLS = 6, TAB_W = 27.5, TAB_H = 21, TAB_GAP = 2;
-const tabRect = (i) => { const row = Math.floor(i / TAB_COLS), n = Math.min(TAB_COLS, TABS.length - row * TAB_COLS), rw = n * TAB_W + (n - 1) * TAB_GAP;
-  return { x: GX + GW / 2 - rw / 2 + (i % TAB_COLS) * (TAB_W + TAB_GAP), y: gridY() + ROWS * (SLOT + GAP) + 29 + row * (TAB_H + 2), w: TAB_W, h: TAB_H }; };
+// 해역을 고르는 쪽지: 책 위쪽에 꽂혀 있다. 왼쪽 쪽 위에는 해역 1~8 과 '공'(온 바다의 물고기), 오른쪽 쪽 위에는 나머지('태' 태초의 바다, '옛' 오래된 물건).
+// 손가락으로 누를 수 있게 폭을 넓히고(20 → 오른쪽은 26) 책 위로 더 많이 나오게 했다. 누르는 자리는 책 안쪽까지 넉넉하게 잡는다.
+const isLeftTab = (t) => t !== 'R' && t !== 9;
+const TAB_LX = 74, TAB_LP = 20.6, TAB_RX = 346, TAB_RP = 27;      // 왼쪽 묶음·오른쪽 묶음의 시작 x 와 간격 (가운데 가름끈은 비워 둔다)
+const tabRect = (i) => { const t = TABS[i], left = isLeftTab(t), k = TABS.filter((u, j) => j < i && isLeftTab(u) === left).length;
+  return { x: (left ? TAB_LX + k * TAB_LP : TAB_RX + k * TAB_RP), y: BY() - 10, w: (left ? TAB_LP : TAB_RP) - 0.8, h: 22 }; };
+const tabHit = (x, y, r) => x >= r.x - 0.4 && x < r.x + r.w + 0.4 && y <= BY() + 24;      // 위로는 화면 끝까지, 아래로는 책 안쪽까지
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => spriteOf(c))); }
@@ -125,7 +128,7 @@ const inRect = (x, y, r, pad = 0) => x >= r.x - pad && x <= r.x + r.w + pad && y
 export function tapDex(g, x, y) {
   const d = g.dex; if (!d || d.closing != null) return;
   if (hitClose(x, y)) { d.closing = 0; g.sfx.push(['paper']); return; }
-  for (let i = 0; i < TABS.length; i++) if (inRect(x, y, tabRect(i), 1)) { if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
+  for (let i = 0; i < TABS.length; i++) if (tabHit(x, y, tabRect(i))) { if (d.tab !== TABS[i]) { d.tab = TABS[i]; d.page = 0; d.sel = null; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const list = listOf(d.tab), pages = Math.ceil(list.length / PER);
   for (const dir of [-1, 1]) if (inRect(x, y, arrowRect(dir), 5)) { const p = clamp(d.page + dir, 0, pages - 1); if (p !== d.page) { d.page = p; d.t = 0; loadPage(g); g.sfx.push(['paper']); } return; }
   const shown = list.slice(d.page * PER, d.page * PER + PER);
@@ -143,12 +146,12 @@ export function drawDex(ctx, g) {
   const a = ease(d.a), by = BY() + (1 - a) * 10, bh = bookH();
   ctx.save(); ctx.globalAlpha = a * 0.55; ctx.fillStyle = '#0c1630'; ctx.fillRect(0, 0, W, H);     // 뒤 화면을 살짝 가라앉힌다
   ctx.globalAlpha = a; ctx.translate(0, by - BY());
-  img(ctx, 'dex_book', BX, BY(), BW, bh);
-  // 해역 쪽지 (왼쪽 쪽 아래, 두 줄). 그림은 칸에 맞춰 늘린다
+  // 해역 쪽지 (책 위쪽에 꽂힌 쪽지): 책보다 먼저 그려 책 뒤에서 솟아 나오게, 글자는 책 위로 나온 부분에
   TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t, sp = sprite(on ? 'dex_tab_on' : 'dex_tab');
     if (t !== 'R' && dexStage(g, t) === 2) ctx.filter = 'sepia(1) saturate(2.6) brightness(1.06)';      /* 다 채운 해역의 쪽지는 금빛으로 물든다 */
-    ctx.imageSmoothingEnabled = true; ctx.drawImage(sp.img, r.x, r.y - (on ? 1.5 : 0), r.w, r.h); ctx.filter = 'none';
-    label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w / 2, r.y + r.h / 2 + 0.5 - (on ? 1.5 : 0), 10.5, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
+    ctx.imageSmoothingEnabled = true; ctx.drawImage(sp.img, r.x, r.y - (on ? 3 : 0), r.w, r.h); ctx.filter = 'none'; });
+  img(ctx, 'dex_book', BX, BY(), BW, bh);
+  TABS.forEach((t, i) => { const r = tabRect(i), on = d.tab === t; label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + r.w / 2, r.y + 8 - (on ? 3 : 0), 10, on ? '#5a3a1e' : '#8a7458', 'center', 700, null); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
   label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
