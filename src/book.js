@@ -189,7 +189,7 @@ export function drawDex(ctx, g) {
 
   }
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
-  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 38.5, 10.5, '#5a3a1e', 'left', 700, null);
+  label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 7, BY() + 38.5, 10.5, '#5a3a1e', 'left', 700, null);
   if (d.tab === 'R') label(ctx, `${got} / ${list.length}`, GX + GW - 1, BY() + 38.5, 9.5, '#8a6a48', 'right', 600, null);     // 가름끈에 가리지 않는 자리
   else {                                                 // 도감 보상: 절반을 채우면 그 해역 생물의 파는 값 +5%, 다 채우면 +10%. 환상종은 세지 않는다 (운에 달려 있어서)
     const st = dexStage(g, d.tab), [n, t] = dexCount(g, d.tab);
