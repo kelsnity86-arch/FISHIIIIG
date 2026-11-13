@@ -12250,28 +12250,43 @@ on the main branch, in the folder assets/raw/, with the file name h_boat_foam.pn
 
 항구의 건물 아래에 붙는 이름표(예: "수산시장 Lv.3")가 지금은 반투명한 검은 띠다. 마을 분위기에 맞는 나무 이름판으로 바꾼다. 글자는 게임이 쓰고, 글 길이에 맞춰 가운데를 가로로 늘려 쓴다.
 
-### 403. `h_sign` — 나무 이름판 (글자 없음)
+### 403. `h_signs` — 건물 이름판 5개 (마을 등급마다 하나, 글자 없음)
 
 ```
-Style references: open assets/raw/h_town_1.png and assets/raw/h_panel.png from the GitHub
-repository kelsnity86-arch/FISHIIIIG (main branch): a cosy storybook fishing harbour
-painted in a soft painterly style, and this game's shop panel made of warm wood,
-parchment, rope and brass.
+Style references: open these from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch): assets/raw/h_town_1.png, h_town_2.png, h_town_3.png, h_town_4.png and
+h_town_5.png (the same harbour growing from a poor fishing hamlet into a grand fantasy
+port, painted in a soft painterly storybook style), and assets/raw/h_panel.png (this
+game's shop panel of warm wood, parchment, rope and brass).
 
-Paint ONE small blank name board of the kind that would hang under a shop in this
-harbour: a long, low plank of weathered warm wood, lying horizontally, about six times
-as wide as tall.
-- Both short ends are softly rounded and each end is bound with a little wrap of rope
-  and one small brass nail head.
-- The long middle part between the two ends is completely plain and even: the same
-  light, sun-bleached wood with only a faint, straight horizontal grain, no knots, no
-  cracks, no decorations, no nails. (The middle will be stretched sideways to fit names
-  of different lengths, so it must look the same all the way across.)
-- A thin darker wood edge runs along the top and bottom. A very soft shadow underneath.
-- The wood in the middle is pale enough that dark brown lettering on it is easy to read.
+Paint FIVE blank shop name boards, one for each stage of the town, stacked in ONE
+column from top to bottom with clear empty space between them. All five have exactly the
+same size and outline proportions: a long, low board lying horizontally, about six times
+as wide as tall, seen straight from the front.
 
-No text, letters or symbols. Fully transparent background. Only this one board, centred,
-seen straight from the front, with a little empty margin around it.
+Rules for every board:
+- The two short ENDS carry all the decoration.
+- The long MIDDLE between the ends is completely plain and even all the way across: one
+  flat light surface with at most a faint straight horizontal grain, no knots, cracks,
+  nails, ornaments or gradients from left to right. (The middle is stretched sideways to
+  fit names of different lengths, so it must look identical along its whole length.)
+- The middle is pale enough that dark brown lettering on it is easy to read.
+- A very soft shadow underneath. No text, letters or symbols.
+
+The five boards, top to bottom:
+1. Fishing hamlet: a rough plank of grey-brown driftwood, sun-bleached, with uneven
+   chipped ends, each end tied with a loop of frayed rope.
+2. Small port: a tidy plank of warm honey-coloured wood with neatly rounded ends, each
+   end bound with clean rope and one iron nail head.
+3. Harbour town: a painted signboard, cream-white paint on wood with a thin navy-blue
+   line along the top and bottom edges, and a small brass bracket with a rivet at each end.
+4. Great harbour: polished dark wood with a cream inlaid centre strip, framed in brass,
+   with an ornate brass end cap at each end (a small anchor-like scroll shape).
+5. Fantasy port: a pearly ivory board with a faint pastel sheen, a slim golden frame,
+   and at each end a golden cap set with a small glowing sky-blue crystal and a tiny
+   shell curl.
+
+Fully transparent background. Five pieces in total, one column.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
-on the main branch, in the folder assets/raw/, with the file name h_sign.png
+on the main branch, in the folder assets/raw/, with the file name h_signs.png
 ```

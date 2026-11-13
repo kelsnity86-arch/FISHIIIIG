@@ -292,8 +292,9 @@ export function drawHarbor(ctx, g) {
     ctx.drawImage(s.img, x - w / 2, HY - h - lift, w, h);
     const tag = `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
     ctx.font = `600 9px ${FONT}`; const tw = ctx.measureText(tag).width + 12;
-    if (hasSprite('h_sign')) {      // 나무 이름판 (그림): 양 끝은 그대로 두고 가운데만 글 길이에 맞춰 늘린다
-      const sp = sprite('h_sign'), sh = 19, k = sh / sp.h, cap = sp.w * k * 0.22, sw = Math.max(tw + 14, cap * 2 + 8), sx = x - sw / 2, sy = HY + 2.5, iw = sp.img.width, ih = sp.img.height, ic = iw * 0.22;
+    const signKey = hasSprite('h_sign_' + look) ? 'h_sign_' + look : 'h_sign';      // 마을 겉모습 5단계마다 다른 이름판
+    if (hasSprite(signKey)) {      // 이름판 (그림): 양 끝은 그대로 두고 가운데만 글 길이에 맞춰 늘린다
+      const sp = sprite(signKey), sh = 19, k = sh / sp.h, cap = sp.w * k * 0.22, sw = Math.max(tw + 14, cap * 2 + 8), sx = x - sw / 2, sy = HY + 2.5, iw = sp.img.width, ih = sp.img.height, ic = iw * 0.22;
       ctx.imageSmoothingEnabled = true;
       ctx.drawImage(sp.img, 0, 0, ic, ih, sx, sy, cap, sh); ctx.drawImage(sp.img, iw - ic, 0, ic, ih, sx + sw - cap, sy, cap, sh);
       ctx.drawImage(sp.img, ic, 0, iw - 2 * ic, ih, sx + cap - 0.3, sy, sw - 2 * cap + 0.6, sh);
