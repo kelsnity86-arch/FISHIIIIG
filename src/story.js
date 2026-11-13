@@ -3,6 +3,7 @@
 // 화면에 보이는 것은 GPT 그림(인물, 양피지 판)과 글자뿐이다.
 import { W, H, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite } from './assets.js';
+import { plateText, hasPlate } from './plate.js';
 import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
@@ -193,10 +194,10 @@ export function drawTitle(ctx, g) {
   ctx.globalAlpha = a; ctx.imageSmoothingEnabled = true;
   if (hasSprite('ui_logo')) ctx.drawImage(s.img, W / 2 - w / 2, 96 - h / 2 + bob + (1 - a) * 10, w, h);
   else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
-  if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
+  if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); if (!plateText(ctx, 'ui_note', '화면을 눌러 시작', W / 2, H - 46, 12, '#4a2f14', { h: 23, pad: 16 })) label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
   ctx.globalAlpha = a * 0.8;
   gearBtn(ctx, a * 0.9);
-  if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
+  if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; const str = ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시'; if (!plateText(ctx, 'ui_chip', str, W - 10, T_RESET.y, 9.5, ask ? '#8a2f1a' : '#4a2f14', { align: 'right', h: 19, pad: 11 })) label(ctx, str, ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
 
@@ -382,9 +383,11 @@ export function drawHint(ctx, g) {
   // 카드에 대한 안내는 화면 아래 오른쪽에: 위쪽에 두면 들어 올린 생물을 가린다 (아래 왼쪽은 카드, 가운데는 '낚았다!' 글자판)
   const low = h.text.startsWith('카드에 적힌'), cx = low ? 468 : W / 2, room = low ? 310 : W - 40;
   ctx.font = `600 11px ${FONT}`; const w0 = ctx.measureText(h.text).width, size = w0 > room ? 11 * room / w0 : 11, tw = Math.min(w0, room) + 22, ty = low ? H - 11 + (1 - h.a) * 4 : 52 - (1 - h.a) * 4;
-  ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(cx - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
-  ctx.globalAlpha = h.a;
-  label(ctx, h.text, cx, ty, size, '#fff4dc', 'center', 600, null);
+  if (!plateText(ctx, 'ui_note', h.text, cx, ty, size, '#4a2f14', { h: 20, pad: 13 })) {      // 양피지 띠 그림이 오기 전: 짙은 띠
+    ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(cx - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
+    ctx.globalAlpha = h.a;
+    label(ctx, h.text, cx, ty, size, '#fff4dc', 'center', 600, null);
+  }
   // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
   const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('출항 버튼') ? [W - 62, H - 42] : null;
   if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
@@ -437,6 +440,6 @@ export function drawTalk(ctx, g) {
   });
   ctx.globalAlpha = a;
   if (shown >= str.length) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(g.time * 5)); label(ctx, '▾', b.x + b.w - 22, y + b.h - 14, 11, '#8a4a22', 'center', 700, null); ctx.globalAlpha = a; }
-  label(ctx, '건너뛰기', SKIP.x, SKIP.y + (1 - a) * 14, 8.5, 'rgba(255,244,220,0.9)', 'center', 600);
+  if (!plateText(ctx, 'ui_chip', '건너뛰기', SKIP.x, SKIP.y - 2 + (1 - a) * 14, 8.5, '#4a2f14', { h: 17, pad: 10 })) label(ctx, '건너뛰기', SKIP.x, SKIP.y + (1 - a) * 14, 8.5, 'rgba(255,244,220,0.9)', 'center', 600);
   ctx.restore();
 }

@@ -9,6 +9,7 @@
 import { W, H, HORIZON, WL, DEEP, PHASES, COLORS, GRADES, DAY_SEC, DAY_PLAN, TOUGH } from './config.js';
 import { sprite, hasSprite, creatureSprite, tinted, knownSprite } from './assets.js';
 import { EN } from './lang.js';
+import { plateText } from './plate.js';
 // 글자가 든 그림: 영어판 그림(이름 끝에 _en)이 있으면 그것을, 없으면 한글 그림을 쓴다
 const worded = (name) => sprite(EN() && knownSprite(name + '_en') ? name + '_en' : name);
 import { fmt } from './economy.js';
@@ -166,7 +167,7 @@ function drawResultCard(ctx, g) {
   // 숫자가 차르르 올라가며 측정된다
   const cu = clamp((T - 0.3) / 0.6, 0, 1), count = 1 - Math.pow(1 - cu, 3);
   fitText(ctx, f.isFantasy ? `${(f.meters * count).toFixed(1)} m · 놓아준다` : `${(f.meters * count).toFixed(1)} m · ${fmt(f.price * count)} G`, box(L.stat), 9, FONT, 600, '#5a4630');
-  if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) text(ctx, f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속', cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600);
+  if (T > (g.catch && g.catch.quick ? 0.55 : 1.1) && !gone) { const str = f.isFantasy ? '눌러서 놓아주기' : '눌러서 계속'; if (!plateText(ctx, 'ui_chip', str, cx + cw + 6, H - 18, 9.5, '#4a2f14', { align: 'left', h: 18, pad: 10 })) text(ctx, str, cx + cw + 8, H - 18, 10, 'rgba(255,244,220,0.92)', 'left', 600); }
 
   // 첫 포획 / 신기록 도장: 크게 나타나 쾅 찍힌다
   if (r.stamped) {
@@ -949,8 +950,11 @@ function drawHud(ctx, g) {
   if (g.quest) {
     const ql = questLine(g), qy = 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w + 8, pop = clamp(1 - (g.questT ?? 9) / 0.8, 0, 1);
     ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
-    ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(10,18,40,0.85)'; ctx.strokeText(ql, 10, qy);
-    ctx.fillStyle = g.quest.done || pop > 0 ? '#ffe27a' : '#fff4dc'; ctx.fillText(ql, 10, qy);
+    if (!plateText(ctx, 'ui_tag', ql, 6, qy + 1, 8.5, g.quest.done || pop > 0 ? '#8a5a00' : '#4a2f14', { align: 'left', h: 16, pad: 9 })) {      // 쪽지 그림이 오기 전: 맨글자
+      ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
+      ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(10,18,40,0.85)'; ctx.strokeText(ql, 10, qy);
+      ctx.fillStyle = g.quest.done || pop > 0 ? '#ffe27a' : '#fff4dc'; ctx.fillText(ql, 10, qy);
+    }
   }
 
   // 던질 힘
@@ -995,7 +999,7 @@ function drawHud(ctx, g) {
     // 기다리는 동안과 줄다리기 중에는 안내가 몇 초 뒤 사라져 바다만 남는다
     const fades = g.state === 'wait' || g.state === 'fight';
     const a = fades ? clamp(1 - (g.t - 3.2) / 0.9, 0, 1) : 1;
-    if (a > 0.01) { ctx.globalAlpha = a; text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }
+    if (a > 0.01) { ctx.globalAlpha = a; if (!plateText(ctx, 'ui_note', hint, W / 2 - (g.state === 'idle' ? 58 : 0), H - 15, 10, '#4a2f14', { h: 19, pad: 13 })) text(ctx, hint, W / 2, H - 16, 10.5, 'rgba(255,244,220,0.9)', 'center', 600); ctx.globalAlpha = 1; }      /* 쉴 때는 오른쪽 아래 버튼 줄을 피해 왼쪽으로 */
   }
 
   if (!g.panel) drawMsg(ctx, g);

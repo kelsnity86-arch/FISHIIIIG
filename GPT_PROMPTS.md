@@ -12290,3 +12290,44 @@ Fully transparent background. Five pieces in total, one column.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_signs.png
 ```
+
+## ㊼ 글 뒤에 까는 판
+
+화면에 맨글자로 떠 있거나 반투명한 검은 띠 위에 쓰던 글들을 그림 판 위에 올린다: 처음 안내글, 바다 아래쪽 안내글, '화면을 눌러 시작', 의뢰 한 줄, '건너뛰기', '처음부터 다시', '눌러서 계속'. 글자는 게임이 쓰고, 글 길이에 맞춰 가운데를 가로로 늘려 쓴다.
+
+### 404. `ui_notes` — 판 3개 (글자 없음)
+
+```
+Style references: open assets/raw/h_panel.png and assets/raw/ui2_hud.png from the GitHub
+repository kelsnity86-arch/FISHIIIIG (main branch): this game's interface is made of
+warm parchment, wood, rope and brass, in a soft painterly storybook style.
+
+Paint THREE small blank label pieces in that same style, stacked in ONE column from top
+to bottom with clear empty space between them, on a fully transparent background. Each
+lies horizontally and is seen straight from the front.
+
+Rules for every piece:
+- All decoration is at the two short ENDS only.
+- The long MIDDLE between the ends is completely plain and even all the way across: one
+  flat pale surface with at most a very faint texture, no stains, creases, nails,
+  ornaments, and no change of colour from left to right. (The middle is stretched
+  sideways to fit texts of different lengths, so it must look identical along its length.)
+- The middle is pale enough for dark brown lettering to read easily.
+- A very soft shadow underneath. No text, letters or symbols.
+
+The three pieces, top to bottom:
+1. Hint strip (about eight times as wide as tall): a strip of warm parchment, like a
+   long paper note. Both ends are slightly torn and curl up a little, like the ends of a
+   small scroll. A thin slightly darker edge along the top and bottom.
+2. Quest tag (about seven times as wide as tall, a little smaller and humbler): a slip
+   of pale paper pinned at the LEFT end with one small brass pin; the left end is cut
+   square, the right end is cut to a soft point like a tag or pennant.
+3. Small button plate (about four times as wide as tall): a little plate of warm wood
+   with softly rounded ends, a thin brass rim all around, and one tiny brass rivet at
+   each end, like a small version of the buttons in ui2_hud.png. Its middle is a pale
+   cream inlay.
+
+Fully transparent background. Three pieces in total, one column.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_notes.png
+```
