@@ -8,7 +8,7 @@ export const EN_UI = {
   "누르면 감기 · 떼면 줄 풀기": "Hold to reel · let go to give line",
   "줄이 풀린다! 눌러서 감으세요": "The line's going slack! Hold to reel",
   "낚싯대가 약하다! 버티기 어렵다": "The rod's too weak! It can't hold",
-  "버텨라! 줄이 당겨진다": "Hang on! It's dragging the line",
+  "버티세요! 줄이 당겨진다": "Hang on! It's dragging the line",
   "날뛴다! 손을 떼세요": "It's thrashing! Let go",
   "줄이 끊어지려 한다!": "The line's about to snap!",
   "줄이 약하다… 오래 못 버틴다": "The line's too weak… it won't last",

@@ -978,7 +978,7 @@ function drawHud(ctx, g) {
       // 손을 떼도 게이지가 오르는 까닭을 알려 준다: 낚싯대가 약해 못 버티는 것인지, 센 놈이 줄을 당기는 것인지
       const drag = (TOUGH[GRADES.indexOf(g.fish.gradeInfo)] || TOUGH[0]).drag;
       if (g.fish.power > OVERPOWER) text(ctx, '낚싯대가 약하다! 버티기 어렵다', W / 2, H - 64, 12, '#ff8a7a');
-      else if (!g.hold && drag > 0 && f.tension > (f.seenT ?? f.tension) + 1e-5) text(ctx, '버텨라! 줄이 당겨진다', W / 2, H - 64, 12, '#ffd0c0');      // 손을 뗐는데 정말로 오르고 있을 때만
+      else if (!g.hold && drag > 0 && f.tension > (f.seenT ?? f.tension) + 1e-5) text(ctx, '버티세요! 줄이 당겨진다', W / 2, H - 64, 12, '#ffd0c0');      // 손을 뗐는데 정말로 오르고 있을 때만
       else text(ctx, '날뛴다! 손을 떼세요', W / 2, H - 64, 12, '#ffd0c0');
     }
     else if (f.tension > 0.8) text(ctx, '줄이 끊어지려 한다!', W / 2, H - 64, 12, '#ff8a7a');

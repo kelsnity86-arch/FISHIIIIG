@@ -21,7 +21,7 @@ export const EN_DEX_B = {
   astronaut_turtle: "Wears a round glass jar on its head. It lives underwater. Why wear it?",
   wizard_octopus: "A pointed hat with stars on it, and a stick it waves. Now and then something truly happens.",
   samurai_crab: "A horned helmet on its back, long swords for claws. It bows first, then attacks.",
-  king_walrus: "A red cloak and a band of gold on its head. The other walruses make way.",
+  king_walrus: "A red cloak and a gold crown. The other walruses make way.",
   stadium_turtle: "Its back is hollowed like a bowl, with seats in tiers. You almost hear a great shout.",
   champion_whale: "A great gold belt round its waist. Nobody knows whom it fought and beat.",
   trophy_narwhal: "A gold cup with two handles sits on its horn. Land it and you find yourself clapping.",
