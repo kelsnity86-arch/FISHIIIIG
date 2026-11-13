@@ -414,11 +414,11 @@ export function drawPanel(ctx, g) {
     img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
     const ic = sprite(info.icon), is = 33, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
     ctx.drawImage(ic.img, r.x + r.w * 0.109 - iw / 2, r.y + r.h * 0.48 - ih / 2, iw, ih);
-    label(ctx, info.name, r.x + 56, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
-    label(ctx, info.level, r.x + 56 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
-    { const desc = done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, room = r.w * 0.715 - 56;      // 설명은 버튼 왼쪽 끝 앞에서 끝나야 한다. 넘치면 글자를 줄인다
+    label(ctx, info.name, r.x + 63, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left', 600, null);
+    label(ctx, info.level, r.x + 63 + ctx.measureText(info.name).width + 6, r.y + r.h / 2 - 6, 9, '#8a5a2b', 'left', 600, null);
+    { const desc = done ? '끝까지 올렸다' : info.block ? `${info.block} 필요` : info.desc, room = r.w * 0.715 - 63;      // 설명은 버튼 왼쪽 끝 앞에서 끝나야 한다. 넘치면 글자를 줄인다
       ctx.font = `600 8.5px ${FONT}`; const dw = ctx.measureText(desc).width;
-      label(ctx, desc, r.x + 56, r.y + r.h / 2 + 8.5, dw > room ? Math.max(6.5, 8.5 * room / dw) : 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null); }
+      label(ctx, desc, r.x + 63, r.y + r.h / 2 + 8.5, dw > room ? Math.max(6.5, 8.5 * room / dw) : 8.5, info.block && !done ? '#9a3b2b' : '#6b5a48', 'left', 600, null); }
     if (done) label(ctx, '완성', r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, '#4a2a08', 'center', 600, null);
     else if (!info.block) label(ctx, info.btn || fmt(info.cost), r.x + r.w * 0.848, r.y + r.h * 0.492, 9.5, can ? '#4a2a08' : '#b0281c', 'center', 600, null);
     ctx.restore();

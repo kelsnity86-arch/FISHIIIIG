@@ -66,7 +66,7 @@ const rowRect = (i) => ({ x: PANEL.x + 30, y: PANEL.y + 93 + i * 47.5, w: 304, h
 // 쪽을 고르는 버튼 두 개 (리본 아래 가운데)
 const tabRect = (i) => ({ x: PANEL.x + PANEL.w / 2 + 10 * PS - 73 + i * 76, y: PANEL.y + 71.5, w: 70, h: 14 });
 // 소리 크기 막대 (소리 쪽의 줄마다 하나): 누르거나 끌어서 0~100 사이에서 정한다. 값은 줄 오른쪽 놋쇠 판에 적힌다
-const BAR = { dx: 115, w: 99, x0: 0.05, x1: 0.968 };      // 줄 안에서의 자리와 폭, 그 안에서 홈이 차지하는 자리
+const BAR = { dx: 120, w: 94, x0: 0.05, x1: 0.968 };      // 줄 안에서의 자리와 폭, 그 안에서 홈이 차지하는 자리
 const barX = () => rowRect(0).x + BAR.dx;
 const sliderAt = (x, y) => { for (let i = 0; i < SLIDERS.length; i++) { const r = rowRect(i); if (y >= r.y && y <= r.y + r.h && x >= barX() - 12 && x <= barX() + BAR.w + 8) return i; } return -1; };
 const sliderValue = (x) => clamp((x - barX() - BAR.w * BAR.x0) / (BAR.w * (BAR.x1 - BAR.x0)), 0, 1);
@@ -140,14 +140,14 @@ export function drawSettings(ctx, g) {
     let value = it.value;
     if (it.slider) {      // 소리 줄: 이름 · 막대 · (놋쇠 판에) 크기
       const v = getVol(it.id), bx = r.x + BAR.dx, bh = BAR.w * fr.h / fr.w;
-      label(ctx, it.name, r.x + 56, cy, 11, COLORS.navy, 'left');
+      label(ctx, it.name, r.x + 63, cy, 11, COLORS.navy, 'left');
       ctx.drawImage(fr.img, bx, cy - bh / 2, BAR.w, bh);
       const tw = BAR.w * (BAR.x1 - BAR.x0), th = bh * 0.6, fx = bx + BAR.w * BAR.x0;      // 채움은 홈 안에만: 홈 모양(둥근 끝)대로 잘라서 넣는다
       if (v > 0.004) { ctx.save(); ctx.beginPath(); ctx.roundRect(fx, cy - th / 2, tw, th, th / 2); ctx.clip(); ctx.drawImage(fl.img, 0, 0, fl.img.width * v, fl.img.height, fx, cy - th / 2, tw * v, th); ctx.restore(); }
       value = String(Math.round(v * 100));
     } else {
-      label(ctx, it.name, r.x + 56, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left');
-      label(ctx, it.desc, r.x + 56, r.y + r.h / 2 + 8.5, 8.5, '#6b5a48', 'left');
+      label(ctx, it.name, r.x + 63, r.y + r.h / 2 - 6, 11, COLORS.navy, 'left');
+      label(ctx, it.desc, r.x + 63, r.y + r.h / 2 + 8.5, 8.5, '#6b5a48', 'left');
     }
     ctx.font = `600 9.5px ${FONT}`; const vw = ctx.measureText(value).width, room = r.w * 0.165;      // 값은 놋쇠 판 한가운데에. 길면 글자를 줄인다
     label(ctx, value, r.x + r.w * 0.848, cy, vw > room ? 9.5 * room / vw : 9.5, '#4a2a08');

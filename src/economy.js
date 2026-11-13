@@ -14,7 +14,7 @@ export const GEAR = [
   // 강화마다 하는 일이 하나씩, 서로 겹치지 않는다.
   { id: 'outfit', name: '옷',     share: 0.10, desc: '높은 등급이 잘 나온다' },
   { id: 'reel',   name: '릴',     share: 0.15, desc: '줄을 빨리 감는다' },
-  { id: 'line',   name: '줄',     share: 0.20, desc: '장력이 천천히 찬다' },
+  { id: 'line',   name: '줄',     share: 0.20, desc: '게이지가 천천히 찬다' },
   { id: 'rod',    name: '낚싯대', share: 0.25, desc: '날뛰는 힘을 누른다' },
   { id: 'boat',   name: '배',     share: 0.30, desc: '어창 +2 · 다음 해역' },
 ];

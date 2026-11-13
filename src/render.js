@@ -950,7 +950,7 @@ function drawHud(ctx, g) {
   if (g.quest) {
     const ql = questLine(g), qy = 4 + 92 * sprite('ui_plaque_gold').h / sprite('ui_plaque_gold').w + 8, pop = clamp(1 - (g.questT ?? 9) / 0.8, 0, 1);
     ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
-    if (!plateText(ctx, 'ui_tag', ql, 13, qy + 4.5, 8.5, g.quest.done || pop > 0 ? '#8a5a00' : '#4a2f14', { align: 'left', h: 16, pad: 9 })) {      // 쪽지 그림이 오기 전: 맨글자
+    if (!plateText(ctx, 'ui_tag', ql, 13, qy + 4.5, 8.5, g.quest.done || pop > 0 ? '#8a5a00' : '#4a2f14', { align: 'left', h: 16, pad: 13 })) {      // 쪽지 그림이 오기 전: 맨글자
       ctx.font = `600 8.5px ${FONT}`; ctx.textAlign = 'left';
       ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.strokeStyle = 'rgba(10,18,40,0.85)'; ctx.strokeText(ql, 10, qy);
       ctx.fillStyle = g.quest.done || pop > 0 ? '#ffe27a' : '#fff4dc'; ctx.fillText(ql, 10, qy);
