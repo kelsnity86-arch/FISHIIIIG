@@ -12128,3 +12128,86 @@ Fully transparent background. Eleven pieces in total.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name dex_index2.png
 ```
+
+## ㊹ 도감 책: 꼬리표를 책 그림에 그려 넣기
+
+꼬리표를 따로 얹으면 책과 따로 논다. 책 그림 자체를 "책장 사이에 색 꼬리표가 끼워진 책"으로 다시 받는다. 글자는 게임이 쓴다. 태초의 바다의 꼬리표는 열린 뒤에만 보여야 하므로, 한 칸을 비운 책(#400)과 그 칸까지 채운 책(#401) 두 장을 받는다.
+
+### 400. `dex_book2` — 꼬리표 10개가 끼워진 도감 책 (한 칸 비움)
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/ui_dex.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). At the top of that sheet is an open, old leather-bound logbook with brass
+corners, a brass clasp on each side, a red ribbon bookmark and two blank parchment pages.
+On its right side you can see the stack of page edges (several layers of paper) between
+the right page and the leather cover.
+
+Make an image of ONLY that book, exactly as it is (same shape, same size, same leather,
+brass, ribbon and parchment, same soft painterly storybook rendering), with ONE addition:
+index tabs tucked between the pages on the RIGHT side.
+
+The tabs: small hand-cut strips of dyed paper or thin dyed cloth that the old fisherman
+glued between the pages so that their ends stick out sideways, to the right, past the
+page edges and over the leather cover. They are matte, a little faded and worn, with a
+slightly darker stained rim and a soft shadow on the cover beneath them. No gloss, no
+white label box, no border frame. NO letters, numbers or symbols on them (plain colour
+only; a character will be written on each later).
+
+Layout of the tabs:
+- They run down the right side in one column, evenly spaced, in ELEVEN equal positions
+  from just below the top-right brass corner to just above the bottom-right brass corner.
+- Each tab comes out from between a DIFFERENT layer of the page stack: the top one from
+  just behind the front page, each next one from a page a little further back, so the
+  column steps slightly to the right going down, like real index tabs on a notebook.
+  The glued inner end of each tab is hidden behind the pages in front of it.
+- Each visible tab end is a rounded rectangle roughly twice as wide as tall, all the
+  same size, sticking out clearly past the page stack. They may sit very slightly
+  crooked, as if stuck on by hand. The tabs may cover the right brass clasp.
+- Position 10 (the second from the bottom) is left EMPTY: no tab there, just the page
+  edges and cover as normal, leaving a visible gap in the column.
+
+Colours of the ten tabs, top to bottom (dusty natural-dye colours, clearly different
+from each other, light enough for dark brown writing to read on them):
+ 1. sky blue
+ 2. sea green / teal
+ 3. grey-green (misty sage)
+ 4. deep blue
+ 5. pale ice white with a cool blue tinge
+ 6. burnt orange
+ 7. dusky indigo (mid-toned, not too dark)
+ 8. violet
+ 9. leaf green
+10. (empty position, no tab)
+11. old leather brown
+
+Do not change anything else about the book. Do not include the other pieces from the
+sheet (the square slots, frames and arrow buttons). Fully transparent background, the
+book centred with a little empty margin around it, wide enough that the tabs are not cut
+off on the right.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name dex_book2.png
+```
+
+### 401. `dex_book2b` — 같은 책, 빈 칸에 진주빛 꼬리표 하나 더
+
+```
+This is an EDIT of an existing image, not a new painting.
+
+Open assets/raw/dex_book2.png from the GitHub repository kelsnity86-arch/FISHIIIIG (main
+branch). It shows an open leather logbook with a column of coloured index tabs tucked
+between the pages on its right side. One position in that column, the second from the
+bottom (between the leaf green tab and the brown tab), is empty.
+
+Make the same image again with ONLY ONE change: add one more tab in that empty position.
+It is the same kind of tab as the others (same size, same hand-cut matte dyed strip, same
+soft shadow, coming out from between the pages at the matching depth), coloured pearl
+ivory with a faint pink and pale blue sheen. No letters, numbers or symbols on it.
+
+Keep everything else exactly as it is, pixel for pixel as far as you can: the book, the
+other ten tabs, their positions and colours, the canvas size and the position of the
+book on the canvas. Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name dex_book2b.png
+```
