@@ -676,16 +676,16 @@ function drawLineAndFloat(ctx, g, phase) {
   const hooked = g.state === 'fight' || g.state === 'hook' || (c && c.phase === 'pull');
   if (hooked && g.sw) {
     // 걸린 뒤: 줄이 수면을 가르고 물속 주둥이까지 이어진다. 찌는 그 자리에 끌려 잠긴다.
-    // 찌는 줄이 당기는 쪽으로 끌려간다: 물속 줄이 향하는 방향(주둥이 쪽)으로 조금 딸려 가고, 그쪽으로 눕는다. 팽팽할수록 더.
+    // 찌는 줄에 꿰여 있다: 낚싯대 끝에서 주둥이까지 곧게 이어진 줄이 수면을 가르는 자리에 있고(bob.x), 줄이 뻗은 방향 그대로 눕는다.
+    // (전에는 찌를 주둥이 쪽으로 더 밀어 놓아서 줄이 찌에서 꺾였고, 느슨할 때는 찌가 줄보다 덜 누웠다.)
     const mp = mouthPos(g), tn = clamp(tension, 0, 1), F = floatDrag, now = performance.now() / 1000, fdt = Math.min(0.05, now - F.t); F.t = now;
-    const wantX = clamp((mp.x - bob.x) * 0.3, -34, 34) * (0.35 + 0.65 * tn);
-    const dy = Math.max(6, mp.y - surfaceY(g, bob.x)), wantRot = clamp(Math.atan2(-(mp.x - (bob.x + wantX)), dy), -1.15, 1.15) * (0.3 + 0.7 * tn);
-    if (!F.on) { F.x = 0; F.rot = 0; F.on = true; }
-    F.x += (wantX - F.x) * Math.min(1, fdt * 5); F.rot += (wantRot - F.rot) * Math.min(1, fdt * 7);      // 뚝 꺾이지 않고 부드럽게 따라간다
-    const ex = bob.x + F.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
+    const wantRot = clamp(Math.atan2(-(mp.x - tip.x), Math.max(6, mp.y - tip.y)), -1.35, 1.35);
+    if (!F.on) { F.rot = wantRot * 0.3; F.on = true; }
+    F.rot += (wantRot - F.rot) * Math.min(1, fdt * 9);      // 뚝 꺾이지 않고 부드럽게 따라간다
+    const ex = bob.x, sy = surfaceY(g, ex), entry = { x: ex, y: sy };
     stroke([entry, mp], 0.02, 0.6, 0.85, false, 0.42);       // 입에 닿는 끝까지 보이게
     stroke([tip, entry], 0.1 * Math.pow(1 - tn, 2), 1, 0.95, true);
-    drawFloat(ex, sy + bob.dip, F.rot + Math.sin(g.time * 9) * 0.1, true);
+    drawFloat(ex, sy + bob.dip, F.rot + Math.sin(g.time * 9) * 0.05 * (1 - tn), true);      // 느슨할 때만 살짝 까딱인다
     return;
   }
   floatDrag.on = false;
@@ -696,7 +696,7 @@ function drawLineAndFloat(ctx, g, phase) {
   drawFloat(bob.x, wet ? fy + bob.dip + Math.sin(g.time * 2.3) * 0.5 : fy, wet ? Math.sin(g.time * 1.7) * 0.07 : 0, wet);
 }
 
-const floatDrag = { on: false, x: 0, rot: 0, t: 0 };      // 걸린 뒤 찌가 줄에 끌려간 정도 (부드럽게 따라가도록 기억해 둔다)
+const floatDrag = { on: false, rot: 0, t: 0 };      // 걸린 뒤 찌가 누운 정도 (부드럽게 따라가도록 기억해 둔다)
 
 // 수면에서 터지는 큰 물 덩어리 (몸부림 파도, 물 폭발): 솟았다가 가라앉으며 사라진다
 const easeIn = (t) => t * t;
