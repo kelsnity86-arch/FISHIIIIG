@@ -431,10 +431,11 @@ export function drawTalk(ctx, g) {
   const art = hasSprite('ui_talk');
   if (art) {                                                      // 놋쇠 이름판의 한가운데에 (그림에서 잰 자리: 가로 12.2%, 세로 16%)
     ctx.font = `700 8.5px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    const nw = ctx.measureText(WHO[who]).width, room = b.w * 0.098;      // 양쪽 못 사이의 폭. 넘치면 글자를 줄인다
+    const nw = ctx.measureText(WHO[who]).width, room = b.h * 0.72;      // 양쪽 못 사이의 폭. 넘치면 글자를 줄인다
     if (nw > room) ctx.font = `700 ${8.5 * room / nw}px ${FONT}`;
     const mt = ctx.measureText('가힣'), up = mt.actualBoundingBoxAscent, dn = mt.actualBoundingBoxDescent;
-    ctx.fillStyle = '#4a3214'; ctx.fillText(WHO[who], b.x + b.w * 0.122, y + b.h * 0.16 + (up - dn) / 2);
+    const ts = sprite('ui_talk'), tk = b.h / ts.h;      // 이름표는 그림의 왼쪽 조각에 있고, 그 조각은 제 비율로 그려진다 (그림에서 잰 자리: 가로 14.6%, 세로 10.5%)
+    ctx.fillStyle = '#4a3214'; ctx.fillText(WHO[who], b.x + ts.w * 0.146 * tk, y + b.h * 0.105 + (up - dn) / 2);
   }
   else label(ctx, WHO[who], b.x + 22, y + 15, 10, '#8a4a22', 'left', 700, null);
   ctx.font = `600 10.5px ${FONT}`;
@@ -443,7 +444,7 @@ export function drawTalk(ctx, g) {
   ctx.globalAlpha = a * (0.35 + 0.65 * t.swap);
   lines.forEach((ln, i) => {
     const part = ln.slice(0, clamp(shown - used, 0, ln.length)); used += ln.length + 1;
-    if (part) label(ctx, part, b.x + 24, y + (art ? 29 + i * 12.5 : 31 + i * 14), 10.5, '#3b2c1e', 'left', 600, null);
+    if (part) label(ctx, part, b.x + 24, y + (art ? 30.5 + i * 13 : 31 + i * 14), 10.5, '#3b2c1e', 'left', 600, null);
   });
   ctx.globalAlpha = a;
   if (shown >= str.length) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(g.time * 5)); label(ctx, '▾', b.x + b.w - 22, y + b.h - 14, 11, '#8a4a22', 'center', 700, null); ctx.globalAlpha = a; }

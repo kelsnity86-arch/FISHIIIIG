@@ -159,13 +159,13 @@ function rowInfo(g, kind, id) {
   }
   if (kind === 'shop') {
     const x = SHOPS.find((v) => v.id === id), lv = e.shop[id];
-    return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: `h_shop_${look}_${id}` };
+    return { name: `${x.name} 키우기`, level: `Lv.${lv}`, desc: x.desc, cost: shopCost(e, id), block: lv >= 8 ? '끝' : shopLocked(e, id) ? '마을 등급' : null, icon: hasSprite('ic_up_' + id) ? 'ic_up_' + id : `h_shop_${look}_${id}` };
   }
-  if (kind === 'skin') return { name: '태초의 차림', level: `${skinsOwned(g).length}/${SKINS.length}`, desc: g.skin !== false ? '태초의 바다에서 얻은 겉모습으로 보인다' : '장비 단계에 맞는 겉모습으로 보인다', cost: 0, btn: g.skin !== false ? '켬' : '끔', block: null, icon: `h_outfit_${Math.min(8, Math.floor(e.gear.outfit / 10) + 1)}` };
-  if (kind === 'gen') return { name: '대를 잇는다', level: `지금 ${(g.gen || 0) + 1}대째`, desc: g.panel && g.panel.confirm ? '한 번 더 누르면 처음으로 돌아갑니다' : `도감·옛 물건은 남고 파는 값 +${Math.round((GEN_X - 1) * 100)}%`, cost: 0, btn: '잇기', block: null, icon: `h_shop_${look}_hall` };
+  if (kind === 'skin') return { name: '태초의 차림', level: `${skinsOwned(g).length}/${SKINS.length}`, desc: g.skin !== false ? '태초의 바다에서 얻은 겉모습으로 보인다' : '장비 단계에 맞는 겉모습으로 보인다', cost: 0, btn: g.skin !== false ? '켬' : '끔', block: null, icon: hasSprite('ic_skin') ? 'ic_skin' : `h_outfit_${Math.min(8, Math.floor(e.gear.outfit / 10) + 1)}` };
+  if (kind === 'gen') return { name: '대를 잇는다', level: `지금 ${(g.gen || 0) + 1}대째`, desc: g.panel && g.panel.confirm ? '한 번 더 누르면 처음으로 돌아갑니다' : `도감·옛 물건은 남고 파는 값 +${Math.round((GEN_X - 1) * 100)}%`, cost: 0, btn: '잇기', block: null, icon: hasSprite('ic_gen') ? 'ic_gen' : `h_shop_${look}_hall` };
   const need = townNeedDex(e);
   return { name: '마을 키우기', level: `${e.town}등급`, desc: e.town >= 8 ? '환상의 항구가 되었다' : `${ro(TOWN_NAMES[e.town + 1])} 커진다 · 가게를 더 키울 수 있다`, cost: townCost(e),
-    block: e.town >= 8 ? '끝' : dex < need ? `도감 ${dex}/${need}` : null, icon: `h_shop_${look}_hall` };
+    block: e.town >= 8 ? '끝' : dex < need ? `도감 ${dex}/${need}` : null, icon: hasSprite('ic_town') ? 'ic_town' : `h_shop_${look}_hall` };
 }
 
 // 판의 자리
@@ -413,8 +413,10 @@ export function drawPanel(ctx, g) {
     const done = info.block === '끝';                       // 끝까지 올린 것: 잠긴 것이 아니라 완성된 것으로 보인다
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
     plainRow(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r);
-    const ic = sprite(info.icon), is = 33, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
-    ctx.drawImage(ic.img, r.x + r.w * 0.109 - iw / 2, r.y + r.h * 0.48 - ih / 2, iw, ih);
+    // 아이콘은 종이 위에 바로 놓인다 (틀 없는 물건 하나). 가로로 긴 것(낚싯대·배)은 폭에, 나머지는 높이에 맞춘다
+    { const ic = sprite(info.icon), f = Math.min(40 / ic.w, 31 / ic.h), iw = ic.w * f, ih = ic.h * f;
+      ctx.drawImage(ic.img, r.x + r.w * 0.112 - iw / 2, r.y + r.h * 0.5 - ih / 2, iw, ih); }
+    if (info.block && !done && hasSprite('ic_lock') && hasSprite('h_row_locked_plain')) { const lk = sprite('ic_lock'), lh = 17, lw = lh * lk.w / lk.h; ctx.drawImage(lk.img, r.x + r.w * 0.848 - lw / 2, r.y + r.h * 0.492 - lh / 2, lw, lh); }      // 잠긴 줄: 버튼 위에 자물쇠
     // 글은 버튼 왼쪽 끝(줄 폭의 69%) 앞에서 끝나야 한다. 이름과 단계, 설명이 길면(영어판) 그만큼 글자를 줄인다
     { const room = r.w * 0.69 - 63;
       ctx.font = `600 11px ${FONT}`; const nw = ctx.measureText(info.name).width; ctx.font = `600 9px ${FONT}`; const lw = info.level ? ctx.measureText(info.level).width + 6 : 0;
