@@ -10399,7 +10399,7 @@
   },
   "fx_glint_1": {
    "atlas": "ui_set.webp",
-   "ax": 98,
+   "ax": 575,
    "ay": 386,
    "w": 96,
    "h": 95,
@@ -10407,7 +10407,7 @@
   },
   "fx_glint_2": {
    "atlas": "ui_set.webp",
-   "ax": 196,
+   "ax": 869,
    "ay": 386,
    "w": 96,
    "h": 92,
@@ -10415,7 +10415,7 @@
   },
   "fx_spark_1": {
    "atlas": "ui_set.webp",
-   "ax": 294,
+   "ax": 967,
    "ay": 386,
    "w": 96,
    "h": 68,
@@ -10423,7 +10423,7 @@
   },
   "fx_spark_2": {
    "atlas": "ui_set.webp",
-   "ax": 392,
+   "ax": 1065,
    "ay": 386,
    "w": 96,
    "h": 58,
@@ -10431,10 +10431,66 @@
   },
   "fx_wake_1": {
    "atlas": "ui_set.webp",
-   "ax": 490,
+   "ax": 1163,
    "ay": 386,
    "w": 320,
    "h": 57,
+   "smooth": true
+  },
+  "fx_mote_3": {
+   "atlas": "ui_set.webp",
+   "ax": 98,
+   "ay": 386,
+   "w": 92,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_mote_4": {
+   "atlas": "ui_set.webp",
+   "ax": 192,
+   "ay": 386,
+   "w": 94,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_mote_6": {
+   "atlas": "ui_set.webp",
+   "ax": 288,
+   "ay": 386,
+   "w": 94,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_mote_7": {
+   "atlas": "ui_set.webp",
+   "ax": 384,
+   "ay": 386,
+   "w": 93,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_mote_9": {
+   "atlas": "ui_set.webp",
+   "ax": 479,
+   "ay": 386,
+   "w": 94,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_mote_5": {
+   "atlas": "ui_set.webp",
+   "ax": 673,
+   "ay": 386,
+   "w": 96,
+   "h": 93,
+   "smooth": true
+  },
+  "fx_mote_8": {
+   "atlas": "ui_set.webp",
+   "ax": 771,
+   "ay": 386,
+   "w": 96,
+   "h": 93,
    "smooth": true
   }
  }

@@ -753,7 +753,7 @@ function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
     ctx.save(); ctx.imageSmoothingEnabled = true;
     for (let i = 0; i < n; i++) {
       const plain = 'fx_glint_' + (1 + i % 2), sp = L.tier >= 3 && hasSprite('fx_mote_' + L.tier) ? sprite('fx_mote_' + L.tier) : fxSprite(plain, 'fx_sparkle');      // 제 그림이 오기 전에는 흰 빛 알갱이
-      const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = 8 + 3 * Math.sin(Math.PI * u);
+      const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = (L.tier >= 3 ? 13 : 8) + 3 * Math.sin(Math.PI * u);      // 단계별 알갱이 그림은 빛 번짐이 넓어 알맹이가 작다 → 조금 크게
       ctx.globalAlpha = clamp(a * 0.95, 0, 1);
       ctx.drawImage(sp.img, p.x - sz / 2, p.y - sz * sp.h / sp.w / 2, sz, sz * sp.h / sp.w);
     }

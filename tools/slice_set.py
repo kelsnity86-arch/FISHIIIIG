@@ -2,6 +2,7 @@
   ui_ic_skill  바다 화면의 기술 버튼 (낚싯바늘과 별)
   st_icons     설정·잠시 멈춤 판의 줄 아이콘 10개 → st_<이름>
   fx_line      줄다리기 때 줄의 이펙트: 불티 3 · 빛 알갱이 2 · 물살 2
+  fx_motes     줄 단계마다 다른 빛 알갱이 7개 → fx_mote_3 ~ fx_mote_9
 
 python3 tools/slice_set.py
 """
@@ -56,5 +57,7 @@ if (RAW / 'fx_line.png').exists():
     names = ['fx_spark_1', 'fx_spark_2', 'fx_spark_3', 'fx_glint_1', 'fx_glint_2', 'fx_wake_1', 'fx_wake_2']
     sizes = [96, 96, 96, 96, 96, 320, 320]
     for n, im, px in zip(names, rows_of('fx_line', [3, 2, 2]), sizes): items.append((n, fit(im, px)))
+if (RAW / 'fx_motes.png').exists():      # 줄 단계마다 다른 빛 알갱이: 3단계 ~ 9(태초)
+    for i, im in enumerate(rows_of('fx_motes', [7], gap=40)): items.append((f'fx_mote_{i + 3}', fit(im, 96)))
 pack(items, 'ui_set.webp', manifest)
 mf.write_text(json.dumps(doc, indent=1, ensure_ascii=False) + '\n')
