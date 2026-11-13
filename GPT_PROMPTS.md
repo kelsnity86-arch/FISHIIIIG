@@ -12411,3 +12411,61 @@ around it.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name h_boat_foam2.png
 ```
+
+## ㊾ 동화책 UI 다듬기: 칸 없는 줄, 또렷한 대화창
+
+동화책 느낌의 UI(`assets/raw/storybook/`, 브랜치 `claude/amazing-mendel-8fufxr`)에서 두 가지를 다시 받는다.
+- 가게·설정 판의 줄: 왼쪽 네모 칸 안에 아이콘을 넣으니, 둥근 아이콘(기술·설정)은 겹으로 보이고 가게마다 느낌이 달랐다. 칸을 없애고 아이콘을 종이 위에 바로 놓는다. 지금 줄 그림은 작아서(449픽셀) 폰에서 흐리기도 하다.
+- 대화창: 527픽셀로 와서 흐리고, 비율이 달라 옆으로 늘어나 보인다.
+
+### 408. `ui_rows_plain` — 판의 줄 2개 (네모 칸 없음)
+
+```
+Style reference: open assets/raw/storybook/components.png and assets/raw/storybook/panel.png
+from the GitHub repository kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr.
+They show this game's warm storybook interface: cream parchment, brown wood edges, soft
+painterly brushwork. Among the components is a long list row: a rounded parchment bar
+with a thin brown outline, a rounded-square icon slot at its left end and an orange-gold
+pill button at its right end. There is also a greyed "locked" version of the same row.
+
+Paint TWO rows that match those exactly in shape, outline, colours, paper texture and
+button, with ONE change: there is NO icon slot. The whole left part of the row, from the
+left rounded end up to the button, is plain, even parchment (an icon will be laid
+directly on the paper there).
+
+1. Normal row: cream parchment bar, thin brown outline, softly rounded ends, the same
+   orange-gold pill button with a tiny rivet at each end sitting at the right end
+   (the button occupies about the right quarter of the row).
+2. Locked row: the same row in the muted grey-beige "locked" colours of the reference,
+   with the same pill button in dull grey-brown (no padlock drawn; it is added later).
+
+Both rows are exactly the same size and shape, about 5.6 times as wide as tall. Stack
+them in one column with clear empty space between them. Paint them LARGE and crisp: each
+row at least 1500 pixels wide, with clean sharp edges (no blur, no soft glow around the
+outline). No text, no icons, no symbols. Fully transparent background.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_rows_plain.png
+```
+
+### 409. `ui_talk2` — 대화창 (크고 또렷하게)
+
+```
+Style reference: open assets/raw/storybook/components.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG, branch claude/amazing-mendel-8fufxr. Among its pieces is the
+dialogue box of this game: a wide cream parchment panel with a brown wooden frame, softly
+rounded corners, and a small name tab (a little wooden plaque with a rivet at each end)
+attached at the top left edge.
+
+Paint that same dialogue box again, alone, keeping its look exactly (same frame, same
+parchment, same name tab in the same place, same warm storybook brushwork), but:
+- LARGE and crisp: at least 1800 pixels wide, with clean sharp edges and no blur.
+- Proportions: the box (not counting the name tab that sticks up) is 6.6 times as wide
+  as it is tall.
+- The inside of the box is plain, even parchment with room for two lines of text; the
+  name tab is empty.
+
+No text, no letters, no characters, no icons. Fully transparent background. Only this
+one dialogue box, centred, with a little empty margin around it.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_talk2.png
+```

@@ -4,6 +4,7 @@ import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS, DAY_SEC } from './config.js';
 import { tr } from './i18n.js';
+import { plainRow } from './plate.js';
 import { EN } from './lang.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
@@ -411,7 +412,7 @@ export function drawPanel(ctx, g) {
     ctx.translate(shake, -bump);
     const done = info.block === '끝';                       // 끝까지 올린 것: 잠긴 것이 아니라 완성된 것으로 보인다
     if (!can && !done) ctx.globalAlpha = k * (info.block ? 0.8 : 0.78);
-    img(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r.x, r.y, r.w, r.h);
+    plainRow(ctx, info.block && !done ? 'h_row_locked' : 'h_row', r);
     const ic = sprite(info.icon), is = 33, iw = ic.w >= ic.h ? is : is * ic.w / ic.h, ih = iw * ic.h / ic.w;
     ctx.drawImage(ic.img, r.x + r.w * 0.109 - iw / 2, r.y + r.h * 0.48 - ih / 2, iw, ih);
     // 글은 버튼 왼쪽 끝(줄 폭의 69%) 앞에서 끝나야 한다. 이름과 단계, 설명이 길면(영어판) 그만큼 글자를 줄인다

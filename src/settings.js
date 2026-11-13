@@ -2,6 +2,7 @@
 // 오른쪽 위의 톱니 버튼으로 연다 (제목 화면, 항구, 바다에서 쉴 때).
 import { W, COLORS } from './config.js';
 import { sprite, knownSprite } from './assets.js';
+import { plainRow } from './plate.js';
 import { initAudio, getVol, setVol, playSfx } from './audio.js';
 import { IS_PC, vibeLv, nextVibe } from './haptic.js';
 import { L, langName, nextLang } from './lang.js';
@@ -110,16 +111,6 @@ export function tapSettings(g, x, y) {
 function label(ctx, str, x, y, size, color, align = 'center', weight = 600) {
   ctx.font = `${weight} ${size}px ${FONT}`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillStyle = color; ctx.fillText(str, x, y);
 }
-// 설정의 줄: 가게 줄 그림에서 왼쪽의 네모 칸을 없앤 모습 (설정의 아이콘은 둥근 그림이라 네모 칸 안에 넣으면 겹으로 보인다).
-// 새로 그리지 않고 줄 그림의 조각을 옮겨 붙인다: 왼쪽 끝은 오른쪽 끝을 뒤집어 쓰고, 네모 칸 자리는 가운데의 민무늬 종이를 늘려 덮는다.
-function plainRow(ctx, row, r) {
-  const im = row.img, iw = im.width, ih = im.height;
-  ctx.drawImage(im, r.x, r.y, r.w, r.h);
-  const cap = 0.03, cover = 0.215;      // 줄 폭에 대한 비율: 둥근 끝의 폭, 네모 칸이 끝나는 자리
-  ctx.save(); ctx.translate(r.x + r.w * cap, r.y); ctx.scale(-1, 1); ctx.drawImage(im, iw * (1 - cap), 0, iw * cap, ih, 0, 0, r.w * cap, r.h); ctx.restore();
-  ctx.drawImage(im, iw * 0.3, 0, iw * 0.12, ih, r.x + r.w * cap - 0.3, r.y, r.w * (cover - cap) + 0.6, r.h);
-}
-
 export function drawSettings(ctx, g) {
   const s = g.settings; if (!s) return;
   const k = easeOut(clamp(s.t / 0.22, 0, 1)) * (s.closing != null ? 1 - clamp(s.closing / 0.18, 0, 1) : 1), ph = panelH();
@@ -145,7 +136,7 @@ export function drawSettings(ctx, g) {
   rows(s.mode, s.tab).forEach((it, i) => {
     const r = rowRect(i), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0, cy = r.y + r.h * 0.492;
     ctx.save(); ctx.translate(0, -bump);
-    plainRow(ctx, row, r);
+    plainRow(ctx, 'h_row', r);
     { const ic = rowIcon(it.id), is = 31; ctx.drawImage(ic.img, r.x + r.w * 0.109 - is / 2, r.y + r.h * 0.48 - is * ic.h / ic.w / 2, is, is * ic.h / ic.w); }      // 줄 왼쪽 칸의 그림
     let value = it.value;
     if (it.slider) {      // 소리 줄: 이름 · 막대 · (놋쇠 판에) 크기
