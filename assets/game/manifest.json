@@ -7707,16 +7707,16 @@
   },
   "ui_stamp_new": {
    "atlas": "h_atlas.webp",
-   "ax": 1381,
-   "ay": 487,
+   "ax": 0,
+   "ay": 0,
    "w": 320,
    "h": 321,
    "smooth": true
   },
   "ui_stamp_record": {
    "atlas": "h_atlas.webp",
-   "ax": 0,
-   "ay": 876,
+   "ax": 322,
+   "ay": 0,
    "w": 320,
    "h": 311,
    "smooth": true
@@ -8189,16 +8189,16 @@
   },
   "ui_power": {
    "atlas": "h_atlas.webp",
-   "ax": 0,
-   "ay": 1741,
+   "ax": 644,
+   "ay": 0,
    "w": 900,
    "h": 100,
    "smooth": true
   },
   "ui_tension": {
    "atlas": "h_atlas.webp",
-   "ax": 902,
-   "ay": 1741,
+   "ax": 0,
+   "ay": 323,
    "w": 900,
    "h": 93,
    "smooth": true
@@ -8213,16 +8213,16 @@
   },
   "ui_tension_fill": {
    "atlas": "h_atlas.webp",
-   "ax": 0,
-   "ay": 1843,
+   "ax": 902,
+   "ay": 323,
    "w": 900,
    "h": 53,
    "smooth": true
   },
   "ui_power_fill": {
    "atlas": "h_atlas.webp",
-   "ax": 902,
-   "ay": 1843,
+   "ax": 0,
+   "ay": 418,
    "w": 900,
    "h": 43,
    "smooth": true
@@ -8745,14 +8745,6 @@
    "h": 293,
    "smooth": true
   },
-  "dex_book": {
-   "atlas": "ui_extra.webp",
-   "ax": 0,
-   "ay": 589,
-   "w": 1036,
-   "h": 571,
-   "smooth": true
-  },
   "ui_talk": {
    "atlas": "ui_rows.webp",
    "ax": 0,
@@ -9174,22 +9166,6 @@
    "ay": 1266,
    "pw": 151,
    "ph": 150
-  },
-  "dex_tab_on": {
-   "atlas": "ui_extra.webp",
-   "ax": 633,
-   "ay": 1929,
-   "w": 150,
-   "h": 134,
-   "smooth": true
-  },
-  "dex_tab": {
-   "atlas": "ui_extra.webp",
-   "ax": 1138,
-   "ay": 1929,
-   "w": 150,
-   "h": 133,
-   "smooth": true
   },
   "c_float_4": {
    "atlas": "gear.webp",
@@ -9967,81 +9943,6 @@
    "pw": 453,
    "ph": 461
   },
-  "h_rim_1": {
-   "atlas": "port.webp",
-   "ax": 294,
-   "ay": 302,
-   "pw": 385,
-   "ph": 394,
-   "w": 385,
-   "h": 394,
-   "smooth": true,
-   "hole": [
-    0.5026,
-    0.5065,
-    0.3513
-   ]
-  },
-  "h_rim_2": {
-   "atlas": "port.webp",
-   "ax": 681,
-   "ay": 302,
-   "pw": 391,
-   "ph": 398,
-   "w": 391,
-   "h": 398,
-   "smooth": true,
-   "hole": [
-    0.4974,
-    0.509,
-    0.3549
-   ]
-  },
-  "h_rim_3": {
-   "atlas": "port.webp",
-   "ax": 1074,
-   "ay": 302,
-   "pw": 399,
-   "ph": 439,
-   "w": 399,
-   "h": 439,
-   "smooth": true,
-   "hole": [
-    0.5013,
-    0.6015,
-    0.3371
-   ]
-  },
-  "h_rim_4": {
-   "atlas": "port.webp",
-   "ax": 0,
-   "ay": 743,
-   "pw": 420,
-   "ph": 457,
-   "w": 420,
-   "h": 457,
-   "smooth": true,
-   "hole": [
-    0.4979,
-    0.666,
-    0.2811
-   ]
-  },
-  "h_rim_5": {
-   "atlas": "port.webp",
-   "ax": 422,
-   "ay": 743,
-   "pw": 400,
-   "ph": 459,
-   "w": 400,
-   "h": 459,
-   "smooth": true,
-   "hole": [
-    0.4988,
-    0.625,
-    0.3331
-   ]
-  },
   "h_boat_big_9": {
    "w": 152.3,
    "h": 31.36,
@@ -10561,202 +10462,114 @@
   },
   "fx_wake_2": {
    "atlas": "ui_set.webp",
-   "ax": 562,
-   "ay": 386,
+   "ax": 0,
+   "ay": 0,
    "w": 320,
    "h": 98,
    "smooth": true
   },
   "fx_spark_3": {
    "atlas": "ui_set.webp",
-   "ax": 884,
-   "ay": 386,
+   "ax": 322,
+   "ay": 0,
    "w": 96,
    "h": 96,
    "smooth": true
   },
   "fx_glint_1": {
    "atlas": "ui_set.webp",
-   "ax": 1459,
-   "ay": 386,
+   "ax": 897,
+   "ay": 0,
    "w": 96,
    "h": 95,
    "smooth": true
   },
   "fx_glint_2": {
    "atlas": "ui_set.webp",
-   "ax": 562,
-   "ay": 506,
+   "ax": 1191,
+   "ay": 0,
    "w": 96,
    "h": 92,
    "smooth": true
   },
   "fx_spark_1": {
    "atlas": "ui_set.webp",
-   "ax": 1548,
-   "ay": 688,
+   "ax": 1289,
+   "ay": 0,
    "w": 96,
    "h": 68,
    "smooth": true
   },
   "fx_spark_2": {
    "atlas": "ui_set.webp",
-   "ax": 562,
-   "ay": 763,
+   "ax": 1387,
+   "ay": 0,
    "w": 96,
    "h": 58,
    "smooth": true
   },
   "fx_wake_1": {
    "atlas": "ui_set.webp",
-   "ax": 660,
-   "ay": 763,
+   "ax": 1485,
+   "ay": 0,
    "w": 320,
    "h": 57,
    "smooth": true
   },
   "fx_mote_3": {
    "atlas": "ui_set.webp",
-   "ax": 982,
-   "ay": 386,
+   "ax": 420,
+   "ay": 0,
    "w": 92,
    "h": 96,
    "smooth": true
   },
   "fx_mote_4": {
    "atlas": "ui_set.webp",
-   "ax": 1076,
-   "ay": 386,
+   "ax": 514,
+   "ay": 0,
    "w": 94,
    "h": 96,
    "smooth": true
   },
   "fx_mote_6": {
    "atlas": "ui_set.webp",
-   "ax": 1172,
-   "ay": 386,
+   "ax": 610,
+   "ay": 0,
    "w": 94,
    "h": 96,
    "smooth": true
   },
   "fx_mote_7": {
    "atlas": "ui_set.webp",
-   "ax": 1268,
-   "ay": 386,
+   "ax": 706,
+   "ay": 0,
    "w": 93,
    "h": 96,
    "smooth": true
   },
   "fx_mote_9": {
    "atlas": "ui_set.webp",
-   "ax": 1363,
-   "ay": 386,
+   "ax": 801,
+   "ay": 0,
    "w": 94,
    "h": 96,
    "smooth": true
   },
   "fx_mote_5": {
    "atlas": "ui_set.webp",
-   "ax": 1557,
-   "ay": 386,
+   "ax": 995,
+   "ay": 0,
    "w": 96,
    "h": 93,
    "smooth": true
   },
   "fx_mote_8": {
    "atlas": "ui_set.webp",
-   "ax": 1655,
-   "ay": 386,
+   "ax": 1093,
+   "ay": 0,
    "w": 96,
    "h": 93,
-   "smooth": true
-  },
-  "dex_idx_1": {
-   "atlas": "ui_set.webp",
-   "ax": 1686,
-   "ay": 601,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_2": {
-   "atlas": "ui_set.webp",
-   "ax": 1858,
-   "ay": 601,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_3": {
-   "atlas": "ui_set.webp",
-   "ax": 0,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_4": {
-   "atlas": "ui_set.webp",
-   "ax": 172,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_5": {
-   "atlas": "ui_set.webp",
-   "ax": 344,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_6": {
-   "atlas": "ui_set.webp",
-   "ax": 516,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_7": {
-   "atlas": "ui_set.webp",
-   "ax": 688,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_8": {
-   "atlas": "ui_set.webp",
-   "ax": 860,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_0": {
-   "atlas": "ui_set.webp",
-   "ax": 1032,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_9": {
-   "atlas": "ui_set.webp",
-   "ax": 1204,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
-   "smooth": true
-  },
-  "dex_idx_R": {
-   "atlas": "ui_set.webp",
-   "ax": 1376,
-   "ay": 688,
-   "w": 170,
-   "h": 73,
    "smooth": true
   },
   "dex_book2b": {
@@ -10851,8 +10664,8 @@
   },
   "h_boat_foam": {
    "atlas": "ui_set.webp",
-   "ax": 982,
-   "ay": 763,
+   "ax": 0,
+   "ay": 100,
    "w": 700,
    "h": 47,
    "smooth": true
