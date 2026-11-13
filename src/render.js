@@ -721,20 +721,27 @@ function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
     L.holdA += ((fighting && g.hold && !f.surging ? 1 : 0) - L.holdA) * Math.min(1, dt * 7);
     L.phase = (L.phase + dt * (0.35 + 0.75 * L.holdA)) % 1;
     if (L.wakeA > 0.03) {
-      const sp = fxSprite('fx_wake', 'c_bowspray_2'), w = 26 + 12 * L.wakeA, h = w * sp.h / sp.w;
-      ctx.save(); ctx.globalAlpha = clamp(L.wakeA * 1.3, 0, 0.95); ctx.imageSmoothingEnabled = true;
-      ctx.translate(entry.x, entry.y + 1.5); ctx.scale(-L.dir, 1);      // 그림은 왼쪽으로 가를 때의 모습 (앞쪽에 물이 솟고 뒤로 꼬리가 남는다)
-      ctx.drawImage(sp.img, -w * 0.3, -h, w, h);
+      // 약할 때는 잔물살, 셀수록 큰 물살로 서서히 넘어간다 (두 그림을 겹쳐 넘긴다)
+      const big = clamp((L.wakeA - 0.45) / 0.35, 0, 1), w = 30 + 12 * L.wakeA;
+      ctx.save(); ctx.imageSmoothingEnabled = true;
+      ctx.translate(entry.x, entry.y + 2); ctx.scale(-L.dir, 1);      // 그림은 왼쪽으로 가를 때의 모습 (앞쪽에 물이 솟고 뒤로 꼬리가 남는다)
+      for (const [name, a] of [['fx_wake_1', 1 - big], ['fx_wake_2', big]]) {
+        if (a < 0.02) continue;
+        const sp = fxSprite(name, 'c_bowspray_2'), h = w * sp.h / sp.w;
+        ctx.globalAlpha = clamp(L.wakeA * 1.3, 0, 0.95) * a;
+        ctx.drawImage(sp.img, -w * 0.22, -h, w, h);
+      }
       ctx.restore();
     }
     return;
   }
   // 감는 동안: 빛 알갱이 다섯이 줄을 타고 낚싯대 쪽으로 (양 끝에서는 서서히 나타나고 사라진다)
   if (L.holdA > 0.03) {
-    const sp = fxSprite('fx_glint', 'fx_sparkle'), n = 5;
+    const n = 5;
     ctx.save(); ctx.imageSmoothingEnabled = true;
     for (let i = 0; i < n; i++) {
-      const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = 5.5 + 2 * Math.sin(Math.PI * u);
+      const sp = fxSprite('fx_glint_' + (1 + i % 2), 'fx_sparkle');
+      const u = 1 - ((L.phase + i / n) % 1), p = at(u), a = Math.pow(Math.sin(Math.PI * u), 0.7) * L.holdA, sz = 8 + 3 * Math.sin(Math.PI * u);
       ctx.globalAlpha = clamp(a * 0.95, 0, 1);
       ctx.drawImage(sp.img, p.x - sz / 2, p.y - sz * sp.h / sp.w / 2, sz, sz * sp.h / sp.w);
     }
@@ -746,7 +753,7 @@ function lineFx(ctx, g, at, entry, mp, tn, dt, layer) {
   while (L.acc >= 1 && L.sparks.length < 40) {
     L.acc -= 1;
     const u = 0.08 + Math.random() * 0.86, p = at(u), an = -Math.PI / 2 + (Math.random() - 0.5) * 2.4, sp = 22 + Math.random() * 38;
-    L.sparks.push({ x: p.x, y: p.y, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp, age: 0, life: 0.28 + Math.random() * 0.3, rot: Math.random() * 6.3, vr: (Math.random() - 0.5) * 9, size: 3.5 + Math.random() * 3.5, k: 1 + Math.floor(Math.random() * 3) });
+    L.sparks.push({ x: p.x, y: p.y, vx: Math.cos(an) * sp, vy: Math.sin(an) * sp, age: 0, life: 0.28 + Math.random() * 0.3, rot: Math.random() * 6.3, vr: (Math.random() - 0.5) * 9, size: 7 + Math.random() * 5, k: 1 + Math.floor(Math.random() * 3) });
   }
   if (L.acc > 1) L.acc = 1;
   if (L.sparks.length) {

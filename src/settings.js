@@ -135,7 +135,7 @@ export function drawSettings(ctx, g) {
     const r = rowRect(i), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0, cy = r.y + r.h * 0.492;
     ctx.save(); ctx.translate(0, -bump);
     ctx.drawImage(row.img, r.x, r.y, r.w, r.h);
-    { const ic = rowIcon(it.id), is = 27; ctx.drawImage(ic.img, r.x + r.w * 0.109 - is / 2, r.y + r.h * 0.48 - is * ic.h / ic.w / 2, is, is * ic.h / ic.w); }      // 줄 왼쪽 칸의 그림
+    { const ic = rowIcon(it.id), is = 31; ctx.drawImage(ic.img, r.x + r.w * 0.109 - is / 2, r.y + r.h * 0.48 - is * ic.h / ic.w / 2, is, is * ic.h / ic.w); }      // 줄 왼쪽 칸의 그림
     let value = it.value;
     if (it.slider) {      // 소리 줄: 이름 · 막대 · (놋쇠 판에) 크기
       const v = getVol(it.id), bx = r.x + BAR.dx, bh = BAR.w * fr.h / fr.w;

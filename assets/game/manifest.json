@@ -10292,6 +10292,150 @@
    "w": 640,
    "h": 297,
    "smooth": true
+  },
+  "ui_ic_skill": {
+   "atlas": "ui_set.webp",
+   "ax": 0,
+   "ay": 0,
+   "w": 386,
+   "h": 384,
+   "smooth": true
+  },
+  "st_set": {
+   "atlas": "ui_set.webp",
+   "ax": 388,
+   "ay": 0,
+   "w": 128,
+   "h": 131,
+   "smooth": true
+  },
+  "st_res": {
+   "atlas": "ui_set.webp",
+   "ax": 518,
+   "ay": 0,
+   "w": 128,
+   "h": 130,
+   "smooth": true
+  },
+  "st_lang": {
+   "atlas": "ui_set.webp",
+   "ax": 648,
+   "ay": 0,
+   "w": 128,
+   "h": 130,
+   "smooth": true
+  },
+  "st_resume": {
+   "atlas": "ui_set.webp",
+   "ax": 778,
+   "ay": 0,
+   "w": 128,
+   "h": 130,
+   "smooth": true
+  },
+  "st_sfx": {
+   "atlas": "ui_set.webp",
+   "ax": 908,
+   "ay": 0,
+   "w": 128,
+   "h": 129,
+   "smooth": true
+  },
+  "st_amb": {
+   "atlas": "ui_set.webp",
+   "ax": 1038,
+   "ay": 0,
+   "w": 128,
+   "h": 129,
+   "smooth": true
+  },
+  "st_quit": {
+   "atlas": "ui_set.webp",
+   "ax": 1168,
+   "ay": 0,
+   "w": 128,
+   "h": 129,
+   "smooth": true
+  },
+  "st_vibe": {
+   "atlas": "ui_set.webp",
+   "ax": 1298,
+   "ay": 0,
+   "w": 128,
+   "h": 128,
+   "smooth": true
+  },
+  "st_mus": {
+   "atlas": "ui_set.webp",
+   "ax": 1428,
+   "ay": 0,
+   "w": 128,
+   "h": 127,
+   "smooth": true
+  },
+  "st_qual": {
+   "atlas": "ui_set.webp",
+   "ax": 1558,
+   "ay": 0,
+   "w": 128,
+   "h": 127,
+   "smooth": true
+  },
+  "fx_wake_2": {
+   "atlas": "ui_set.webp",
+   "ax": 1688,
+   "ay": 0,
+   "w": 320,
+   "h": 98,
+   "smooth": true
+  },
+  "fx_spark_3": {
+   "atlas": "ui_set.webp",
+   "ax": 0,
+   "ay": 386,
+   "w": 96,
+   "h": 96,
+   "smooth": true
+  },
+  "fx_glint_1": {
+   "atlas": "ui_set.webp",
+   "ax": 98,
+   "ay": 386,
+   "w": 96,
+   "h": 95,
+   "smooth": true
+  },
+  "fx_glint_2": {
+   "atlas": "ui_set.webp",
+   "ax": 196,
+   "ay": 386,
+   "w": 96,
+   "h": 92,
+   "smooth": true
+  },
+  "fx_spark_1": {
+   "atlas": "ui_set.webp",
+   "ax": 294,
+   "ay": 386,
+   "w": 96,
+   "h": 68,
+   "smooth": true
+  },
+  "fx_spark_2": {
+   "atlas": "ui_set.webp",
+   "ax": 392,
+   "ay": 386,
+   "w": 96,
+   "h": 58,
+   "smooth": true
+  },
+  "fx_wake_1": {
+   "atlas": "ui_set.webp",
+   "ax": 490,
+   "ay": 386,
+   "w": 320,
+   "h": 57,
+   "smooth": true
   }
  }
 }
