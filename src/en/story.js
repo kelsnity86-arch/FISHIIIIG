@@ -1,12 +1,12 @@
 // English story text: dialogue, the final memory, shopkeeper lines, keepsakes.
 export const EN_SCRIPT = {
   intro: [
-    "Off to sea again, are you? I left the old man's boat as it was. Worn, but she still floats.",
-    "Feels like yesterday the old man pulled you from the shore. A child with no words, no memory, and look at you now.",
-    "We didn't know your name. You'd come from the horizon, so he called you Hori. The whole village knows it now.",
+    "Off to sea again, are you? Somehow I thought you might be.",
+    "I left the old man's boat as it was. She's worn, but I've kept her patched, and she still floats.",
+    "You washed up on the shore with no name and no memory. You'd come from beyond the horizon, the old man said, so he called you Hori.",
+    "And now you're one of the village, through and through.",
     "As you can see, the village has gone quiet. The young ones left, and the shops barely keep their doors open.",
-    "But they say strange shadows are showing in the sea of late. Bigger than a boat, and more than one or two.",
-    "Whatever comes up, catch it and bring it home. With what it fetches, let's raise this village again.",
+    "They say there are shadows out there bigger than a boat. Whatever comes up, bring it in. We'll raise this village again on what it fetches.",
   ],
   town_2: [
     "We laid new planks on the pier. I can't recall when it last didn't creak.",
