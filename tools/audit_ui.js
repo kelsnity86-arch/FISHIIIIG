@@ -43,6 +43,12 @@ const { chromium } = require('playwright');
   await click(606, 30); await p.waitForTimeout(500); check('도감: 닫기', !(await st()).dex);
   await click(64, 360 - 26); check('항구: 해도 버튼', (await st()).map); await p.waitForTimeout(500); await shot('map');
   await click(640 - 46, 360 - 48); await p.waitForTimeout(500); check('해도: 닫기', !(await st()).map);
+  // 오늘은 쉬기: 이르면 거절, 오후에는 한 번 누르면 '정말로?', 두 번 누르면 다음 날 (출항 버튼 바로 위, 같은 크기)
+  await ev(() => { const g = window.game; g.dayT = 60; g.msg = null; }); await click(640 - 62, 360 - 58); check('항구: 오늘은 쉬기 (이를 때 거절)', await ev(() => window.game.dayT === 60 && !!window.game.msg));
+  await ev(() => { window.game.dayT = 400; }); await click(640 - 62, 360 - 58); check('항구: 오늘은 쉬기 (한 번은 묻기만)', await ev(() => window.game.dayT === 400 && window.game.restAsk != null));
+  await click(640 - 62, 360 - 58); await p.waitForTimeout(2500); check('항구: 오늘은 쉬기 (두 번째에 다음 날)', await ev(() => window.game.dayT === 0 && window.game.scene === 'harbor'));
+  // 건물 이름판을 눌러도 가게가 열린다
+  await ev(() => { window.game.panel = null; }); await click(68 + 2 * 100.8, 143); check('항구: 이름판 누르기', !!(await st()).panel); await ev(() => { window.game.panel = null; }); await p.waitForTimeout(300);
   await click(640 - 22, 22); check('항구: 톱니', !!(await st()).set); await p.waitForTimeout(300);
   // 설정: 쪽 버튼, 막대, 줄, 닫기
   const cxr = 182 + 182 + 10 * 364 / 336;

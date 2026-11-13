@@ -4,6 +4,7 @@ import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS, DAY_SEC } from './config.js';
 import { tr } from './i18n.js';
+import { EN } from './lang.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
 import { startTalk, tapTalk, tapSkip, storyTown, storyRegion, tapMemory, tapTitle, tapSound } from './story.js';
@@ -307,9 +308,11 @@ function moored(ctx, b, x, y, w, h, t) {
   ctx.drawImage(c, x, y, w, h);
   // 배와 물이 만나는 자리의 잔물결 (그림: h_boat_foam). 배와는 조금 다른 박자로 오르내리고 좌우로 살짝 밀린다
   if (hasSprite('h_boat_foam')) { const f = sprite('h_boat_foam'), fw = w * 1.06, fh = fw * f.h / f.w;
-    ctx.save(); ctx.globalAlpha = 0.8; ctx.drawImage(f.img, x - w * 0.03 + Math.sin(t * 0.9) * 1.2, wl - fh * 0.3 + Math.sin(t * 1.9 + 1) * 0.6, fw, fh); ctx.restore(); }
+    ctx.save(); const fx = x - w * 0.03 + Math.sin(t * 0.9) * 1.2, fy = wl - fh * 0.42 + Math.sin(t * 1.9 + 1) * 0.6;
+    ctx.drawImage(f.img, fx, fy, fw, fh * 1.1); ctx.globalAlpha = 0.35; ctx.drawImage(f.img, fx + 1.5, fy + 0.4, fw, fh * 1.1); ctx.restore(); }      // 옅은 그림이라 한 번 더 옅게 겹친다 (더 진하면 배 밑이 안개에 덮인 것처럼 보인다)
 }
 
+const EN_SHORT = { market: 'Market', tackle: 'Tackle', yard: 'Shipyard', tailor: 'Tailor', guild: 'Guild', hall: 'Hall' };
 // 건물 이름판이 걸리는 높이: 건물들 위에 한 줄로 가지런히 (지붕 높이가 제각각이라 여섯 건물의 평균 높이 조금 위)
 function signTop(g) {
   const look = TOWN_LOOK[g.eco.town]; let sum = 0;
@@ -335,7 +338,8 @@ export function drawHarbor(ctx, g) {
   else if (hasSprite('c_boat_1')) { const b = sprite('c_boat_1'); ctx.drawImage(b.img, W - 150, 262 - b.h + Math.sin(t * 1.3) * 0.8, b.w, b.h); }
   // 건물 이름판: 배보다 나중에 그린다 (큰 배의 돛대·깃발이 이름을 가리지 않게)
   HOUSES.forEach((id, i) => { const x = HX(i);
-    const tag = `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
+    // 영어 이름은 길어서 이름판에는 줄임말을 쓴다 (가게 판의 제목은 긴 이름 그대로)
+    const tag = EN() ? `${EN_SHORT[id]}  ${id === 'hall' ? 'Rank ' + e.town : 'Lv.' + e.shop[id]}` : `${HOUSE_NAME[id]}  ${id === 'hall' ? e.town + '등급' : 'Lv.' + e.shop[id]}`;
     ctx.font = `600 9px ${FONT}`; const tw = ctx.measureText(tag).width + 12;
     const signKey = hasSprite('h_sign_' + look) ? 'h_sign_' + look : 'h_sign';      // 마을 겉모습 5단계마다 다른 이름판
     if (hasSprite(signKey)) {      // 이름판 (그림): 양 끝은 그대로 두고 가운데만 글 길이에 맞춰 늘린다
