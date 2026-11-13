@@ -4,7 +4,7 @@ import { tapSettings } from './settings.js';
 import { settleQuest, newQuest, questLine, dexName, GEN_X, topRegion, skinsOwned, skinOn, SKINS } from './goals.js';
 import { W, H, COLORS, DAY_SEC } from './config.js';
 import { tr } from './i18n.js';
-import { plainRow } from './plate.js';
+import { plainRow, slice3 } from './plate.js';
 import { EN } from './lang.js';
 import { sprite, hasSprite } from './assets.js';
 import { REGIONS } from './creatures.js';
@@ -348,8 +348,7 @@ export function drawHarbor(ctx, g) {
       ctx.font = `700 9px ${FONT}`; const w0 = ctx.measureText(tr(tag)).width, fs = w0 > room ? 9 * room / w0 : 9;
       const sw = Math.min(maxW, Math.max(w0 + 2 * cap + 2, cap * 2 + 20)), sx = x - sw / 2, sy = signTop(g), iw = sp.img.width, ih = sp.img.height, ic = iw * 0.15;
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(sp.img, 0, 0, ic, ih, sx, sy, cap, sh); ctx.drawImage(sp.img, iw - ic, 0, ic, ih, sx + sw - cap, sy, cap, sh);
-      ctx.drawImage(sp.img, ic, 0, iw - 2 * ic, ih, sx + cap - 0.3, sy, sw - 2 * cap + 0.6, sh);
+      slice3(ctx, signKey, sx, sy, sw, sh, 0.15);
       label(ctx, tag, x, sy + sh * 0.5, fs, '#3a2410', 'center', 700, null);
     } else {
       ctx.fillStyle = 'rgba(16,28,56,0.62)'; ctx.beginPath(); ctx.roundRect(x - tw / 2, HY + 5, tw, 14, 7); ctx.fill();

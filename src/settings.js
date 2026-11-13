@@ -82,12 +82,12 @@ export function openPause(g) { if (!g.settings) { g.paused = true; g.hold = fals
 export function closeSettings(g) {
   const s = g.settings; if (!s || s.closing != null) return;
   g.sfx.push(['paper']);
-  if (s.mode === 'set' && g.paused) { s.mode = 'pause'; s.t = 0.1; s.hit = -1; return; }
+  if (s.mode === 'set' && g.paused) { s.mode = 'pause'; s.swap = 0; s.hit = -1; return; }      // 판은 그대로 두고 안의 줄만 바뀐다 (판이 사라졌다 다시 나타나면 깜빡인다)
   s.closing = 0;
 }
 export function updateSettings(g, dt) {
   const s = g.settings; if (!s) return;
-  s.t += dt; s.hitT += dt;
+  s.t += dt; s.hitT += dt; s.swap = Math.min(1, (s.swap ?? 1) + dt / 0.16);
   if (s.closing != null && (s.closing += dt) > 0.18) { g.settings = null; g.paused = false; }
 }
 export function tapSettings(g, x, y) {
@@ -102,7 +102,7 @@ export function tapSettings(g, x, y) {
   for (let i = 0; i < list.length; i++) { const r = rowRect(i); if (x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h) {
     const id = list[i].id; g.sfx.push(['tap']);
     if (id === 'resume') closeSettings(g);
-    else if (id === 'set') { s.mode = 'set'; s.t = 0.1; s.hit = -1; }
+    else if (id === 'set') { s.mode = 'set'; s.swap = 0; s.hit = -1; }
     else if (id === 'quit') { g.dirty = true; setTimeout(quitGame, 150); }      // 저장이 적힌 뒤에 닫는다
     else { act(id); s.hit = i; s.hitT = 0; }
     return; } }
@@ -135,7 +135,7 @@ export function drawSettings(ctx, g) {
   const row = sprite('h_row'), fr = sprite('h_bar'), fl = sprite('h_bar_fill');
   rows(s.mode, s.tab).forEach((it, i) => {
     const r = rowRect(i), bump = s.hit === i ? Math.sin(clamp(s.hitT / 0.18, 0, 1) * Math.PI) * 2.5 : 0, cy = r.y + r.h * 0.492;
-    ctx.save(); ctx.translate(0, -bump);
+    ctx.save(); ctx.translate(0, -bump); ctx.globalAlpha *= 0.35 + 0.65 * (s.swap ?? 1);      // 잠시 멈춤 ↔ 설정: 줄이 부드럽게 바뀐다
     plainRow(ctx, 'h_row', r);
     { const ic = rowIcon(it.id), f = Math.min(46 / ic.w, 31 / ic.h), iw = ic.w * f, ih = ic.h * f; ctx.drawImage(ic.img, r.x + r.w * 0.112 - iw / 2, r.y + r.h * 0.5 - ih / 2, iw, ih); }      // 줄 왼쪽의 그림 (가게 줄과 같은 크기·자리)
     let value = it.value;

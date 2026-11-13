@@ -3,7 +3,7 @@
 // 화면에 보이는 것은 GPT 그림(인물, 양피지 판)과 글자뿐이다.
 import { W, H, DAY_SEC, DAY_PLAN } from './config.js';
 import { sprite, hasSprite } from './assets.js';
-import { plateText, hasPlate } from './plate.js';
+import { plateText, hasPlate, slice3 } from './plate.js';
 import { RELICS } from './relics.js';
 import { skillCost } from './economy.js';
 import { travel } from './harbor.js';
@@ -417,10 +417,7 @@ export function drawTalk(ctx, g) {
   if (hasSprite('ui_talk')) {      // 그림의 가로세로 비율이 대화창과 다르면 통째로 늘리지 않는다: 이름표가 있는 왼쪽과 오른쪽 끝은 제 비율로, 가운데의 민무늬 종이만 늘린다
     const s = sprite('ui_talk'), im = s.img, iw = im.width, ih = im.height, k = b.h / ih, nat = iw * k;
     if (Math.abs(nat - b.w) < 6) ctx.drawImage(im, b.x, y, b.w, b.h);
-    else { const L = 0.42, R = 0.1, lw = iw * L * k, rw = iw * R * k;
-      ctx.drawImage(im, 0, 0, iw * L, ih, b.x, y, lw, b.h);
-      ctx.drawImage(im, iw * (1 - R), 0, iw * R, ih, b.x + b.w - rw, y, rw, b.h);
-      ctx.drawImage(im, iw * L, 0, iw * (1 - L - R), ih, b.x + lw - 0.4, y, b.w - lw - rw + 0.8, b.h); }
+    else slice3(ctx, 'ui_talk', b.x, y, b.w, b.h, 0.42, 0.1);
   }
   else {
     const im = sprite('h_row').img, sw = im.width, sh = im.height, k = b.h / sh, cap = sw * 0.03;
