@@ -125,6 +125,8 @@ const tabEdge = (k) => IDX.x + 1 + k * IDX.step;
 const tabRect = (i) => { const k = TAB_SLOT(TABS[i]); return { x: tabEdge(k) - 12, y: BY() + IDX.y0 + k * IDX.pitch, w: IDX.w, h: IDX.h, k }; };
 const tabHit = (x, y, r) => x >= r.x - 6 && x <= r.x + r.w + 10 && y >= r.y - (IDX.pitch - IDX.h) / 2 && y < r.y + r.h + (IDX.pitch - IDX.h) / 2;      // 스티커 사이의 틈도 가까운 쪽이 받는다
 const tabKey = (t) => 'dex_idx_' + t;
+// 손으로 붙인 것처럼 조금씩 삐뚤다: 자리마다 정해진 기울기(도)·위아래 어긋남·나온 길이. (늘 같은 모양이라 볼 때마다 달라지지 않는다)
+const TAB_SKEW = [[-1.6, 0.4, 0.6], [2.2, -0.7, -1.2], [-0.8, 0.9, 1.4], [1.3, -0.3, -0.5], [-2.4, 0.6, 0.9], [0.7, -1.0, -1.5], [2.6, 0.3, 0.4], [-1.2, -0.6, 1.1], [1.8, 0.8, -0.9], [-2.0, -0.4, 0.7], [1.1, 0.5, -0.6]];
 const slotRect = (i) => ({ x: GX + (i % COLS) * (SLOT + GAP), y: gridY() + Math.floor(i / COLS) * (SLOT + GAP), w: SLOT, h: SLOT });
 const arrowRect = (dir) => ({ x: GX + GW / 2 + dir * 46 - 9, y: gridY() + ROWS * (SLOT + GAP) + 3, w: 18, h: 18 });
 function loadPage(g) { const d = g.dex, list = listOf(d.tab).slice(d.page * PER, d.page * PER + PER); if (d.tab !== 'R') preloadCreature(...list.filter((c) => known(g, c)).map((c) => spriteOf(c))); }
@@ -158,10 +160,13 @@ export function drawDex(ctx, g) {
     ctx.save(); ctx.imageSmoothingEnabled = true; ctx.globalAlpha = a * (on ? 1 : 0.94);
     ctx.beginPath(); ctx.rect(r.k === 0 ? r.x - 2 : tabEdge(r.k), r.y - 4, 80, r.h + 8); ctx.clip();      // 앞 장들에 덮인 쪽(붙은 쪽)은 보이지 않는다: 책장 사이에서 나온 것처럼
     if (gold || dim < 0.995) ctx.filter = (gold ? 'sepia(1) saturate(2.6) ' : '') + `brightness(${(gold ? 1.06 : 1) * dim})`;
-    if (hasSprite(tabKey(t))) { const sp = sprite(tabKey(t)); ctx.drawImage(sp.img, r.x + out, r.y, r.w, r.h); }
-    else { const sp = sprite(on ? 'dex_tab_on' : 'dex_tab'); ctx.translate(r.x + out + r.w / 2, r.y + r.h / 2); ctx.rotate(Math.PI / 2); ctx.drawImage(sp.img, -r.h / 2, -r.w / 2, r.h, r.w); }      // 제 그림이 오기 전: 옛 쪽지 그림을 옆으로 눕혀 쓴다
-    ctx.restore();
-    label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', r.x + out + 12 + (r.w - 12) * 0.5, r.y + r.h / 2 + 0.5, 10.5, on ? '#4a2f14' : '#6b5238', 'center', 700, null); });
+    const [deg, dy, dx] = TAB_SKEW[r.k], cx = r.x + out + dx + r.w / 2, cy = r.y + dy + r.h / 2;
+    ctx.translate(cx, cy); ctx.rotate(deg * Math.PI / 180);
+    if (hasSprite(tabKey(t))) { const sp = sprite(tabKey(t)); ctx.drawImage(sp.img, -r.w / 2, -r.h / 2, r.w, r.h); }
+    else { const sp = sprite(on ? 'dex_tab_on' : 'dex_tab'); ctx.rotate(Math.PI / 2); ctx.drawImage(sp.img, -r.h / 2, -r.w / 2, r.h, r.w); ctx.rotate(-Math.PI / 2); }      // 제 그림이 오기 전: 옛 쪽지 그림을 옆으로 눕혀 쓴다
+    ctx.filter = 'none'; ctx.globalAlpha = a;
+    label(ctx, t === 'R' ? '옛' : t === 9 ? '태' : t ? String(t) : '공', 6, 0.5, 10.5, on ? '#4a2f14' : '#6b5238', 'center', 700, null);      // 글자도 스티커와 같이 기운다
+    ctx.restore(); });
 
   const list = listOf(d.tab), pages = Math.max(1, Math.ceil(list.length / PER)), got = list.filter((c) => known(g, c)).length;
   label(ctx, d.tab === 'R' ? '오래된 물건' : d.tab === 9 ? REGIONS[9] : d.tab ? `${d.tab}. ${REGIONS[d.tab]}` : '온 바다의 물고기', GX + 1, BY() + 34, 10.5, '#5a3a1e', 'left', 700, null);
