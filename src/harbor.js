@@ -68,8 +68,9 @@ export function enterHarbor(g) {
   return travel(g, () => {
     g.scene = 'harbor'; g.panel = null;
     // 들어오자마자 어창의 생물이 수산시장에서 팔린다
-    if (g.dayT >= DAY_SEC) g.dayOver = true;                                        // 밤이 끝나 돌아왔다: 다음 출항은 새 하루
-    const quest = g.quest && g.quest.done ? settleQuest(g) : 0; if (quest) g.quest = null;                     // 다 채운 의뢰만 삯을 받는다. 새 의뢰는 다음 날 걸린다 (채우지 못한 의뢰는 그대로 들고 있는다)
+    const quest = g.quest && g.quest.done ? settleQuest(g) : 0; if (quest) g.quest = null;
+    if (g.dayT >= DAY_SEC * NIGHT_AT) newDay(g);                                    // 밤에 돌아오면 그날은 끝: 항구는 벌써 다음 날이고, 다음 출항은 새벽이다
+                       // 다 채운 의뢰만 삯을 받는다. 새 의뢰는 다음 날 걸린다 (채우지 못한 의뢰는 그대로 들고 있는다)
     if (quest) { g.gold += quest; g.msg = { text: `의뢰 삯  +${fmt(quest)} G`, color: '#ffe27a', age: -0.3 }; g.sfx.push(['coin', 6]); }
     if (g.cargo.length) {
       const full = g.cargo.length >= g.cargoMax && fullBonus(g.eco) > 1;            // 만선: 수산시장이 값을 더 쳐 준다
@@ -82,30 +83,30 @@ export function enterHarbor(g) {
     }
   });
 }
-// ── 하루 ── 하루는 항구에 들렀다고 넘어가지 않는다. 밤이 끝나 돌아왔거나(dayOver) 항구에서 '오늘은 쉬기'를 눌렀을 때만 새 하루가 된다.
+const NIGHT_AT = 0.75;      // 하루 중 밤이 시작하는 때 (config 의 DAY_PLAN 과 같다)
+// ── 하루 ── 하루는 항구에 들렀다고 넘어가지 않는다. 밤에 항구로 돌아왔거나(스스로든, 밤이 끝나서든) 항구에서 '오늘은 쉬기'를 눌렀을 때만 새 하루가 된다.
 // 새 하루에만 다시 채워지는 것: 시간(새벽부터), 가족 사진(하루 한 번), 의뢰.
 //  · 다 채운 의뢰는 항구에서 삯을 받고, 새 의뢰는 다음 날 걸린다
 //  · 채우지 못한 의뢰는 그대로 들고 간다. 이틀을 넘겨도 못 채우면 그때 새 의뢰로 바뀐다 (들락거려 다시 뽑을 수 없게, 그러나 막히지는 않게)
 export function newDay(g) {
-  g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; g.dayOver = false; g.questToday = false; g.dirty = true;
+  g.dayT = 0; g.dayWarned = false; g.phase = 3; g.savedToday = false; g.questToday = false; g.dirty = true;
   const q = g.quest; if (q && !q.done && (q.days = (q.days || 0) + 1) >= 2) q.stale = true;      // 다음 출항 때 다른 종류의 새 의뢰로 바뀐다
 }
 // 바다로 나갈 때: 날이 넘어갔으면 새 하루를 열고, 오늘 걸 의뢰가 아직 없으면 건다 (의뢰는 첫 낚시를 마친 뒤부터)
 function setSail(g) {
   g.scene = 'sea'; g.panel = null;
-  if (g.dayOver) newDay(g);
   if ((!g.quest || g.quest.stale) && !g.questToday && g.story.seen.card) { g.quest = newQuest(g); g.questToday = true; g.dirty = true; }
 }
 export function leaveHarbor(g) { return travel(g, () => setSail(g)); }
 // 오늘은 쉬기: 항구에서 날을 넘긴다 (오후부터). 항구에 그대로 있고, 다음 출항이 새 하루의 새벽이 된다
 const REST = { x: LEAVE.x, y: LEAVE.y - LEAVE.h - 4, w: LEAVE.w, h: LEAVE.h };      // 출항 버튼과 같은 크기로, 바로 위에
 const canRest = (g) => g.dayT >= DAY_SEC * 0.5;
-const restShown = (g) => !g.dayOver && g.story.seen.day && !g.panel && !g.talk;
+const restShown = (g) => g.story.seen.day && !g.panel && !g.talk;
 function rest(g) {
   if (!canRest(g)) { g.msg = { text: '아직 해가 높다 · 오후부터 쉴 수 있다', color: '#ffd0c0', age: 0 }; g.sfx.push(['deny']); return; }
   if (!(g.restAsk != null && g.harborT - g.restAsk < 3)) { g.restAsk = g.harborT; g.sfx.push(['tap']); return; }      // 잘못 누르지 않게 두 번 눌러야 쉰다 (3초 안에 한 번 더)
   g.restAsk = null;
-  travel(g, () => { g.dayOver = true; g.dirty = true; g.msg = { text: '푹 쉬었다 · 다음 출항은 새 하루의 새벽', color: '#cfd8ff', age: -0.2 }; });
+  travel(g, () => { newDay(g); g.msg = { text: '푹 쉬었다 · 새 하루가 밝았다', color: '#cfd8ff', age: -0.2 }; });
 }
 // 지도에서 고른 해역으로 간다
 function goRegion(g, n) {
@@ -176,7 +177,7 @@ function nextGen(g) {
   travel(g, () => {
     const f = newEconomy();
     Object.assign(g.eco.gear, f.gear); Object.assign(g.eco.skill, f.skill); Object.assign(g.eco.shop, f.shop); g.eco.town = 1;
-    g.gen = (g.gen || 0) + 1; g.gold = 0; g.goldShown = 0; g.region = 1; g.cargo.length = 0; g.cargoMax = cargoMax(g.eco); g.dayT = 0; g.dayOver = false; g.savedToday = false; g.questToday = false;
+    g.gen = (g.gen || 0) + 1; g.gold = 0; g.goldShown = 0; g.region = 1; g.cargo.length = 0; g.cargoMax = cargoMax(g.eco); g.dayT = 0; g.savedToday = false; g.questToday = false;
     g.quest = null; g.panel = null; g.scene = 'harbor'; g.msg = null; g.dirty = true;
     g.story.seen.gen = 0; g.pendingGen = true;
   });
