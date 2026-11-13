@@ -11888,3 +11888,69 @@ size and proportions as the original.
 After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
 on the main branch, in the folder assets/raw/, with the file name ui_map_b.png
 ```
+
+## ㊵ 설정 버튼과 설정 판의 아이콘
+
+톱니 버튼은 이제 설정을 뜻한다 (화면 오른쪽 위). 그래서 바다 화면의 기술 버튼에 새 그림이 필요하고, 설정 판의 줄마다 제 그림이 필요하다.
+
+### 394. `ui_ic_skill` — 기술 버튼 (낚싯바늘과 별)
+
+```
+Style reference: open assets/raw/ui2_hud.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). Its bottom row shows four round buttons: a brass
+ring wrapped with rope at four places and with four small brass rivets, and inside the
+ring a small painted picture on a soft pastel sky with pink clouds (a lighthouse, a rolled
+sea chart, an open book, a brass gear).
+
+Paint ONE more button that belongs to exactly this set: the same brass ring with the same
+rope wraps and rivets, the same thickness, the same soft painterly storybook rendering,
+the same pastel sky with pink clouds inside.
+
+Inside the ring: one sturdy brass fishing hook, large and centred, drawn with a clear
+simple J shape and a small barb and eye, and beside its upper right a single small
+five-pointed golden star with a soft glow. Nothing else inside. The hook must read
+clearly even when the button is shown very small.
+
+No text. Fully transparent background outside the ring. Only this one button, centred,
+with a little empty margin around it. Square canvas.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name ui_ic_skill.png
+```
+
+### 395. `st_icons` — 설정·잠시 멈춤 판의 줄 아이콘 10개
+
+```
+Style reference: open assets/raw/h_skill.png from the GitHub repository
+kelsnity86-arch/FISHIIIIG (main branch). It shows twelve round icons: each is a round
+medallion with a thin golden rim that has four small compass points (up, down, left,
+right), a deep blue starry evening sky inside with a few pink clouds and a strip of sea
+waves at the bottom, and one clear object painted in the middle in a soft painterly
+storybook style.
+
+Paint TEN new icons that belong to exactly this set: the same medallion, the same golden
+rim with four compass points, the same starry blue sky, pink clouds and waves, the same
+rendering and the same size. Arrange them in a grid of 5 columns and 2 rows with clear
+empty space between them. In reading order (left to right, top row first) the objects are:
+
+Top row:
+1. a single golden musical note (an eighth note) with a soft glow
+2. a small brass ship's bell, slightly tilted as if ringing, with two short ring marks
+3. one curling sea wave with white foam and a small white seagull flying above it
+4. a small wooden window frame with four panes showing bright sky through it
+5. a brass spyglass (telescope), extended, pointing up to the right
+
+Bottom row:
+6. a red and white fishing float standing in the water with small ripple rings and short
+   shake marks on both sides, as if trembling
+7. a small parchment scroll with a speech-bubble shape, showing three short plain ink
+   strokes (not real letters)
+8. a small boat's white sail filled with wind on a short mast
+9. a brass gear (the same gear as the gear icon in h_skill.png)
+10. a brass ship's anchor with a short loop of rope
+
+Each object is large and centred in its medallion and must read clearly when the icon is
+shown very small. No text and no real letters anywhere. Fully transparent background
+outside the medallions.
+After creating the image, upload it to the GitHub repository kelsnity86-arch/FISHIIIIG
+on the main branch, in the folder assets/raw/, with the file name st_icons.png
+```

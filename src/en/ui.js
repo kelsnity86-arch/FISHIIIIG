@@ -44,6 +44,8 @@ export const EN_UI = {
   "누르면 감고 떼면 풉니다 · 게이지가 가득 차도, 텅 비어도 놓칩니다": "Hold to reel, let go to ease · a full gauge or an empty one loses the fish",
   "카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다": "Half the card's price is paid now as an advance, the rest as a bounty at harbor",
   "톱니 버튼 · 기술은 바다에서도 올릴 수 있습니다": "Gear button · skills can be raised at sea too",
+  "낚싯바늘 버튼 · 기술은 바다에서도 올릴 수 있습니다": "Hook button · skills can be raised at sea too",
+  "소리": "Sound", "그 밖": "Other",
   "오른쪽 아래 항구 버튼 · 생물을 팔고 장비를 삽니다": "Harbor button, bottom right · sell your catch and buy gear",
   "밤이 끝나면 항구로 돌아갑니다 · 위쪽 버튼으로 시간을 넘길 수 있습니다": "When night ends you return to harbor · the button up top skips ahead",
   "건너뛰기": "Skip", "화면을 눌러 시작": "Tap to begin", "설정": "Settings",

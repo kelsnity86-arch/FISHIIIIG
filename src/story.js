@@ -163,11 +163,11 @@ export function updateStory(g, dt) {
 
 // ── 제목 화면: 켜면 바다 위에 로고가 떠 있다. 누르면 로고가 걷히고 게임이 시작된다 ──
 export function startTitle(g) { g.title = { t: 0, a: 0, closing: null }; }
-// 제목 화면 아래 구석의 설정 두 가지: 소리 켜고 끄기(왼쪽), 처음부터 다시(오른쪽, 저장이 있을 때만. 두 번 눌러야 지워진다)
-const T_SOUND = { x: 34, y: H - 20 }, T_RESET = { x: W - 62, y: H - 20 };
+// 제목 화면: 오른쪽 위에 설정 버튼(톱니), 오른쪽 아래에 '처음부터 다시'(저장이 있을 때만. 두 번 눌러야 지워진다)
+const T_RESET = { x: W - 62, y: H - 20 };
 export function tapTitle(g, x, y) {
   const t = g.title; if (!t || t.closing != null || t.t < 0.8) return;
-  if (x != null && Math.abs(x - T_SOUND.x) < 34 && Math.abs(y - T_SOUND.y) < 16) { openSettings(g); return; }      // 설정 판 (소리·해상도·진동)
+  if (x != null && Math.hypot(x - SND.x, y - SND.y) < SND.r + 8) { openSettings(g); return; }      // 설정 버튼
   if (x != null && g.hasSave && Math.abs(x - T_RESET.x) < 62 && Math.abs(y - T_RESET.y) < 16) {
     if (t.askT != null && t.t - t.askT < 4) g.wipe = true; else t.askT = t.t;
     return;
@@ -195,24 +195,28 @@ export function drawTitle(ctx, g) {
   else { label(ctx, "Hori's Horizon", W / 2, 80, 30, '#ffd98a', 'center', 700); label(ctx, '호라이의 수평선', W / 2, 114, 16, '#fff4dc', 'center', 600); }
   if (t.closing == null && t.t > 0.9) { ctx.globalAlpha = a * (0.55 + 0.45 * Math.sin(t.t * 3)); label(ctx, '화면을 눌러 시작', W / 2, H - 46, 12, '#fff4dc', 'center', 600); }
   ctx.globalAlpha = a * 0.8;
-  label(ctx, '설정', T_SOUND.x, T_SOUND.y, 9.5, '#fff4dc', 'center', 600);
+  gearBtn(ctx, a * 0.9);
   if (g.hasSave) { const ask = t.askT != null && t.t - t.askT < 4; label(ctx, ask ? '한 번 더 누르면 모든 기록이 지워진다' : '처음부터 다시', ask ? W - 96 : T_RESET.x, T_RESET.y, 9.5, ask ? '#ffb39a' : '#fff4dc', 'center', 600); }
   ctx.restore();
 }
 
-// ── 소리 켬/끔: 게임 중에도 화면 오른쪽 위 구석에서 바꿀 수 있다 (낚는 중에는 잘못 누르지 않게 쉴 때만) ──
-const SND = { x: W - 22, y: 13 };
+// ── 설정 버튼 (톱니): 화면 오른쪽 위. 제목 화면·항구·바다에서 쉴 때만 보인다 (낚는 중에는 잘못 누르지 않게 사라진다) ──
+const SND = { x: W - 17, y: 17, r: 12 };
 const sndOk = (g) => !g.settings && !g.title && !g.talk && !g.memory && !g.map && !g.dex && !g.panel && !g.travel && (g.scene === 'harbor' || g.state === 'idle');
+function gearBtn(ctx, alpha) {
+  const e = sprite('ui_ic_gear'), d = SND.r * 2;
+  ctx.save(); ctx.globalAlpha = alpha; ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(e.img, SND.x - SND.r, SND.y - SND.r, d, d * e.h / e.w);
+  ctx.restore();
+}
 export function tapSound(g, x, y) {
-  if (!sndOk(g) || Math.abs(x - SND.x) > 22 || Math.abs(y - SND.y) > 11) return false;
+  if (!sndOk(g) || Math.hypot(x - SND.x, y - SND.y) > SND.r + 7) return false;
   openSettings(g); return true;
 }
 export function drawSound(ctx, g) {
   g.sndA = (g.sndA || 0) + ((sndOk(g) ? 1 : 0) - (g.sndA || 0)) * 0.12;
   if (g.sndA < 0.02) return;
-  ctx.save(); ctx.globalAlpha = g.sndA * 0.75;
-  label(ctx, '설정', SND.x, SND.y, 9, '#fff4dc', 'center', 600);
-  ctx.restore();
+  gearBtn(ctx, g.sndA);
 }
 
 // ── 기억: 환상종이 남기고 간 오래된 물건을 주우면, 말없이 기억 한 조각이 떠오른다 ──
@@ -322,7 +326,7 @@ function hintFor(g) {
   if (!s.bite) { if (g.state === 'fight') { s.bite = 1; g.dirty = true; } else if (g.state === 'wait' || g.state === 'bite') return '찌가 쑥 들어가는 순간 눌러 주세요'; }
   if (!s.fight) { if (g.state === 'catch') { s.fight = 1; g.dirty = true; } else if (f) return f.surging ? '날뜁니다! 손을 떼고 버텨 주세요' : '누르면 감고 떼면 풉니다 · 게이지가 가득 차도, 텅 비어도 놓칩니다'; }
   if (!s.card) { if (g.state === 'idle' && s.fight) { s.card = 1; g.dirty = true; } else if (g.state === 'result' && g.result.age > 1.2) return '카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다'; }
-  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return '톱니 버튼 · 기술은 바다에서도 올릴 수 있습니다';
+  if (s.card && !s.skill && g.state === 'idle' && !g.panel && g.gold >= skillCost(g.eco, 'profit')) return hasSprite('ui_ic_skill') ? '낚싯바늘 버튼 · 기술은 바다에서도 올릴 수 있습니다' : '톱니 버튼 · 기술은 바다에서도 올릴 수 있습니다';
   if (g.panel && g.panel.id === 'skills' && !s.skill) { s.skill = 1; g.dirty = true; }
   if (s.card && !s.harbor && g.state === 'idle' && g.cargo.length >= 3) return '오른쪽 아래 항구 버튼 · 생물을 팔고 장비를 삽니다';
   if (!s.day && g.state === 'idle' && g.dayT > DAY_SEC * 0.3) { g.hintT = (g.hintT || 0); if (g.hintT > 6) { s.day = 1; g.dirty = true; } else return '밤이 끝나면 항구로 돌아갑니다 · 위쪽 버튼으로 시간을 넘길 수 있습니다'; }

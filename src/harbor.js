@@ -248,7 +248,7 @@ export function drawSeaButtons(ctx, g) {
   if (btnA < 0.01) return;
   ctx.save(); ctx.globalAlpha = btnA;
   for (const b of SEA_BTNS) {
-    img(ctx, b.icon, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
+    img(ctx, b.id === 'skill' && hasSprite('ui_ic_skill') ? 'ui_ic_skill' : b.icon, b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);      // 기술 버튼: 제 그림(낚싯바늘과 별)이 오기 전까지는 톱니
     if (b.id === 'skill' && canBuyAt(g, 'skills')) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
     if (b.id === 'harbor' && g.cargo.length >= g.cargoMax) img(ctx, 'icon_gold', b.x + 6, b.y - b.r - 2 + Math.sin(g.time * 4) * 1.5, 10, 10);
   }
