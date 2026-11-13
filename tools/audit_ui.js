@@ -28,7 +28,7 @@ const { chromium } = require('playwright');
   const tabs = await ev(() => { const g = window.game; return null; });
   const TABN = 11, COLS = 6, TW = 27.5, TH = 21, TG = 2, GX = 84, GW = 5 * 33 + 4 * 4; const by = await ev(() => { const s = window.game; return null; });
   const TT = [1, 2, 3, 4, 5, 6, 7, 8, 0, 9, 'R'], slotOf = (t) => (t === 'R' ? 10 : t === 9 ? 9 : t === 0 ? 8 : t - 1);      // 오른쪽 종이 가장자리의 인덱스 스티커 (src/book.js tabRect)
-  const tabRect = (i, BY) => ({ x: 566 + 13 + slotOf(TT[i]) * 1.25, y: BY + 30 + slotOf(TT[i]) * 23.1, w: 27, h: 21.5 });      // 보이는 부분(종이 밖으로 나온 쪽)만 누른다
+  const tabRect = (i, BY) => ({ x: 566.5 + slotOf(TT[i]) * 1.9, y: BY + 30 + slotOf(TT[i]) * 23.1, w: 28, h: 21.5 });      // 보이는 부분(종이 밖으로 나온 쪽)만 누른다
   const BY = await ev(async () => { const A = await import('./src/assets.js'); const s = A.sprite('dex_book'); return (360 - 600 * s.h / s.w) / 2 + 4; });
   const want = TT;
   for (let i = 0; i < TABN; i++) { const r = tabRect(i, BY); let good = true;
