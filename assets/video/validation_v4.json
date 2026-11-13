@@ -1,0 +1,274 @@
+{
+  "source_commit": "108bed91abfc5c7e59d441b402a02616281e724e",
+  "baseline_commit": "fb85da7b517d80389a6f0888a34ca02297c98808",
+  "capture_commits": {
+    "01_title": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "02_intro": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "03_loop": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "04_uncommon": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "05_rare": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "06_epic": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "07_legendary": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "08_fantasy": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "09_sell": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "10_hall_fix": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "10_growth": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "25_outfit": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "26_skills": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "30_rest": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "11_harbor3": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "12_harbor5": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "13_harbor7": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "14_harbor8": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "15_map": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region2": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region3": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region4": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region5": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "29_linefx": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region7": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "16_region8": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "17_townending": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "18_relicbook_latest": "108bed91abfc5c7e59d441b402a02616281e724e",
+    "19_finale_fix": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "20_dex_before_latest": "108bed91abfc5c7e59d441b402a02616281e724e",
+    "21_unlock": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "22_primal_intro": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "23_primal_fish": "fb85da7b517d80389a6f0888a34ca02297c98808",
+    "27_endtitle": "fb85da7b517d80389a6f0888a34ca02297c98808"
+  },
+  "latest_delta_files": [
+    "src/book.js",
+    "tools/audit_ui.js"
+  ],
+  "latest_delta_affected_scenes_recaptured": [
+    "18_relicbook_latest",
+    "20_dex_before_latest"
+  ],
+  "video": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "level": 42,
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "duration": "299.900000",
+        "nb_frames": "17994"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.900000",
+        "nb_frames": "14059"
+      },
+      {
+        "codec_name": "bin_data",
+        "codec_type": "data",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "299.900000",
+        "nb_frames": "7"
+      }
+    ],
+    "format": {
+      "duration": "299.900000",
+      "size": "188206410"
+    }
+  },
+  "frames_expected": 17994,
+  "frame_timing_errors": 0,
+  "decode_errors": 0,
+  "sha256": "b417a63d57822831a74e2dac29adaa134236b8dff1d4f223b1ce2e24e1eda80c",
+  "capture_sources_verified": 34,
+  "all_footage_new": true,
+  "music_crossfades_seconds": 6,
+  "music_restarts_at_picture_cuts": false,
+  "game_source_changed": false,
+  "recording": "Actual game rendered once per 1/60-second update, with every frame captured. No optical-flow interpolation.",
+  "music_cut_check": {
+    "cut_windows": [
+      {
+        "at": 7.0,
+        "rms_dbfs": -27.45
+      },
+      {
+        "at": 11.8,
+        "rms_dbfs": -24.07
+      },
+      {
+        "at": 16.6,
+        "rms_dbfs": -25.0
+      },
+      {
+        "at": 21.4,
+        "rms_dbfs": -22.97
+      },
+      {
+        "at": 26.2,
+        "rms_dbfs": -26.14
+      },
+      {
+        "at": 54.2,
+        "rms_dbfs": -22.17
+      },
+      {
+        "at": 62.7,
+        "rms_dbfs": -25.84
+      },
+      {
+        "at": 71.2,
+        "rms_dbfs": -17.56
+      },
+      {
+        "at": 79.7,
+        "rms_dbfs": -21.36
+      },
+      {
+        "at": 88.2,
+        "rms_dbfs": -20.38
+      },
+      {
+        "at": 95.2,
+        "rms_dbfs": -17.91
+      },
+      {
+        "at": 106.2,
+        "rms_dbfs": -26.87
+      },
+      {
+        "at": 112.2,
+        "rms_dbfs": -28.47
+      },
+      {
+        "at": 119.2,
+        "rms_dbfs": -22.15
+      },
+      {
+        "at": 127.4,
+        "rms_dbfs": -19.14
+      },
+      {
+        "at": 134.7,
+        "rms_dbfs": -30.01
+      },
+      {
+        "at": 138.2,
+        "rms_dbfs": -26.55
+      },
+      {
+        "at": 141.7,
+        "rms_dbfs": -22.05
+      },
+      {
+        "at": 148.7,
+        "rms_dbfs": -26.55
+      },
+      {
+        "at": 151.7,
+        "rms_dbfs": -28.58
+      },
+      {
+        "at": 154.7,
+        "rms_dbfs": -19.5
+      },
+      {
+        "at": 157.7,
+        "rms_dbfs": -33.05
+      },
+      {
+        "at": 160.7,
+        "rms_dbfs": -26.3
+      },
+      {
+        "at": 165.7,
+        "rms_dbfs": -23.33
+      },
+      {
+        "at": 169.2,
+        "rms_dbfs": -25.07
+      },
+      {
+        "at": 172.7,
+        "rms_dbfs": -23.57
+      },
+      {
+        "at": 176.2,
+        "rms_dbfs": -22.55
+      },
+      {
+        "at": 179.7,
+        "rms_dbfs": -20.31
+      },
+      {
+        "at": 183.2,
+        "rms_dbfs": -23.78
+      },
+      {
+        "at": 186.7,
+        "rms_dbfs": -22.48
+      },
+      {
+        "at": 190.2,
+        "rms_dbfs": -27.02
+      },
+      {
+        "at": 194.2,
+        "rms_dbfs": -25.86
+      },
+      {
+        "at": 198.2,
+        "rms_dbfs": -19.93
+      },
+      {
+        "at": 205.2,
+        "rms_dbfs": -23.15
+      },
+      {
+        "at": 242.4,
+        "rms_dbfs": -22.57
+      },
+      {
+        "at": 247.4,
+        "rms_dbfs": -27.11
+      },
+      {
+        "at": 262.4,
+        "rms_dbfs": -23.98
+      },
+      {
+        "at": 266.8,
+        "rms_dbfs": -24.1
+      },
+      {
+        "at": 271.2,
+        "rms_dbfs": -23.86
+      },
+      {
+        "at": 275.6,
+        "rms_dbfs": -21.37
+      },
+      {
+        "at": 280.0,
+        "rms_dbfs": -26.09
+      },
+      {
+        "at": 284.4,
+        "rms_dbfs": -24.34
+      },
+      {
+        "at": 293.9,
+        "rms_dbfs": -25.15
+      }
+    ],
+    "lowest_cut_rms_dbfs": -33.05,
+    "continuous_music_samples": 14395200
+  }
+}
