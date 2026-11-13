@@ -42,7 +42,7 @@ export const EN_UI = {
   "찌가 쑥 들어가는 순간 눌러 주세요": "Tap the moment the float dips under",
   "날뜁니다! 손을 떼고 버텨 주세요": "It's thrashing! Let go and ride it out",
   "누르면 감고 떼면 풉니다 · 게이지가 가득 차도, 텅 비어도 놓칩니다": "Hold to reel, let go to ease · a full gauge or an empty one loses the fish",
-  "카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다": "Half the card's price is paid now as an advance, the rest as a bounty at harbor",
+  "카드에 적힌 값의 절반은 지금 선금으로, 나머지는 항구에서 포상금으로 받습니다": "Half the card's price is paid now, the rest as a bounty at harbor",
   "톱니 버튼 · 기술은 바다에서도 올릴 수 있습니다": "Gear button · skills can be raised at sea too",
   "낚싯바늘 버튼 · 기술은 바다에서도 올릴 수 있습니다": "Hook button · skills can be raised at sea too",
   "소리": "Sound", "그 밖": "Other",

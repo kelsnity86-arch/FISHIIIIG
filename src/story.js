@@ -379,10 +379,12 @@ export function drawHint(ctx, g) {
   const h = g.hint; if (!h || h.a < 0.01) return;
   ctx.save(); ctx.globalAlpha = h.a;
   // 글자 뒤에 짙은 띠를 깔아, 밝은 하늘이나 큰 생물 위에서도 읽힌다
-  ctx.font = `600 11px ${FONT}`; const tw = ctx.measureText(h.text).width + 22, ty = 52 - (1 - h.a) * 4;
-  ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(W / 2 - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
+  // 카드에 대한 안내는 화면 아래 오른쪽에: 위쪽에 두면 들어 올린 생물을 가린다 (아래 왼쪽은 카드, 가운데는 '낚았다!' 글자판)
+  const low = h.text.startsWith('카드에 적힌'), cx = low ? 468 : W / 2, room = low ? 310 : W - 40;
+  ctx.font = `600 11px ${FONT}`; const w0 = ctx.measureText(h.text).width, size = w0 > room ? 11 * room / w0 : 11, tw = Math.min(w0, room) + 22, ty = low ? H - 11 + (1 - h.a) * 4 : 52 - (1 - h.a) * 4;
+  ctx.globalAlpha = h.a * 0.6; ctx.fillStyle = '#101c38'; ctx.beginPath(); ctx.roundRect(cx - tw / 2, ty - 9, tw, 18, 9); ctx.fill();
   ctx.globalAlpha = h.a;
-  label(ctx, h.text, W / 2, ty, 11, '#fff4dc', 'center', 600, null);
+  label(ctx, h.text, cx, ty, size, '#fff4dc', 'center', 600, null);
   // 가리키는 손: 눌러야 할 단추 위에서 까딱인다
   const at = h.text.startsWith('오른쪽 아래 항구') ? [W - 26, H - 48] : h.text.startsWith('출항 버튼') ? [W - 62, H - 42] : null;
   if (at && hasSprite('ui_hand')) { const s = sprite('ui_hand'), w = 16, bob = Math.sin(g.time * 5) * 2.5; ctx.imageSmoothingEnabled = true; ctx.drawImage(s.img, at[0] - w / 2, at[1] - w * s.h / s.w + bob, w, w * s.h / s.w); }
